@@ -7804,5 +7804,629 @@
       }
     ],
     "fetched_at": "2026-09-21T12:54:02+00:00"
+  },
+  "yutori-ai/yutori-sdk-python": {
+    "dependents": [
+      "yutori"
+    ],
+    "query": "repo:yutori-ai/yutori-sdk-python (httpx2 OR \"openai 3.0.0\" OR \"openai<3\" OR \"openai>=3\" OR \"openai 3\") created:>=2026-08-12",
+    "hits": [
+      {
+        "closed_at": "2026-08-29T23:25:04Z",
+        "comments": 3,
+        "created_at": "2026-08-29T03:44:26Z",
+        "html_url": "https://github.com/yutori-ai/yutori-sdk-python/pull/251",
+        "is_pr": true,
+        "number": 251,
+        "state": "closed",
+        "title": "feat(n2): minimal agent loop \u2014 run/resume, tool-owned results, paired-run fixes"
+      }
+    ],
+    "fetched_at": "2026-09-21T12:54:05+00:00"
+  },
+  "pamelafox/openai-messages-token-helper": {
+    "dependents": [
+      "openai-messages-token-helper"
+    ],
+    "query": "repo:pamelafox/openai-messages-token-helper (httpx2 OR \"openai 3.0.0\" OR \"openai<3\" OR \"openai>=3\" OR \"openai 3\") created:>=2026-08-12",
+    "hits": [],
+    "fetched_at": "2026-09-21T12:54:07+00:00"
+  },
+  "dominodatalab/python-domino": {
+    "dependents": [
+      "dominodatalab"
+    ],
+    "query": "repo:dominodatalab/python-domino (httpx2 OR \"openai 3.0.0\" OR \"openai<3\" OR \"openai>=3\" OR \"openai 3\") created:>=2026-08-12",
+    "hits": [],
+    "fetched_at": "2026-09-21T12:54:10+00:00"
+  },
+  "camel-ai/camel": {
+    "dependents": [
+      "camel-ai"
+    ],
+    "query": "repo:camel-ai/camel (httpx2 OR \"openai 3.0.0\" OR \"openai<3\" OR \"openai>=3\" OR \"openai 3\") created:>=2026-08-12",
+    "hits": [
+      {
+        "closed_at": "2026-09-03T05:27:15Z",
+        "comments": 1,
+        "created_at": "2026-09-03T05:19:18Z",
+        "html_url": "https://github.com/camel-ai/camel/pull/4313",
+        "is_pr": true,
+        "number": 4313,
+        "state": "closed",
+        "title": "release: 0.2.91a7 with dependency compatibility fixes"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-09-21T12:42:00Z",
+        "html_url": "https://github.com/camel-ai/camel/issues/4350",
+        "is_pr": false,
+        "number": 4350,
+        "state": "open",
+        "title": "[BUG] CAMEL Runtime API server exposes all registered tool endpoints without authentication, enabling unauthenticated tool invocation and host command execution when a command-execution toolkit is registered (CWE-306, CVSS 8.6)"
+      },
+      {
+        "closed_at": "2026-09-18T11:41:03Z",
+        "comments": 2,
+        "created_at": "2026-09-16T06:40:39Z",
+        "html_url": "https://github.com/camel-ai/camel/issues/4338",
+        "is_pr": false,
+        "number": 4338,
+        "state": "closed",
+        "title": "[BUG] Non-streaming ChatAgent crashes with raw JSONDecodeError on empty or truncated tool-call arguments"
+      }
+    ],
+    "fetched_at": "2026-09-21T12:54:13+00:00"
+  },
+  "vlm-run/vlmrun-hub": {
+    "dependents": [
+      "vlmrun-hub"
+    ],
+    "query": "repo:vlm-run/vlmrun-hub (httpx2 OR \"openai 3.0.0\" OR \"openai<3\" OR \"openai>=3\" OR \"openai 3\") created:>=2026-08-12",
+    "hits": [],
+    "fetched_at": "2026-09-21T12:54:16+00:00"
+  },
+  "ComposioHQ/composio": {
+    "dependents": [
+      "composio-openai"
+    ],
+    "query": "repo:ComposioHQ/composio (httpx2 OR \"openai 3.0.0\" OR \"openai<3\" OR \"openai>=3\" OR \"openai 3\") created:>=2026-08-12",
+    "hits": [
+      {
+        "closed_at": null,
+        "comments": 1,
+        "created_at": "2026-08-16T13:20:07Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4143",
+        "is_pr": true,
+        "number": 4143,
+        "state": "open",
+        "title": "test(openai-agents): exercise wrapped tools through Runner"
+      },
+      {
+        "closed_at": "2026-09-11T14:24:04Z",
+        "comments": 2,
+        "created_at": "2026-09-11T06:36:30Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4440",
+        "is_pr": true,
+        "number": 4440,
+        "state": "closed",
+        "title": "chore(deps): update ag2 requirement from <1.0,>=0.14 to >=0.14,<2.0 in /python/providers/autogen"
+      },
+      {
+        "closed_at": null,
+        "comments": 3,
+        "created_at": "2026-09-07T10:36:13Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4373",
+        "is_pr": true,
+        "number": 4373,
+        "state": "open",
+        "title": "Release: update version"
+      },
+      {
+        "closed_at": "2026-08-27T13:13:52Z",
+        "comments": 1,
+        "created_at": "2026-08-21T06:59:36Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4196",
+        "is_pr": true,
+        "number": 4196,
+        "state": "closed",
+        "title": "fix(deps-dev): bump langchain-openai from 1.4.3 to 1.6.0 in /python in the pip-version group across 1 directory"
+      },
+      {
+        "closed_at": "2026-08-17T12:21:01Z",
+        "comments": 1,
+        "created_at": "2026-08-14T06:58:43Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4132",
+        "is_pr": true,
+        "number": 4132,
+        "state": "closed",
+        "title": "chore(deps-dev): bump langchain-openai from 1.4.1 to 1.4.3 in /python in the pip-version group across 1 directory"
+      },
+      {
+        "closed_at": "2026-08-24T22:59:27Z",
+        "comments": 4,
+        "created_at": "2026-08-24T20:08:24Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4232",
+        "is_pr": true,
+        "number": 4232,
+        "state": "closed",
+        "title": "docs: name deprecated SDK packages at the install step"
+      },
+      {
+        "closed_at": "2026-08-18T22:30:58Z",
+        "comments": 3,
+        "created_at": "2026-08-18T22:05:29Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4170",
+        "is_pr": true,
+        "number": 4170,
+        "state": "closed",
+        "title": "chore(sdk): prepare Python 0.20.0 and TypeScript 0.17.0 releases"
+      },
+      {
+        "closed_at": "2026-08-27T18:05:43Z",
+        "comments": 3,
+        "created_at": "2026-08-27T17:27:48Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4272",
+        "is_pr": true,
+        "number": 4272,
+        "state": "closed",
+        "title": "chore(sdk): prepare Python 0.21.0 and TypeScript 0.18.0"
+      },
+      {
+        "closed_at": null,
+        "comments": 2,
+        "created_at": "2026-09-11T19:20:16Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4458",
+        "is_pr": true,
+        "number": 4458,
+        "state": "open",
+        "title": "Release: update version (beta)"
+      },
+      {
+        "closed_at": "2026-09-11T17:28:09Z",
+        "comments": 2,
+        "created_at": "2026-09-10T15:38:17Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4420",
+        "is_pr": true,
+        "number": 4420,
+        "state": "closed",
+        "title": "Release: update version (beta)"
+      },
+      {
+        "closed_at": "2026-09-21T11:23:43Z",
+        "comments": 4,
+        "created_at": "2026-09-18T18:05:07Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4538",
+        "is_pr": true,
+        "number": 4538,
+        "state": "closed",
+        "title": "chore(deps): refresh safe dependencies and Effect v4"
+      },
+      {
+        "closed_at": "2026-09-04T17:13:10Z",
+        "comments": 4,
+        "created_at": "2026-09-04T12:17:36Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4350",
+        "is_pr": true,
+        "number": 4350,
+        "state": "closed",
+        "title": "docs(changelog): document September CLI and SDK releases"
+      },
+      {
+        "closed_at": "2026-09-03T12:09:17Z",
+        "comments": 5,
+        "created_at": "2026-08-27T18:08:37Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4274",
+        "is_pr": true,
+        "number": 4274,
+        "state": "closed",
+        "title": "docs: update guides for SDK changes"
+      },
+      {
+        "closed_at": "2026-08-27T14:05:57Z",
+        "comments": 9,
+        "created_at": "2026-08-26T16:00:44Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4257",
+        "is_pr": true,
+        "number": 4257,
+        "state": "closed",
+        "title": "fix(openai): keep optional parameters under strict mode instead of dropping them"
+      },
+      {
+        "closed_at": "2026-09-08T14:15:35Z",
+        "comments": 12,
+        "created_at": "2026-09-08T12:52:54Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4381",
+        "is_pr": true,
+        "number": 4381,
+        "state": "closed",
+        "title": "chore(deps): upgrade CI actions and every outdated dependency"
+      },
+      {
+        "closed_at": "2026-09-11T14:23:58Z",
+        "comments": 3,
+        "created_at": "2026-09-11T06:44:38Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4441",
+        "is_pr": true,
+        "number": 4441,
+        "state": "closed",
+        "title": "chore(deps): bump the npm-production group with 13 updates"
+      },
+      {
+        "closed_at": "2026-08-25T14:05:30Z",
+        "comments": 1,
+        "created_at": "2026-08-25T00:00:56Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4239",
+        "is_pr": true,
+        "number": 4239,
+        "state": "closed",
+        "title": "fix(deps): bump the github-actions group across 1 directory with 7 updates"
+      },
+      {
+        "closed_at": "2026-08-25T00:00:52Z",
+        "comments": 2,
+        "created_at": "2026-08-24T19:18:16Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4229",
+        "is_pr": true,
+        "number": 4229,
+        "state": "closed",
+        "title": "fix(deps): bump the github-actions group across 1 directory with 8 updates"
+      },
+      {
+        "closed_at": "2026-08-24T19:32:02Z",
+        "comments": 5,
+        "created_at": "2026-08-21T06:42:52Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4191",
+        "is_pr": true,
+        "number": 4191,
+        "state": "closed",
+        "title": "chore(deps): bump the npm-production group with 8 updates"
+      },
+      {
+        "closed_at": "2026-09-10T13:57:57Z",
+        "comments": 4,
+        "created_at": "2026-09-09T14:10:02Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4399",
+        "is_pr": true,
+        "number": 4399,
+        "state": "closed",
+        "title": "build(deps): bump the npm-production group with 9 updates"
+      },
+      {
+        "closed_at": "2026-09-18T16:40:47Z",
+        "comments": 5,
+        "created_at": "2026-09-18T06:55:36Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4523",
+        "is_pr": true,
+        "number": 4523,
+        "state": "closed",
+        "title": "chore(deps): bump the npm-production group with 24 updates"
+      },
+      {
+        "closed_at": "2026-08-28T13:21:23Z",
+        "comments": 6,
+        "created_at": "2026-08-28T06:50:33Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4282",
+        "is_pr": true,
+        "number": 4282,
+        "state": "closed",
+        "title": "fix(deps-dev): bump the npm-development group with 7 updates"
+      }
+    ],
+    "fetched_at": "2026-09-21T12:54:19+00:00"
+  },
+  "modelscope/evalscope": {
+    "dependents": [
+      "evalscope"
+    ],
+    "query": "repo:modelscope/evalscope (httpx2 OR \"openai 3.0.0\" OR \"openai<3\" OR \"openai>=3\" OR \"openai 3\") created:>=2026-08-12",
+    "hits": [
+      {
+        "closed_at": "2026-09-18T03:30:51Z",
+        "comments": 0,
+        "created_at": "2026-09-17T09:44:29Z",
+        "html_url": "https://github.com/modelscope/evalscope/pull/1749",
+        "is_pr": true,
+        "number": 1749,
+        "state": "closed",
+        "title": "refactor(benchmarks): load adapters on demand instead of importing all 238 at package import"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-08-21T15:28:40Z",
+        "html_url": "https://github.com/modelscope/evalscope/pull/1617",
+        "is_pr": true,
+        "number": 1617,
+        "state": "open",
+        "title": "feat: support text-to-image API services"
+      },
+      {
+        "closed_at": "2026-08-18T13:11:54Z",
+        "comments": 2,
+        "created_at": "2026-08-18T07:05:56Z",
+        "html_url": "https://github.com/modelscope/evalscope/pull/1596",
+        "is_pr": true,
+        "number": 1596,
+        "state": "closed",
+        "title": "fix(bfcl): patch bfcl_eval FC handler to stop dropping empty-tool_cal\u2026"
+      }
+    ],
+    "fetched_at": "2026-09-21T12:54:22+00:00"
+  },
+  "nousergon/krepis": {
+    "dependents": [
+      "krepis"
+    ],
+    "query": "repo:nousergon/krepis (httpx2 OR \"openai 3.0.0\" OR \"openai<3\" OR \"openai>=3\" OR \"openai 3\") created:>=2026-08-12",
+    "hits": [
+      {
+        "closed_at": "2026-08-16T21:07:53Z",
+        "comments": 2,
+        "created_at": "2026-08-16T19:45:01Z",
+        "html_url": "https://github.com/nousergon/krepis/pull/157",
+        "is_pr": true,
+        "number": 157,
+        "state": "closed",
+        "title": "fix(secrets): AccessDenied on one parameter no longer disables SSM process-wide (config-I7448)"
+      }
+    ],
+    "fetched_at": "2026-09-21T12:54:24+00:00"
+  },
+  "Clarifai/clarifai-python": {
+    "dependents": [
+      "clarifai"
+    ],
+    "query": "repo:Clarifai/clarifai-python (httpx2 OR \"openai 3.0.0\" OR \"openai<3\" OR \"openai>=3\" OR \"openai 3\") created:>=2026-08-12",
+    "hits": [],
+    "fetched_at": "2026-09-21T12:54:27+00:00"
+  },
+  "AgentToolkit/agent-lifecycle-toolkit": {
+    "dependents": [
+      "agent-lifecycle-toolkit"
+    ],
+    "query": "repo:AgentToolkit/agent-lifecycle-toolkit (httpx2 OR \"openai 3.0.0\" OR \"openai<3\" OR \"openai>=3\" OR \"openai 3\") created:>=2026-08-12",
+    "hits": [
+      {
+        "error": "gh: Validation Failed (HTTP 422)"
+      }
+    ],
+    "fetched_at": "2026-09-21T12:54:32+00:00"
+  },
+  "funstory-ai/BabelDOC": {
+    "dependents": [
+      "babeldoc"
+    ],
+    "query": "repo:funstory-ai/BabelDOC (httpx2 OR \"openai 3.0.0\" OR \"openai<3\" OR \"openai>=3\" OR \"openai 3\") created:>=2026-08-12",
+    "hits": [],
+    "fetched_at": "2026-09-21T12:54:35+00:00"
+  },
+  "assafelovic/gpt-researcher": {
+    "dependents": [
+      "gpt-researcher"
+    ],
+    "query": "repo:assafelovic/gpt-researcher (httpx2 OR \"openai 3.0.0\" OR \"openai<3\" OR \"openai>=3\" OR \"openai 3\") created:>=2026-08-12",
+    "hits": [
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-08-27T19:34:14Z",
+        "html_url": "https://github.com/assafelovic/gpt-researcher/pull/2086",
+        "is_pr": true,
+        "number": 2086,
+        "state": "open",
+        "title": "chore(deps): update google-genai requirement from >=1.0.0 to >=2.19.0"
+      }
+    ],
+    "fetched_at": "2026-09-21T12:54:37+00:00"
+  },
+  "mindroom-ai/mindroom": {
+    "dependents": [
+      "mindroom"
+    ],
+    "query": "repo:mindroom-ai/mindroom (httpx2 OR \"openai 3.0.0\" OR \"openai<3\" OR \"openai>=3\" OR \"openai 3\") created:>=2026-08-12",
+    "hits": [
+      {
+        "closed_at": "2026-09-18T21:19:23Z",
+        "comments": 6,
+        "created_at": "2026-09-18T19:58:15Z",
+        "html_url": "https://github.com/mindroom-ai/mindroom/pull/2134",
+        "is_pr": true,
+        "number": 2134,
+        "state": "closed",
+        "title": "Preserve OpenAI cache-write usage metrics"
+      },
+      {
+        "closed_at": "2026-09-12T11:45:37Z",
+        "comments": 6,
+        "created_at": "2026-09-12T05:44:52Z",
+        "html_url": "https://github.com/mindroom-ai/mindroom/pull/2025",
+        "is_pr": true,
+        "number": 2025,
+        "state": "closed",
+        "title": "Reject incomplete OpenAI Responses streams"
+      },
+      {
+        "closed_at": "2026-09-15T08:36:24Z",
+        "comments": 7,
+        "created_at": "2026-09-14T14:53:14Z",
+        "html_url": "https://github.com/mindroom-ai/mindroom/pull/2070",
+        "is_pr": true,
+        "number": 2070,
+        "state": "closed",
+        "title": "Simplify agent messaging and add resumable, auditable subagents"
+      },
+      {
+        "closed_at": "2026-09-07T11:26:22Z",
+        "comments": 5,
+        "created_at": "2026-09-07T11:01:41Z",
+        "html_url": "https://github.com/mindroom-ai/mindroom/pull/1966",
+        "is_pr": true,
+        "number": 1966,
+        "state": "closed",
+        "title": "Allow explicit OpenAI API selection"
+      },
+      {
+        "closed_at": "2026-09-03T12:43:17Z",
+        "comments": 5,
+        "created_at": "2026-09-02T18:57:53Z",
+        "html_url": "https://github.com/mindroom-ai/mindroom/pull/1944",
+        "is_pr": true,
+        "number": 1944,
+        "state": "closed",
+        "title": "chore: upgrade agno to 3.0.5"
+      },
+      {
+        "closed_at": "2026-09-12T15:05:45Z",
+        "comments": 6,
+        "created_at": "2026-09-12T12:43:52Z",
+        "html_url": "https://github.com/mindroom-ai/mindroom/pull/2034",
+        "is_pr": true,
+        "number": 2034,
+        "state": "closed",
+        "title": "Use OpenAI for avatar prompts and images"
+      },
+      {
+        "closed_at": "2026-09-18T06:44:02Z",
+        "comments": 6,
+        "created_at": "2026-09-17T22:26:25Z",
+        "html_url": "https://github.com/mindroom-ai/mindroom/pull/2125",
+        "is_pr": true,
+        "number": 2125,
+        "state": "closed",
+        "title": "Fix streaming media context across task handoffs"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-09-04T07:27:50Z",
+        "html_url": "https://github.com/mindroom-ai/mindroom/issues/1952",
+        "is_pr": false,
+        "number": 1952,
+        "state": "open",
+        "title": "agno 3 papercuts: remaining workarounds, upstream candidates, and open design questions"
+      },
+      {
+        "closed_at": "2026-09-14T15:02:26Z",
+        "comments": 8,
+        "created_at": "2026-09-14T11:30:12Z",
+        "html_url": "https://github.com/mindroom-ai/mindroom/pull/2069",
+        "is_pr": true,
+        "number": 2069,
+        "state": "closed",
+        "title": "Use native provider compaction with portable history fallback"
+      },
+      {
+        "closed_at": "2026-09-20T14:18:05Z",
+        "comments": 6,
+        "created_at": "2026-09-20T13:56:45Z",
+        "html_url": "https://github.com/mindroom-ai/mindroom/pull/2149",
+        "is_pr": true,
+        "number": 2149,
+        "state": "closed",
+        "title": "Fix inline file MIME inference in Responses requests"
+      },
+      {
+        "closed_at": "2026-09-11T10:03:12Z",
+        "comments": 6,
+        "created_at": "2026-09-11T09:41:28Z",
+        "html_url": "https://github.com/mindroom-ai/mindroom/pull/2013",
+        "is_pr": true,
+        "number": 2013,
+        "state": "closed",
+        "title": "Bump mindroom-nio to 1.0.4"
+      },
+      {
+        "closed_at": "2026-09-09T14:17:53Z",
+        "comments": 6,
+        "created_at": "2026-09-09T13:45:13Z",
+        "html_url": "https://github.com/mindroom-ai/mindroom/pull/1983",
+        "is_pr": true,
+        "number": 1983,
+        "state": "closed",
+        "title": "Upgrade Agno to 3.0.9 and retire upstreamed patches"
+      },
+      {
+        "closed_at": "2026-09-10T14:05:38Z",
+        "comments": 5,
+        "created_at": "2026-09-10T12:57:28Z",
+        "html_url": "https://github.com/mindroom-ai/mindroom/pull/1996",
+        "is_pr": true,
+        "number": 1996,
+        "state": "closed",
+        "title": "Apply current media defaults at runtime and finish the model audit"
+      },
+      {
+        "closed_at": "2026-09-14T17:23:26Z",
+        "comments": 6,
+        "created_at": "2026-09-14T17:07:28Z",
+        "html_url": "https://github.com/mindroom-ai/mindroom/pull/2075",
+        "is_pr": true,
+        "number": 2075,
+        "state": "closed",
+        "title": "Reject incomplete compaction summaries and enforce replay budgets"
+      },
+      {
+        "closed_at": "2026-09-10T12:09:03Z",
+        "comments": 5,
+        "created_at": "2026-09-10T08:18:54Z",
+        "html_url": "https://github.com/mindroom-ai/mindroom/pull/1990",
+        "is_pr": true,
+        "number": 1990,
+        "state": "closed",
+        "title": "refactor: isolate and document Python legacy formats"
+      },
+      {
+        "closed_at": "2026-08-15T01:53:00Z",
+        "comments": 7,
+        "created_at": "2026-08-14T20:17:59Z",
+        "html_url": "https://github.com/mindroom-ai/mindroom/pull/1844",
+        "is_pr": true,
+        "number": 1844,
+        "state": "closed",
+        "title": "Expose tool approval provenance to resumed agents"
+      }
+    ],
+    "fetched_at": "2026-09-21T12:54:40+00:00"
+  },
+  "langroid/langroid": {
+    "dependents": [
+      "langroid"
+    ],
+    "query": "repo:langroid/langroid (httpx2 OR \"openai 3.0.0\" OR \"openai<3\" OR \"openai>=3\" OR \"openai 3\") created:>=2026-08-12",
+    "hits": [
+      {
+        "closed_at": "2026-09-16T10:16:39Z",
+        "comments": 1,
+        "created_at": "2026-09-13T12:54:33Z",
+        "html_url": "https://github.com/langroid/langroid/issues/1138",
+        "is_pr": false,
+        "number": 1138,
+        "state": "closed",
+        "title": "upgrade OpenAI SDK to 3.x.x versions"
+      },
+      {
+        "closed_at": "2026-09-16T10:16:38Z",
+        "comments": 3,
+        "created_at": "2026-09-16T10:07:03Z",
+        "html_url": "https://github.com/langroid/langroid/pull/1139",
+        "is_pr": true,
+        "number": 1139,
+        "state": "closed",
+        "title": "feat: support openai SDK 3.x (httpx2) alongside 2.x (httpx)"
+      },
+      {
+        "closed_at": "2026-08-22T19:57:36Z",
+        "comments": 2,
+        "created_at": "2026-08-22T10:49:49Z",
+        "html_url": "https://github.com/langroid/langroid/pull/1094",
+        "is_pr": true,
+        "number": 1094,
+        "state": "closed",
+        "title": "feat: add direct Mistral API support"
+      }
+    ],
+    "fetched_at": "2026-09-21T12:54:43+00:00"
   }
 }
