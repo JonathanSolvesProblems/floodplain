@@ -1,0 +1,57 @@
+﻿openai 3.0.0 uploaded 2026-08-12T01:55:48+00:00
+  scanned 500/14999  dependents so far: 5
+  scanned 1000/14999  dependents so far: 14
+  scanned 1500/14999  dependents so far: 23
+  scanned 2000/14999  dependents so far: 31
+  scanned 2500/14999  dependents so far: 39
+  scanned 3000/14999  dependents so far: 46
+  scanned 3500/14999  dependents so far: 57
+  scanned 4000/14999  dependents so far: 65
+  scanned 4500/14999  dependents so far: 74
+  scanned 5000/14999  dependents so far: 80
+  scanned 5500/14999  dependents so far: 88
+  scanned 6000/14999  dependents so far: 97
+  scanned 6500/14999  dependents so far: 103
+  scanned 7000/14999  dependents so far: 112
+  scanned 7500/14999  dependents so far: 120
+  scanned 8000/14999  dependents so far: 124
+  scanned 8500/14999  dependents so far: 132
+  scanned 9000/14999  dependents so far: 138
+  scanned 9500/14999  dependents so far: 145
+  scanned 10000/14999  dependents so far: 152
+  scanned 10500/14999  dependents so far: 157
+  scanned 11000/14999  dependents so far: 165
+  scanned 11500/14999  dependents so far: 174
+  scanned 12000/14999  dependents so far: 178
+  scanned 12500/14999  dependents so far: 187
+  scanned 13000/14999  dependents so far: 189
+  scanned 13500/14999  dependents so far: 198
+  scanned 14000/14999  dependents so far: 206
+  scanned 14500/14999  dependents so far: 215
+found 220 dependents in top 15000 (118 core, 102 via extras)
+  #48     litellm                                  1.96.2         openai<3.0.0,>=2.20.0
+  #126    sglang                                   0.5.17         openai==2.6.1
+  #224    transformers                             5.15.0         openai>=1.98.0; extra == "serving"  [extra: serving]
+  #234    sentry-sdk                               2.67.1         openai>=1.0.0; extra == "openai"  [extra: openai]
+  #276    databricks-sdk                           0.126.0        openai; extra == "dev"  [extra: dev]
+  #292    pydantic-ai-slim                         2.27.1         openai>=2.45.0; extra == "bedrock-mantle"  [extra: bedrock-mantle]
+  #300    langsmith                                0.10.18        openai>=1.50; extra == "openai-realtime"  [extra: openai-realtime]
+  #389    fastmcp-slim                             3.4.7          openai>=1.102.0; extra == "openai"  [extra: openai]
+  #431    langchain-openai                         1.4.3          openai<3.0.0,>=2.45.0
+  #535    browser-use                              0.13.7         openai==2.16.0
+  #600    swebench                                 4.1.0          openai; extra == "datasets"  [extra: datasets]
+  #677    strands-agents                           1.51.0         openai<3.0.0,>=1.68.0; extra == "all"  [extra: all]
+  #702    openai-agents                            0.20.0         openai<3,>=2.45.0
+  #797    crewai                                   1.15.15        openai<3,>=2.30.0
+  #800    llama-index-llms-openai                  0.7.10         openai<3,>=1.108.1
+  #829    instructor                               1.15.4         openai<3.0.0,>=2.0.0
+  #1004   google-adk                               2.6.3          openai<3,>=2.20; extra == "extensions"  [extra: extensions]
+  #1069   mini-swe-agent                           2.4.6          openai!=1.100.0,!=1.100.1
+  #1149   swesmith                                 0.0.9          openai; extra == "all"  [extra: all]
+  #1171   lancedb                                  0.37.1         openai>=1.6.1; extra == "embeddings"  [extra: embeddings]
+  #1222   azure-ai-projects                        2.4.0          openai>=2.8.0
+  #1287   pyvespa                                  1.2.4          openai; extra == "notebooks"  [extra: notebooks]
+  #1298   langchain-aws                            1.7.0          openai>=1.106.0; extra == "openai"  [extra: openai]
+  #1545   openinference-instrumentation            0.1.57         openai; extra == "test"  [extra: test]
+  #1548   speechrecognition                        3.17.0         openai; extra == "openai"  [extra: openai]
+wrote data\openai-3.0.0\dependents.json

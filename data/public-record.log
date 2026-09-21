@@ -1,0 +1,96 @@
+﻿searching 112 repos for (httpx2 OR "openai 3.0.0" OR "openai<3" OR "openai>=3" OR "openai 3") created:>=2026-08-12
+  [1/112] huggingface/transformers  <-- 3 hit(s)
+  [2/112] getsentry/sentry-python  <-- 14 hit(s)
+  [3/112] pydantic/pydantic-ai  <-- 50 hit(s)
+  [4/112] langchain-ai/langsmith-sdk  <-- 10 hit(s)
+  [5/112] PrefectHQ/fastmcp  <-- 27 hit(s)
+  [6/112] swe-bench/SWE-bench  <-- 2 hit(s)
+  [7/112] SWE-agent/mini-swe-agent
+  [8/112] SWE-bench/SWE-smith
+  [9/112] lancedb/lancedb  <-- 1 hit(s)
+  [10/112] vespa-engine/pyvespa
+  [11/112] langchain-ai/langchain-aws  <-- 7 hit(s)
+  [12/112] Arize-ai/openinference  <-- 29 hit(s)
+  [13/112] Uberi/speech_recognition  <-- 2 hit(s)
+  [14/112] UKGovernmentBEIS/inspect_ai  <-- 42 hit(s)
+  [15/112] ultralytics/ultralytics  <-- 1 hit(s)
+  [16/112] livekit/agents  <-- 13 hit(s)
+  [17/112] stanfordnlp/dspy  <-- 11 hit(s)
+  [18/112] confident-ai/deepeval  <-- 6 hit(s)
+  [19/112] yzhao062/pyod
+  [20/112] vllm-project/vllm  <-- 50 hit(s)
+  [21/112] braintrustdata/autoevals
+  [22/112] traceloop/openllmetry  <-- 13 hit(s)
+  [23/112] borb-pdf/borb
+  [24/112] comet-ml/opik  <-- 40 hit(s)
+  [25/112] embeddings-benchmark/mteb  <-- 2 hit(s)
+  [26/112] redis/redis-vl-python
+  [27/112] microsoft/semantic-kernel  <-- 2 hit(s)
+  [28/112] dottxt-ai/outlines
+  [29/112] agno-agi/agno  <-- 24 hit(s)
+  [30/112] Arize-ai/phoenix  <-- 28 hit(s)
+  [31/112] run-llama/llama_index  <-- 8 hit(s)
+  [32/112] Graphify-Labs/graphify  <-- 8 hit(s)
+  [33/112] composiohq/composio  <-- 22 hit(s)
+  [34/112] vibrantlabsai/ragas  <-- 1 hit(s)
+  [35/112] kedro-org/kedro-plugins
+  [36/112] UKGovernmentBEIS/inspect_evals  <-- 14 hit(s)
+  [37/112] pyg-team/pytorch_geometric
+  [38/112] evidentlyai/evidently
+  [39/112] chonkie-inc/chonkie
+  [40/112] getzep/graphiti  <-- 6 hit(s)
+  [41/112] Traia-IO/IATP
+  [42/112] wandb/weave  <-- 1 hit(s)
+  [43/112] unclecode/litellm
+  [44/112] deepset-ai/haystack  <-- 17 hit(s)
+  [45/112] meridianlabs-ai/inspect_swe  <-- 1 hit(s)
+  [46/112] agentscope-ai/agentscope  <-- 8 hit(s)
+  [47/112] agentscope-ai/ReMe  <-- 1 hit(s)
+  [48/112] simonw/llm  <-- 15 hit(s)
+  [49/112] sonuramashishnpm/npmai-agent
+  [50/112] pytorch/captum
+  [51/112] Microsoft/prompty  <-- 10 hit(s)
+  [52/112] chopratejas/headroom
+  [53/112] volcengine/openviking  <-- 29 hit(s)
+  [54/112] primeintellect-ai/verifiers  <-- 8 hit(s)
+  [55/112] QwenLM/Qwen-Agent  <-- 4 hit(s)
+  [56/112] thinking-machines-lab/tinker-cookbook  <-- 1 hit(s)
+  [57/112] google/langextract  <-- 3 hit(s)
+  [58/112] openai/openai-guardrails-python  <-- 1 hit(s)
+  [59/112] meridianlabs-ai/inspect_scout  <-- 7 hit(s)
+  [60/112] NVIDIA/Megatron-LM
+  [61/112] ShishirPatil/gorilla
+  [62/112] posit-dev/py-shiny  <-- 2 hit(s)
+  [63/112] optuna/optuna-dashboard  <-- 1 hit(s)
+  [64/112] posit-dev/shinychat
+  [65/112] Azure/azure-sdk-for-python  <-- 18 hit(s)
+  [66/112] explorerhq/sql-explorer
+  [67/112] sipyourdrink-ltd/bernstein  <-- 22 hit(s)
+  [68/112] microsoft/Foundry-Local  <-- 3 hit(s)
+  [69/112] ArtificialAnalysis/Stirrup  <-- 1 hit(s)
+  [70/112] topoteretes/cognee  <-- 9 hit(s)
+  [71/112] Future-House/ldp
+  [72/112] Lumiwealth/lumibot  <-- 1 hit(s)
+  [73/112] zernio-dev/zernio-python
+  [74/112] vanna-ai/vanna
+  [75/112] chroma-core/chroma-mcp
+  [76/112] evalplus/evalplus
+  [77/112] jgravelle/jcodemunch-mcp  <-- 2 hit(s)
+  [78/112] fuyuxiang/echo-agent
+  [79/112] highcharts-for-python/highcharts-core
+  [80/112] mozilla-ai/any-llm  <-- 37 hit(s)
+  [81/112] apache/airflow  <-- 19 hit(s)
+  [82/112] microsoft/promptflow  <-- 2 hit(s)
+  [83/112] mims-harvard/ToolUniverse  <-- 1 hit(s)
+  [84/112] MadcowD/ell
+  [85/112] ArduPilot/MAVProxy
+  [86/112] langwatch/scenario  <-- 12 hit(s)
+  [87/112] microsoft/markitdown  <-- 2 hit(s)
+  [88/112] cbcoutinho/nextcloud-mcp-server  <-- 2 hit(s)
+  [89/112] widgetti/solara
+  [90/112] MinishLab/semble
+  [91/112] oracle-samples/oci-openai
+  [92/112] oracle/langchain-oracle  <-- 2 hit(s)
+  [93/112] posit-dev/chatlas  <-- 7 hit(s)
+  [94/112] modelscope/ms-swift
+  [95/112] mpfaffenberger/code_puppy  <-- 6 hit(s)

@@ -1,0 +1,2875 @@
+{
+  "meta": {
+    "target": "openai",
+    "release": "3.0.0",
+    "release_uploaded_at": "2026-08-12T01:55:48+00:00",
+    "ranking_snapshot": "2026-09-01 06:34:08",
+    "scanned": 15000,
+    "generated_at": "2026-09-21T12:46:55+00:00"
+  },
+  "dependents": [
+    {
+      "name": "litellm",
+      "rank": 48,
+      "downloads": 639214652,
+      "version": "1.96.2",
+      "requirement": "openai<3.0.0,>=2.20.0",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://docs.litellm.ai",
+        "Homepage": "https://litellm.ai",
+        "Repository": "https://github.com/BerriAI/litellm"
+      },
+      "summary": "Library to easily interface with LLM API providers"
+    },
+    {
+      "name": "sglang",
+      "rank": 126,
+      "downloads": 314625244,
+      "version": "0.5.17",
+      "requirement": "openai==2.6.1",
+      "via_extra": null,
+      "project_urls": {
+        "Bug Tracker": "https://github.com/sgl-project/sglang/issues",
+        "Homepage": "https://github.com/sgl-project/sglang"
+      },
+      "summary": "SGLang is a fast serving framework for large language models and vision language models."
+    },
+    {
+      "name": "transformers",
+      "rank": 224,
+      "downloads": 180369167,
+      "version": "5.15.0",
+      "requirement": "openai>=1.98.0; extra == \"serving\"",
+      "via_extra": "serving",
+      "project_urls": {
+        "Homepage": "https://github.com/huggingface/transformers"
+      },
+      "summary": "Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training."
+    },
+    {
+      "name": "sentry-sdk",
+      "rank": 234,
+      "downloads": 169319258,
+      "version": "2.67.1",
+      "requirement": "openai>=1.0.0; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {
+        "Changelog": "https://github.com/getsentry/sentry-python/blob/master/CHANGELOG.md",
+        "Documentation": "https://docs.sentry.io/platforms/python/",
+        "Homepage": "https://github.com/getsentry/sentry-python"
+      },
+      "summary": "Python client for Sentry (https://sentry.io)"
+    },
+    {
+      "name": "databricks-sdk",
+      "rank": 276,
+      "downloads": 133588841,
+      "version": "0.126.0",
+      "requirement": "openai; extra == \"dev\"",
+      "via_extra": "dev",
+      "project_urls": {
+        "Documentation": "https://databricks-sdk-py.readthedocs.io"
+      },
+      "summary": "Databricks SDK for Python (Beta)"
+    },
+    {
+      "name": "pydantic-ai-slim",
+      "rank": 292,
+      "downloads": 119139262,
+      "version": "2.27.1",
+      "requirement": "openai>=2.45.0; extra == \"bedrock-mantle\"",
+      "via_extra": "bedrock-mantle",
+      "project_urls": {
+        "Changelog": "https://github.com/pydantic/pydantic-ai/releases",
+        "Documentation": "https://ai.pydantic.dev/install/#slim-install",
+        "Homepage": "https://github.com/pydantic/pydantic-ai/tree/main/pydantic_ai_slim",
+        "Source": "https://github.com/pydantic/pydantic-ai/tree/main/pydantic_ai_slim"
+      },
+      "summary": "AI Agent Framework, the Pydantic way, slim package"
+    },
+    {
+      "name": "langsmith",
+      "rank": 300,
+      "downloads": 114400608,
+      "version": "0.10.18",
+      "requirement": "openai>=1.50; extra == \"openai-realtime\"",
+      "via_extra": "openai-realtime",
+      "project_urls": {
+        "Documentation": "https://docs.smith.langchain.com/",
+        "Homepage": "https://smith.langchain.com/",
+        "Repository": "https://github.com/langchain-ai/langsmith-sdk"
+      },
+      "summary": "Client library to connect to the LangSmith Observability and Evaluation Platform."
+    },
+    {
+      "name": "fastmcp-slim",
+      "rank": 389,
+      "downloads": 78429973,
+      "version": "3.4.7",
+      "requirement": "openai>=1.102.0; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {
+        "Documentation": "https://gofastmcp.com",
+        "Homepage": "https://gofastmcp.com",
+        "Repository": "https://github.com/PrefectHQ/fastmcp"
+      },
+      "summary": "The dependency-slim FastMCP package."
+    },
+    {
+      "name": "langchain-openai",
+      "rank": 431,
+      "downloads": 69352842,
+      "version": "1.4.3",
+      "requirement": "openai<3.0.0,>=2.45.0",
+      "via_extra": null,
+      "project_urls": {
+        "Changelog": "https://github.com/langchain-ai/langchain/releases?q=%22langchain-openai%22",
+        "Documentation": "https://reference.langchain.com/python/integrations/langchain_openai/",
+        "Homepage": "https://docs.langchain.com/oss/python/integrations/providers/openai",
+        "Issues": "https://github.com/langchain-ai/langchain/issues",
+        "Reddit": "https://www.reddit.com/r/LangChain/",
+        "Repository": "https://github.com/langchain-ai/langchain",
+        "Slack": "https://www.langchain.com/join-community",
+        "Twitter": "https://x.com/langchain_oss"
+      },
+      "summary": "An integration package connecting OpenAI and LangChain"
+    },
+    {
+      "name": "browser-use",
+      "rank": 535,
+      "downloads": 51587879,
+      "version": "0.13.7",
+      "requirement": "openai==2.16.0",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://docs.browser-use.com",
+        "Homepage": "https://browser-use.com",
+        "Privacy Policy": "https://browser-use.com/privacy/",
+        "Repository": "https://github.com/browser-use/browser-use",
+        "Telemetry": "https://docs.browser-use.com/development/monitoring/telemetry",
+        "Terms of Service": "https://browser-use.com/legal/terms-of-service"
+      },
+      "summary": "Make websites accessible for AI agents"
+    },
+    {
+      "name": "swebench",
+      "rank": 600,
+      "downloads": 43999505,
+      "version": "4.1.0",
+      "requirement": "openai; extra == \"datasets\"",
+      "via_extra": "datasets",
+      "project_urls": {
+        "Bug Reports": "http://github.com/swe-bench/SWE-bench/issues",
+        "Documentation": "https://github.com/swe-bench/SWE-bench",
+        "Source Code": "http://github.com/swe-bench/SWE-bench",
+        "Website": "https://swebench.com"
+      },
+      "summary": "The official SWE-bench package - a benchmark for evaluating LMs on software engineering"
+    },
+    {
+      "name": "strands-agents",
+      "rank": 677,
+      "downloads": 37190013,
+      "version": "1.51.0",
+      "requirement": "openai<3.0.0,>=1.68.0; extra == \"all\"",
+      "via_extra": "all",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/strands-agents/harness-sdk/issues",
+        "Documentation": "https://strandsagents.com",
+        "Homepage": "https://github.com/strands-agents/harness-sdk"
+      },
+      "summary": "A model-driven approach to building AI agents in just a few lines of code"
+    },
+    {
+      "name": "openai-agents",
+      "rank": 702,
+      "downloads": 35704311,
+      "version": "0.20.0",
+      "requirement": "openai<3,>=2.45.0",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://openai.github.io/openai-agents-python/",
+        "Repository": "https://github.com/openai/openai-agents-python"
+      },
+      "summary": "OpenAI Agents SDK"
+    },
+    {
+      "name": "crewai",
+      "rank": 797,
+      "downloads": 28379874,
+      "version": "1.15.15",
+      "requirement": "openai<3,>=2.30.0",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://docs.crewai.com",
+        "Homepage": "https://crewai.com",
+        "Repository": "https://github.com/crewAIInc/crewAI"
+      },
+      "summary": "Cutting-edge framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks."
+    },
+    {
+      "name": "llama-index-llms-openai",
+      "rank": 800,
+      "downloads": 28257294,
+      "version": "0.7.10",
+      "requirement": "openai<3,>=1.108.1",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "llama-index llms openai integration"
+    },
+    {
+      "name": "instructor",
+      "rank": 829,
+      "downloads": 26637915,
+      "version": "1.15.4",
+      "requirement": "openai<3.0.0,>=2.0.0",
+      "via_extra": null,
+      "project_urls": {
+        "repository": "https://github.com/instructor-ai/instructor"
+      },
+      "summary": "structured outputs for llm"
+    },
+    {
+      "name": "google-adk",
+      "rank": 1004,
+      "downloads": 20254661,
+      "version": "2.6.3",
+      "requirement": "openai<3,>=2.20; extra == \"extensions\"",
+      "via_extra": "extensions",
+      "project_urls": {
+        "changelog": "https://github.com/google/adk-python/blob/main/CHANGELOG.md",
+        "documentation": "https://google.github.io/adk-docs/",
+        "homepage": "https://google.github.io/adk-docs/",
+        "repository": "https://github.com/google/adk-python"
+      },
+      "summary": "Agent Development Kit"
+    },
+    {
+      "name": "mini-swe-agent",
+      "rank": 1069,
+      "downloads": 17443417,
+      "version": "2.4.6",
+      "requirement": "openai!=1.100.0,!=1.100.1",
+      "via_extra": null,
+      "project_urls": {
+        "Bug Tracker": "https://github.com/SWE-agent/mini-swe-agent/issues",
+        "Documentation": "https://mini-swe-agent.com/latest/",
+        "Repository": "https://github.com/SWE-agent/mini-swe-agent"
+      },
+      "summary": "Mini SWE Agent - A simple AI software engineering agent"
+    },
+    {
+      "name": "swesmith",
+      "rank": 1149,
+      "downloads": 15415260,
+      "version": "0.0.9",
+      "requirement": "openai; extra == \"all\"",
+      "via_extra": "all",
+      "project_urls": {
+        "Bug Reports": "https://github.com/SWE-bench/SWE-smith/issues",
+        "Documentation": "https://github.com/SWE-bench/SWE-smith",
+        "Source Code": "https://github.com/SWE-bench/SWE-smith",
+        "Website": "https://swesmith.com"
+      },
+      "summary": "The official SWE-smith package - A toolkit for generating software engineering training data at scale."
+    },
+    {
+      "name": "lancedb",
+      "rank": 1171,
+      "downloads": 14868772,
+      "version": "0.37.1",
+      "requirement": "openai>=1.6.1; extra == \"embeddings\"",
+      "via_extra": "embeddings",
+      "project_urls": {
+        "repository": "https://github.com/lancedb/lancedb"
+      },
+      "summary": "lancedb"
+    },
+    {
+      "name": "azure-ai-projects",
+      "rank": 1222,
+      "downloads": 13744680,
+      "version": "2.4.0",
+      "requirement": "openai>=2.8.0",
+      "via_extra": null,
+      "project_urls": {
+        "repository": "https://aka.ms/azsdk/azure-ai-projects-v2/python/code"
+      },
+      "summary": "Microsoft Corporation Azure AI Projects Client Library for Python"
+    },
+    {
+      "name": "pyvespa",
+      "rank": 1287,
+      "downloads": 12362811,
+      "version": "1.2.4",
+      "requirement": "openai; extra == \"notebooks\"",
+      "via_extra": "notebooks",
+      "project_urls": {
+        "homepage": "https://pypi.org/project/pyvespa",
+        "repository": "https://github.com/vespa-engine/pyvespa"
+      },
+      "summary": "Python API for vespa.ai"
+    },
+    {
+      "name": "langchain-aws",
+      "rank": 1298,
+      "downloads": 12072717,
+      "version": "1.7.0",
+      "requirement": "openai>=1.106.0; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {
+        "Repository": "https://github.com/langchain-ai/langchain-aws",
+        "Source Code": "https://github.com/langchain-ai/langchain-aws/tree/main/libs/aws"
+      },
+      "summary": "An integration package connecting AWS and LangChain"
+    },
+    {
+      "name": "openinference-instrumentation",
+      "rank": 1545,
+      "downloads": 8674884,
+      "version": "0.1.57",
+      "requirement": "openai; extra == \"test\"",
+      "via_extra": "test",
+      "project_urls": {
+        "Homepage": "https://github.com/Arize-ai/openinference/tree/main/python/openinference-instrumentation"
+      },
+      "summary": "OpenInference instrumentation utilities"
+    },
+    {
+      "name": "speechrecognition",
+      "rank": 1548,
+      "downloads": 8635298,
+      "version": "3.17.0",
+      "requirement": "openai; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {
+        "Homepage": "https://github.com/Uberi/speech_recognition#readme"
+      },
+      "summary": "Library for performing speech recognition, with support for several engines and APIs, online and offline."
+    },
+    {
+      "name": "inspect-ai",
+      "rank": 1618,
+      "downloads": 7917415,
+      "version": "0.3.257",
+      "requirement": "openai>=2.45.0; extra == \"dev\"",
+      "via_extra": "dev",
+      "project_urls": {
+        "Documentation": "https://inspect.aisi.org.uk/",
+        "Issue Tracker": "https://github.com/UKGovernmentBEIS/inspect_ai/issues",
+        "Source Code": "https://github.com/UKGovernmentBEIS/inspect_ai"
+      },
+      "summary": "Framework for large language model evaluations"
+    },
+    {
+      "name": "ultralytics",
+      "rank": 1671,
+      "downloads": 7466785,
+      "version": "8.4.118",
+      "requirement": "openai>=2.0.0; extra == \"llm\"",
+      "via_extra": "llm",
+      "project_urls": {
+        "Bug Reports": "https://github.com/ultralytics/ultralytics/issues",
+        "Changelog": "https://github.com/ultralytics/ultralytics/releases",
+        "Documentation": "https://docs.ultralytics.com",
+        "Homepage": "https://ultralytics.com",
+        "Source": "https://github.com/ultralytics/ultralytics"
+      },
+      "summary": "Ultralytics YOLO \ud83d\ude80 for SOTA object detection, multi-object tracking, instance segmentation, pose estimation, classification, and oriented object detection."
+    },
+    {
+      "name": "harbor",
+      "rank": 1722,
+      "downloads": 7119125,
+      "version": "0.21.0",
+      "requirement": "openai>=2.0; extra == \"computer-1\"",
+      "via_extra": "computer-1",
+      "project_urls": {},
+      "summary": "A framework for evaluating and optimizing agents and models using sandboxed environments."
+    },
+    {
+      "name": "llama-index-embeddings-openai",
+      "rank": 1759,
+      "downloads": 6813064,
+      "version": "0.6.0",
+      "requirement": "openai>=1.1.0",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "llama-index embeddings openai integration"
+    },
+    {
+      "name": "exa-py",
+      "rank": 1762,
+      "downloads": 6807519,
+      "version": "2.17.0",
+      "requirement": "openai>=1.48",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Python SDK for Exa API."
+    },
+    {
+      "name": "presidio-analyzer",
+      "rank": 1794,
+      "downloads": 6548123,
+      "version": "2.2.364",
+      "requirement": "openai<3.0.0,>=1.50.0; extra == \"langextract\"",
+      "via_extra": "langextract",
+      "project_urls": {
+        "Homepage": "https://github.com/data-privacy-stack/presidio"
+      },
+      "summary": "Presidio Analyzer package"
+    },
+    {
+      "name": "daft",
+      "rank": 1816,
+      "downloads": 6407811,
+      "version": "0.7.23",
+      "requirement": "openai<2.39.0; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {
+        "homepage": "https://www.daft.ai",
+        "repository": "https://github.com/Eventual-Inc/Daft"
+      },
+      "summary": "Distributed Dataframes for Multimodal Data"
+    },
+    {
+      "name": "livekit-agents",
+      "rank": 1840,
+      "downloads": 6246216,
+      "version": "1.6.9",
+      "requirement": "openai>=2",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://docs.livekit.io",
+        "Source": "https://github.com/livekit/agents",
+        "Website": "https://livekit.io/"
+      },
+      "summary": "A powerful framework for building realtime voice AI agents"
+    },
+    {
+      "name": "dspy",
+      "rank": 1849,
+      "downloads": 6223871,
+      "version": "3.3.0",
+      "requirement": "openai>=1.66.2",
+      "via_extra": null,
+      "project_urls": {
+        "homepage": "https://github.com/stanfordnlp/dspy"
+      },
+      "summary": "DSPy"
+    },
+    {
+      "name": "apache-beam",
+      "rank": 2003,
+      "downloads": 5314714,
+      "version": "2.75.0",
+      "requirement": "openai; extra == \"docs\"",
+      "via_extra": "docs",
+      "project_urls": {
+        "Download": "https://pypi.python.org/pypi/apache-beam",
+        "Homepage": "https://beam.apache.org"
+      },
+      "summary": "Apache Beam SDK for Python"
+    },
+    {
+      "name": "deepeval",
+      "rank": 2120,
+      "downloads": 4770977,
+      "version": "4.1.7",
+      "requirement": "openai",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://deepeval.com",
+        "Repository": "https://github.com/confident-ai/deepeval"
+      },
+      "summary": "The LLM Evaluation Framework"
+    },
+    {
+      "name": "pyod",
+      "rank": 2164,
+      "downloads": 4627560,
+      "version": "3.6.4",
+      "requirement": "openai>=1.0; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {
+        "Changelog": "https://github.com/yzhao062/pyod/blob/development/CHANGES.txt",
+        "Documentation": "https://pyod.readthedocs.io",
+        "Homepage": "https://github.com/yzhao062/pyod",
+        "Issues": "https://github.com/yzhao062/pyod/issues",
+        "Repository": "https://github.com/yzhao062/pyod"
+      },
+      "summary": "A Python library for anomaly detection across tabular, time series, graph, text, image, and audio data. 61 detectors, benchmark-backed ADEngine orchestration, and an agentic workflow for AI agents."
+    },
+    {
+      "name": "vllm",
+      "rank": 2221,
+      "downloads": 4467134,
+      "version": "0.27.1",
+      "requirement": "openai>=2.0.0",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://docs.vllm.ai/en/latest/",
+        "Homepage": "https://github.com/vllm-project/vllm",
+        "Slack": "https://slack.vllm.ai/"
+      },
+      "summary": "A high-throughput and memory-efficient inference and serving engine for LLMs"
+    },
+    {
+      "name": "autoevals",
+      "rank": 2237,
+      "downloads": 4415392,
+      "version": "0.3.0",
+      "requirement": "openai; extra == \"dev\"",
+      "via_extra": "dev",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/braintrustdata/autoevals",
+        "Homepage": "https://www.braintrustdata.com"
+      },
+      "summary": "Universal library for evaluating AI models"
+    },
+    {
+      "name": "mem0ai",
+      "rank": 2408,
+      "downloads": 3733846,
+      "version": "2.0.18",
+      "requirement": "openai>=1.90.0",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Long-term memory for AI Agents"
+    },
+    {
+      "name": "opentelemetry-instrumentation-openai",
+      "rank": 2427,
+      "downloads": 3690199,
+      "version": "0.62.3",
+      "requirement": "openai; extra == \"instruments\"",
+      "via_extra": "instruments",
+      "project_urls": {
+        "Repository": "https://github.com/traceloop/openllmetry/tree/main/packages/opentelemetry-instrumentation-openai"
+      },
+      "summary": "OpenTelemetry OpenAI instrumentation"
+    },
+    {
+      "name": "borb",
+      "rank": 2511,
+      "downloads": 3456286,
+      "version": "3.0.9",
+      "requirement": "openai; extra == \"genai\"",
+      "via_extra": "genai",
+      "project_urls": {
+        "Homepage": "https://github.com/borb-pdf/borb",
+        "Source": "https://github.com/borb-pdf/borb",
+        "Tracker": "https://github.com/borb-pdf/borb/issues"
+      },
+      "summary": "borb is a library for reading, creating and manipulating PDF files in python."
+    },
+    {
+      "name": "llama-index-agent-openai",
+      "rank": 2699,
+      "downloads": 2988622,
+      "version": "0.4.12",
+      "requirement": "openai>=1.14.0",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "llama-index agent openai integration"
+    },
+    {
+      "name": "opik",
+      "rank": 2703,
+      "downloads": 2975551,
+      "version": "2.2.26",
+      "requirement": "openai",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://www.comet.com",
+        "Source code": "https://github.com/comet-ml/opik"
+      },
+      "summary": "Comet tool for logging and evaluating LLM traces"
+    },
+    {
+      "name": "livekit-plugins-openai",
+      "rank": 2777,
+      "downloads": 2814023,
+      "version": "1.6.9",
+      "requirement": "openai[realtime]>=2.50",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://docs.livekit.io",
+        "Source": "https://github.com/livekit/agents",
+        "Website": "https://livekit.io/"
+      },
+      "summary": "Agent Framework plugin for services from OpenAI"
+    },
+    {
+      "name": "mteb",
+      "rank": 2803,
+      "downloads": 2752362,
+      "version": "2.18.16",
+      "requirement": "openai>=1.41.0; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {
+        "Documentation": "https://embeddings-benchmark.github.io/mteb/",
+        "Homepage": "https://github.com/embeddings-benchmark/mteb",
+        "Hugging Face Organization": "https://huggingface.co/mteb",
+        "Repository": "https://github.com/embeddings-benchmark/mteb"
+      },
+      "summary": "Massive Text Embedding Benchmark"
+    },
+    {
+      "name": "redisvl",
+      "rank": 2952,
+      "downloads": 2473209,
+      "version": "0.25.1",
+      "requirement": "openai>=1.1.0; extra == \"all\"",
+      "via_extra": "all",
+      "project_urls": {
+        "Documentation": "https://docs.redisvl.com",
+        "Homepage": "https://github.com/redis/redis-vl-python",
+        "Repository": "https://github.com/redis/redis-vl-python"
+      },
+      "summary": "Python client library and CLI for using Redis as a vector database"
+    },
+    {
+      "name": "deep-translator",
+      "rank": 2989,
+      "downloads": 2398078,
+      "version": "1.11.4",
+      "requirement": "openai (>=0.27.6,<0.28.0) ; (python_full_version >= \"3.7.1\" and python_full_version < \"4.0.0\") and (extra == \"ai\")",
+      "via_extra": "ai",
+      "project_urls": {
+        "Documentation": "https://deep-translator.readthedocs.io/en/latest/",
+        "Homepage": "https://github.com/nidhaloff/deep_translator",
+        "Repository": "https://github.com/nidhaloff/deep_translator"
+      },
+      "summary": "A flexible free and unlimited python tool to translate between different languages in a simple way using multiple translators"
+    },
+    {
+      "name": "semantic-kernel",
+      "rank": 3039,
+      "downloads": 2298437,
+      "version": "1.44.1",
+      "requirement": "openai>=2.0.0",
+      "via_extra": null,
+      "project_urls": {
+        "homepage": "https://learn.microsoft.com/en-us/semantic-kernel/overview/",
+        "issues": "https://github.com/microsoft/semantic-kernel/issues",
+        "release_notes": "https://github.com/microsoft/semantic-kernel/releases?q=tag%3Apython-1&expanded=true",
+        "source": "https://github.com/microsoft/semantic-kernel/tree/main/python"
+      },
+      "summary": "Semantic Kernel Python SDK"
+    },
+    {
+      "name": "outlines",
+      "rank": 3078,
+      "downloads": 2226228,
+      "version": "1.3.3",
+      "requirement": "openai; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {
+        "documentation": "https://dottxt-ai.github.io/outlines/",
+        "homepage": "https://github.com/dottxt-ai/outlines",
+        "repository": "https://github.com/dottxt-ai/outlines"
+      },
+      "summary": "Probabilistic Generative Model Programming"
+    },
+    {
+      "name": "agno",
+      "rank": 3099,
+      "downloads": 2201255,
+      "version": "2.8.7",
+      "requirement": "openai; extra == \"dev\"",
+      "via_extra": "dev",
+      "project_urls": {
+        "Documentation": "https://docs.agno.com",
+        "Homepage": "https://agno.com",
+        "Repository": "https://github.com/agno-agi/agno"
+      },
+      "summary": "The programming language for agentic software."
+    },
+    {
+      "name": "databricks-langchain",
+      "rank": 3128,
+      "downloads": 2162311,
+      "version": "0.20.0",
+      "requirement": "openai>=1.99.9",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Support for Databricks AI support in LangChain"
+    },
+    {
+      "name": "openinference-instrumentation-openai",
+      "rank": 3165,
+      "downloads": 2104797,
+      "version": "0.1.54",
+      "requirement": "openai>=2.8.0; extra == \"instruments\"",
+      "via_extra": "instruments",
+      "project_urls": {
+        "Homepage": "https://github.com/Arize-ai/openinference/tree/main/python/instrumentation/openinference-instrumentation-openai"
+      },
+      "summary": "OpenInference OpenAI Instrumentation"
+    },
+    {
+      "name": "arize-phoenix",
+      "rank": 3170,
+      "downloads": 2099361,
+      "version": "20.0.0",
+      "requirement": "openai>=2.14.0; extra == \"container\"",
+      "via_extra": "container",
+      "project_urls": {
+        "Documentation": "https://arize.com/docs/phoenix/",
+        "Issues": "https://github.com/Arize-ai/phoenix/issues",
+        "Source": "https://github.com/Arize-ai/phoenix"
+      },
+      "summary": "AI Observability and Evaluation"
+    },
+    {
+      "name": "llama-index-legacy",
+      "rank": 3198,
+      "downloads": 2068745,
+      "version": "0.9.48.post4",
+      "requirement": "openai>=1.1.0",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://docs.llamaindex.ai/en/stable/",
+        "Homepage": "https://llamaindex.ai",
+        "Repository": "https://github.com/run-llama/llama_index"
+      },
+      "summary": "Interface between LLMs and your data"
+    },
+    {
+      "name": "paddlex",
+      "rank": 3274,
+      "downloads": 1971784,
+      "version": "3.7.2",
+      "requirement": "openai>=1.63; extra == \"ie\"",
+      "via_extra": "ie",
+      "project_urls": {},
+      "summary": "Low-code development tool based on PaddlePaddle."
+    },
+    {
+      "name": "graphifyy",
+      "rank": 3303,
+      "downloads": 1927047,
+      "version": "0.9.40",
+      "requirement": "openai; extra == \"kimi\"",
+      "via_extra": "kimi",
+      "project_urls": {
+        "Homepage": "https://github.com/Graphify-Labs/graphify",
+        "Issues": "https://github.com/Graphify-Labs/graphify/issues",
+        "Repository": "https://github.com/Graphify-Labs/graphify"
+      },
+      "summary": "AI coding assistant skill (Claude Code, CodeBuddy, Codex, OpenCode, Kilo Code, Cursor, Gemini CLI, Aider, OpenClaw, Factory Droid, Trae, Hermes, Kiro, Pi, Devin CLI, Google Antigravity) - turn any fol"
+    },
+    {
+      "name": "composio",
+      "rank": 3384,
+      "downloads": 1848228,
+      "version": "0.19.0",
+      "requirement": "openai>=2.48.0",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://github.com/composiohq/composio"
+      },
+      "summary": "SDK for integrating Composio with your applications."
+    },
+    {
+      "name": "openhands-agent-server",
+      "rank": 3415,
+      "downloads": 1813627,
+      "version": "1.42.0",
+      "requirement": "openai<3,>=2.33.0",
+      "via_extra": null,
+      "project_urls": {
+        "Bug Tracker": "https://github.com/OpenHands/software-agent-sdk/issues",
+        "Documentation": "https://docs.openhands.dev/sdk",
+        "Homepage": "https://github.com/OpenHands/software-agent-sdk",
+        "Source": "https://github.com/OpenHands/software-agent-sdk"
+      },
+      "summary": "OpenHands Agent Server - REST/WebSocket interface for OpenHands AI Agent"
+    },
+    {
+      "name": "airbyte-cdk",
+      "rank": 3705,
+      "downloads": 1515578,
+      "version": "7.25.1",
+      "requirement": "openai[embeddings]==0.27.9; extra == \"vector-db-based\"",
+      "via_extra": "vector-db-based",
+      "project_urls": {
+        "Documentation": "https://docs.airbyte.io/",
+        "Homepage": "https://airbyte.com",
+        "Repository": "https://github.com/airbytehq/airbyte-python-cdk"
+      },
+      "summary": "A framework for writing Airbyte Connectors."
+    },
+    {
+      "name": "ragas",
+      "rank": 3722,
+      "downloads": 1498247,
+      "version": "0.4.3",
+      "requirement": "openai>=1.0.0",
+      "via_extra": null,
+      "project_urls": {
+        "Code": "https://github.com/vibrantlabsai/ragas",
+        "Documentation": "https://docs.ragas.io",
+        "Homepage": "https://github.com/vibrantlabsai/ragas",
+        "Issues": "https://github.com/vibrantlabsai/ragas/issues"
+      },
+      "summary": "Evaluation framework for RAG and LLM applications"
+    },
+    {
+      "name": "kedro-datasets",
+      "rank": 3741,
+      "downloads": 1475408,
+      "version": "9.6.0",
+      "requirement": "openai>=2.3.0; extra == \"langfuse\"",
+      "via_extra": "langfuse",
+      "project_urls": {
+        "Documentation": "https://docs.kedro.org",
+        "Source": "https://github.com/kedro-org/kedro-plugins/tree/main/kedro-datasets",
+        "Tracker": "https://github.com/kedro-org/kedro-plugins/issues"
+      },
+      "summary": "Kedro-Datasets is where you can find all of Kedro's data connectors."
+    },
+    {
+      "name": "inspect-evals",
+      "rank": 3780,
+      "downloads": 1446460,
+      "version": "0.16.0",
+      "requirement": "openai; extra == \"b3\"",
+      "via_extra": "b3",
+      "project_urls": {
+        "Changelog": "https://github.com/UKGovernmentBEIS/inspect_evals/blob/main/CHANGELOG.md",
+        "Documentation": "https://ukgovernmentbeis.github.io/inspect_evals/",
+        "Issue Tracker": "https://github.com/UKGovernmentBEIS/inspect_evals/issues",
+        "Release Notes": "https://github.com/UKGovernmentBEIS/inspect_evals/releases/",
+        "Source Code": "https://github.com/UKGovernmentBEIS/inspect_evals"
+      },
+      "summary": "Collection of large language model evaluations"
+    },
+    {
+      "name": "hatchet-sdk",
+      "rank": 3798,
+      "downloads": 1429568,
+      "version": "1.37.1",
+      "requirement": "openai<3,>=2.52.0; extra == \"docs\"",
+      "via_extra": "docs",
+      "project_urls": {},
+      "summary": "This is the official Python SDK for Hatchet, a distributed, fault-tolerant task queue. The SDK allows you to easily integrate Hatchet's task scheduling and workflow orchestration capabilities into you"
+    },
+    {
+      "name": "torch-geometric",
+      "rank": 3835,
+      "downloads": 1399262,
+      "version": "2.8.0.post1",
+      "requirement": "openai; extra == \"rag\"",
+      "via_extra": "rag",
+      "project_urls": {
+        "changelog": "https://github.com/pyg-team/pytorch_geometric/blob/master/CHANGELOG.md",
+        "documentation": "https://pytorch-geometric.readthedocs.io",
+        "homepage": "https://pyg.org",
+        "repository": "https://github.com/pyg-team/pytorch_geometric.git"
+      },
+      "summary": "Graph Neural Network Library for PyTorch"
+    },
+    {
+      "name": "evidently",
+      "rank": 3967,
+      "downloads": 1297022,
+      "version": "0.7.21",
+      "requirement": "openai>=1.16.2; extra == \"llm\"",
+      "via_extra": "llm",
+      "project_urls": {
+        "Homepage": "https://github.com/evidentlyai/evidently"
+      },
+      "summary": "Open-source tools to analyze, monitor, and debug machine learning model in production."
+    },
+    {
+      "name": "pipecat-ai",
+      "rank": 3981,
+      "downloads": 1288758,
+      "version": "1.7.0",
+      "requirement": "openai<3,>=1.74.0",
+      "via_extra": null,
+      "project_urls": {
+        "Changelog": "https://github.com/pipecat-ai/pipecat/blob/main/CHANGELOG.md",
+        "Documentation": "https://docs.pipecat.ai/",
+        "Homepage": "https://pipecat.ai",
+        "Issues": "https://github.com/pipecat-ai/pipecat/issues",
+        "Source": "https://github.com/pipecat-ai/pipecat"
+      },
+      "summary": "An open source framework for voice (and multimodal) assistants"
+    },
+    {
+      "name": "chonkie",
+      "rank": 4117,
+      "downloads": 1198781,
+      "version": "1.7.0",
+      "requirement": "openai>=1.0.0; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/chonkie-inc/chonkie/issues",
+        "Documentation": "https://docs.chonkie.ai",
+        "Homepage": "https://github.com/chonkie-inc/chonkie"
+      },
+      "summary": "\ud83e\udd9b CHONK your texts with Chonkie \u2728 - The no-nonsense chunking library"
+    },
+    {
+      "name": "databricks-openai",
+      "rank": 4119,
+      "downloads": 1197292,
+      "version": "0.17.0",
+      "requirement": "openai>=1.99.9",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Support for Databricks AI support with OpenAI"
+    },
+    {
+      "name": "nemo-gym",
+      "rank": 4166,
+      "downloads": 1169808,
+      "version": "0.5.0",
+      "requirement": "openai<=2.7.2",
+      "via_extra": null,
+      "project_urls": {
+        "Download": "https://github.com/NVIDIA-NeMo/Gym/releases",
+        "Homepage": "https://github.com/NVIDIA-NeMo/Gym"
+      },
+      "summary": "NeMo Gym is a library for building reinforcement learning environments"
+    },
+    {
+      "name": "unitycatalog-openai",
+      "rank": 4167,
+      "downloads": 1168802,
+      "version": "0.4.0",
+      "requirement": "openai<=2.24.0,>=1.46.1",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Support for Unity Catalog functions as OpenAI tools"
+    },
+    {
+      "name": "graphiti-core",
+      "rank": 4206,
+      "downloads": 1143378,
+      "version": "0.29.3",
+      "requirement": "openai>=1.91.0",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://help.getzep.com/graphiti/graphiti/overview",
+        "Repository": "https://github.com/getzep/graphiti"
+      },
+      "summary": "A temporal graph building library"
+    },
+    {
+      "name": "codewords-client",
+      "rank": 4218,
+      "downloads": 1135092,
+      "version": "0.4.10",
+      "requirement": "openai>=1.0.0; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {},
+      "summary": "Python client for CodeWords with auto-configured FastAPI integration."
+    },
+    {
+      "name": "langchain-fireworks",
+      "rank": 4329,
+      "downloads": 1072669,
+      "version": "1.5.2",
+      "requirement": "openai<3.0.0,>=2.0.0",
+      "via_extra": null,
+      "project_urls": {
+        "Changelog": "https://github.com/langchain-ai/langchain/releases?q=%22langchain-fireworks%22",
+        "Documentation": "https://reference.langchain.com/python/integrations/langchain_fireworks/",
+        "Homepage": "https://docs.langchain.com/oss/python/integrations/providers/fireworks",
+        "Issues": "https://github.com/langchain-ai/langchain/issues",
+        "Reddit": "https://www.reddit.com/r/LangChain/",
+        "Repository": "https://github.com/langchain-ai/langchain",
+        "Slack": "https://www.langchain.com/join-community",
+        "Twitter": "https://x.com/langchain_oss"
+      },
+      "summary": "An integration package connecting Fireworks and LangChain"
+    },
+    {
+      "name": "traia-iatp",
+      "rank": 4392,
+      "downloads": 1038464,
+      "version": "0.1.112",
+      "requirement": "openai>=1.109.1",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://docs.d402.net",
+        "Source": "https://github.com/Traia-IO/IATP"
+      },
+      "summary": "Inter-Agent Transfer Protocol (IATP) - Enable AI Agents to utilize other AI Agents as tools"
+    },
+    {
+      "name": "openenv-core",
+      "rank": 4409,
+      "downloads": 1029315,
+      "version": "0.3.0",
+      "requirement": "openai>=2.7.2",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "A unified framework for reinforcement learning environments"
+    },
+    {
+      "name": "weave",
+      "rank": 4476,
+      "downloads": 996538,
+      "version": "0.53.4",
+      "requirement": "openai>=1.99.9; extra == \"crewai\"",
+      "via_extra": "crewai",
+      "project_urls": {
+        "Changes": "https://github.com/wandb/weave/releases",
+        "Company": "https://wandb.com",
+        "Documentation": "https://docs.wandb.ai",
+        "Issue Tracker": "https://github.com/wandb/weave/issues/",
+        "Source Code": "https://github.com/wandb/weave",
+        "Twitter": "https://twitter.com/weights_biases"
+      },
+      "summary": "A toolkit for building composable interactive data driven applications."
+    },
+    {
+      "name": "agent-framework-openai",
+      "rank": 4495,
+      "downloads": 983934,
+      "version": "1.12.0",
+      "requirement": "openai<3,>=2.25.0",
+      "via_extra": null,
+      "project_urls": {
+        "homepage": "https://aka.ms/agent-framework",
+        "issues": "https://github.com/microsoft/agent-framework/issues",
+        "release_notes": "https://github.com/microsoft/agent-framework/releases?q=tag%3Apython-1&expanded=true",
+        "source": "https://github.com/microsoft/agent-framework/tree/main/python"
+      },
+      "summary": "OpenAI integrations for Microsoft Agent Framework."
+    },
+    {
+      "name": "unclecode-litellm",
+      "rank": 4781,
+      "downloads": 869663,
+      "version": "1.81.13",
+      "requirement": "openai>=2.8.0",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://github.com/unclecode/litellm",
+        "Repository": "https://github.com/unclecode/litellm"
+      },
+      "summary": "Pre-compromise fork of litellm - Library to easily interface with LLM API providers"
+    },
+    {
+      "name": "open-webui",
+      "rank": 4850,
+      "downloads": 842241,
+      "version": "0.11.0",
+      "requirement": "openai==2.29.0",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Open WebUI"
+    },
+    {
+      "name": "haystack-ai",
+      "rank": 4895,
+      "downloads": 826519,
+      "version": "3.0.0",
+      "requirement": "openai>=1.99.2",
+      "via_extra": null,
+      "project_urls": {
+        "CI: GitHub": "https://github.com/deepset-ai/haystack/actions",
+        "Docs: RTD": "https://haystack.deepset.ai/overview/intro",
+        "GitHub: issues": "https://github.com/deepset-ai/haystack/issues",
+        "GitHub: repo": "https://github.com/deepset-ai/haystack",
+        "Homepage": "https://github.com/deepset-ai/haystack"
+      },
+      "summary": "LLM framework to build customizable, production-ready LLM applications. Connect components (models, vector DBs, file converters) to pipelines or agents that can interact with your data."
+    },
+    {
+      "name": "inspect-swe",
+      "rank": 5071,
+      "downloads": 758620,
+      "version": "0.2.70",
+      "requirement": "openai; extra == \"dev\"",
+      "via_extra": "dev",
+      "project_urls": {
+        "Documentation": "https://meridianlabs-ai.github.io/inspect_swe/",
+        "Issue Tracker": "https://github.com/meridianlabs-ai/inspect_swe/issues",
+        "Source Code": "https://github.com/meridianlabs-ai/inspect_swe"
+      },
+      "summary": "Software engineering agents for Inspect AI."
+    },
+    {
+      "name": "arize-phoenix-evals",
+      "rank": 5102,
+      "downloads": 749635,
+      "version": "3.4.0",
+      "requirement": "openai>=1.0.0; extra == \"dev\"",
+      "via_extra": "dev",
+      "project_urls": {
+        "Documentation": "https://arize.com/docs/phoenix/",
+        "Issues": "https://github.com/Arize-ai/phoenix/issues",
+        "Source": "https://github.com/Arize-ai/phoenix"
+      },
+      "summary": "LLM Evaluations"
+    },
+    {
+      "name": "aider-chat",
+      "rank": 5147,
+      "downloads": 733989,
+      "version": "0.86.2",
+      "requirement": "openai==2.20.0",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://github.com/Aider-AI/aider"
+      },
+      "summary": "Aider is AI pair programming in your terminal"
+    },
+    {
+      "name": "agentscope",
+      "rank": 5179,
+      "downloads": 724236,
+      "version": "2.0.6",
+      "requirement": "openai",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://doc.agentscope.io/",
+        "Homepage": "https://github.com/agentscope-ai/agentscope",
+        "Repository": "https://github.com/agentscope-ai/agentscope"
+      },
+      "summary": "AgentScope: A Flexible yet Robust Multi-Agent Platform."
+    },
+    {
+      "name": "chainlit",
+      "rank": 5182,
+      "downloads": 722152,
+      "version": "2.11.1",
+      "requirement": "openai<3.0.0,>=2.0.0; extra == \"tests\"",
+      "via_extra": "tests",
+      "project_urls": {
+        "Documentation": "https://docs.chainlit.io/",
+        "Homepage": "https://chainlit.io/",
+        "Repository": "https://github.com/Chainlit/chainlit"
+      },
+      "summary": "Build Conversational AI."
+    },
+    {
+      "name": "openhands-ai",
+      "rank": 5245,
+      "downloads": 701964,
+      "version": "1.11.0",
+      "requirement": "openai==2.33.0",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://github.com/OpenHands/OpenHands",
+        "Repository": "https://github.com/OpenHands/OpenHands"
+      },
+      "summary": "OpenHands: Code Less, Make More"
+    },
+    {
+      "name": "openinference-instrumentation-agno",
+      "rank": 5302,
+      "downloads": 678246,
+      "version": "1.0.2",
+      "requirement": "openai; extra == \"test\"",
+      "via_extra": "test",
+      "project_urls": {
+        "Homepage": "https://github.com/Arize-ai/openinference/tree/main/python/instrumentation/openinference-instrumentation-agno"
+      },
+      "summary": "OpenInference Agno Instrumentation"
+    },
+    {
+      "name": "reme-ai",
+      "rank": 5402,
+      "downloads": 644060,
+      "version": "0.4.1.5",
+      "requirement": "openai>=2.26.0",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://reme.agentscope.io/",
+        "Homepage": "https://github.com/agentscope-ai/ReMe",
+        "Repository": "https://github.com/agentscope-ai/ReMe"
+      },
+      "summary": "Remember Me, Refine Me."
+    },
+    {
+      "name": "chalkpy",
+      "rank": 5517,
+      "downloads": 609985,
+      "version": "2.154.33",
+      "requirement": "openai<1.53,>=1.3.2; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {
+        "Changelog": "https://docs.chalk.ai/docs/changelog",
+        "Documentation": "https://docs.chalk.ai",
+        "Homepage": "https://chalk.ai"
+      },
+      "summary": "Python SDK for Chalk"
+    },
+    {
+      "name": "renderers",
+      "rank": 5520,
+      "downloads": 609382,
+      "version": "0.1.9",
+      "requirement": "openai>=1.108.1",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Chat template renderers \u2014 deterministic message-to-token conversion for LLM training"
+    },
+    {
+      "name": "unstructured-ingest",
+      "rank": 5543,
+      "downloads": 602681,
+      "version": "1.9.0",
+      "requirement": "openai; extra == \"octoai\"",
+      "via_extra": "octoai",
+      "project_urls": {},
+      "summary": "Local ETL data pipeline to get data RAG ready"
+    },
+    {
+      "name": "smolagents",
+      "rank": 5600,
+      "downloads": 587287,
+      "version": "1.26.0",
+      "requirement": "openai>=1.58.1; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {},
+      "summary": "\ud83e\udd17 smolagents: a barebones library for agents. Agents write python code to call tools or orchestrate other agents."
+    },
+    {
+      "name": "surya-ocr",
+      "rank": 5618,
+      "downloads": 581696,
+      "version": "0.22.1",
+      "requirement": "openai<3,>=1.55.0",
+      "via_extra": null,
+      "project_urls": {
+        "Repository": "https://github.com/datalab-to/surya"
+      },
+      "summary": "OCR, layout, reading order, and table recognition in 90+ languages."
+    },
+    {
+      "name": "openai-chatkit",
+      "rank": 5749,
+      "downloads": 552957,
+      "version": "1.6.5",
+      "requirement": "openai",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "A ChatKit backend SDK."
+    },
+    {
+      "name": "llm",
+      "rank": 5766,
+      "downloads": 549862,
+      "version": "0.32",
+      "requirement": "openai>=2.32.0",
+      "via_extra": null,
+      "project_urls": {
+        "CI": "https://github.com/simonw/llm/actions",
+        "Changelog": "https://github.com/simonw/llm/releases",
+        "Documentation": "https://llm.datasette.io/",
+        "Homepage": "https://github.com/simonw/llm",
+        "Issues": "https://github.com/simonw/llm/issues"
+      },
+      "summary": "CLI utility and Python library for interacting with Large Language Models from organizations like OpenAI, Anthropic and Gemini plus local models installed on your own machine."
+    },
+    {
+      "name": "npmai-agents",
+      "rank": 5817,
+      "downloads": 541301,
+      "version": "1.0.2",
+      "requirement": "openai; extra == \"full\"",
+      "via_extra": "full",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/sonuramashishnpm/npmai-agent/issues",
+        "Documentation": "https://npmai.netlify.app",
+        "Homepage": "https://npmai.netlify.app",
+        "PyPI": "https://pypi.org/project/npmai_agents",
+        "Repository": "https://github.com/sonuramashishnpm/npmai-agent"
+      },
+      "summary": "Production-grade autonomous AI agent framework with 1,371 tools across 100 classes and a 5-role LLM pipeline \u2014 built on the NPMAI ECOSYSTEM."
+    },
+    {
+      "name": "captum",
+      "rank": 5997,
+      "downloads": 524064,
+      "version": "0.9.0",
+      "requirement": "openai; extra == \"optional\"",
+      "via_extra": "optional",
+      "project_urls": {
+        "Documentation": "https://captum.ai",
+        "Homepage": "https://captum.ai",
+        "Source": "https://github.com/pytorch/captum",
+        "conda": "https://anaconda.org/pytorch/captum"
+      },
+      "summary": "Model Interpretability for PyTorch"
+    },
+    {
+      "name": "prompty",
+      "rank": 6020,
+      "downloads": 519622,
+      "version": "0.1.50",
+      "requirement": "openai>=1.43.0; extra == \"azure\"",
+      "via_extra": "azure",
+      "project_urls": {
+        "Documentation": "https://prompty.ai/docs",
+        "Issues": "https://github.com/microsoft/prompty/issues",
+        "Repository": "https://github.com/Microsoft/prompty"
+      },
+      "summary": "Prompty is a new asset class and format for LLM prompts that aims to provide observability, understandability, and portability for developers. It includes spec, tooling, and a runtime. This Prompty ru"
+    },
+    {
+      "name": "autogen-ext",
+      "rank": 6129,
+      "downloads": 497613,
+      "version": "0.7.5",
+      "requirement": "openai>=1.93; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {},
+      "summary": "AutoGen extensions library"
+    },
+    {
+      "name": "headroom-ai",
+      "rank": 6139,
+      "downloads": 495271,
+      "version": "0.34.0",
+      "requirement": "openai>=1.0.0; extra == \"dev\"",
+      "via_extra": "dev",
+      "project_urls": {
+        "AI / LLM Index": "https://headroom-docs.vercel.app/llms.txt",
+        "Changelog": "https://github.com/chopratejas/headroom/blob/main/CHANGELOG.md",
+        "Documentation": "https://headroom-docs.vercel.app/docs",
+        "Homepage": "https://headroom-docs.vercel.app",
+        "Issues": "https://github.com/chopratejas/headroom/issues",
+        "Repository": "https://github.com/chopratejas/headroom"
+      },
+      "summary": "The Context Optimization Layer for LLM Applications - Cut costs by 50-90%"
+    },
+    {
+      "name": "pinecone-text",
+      "rank": 6315,
+      "downloads": 465410,
+      "version": "0.11.0",
+      "requirement": "openai<2.0.0,>=1.2.3; extra == \"dense\" or extra == \"openai\"",
+      "via_extra": "dense",
+      "project_urls": {},
+      "summary": "Text utilities library by Pinecone.io"
+    },
+    {
+      "name": "openviking",
+      "rank": 6336,
+      "downloads": 460351,
+      "version": "0.4.13",
+      "requirement": "openai>=1.0.0",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://openviking.ai",
+        "Homepage": "https://github.com/volcengine/openviking",
+        "Issues": "https://github.com/volcengine/openviking/issues",
+        "Repository": "https://github.com/volcengine/openviking"
+      },
+      "summary": "An Agent-native context database"
+    },
+    {
+      "name": "cisco-ai-skill-scanner",
+      "rank": 6369,
+      "downloads": 453789,
+      "version": "2.0.13",
+      "requirement": "openai<3,>=2.0",
+      "via_extra": null,
+      "project_urls": {
+        "Changelog": "https://github.com/cisco-ai-defense/skill-scanner/releases",
+        "Documentation": "https://github.com/cisco-ai-defense/skill-scanner#readme",
+        "Homepage": "https://github.com/cisco-ai-defense/skill-scanner",
+        "Issues": "https://github.com/cisco-ai-defense/skill-scanner/issues",
+        "Repository": "https://github.com/cisco-ai-defense/skill-scanner"
+      },
+      "summary": "Security scanner for Agent Skills packages - Detects prompt injection, data exfiltration, and malicious code"
+    },
+    {
+      "name": "sap-ai-sdk-gen",
+      "rank": 6483,
+      "downloads": 432753,
+      "version": "7.2.0",
+      "requirement": "openai>=1.66.0",
+      "via_extra": null,
+      "project_urls": {
+        "Download": "https://pypi.python.org/pypi/sap-ai-sdk-gen",
+        "Homepage": "https://www.sap.com/"
+      },
+      "summary": "SAP Cloud SDK for AI (Python): generative AI SDK"
+    },
+    {
+      "name": "verifiers",
+      "rank": 6490,
+      "downloads": 431626,
+      "version": "0.3.0",
+      "requirement": "openai>=2.9.0",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://github.com/primeintellect-ai/verifiers",
+        "Homepage": "https://github.com/primeintellect-ai/verifiers",
+        "Issues": "https://github.com/primeintellect-ai/verifiers/issues",
+        "Repository": "https://github.com/primeintellect-ai/verifiers.git"
+      },
+      "summary": "Verifiers: Environments for LLM Reinforcement Learning"
+    },
+    {
+      "name": "openlit",
+      "rank": 6578,
+      "downloads": 417441,
+      "version": "1.45.0",
+      "requirement": "openai<3.0.0,>=1.92.0",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://github.com/openlit/openlit/tree/main/openlit/python",
+        "Repository": "https://github.com/openlit/openlit/tree/main/openlit/python"
+      },
+      "summary": "OpenTelemetry-native Auto instrumentation library for monitoring LLM Applications and GPUs, facilitating the integration of observability into your GenAI-driven projects"
+    },
+    {
+      "name": "qwen-agent",
+      "rank": 6586,
+      "downloads": 416042,
+      "version": "0.0.34",
+      "requirement": "openai",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://github.com/QwenLM/Qwen-Agent"
+      },
+      "summary": "Qwen-Agent: Enhancing LLMs with Agent Workflows, RAG, Function Calling, and Code Interpreter."
+    },
+    {
+      "name": "nemoguardrails",
+      "rank": 6705,
+      "downloads": 400729,
+      "version": "0.23.0",
+      "requirement": "openai<3.0.0,>=1.0.0; extra == \"server\" or extra == \"all\"",
+      "via_extra": "server",
+      "project_urls": {
+        "changelog": "https://github.com/NVIDIA-NeMo/Guardrails/blob/develop/CHANGELOG.md",
+        "documentation": "https://docs.nvidia.com/nemo/guardrails/",
+        "homepage": "https://github.com/NVIDIA-NeMo/Guardrails",
+        "issues": "https://github.com/NVIDIA-NeMo/Guardrails/issues",
+        "repository": "https://github.com/NVIDIA-NeMo/Guardrails"
+      },
+      "summary": "NeMo Guardrails is an open-source toolkit for easily adding programmable guardrails to LLM-based conversational systems."
+    },
+    {
+      "name": "tinker-cookbook",
+      "rank": 6724,
+      "downloads": 398320,
+      "version": "0.5.4",
+      "requirement": "openai>=1.0.0; extra == \"all\"",
+      "via_extra": "all",
+      "project_urls": {
+        "Documentation": "https://tinker-docs.thinkingmachines.ai/",
+        "Homepage": "https://thinkingmachines.ai/tinker",
+        "Repository": "https://github.com/thinking-machines-lab/tinker-cookbook"
+      },
+      "summary": "Implementations of post-training algorithms using the Tinker API"
+    },
+    {
+      "name": "embedchain",
+      "rank": 6737,
+      "downloads": 396768,
+      "version": "0.1.128",
+      "requirement": "openai>=1.1.1",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Simplest open source retrieval (RAG) framework"
+    },
+    {
+      "name": "neo4j-graphrag",
+      "rank": 6871,
+      "downloads": 379795,
+      "version": "1.18.0",
+      "requirement": "openai<2.0.0,>=1.51.1; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {
+        "Homepage": "https://neo4j.com/",
+        "Repository": "https://github.com/neo4j/neo4j-graphrag-python"
+      },
+      "summary": "Python package to allow easy integration to Neo4j's GraphRAG features"
+    },
+    {
+      "name": "langextract",
+      "rank": 6910,
+      "downloads": 375612,
+      "version": "1.6.0",
+      "requirement": "openai>=1.50.0; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/google/langextract/issues",
+        "Changelog": "https://github.com/google/langextract/releases",
+        "DOI": "https://doi.org/10.5281/zenodo.17015089",
+        "Documentation": "https://github.com/google/langextract/blob/main/README.md",
+        "Homepage": "https://github.com/google/langextract",
+        "Repository": "https://github.com/google/langextract"
+      },
+      "summary": "LangExtract: A library for extracting structured data from language models"
+    },
+    {
+      "name": "openai-guardrails",
+      "rank": 7172,
+      "downloads": 346237,
+      "version": "0.3.0",
+      "requirement": "openai>=1.75.0",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://openai.github.io/openai-guardrails-python/",
+        "Repository": "https://github.com/openai/openai-guardrails-python"
+      },
+      "summary": "OpenAI Guardrails: A framework for building safe and reliable AI systems."
+    },
+    {
+      "name": "ag2",
+      "rank": 7216,
+      "downloads": 341695,
+      "version": "1.0.1",
+      "requirement": "openai<3.0,>=2.45.0; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {
+        "Discord": "https://discord.gg/pAbnFJrkgZ",
+        "Documentation": "https://docs.ag2.ai",
+        "Homepage": "https://ag2.ai/",
+        "Source": "https://github.com/ag2ai/ag2",
+        "Tracker": "https://github.com/ag2ai/ag2/issues"
+      },
+      "summary": "A programming framework for agentic AI"
+    },
+    {
+      "name": "inspect-scout",
+      "rank": 7258,
+      "downloads": 337773,
+      "version": "0.4.46",
+      "requirement": "openai>=2.26.0; extra == \"dev\"",
+      "via_extra": "dev",
+      "project_urls": {
+        "Issue Tracker": "https://github.com/meridianlabs-ai/inspect_scout/issues",
+        "Source Code": "https://github.com/meridianlabs-ai/inspect_scout"
+      },
+      "summary": "Transcript Analysis for AI Agents"
+    },
+    {
+      "name": "hermes-agent",
+      "rank": 7331,
+      "downloads": 330217,
+      "version": "0.19.0",
+      "requirement": "openai==2.24.0",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "The self-improving AI agent \u2014 creates skills from experience, improves them during use, and runs anywhere"
+    },
+    {
+      "name": "megatron-core",
+      "rank": 7359,
+      "downloads": 326173,
+      "version": "0.18.2",
+      "requirement": "openai[aiohttp]; extra == \"dev\"",
+      "via_extra": "dev",
+      "project_urls": {
+        "Download": "https://github.com/NVIDIA/Megatron-LM/releases",
+        "Homepage": "https://github.com/NVIDIA/Megatron-LM"
+      },
+      "summary": "Megatron Core - a library for efficient and scalable training of transformer based models"
+    },
+    {
+      "name": "bfcl-eval",
+      "rank": 7373,
+      "downloads": 324373,
+      "version": "2026.3.23",
+      "requirement": "openai>=1.86.0",
+      "via_extra": null,
+      "project_urls": {
+        "Repository": "https://github.com/ShishirPatil/gorilla/tree/main/berkeley-function-call-leaderboard"
+      },
+      "summary": "Berkeley Function Calling Leaderboard (BFCL)"
+    },
+    {
+      "name": "lerobot",
+      "rank": 7386,
+      "downloads": 322564,
+      "version": "0.6.1",
+      "requirement": "openai<2.0,>=1.40; extra == \"annotations\"",
+      "via_extra": "annotations",
+      "project_urls": {
+        "discord": "https://discord.gg/s3KuuzsPFb",
+        "documentation": "https://huggingface.co/docs/lerobot/index",
+        "homepage": "https://huggingface.co/lerobot",
+        "issues": "https://github.com/huggingface/lerobot/issues",
+        "source": "https://github.com/huggingface/lerobot"
+      },
+      "summary": "\ud83e\udd17 LeRobot: State-of-the-art Machine Learning for Real-World Robotics in Pytorch"
+    },
+    {
+      "name": "lightrag-hku",
+      "rank": 7432,
+      "downloads": 317860,
+      "version": "1.5.6",
+      "requirement": "openai<3.0.0,>=2.0.0; extra == \"api\"",
+      "via_extra": "api",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/HKUDS/LightRAG/issues",
+        "Documentation": "https://github.com/HKUDS/LightRAG",
+        "Homepage": "https://github.com/HKUDS/LightRAG",
+        "Repository": "https://github.com/HKUDS/LightRAG"
+      },
+      "summary": "LightRAG: Simple and Fast Retrieval-Augmented Generation"
+    },
+    {
+      "name": "semantic-router",
+      "rank": 7560,
+      "downloads": 305196,
+      "version": "0.1.16",
+      "requirement": "openai<3.0.0,>=1.10.0",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Super fast semantic router for AI decision making"
+    },
+    {
+      "name": "marker-pdf",
+      "rank": 7743,
+      "downloads": 286658,
+      "version": "2.0.0",
+      "requirement": "openai<3,>=2.2.0",
+      "via_extra": null,
+      "project_urls": {
+        "Repository": "https://github.com/datalab-to/marker"
+      },
+      "summary": "Convert documents to markdown with high speed and accuracy."
+    },
+    {
+      "name": "shiny",
+      "rank": 7817,
+      "downloads": 281080,
+      "version": "1.7.0",
+      "requirement": "openai>=1.104.1; extra == \"add-test\"",
+      "via_extra": "add-test",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/posit-dev/py-shiny/issues",
+        "Documentation": "https://shiny.posit.co/py/",
+        "Homepage": "https://github.com/posit-dev/py-shiny",
+        "Repository": "https://github.com/posit-dev/py-shiny"
+      },
+      "summary": "A web development framework for Python."
+    },
+    {
+      "name": "optuna-dashboard",
+      "rank": 7914,
+      "downloads": 272746,
+      "version": "0.20.0",
+      "requirement": "openai; extra == \"docs\"",
+      "via_extra": "docs",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/optuna/optuna-dashboard/issues",
+        "Homepage": "https://github.com/optuna/optuna-dashboard",
+        "Sources": "https://github.com/optuna/optuna-dashboard"
+      },
+      "summary": "Real-time dashboard for Optuna"
+    },
+    {
+      "name": "mineru",
+      "rank": 7999,
+      "downloads": 266688,
+      "version": "3.4.4",
+      "requirement": "openai<3,>=1.70.0",
+      "via_extra": null,
+      "project_urls": {
+        "License": "https://github.com/opendatalab/MinerU/blob/master/LICENSE.md",
+        "documentation": "https://opendatalab.github.io/MinerU/",
+        "homepage": "https://mineru.net/",
+        "issues": "https://github.com/opendatalab/MinerU/issues",
+        "repository": "https://github.com/opendatalab/MinerU"
+      },
+      "summary": "A practical document parsing tool for converting PDF, images, DOCX, PPTX, and XLSX into Markdown and JSON"
+    },
+    {
+      "name": "shinychat",
+      "rank": 8072,
+      "downloads": 261869,
+      "version": "0.6.0",
+      "requirement": "openai; extra == \"providers\"",
+      "via_extra": "providers",
+      "project_urls": {
+        "Changelog": "https://github.com/posit-dev/shinychat/blob/main/pkg-py/CHANGELOG.md",
+        "Documentation": "https://posit-dev.github.io/shinychat/py/",
+        "Homepage": "https://posit-dev.github.io/shinychat/",
+        "Issues": "https://github.com/posit-dev/shinychat/issues/",
+        "Repository": "https://github.com/posit-dev/shinychat"
+      },
+      "summary": "An AI Chat interface for Shiny apps."
+    },
+    {
+      "name": "azure-ai-evaluation",
+      "rank": 8124,
+      "downloads": 257531,
+      "version": "1.18.3",
+      "requirement": "openai>=1.108.0",
+      "via_extra": null,
+      "project_urls": {
+        "Bug Reports": "https://github.com/Azure/azure-sdk-for-python/issues",
+        "Homepage": "https://github.com/Azure/azure-sdk-for-python",
+        "Source": "https://github.com/Azure/azure-sdk-for-python"
+      },
+      "summary": "Microsoft Azure Evaluation Library for Python"
+    },
+    {
+      "name": "genagent",
+      "rank": 8198,
+      "downloads": 251771,
+      "version": "0.4.1",
+      "requirement": "openai>=1.0.0",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Python utilities for generative agent tasks, including LLM interactions and agent memory."
+    },
+    {
+      "name": "django-sql-explorer",
+      "rank": 8274,
+      "downloads": 247210,
+      "version": "5.3",
+      "requirement": "openai>=1.6.1; extra == \"assistant\"",
+      "via_extra": "assistant",
+      "project_urls": {
+        "Changes": "https://django-sql-explorer.readthedocs.io/en/latest/history.html",
+        "Documentation": "https://django-sql-explorer.readthedocs.io/en/latest/",
+        "Homepage": "https://www.sqlexplorer.io",
+        "Issues": "https://github.com/explorerhq/sql-explorer/issues"
+      },
+      "summary": "SQL Reporting that Just Works. Fast, simple, and confusion-free.Write and share queries in a delightful SQL editor, with AI assistance"
+    },
+    {
+      "name": "bernstein",
+      "rank": 8371,
+      "downloads": 240756,
+      "version": "3.14.159",
+      "requirement": "openai>=2.36.0",
+      "via_extra": null,
+      "project_urls": {
+        "Author": "https://alexchernysh.com",
+        "Changelog": "https://github.com/sipyourdrink-ltd/bernstein/releases",
+        "Documentation": "https://bernstein.readthedocs.io",
+        "Funding": "https://github.com/sponsors/chernistry",
+        "Homepage": "https://bernstein.run",
+        "Issues": "https://github.com/sipyourdrink-ltd/bernstein/issues",
+        "Repository": "https://github.com/sipyourdrink-ltd/bernstein",
+        "Source": "https://github.com/sipyourdrink-ltd/bernstein",
+        "Twitter": "https://x.com/alex_chernysh"
+      },
+      "summary": "Deterministic orchestrator for CLI coding agents (Claude Code, Codex, Gemini CLI, and 40+ more). No model in the coordination loop, so parallel runs in per-task git worktrees replay byte-identically. "
+    },
+    {
+      "name": "foundry-local-sdk",
+      "rank": 8404,
+      "downloads": 239386,
+      "version": "1.2.4",
+      "requirement": "openai>=2.24.0",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://github.com/microsoft/Foundry-Local"
+      },
+      "summary": "Foundry Local Manager Python SDK: Control-plane SDK for Foundry Local."
+    },
+    {
+      "name": "stirrup",
+      "rank": 8752,
+      "downloads": 215984,
+      "version": "0.2.0",
+      "requirement": "openai>=1.0.0",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://stirrup.artificialanalysis.ai",
+        "Homepage": "https://github.com/ArtificialAnalysis/Stirrup",
+        "Repository": "https://github.com/ArtificialAnalysis/Stirrup"
+      },
+      "summary": "The lightweight foundation for building agents"
+    },
+    {
+      "name": "cognee",
+      "rank": 8753,
+      "downloads": 215974,
+      "version": "1.4.2",
+      "requirement": "openai>=1.80.1",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://www.cognee.ai",
+        "Repository": "https://github.com/topoteretes/cognee"
+      },
+      "summary": "Cognee - is a library for enriching LLM context with a semantic layer for better understanding and reasoning."
+    },
+    {
+      "name": "fhlmi",
+      "rank": 8835,
+      "downloads": 211901,
+      "version": "1.0.5",
+      "requirement": "openai>=2",
+      "via_extra": null,
+      "project_urls": {
+        "issues": "https://github.com/Future-House/ldp/packages/lmi/issues",
+        "repository": "https://github.com/Future-House/ldp/packages/lmi"
+      },
+      "summary": "A client to provide LLM responses for FutureHouse applications."
+    },
+    {
+      "name": "vllm-cpu",
+      "rank": 8854,
+      "downloads": 210764,
+      "version": "0.27.1",
+      "requirement": "openai>=2.0.0",
+      "via_extra": null,
+      "project_urls": {
+        "Bug Tracker": "https://github.com/MekayelAnik/vllm-cpu/issues",
+        "Documentation": "https://docs.vllm.ai/en/latest/",
+        "Homepage": "https://github.com/vllm-project/vllm",
+        "Slack": "https://slack.vllm.ai/"
+      },
+      "summary": "A high-throughput and memory-efficient inference and serving engine for LLMs"
+    },
+    {
+      "name": "lumibot",
+      "rank": 8879,
+      "downloads": 209646,
+      "version": "4.5.83",
+      "requirement": "openai",
+      "via_extra": null,
+      "project_urls": {
+        "BotSpot Platform": "https://botspot.trade/",
+        "Bug Tracker": "https://github.com/Lumiwealth/lumibot/issues",
+        "Discord Community": "https://discord.gg/4R9j6T3PN8",
+        "Documentation": "https://lumibot.lumiwealth.com/",
+        "Homepage": "https://github.com/Lumiwealth/lumibot",
+        "Reddit Community": "https://www.reddit.com/r/BotSpotTrade/",
+        "Source Code": "https://github.com/Lumiwealth/lumibot"
+      },
+      "summary": "Python framework for algorithmic trading: backtesting and live deployment for stocks, options, crypto, futures, and forex. Same code for backtest and live trading."
+    },
+    {
+      "name": "letta",
+      "rank": 8890,
+      "downloads": 208671,
+      "version": "0.16.8",
+      "requirement": "openai[realtime]>=2.24.0",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Create LLM agents with long-term memory and custom tools"
+    },
+    {
+      "name": "zernio-sdk",
+      "rank": 9016,
+      "downloads": 202833,
+      "version": "1.4.475",
+      "requirement": "openai>=1.0.0; extra == \"ai\"",
+      "via_extra": "ai",
+      "project_urls": {
+        "Changelog": "https://docs.zernio.com/changelog",
+        "Documentation": "https://docs.zernio.com",
+        "Homepage": "https://zernio.com",
+        "Issues": "https://github.com/zernio-dev/zernio-python/issues",
+        "Repository": "https://github.com/zernio-dev/zernio-python"
+      },
+      "summary": "The official Python library for the Zernio API"
+    },
+    {
+      "name": "geneva",
+      "rank": 9043,
+      "downloads": 201321,
+      "version": "0.14.0",
+      "requirement": "openai>=1.0; extra == \"udf-text-openai\"",
+      "via_extra": "udf-text-openai",
+      "project_urls": {},
+      "summary": "Geneva - Multimodal Data Lake for AI"
+    },
+    {
+      "name": "vanna",
+      "rank": 9107,
+      "downloads": 198050,
+      "version": "2.0.2",
+      "requirement": "openai; extra == \"all\"",
+      "via_extra": "all",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/vanna-ai/vanna/issues",
+        "Homepage": "https://github.com/vanna-ai/vanna"
+      },
+      "summary": "Generate SQL queries from natural language"
+    },
+    {
+      "name": "fast-agent-mcp",
+      "rank": 9183,
+      "downloads": 194888,
+      "version": "0.10.4",
+      "requirement": "openai[aiohttp,realtime]==2.53.0",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Code, Build and Evaluate agents - excellent Model and Skills/MCP/ACP/A2A Support"
+    },
+    {
+      "name": "lance-context",
+      "rank": 9255,
+      "downloads": 191773,
+      "version": "0.6.5",
+      "requirement": "openai>=1.0; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {},
+      "summary": "Multimodal, versioned context storage for agentic workflows"
+    },
+    {
+      "name": "xpander-sdk",
+      "rank": 9380,
+      "downloads": 185386,
+      "version": "2.0.454",
+      "requirement": "openai; extra == \"dev\"",
+      "via_extra": "dev",
+      "project_urls": {
+        "Homepage": "https://www.xpander.ai"
+      },
+      "summary": "xpander.ai Backend-as-a-service for AI Agents - SDK"
+    },
+    {
+      "name": "chroma-mcp",
+      "rank": 9412,
+      "downloads": 183998,
+      "version": "0.2.6",
+      "requirement": "openai>=1.70.0",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://github.com/chroma-core/chroma-mcp#readme",
+        "Homepage": "https://github.com/chroma-core/chroma-mcp",
+        "Issues": "https://github.com/chroma-core/chroma-mcp/issues"
+      },
+      "summary": "Chroma MCP Server - Vector Database Integration for LLM Applications"
+    },
+    {
+      "name": "evalplus",
+      "rank": 9444,
+      "downloads": 182607,
+      "version": "0.3.1",
+      "requirement": "openai>=1.11.1",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://github.com/evalplus/evalplus"
+      },
+      "summary": "\"EvalPlus for rigourous evaluation of LLM-synthesized code\""
+    },
+    {
+      "name": "jcodemunch-mcp",
+      "rank": 9458,
+      "downloads": 182096,
+      "version": "1.108.271",
+      "requirement": "openai>=1.0.0; extra == \"all\"",
+      "via_extra": "all",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/jgravelle/jcodemunch-mcp/issues",
+        "Homepage": "https://github.com/jgravelle/jcodemunch-mcp",
+        "Repository": "https://github.com/jgravelle/jcodemunch-mcp"
+      },
+      "summary": "Token-efficient MCP server for source code exploration via tree-sitter AST parsing"
+    },
+    {
+      "name": "echo-agent",
+      "rank": 9490,
+      "downloads": 180595,
+      "version": "0.3.5",
+      "requirement": "openai>=1.30; extra == \"all\"",
+      "via_extra": "all",
+      "project_urls": {
+        "Discussions": "https://github.com/fuyuxiang/echo-agent/discussions",
+        "Homepage": "https://github.com/fuyuxiang/echo-agent",
+        "Issues": "https://github.com/fuyuxiang/echo-agent/issues",
+        "Repository": "https://github.com/fuyuxiang/echo-agent"
+      },
+      "summary": "A self-hosted, long-running AI agent runtime with memory, skills, plugins, and multi-channel integrations"
+    },
+    {
+      "name": "uipath-llm-client",
+      "rank": 9511,
+      "downloads": 179810,
+      "version": "1.17.1",
+      "requirement": "openai<3.0.0,>=2.30.0; extra == \"all\"",
+      "via_extra": "all",
+      "project_urls": {},
+      "summary": "UiPath LLM Client"
+    },
+    {
+      "name": "highcharts-core",
+      "rank": 9582,
+      "downloads": 177602,
+      "version": "1.11.0",
+      "requirement": "openai>=0.28.0; extra == \"ai\"",
+      "via_extra": "ai",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/highcharts-for-python/highcharts-core/issues",
+        "Demo": "https://github.com/highcharts-for-python/highcharts-for-python-demos",
+        "Documentation": "https://core-docs.highchartspython.com/en/latest/",
+        "History": "https://github.com/highcharts-for-python/highcharts-core/blob/master/CHANGES.rst",
+        "Homepage": "https://highchartspython.com",
+        "Source Code": "https://github.com/highcharts-for-python/highcharts-core",
+        "Sponsor": "https://github.com/sponsors/highcharts-for-python",
+        "Support": "https://www.highchartspython.com/get-help"
+      },
+      "summary": "High-end Data Visualization for the Python Ecosystem. Official wrapper for Highcharts Core (JS)."
+    },
+    {
+      "name": "any-llm-sdk",
+      "rank": 9700,
+      "downloads": 172716,
+      "version": "1.25.0",
+      "requirement": "openai>=2.18.0",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://docs.mozilla.ai/any-llm/",
+        "Issues": "https://github.com/mozilla-ai/any-llm/issues",
+        "Source": "https://github.com/mozilla-ai/any-llm"
+      },
+      "summary": ""
+    },
+    {
+      "name": "apache-airflow-providers-openai",
+      "rank": 9701,
+      "downloads": 172695,
+      "version": "1.8.2",
+      "requirement": "openai>=2.37.0",
+      "via_extra": null,
+      "project_urls": {
+        "Bug Tracker": "https://github.com/apache/airflow/issues",
+        "Changelog": "https://airflow.apache.org/docs/apache-airflow-providers-openai/1.8.2/changelog.html",
+        "Documentation": "https://airflow.apache.org/docs/apache-airflow-providers-openai/1.8.2",
+        "Mastodon": "https://fosstodon.org/@airflow",
+        "Slack Chat": "https://s.apache.org/airflow-slack",
+        "Source Code": "https://github.com/apache/airflow",
+        "YouTube": "https://www.youtube.com/channel/UCSXwxpWZQ7XZ1WL3wqevChA/"
+      },
+      "summary": "Provider package apache-airflow-providers-openai for Apache Airflow"
+    },
+    {
+      "name": "conductor-python",
+      "rank": 9989,
+      "downloads": 162197,
+      "version": "2.0.0",
+      "requirement": "openai>=2.28.0; extra == \"openai\" or extra == \"agents\"",
+      "via_extra": "openai",
+      "project_urls": {},
+      "summary": "Python SDK for working with https://github.com/conductor-oss/conductor"
+    },
+    {
+      "name": "autogen",
+      "rank": 10216,
+      "downloads": 154785,
+      "version": "0.14.1",
+      "requirement": "openai<3.0,>=2.44.0; extra == \"deepseek\"",
+      "via_extra": "deepseek",
+      "project_urls": {
+        "Discord": "https://discord.gg/pAbnFJrkgZ",
+        "Documentation": "https://docs.ag2.ai",
+        "Homepage": "https://ag2.ai/",
+        "Source": "https://github.com/ag2ai/ag2classic",
+        "Tracker": "https://github.com/ag2ai/ag2classic/issues"
+      },
+      "summary": "A programming framework for agentic AI"
+    },
+    {
+      "name": "promptflow-tracing",
+      "rank": 10235,
+      "downloads": 154134,
+      "version": "1.18.5",
+      "requirement": "openai",
+      "via_extra": null,
+      "project_urls": {
+        "Bug Reports": "https://github.com/microsoft/promptflow/issues",
+        "Homepage": "https://microsoft.github.io/promptflow/",
+        "Repository": "https://github.com/microsoft/promptflow"
+      },
+      "summary": "Prompt flow tracing"
+    },
+    {
+      "name": "tooluniverse",
+      "rank": 10281,
+      "downloads": 152732,
+      "version": "1.4.0",
+      "requirement": "openai>=1.107.0",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://github.com/mims-harvard/ToolUniverse"
+      },
+      "summary": "A comprehensive collection of scientific tools for Agentic AI, offering integration with the ToolUniverse SDK and MCP Server to support advanced scientific workflows."
+    },
+    {
+      "name": "gllm-inference-binary",
+      "rank": 10424,
+      "downloads": 148026,
+      "version": "0.6.111",
+      "requirement": "openai<3.0.0,>=2.7.0; extra == \"datasaur\"",
+      "via_extra": "datasaur",
+      "project_urls": {},
+      "summary": "A library containing components related to model inferences in Gen AI applications."
+    },
+    {
+      "name": "guardrails-ai",
+      "rank": 10491,
+      "downloads": 145984,
+      "version": "0.10.2",
+      "requirement": "openai<3.0.0,>=1.30.1",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Adding guardrails to large language models."
+    },
+    {
+      "name": "late-sdk",
+      "rank": 10496,
+      "downloads": 145853,
+      "version": "1.4.475",
+      "requirement": "openai>=1.0.0; extra == \"ai\"",
+      "via_extra": "ai",
+      "project_urls": {
+        "Changelog": "https://docs.zernio.com/changelog",
+        "Documentation": "https://docs.zernio.com",
+        "Homepage": "https://zernio.com",
+        "Issues": "https://github.com/zernio-dev/zernio-python/issues",
+        "Repository": "https://github.com/zernio-dev/zernio-python"
+      },
+      "summary": "The official Python library for the Zernio API"
+    },
+    {
+      "name": "ell-ai",
+      "rank": 10498,
+      "downloads": 145815,
+      "version": "0.0.17",
+      "requirement": "openai>=1.51.0",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://docs.ell.so",
+        "Repository": "https://github.com/MadcowD/ell"
+      },
+      "summary": "ell - the language model programming library"
+    },
+    {
+      "name": "kosong",
+      "rank": 10549,
+      "downloads": 144542,
+      "version": "0.56.0",
+      "requirement": "openai<2.15.0,>=2.14.0",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "The LLM abstraction layer for modern AI agent applications."
+    },
+    {
+      "name": "mavproxy",
+      "rank": 10555,
+      "downloads": 144458,
+      "version": "1.8.74",
+      "requirement": "openai; extra == \"recommended\"",
+      "via_extra": "recommended",
+      "project_urls": {
+        "Homepage": "https://github.com/ArduPilot/MAVProxy"
+      },
+      "summary": "MAVProxy MAVLink ground station"
+    },
+    {
+      "name": "mcp-server-appwrite",
+      "rank": 10674,
+      "downloads": 141016,
+      "version": "0.8.31",
+      "requirement": "openai>=1.40",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "MCP (Model Context Protocol) server for Appwrite"
+    },
+    {
+      "name": "textarena",
+      "rank": 10785,
+      "downloads": 137983,
+      "version": "0.7.4",
+      "requirement": "openai",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://www.textarena.ai/"
+      },
+      "summary": "A Collection of Competitive Text-Based Games for Language Model Evaluation and Reinforcement Learning"
+    },
+    {
+      "name": "dbt-osmosis",
+      "rank": 10945,
+      "downloads": 132991,
+      "version": "1.5.0",
+      "requirement": "openai<2.42.0,>=1.58.1; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {},
+      "summary": "A dbt utility for managing YAML to make developing with dbt more delightful."
+    },
+    {
+      "name": "langwatch-scenario",
+      "rank": 10986,
+      "downloads": 132234,
+      "version": "1.0.0",
+      "requirement": "openai>=1.88.0",
+      "via_extra": null,
+      "project_urls": {
+        "Bug Tracker": "https://github.com/langwatch/scenario/issues",
+        "Homepage": "https://github.com/langwatch/scenario"
+      },
+      "summary": "The end-to-end agent testing library"
+    },
+    {
+      "name": "omnigent",
+      "rank": 10999,
+      "downloads": 131728,
+      "version": "0.9.0",
+      "requirement": "openai<2.45,>=1.0",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Omnigent: declarative agent authoring and runtime framework"
+    },
+    {
+      "name": "markitdown-ocr",
+      "rank": 11072,
+      "downloads": 129632,
+      "version": "0.1.0",
+      "requirement": "openai>=1.0.0; extra == \"llm\"",
+      "via_extra": "llm",
+      "project_urls": {
+        "Documentation": "https://github.com/microsoft/markitdown#readme",
+        "Issues": "https://github.com/microsoft/markitdown/issues",
+        "Source": "https://github.com/microsoft/markitdown"
+      },
+      "summary": "OCR plugin for MarkItDown - Extracts text from images in PDF, DOCX, PPTX, and XLSX via LLM Vision"
+    },
+    {
+      "name": "nextcloud-mcp-server",
+      "rank": 11211,
+      "downloads": 126271,
+      "version": "0.169.2",
+      "requirement": "openai>=2.8.1",
+      "via_extra": null,
+      "project_urls": {
+        "Bug Tracker": "https://github.com/cbcoutinho/nextcloud-mcp-server/issues",
+        "Changelog": "https://github.com/cbcoutinho/nextcloud-mcp-server/blob/master/CHANGELOG.md",
+        "Documentation": "https://github.com/cbcoutinho/nextcloud-mcp-server#readme",
+        "Homepage": "https://github.com/cbcoutinho/nextcloud-mcp-server",
+        "Repository": "https://github.com/cbcoutinho/nextcloud-mcp-server"
+      },
+      "summary": "Model Context Protocol (MCP) server for Nextcloud integration - enables AI assistants to interact with Nextcloud data"
+    },
+    {
+      "name": "solara",
+      "rank": 11285,
+      "downloads": 124197,
+      "version": "1.61.0",
+      "requirement": "openai; extra == \"all\"",
+      "via_extra": "all",
+      "project_urls": {
+        "Documentation": "https://solara.dev",
+        "Home": "https://www.github.com/widgetti/solara"
+      },
+      "summary": ""
+    },
+    {
+      "name": "semble",
+      "rank": 11353,
+      "downloads": 122562,
+      "version": "0.5.4",
+      "requirement": "openai>=1.50; extra == \"benchmark\"",
+      "via_extra": "benchmark",
+      "project_urls": {
+        "Bug Reports": "https://github.com/MinishLab/semble/issues",
+        "Homepage": "https://github.com/MinishLab/semble",
+        "Source": "https://github.com/MinishLab/semble"
+      },
+      "summary": "Fast and Accurate Code Search for Agents"
+    },
+    {
+      "name": "oci-openai",
+      "rank": 11397,
+      "downloads": 121510,
+      "version": "1.1.0",
+      "requirement": "openai>=v1.108.1",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://github.com/oracle-samples/oci-openai#readme",
+        "Issues": "https://github.com/oracle-samples/oci-openai/issues",
+        "Source": "https://github.com/oracle-samples/oci-openai"
+      },
+      "summary": "OCI authentication and authorization utilities for OpenAI python SDK"
+    },
+    {
+      "name": "datarobot-genai",
+      "rank": 11408,
+      "downloads": 121265,
+      "version": "0.27.7",
+      "requirement": "openai<3.0.0,>=2.0.0; extra == \"core\"",
+      "via_extra": "core",
+      "project_urls": {
+        "Homepage": "https://github.com/datarobot-oss/datarobot-genai"
+      },
+      "summary": "Generic helpers for GenAI"
+    },
+    {
+      "name": "langchain-oci",
+      "rank": 11411,
+      "downloads": 121155,
+      "version": "0.3.2",
+      "requirement": "openai>=2.6.1",
+      "via_extra": null,
+      "project_urls": {
+        "Repository": "https://github.com/oracle/langchain-oracle",
+        "Source Code": "https://github.com/oracle/langchain-oracle/tree/main/libs/oci"
+      },
+      "summary": "An integration package connecting OCI and LangChain"
+    },
+    {
+      "name": "inference-gpu",
+      "rank": 11480,
+      "downloads": 119502,
+      "version": "1.3.10",
+      "requirement": "openai<2.0.0,>=1.12.0",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://github.com/roboflow/inference"
+      },
+      "summary": "With no prior knowledge of machine learning or device-specific deployment, you can deploy a computer vision model to a range of devices and environments using Roboflow Inference."
+    },
+    {
+      "name": "pgvecto-rs",
+      "rank": 11601,
+      "downloads": 116872,
+      "version": "0.2.2",
+      "requirement": "openai>=1.2.2; extra == \"sdk\"",
+      "via_extra": "sdk",
+      "project_urls": {},
+      "summary": "Python binding for pgvecto.rs"
+    },
+    {
+      "name": "nvidia-lm-eval",
+      "rank": 11882,
+      "downloads": 110586,
+      "version": "26.3",
+      "requirement": "openai>=1.61.0",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "A framework for evaluating language models - packaged by NVIDIA"
+    },
+    {
+      "name": "generative-ai-hub-sdk",
+      "rank": 11925,
+      "downloads": 109859,
+      "version": "4.12.4",
+      "requirement": "openai>=1.58.1",
+      "via_extra": null,
+      "project_urls": {
+        "Download": "https://pypi.python.org/pypi/generative-ai-hub-sdk",
+        "Homepage": "https://www.sap.com/"
+      },
+      "summary": "[DEPRECATED] generative AI hub SDK"
+    },
+    {
+      "name": "ai-parrot",
+      "rank": 12050,
+      "downloads": 107250,
+      "version": "0.25.34",
+      "requirement": "openai==2.41.0; extra == \"mcp\"",
+      "via_extra": "mcp",
+      "project_urls": {
+        "Documentation": "https://github.com/phenobarbital/ai-parrot/",
+        "Funding": "https://paypal.me/phenobarbital",
+        "Homepage": "https://github.com/phenobarbital/ai-parrot",
+        "Say Thanks!": "https://saythanks.io/to/phenobarbital",
+        "Source": "https://github.com/phenobarbital/ai-parrot",
+        "Tracker": "https://github.com/phenobarbital/ai-parrot/issues"
+      },
+      "summary": "Framework for building AI agents for Navigator"
+    },
+    {
+      "name": "chatlas",
+      "rank": 12113,
+      "downloads": 105965,
+      "version": "0.21.0",
+      "requirement": "openai",
+      "via_extra": null,
+      "project_urls": {
+        "Changelog": "https://github.com/posit-dev/chatlas/blob/main/CHANGELOG.md",
+        "Documentation": "https://posit-dev.github.io/chatlas",
+        "Homepage": "https://posit-dev.github.io/chatlas",
+        "Issues": "https://github.com/posit-dev/chatlas/issues/",
+        "Repository": "https://github.com/posit-dev/chatlas"
+      },
+      "summary": "A simple and consistent interface for chatting with LLMs"
+    },
+    {
+      "name": "ms-swift",
+      "rank": 12147,
+      "downloads": 105404,
+      "version": "4.4.2",
+      "requirement": "openai",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://github.com/modelscope/ms-swift"
+      },
+      "summary": "Swift: Scalable lightWeight Infrastructure for Fine-Tuning"
+    },
+    {
+      "name": "hindsight-api-slim",
+      "rank": 12169,
+      "downloads": 104997,
+      "version": "0.9.0",
+      "requirement": "openai>=1.66.0",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Hindsight: Agent Memory That Works Like Human Memory"
+    },
+    {
+      "name": "code-puppy",
+      "rank": 12210,
+      "downloads": 104295,
+      "version": "0.0.707",
+      "requirement": "openai>=1.99.1",
+      "via_extra": null,
+      "project_urls": {
+        "HomePage": "https://github.com/mpfaffenberger/code_puppy",
+        "repository": "https://github.com/mpfaffenberger/code_puppy"
+      },
+      "summary": "Code generation agent"
+    },
+    {
+      "name": "pyrit",
+      "rank": 12241,
+      "downloads": 103700,
+      "version": "1.0.1",
+      "requirement": "openai>=2.2.0",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "The Python Risk Identification Tool for LLMs (PyRIT) is a library used to assess the robustness of LLMs"
+    },
+    {
+      "name": "ecologits",
+      "rank": 12363,
+      "downloads": 101562,
+      "version": "0.11.1",
+      "requirement": "openai<3.0.0,>=1.66.0; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {},
+      "summary": "EcoLogits tracks and estimates the energy consumption and environmental impacts of using generative AI models through APIs."
+    },
+    {
+      "name": "matrx-ai",
+      "rank": 12386,
+      "downloads": 101257,
+      "version": "0.5.10",
+      "requirement": "openai>=2.35.1",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://github.com/AI-Matrix-Engine/aidream-current",
+        "Issues": "https://github.com/AI-Matrix-Engine/aidream-current/issues",
+        "Repository": "https://github.com/AI-Matrix-Engine/aidream-current"
+      },
+      "summary": "Unified multi-provider AI client, orchestration, and tool system"
+    },
+    {
+      "name": "groundx",
+      "rank": 12403,
+      "downloads": 101000,
+      "version": "3.9.3",
+      "requirement": "openai; extra == \"extract\"",
+      "via_extra": "extract",
+      "project_urls": {
+        "Repository": "https://github.com/eyelevelai/groundx-python"
+      },
+      "summary": ""
+    },
+    {
+      "name": "agentlightning",
+      "rank": 12630,
+      "downloads": 97436,
+      "version": "0.3.0",
+      "requirement": "openai",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Agent-lightning is the absolute trainer to light up AI agents."
+    },
+    {
+      "name": "inference",
+      "rank": 12694,
+      "downloads": 96332,
+      "version": "1.3.10",
+      "requirement": "openai<2.0.0,>=1.12.0",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://github.com/roboflow/inference"
+      },
+      "summary": "With no prior knowledge of machine learning or device-specific deployment, you can deploy a computer vision model to a range of devices and environments using Roboflow Inference."
+    },
+    {
+      "name": "sqlframe",
+      "rank": 13028,
+      "downloads": 90801,
+      "version": "4.4.0",
+      "requirement": "openai<3,>=1.30; extra == \"dev\"",
+      "via_extra": "dev",
+      "project_urls": {
+        "Homepage": "https://github.com/eakmanrq/sqlframe"
+      },
+      "summary": "Turning PySpark Into a Universal DataFrame API"
+    },
+    {
+      "name": "vlmrun",
+      "rank": 13112,
+      "downloads": 89490,
+      "version": "0.7.3",
+      "requirement": "openai; extra == \"test\"",
+      "via_extra": "test",
+      "project_urls": {},
+      "summary": "Official Python SDK for VLM Run"
+    },
+    {
+      "name": "model-library",
+      "rank": 13141,
+      "downloads": 88863,
+      "version": "0.1.29",
+      "requirement": "openai[aiohttp]<3.0,>=2.28.0",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Model Library for vals.ai "
+    },
+    {
+      "name": "deepteam",
+      "rank": 13148,
+      "downloads": 88821,
+      "version": "1.0.8",
+      "requirement": "openai>=1.76.2",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://trydeepteam.com",
+        "Issues": "https://github.com/confident-ai/deepteam/issues",
+        "Repository": "https://github.com/confident-ai/deepteam"
+      },
+      "summary": "The LLM Red Teaming Framework"
+    },
+    {
+      "name": "yutori",
+      "rank": 13212,
+      "downloads": 88043,
+      "version": "0.8.1",
+      "requirement": "openai>=1.55.3",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://docs.yutori.com",
+        "Homepage": "https://yutori.com",
+        "Issues": "https://github.com/yutori-ai/yutori-sdk-python/issues",
+        "Repository": "https://github.com/yutori-ai/yutori-sdk-python"
+      },
+      "summary": "Official Python SDK for the Yutori API"
+    },
+    {
+      "name": "langflow-base",
+      "rank": 13259,
+      "downloads": 87550,
+      "version": "0.11.3",
+      "requirement": "openai<3.0.0,>=1.68.2; extra == \"audio\"",
+      "via_extra": "audio",
+      "project_urls": {
+        "Documentation": "https://docs.langflow.org",
+        "Repository": "https://github.com/langflow-ai/langflow"
+      },
+      "summary": "A Python package with a built-in web application"
+    },
+    {
+      "name": "openai-messages-token-helper",
+      "rank": 13377,
+      "downloads": 86154,
+      "version": "0.1.13",
+      "requirement": "openai",
+      "via_extra": null,
+      "project_urls": {
+        "Home": "https://github.com/pamelafox/openai-messages-token-helper"
+      },
+      "summary": "A helper library for estimating tokens used by messages sent through OpenAI Chat Completions API."
+    },
+    {
+      "name": "dominodatalab",
+      "rank": 13433,
+      "downloads": 85637,
+      "version": "2.2.0",
+      "requirement": "openai>=2.7.2; extra == \"dev\"",
+      "via_extra": "dev",
+      "project_urls": {
+        "Download": "https://github.com/dominodatalab/python-domino/archive/Release-2.2.0.zip",
+        "Homepage": "https://github.com/dominodatalab/python-domino"
+      },
+      "summary": "Python bindings for the Domino API"
+    },
+    {
+      "name": "langfun",
+      "rank": 13459,
+      "downloads": 85332,
+      "version": "0.1.1",
+      "requirement": "openai==0.27.2",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://github.com/google/langfun"
+      },
+      "summary": "Langfun: Language as Functions."
+    },
+    {
+      "name": "camel-ai",
+      "rank": 13511,
+      "downloads": 84723,
+      "version": "0.2.90",
+      "requirement": "openai>=1.86.0",
+      "via_extra": null,
+      "project_urls": {
+        "Documentation": "https://docs.camel-ai.org",
+        "Homepage": "https://www.camel-ai.org/",
+        "Repository": "https://github.com/camel-ai/camel"
+      },
+      "summary": "Communicative Agents for AI Society Study"
+    },
+    {
+      "name": "terminal-bench",
+      "rank": 13518,
+      "downloads": 84599,
+      "version": "0.2.18",
+      "requirement": "openai>=1.59.9",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Terminal-bench is a collection of tasks and evaluation harness for evaluating AI agents' ability to complete complex tasks in terminal environments."
+    },
+    {
+      "name": "vlmrun-hub",
+      "rank": 13607,
+      "downloads": 83605,
+      "version": "0.1.35",
+      "requirement": "openai>=1.58.1; extra == \"test\"",
+      "via_extra": "test",
+      "project_urls": {
+        "documentation": "https://docs.vlm.run/hub",
+        "homepage": "https://github.com/vlm-run/vlmrun-hub",
+        "repository": "https://github.com/vlm-run/vlmrun-hub"
+      },
+      "summary": "VLM Run Hub for various industry-specific schemas"
+    },
+    {
+      "name": "composio-openai",
+      "rank": 13668,
+      "downloads": 82885,
+      "version": "0.19.0",
+      "requirement": "openai>=2.48.0",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://github.com/ComposioHQ/composio"
+      },
+      "summary": "Use Composio to get an array of tools with your OpenAI Function Call."
+    },
+    {
+      "name": "strix-agent",
+      "rank": 13793,
+      "downloads": 80927,
+      "version": "1.5.3",
+      "requirement": "openai<3,>=2.45.0",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Open-source AI Hackers for your apps"
+    },
+    {
+      "name": "praisonaiagents",
+      "rank": 13803,
+      "downloads": 80836,
+      "version": "1.6.165",
+      "requirement": "openai>=1.68.2",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Praison AI agents for completing complex tasks with Self Reflection Agents"
+    },
+    {
+      "name": "evalscope",
+      "rank": 13828,
+      "downloads": 80582,
+      "version": "1.10.0",
+      "requirement": "openai",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://github.com/modelscope/evalscope"
+      },
+      "summary": "EvalScope: Lightweight LLMs Evaluation Framework"
+    },
+    {
+      "name": "agentic-devtools",
+      "rank": 13874,
+      "downloads": 79948,
+      "version": "0.2.356",
+      "requirement": "openai<2,>=1.30.0",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Agentic devtools integrate Jira, DevOps & more"
+    },
+    {
+      "name": "label-studio",
+      "rank": 14037,
+      "downloads": 77637,
+      "version": "1.23.0",
+      "requirement": "openai<2.0.0,>=1.10.0",
+      "via_extra": null,
+      "project_urls": {
+        "Repository": "https://github.com/HumanSignal/label-studio"
+      },
+      "summary": "Label Studio annotation tool"
+    },
+    {
+      "name": "krepis",
+      "rank": 14100,
+      "downloads": 76720,
+      "version": "0.47.0",
+      "requirement": "openai>=1.40; extra == \"openai\"",
+      "via_extra": "openai",
+      "project_urls": {
+        "Homepage": "https://github.com/nousergon/krepis",
+        "Issues": "https://github.com/nousergon/krepis/issues",
+        "Repository": "https://github.com/nousergon/krepis"
+      },
+      "summary": "krepis (Greek \u03ba\u03c1\u03b7\u03c0\u03af\u03c2 \u2014 the foundation a structure stands on): general-purpose Python primitives for production data and LLM pipelines on AWS \u2014 logging, SSM secrets, Telegram/SNS/Web Push alerts, bound"
+    },
+    {
+      "name": "r2r",
+      "rank": 14136,
+      "downloads": 76331,
+      "version": "3.6.6",
+      "requirement": "openai>=1.99.0",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "SciPhi R2R"
+    },
+    {
+      "name": "arcade-mcp",
+      "rank": 14167,
+      "downloads": 75996,
+      "version": "1.15.2",
+      "requirement": "openai==1.82.1; extra == \"all\"",
+      "via_extra": "all",
+      "project_urls": {},
+      "summary": "Arcade.dev - Tool Calling platform for Agents"
+    },
+    {
+      "name": "clarifai",
+      "rank": 14196,
+      "downloads": 75627,
+      "version": "12.5.0",
+      "requirement": "openai>=2.34.0",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://github.com/Clarifai/clarifai-python"
+      },
+      "summary": ""
+    },
+    {
+      "name": "agent-lifecycle-toolkit",
+      "rank": 14200,
+      "downloads": 75580,
+      "version": "0.11.0",
+      "requirement": "openai>=1.0.0",
+      "via_extra": null,
+      "project_urls": {
+        "documentation": "https://agenttoolkit.github.io/agent-lifecycle-toolkit/",
+        "download": "https://pypi.org/project/agent-lifecycle-toolkit/#files",
+        "homepage": "https://altk.ai/",
+        "source": "https://github.com/AgentToolkit/agent-lifecycle-toolkit",
+        "tracker": "https://github.com/AgentToolkit/agent-lifecycle-toolkit/issues"
+      },
+      "summary": "The Agent Lifecycle Toolkit (ALTK) is a library of components to help agent builders improve their agent with minimal integration effort and setup."
+    },
+    {
+      "name": "babeldoc",
+      "rank": 14223,
+      "downloads": 75318,
+      "version": "0.6.4",
+      "requirement": "openai>=1.59.3",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://github.com/funstory-ai/BabelDOC",
+        "Issues": "https://github.com/funstory-ai/BabelDOC/issues"
+      },
+      "summary": "Yet Another Document Translator"
+    },
+    {
+      "name": "gpt-researcher",
+      "rank": 14250,
+      "downloads": 75042,
+      "version": "0.16.0",
+      "requirement": "openai>=1.82.0",
+      "via_extra": null,
+      "project_urls": {
+        "Homepage": "https://github.com/assafelovic/gpt-researcher"
+      },
+      "summary": "GPT Researcher is an autonomous agent designed for comprehensive online research on a variety of tasks."
+    },
+    {
+      "name": "mindroom",
+      "rank": 14422,
+      "downloads": 73430,
+      "version": "2026.8.36",
+      "requirement": "openai",
+      "via_extra": null,
+      "project_urls": {
+        "documentation": "https://github.com/mindroom-ai/mindroom",
+        "homepage": "https://github.com/mindroom-ai/mindroom",
+        "repository": "https://github.com/mindroom-ai/mindroom"
+      },
+      "summary": "A universal interface for AI agents with persistent memory, where every conversation has a home"
+    },
+    {
+      "name": "fschat",
+      "rank": 14510,
+      "downloads": 72628,
+      "version": "0.2.36",
+      "requirement": "openai <1 ; extra == 'llm_judge'",
+      "via_extra": "llm-judge",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/lm-sys/fastchat/issues",
+        "Homepage": "https://github.com/lm-sys/fastchat"
+      },
+      "summary": "An open platform for training, serving, and evaluating large language model based chatbots."
+    },
+    {
+      "name": "lfx-bundles",
+      "rank": 14634,
+      "downloads": 71330,
+      "version": "1.1.8",
+      "requirement": "openai<3.0.0,>=1.68.2; extra == \"aiml\"",
+      "via_extra": "aiml",
+      "project_urls": {
+        "Documentation": "https://docs.langflow.org/extensions",
+        "Homepage": "https://github.com/langflow-ai/langflow",
+        "Repository": "https://github.com/langflow-ai/langflow"
+      },
+      "summary": "Langflow's long-tail provider bundles as a single manifest-less metapackage (the langchain-community model)."
+    },
+    {
+      "name": "lmdeploy",
+      "rank": 14723,
+      "downloads": 70429,
+      "version": "0.15.0",
+      "requirement": "openai",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "A toolset for compressing, deploying and serving LLM"
+    },
+    {
+      "name": "garak",
+      "rank": 14816,
+      "downloads": 69566,
+      "version": "0.16.0",
+      "requirement": "openai<3.0,>=2.0",
+      "via_extra": null,
+      "project_urls": {
+        "Bug Tracker": "https://github.com/NVIDIA/garak/issues",
+        "Homepage": "https://github.com/NVIDIA/garak"
+      },
+      "summary": "LLM vulnerability scanner"
+    },
+    {
+      "name": "tinygrad",
+      "rank": 14854,
+      "downloads": 69219,
+      "version": "0.13.0",
+      "requirement": "openai; extra == \"testing-unit\"",
+      "via_extra": "testing-unit",
+      "project_urls": {},
+      "summary": "You like pytorch? You like micrograd? You love tinygrad! <3"
+    }
+  ]
+}

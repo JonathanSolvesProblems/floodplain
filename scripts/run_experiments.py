@@ -1,0 +1,143 @@
+"""Run the before/after experiment for every exposed dependent, then triage and fix the broken ones.
+
+    uv run python scripts/run_experiments.py --target openai --release 3.0.0 --stage run --limit 5
+    uv run python scripts/run_experiments.py --target openai --release 3.0.0 --only llm --stage all
+    uv run python scripts/run_experiments.py --target openai --release 3.0.0 --stage all --concurrency 10
+
+Results land in data/<target>-<release>/experiments/<dependent>.json, one file per
+dependent, written as soon as each finishes, so a crashed run resumes where it stopped.
+"""
+
+from __future__ import annotations
+
+import argparse
+import asyncio
+import json
+import time
+from datetime import datetime
+from pathlib import Path
+
+from contree_sdk import Contree
+
+from downstream.fixer import Fixer
+from downstream.llm import TokenFactory
+from downstream.pypi import PyPI
+from downstream.repos import SourceRef, sdist_url
+from downstream.research import find_guidance
+from downstream.sandbox import Experiment, RunOutcome, Sandbox, experiment_to_json
+from downstream.triage import triage_experiment
+
+
+def load_experiment(path: Path) -> Experiment:
+    d = json.loads(path.read_text(encoding="utf-8"))
+    def outcome(o):
+        if o is None:
+            return None
+        o = dict(o); o.pop("summary", None)
+        return RunOutcome(**o)
+    exp = Experiment(dependent=d["dependent"], version=d["version"], source=SourceRef(**d["source"]),
+                     before=outcome(d["before"]), after=outcome(d["after"]), clone_uuid=d.get("clone_uuid"),
+                     error=d.get("error"))
+    return exp
+
+
+async def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--target", required=True)
+    ap.add_argument("--release", required=True)
+    ap.add_argument("--stage", choices=["run", "triage", "fix", "all"], default="run")
+    ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--only", nargs="*", default=[])
+    ap.add_argument("--concurrency", type=int, default=6)
+    ap.add_argument("--rerun", action="store_true", help="ignore existing experiment files")
+    args = ap.parse_args()
+
+    root = Path(f"data/{args.target}-{args.release}")
+    pop = json.loads((root / "population.json").read_text(encoding="utf-8"))
+    release_uploaded = datetime.fromisoformat(pop["meta"]["release_uploaded_at"])
+    exp_dir = root / "experiments"
+    exp_dir.mkdir(parents=True, exist_ok=True)
+    notes_path = root / "release_notes.md"
+    notes = notes_path.read_text(encoding="utf-8") if notes_path.exists() else ""
+
+    # Build the runnable list: git ref if resolved, else the PyPI sdist.
+    todo: list[tuple[str, str, SourceRef, str]] = []
+    async with PyPI() as pypi:
+        for e in pop["exposed"]:
+            d = e["dependent"]
+            if args.only and d["name"] not in args.only:
+                continue
+            src = SourceRef(**e["source"]) if e["source"] else SourceRef("pypi", d["name"], None, None)
+            if not (src.sha or src.tag):
+                rel = await pypi.release(d["name"], d["version"])
+                src.sdist_url = sdist_url(rel) if rel else None
+            if not src.runnable:
+                continue
+            todo.append((d["name"], d["version"], src, d["requirement"]))
+    if args.limit:
+        todo = todo[: args.limit]
+    print(f"{len(todo)} runnable dependents")
+
+    sdk = Contree()
+    sandbox = Sandbox(sdk)
+
+    if args.stage in ("run", "all"):
+        base = await sandbox.base_image()
+        print(f"base image ready: {base.uuid}")
+        sem = asyncio.Semaphore(args.concurrency)
+        t0 = time.time()
+
+        async def one(name, version, src, requirement):
+            out = exp_dir / f"{name}.json"
+            if out.exists() and not args.rerun:
+                return
+            async with sem:
+                started = time.time()
+                exp = await sandbox.run_experiment(base, name, version, src, release_uploaded)
+            payload = experiment_to_json(exp)
+            payload["requirement"] = requirement
+            payload["wall_s"] = round(time.time() - started, 1)
+            out.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+            v = payload["verdict"]
+            print(f"  {name:<40} {v.get('status'):<16} {v.get('kind', '')!s:<8} {payload['wall_s']:>7}s", flush=True)
+
+        await asyncio.gather(*(one(*t) for t in todo))
+        print(f"run stage done in {time.time() - t0:.0f}s")
+
+    if args.stage in ("triage", "fix", "all"):
+        tf = TokenFactory()
+        models = await tf.resolve_models()
+        print(f"models: {models}")
+        fixer = Fixer(tf, sdk)
+        for name, version, src, requirement in todo:
+            path = exp_dir / f"{name}.json"
+            if not path.exists():
+                continue
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            if payload["verdict"].get("status") != "broken":
+                continue
+            exp = load_experiment(path)
+            if args.stage in ("triage", "fix", "all") and (not payload.get("triage") or args.rerun):
+                tri = await triage_experiment(tf, exp, target=args.target, release=args.release, notes=notes)
+                payload["triage"] = tri.to_json() if tri else None
+                path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+                if tri:
+                    print(f"  triage {name:<34} [{tri.category}] {tri.cause[:90]}  quotes={len(tri.quotes)} dropped={tri.dropped_quotes}")
+            if args.stage in ("fix", "all") and payload.get("triage") and (not payload.get("fix") or args.rerun):
+                from downstream.triage import Triage
+                tri = Triage(**{k: v for k, v in payload["triage"].items()})
+                guidance = await find_guidance(args.target, args.release, tri.symbol, tri.category,
+                                               fallback=root / "migration_guide.md")
+                fix = await fixer.fix(exp, tri, target=args.target, release=args.release,
+                                      notes=notes + "\n\n# Migration guidance\n" + guidance.text,
+                                      after_cutoff=exp.after.cutoff and datetime.strptime(exp.after.cutoff, "%Y-%m-%dT%H:%M:%SZ"))
+                payload["fix"] = fix.to_json()
+                payload["guidance"] = {"query": guidance.query, "source": guidance.source, "urls": guidance.urls}
+                path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+                status = "VERIFIED" if fix.verified else "not verified"
+                print(f"  fix    {name:<34} {status} after {len(fix.attempts)} attempt(s)")
+        print(f"token usage: {tf.usage}")
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

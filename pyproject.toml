@@ -1,0 +1,32 @@
+[project]
+name = "downstream"
+version = "0.1.0"
+description = "Run the test suites of everyone who depends on you, against a change you have not shipped yet."
+readme = "README.md"
+license = "MIT"
+authors = [
+    { name = "Jonathan Andrei", email = "jon_andrei04@hotmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "httpx2>=2.7.0,<3",
+    "packaging>=24",
+    "openai>=3.0.0,<4",
+    "contree-sdk>=0.3.6",
+    "tavily-python>=0.8",
+    "pydantic>=2.7,<3",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.24"]
+
+[project.scripts]
+downstream = "downstream.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
