@@ -19,14 +19,29 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-STRICT = re.compile(r"httpx2|openai\s*(?:>=|<|==|~=)\s*3|openai\s+3\.\d|openai\s+v?3(?:\.x|\.0)|"
-                    r"openai-python.*3\.0\.0|openai 3 ?\.0\.0|upgrade.*openai.*3", re.I)
+# A document counts when it names the upstream AND one of its release markers. "httpx2" alone is
+# not enough: the anthropic SDK moved to httpx2 in the same fortnight and many PRs are about that.
+UPSTREAM = re.compile(r"\bopenai\b|openai-python|openai sdk", re.I)
+MARKER = re.compile(r"httpx2|openai\s*(?:>=|<|==|~=|!=)\s*['\"]?3|openai\s+v?3(?:\.\d|\.x|\b)|3\.0\.0|"
+                    r"openai\s+(?:sdk\s+)?v3", re.I)
+BODY_CACHE = Path("data/cache/gh_bodies")
+
+
+def matches(text: str) -> bool:
+    return bool(UPSTREAM.search(text) and MARKER.search(text))
 
 
 def fetch_body(repo: str, number: int) -> str:
+    cache = BODY_CACHE / repo.replace("/", "__") / f"{number}.txt"
+    if cache.exists():
+        return cache.read_text(encoding="utf-8")
     r = subprocess.run(["gh", "api", f"repos/{repo}/issues/{number}", "--jq", ".body // \"\""],
                        capture_output=True, text=True, encoding="utf-8")
-    return r.stdout if r.returncode == 0 else ""
+    body = r.stdout if r.returncode == 0 else ""
+    cache.parent.mkdir(parents=True, exist_ok=True)
+    cache.write_text(body, encoding="utf-8")
+    time.sleep(0.8)
+    return body
 
 
 def main() -> None:
@@ -44,13 +59,12 @@ def main() -> None:
         hits = [h for h in entry["hits"] if "error" not in h]
         kept = []
         for h in hits:
-            text = h["title"]
-            if not STRICT.search(text):
-                body = fetch_body(repo, h["number"])
-                time.sleep(0.8)
-                text = h["title"] + "\n" + body
-            if STRICT.search(text):
-                kept.append(h)
+            body = fetch_body(repo, h["number"])
+            text = h["title"] + "\n" + body
+            if matches(text):
+                m = MARKER.search(text)
+                start = max(0, m.start() - 160) if m else 0
+                kept.append({**h, "snippet": re.sub(r"\s+", " ", text[start:start + 400]).strip()})
         kept.sort(key=lambda h: h["created_at"])
         first = kept[0] if kept else None
         strict[repo] = {

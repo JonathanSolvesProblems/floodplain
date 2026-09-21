@@ -1,0 +1,39 @@
+﻿  getsentry/sentry-python                       1 matching; first 2026-09-05 +585.7h  ci: Isolate `httpx` test suite from `httpx2`
+  pydantic/pydantic-ai                          23 matching; first 2026-08-14 +53.8h  OpenAI Code Interpreter history is unrecoverable after its container e
+  langchain-ai/langsmith-sdk                    2 matching; first 2026-09-01 +489.5h  chore(deps): bump the py-minor-and-patch group in /python with 20 upda
+  PrefectHQ/fastmcp                             3 matching; first 2026-08-29 +412.7h  fix(server): defer HTTP signal replay until lifespan teardown
+  lancedb/lancedb                               1 matching; first 2026-09-05 +588.7h  feat(python): bind named Secrets to Functions with EnvVarSecret
+  Arize-ai/openinference                        13 matching; first 2026-08-17 +136.5h  test(langchain): route OpenAI SDK through legacy httpx so respx mocks 
+  Uberi/speech_recognition                      1 matching; first 2026-09-01 +491.7h  maint: Migrate to OpenAI SDK v3
+  UKGovernmentBEIS/inspect_ai                   19 matching; first 2026-08-12 +11.6h  Fix all OpenAI-compatible requests failing with APIConnectionError und
+  livekit/agents                                4 matching; first 2026-08-12 +15.5h  fix: migrate http clients to httpx2
+  vllm-project/vllm                             1 matching; first 2026-08-25 +324.7h  [Bug]: Strict tool calling attaches no structural tag when the reasoni
+  traceloop/openllmetry                         2 matching; first 2026-09-16 +852.6h  Responses API streaming crashes with 'AsyncStream' object has no attri
+  comet-ml/opik                                 2 matching; first 2026-09-03 +545.2h  [Bug]: abandoned openai Responses stream logs an IndexError traceback 
+  agno-agi/agno                                 5 matching; first 2026-08-22 +251.5h  fix: stop test-a2a installing a lockfile that names an unpublished agn
+  Arize-ai/phoenix                              20 matching; first 2026-08-17 +130.4h  chore(deps): weekly dependency upgrade 2026-08-17
+  run-llama/llama_index                         4 matching; first 2026-08-26 +337.2h  respect an explicitly-passed temperature for o1-class models
+  composiohq/composio                           4 matching; first 2026-08-21 +221.1h  fix(deps-dev): bump langchain-openai from 1.4.3 to 1.6.0 in /python in
+  UKGovernmentBEIS/inspect_evals                5 matching; first 2026-08-12 +0.3h  fix: bump test-group openai floor to >=2.45.0 to match inspect_ai
+  getzep/graphiti                               3 matching; first 2026-09-17 +867.9h  [BUG] import graphiti_core fails on a fresh install: No module named '
+  deepset-ai/haystack                           10 matching; first 2026-08-13 +29.6h  fix: pinning openai and numpy
+  meridianlabs-ai/inspect_swe                   1 matching; first 2026-08-31 +469.7h  build(deps): add explicit openai/anthropic floors and refresh lock
+  simonw/llm                                    10 matching; first 2026-08-12 +5.9h  Fresh install broken and test suite escapes to live API since openai 3
+  Microsoft/prompty                             5 matching; first 2026-08-17 +141.3h  chore(deps): Bump the npm-v1-version group across 6 directories with 5
+  primeintellect-ai/verifiers                   4 matching; first 2026-08-30 +448.7h  Adopt MCP 2026-07-28
+  QwenLM/Qwen-Agent                             1 matching; first 2026-08-19 +183.1h  fix: merge parallel tool call chunks by index
+  meridianlabs-ai/inspect_scout                 5 matching; first 2026-08-13 +39.9h  fix: bump openai to >=3.0.0; pass allow_remote_mcp to inspect_ai bridg
+  posit-dev/py-shiny                            2 matching; first 2026-08-12 +3.2h  fix(tests): Add httpx to the dev extra for chatlas
+  optuna/optuna-dashboard                       1 matching; first 2026-09-09 +679.6h  Drop the support for Python 3.8 and 3.9, and add support for openai 3.
+  Azure/azure-sdk-for-python                    3 matching; first 2026-08-24 +298.5h  [azure-ai-projects] Fix ModuleNotFoundError for httpx by declaring it 
+  sipyourdrink-ltd/bernstein                    9 matching; first 2026-08-17 +127.1h  chore(deps): bump openai-agents from 0.13.6 to 0.19.4 in the python-mi
+  mozilla-ai/any-llm                            12 matching; first 2026-08-21 +228.7h  feat(messages): add container continuity for code execution via Anthro
+  apache/airflow                                3 matching; first 2026-09-18 +909.0h  Add support for TypeSafe Jev classifier models
+  microsoft/promptflow                          1 matching; first 2026-09-04 +556.3h  [HTTPXodus] Consider migrating from `httpx` to `httpx2` (the actively 
+  oracle/langchain-oracle                       1 matching; first 2026-09-10 +714.1h  fix(oci): pin openai below 3
+  posit-dev/chatlas                             7 matching; first 2026-08-12 +1.3h  fix(google): keep streamed citations adjacent to text
+  mpfaffenberger/code_puppy                     5 matching; first 2026-08-19 +168.6h  [experimental, do not merge] Run CI against the pydantic-ai httpx2 com
+  camel-ai/camel                                2 matching; first 2026-09-03 +531.4h  release: 0.2.91a7 with dependency compatibility fixes
+  ComposioHQ/composio                           4 matching; first 2026-08-21 +221.1h  fix(deps-dev): bump langchain-openai from 1.4.3 to 1.6.0 in /python in
+  langroid/langroid                             2 matching; first 2026-09-13 +779.0h  upgrade OpenAI SDK to 3.x.x versions
+38/112 repos have a public report about openai 3.0.0 -> data\openai-3.0.0\public_record_strict.json

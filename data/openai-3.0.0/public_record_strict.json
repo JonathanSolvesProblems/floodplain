@@ -1,0 +1,3345 @@
+{
+  "huggingface/transformers": {
+    "dependents": [
+      "transformers"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "getsentry/sentry-python": {
+    "dependents": [
+      "sentry-sdk"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-09-07T07:28:17Z",
+        "comments": 0,
+        "created_at": "2026-09-05T11:34:57Z",
+        "html_url": "https://github.com/getsentry/sentry-python/pull/7398",
+        "is_pr": true,
+        "number": 7398,
+        "state": "closed",
+        "title": "ci: Isolate `httpx` test suite from `httpx2`",
+        "snippet": "ci: Isolate `httpx` test suite from `httpx2` Closes #7151 ### Problem `scripts/runtox.sh` selects tox environments with an unanchored `grep` over `tox -l`: ```sh ENV=\"$(uv run tox -l | grep -- \"$searchstring\" | grep -v -- '-latest$' | tr $'\\n' ',')\" ``` The Network workflow's `Test httpx` step passes `py<version>-httpx`, which therefore also matches the `py<version>-httpx2-*` environments. Th"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/getsentry/sentry-python/pull/7398",
+      "title": "ci: Isolate `httpx` test suite from `httpx2`",
+      "is_pr": true,
+      "created_at": "2026-09-05T11:34:57Z",
+      "closed_at": "2026-09-07T07:28:17Z",
+      "hours_after_release": 585.7,
+      "hours_to_close": 43.9
+    }
+  },
+  "pydantic/pydantic-ai": {
+    "dependents": [
+      "pydantic-ai-slim"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-28T15:03:36Z",
+        "comments": 4,
+        "created_at": "2026-08-14T07:43:13Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/issues/7461",
+        "is_pr": false,
+        "number": 7461,
+        "state": "closed",
+        "title": "OpenAI Code Interpreter history is unrecoverable after its container expires",
+        "snippet": "ove exercises the same OpenAI SDK error-mapping path. ### Python, Pydantic AI & LLM client version - Python: 3.14.3 - Pydantic AI: 2.30.0 - LLM provider SDK: openai 3.0.0"
+      },
+      {
+        "closed_at": null,
+        "comments": 5,
+        "created_at": "2026-08-14T13:39:51Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/issues/7467",
+        "is_pr": false,
+        "number": 7467,
+        "state": "open",
+        "title": "OpenRouterModel rejects a CachePoint at the start of a later UserPromptPart",
+        "snippet": "t be the first content in a user message - there must be previous content to attach the CachePoint to. ``` ## Versions - Python 3.14.0 - pydantic-ai 2.29.0 - openai 3.0.0 ## Context This was encountered while addressing [pydantic-ai-harness#587](https://github.com/pydantic/pydantic-ai-harness/issues/587). That capability can safely omit the marker for a raw reminder in the short term, but prov"
+      },
+      {
+        "closed_at": "2026-08-21T04:51:07Z",
+        "comments": 1,
+        "created_at": "2026-08-18T21:58:34Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/issues/7580",
+        "is_pr": false,
+        "number": 7580,
+        "state": "closed",
+        "title": "Remove temporary `openai` and `google-genai` exclude-newer cutoffs",
+        "snippet": "Remove temporary `openai` and `google-genai` exclude-newer cutoffs > This issue was posted by Claude Code using claude-opus-5 on behalf of David. `openai==3.0.0` and `google-genai==2.18.0` are needed by the HTTPX2 migration (#7351) before the repository's rolling seven-day `exclude-newer` window admits them. The migration pins each to the publish time of the reviewed artifact, admitting it withou"
+      },
+      {
+        "closed_at": "2026-08-21T09:02:58Z",
+        "comments": 1,
+        "created_at": "2026-08-20T16:43:23Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/pull/7645",
+        "is_pr": true,
+        "number": 7645,
+        "state": "closed",
+        "title": "Remove the expired `openai` and `google-genai` `exclude-newer` cutoffs",
+        "snippet": "Remove the expired `openai` and `google-genai` `exclude-newer` cutoffs - Closes #7580 Both time gates have passed, so the two temporary pins from the HTTPX2 migration (#7351) come out: `openai` was due after 2026-08-19 01:56 UTC and `google-genai` after 2026-08-20 00:13 UTC. Removed both entries and their comments from `[tool.uv.exclude-newer-package]`, and regenerated `uv.lock` under the normal"
+      },
+      {
+        "closed_at": "2026-08-21T04:51:06Z",
+        "comments": 1,
+        "created_at": "2026-08-20T23:04:52Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/pull/7657",
+        "is_pr": true,
+        "number": 7657,
+        "state": "closed",
+        "title": "Use `httpx2` for Anthropic clients",
+        "snippet": "Use `httpx2` for Anthropic clients > This pull request was posted by Claude Code using claude-opus-5 on behalf of David. David has not reviewed the diff line by line yet. Closes #7580. ## Why we make these changes [#7351](https://github.com/pydantic/pydantic-ai/pull/7351) moved every provider whose SDK accepted an `httpx2.AsyncClient` and left the rest on legacy HTTPX. `anthropic` [1.0.0](https"
+      },
+      {
+        "closed_at": null,
+        "comments": 2,
+        "created_at": "2026-08-20T23:26:12Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/issues/7660",
+        "is_pr": false,
+        "number": 7660,
+        "state": "open",
+        "title": "BlockBuster fails local async tests that import `pydantic_ai.models.openai`",
+        "snippet": "an async test dies at collection with `blockbuster.blockbuster.BlockingError: Blocking call to io.TextIOWrapper.read`. Reproduce on clean `main` (8296f264a), `openai==3.0.0`, `aiohttp==3.14.1`, by running `tests/test_capabilities.py::TestImageGenerationCapability::test_image_generation_local_fallback`. <details> <summary>Traceback</summary> ``` tests/test_capabilities.py:8517: in test_image_gen"
+      },
+      {
+        "closed_at": null,
+        "comments": 1,
+        "created_at": "2026-08-21T07:54:04Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/pull/7672",
+        "is_pr": true,
+        "number": 7672,
+        "state": "open",
+        "title": "Keep `openai` setup outside the async test",
+        "snippet": "tup outside the async test `test_image_generation_local_fallback` imported `openai` only after pytest had started its event loop. When `aiohttp` is installed, `openai==3.0.0` reads package metadata during import, so BlockBuster reports synchronous disk I/O before the behavior under test begins. Construct the OpenAI fallback model in a synchronous fixture and inject it into the async test. This ke"
+      },
+      {
+        "closed_at": "2026-08-26T19:59:54Z",
+        "comments": 1,
+        "created_at": "2026-08-21T14:14:05Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/pull/7681",
+        "is_pr": true,
+        "number": 7681,
+        "state": "closed",
+        "title": "Add a daily canary that tests the top of our declared dependency ranges",
+        "snippet": "ropic` 1.0.0 is what that costs. Every release up to and including v2.32.2 declared `anthropic>=0.108.0` with no upper bound, so the moment 1.0.0 \u2014 rebuilt on `httpx2`, legacy HTTPX removed \u2014 reached PyPI, a fresh `pip install 'pydantic-ai[anthropic]'` resolved an SDK major our code could not drive, and broke at runtime. CI stayed green throughout: the lock still said 0.109.0 and the floors job st"
+      },
+      {
+        "closed_at": "2026-09-03T23:26:56Z",
+        "comments": 2,
+        "created_at": "2026-08-26T20:05:32Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/issues/7789",
+        "is_pr": false,
+        "number": 7789,
+        "state": "closed",
+        "title": "Azure-specific behavior in `OpenAIChatModel` is provider-name-keyed, so `OpenAIProvider(openai_client=AsyncAzureOpenAI(...))` misses it",
+        "snippet": "ntent-filter mapping is inert for **everyone**, including `AzureProvider`. `_AzureErrorResponse` (line 393) is shaped `{'error': _AzureError}`, but on `openai` 3.0.0 the SDK's `_make_status_error` already unwraps `body['error']`, so `e.body` is the inner dict: ``` type(e) = BadRequestError e.body = {'code': 'content_filter', 'message': 'blocked', 'status': 400, 'innererror': {...}} ``` `model_v"
+      },
+      {
+        "closed_at": null,
+        "comments": 4,
+        "created_at": "2026-09-02T09:45:51Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/issues/8009",
+        "is_pr": false,
+        "number": 8009,
+        "state": "open",
+        "title": "`OpenAIChatModel` rejects Nebius responses because `metadata.weight_versions` is a list",
+        "snippet": "un(Agent(m).run(\"say ok\")).output) ``` ### Logfire Trace _No response_ ### Python, Pydantic AI & LLM client version ``` Python 3.12 pydantic-ai-slim 2.37.0 openai 3.7.0 ```"
+      },
+      {
+        "closed_at": null,
+        "comments": 1,
+        "created_at": "2026-09-02T11:28:28Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/pull/8010",
+        "is_pr": true,
+        "number": 8010,
+        "state": "open",
+        "title": "Accept non-string `metadata` values from OpenAI-compatible chat completions",
+        "snippet": "tadata.weight_versions Input should be a valid string`. ## Root cause Nebius returns `\"metadata\": {\"weight_version\": \"default\", \"weight_versions\": [{...}]}`. openai >= 3.2.0 types `ChatCompletion.metadata` as `Dict[str, str] | None` (the lock is on 3.0.0, which has no such field). The SDK never validates it, but `_validate_completion` re-validates via `_ChatCompletion.model_validate(response.mod"
+      },
+      {
+        "closed_at": null,
+        "comments": 8,
+        "created_at": "2026-09-03T13:57:36Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/issues/8045",
+        "is_pr": false,
+        "number": 8045,
+        "state": "open",
+        "title": "OpenAI Responses streaming retains the requested router alias instead of the terminal served model",
+        "snippet": "only a synthetic prompt and contains no credentials. ### Python, Pydantic AI & LLM client version - Python: 3.14.7 - Pydantic AI: 2.38.0 - LLM provider SDK: openai 3.3.0"
+      },
+      {
+        "closed_at": "2026-09-04T04:16:26Z",
+        "comments": 1,
+        "created_at": "2026-09-03T20:38:46Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/pull/8055",
+        "is_pr": true,
+        "number": 8055,
+        "state": "closed",
+        "title": "Add OpenAI `gpt-6-astra` model support",
+        "snippet": "t='all_turns'` (carried over from GPT-5.6 per the guide), rejects `minimal`, supports native `tool_search`, prompt cache breakpoints, and `phase`. - SDK floor `openai>=3.8.0` (first release listing `gpt-6-astra` in `ChatModel` and `'max'` in `ReasoningEffort`), with a 7-day `exclude-newer-package` exemption mirroring the Anthropic precedent. - `openai_reasoning_effort='max'` now typechecks for fre"
+      },
+      {
+        "closed_at": "2026-09-08T11:38:38Z",
+        "comments": 2,
+        "created_at": "2026-09-08T06:34:58Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/issues/8203",
+        "is_pr": false,
+        "number": 8203,
+        "state": "closed",
+        "title": "OpenAI Chat streams emit text deltas for an already-ended part after a tool call",
+        "snippet": "tails> <summary>Standalone script using a regular tool and the real OpenAI adapter</summary> Run with `uv run --with 'pydantic-ai-slim[openai]==2.36.0' --with httpx2 repro.py`. ```python import asyncio import json import httpx2 from pydantic_ai import Agent from pydantic_ai.messages import PartDeltaEvent, PartEndEvent, PartStartEvent from pydantic_ai.models.openai import OpenAIChatModel from py"
+      },
+      {
+        "closed_at": "2026-09-11T10:35:26Z",
+        "comments": 4,
+        "created_at": "2026-09-08T11:38:06Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/issues/8208",
+        "is_pr": false,
+        "number": 8208,
+        "state": "closed",
+        "title": "OpenAI Chat streams emit text deltas for an already-ended part after a tool call",
+        "snippet": "tails> <summary>Standalone script using a regular tool and the real OpenAI adapter</summary> Run with `uv run --with 'pydantic-ai-slim[openai]==2.36.0' --with httpx2 repro.py`. ```python import asyncio import json import httpx2 from pydantic_ai import Agent from pydantic_ai.messages import PartDeltaEvent, PartEndEvent, PartStartEvent from pydantic_ai.models.openai import OpenAIChatModel from py"
+      },
+      {
+        "closed_at": "2026-09-17T23:46:34Z",
+        "comments": 5,
+        "created_at": "2026-09-10T13:13:57Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/issues/8261",
+        "is_pr": false,
+        "number": 8261,
+        "state": "closed",
+        "title": "Incorrect httpx import dependency for fastmcp-slim",
+        "snippet": "ched for my issue in [the issue tracker](https://github.com/pydantic/pydantic-ai/issues) before opening this issue ### Description `fastmcp-slim` depends on `httpx2` now, not `httpx` - https://github.com/PrefectHQ/fastmcp/blob/0796584bb12606721011ac60a4522cafe4f5d497/fastmcp_slim/pyproject.toml#L84 - https://github.com/PrefectHQ/fastmcp/pull/4503 But `pydantic-ai-slim` still does a defensive `"
+      },
+      {
+        "closed_at": null,
+        "comments": 1,
+        "created_at": "2026-09-11T09:04:24Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/issues/8277",
+        "is_pr": false,
+        "number": 8277,
+        "state": "open",
+        "title": "OpenAI-compatible tool serialization drops `strict=False`",
+        "snippet": "model-generated arguments or OpenRouter's downstream routing. ### Minimal, Reproducible Example Install with `pip install \"pydantic-ai-slim[openai]==2.42.0\" \"openai==3.8.0\"`. ```python from pydantic_ai.models.openrouter import OpenRouterModel from pydantic_ai.providers.openrouter import OpenRouterProvider from pydantic_ai.tools import ToolDefinition model = OpenRouterModel( 'openai/gpt-4o'"
+      },
+      {
+        "closed_at": null,
+        "comments": 2,
+        "created_at": "2026-09-12T08:31:24Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/issues/8294",
+        "is_pr": false,
+        "number": 8294,
+        "state": "open",
+        "title": "An empty-list tool return reaches the model as an empty string on the OpenAI and Anthropic mappings",
+        "snippet": "ol_result.content` list\". The ordinary tool path falls through to `content=tool_result_content or ''` instead. ### Example Code ```python import json import httpx2 as httpx from pydantic_ai import Agent from pydantic_ai.models.anthropic import AnthropicModel from pydantic_ai.providers.anthropic import AnthropicProvider sent: list[dict] = [] TOOL_CALL = { 'id': 'msg_1', 'type': 'message',"
+      },
+      {
+        "closed_at": null,
+        "comments": 1,
+        "created_at": "2026-09-12T21:31:24Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/pull/8305",
+        "is_pr": true,
+        "number": 8305,
+        "state": "open",
+        "title": "Document using a Nebius Serverless Endpoint with `VLLMProvider`",
+        "snippet": "eouts. Chat, actual tool execution, native output, authentication and stop/start checks passed. - Expanded streaming revalidation with separate, unreleased SDK/httpx2 cleanup patches passed **101 checks**, including **52 early cancellations**, without shutdown errors. Those dependency patches are not included here. All test resources were deleted. The credential-dependent example uses `test=\"skip"
+      },
+      {
+        "closed_at": "2026-09-14T13:47:39Z",
+        "comments": 2,
+        "created_at": "2026-09-14T13:08:00Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/pull/8331",
+        "is_pr": true,
+        "number": 8331,
+        "state": "closed",
+        "title": "Remove redundant SDK version assertions",
+        "snippet": "e after resolving direct dependencies to their declared minimums with `uv sync --resolution lowest-direct`. That job validates that each newly declared SDK and HTTPX2 floor actually works. If a floor is raised, CI tests the new floor instead of requiring an unrelated assertion under `.github/` to be updated as well. Remove version-specific assertions for OpenAI, Anthropic, Google, and their HTTPX"
+      },
+      {
+        "closed_at": null,
+        "comments": 2,
+        "created_at": "2026-09-16T17:59:12Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/issues/8388",
+        "is_pr": false,
+        "number": 8388,
+        "state": "open",
+        "title": "`ImageUrl` with an extensionless URL runs fine but the message history can no longer be serialized",
+        "snippet": "43.0 (also reproduced on main at fbedb5911), pydantic 2.13.4 - LLM provider SDK: not involved in the MRE (FunctionModel); the OpenAI mappings were checked with openai 3.8.0"
+      },
+      {
+        "closed_at": "2026-09-17T23:46:32Z",
+        "comments": 1,
+        "created_at": "2026-09-17T23:28:56Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/pull/8461",
+        "is_pr": true,
+        "number": 8461,
+        "state": "closed",
+        "title": "Stop importing legacy `httpx` in `pydantic_ai.mcp`, which a FastMCP 4 install does not ship",
+        "snippet": "ship - Closes #8261 `pip install \"pydantic-ai-slim[mcp]\"` resolves `fastmcp-slim` 4 today (our `[mcp]` extra is `>=3.3.0,<5`), whose `client` extra requires `httpx2` \u2014 as does the `mcp` SDK v2 underneath it. A clean install therefore ships no legacy `httpx` at all, and the module-level `import httpx` in `pydantic_ai.mcp` made the documented entry point die on arrival: ```console $ uv pip instal"
+      },
+      {
+        "closed_at": null,
+        "comments": 6,
+        "created_at": "2026-09-19T00:49:56Z",
+        "html_url": "https://github.com/pydantic/pydantic-ai/issues/8525",
+        "is_pr": false,
+        "number": 8525,
+        "state": "open",
+        "title": "OpenAIChatModel auto send-back should backfill the detected thinking field",
+        "snippet": "cio.run(main()) ``` ### Logfire Trace _No response_ ### Python, Pydantic AI & LLM client version - Python: 3.13.5 - Pydantic AI: 2.42.0 - LLM provider SDK: openai 3.11.0 (reproduced via OpenCode Go, `https://opencode.ai/zen/go/v1/`, `deepseek-v4.1-flash`)"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/pydantic/pydantic-ai/issues/7461",
+      "title": "OpenAI Code Interpreter history is unrecoverable after its container expires",
+      "is_pr": false,
+      "created_at": "2026-08-14T07:43:13Z",
+      "closed_at": "2026-08-28T15:03:36Z",
+      "hours_after_release": 53.8,
+      "hours_to_close": 343.3
+    }
+  },
+  "langchain-ai/langsmith-sdk": {
+    "dependents": [
+      "langsmith"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-09-01T11:43:56Z",
+        "comments": 3,
+        "created_at": "2026-09-01T11:24:52Z",
+        "html_url": "https://github.com/langchain-ai/langsmith-sdk/pull/3467",
+        "is_pr": true,
+        "number": 3467,
+        "state": "closed",
+        "title": "chore(deps): bump the py-minor-and-patch group in /python with 20 updates",
+        "snippet": "tructured object. (<a href=\"https://github.com/googleapis/python-genai/commit/cc0d42e84583ed927b6c0dfae38da7f5f544b2da\">cc0d42e</a>)</li> <li>Support injecting httpx2 client. (<a href=\"https://github.com/googleapis/python-genai/commit/012804d9b649a20da46a6041e37d126b9a0b79e0\">012804d</a>), refs <a href=\"https://redirect.github.com/googleapis/python-genai/issues/2680\">#2680</a></li> </ul> <h3>Bug F"
+      },
+      {
+        "closed_at": "2026-09-01T19:18:00Z",
+        "comments": 2,
+        "created_at": "2026-09-01T11:45:12Z",
+        "html_url": "https://github.com/langchain-ai/langsmith-sdk/pull/3473",
+        "is_pr": true,
+        "number": 3473,
+        "state": "closed",
+        "title": "chore(deps): bump the py-minor-and-patch group across 1 directory with 21 updates",
+        "snippet": "- | --- | --- | | [pydantic](https://github.com/pydantic/pydantic) | `2.13.4` | `2.13.5` | | [orjson](https://github.com/ijl/orjson) | `3.11.9` | `3.12.0` | | [httpx2](https://github.com/pydantic/httpx2) | `2.10.0` | `2.12.0` | | [packaging](https://github.com/pypa/packaging) | `26.2` | `26.3` | | [cachetools](https://github.com/tkem/cachetools) | `7.1.6` | `7.1.7` | | [livekit-agents](https://git"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/langchain-ai/langsmith-sdk/pull/3467",
+      "title": "chore(deps): bump the py-minor-and-patch group in /python with 20 updates",
+      "is_pr": true,
+      "created_at": "2026-09-01T11:24:52Z",
+      "closed_at": "2026-09-01T11:43:56Z",
+      "hours_after_release": 489.5,
+      "hours_to_close": 0.3
+    }
+  },
+  "PrefectHQ/fastmcp": {
+    "dependents": [
+      "fastmcp-slim"
+    ],
+    "matching": [
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-08-29T06:35:00Z",
+        "html_url": "https://github.com/PrefectHQ/fastmcp/pull/4943",
+        "is_pr": true,
+        "number": 4943,
+        "state": "open",
+        "title": "fix(server): defer HTTP signal replay until lifespan teardown",
+        "snippet": "anup belongs in the lifespan rather than code following `mcp.run()`: ```python from fastmcp import FastMCP from fastmcp.server.lifespan import lifespan import httpx2 @lifespan async def app_lifespan(server): async with httpx2.AsyncClient() as client: yield {\"http_client\": client} mcp = FastMCP(\"My server\", lifespan=app_lifespan) mcp.run(transport=\"http\") ``` Refs #4927. Its stdio f"
+      },
+      {
+        "closed_at": "2026-09-15T18:18:26Z",
+        "comments": 0,
+        "created_at": "2026-09-12T14:42:36Z",
+        "html_url": "https://github.com/PrefectHQ/fastmcp/issues/5072",
+        "is_pr": false,
+        "number": 5072,
+        "state": "closed",
+        "title": "Multipart string arrays are sent as Python list strings",
+        "snippet": "Python 3.12.13 / Windows, with its frozen uv.lock dependencies. This example runs in-process and requires no external server. ```python import asyncio import httpx2 from fastapi import FastAPI, Request from fastmcp import Client, FastMCP app = FastAPI() @app.post(\"/submit\") async def receive(request: Request): return {\"tags\": (await request.form()).getlist(\"tags\")} async def main():"
+      },
+      {
+        "closed_at": "2026-09-14T19:38:04Z",
+        "comments": 0,
+        "created_at": "2026-09-13T08:28:30Z",
+        "html_url": "https://github.com/PrefectHQ/fastmcp/issues/5092",
+        "is_pr": false,
+        "number": 5092,
+        "state": "closed",
+        "title": "OpenAPI raw request bodies lose their declared Content-Type",
+        "snippet": "schema. APIs that require that media type cannot accept this request. The same omission occurs for XML and binary media types. ```python import asyncio import httpx2 from fastapi import Body, FastAPI, Request from fastmcp import Client, FastMCP app = FastAPI() @app.post(\"/echo\", operation_id=\"echo\") def echo(request: Request, body: str = Body(media_type=\"text/plain\")): return {\"text\": body,"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/PrefectHQ/fastmcp/pull/4943",
+      "title": "fix(server): defer HTTP signal replay until lifespan teardown",
+      "is_pr": true,
+      "created_at": "2026-08-29T06:35:00Z",
+      "closed_at": null,
+      "hours_after_release": 412.7,
+      "hours_to_close": null
+    }
+  },
+  "swe-bench/SWE-bench": {
+    "dependents": [
+      "swebench"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "SWE-agent/mini-swe-agent": {
+    "dependents": [
+      "mini-swe-agent"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "SWE-bench/SWE-smith": {
+    "dependents": [
+      "swesmith"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "lancedb/lancedb": {
+    "dependents": [
+      "lancedb"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-09-08T23:51:51Z",
+        "comments": 1,
+        "created_at": "2026-09-05T14:37:12Z",
+        "html_url": "https://github.com/lancedb/lancedb/pull/4133",
+        "is_pr": true,
+        "number": 4133,
+        "state": "closed",
+        "title": "feat(python): bind named Secrets to Functions with EnvVarSecret",
+        "snippet": "ference**, and the value is resolved by the server when the Function runs: ```python db.create_secret(\"openai-prod\", os.environ[\"OPENAI_API_KEY\"]) @udf(pip=[\"openai==3.7.0\"]) def analyze_caption(caption: str) -> str: client = OpenAI() # reads OPENAI_API_KEY from its env return client.responses.create(...).output_text db.create_function( analyze_caption, sec"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/lancedb/lancedb/pull/4133",
+      "title": "feat(python): bind named Secrets to Functions with EnvVarSecret",
+      "is_pr": true,
+      "created_at": "2026-09-05T14:37:12Z",
+      "closed_at": "2026-09-08T23:51:51Z",
+      "hours_after_release": 588.7,
+      "hours_to_close": 81.2
+    }
+  },
+  "vespa-engine/pyvespa": {
+    "dependents": [
+      "pyvespa"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "langchain-ai/langchain-aws": {
+    "dependents": [
+      "langchain-aws"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "Arize-ai/openinference": {
+    "dependents": [
+      "openinference-instrumentation",
+      "openinference-instrumentation-openai",
+      "openinference-instrumentation-agno"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-18T04:43:05Z",
+        "comments": 1,
+        "created_at": "2026-08-17T18:27:28Z",
+        "html_url": "https://github.com/Arize-ai/openinference/pull/3574",
+        "is_pr": true,
+        "number": 3574,
+        "state": "closed",
+        "title": "test(langchain): route OpenAI SDK through legacy httpx so respx mocks work on openai>=3",
+        "snippet": "test(langchain): route OpenAI SDK through legacy httpx so respx mocks work on openai>=3 ## Root cause The `langchain` canary (`py310`/`py313-ci-langchain-latest`) failed with: ``` openai.AuthenticationError: Error code: 401 - Incorrect API key provided: sk- ``` in `tests/test_config.py::test_chat_with_config_hiding_inputs` (and it would have hit every other `respx`-mocked OpenAI test with `-x`"
+      },
+      {
+        "closed_at": "2026-09-10T04:09:58Z",
+        "comments": 0,
+        "created_at": "2026-08-18T04:43:46Z",
+        "html_url": "https://github.com/Arize-ai/openinference/issues/3575",
+        "is_pr": false,
+        "number": 3575,
+        "state": "closed",
+        "title": "Langchain(Python) Support OpenAI Python SDK 3.x in direct instrumentation and tests",
+        "snippet": "on) Support OpenAI Python SDK 3.x in direct instrumentation and tests ## Problem The OpenAI Python SDK 3.x changed its default HTTP transport from `httpx` to `httpx2`. Our OpenAI instrumentation package currently declares `openai >= 2.8.0` with no upper bound and runs an `openai-latest` CI lane, so OpenAI 3.x is implicitly in the supported range. The direct instrumentation test suite is not comp"
+      },
+      {
+        "closed_at": "2026-08-18T06:32:48Z",
+        "comments": 1,
+        "created_at": "2026-08-18T04:54:42Z",
+        "html_url": "https://github.com/Arize-ai/openinference/pull/3576",
+        "is_pr": true,
+        "number": 3576,
+        "state": "closed",
+        "title": "test(openai): support openai 3.x httpx2 migration in test harness",
+        "snippet": "test(openai): support openai 3.x httpx2 migration in test harness ## Root cause The Python canary (`py310`/`py314`-`ci-openai-latest`) started failing after `uv pip install -U openai` pulled **openai 3.1.0**. openai 3.x migrated its HTTP stack off `httpx` onto a fork it ships as **`httpx2`** (`openai/_base_client.py` now does `import httpx2` and builds `httpx2.Client`). Our test harness never to"
+      },
+      {
+        "closed_at": "2026-08-24T23:25:40Z",
+        "comments": 1,
+        "created_at": "2026-08-20T18:24:58Z",
+        "html_url": "https://github.com/Arize-ai/openinference/pull/3592",
+        "is_pr": true,
+        "number": 3592,
+        "state": "closed",
+        "title": "test(dspy): cap litellm in canary latest env to dodge broken litellm 1.97.0 + pydantic",
+        "snippet": "test -- -ra -x # confirm the bug is version-independent across every pydantic litellm 1.97.0 allows uvx --with litellm==1.97.0 --with pydantic==2.10.6 --with 'openai<3' --with pydantic-settings python .scratch/probe.py uvx --with litellm==1.97.0 --with pydantic==2.11.9 --with 'openai<3' --with pydantic-settings python .scratch/probe.py uvx --with litellm==1.97.0 --with pydantic==2.12.3 --with 'op"
+      },
+      {
+        "closed_at": "2026-08-25T22:36:28Z",
+        "comments": 1,
+        "created_at": "2026-08-21T19:05:53Z",
+        "html_url": "https://github.com/Arize-ai/openinference/pull/3597",
+        "is_pr": true,
+        "number": 3597,
+        "state": "closed",
+        "title": "feat(anthropic): support anthropic SDK v1",
+        "snippet": "nthropic.resources.completions`, `client.completions`, `anthropic.types.Completion`, `HUMAN_PROMPT`/`AI_PROMPT`), and the HTTP stack moved from `httpx` to the `httpx2` fork. Everything else the instrumentor patches survived: `resources.messages` and `resources.beta.messages` (`create`/`stream`/`parse`), `_utils._transform`, and the streaming managers with their `_raw_stream` and `current_message_s"
+      },
+      {
+        "closed_at": "2026-08-24T19:25:32Z",
+        "comments": 1,
+        "created_at": "2026-08-24T18:20:20Z",
+        "html_url": "https://github.com/Arize-ai/openinference/pull/3602",
+        "is_pr": true,
+        "number": 3602,
+        "state": "closed",
+        "title": "test(langchain): accept OpenAIInvalidRequestError from langchain-openai >= 1.6",
+        "snippet": "`, `py313-ci-langchain-latest`) failed in `tests/test_instrumentor.py::test_callback_llm[400-*]`. With the upgraded upstream deps (`langchain-openai==1.6.0`, `openai==3.3.1`), `langchain-openai` no longer surfaces the raw `openai.BadRequestError` for a 400 response \u2014 it wraps it in its own `langchain_openai.chat_models.base.OpenAIInvalidRequestError`. The instrumentation faithfully records whatev"
+      },
+      {
+        "closed_at": "2026-09-01T13:50:45Z",
+        "comments": 3,
+        "created_at": "2026-08-28T17:53:49Z",
+        "html_url": "https://github.com/Arize-ai/openinference/pull/3632",
+        "is_pr": true,
+        "number": 3632,
+        "state": "closed",
+        "title": "refactor(python): split GenAI tool definition normalization by provider shape",
+        "snippet": "--co -q`: environment setup, Ruff, strict mypy, and collection of 49 tests passed against pinned Anthropic 1.0.0. - Verified provider shapes against installed OpenAI 3.3.1 and Anthropic 1.0.0 SDK type definitions."
+      },
+      {
+        "closed_at": "2026-09-10T04:09:57Z",
+        "comments": 0,
+        "created_at": "2026-08-31T14:37:49Z",
+        "html_url": "https://github.com/Arize-ai/openinference/pull/3647",
+        "is_pr": true,
+        "number": 3647,
+        "state": "closed",
+        "title": "chore(openai): support OpenAI Python SDK 3.x",
+        "snippet": "chore(openai): support OpenAI Python SDK 3.x Closes #3575 OpenAI 3 switched its default transport to `httpx2`, bypassing the direct instrumentor suite's legacy HTTP mocks. The pytest-only compatibility plugin aliases the HTTP modules before mocking plugins load, so the suite exercises the SDK's native transport. Missing mocks and VCR cassette entries now fail with network access blocked by defaul"
+      },
+      {
+        "closed_at": "2026-08-31T21:53:13Z",
+        "comments": 1,
+        "created_at": "2026-08-31T18:35:05Z",
+        "html_url": "https://github.com/Arize-ai/openinference/pull/3651",
+        "is_pr": true,
+        "number": 3651,
+        "state": "closed",
+        "title": "test(langchain): mock anthropic httpx2 transport so token-count test passes on anthropic>=1",
+        "snippet": "test(langchain): mock anthropic httpx2 transport so token-count test passes on anthropic>=1 ## Summary Fixes the Python canary failure for the `langchain` instrumentor (`py310-ci-langchain-latest` and `py313-ci-langchain-latest`). The single failing test was `tests/test_instrumentor.py::test_anthropic_token_counts`, which failed with: ``` anthropic.AuthenticationError: Error code: 401 - {'type'"
+      },
+      {
+        "closed_at": "2026-09-09T07:09:00Z",
+        "comments": 1,
+        "created_at": "2026-09-04T21:34:50Z",
+        "html_url": "https://github.com/Arize-ai/openinference/pull/3681",
+        "is_pr": true,
+        "number": 3681,
+        "state": "closed",
+        "title": "chore: release main",
+        "snippet": "github.com/Arize-ai/openinference/commit/ba0fc57cc735c8d4d85c125403b781dd6c998ad6)) * **openai:** handle new configuration_update response input item type from openai 3.x ([#3698](https://github.com/Arize-ai/openinference/issues/3698)) ([d56a72b](https://github.com/Arize-ai/openinference/commit/d56a72b1cbcf013a442cc9bb36016c0ca5376570)) </details> <details><summary>python-openinference-instrument"
+      },
+      {
+        "closed_at": "2026-09-08T01:40:56Z",
+        "comments": 1,
+        "created_at": "2026-09-07T18:22:53Z",
+        "html_url": "https://github.com/Arize-ai/openinference/pull/3698",
+        "is_pr": true,
+        "number": 3698,
+        "state": "closed",
+        "title": "fix(openai): handle new configuration_update response input item type from openai 3.x",
+        "snippet": "fix(openai): handle new configuration_update response input item type from openai 3.x ## Root cause The Python canary cron (`py310-ci-openai-latest` and `py314-ci-openai-latest`) failed at the mypy step, not at runtime: ``` src/openinference/instrumentation/openai/_attributes/_responses_api.py:483: error: Argument 1 to \"assert_never\" has incompatible type \"Literal['configuration_update']\"; expec"
+      },
+      {
+        "closed_at": null,
+        "comments": 1,
+        "created_at": "2026-09-10T06:41:53Z",
+        "html_url": "https://github.com/Arize-ai/openinference/pull/3717",
+        "is_pr": true,
+        "number": 3717,
+        "state": "open",
+        "title": "feat(openai): upload large input value images",
+        "snippet": "nference/instrumentation/openai/test_input_value_blob_upload.py tests/openinference/instrumentation/openai/test_input_value_image_hiding.py` passed 28 tests on OpenAI 3.0.0. Refs #3540"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-09-19T05:54:28Z",
+        "html_url": "https://github.com/Arize-ai/openinference/pull/3796",
+        "is_pr": true,
+        "number": 3796,
+        "state": "open",
+        "title": "fix(openai): end the LLM span when a stream is abandoned or closed early",
+        "snippet": ", `__exit__` and `__aexit__` call the wrapped teardown and return. `close()` is not overridden, so `ObjectProxy` forwards it straight to the SDK object, and on openai >= 3.x `AsyncStream.aclose()` calls the *wrapped* `close()`, which bypasses the wrapper too. None of those paths reaches `_finish_tracing`. ## Change Finish the tracing on every teardown path, leaving the status `UNSET` so a trunca"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/Arize-ai/openinference/pull/3574",
+      "title": "test(langchain): route OpenAI SDK through legacy httpx so respx mocks work on openai>=3",
+      "is_pr": true,
+      "created_at": "2026-08-17T18:27:28Z",
+      "closed_at": "2026-08-18T04:43:05Z",
+      "hours_after_release": 136.5,
+      "hours_to_close": 10.3
+    }
+  },
+  "Uberi/speech_recognition": {
+    "dependents": [
+      "speechrecognition"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-09-02T00:04:17Z",
+        "comments": 0,
+        "created_at": "2026-09-01T13:39:14Z",
+        "html_url": "https://github.com/Uberi/speech_recognition/pull/910",
+        "is_pr": true,
+        "number": 910,
+        "state": "closed",
+        "title": "maint: Migrate to OpenAI SDK v3",
+        "snippet": "maint: Migrate to OpenAI SDK v3 Migrate respx mock to `httpx2.MockTransport`"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/Uberi/speech_recognition/pull/910",
+      "title": "maint: Migrate to OpenAI SDK v3",
+      "is_pr": true,
+      "created_at": "2026-09-01T13:39:14Z",
+      "closed_at": "2026-09-02T00:04:17Z",
+      "hours_after_release": 491.7,
+      "hours_to_close": 10.4
+    }
+  },
+  "UKGovernmentBEIS/inspect_ai": {
+    "dependents": [
+      "inspect-ai"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-12T13:40:58Z",
+        "comments": 0,
+        "created_at": "2026-08-12T13:32:33Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/pull/4837",
+        "is_pr": true,
+        "number": 4837,
+        "state": "closed",
+        "title": "Fix all OpenAI-compatible requests failing with APIConnectionError under openai 3.x",
+        "snippet": "Fix all OpenAI-compatible requests failing with APIConnectionError under openai 3.x ## This PR contains: - [ ] New features - [ ] Changes to dev-tools e.g. CI config / github tooling - [ ] Docs - [x] Bug fixes - [ ] Code refactor ### What is the current behavior? (You can also link to an open issue here) Fixes meridianlabs-ai/inspect_ai#198 With `openai >= 3.0.0` installed, every request throug"
+      },
+      {
+        "closed_at": "2026-08-14T14:48:38Z",
+        "comments": 1,
+        "created_at": "2026-08-12T19:32:12Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/pull/4851",
+        "is_pr": true,
+        "number": 4851,
+        "state": "closed",
+        "title": "Add CI drift detection for openai SDK default timeout/connection limits",
+        "snippet": "ixes meridianlabs-ai/inspect_ai#204 UKGovernmentBEIS/inspect_ai#4837 stopped importing `DEFAULT_TIMEOUT` / `DEFAULT_CONNECTION_LIMITS` from the openai SDK (on openai >= 3.0 they are httpx2-typed and silently corrupt the timeout config of our legacy `httpx.AsyncClient`), defining httpx-native copies in `src/inspect_ai/model/_openai.py` instead. The values are now duplicated: if a future openai rel"
+      },
+      {
+        "closed_at": "2026-08-14T13:31:44Z",
+        "comments": 0,
+        "created_at": "2026-08-13T19:26:38Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/4871",
+        "is_pr": false,
+        "number": 4871,
+        "state": "closed",
+        "title": "mypy fails with 22 errors when openai 3.x is installed (httpx vs httpx2 types)",
+        "snippet": "mypy fails with 22 errors when openai 3.x is installed (httpx vs httpx2 types) **The problem** - The openai package went from 2.x to 3.x. - openai 3.x does not use `httpx`. It uses a new package named `httpx2`. - Our code gives `httpx` objects to the openai SDK. Under openai 3.x, the SDK types want `httpx2` objects. - The code runs correctly. But mypy reports 22 type errors when openai 3.x is ins"
+      },
+      {
+        "closed_at": "2026-08-17T20:13:58Z",
+        "comments": 2,
+        "created_at": "2026-08-13T19:49:12Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/pull/4873",
+        "is_pr": true,
+        "number": 4873,
+        "state": "closed",
+        "title": "Fix mypy failures when openai 3.x is installed (httpx vs httpx2 types)",
+        "snippet": "Fix mypy failures when openai 3.x is installed (httpx vs httpx2 types) Fixes #4871 openai 3.x is built on `httpx2` instead of `httpx`, so its APIs now type against `httpx2` objects while our code constructs and passes legacy `httpx` ones \u2014 22 mypy errors when openai 3.x is installed. The fix makes the httpx flavor follow the installed SDK: `OpenAIAsyncHttpxClient` now subclasses `openai.DefaultAs"
+      },
+      {
+        "closed_at": "2026-08-14T13:31:43Z",
+        "comments": 0,
+        "created_at": "2026-08-13T20:40:36Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/pull/4875",
+        "is_pr": true,
+        "number": 4875,
+        "state": "closed",
+        "title": "Require openai >= 3.0.0 (httpx2-based), fixing mypy failures and a timeout bug under openai 3.x",
+        "snippet": "Require openai >= 3.0.0 (httpx2-based), fixing mypy failures and a timeout bug under openai 3.x Fixes #4871 openai 3.x is built on `httpx2` instead of `httpx`, so its APIs type against `httpx2` objects while our code constructed legacy `httpx` ones \u2014 22 mypy errors with openai 3.x installed, plus a latent runtime bug (`openai_compatible.py` passing a legacy `httpx.Timeout` that an httpx2 client m"
+      },
+      {
+        "closed_at": "2026-08-31T19:36:12Z",
+        "comments": 0,
+        "created_at": "2026-08-14T12:24:04Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/4880",
+        "is_pr": false,
+        "number": 4880,
+        "state": "closed",
+        "title": "Background-response polling retries never fire (retry predicate can't match openai SDK exceptions)",
+        "snippet": "2025-08-06; the predicate has been dead since it shipped). **History** - Introduced in #2230 (\"openai background mode\"), commit 75d58a167. - Unrelated to the openai 3.x migration (#4871/#4875) \u2014 it was equally dead under openai 1.x/2.x. Surfaced by a code-review pass on #4875. **Proposed fix** Classify the openai SDK's wrapper exceptions in the retry predicate \u2014 e.g. retry on `openai.APIConnec"
+      },
+      {
+        "closed_at": "2026-08-28T11:39:04Z",
+        "comments": 2,
+        "created_at": "2026-08-14T17:11:49Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/pull/4884",
+        "is_pr": true,
+        "number": 4884,
+        "state": "closed",
+        "title": "Make provider HTTP connect timeouts configurable",
+        "snippet": "ice, and can set `INSPECT_HTTP_CONNECT_TIMEOUT` back down. ### Other information: **Two httpx flavors.** Since #4875 the openai SDK is built on the separate `httpx2` package, and anthropic 1.0.0 has since done the same; a client must not be mixed with another flavor's config objects or the timeout config is silently corrupted (#4837). Those providers therefore feed these kwargs into the SDK's ow"
+      },
+      {
+        "closed_at": "2026-08-16T19:10:31Z",
+        "comments": 0,
+        "created_at": "2026-08-16T18:44:07Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/pull/4910",
+        "is_pr": true,
+        "number": 4910,
+        "state": "closed",
+        "title": "Fix MCP tool call errors raising ValidationError (and mypy failures) with openai 3.1.0",
+        "snippet": "Fix MCP tool call errors raising ValidationError (and mypy failures) with openai 3.1.0 ## This PR contains: - [ ] New features - [ ] Changes to dev-tools e.g. CI config / github tooling - [ ] Docs - [x] Bug fixes - [ ] Code refactor ### What is the current behavior? (You can also link to an open issue here) Fixes meridianlabs-ai/inspect_ai#233 `openai` 3.1.0 changed `McpCall.error` from `Option"
+      },
+      {
+        "closed_at": "2026-08-21T12:33:22Z",
+        "comments": 0,
+        "created_at": "2026-08-21T11:39:41Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/pull/4985",
+        "is_pr": true,
+        "number": 4985,
+        "state": "closed",
+        "title": "Fix Anthropic evals failing with anthropic SDK 1.0 (temperature TypeError, raw-response parse, httpx2 type errors)",
+        "snippet": "Fix Anthropic evals failing with anthropic SDK 1.0 (temperature TypeError, raw-response parse, httpx2 type errors) ## This PR contains: - [ ] New features - [ ] Changes to dev-tools e.g. CI config / github tooling - [ ] Docs - [x] Bug fixes - [ ] Code refactor ### What is the current behavior? (You can also link to an open issue here) Fixes meridianlabs-ai/inspect_ai#296 `anthropic` 1.0.0 (publ"
+      },
+      {
+        "closed_at": "2026-08-27T11:38:19Z",
+        "comments": 0,
+        "created_at": "2026-08-27T10:44:46Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/pull/5073",
+        "is_pr": true,
+        "number": 5073,
+        "state": "closed",
+        "title": "Fix mypy errors with openai 3.5.0 (optional FunctionCallOutput.call_id) and trio flake in suspended-hook requeue test",
+        "snippet": "Fix mypy errors with openai 3.5.0 (optional FunctionCallOutput.call_id) and trio flake in suspended-hook requeue test ## This PR contains: - [ ] New features - [ ] Changes to dev-tools e.g. CI config / github tooling - [ ] Docs - [x] Bug fixes - [ ] Code refactor ### What is the current behavior? (You can also link to an open issue here) Fixes meridianlabs-ai/inspect_ai#340 Two independent sche"
+      },
+      {
+        "closed_at": "2026-08-27T16:40:41Z",
+        "comments": 0,
+        "created_at": "2026-08-27T14:22:59Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/pull/5077",
+        "is_pr": true,
+        "number": 5077,
+        "state": "closed",
+        "title": "on_stream now delivers stream events from OpenAI, OpenAI-compatible, Grok, and SageMaker providers",
+        "snippet": "ndings: no request-key collisions with `stream=True`, correct failed/incomplete handling, batcher/background exclusions, and SDK event shapes against installed openai 3.3.1 / xai_sdk 1.19.0. Disclosure: authored by Claude Code (Claude Fable 5) from issue meridianlabs-ai/inspect_ai#248. \ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)"
+      },
+      {
+        "closed_at": "2026-08-28T18:36:21Z",
+        "comments": 0,
+        "created_at": "2026-08-28T16:54:56Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/pull/5110",
+        "is_pr": true,
+        "number": 5110,
+        "state": "closed",
+        "title": "Retry transient mid-stream errors on OpenAI chat-completions streaming instead of failing the sample",
+        "snippet": "imit_exceeded` \u2192 rate_limit; permanent bare `APIError` and non-dict body \u2192 not retried. Exception construction matches the SDK's mid-stream raise site exactly (openai 3.5.0). ### Does this PR introduce a breaking change? (What changes might users need to make in their application due to this PR?) No. ### Other information: Verification: `pytest tests/model/test_should_retry_classification.py`"
+      },
+      {
+        "closed_at": "2026-08-28T18:47:51Z",
+        "comments": 0,
+        "created_at": "2026-08-28T17:54:45Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/pull/5111",
+        "is_pr": true,
+        "number": 5111,
+        "state": "closed",
+        "title": "Retry transient mid-stream errors on SageMaker, Anthropic, and OpenAI-compatible streaming instead of failing the sample",
+        "snippet": "ers/test_grok.py` \u2014 414 passed (19 new/strengthened tests); `ruff check` and `mypy` clean on all changed files. SDK error shapes verified against the installed openai 3.5.0, anthropic 1.2.0, and botocore packages (including feeding synthetic event-stream wire messages through botocore's `EventStreamJSONParser` to confirm how SageMaker delivers stream errors). ### Agent review - Reviewer: Claude F"
+      },
+      {
+        "closed_at": "2026-09-11T19:09:40Z",
+        "comments": 1,
+        "created_at": "2026-09-09T17:42:59Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5317",
+        "is_pr": false,
+        "number": 5317,
+        "state": "closed",
+        "title": "`openai>=3.1.0` runtime requirement not reflected in static requirements",
+        "snippet": "`openai>=3.1.0` runtime requirement not reflected in static requirements `inspect-harbor` requires `litellm`, which pins `openai>=2.20.0,<3.0.0`. But `validate_openai_client()` in inspect requires `openai>=3.1.0` at runtime. Installing `inspect-harbor` results in installing `openai 2.X.X` and an inspect that cannot use the openai model provider."
+      },
+      {
+        "closed_at": "2026-09-13T17:04:19Z",
+        "comments": 0,
+        "created_at": "2026-09-09T19:25:05Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/pull/5321",
+        "is_pr": true,
+        "number": 5321,
+        "state": "closed",
+        "title": "Stop logging every OpenAI and Anthropic request at --log-level info",
+        "snippet": "TTP request line for every OpenAI and Anthropic call. `init_logger` sets a WARNING floor on the `httpx` logger to suppress exactly this, but those SDKs now use httpx2, which logs under its own `httpx2` logger name. ### What is the new behavior? `httpx2` gets the same WARNING floor, so those per-request lines are suppressed as before. ### Does this PR introduce a breaking change? (What changes m"
+      },
+      {
+        "closed_at": "2026-09-13T23:14:28Z",
+        "comments": 1,
+        "created_at": "2026-09-09T21:54:10Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5330",
+        "is_pr": false,
+        "number": 5330,
+        "state": "closed",
+        "title": "Apply the existing `/responses/input_tokens` 404 fallback to 405s caused by `/responses/{response_id}` route collision",
+        "snippet": "gate. ## Steps to reproduce This runnable example uses the OpenAI client's mock transport, so it makes no network requests: ```python import asyncio import httpx2 from inspect_ai.model import ChatMessageUser, get_model from openai import DefaultAsyncHttpxClient async def handler(request: httpx2.Request) -> httpx2.Response: assert request.url.path == \"/v1/responses/input_tokens\" retur"
+      },
+      {
+        "closed_at": "2026-09-16T13:47:54Z",
+        "comments": 0,
+        "created_at": "2026-09-16T11:51:34Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/pull/5440",
+        "is_pr": true,
+        "number": 5440,
+        "state": "closed",
+        "title": "Fix `RuntimeError: Event loop is closed` when a memoized model is used across eval() calls",
+        "snippet": "ays happened. openai-python 3.14.1 (openai/openai-python#3867, released 2026-09-15) stopped catching bare `Exception` in its request loop and now catches only `httpx2.RequestError`, so the SDK no longer wraps this `RuntimeError` as `APIConnectionError` and silently retries it with a fresh connection. The scheduled job installs with a floating `pip install -e \".[dev]\"` and picked 3.14.1 up on 2026-"
+      },
+      {
+        "closed_at": "2026-09-17T05:49:37Z",
+        "comments": 0,
+        "created_at": "2026-09-17T05:48:46Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5454",
+        "is_pr": false,
+        "number": 5454,
+        "state": "closed",
+        "title": "import graphiti_core fails on a fresh install: No module named 'httpx'",
+        "snippet": "ore/llm_client/client.py` does a top-level `import httpx`, but `httpx` is not a declared dependency of `graphiti-core`. It used to arrive transitively through `openai<3`. Since `openai` 3.0.0 (released 2026-08-12) the SDK depends on `httpx2` instead of `httpx`, and `pyproject.toml` only pins `openai>=1.91.0` with no upper bound, so a fresh install now resolves `openai` 3.x, `httpx` is never instal"
+      },
+      {
+        "closed_at": null,
+        "comments": 1,
+        "created_at": "2026-09-18T16:53:27Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_ai/issues/5471",
+        "is_pr": false,
+        "number": 5471,
+        "state": "open",
+        "title": "Long OpenAI generations time out by default",
+        "snippet": "rt / work needed | | --- | --- | --- | | **`OpenAIAPI`** (`openai/`, incl. Azure/Bedrock services) | 600s (Inspect's default HTTP client, [`_util/http_defaults_httpx2.py:73`](https://github.com/METR/inspect_ai/blob/2203ee7a8f06d08eac37bcc1a5050cc2fc38b415/src/inspect_ai/_util/http_defaults_httpx2.py#L73)) | Supported: pass `timeout=` in `generate_completions` / `generate_responses` | | **`OpenAICo"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/UKGovernmentBEIS/inspect_ai/pull/4837",
+      "title": "Fix all OpenAI-compatible requests failing with APIConnectionError under openai 3.x",
+      "is_pr": true,
+      "created_at": "2026-08-12T13:32:33Z",
+      "closed_at": "2026-08-12T13:40:58Z",
+      "hours_after_release": 11.6,
+      "hours_to_close": 0.1
+    }
+  },
+  "ultralytics/ultralytics": {
+    "dependents": [
+      "ultralytics"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "livekit/agents": {
+    "dependents": [
+      "livekit-agents",
+      "livekit-plugins-openai"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-25T14:15:27Z",
+        "comments": 3,
+        "created_at": "2026-08-12T17:26:45Z",
+        "html_url": "https://github.com/livekit/agents/pull/6826",
+        "is_pr": true,
+        "number": 6826,
+        "state": "closed",
+        "title": "fix: migrate http clients to httpx2",
+        "snippet": "fix: migrate http clients to httpx2 **Behavior:** Upgrade OpenAI to 3, MCP to 2, and repository-owned HTTP transports to HTTPX2. Use one OpenAI client policy and test real MCP SSE and streamable HTTP requests. **Compatibility:** Keep legacy `httpx.Timeout` inputs working through 1.x. Warnings point to application call sites. Remove support in 2.0. Keep HTTPX 1 adapters only for upstream SDKs that"
+      },
+      {
+        "closed_at": "2026-08-13T01:20:55Z",
+        "comments": 0,
+        "created_at": "2026-08-13T01:20:15Z",
+        "html_url": "https://github.com/livekit/agents/pull/6830",
+        "is_pr": true,
+        "number": 6830,
+        "state": "closed",
+        "title": "fix(plugins): declare undeclared imports, cap openai below 3",
+        "snippet": "**What breaks** Twelve plugins import `httpx` at module level and never declare it. They received it from `livekit-agents`, which received it from `openai`. OpenAI 3 moved to HTTPX2 and no longer installs `httpx`. #6826 corrects `livekit-agents`. The plugins still fail. With #6826 applied, a clean install gives this result: ``` import livekit.agents \u2192 OK import livekit.plugins.openai"
+      },
+      {
+        "closed_at": "2026-08-13T02:30:54Z",
+        "comments": 0,
+        "created_at": "2026-08-13T01:42:29Z",
+        "html_url": "https://github.com/livekit/agents/pull/6831",
+        "is_pr": true,
+        "number": 6831,
+        "state": "closed",
+        "title": "fix(deps): pin openai below 3",
+        "snippet": "fix(deps): pin openai below 3 **Problem** OpenAI 3 makes HTTPX2 the default client and no longer installs `httpx`. `livekit-agents` imports `httpx` in `inference/llm.py` and never declared it. Twelve plugins import it too, and none of them declared it. They all received it through `openai`. That supply is gone, so a fresh install of the current release fails: ``` $ pip install livekit-agents $"
+      },
+      {
+        "closed_at": "2026-09-11T23:29:39Z",
+        "comments": 1,
+        "created_at": "2026-09-11T15:18:47Z",
+        "html_url": "https://github.com/livekit/agents/issues/7235",
+        "is_pr": false,
+        "number": 7235,
+        "state": "closed",
+        "title": "anthropic plugin: `LLM()` raises TypeError with anthropic SDK \u2265 1.0 (httpx2); dependency has no upper bound",
+        "snippet": "anthropic plugin: `LLM()` raises TypeError with anthropic SDK \u2265 1.0 (httpx2); dependency has no upper bound ### Bug Description `anthropic.LLM(...)` can't be constructed when the anthropic SDK resolves to 1.x. The plugin builds an `httpx.AsyncClient` and passes it to the SDK as `http_client`. anthropic 1.0 moved to `httpx2` and rejects `httpx` objects at construction. The plugin pins `anthropic>"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/livekit/agents/pull/6826",
+      "title": "fix: migrate http clients to httpx2",
+      "is_pr": true,
+      "created_at": "2026-08-12T17:26:45Z",
+      "closed_at": "2026-08-25T14:15:27Z",
+      "hours_after_release": 15.5,
+      "hours_to_close": 308.8
+    }
+  },
+  "stanfordnlp/dspy": {
+    "dependents": [
+      "dspy"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "confident-ai/deepeval": {
+    "dependents": [
+      "deepeval"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "yzhao062/pyod": {
+    "dependents": [
+      "pyod"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "vllm-project/vllm": {
+    "dependents": [
+      "vllm",
+      "vllm-cpu"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-26T11:31:09Z",
+        "comments": 4,
+        "created_at": "2026-08-25T14:38:23Z",
+        "html_url": "https://github.com/vllm-project/vllm/issues/53745",
+        "is_pr": false,
+        "number": 53745,
+        "state": "closed",
+        "title": "[Bug]: Strict tool calling attaches no structural tag when the reasoning and tool parsers share a parser engine",
+        "snippet": "============================== [pip3] torch==2.13.0 [pip3] transformers==5.15.0 [pip3] tokenizers==0.22.2 [pip3] xgrammar==0.2.3 [pip3] pydantic==2.13.4 [pip3] openai==3.2.0 [pip3] regex==2026.7.19 [conda] Could not collect ============================== vLLM Info ============================== ROCM Version : Could not collect vLLM Version : N/A (dev) -- s"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/vllm-project/vllm/issues/53745",
+      "title": "[Bug]: Strict tool calling attaches no structural tag when the reasoning and tool parsers share a parser engine",
+      "is_pr": false,
+      "created_at": "2026-08-25T14:38:23Z",
+      "closed_at": "2026-08-26T11:31:09Z",
+      "hours_after_release": 324.7,
+      "hours_to_close": 20.9
+    }
+  },
+  "braintrustdata/autoevals": {
+    "dependents": [
+      "autoevals"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "traceloop/openllmetry": {
+    "dependents": [
+      "opentelemetry-instrumentation-openai"
+    ],
+    "matching": [
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-09-16T14:29:18Z",
+        "html_url": "https://github.com/traceloop/openllmetry/issues/4476",
+        "is_pr": false,
+        "number": 4476,
+        "state": "open",
+        "title": "Responses API streaming crashes with 'AsyncStream' object has no attribute 'id' when using .with_raw_response",
+        "snippet": "\ud83d\udc4e Actual Behavior Reproduced on both: - `opentelemetry-instrumentation-openai==0.62.3` + `openai==2.50.0` - `opentelemetry-instrumentation-openai==0.62.3` + `openai==3.14.1` (latest) ``` File \".../opentelemetry/instrumentation/openai/v1/responses_wrappers.py\", line 746, in async_responses_get_or_create_wrapper existing_data = responses.get(parsed_response.id)"
+      },
+      {
+        "closed_at": null,
+        "comments": 3,
+        "created_at": "2026-09-16T14:41:05Z",
+        "html_url": "https://github.com/traceloop/openllmetry/pull/4477",
+        "is_pr": true,
+        "number": 4477,
+        "state": "open",
+        "title": "fix(openai): don't crash tracing responses.with_raw_response.create(stream=True)",
+        "snippet": "with the fix. Confirmed the crash independently against the currently-published `opentelemetry-instrumentation-openai==0.62.3` with both `openai==2.50.0` and `openai==3.14.1` before opening #4476. ``` uv run pytest tests/traces/test_responses.py -q # 27 passed uv run pytest -q # 270 passed, 1 skipped uv run ruff check opentelemetry/instrumentation/openai/v1/responses_wrappers.py tests/traces/tes"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/traceloop/openllmetry/issues/4476",
+      "title": "Responses API streaming crashes with 'AsyncStream' object has no attribute 'id' when using .with_raw_response",
+      "is_pr": false,
+      "created_at": "2026-09-16T14:29:18Z",
+      "closed_at": null,
+      "hours_after_release": 852.6,
+      "hours_to_close": null
+    }
+  },
+  "borb-pdf/borb": {
+    "dependents": [
+      "borb"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "comet-ml/opik": {
+    "dependents": [
+      "opik"
+    ],
+    "matching": [
+      {
+        "closed_at": null,
+        "comments": 4,
+        "created_at": "2026-09-03T19:06:12Z",
+        "html_url": "https://github.com/comet-ml/opik/issues/8138",
+        "is_pr": false,
+        "number": 8138,
+        "state": "open",
+        "title": "[Bug]: abandoned openai Responses stream logs an IndexError traceback at error level",
+        "snippet": "f the consuming loop, a cancelled task, or an HTTP client that disconnects mid-response. ## Reproduction Verified against a clean install of `opik==2.0.53`, `openai==3.0.0`, CPython 3.14.2 (Linux). Nothing else is instrumented. ```python import asyncio, os from openai import AsyncOpenAI from opik.integrations.openai import track_openai client = track_openai(AsyncOpenAI(api_key=os.environ[\"OPEN"
+      },
+      {
+        "closed_at": null,
+        "comments": 3,
+        "created_at": "2026-09-21T11:02:51Z",
+        "html_url": "https://github.com/comet-ml/opik/pull/8439",
+        "is_pr": true,
+        "number": 8439,
+        "state": "open",
+        "title": "[NA] [SDK] test: cut Anthropic integration test costs",
+        "snippet": "acked_function__...` failed with `Event loop is closed` / `bound to a different event loop`. openai-agents builds its default `AsyncOpenAI` on a module-global `httpx2` client; `Runner.run_sync` drives it in a throwaway `asyncio.run` loop and the pooled connection stays bound to that closed loop, so the next async test trips over it. A new `agents_tests/conftest.py` autouse fixture sets a fresh def"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/comet-ml/opik/issues/8138",
+      "title": "[Bug]: abandoned openai Responses stream logs an IndexError traceback at error level",
+      "is_pr": false,
+      "created_at": "2026-09-03T19:06:12Z",
+      "closed_at": null,
+      "hours_after_release": 545.2,
+      "hours_to_close": null
+    }
+  },
+  "embeddings-benchmark/mteb": {
+    "dependents": [
+      "mteb"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "redis/redis-vl-python": {
+    "dependents": [
+      "redisvl"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "microsoft/semantic-kernel": {
+    "dependents": [
+      "semantic-kernel"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "dottxt-ai/outlines": {
+    "dependents": [
+      "outlines"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "agno-agi/agno": {
+    "dependents": [
+      "agno"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-23T13:30:55Z",
+        "comments": 0,
+        "created_at": "2026-08-22T13:23:26Z",
+        "html_url": "https://github.com/agno-agi/agno/pull/9714",
+        "is_pr": true,
+        "number": 9714,
+        "state": "closed",
+        "title": "fix: stop test-a2a installing a lockfile that names an unpublished agnoctl",
+        "snippet": "the fix: `uv pip install -e ./libs/agnoctl -e ./libs/agno[dev,os,integration-tests,openai]` then `uv pip install \"a2a-sdk>=0.3.0,<1.0\"` resolves cleanly \u2014 agno 3.0.0a3, **agnoctl 0.2.0 from the editable**, a2a-sdk 0.3.26. - `pytest ./libs/agno/tests/integration/os/interfaces/test_a2a.py` \u2014 **17 passed in 11.22s**. ## Type of change - [x] Bug fix - [ ] New feature - [ ] Breaking change - [ ] Impr"
+      },
+      {
+        "closed_at": "2026-08-24T12:51:03Z",
+        "comments": 1,
+        "created_at": "2026-08-24T11:21:26Z",
+        "html_url": "https://github.com/agno-agi/agno/pull/9755",
+        "is_pr": true,
+        "number": 9755,
+        "state": "closed",
+        "title": "feat: Release v3.0.0",
+        "snippet": "feat: Release v3.0.0 \u26a0\ufe0f **Breaking release.** A database migration is required before v3.0 serves traffic. Read the **[v3 Migration Guide](https://docs.agno.com/other/v3-migration)** first, and see the full **[v3.0 Changelog](https://docs.agno.com/other/v3-changelog)** for every change. ## **New Features** - **Tool result offloading**: `Agent(offload_tool_results=True)` / `Team(...)` writes any"
+      },
+      {
+        "closed_at": null,
+        "comments": 1,
+        "created_at": "2026-09-07T08:48:02Z",
+        "html_url": "https://github.com/agno-agi/agno/issues/10017",
+        "is_pr": false,
+        "number": 10017,
+        "state": "open",
+        "title": "feat: migrate HTTP client from httpx to httpx2",
+        "snippet": "feat: migrate HTTP client from httpx to httpx2 ## Summary The Python HTTP client ecosystem has started moving from `httpx` to `httpx2` (the Pydantic-stewarded continuation of httpx, released 2026-08-18, currently at 2.12.0). ## Who has already migrated Key upstream dependencies of agno: | Package | Version | Dependency | |---------|---------|------------| | openai | 3.8.0 | `httpx2<3,>=2.7.0`"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-09-07T10:20:14Z",
+        "html_url": "https://github.com/agno-agi/agno/pull/10021",
+        "is_pr": true,
+        "number": 10021,
+        "state": "open",
+        "title": "feat: migrate core HTTP client from httpx to httpx2",
+        "snippet": "feat: migrate core HTTP client from httpx to httpx2 ## Summary Migrates agno's HTTP layer from `httpx` to `httpx2` (the Pydantic-stewarded continuation of httpx). Closes #10017. openai 3.0, anthropic 1.0 and mcp 2.1 moved their HTTP layer to `httpx2`, so an `httpx.Client` is no longer accepted by those SDKs' `http_client` parameters \u2014 users on the latest SDKs could not share a custom client (pro"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-09-16T05:34:19Z",
+        "html_url": "https://github.com/agno-agi/agno/pull/10206",
+        "is_pr": true,
+        "number": 10206,
+        "state": "open",
+        "title": "cookbook: add an OrcaReplay observability example",
+        "snippet": "agent again with the provider unreachable \u2014 the recorded response is served back byte-for-byte, no key, no token spend. ## Measured, not asserted agno 3.0.9, openai 3.14.1, Python 3.12, against a local OpenAI-shaped origin: ```console $ orca record generic-openai -- python agent.py info recording run=run_575a46fe5046 adapter=generic-openai It records the calls a program makes, then serves them"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/agno-agi/agno/pull/9714",
+      "title": "fix: stop test-a2a installing a lockfile that names an unpublished agnoctl",
+      "is_pr": true,
+      "created_at": "2026-08-22T13:23:26Z",
+      "closed_at": "2026-08-23T13:30:55Z",
+      "hours_after_release": 251.5,
+      "hours_to_close": 24.1
+    }
+  },
+  "Arize-ai/phoenix": {
+    "dependents": [
+      "arize-phoenix",
+      "arize-phoenix-evals"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-22T00:36:25Z",
+        "comments": 3,
+        "created_at": "2026-08-17T12:22:19Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/pull/15464",
+        "is_pr": true,
+        "number": 15464,
+        "state": "closed",
+        "title": "chore(deps): weekly dependency upgrade 2026-08-17",
+        "snippet": "es. > The narrative below was written by Claude after the upgrade caused verification failures, then updated after rebasing onto `main` (which already includes openai 3.1.0). > Review the diff and fixes carefully before merging. - `uv lock --upgrade` (Python) - `pnpm update --recursive` in `js/` ## Weekly dependency upgrade \u2014 2026-08-17 `uv lock --upgrade` (Python) and `pnpm update -r` (`js/`)."
+      },
+      {
+        "closed_at": "2026-08-18T17:12:07Z",
+        "comments": 2,
+        "created_at": "2026-08-18T07:03:44Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/pull/15479",
+        "is_pr": true,
+        "number": 15479,
+        "state": "closed",
+        "title": "chore(deps): require openai>=3.1.0",
+        "snippet": "chore(deps): require openai>=3.1.0 Raises the `openai` floor to `>=3.1.0,<4` and adapts the code to openai 3's transport change. ## Why the code changes openai 3 moved its HTTP transport from `httpx` to `httpx2`. That surfaced 6 type errors, because `AsyncOpenAI._client` and the `http_client` parameter are now `httpx2` types. Runtime was never broken \u2014 openai 3 still accepts an `httpx` client by"
+      },
+      {
+        "closed_at": "2026-08-18T07:19:27Z",
+        "comments": 1,
+        "created_at": "2026-08-18T07:05:14Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/pull/15480",
+        "is_pr": true,
+        "number": 15480,
+        "state": "closed",
+        "title": "chore(deps): require openai>=3.1.0 in phoenix-evals",
+        "snippet": "chore(deps): require openai>=3.1.0 in phoenix-evals Stacked on #15479. Raises `openai` from `>=1.0.0` to `>=3.1.0,<4` in the `arize-phoenix-evals` dev and test extras, so the package is exercised against the same openai 3 SDK the rest of the tree resolves. ## Scope These are **dev/test extras only**. `arize-phoenix-evals` declares no runtime dependency on openai \u2014 its OpenAI adapter imports laz"
+      },
+      {
+        "closed_at": null,
+        "comments": 1,
+        "created_at": "2026-08-19T16:21:36Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/issues/15517",
+        "is_pr": false,
+        "number": 15517,
+        "state": "open",
+        "title": "docs: Weekly docs gap audit \u2014 2026-08-19",
+        "snippet": "toml:104-109`. Worth a module docstring in `harbor/__init__.py`, which currently reads only \"Phoenix plugin for the Harbor evaluation harness.\" --- ### 8. `openai>=3.1.0,<4` floor on the published `container` extra **Source:** `2301e2dc1` \u2014 chore(deps): require openai>=3.1.0 (#15479) **Package(s):** `arize-phoenix` **Public surface:** - `pyproject.toml` `[project.optional-dependencies] contai"
+      },
+      {
+        "closed_at": "2026-08-19T19:14:02Z",
+        "comments": 1,
+        "created_at": "2026-08-19T17:17:06Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/pull/15519",
+        "is_pr": true,
+        "number": 15519,
+        "state": "closed",
+        "title": "docs(skills): weekly audit \u2014 2026-08-19",
+        "snippet": "an API that errors on use. **Worth revisiting once the trace path lands** \u2014 it is the intended user-facing ATIF surface. - `2301e2dc1` `chore(deps): require openai>=3.1.0` \u2014 tagged **evals**. Floors `openai` for the `arize-phoenix` server's dev/container extras only, not for `arize-phoenix-evals`. The evals skill's `references/setup-python.md:22` says `pip install openai` with no pin, whi"
+      },
+      {
+        "closed_at": "2026-08-21T15:08:19Z",
+        "comments": 1,
+        "created_at": "2026-08-21T13:57:33Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/pull/15563",
+        "is_pr": true,
+        "number": 15563,
+        "state": "closed",
+        "title": "test: CI canary \u2014 base + openai 3.x compatibility only",
+        "snippet": "test: CI canary \u2014 base + openai 3.x compatibility only Do not merge. Temporary CI canary isolating a postgres unit-test hang. This branch is `version-online-evals` plus only the two cherry-picks from main that adapt tests to openai 3.x (#15479, #15482). It exists to answer one question: does the postgres unit-test job hang on the feature-branch base once the openai 3.x test fixes are present, ind"
+      },
+      {
+        "closed_at": "2026-08-25T04:47:23Z",
+        "comments": 2,
+        "created_at": "2026-08-24T12:58:15Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/pull/15589",
+        "is_pr": true,
+        "number": 15589,
+        "state": "closed",
+        "title": "chore(deps): weekly dependency upgrade 2026-08-24",
+        "snippet": "pinned `anthropic` back to `<1` (which transitively held `pydantic-ai-slim` at 2.32.x) so the 1.0 migration \u2014 dropped `temperature`/`top_p`/`top_k`, `httpx` \u2192 `httpx2` \u2014 could be done deliberately by a human rather than by the upgrade bot. That migration then landed on `main` as **fix: upgrade to anthropic SDK v1 (#15588)**, and this branch was rebased on top of it. Consequences: - **The caps and"
+      },
+      {
+        "closed_at": "2026-09-01T05:17:10Z",
+        "comments": 2,
+        "created_at": "2026-08-27T05:43:50Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/pull/15683",
+        "is_pr": true,
+        "number": 15683,
+        "state": "closed",
+        "title": "fix(playground): preserve tool choice and strict setting for Anthropic and Bedrock",
+        "snippet": "dependency set exactly, so CI is the real check on this: - `requirements/unit-tests.txt` did not resolve for me \u2014 `litellm>=1.83.14` requires `openai>=2.20.0,<3.0.0`, while another pinned dependency requires `openai>=3.1.0`. `requirements/type-check.txt` hits a related `openai` conflict. - I ran the suite with `ci.txt` plus the test dependencies, excluding `litellm` and `type-check.txt`. Nothing"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-08-31T22:56:00Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/issues/15782",
+        "is_pr": false,
+        "number": 15782,
+        "state": "open",
+        "title": "[sdk] Migrate arize-phoenix-client from httpx to httpx2",
+        "snippet": "[sdk] Migrate arize-phoenix-client from httpx to httpx2 Migrate the `arize-phoenix-client` package from `httpx` to `httpx2`. This is the largest first-party surface (~14 source files, ~200 references) and the only one where httpx types are part of the **public API contract**, so it requires a breaking-change (major version) release or a compatibility shim. ## Why The Python HTTP ecosystem is mov"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-08-31T22:56:29Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/issues/15783",
+        "is_pr": false,
+        "number": 15783,
+        "state": "open",
+        "title": "[server] Migrate the Phoenix server from httpx to httpx2 and retire the dual-stack shim",
+        "snippet": "[server] Migrate the Phoenix server from httpx to httpx2 and retire the dual-stack shim Migrate `src/phoenix/` server code from `httpx` to `httpx2`. The code footprint is small (6 importing files, ~29 references) but the work is gated on three external dependencies, and it should absorb removal of the dual-stack httpx/httpx2 shim that already exists in the playground. ## Current state The migrat"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-08-31T22:56:58Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/issues/15784",
+        "is_pr": false,
+        "number": 15784,
+        "state": "open",
+        "title": "[server] Migrate unit and integration test suites from httpx to httpx2",
+        "snippet": "[server] Migrate unit and integration test suites from httpx to httpx2 Migrate the repo-level test suites (`tests/unit/`, `tests/integration/`) from `httpx` to `httpx2`. This is the largest blast radius of the migration by file count (36 + 11 importing files), but it pivots on a small number of shared fixtures. ## tests/unit \u2014 36 importing files, pivots on one fixture - `tests/unit/conftest.py:3"
+      },
+      {
+        "closed_at": "2026-09-16T21:36:13Z",
+        "comments": 0,
+        "created_at": "2026-08-31T22:57:18Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/issues/15785",
+        "is_pr": false,
+        "number": 15785,
+        "state": "closed",
+        "title": "[docs] Remove stale httpx<0.28 pins and update httpx examples for httpx2",
+        "snippet": "[docs] Remove stale httpx<0.28 pins and update httpx examples for httpx2 Clean up user-facing docs and tutorials for the httpx \u2192 httpx2 migration. Two categories: stale version pins that will actively conflict in an httpx2 world, and examples that instruct users to construct httpx clients. ## 1. Stale `httpx<0.28` pins (21 files) These pins are leftover workarounds for an old openai-SDK incompat"
+      },
+      {
+        "closed_at": "2026-09-02T22:12:10Z",
+        "comments": 0,
+        "created_at": "2026-08-31T22:57:32Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/issues/15786",
+        "is_pr": false,
+        "number": 15786,
+        "state": "closed",
+        "title": "[evals] Drop unused respx dep and fix httpx/httpx2 mismatch in the openai adapter test",
+        "snippet": "[evals] Drop unused respx dep and fix httpx/httpx2 mismatch in the openai adapter test `arize-phoenix-evals` has **no httpx dependency and no httpx imports in source** \u2014 there is no migration to do. Two small cleanups remain: ## 1. Drop the dead `respx` test dependency `packages/phoenix-evals/pyproject.toml:57` declares `respx` in the `test` extra, but nothing in the repo uses respx (or pytest-h"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-08-31T22:57:46Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/issues/15787",
+        "is_pr": false,
+        "number": 15787,
+        "state": "open",
+        "title": "Migrate Phoenix from httpx to httpx2 (tracking)",
+        "snippet": "Migrate Phoenix from httpx to httpx2 (tracking) Move all first-party httpx usage to httpx2 (API-compatible successor; OS trust store SSL, `httpx2`/`httpcore2` import and logger names). The playground already runs a dual-stack shim because the openai SDK is httpx2-based. ## Tickets - [ ] #15782 \u2014 `arize-phoenix-client` (public API breaking change) - [ ] #15783 \u2014 server + retire the `playground_cl"
+      },
+      {
+        "closed_at": "2026-09-02T22:12:09Z",
+        "comments": 2,
+        "created_at": "2026-09-01T05:15:38Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/pull/15798",
+        "is_pr": true,
+        "number": 15798,
+        "state": "closed",
+        "title": "test(evals): align OpenAI adapter errors with httpx2",
+        "snippet": "test(evals): align OpenAI adapter errors with httpx2 resolves #15786 ## What changed `arize-phoenix-evals` no longer declares the unused `respx` test extra. The OpenAI adapter tests now build synthetic SDK errors with `httpx2.Request` and `httpx2.Response`, matching the OpenAI SDK's HTTP types. ## How to verify ```bash uv run --frozen pytest packages/phoenix-evals/tests/phoenix/evals/llm/adapt"
+      },
+      {
+        "closed_at": "2026-09-02T19:18:30Z",
+        "comments": 0,
+        "created_at": "2026-09-02T14:27:59Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/issues/15842",
+        "is_pr": false,
+        "number": 15842,
+        "state": "closed",
+        "title": "OAuth2 client-assertion tests fail with authlib 1.8 and httpx2",
+        "snippet": "OAuth2 client-assertion tests fail with authlib 1.8 and httpx2 authlib 1.8 builds its httpx client on `httpx2` whenever that package is importable, and `httpx2` now arrives transitively through `openai` and `pydantic-ai-slim`. The two `TestClientAssertionJWT` tests that drive a request through authlib still hand it an `httpx.MockTransport`, so the `httpx2` client treats the transport as sync and f"
+      },
+      {
+        "closed_at": "2026-09-02T19:05:11Z",
+        "comments": 1,
+        "created_at": "2026-09-02T16:58:54Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/pull/15849",
+        "is_pr": true,
+        "number": 15849,
+        "state": "closed",
+        "title": "chore(deps): floor authlib at 1.8 and declare httpx2 as a test dependency",
+        "snippet": "chore(deps): floor authlib at 1.8 and declare httpx2 as a test dependency ## Summary Authlib 1.8 ([authlib#909](https://github.com/authlib/authlib/pull/909)) moved its OAuth2/OIDC client onto `httpx2`, with a fallback to a deprecated `httpx` path only when `httpx2` is absent: ```python # authlib/integrations/httpx_client/_compat.py try: import httpx2 except ImportError: import httpx as h"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-09-09T16:34:13Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/issues/16018",
+        "is_pr": false,
+        "number": 16018,
+        "state": "open",
+        "title": "docs: Weekly docs gap audit \u2014 2026-09-09",
+        "snippet": "eeping (14):** `59059618b` weekly dependency upgrade \u00b7 `1e3dfd6bf` strawberry-graphql 0.327.0 \u00b7 `bb77c31f2` pydantic-monty 0.0.21 \u00b7 `7624cc7cb` authlib floor + httpx2 test dep \u00b7 `24eca05b5` @fastify/static + @opentelemetry/core advisories \u00b7 `895697243` Vitest 4\u21925 \u00b7 `7b8b8f755` / `631b1fa79` uv.lock syncs \u00b7 `1f7cec27e` / `02b1e51f6` client version bumps \u00b7 `ab00d8010` / `0a3b33284` / `a71218c73` / `"
+      },
+      {
+        "closed_at": "2026-09-16T21:36:12Z",
+        "comments": 4,
+        "created_at": "2026-09-16T10:53:54Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/pull/16239",
+        "is_pr": true,
+        "number": 16239,
+        "state": "closed",
+        "title": "docs: clean up httpx pins and examples for the httpx2 migration",
+        "snippet": "docs: clean up httpx pins and examples for the httpx2 migration Closes #15785. Cleans up the user-facing docs and tutorials for the httpx to httpx2 migration. **1. Stale `httpx<0.28` pins removed (20 files).** These were leftover workarounds for an old openai-SDK incompatibility. The pinned install now conflicts with modern SDKs, so they are deleted rather than migrated, exactly as the issue cal"
+      },
+      {
+        "closed_at": null,
+        "comments": 2,
+        "created_at": "2026-09-21T12:20:33Z",
+        "html_url": "https://github.com/Arize-ai/phoenix/pull/16330",
+        "is_pr": true,
+        "number": 16330,
+        "state": "open",
+        "title": "chore(deps): weekly dependency upgrade 2026-09-21",
+        "snippet": "round_clients.py:1158: error: Argument 1 to \"assert_never\" has incompatible type \"Literal['response.compaction.compacting']\"; expected \"Never\" [arg-type] ``` openai 3.15.0 adds `ResponseCompactionCompactingEvent` to the `ResponseStreamEvent` union, which broke the exhaustiveness check at the end of the Responses-API event dispatch loop. Added a `pass` branch for `\"response.compaction.compacting\""
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/Arize-ai/phoenix/pull/15464",
+      "title": "chore(deps): weekly dependency upgrade 2026-08-17",
+      "is_pr": true,
+      "created_at": "2026-08-17T12:22:19Z",
+      "closed_at": "2026-08-22T00:36:25Z",
+      "hours_after_release": 130.4,
+      "hours_to_close": 108.2
+    }
+  },
+  "run-llama/llama_index": {
+    "dependents": [
+      "llama-index-legacy"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-26T03:12:31Z",
+        "comments": 1,
+        "created_at": "2026-08-26T03:06:34Z",
+        "html_url": "https://github.com/run-llama/llama_index/pull/22834",
+        "is_pr": true,
+        "number": 22834,
+        "state": "closed",
+        "title": "respect an explicitly-passed temperature for o1-class models",
+        "snippet": "--check (v0.11.8) # clean ``` Note on validation environment: tests ran in an isolated venv (llama-index-core 0.14.24, openai 3.3.1) with this package's source shadowed via PYTHONPATH, since the monorepo's sibling integration packages are not fully checked out on this machine. The 1 failing test (`test_process_response_event_with_text_annotation`) is pre-ex"
+      },
+      {
+        "closed_at": "2026-09-01T21:22:43Z",
+        "comments": 0,
+        "created_at": "2026-09-01T21:07:22Z",
+        "html_url": "https://github.com/run-llama/llama_index/pull/22922",
+        "is_pr": true,
+        "number": 22922,
+        "state": "closed",
+        "title": "chore(deps): bump the uv group across 2 directories with 3 updates",
+        "snippet": "sse</code></a> in <a href=\"https://redirect.github.com/langchain-ai/langsmith-sdk/pull/3462\">langchain-ai/langsmith-sdk#3462</a></li> <li>chore(py)!: swtich to httpx2 dependency while keeping httpx as a fallback by <a href=\"https://github.com/emil-lc\"><code>@\u200bemil-lc</code></a> in <a href=\"https://redirect.github.com/langchain-ai/langsmith-sdk/pull/3406\">langchain-ai/langsmith-sdk#3406</a></li> <l"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-09-02T12:37:21Z",
+        "html_url": "https://github.com/run-llama/llama_index/pull/22938",
+        "is_pr": true,
+        "number": 22938,
+        "state": "open",
+        "title": "Add transport, retry and stream-event coverage to llama-index-llms-openai",
+        "snippet": "ite run locally for the package. The new tests need no API key and no network, so they run in CI alongside the existing unit tests. The new tests guard their `httpx2` imports, so they degrade to the available transport rather than failing where `httpx2` is not installed. That keeps them valid across the whole `openai` range the package currently allows. ## Suggested Checklist: - [x] I have perf"
+      },
+      {
+        "closed_at": null,
+        "comments": 1,
+        "created_at": "2026-09-02T12:39:22Z",
+        "html_url": "https://github.com/run-llama/llama_index/pull/22939",
+        "is_pr": true,
+        "number": 22939,
+        "state": "open",
+        "title": "Allow openai 3.x in llama-index-llms-openai",
+        "snippet": "Allow openai 3.x in llama-index-llms-openai # Description Removes the `openai<3` upper bound from `llama-index-llms-openai`, allowing `openai>=1.108.1`. **Why I am raising this.** I want to use a 3.x release of the `openai` SDK in one of my projects, and I currently cannot: this package pins `openai<3`, and because it is pulled in transitively (in my case via `OpenAILike`), the resolver refuses"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/run-llama/llama_index/pull/22834",
+      "title": "respect an explicitly-passed temperature for o1-class models",
+      "is_pr": true,
+      "created_at": "2026-08-26T03:06:34Z",
+      "closed_at": "2026-08-26T03:12:31Z",
+      "hours_after_release": 337.2,
+      "hours_to_close": 0.1
+    }
+  },
+  "Graphify-Labs/graphify": {
+    "dependents": [
+      "graphifyy"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "composiohq/composio": {
+    "dependents": [
+      "composio"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-27T13:13:52Z",
+        "comments": 1,
+        "created_at": "2026-08-21T06:59:36Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4196",
+        "is_pr": true,
+        "number": 4196,
+        "state": "closed",
+        "title": "fix(deps-dev): bump langchain-openai from 1.4.3 to 1.6.0 in /python in the pip-version group across 1 directory",
+        "snippet": "n/issues/39651\">#39651</a>) release(openai): 1.5.0 (<a href=\"https://redirect.github.com/langchain-ai/langchain/issues/39629\">#39629</a>) feat(openai): support openai 3.0 SDK (<a href=\"https://redirect.github.com/langchain-ai/langchain/issues/39613\">#39613</a>) chore(partners): bump langgraph floor in openai and huggingface lockfiles (<a href=\"https://redirect.github.com/langchain-ai/langchain/iss"
+      },
+      {
+        "closed_at": "2026-08-25T00:00:52Z",
+        "comments": 2,
+        "created_at": "2026-08-24T19:18:16Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4229",
+        "is_pr": true,
+        "number": 4229,
+        "state": "closed",
+        "title": "fix(deps): bump the github-actions group across 1 directory with 8 updates",
+        "snippet": "ave-only</li> </ul> <h3>6.0.0</h3> <ul> <li>Updated <code>@actions/cache</code> to ^6.0.1, <code>@actions/core</code> to ^3.0.1, <code>@actions/exec</code> to ^3.0.0, <code>@actions/io</code> to ^3.0.2</li> <li>Migrated to ESM module system</li> <li>Upgraded Jest to v30 and test infrastructure to be ESM compatible</li> </ul> <h3>5.0.4</h3> <ul> <li>Bump <code>minimatch</code> to v3.1.5 (fixes ReDo"
+      },
+      {
+        "closed_at": "2026-08-25T14:05:30Z",
+        "comments": 1,
+        "created_at": "2026-08-25T00:00:56Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4239",
+        "is_pr": true,
+        "number": 4239,
+        "state": "closed",
+        "title": "fix(deps): bump the github-actions group across 1 directory with 7 updates",
+        "snippet": "ave-only</li> </ul> <h3>6.0.0</h3> <ul> <li>Updated <code>@actions/cache</code> to ^6.0.1, <code>@actions/core</code> to ^3.0.1, <code>@actions/exec</code> to ^3.0.0, <code>@actions/io</code> to ^3.0.2</li> <li>Migrated to ESM module system</li> <li>Upgraded Jest to v30 and test infrastructure to be ESM compatible</li> </ul> <h3>5.0.4</h3> <ul> <li>Bump <code>minimatch</code> to v3.1.5 (fixes ReDo"
+      },
+      {
+        "closed_at": "2026-09-11T14:24:04Z",
+        "comments": 2,
+        "created_at": "2026-09-11T06:36:30Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4440",
+        "is_pr": true,
+        "number": 4440,
+        "state": "closed",
+        "title": "chore(deps): update ag2 requirement from <1.0,>=0.14 to >=0.14,<2.0 in /python/providers/autogen",
+        "snippet": "Sourced from <a href=\"https://github.com/ag2ai/ag2/releases\">ag2's releases</a>.</em></p> <blockquote> <h2>v1.0.4</h2> <p>AG2 now targets the Anthropic 1.x and OpenAI 3.x SDKs, TealTiger governance gains two more policies, and ACP servers can resume sessions.</p> <h2>What's Changed</h2> <h3>Provider SDK support</h3> <p>Two provider SDKs released new majors, and AG2 has been adapted to both.</p> <u"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/ComposioHQ/composio/pull/4196",
+      "title": "fix(deps-dev): bump langchain-openai from 1.4.3 to 1.6.0 in /python in the pip-version group across 1 directory",
+      "is_pr": true,
+      "created_at": "2026-08-21T06:59:36Z",
+      "closed_at": "2026-08-27T13:13:52Z",
+      "hours_after_release": 221.1,
+      "hours_to_close": 150.2
+    }
+  },
+  "vibrantlabsai/ragas": {
+    "dependents": [
+      "ragas"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "kedro-org/kedro-plugins": {
+    "dependents": [
+      "kedro-datasets"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "UKGovernmentBEIS/inspect_evals": {
+    "dependents": [
+      "inspect-evals"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-12T02:51:41Z",
+        "comments": 2,
+        "created_at": "2026-08-12T02:12:28Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_evals/pull/2129",
+        "is_pr": true,
+        "number": 2129,
+        "state": "closed",
+        "title": "fix: bump test-group openai floor to >=2.45.0 to match inspect_ai",
+        "snippet": "ges/*/uv.lock` files are committed; `tools/update_isolated_locks.sh --check` and `uv lock --check` both pass. ## Note for reviewers: this resolves `openai` to 3.0.0 With the floor raised and no upper bound, the resolver now picks `openai==3.0.0` (up from `2.31.0`) rather than a 2.4x release. That is the main reason the root `uv.lock` diff is large: `openai` 3.x depends on `httpx2`, which carries"
+      },
+      {
+        "closed_at": "2026-08-21T07:52:25Z",
+        "comments": 3,
+        "created_at": "2026-08-13T06:58:52Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_evals/issues/2157",
+        "is_pr": false,
+        "number": 2157,
+        "state": "closed",
+        "title": "Handle the score-affecting changes after inspect_ai version refresh",
+        "snippet": "t_evals.utils.metrics.mean_of` and explicitly NaN-leaf-skipping; `krippendorff_alpha()` for inter-rater agreement across judges; and the `collect` reducer. - **openai 3.x no longer breaks every request** with `APIConnectionError` (0.3.258), which is relevant given the openai floor work in #2129. Not included: `Score.reason` (UKGovernmentBEIS/inspect_ai#4629) is still open, so reading a machine-re"
+      },
+      {
+        "closed_at": null,
+        "comments": 1,
+        "created_at": "2026-08-17T05:49:15Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_evals/pull/2177",
+        "is_pr": true,
+        "number": 2177,
+        "state": "open",
+        "title": "fix(gdm_self_proliferation): install httpx explicitly so the sp03 and sp12 Docker builds succeed",
+        "snippet": "d on getting it transitively via `openai`. Two upstream releases then removed that transitive path: - `openai` <= 2.45.0 declared `httpx<1,>=0.23.0`; `openai` 3.0.0+ declares `httpx2<3,>=2.7.0` instead. - `llm` 0.32 requires `openai>=2.32.0`, so a fresh install resolves `openai` 3.1.0 and `httpx2`, and never installs `httpx`. The result is that `pip install llm` now produces an `llm` that cannot"
+      },
+      {
+        "closed_at": "2026-08-18T22:32:16Z",
+        "comments": 6,
+        "created_at": "2026-08-18T13:52:59Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_evals/pull/2187",
+        "is_pr": true,
+        "number": 2187,
+        "state": "closed",
+        "title": "Upgrade Inspect to 0.3.258+ to solve APIConnectionError on every requests with openai v3 package",
+        "snippet": "Upgrade Inspect to 0.3.258+ to solve APIConnectionError on every requests with openai v3 package # This PR fixes APIConnectionError: Connection error. when openai 3.x is installed on every OpenAI request ## Description Inspect v0.3.258's changelog says: > Bugfix: OpenAI and OpenAI-compatible providers no longer fail every request with APIConnectionError: Connection error. when openai 3.x is ins"
+      },
+      {
+        "closed_at": "2026-09-08T15:23:17Z",
+        "comments": 4,
+        "created_at": "2026-08-24T01:13:15Z",
+        "html_url": "https://github.com/UKGovernmentBEIS/inspect_evals/pull/2264",
+        "is_pr": true,
+        "number": 2264,
+        "state": "closed",
+        "title": "docs(agentic_misalignment): document fully local Ollama runs",
+        "snippet": "can run both the evaluated model and grader through Ollama. The README now: - uses the actual default grader, `anthropic/claude-sonnet-4-6`; - documents the `openai>=3.1.0` requirement for the Ollama provider; - uses `-T grader_model=ollama/...` as the primary grader override, with `INSPECT_GRADER_MODEL` documented as an alternative; - explains override precedence and the Anthropic credential re"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/UKGovernmentBEIS/inspect_evals/pull/2129",
+      "title": "fix: bump test-group openai floor to >=2.45.0 to match inspect_ai",
+      "is_pr": true,
+      "created_at": "2026-08-12T02:12:28Z",
+      "closed_at": "2026-08-12T02:51:41Z",
+      "hours_after_release": 0.3,
+      "hours_to_close": 0.7
+    }
+  },
+  "pyg-team/pytorch_geometric": {
+    "dependents": [
+      "torch-geometric"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "evidentlyai/evidently": {
+    "dependents": [
+      "evidently"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "chonkie-inc/chonkie": {
+    "dependents": [
+      "chonkie"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "getzep/graphiti": {
+    "dependents": [
+      "graphiti-core"
+    ],
+    "matching": [
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-09-17T05:51:21Z",
+        "html_url": "https://github.com/getzep/graphiti/issues/1893",
+        "is_pr": false,
+        "number": 1893,
+        "state": "open",
+        "title": "[BUG] import graphiti_core fails on a fresh install: No module named 'httpx' (openai>=3 depends on httpx2)",
+        "snippet": "[BUG] import graphiti_core fails on a fresh install: No module named 'httpx' (openai>=3 depends on httpx2) ## Bug Description `import graphiti_core` fails on a fresh install with `ModuleNotFoundError: No module named 'httpx'`. `graphiti_core/llm_client/client.py` does a top-level `import httpx`, but `httpx` is not a declared dependency of `graphiti-core`. It used to arrive transitively through `"
+      },
+      {
+        "closed_at": null,
+        "comments": 1,
+        "created_at": "2026-09-17T06:20:30Z",
+        "html_url": "https://github.com/getzep/graphiti/pull/1894",
+        "is_pr": true,
+        "number": 1894,
+        "state": "open",
+        "title": "Fix #1893: [BUG] import graphiti_core fails on a fresh install: No module named '",
+        "snippet": "iti_core fails on a fresh install: No module named ' Fixes #1893 ## What changed Made the `httpx` import in `graphiti_core/llm_client/client.py` fall back to `httpx2` when `httpx` is not installed, fixing `ModuleNotFoundError: No module named 'httpx'` on fresh installs where `openai>=3` (which depends on `httpx2`) is resolved. ## Verification `python -m pytest -q -x tests/llm_client/test_client."
+      },
+      {
+        "closed_at": null,
+        "comments": 2,
+        "created_at": "2026-09-17T08:15:31Z",
+        "html_url": "https://github.com/getzep/graphiti/pull/1895",
+        "is_pr": true,
+        "number": 1895,
+        "state": "open",
+        "title": "fix(llm_client): fall back to httpx2 when httpx is not installed",
+        "snippet": "fix(llm_client): fall back to httpx2 when httpx is not installed ## Summary `client.py` imports `httpx` unconditionally, but `httpx` is not a declared dependency \u2014 it came transitively via `openai<3`. `openai>=3` depends on `httpx2` instead, so a fresh `pip install graphiti-core` fails at `import graphiti_core` (#1893). This PR falls back to `httpx2` when `httpx` is not installed. `httpx` is onl"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/getzep/graphiti/issues/1893",
+      "title": "[BUG] import graphiti_core fails on a fresh install: No module named 'httpx' (openai>=3 depends on httpx2)",
+      "is_pr": false,
+      "created_at": "2026-09-17T05:51:21Z",
+      "closed_at": null,
+      "hours_after_release": 867.9,
+      "hours_to_close": null
+    }
+  },
+  "Traia-IO/IATP": {
+    "dependents": [
+      "traia-iatp"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "wandb/weave": {
+    "dependents": [
+      "weave"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "unclecode/litellm": {
+    "dependents": [
+      "unclecode-litellm"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "deepset-ai/haystack": {
+    "dependents": [
+      "haystack-ai"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-13T07:47:57Z",
+        "comments": 4,
+        "created_at": "2026-08-13T07:32:14Z",
+        "html_url": "https://github.com/deepset-ai/haystack/pull/12332",
+        "is_pr": true,
+        "number": 12332,
+        "state": "closed",
+        "title": "fix: pinning openai and numpy",
+        "snippet": "ed it --> <!--- In case of a feature: Describe what did you add and how it works --> Openai just released a version 3 of their sdk that switched to using the httpx2 library instead of httpx. Numpy in version 2.5 added typing stubs that only work with python 3.12 So to get PRs unblocked I've pinned the openai library to less than 3 and the numpy test dep to less than 2.5. As a follow up we sho"
+      },
+      {
+        "closed_at": "2026-08-13T14:25:48Z",
+        "comments": 4,
+        "created_at": "2026-08-13T14:22:50Z",
+        "html_url": "https://github.com/deepset-ai/haystack/pull/12336",
+        "is_pr": true,
+        "number": 12336,
+        "state": "closed",
+        "title": "build(deps): update openai requirement from <3,>=2.6.0 to >=2.6.0,<4",
+        "snippet": "ummary>Release notes</summary> <p><em>Sourced from <a href=\"https://github.com/openai/openai-python/releases\">openai's releases</a>.</em></p> <blockquote> <h2>v3.0.0</h2> <h2><a href=\"https://github.com/openai/openai-python/compare/v2.54.0...v3.0.0\">3.0.0</a> (2026-08-12)</h2> <h3>\u26a0 BREAKING CHANGES</h3> <ul> <li><strong>api:</strong> HTTPX2 is now the default HTTP client, and <code>httpx</code> i"
+      },
+      {
+        "closed_at": "2026-08-14T13:50:08Z",
+        "comments": 2,
+        "created_at": "2026-08-14T11:20:22Z",
+        "html_url": "https://github.com/deepset-ai/haystack/pull/12348",
+        "is_pr": true,
+        "number": 12348,
+        "state": "closed",
+        "title": "chore: unpin openai",
+        "snippet": "chore: unpin openai ### Related Issues - fixes https://github.com/deepset-ai/haystack-private/issues/538 I investigated and discovered that `openai==3.0.0` uses `httpx2` by default but is still compatible with `httpx`. It just makes mypy fails. See [their docs](https://github.com/openai/openai-python/blob/main/httpx2.md#temporary-escape-hatch-a-legacy-httpx-client). For the moment, I prefer jus"
+      },
+      {
+        "closed_at": null,
+        "comments": 6,
+        "created_at": "2026-08-16T11:42:35Z",
+        "html_url": "https://github.com/deepset-ai/haystack/pull/12365",
+        "is_pr": true,
+        "number": 12365,
+        "state": "open",
+        "title": "fix: Agent clone and serialization with a tools-less chat generator",
+        "snippet": "ed, so they are not caused by this PR. For what it's worth, they look like fallout from `chore: unpin openai` (#12348): with `openai>=2.6.0` now resolving to **openai 3.1.0**, the usage payload gained fields the fixtures don't expect \u2014 the diff is confined to `meta`, e.g. `prompt_tokens_details` now carrying `cache_write_tokens` / `image_tokens` / `text_tokens`. Flagging it because a fresh install"
+      },
+      {
+        "closed_at": "2026-08-18T10:38:47Z",
+        "comments": 6,
+        "created_at": "2026-08-16T11:47:11Z",
+        "html_url": "https://github.com/deepset-ai/haystack/pull/12367",
+        "is_pr": true,
+        "number": 12367,
+        "state": "closed",
+        "title": "test: derive streamed-usage expectations from the SDK object (unbreaks main)",
+        "snippet": "ed, 8 skipped, 323 deselected = ``` **Cause.** `chore: unpin openai` (#12348) relaxed the constraint to `openai>=2.6.0`, so a fresh environment now resolves **openai 3.1.0**, and `CompletionUsage` gained additive fields: - `prompt_tokens_details` \u2192 `image_tokens`, `text_tokens` - `completion_tokens_details` \u2192 `text_tokens` Both failing tests restated the expected usage payload as a literal enum"
+      },
+      {
+        "closed_at": "2026-08-18T09:03:46Z",
+        "comments": 4,
+        "created_at": "2026-08-17T10:13:54Z",
+        "html_url": "https://github.com/deepset-ai/haystack/pull/12377",
+        "is_pr": true,
+        "number": 12377,
+        "state": "closed",
+        "title": "ci: run type checking on Python 3.12 and unpin numpy",
+        "snippet": "le, so uv resolved 2.2.6. The [job cited in #12332](https://github.com/deepset-ai/haystack/actions/runs/31675493850/job/94370083742) shows only errors from the openai 3 SDK but none from numpy. The pin only affected developers whose local env is Python >=3.12. ### Proposed Changes: - `pyproject.toml`: `numpy>=2,<2.5` \u2192 `numpy>=2` - `pyproject.toml`: `[tool.mypy] python_version` 3.10 \u2192 3.12 with"
+      },
+      {
+        "closed_at": "2026-08-31T09:35:41Z",
+        "comments": 1,
+        "created_at": "2026-08-31T02:57:03Z",
+        "html_url": "https://github.com/deepset-ai/haystack/issues/12519",
+        "is_pr": false,
+        "number": 12519,
+        "state": "closed",
+        "title": "Unit tests fail on `main` with `openai` 3.6.0: new usage fields break two exact-dict assertions",
+        "snippet": "vior** `hatch run test:unit` passes on a clean `main`. **To Reproduce** On `main` (`e84738b9`), the version is the only variable: ```console $ pip install \"openai==3.5.0\" $ pytest \"test/components/generators/chat/test_openai.py::TestChatCompletionChunkConversion\" -q 5 passed $ pip install \"openai==3.6.0\" $ pytest \"test/components/generators/chat/test_openai.py::TestChatCompletionChunkConversi"
+      },
+      {
+        "closed_at": "2026-08-31T09:32:30Z",
+        "comments": 4,
+        "created_at": "2026-08-31T03:15:42Z",
+        "html_url": "https://github.com/deepset-ai/haystack/pull/12520",
+        "is_pr": true,
+        "number": 12520,
+        "state": "closed",
+        "title": "test: update OpenAI 3.6 usage metadata expectations",
+        "snippet": "test: update OpenAI 3.6 usage metadata expectations ### Related Issues - fixes #12519 ### Proposed Changes: OpenAI 3.6.0 added the nullable `compute_units` field to `CompletionUsage`, and Haystack forwards the SDK model's full serialized usage metadata. Update both strict streaming expectations to include that field so the OpenAI chat unit tests match the supported SDK output again. ### How di"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-09-04T03:36:56Z",
+        "html_url": "https://github.com/deepset-ai/haystack/issues/12593",
+        "is_pr": false,
+        "number": 12593,
+        "state": "open",
+        "title": "[HTTPXodus] Consider migrating from `httpx` to `httpx2` (the actively maintained fork)",
+        "snippet": "[HTTPXodus] Consider migrating from `httpx` to `httpx2` (the actively maintained fork) --- repo: deepset-ai/haystack star_count: 26400 recon_date: 2026-09-04 status: draft-ready --- **Title:** [HTTPXodus] Consider migrating from `httpx` to `httpx2` (the actively maintained fork) **Body:** ![HTTPXodus \u2014 The Great HTTP Ecosystem Migration](https://raw.githubusercontent.com/ProgrammerPlus1998/http"
+      },
+      {
+        "closed_at": null,
+        "comments": 2,
+        "created_at": "2026-09-04T07:27:17Z",
+        "html_url": "https://github.com/deepset-ai/haystack/pull/12596",
+        "is_pr": true,
+        "number": 12596,
+        "state": "open",
+        "title": "[HTTPXodus] migrate httpx to httpx2 (hard switch; closes #12593)",
+        "snippet": "[HTTPXodus] migrate httpx to httpx2 (hard switch; closes #12593) Closes #12593 > \ud83c\udff7\ufe0f *Part of [HTTPXodus](https://github.com/ProgrammerPlus1998/httpxodus) \u2014 a community effort to help major Python projects plan their path off the stalled `httpx` stable line onto [`httpx2`](https://github.com/pydantic/httpx2), the actively maintained fork by Pydantic Services.* ## What this PR does **Hard switch*"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/deepset-ai/haystack/pull/12332",
+      "title": "fix: pinning openai and numpy",
+      "is_pr": true,
+      "created_at": "2026-08-13T07:32:14Z",
+      "closed_at": "2026-08-13T07:47:57Z",
+      "hours_after_release": 29.6,
+      "hours_to_close": 0.3
+    }
+  },
+  "meridianlabs-ai/inspect_swe": {
+    "dependents": [
+      "inspect-swe"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-09-08T23:17:56Z",
+        "comments": 2,
+        "created_at": "2026-08-31T15:36:41Z",
+        "html_url": "https://github.com/meridianlabs-ai/inspect_swe/pull/139",
+        "is_pr": true,
+        "number": 139,
+        "state": "closed",
+        "title": "build(deps): add explicit openai/anthropic floors and refresh lock",
+        "snippet": "3.261, where openai 2.49.0 fails too \u2014 so this affects more than local runs going forward. Changes: - Explicit floors in the `dev` extra (`anthropic>=1.0.0`, `openai>=3.1.0`) with a comment, so a future lock regeneration cannot silently drop below them again. This is the durable fix suggested in the issue. - Regenerated `uv.lock`: anthropic 0.64.0 to 1.2.0, openai 2.49.0 to 3.6.0. Heads up on th"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/meridianlabs-ai/inspect_swe/pull/139",
+      "title": "build(deps): add explicit openai/anthropic floors and refresh lock",
+      "is_pr": true,
+      "created_at": "2026-08-31T15:36:41Z",
+      "closed_at": "2026-09-08T23:17:56Z",
+      "hours_after_release": 469.7,
+      "hours_to_close": 199.7
+    }
+  },
+  "agentscope-ai/agentscope": {
+    "dependents": [
+      "agentscope"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "agentscope-ai/ReMe": {
+    "dependents": [
+      "reme-ai"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "simonw/llm": {
+    "dependents": [
+      "llm"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-21T18:00:36Z",
+        "comments": 2,
+        "created_at": "2026-08-12T07:49:36Z",
+        "html_url": "https://github.com/simonw/llm/issues/1608",
+        "is_pr": false,
+        "number": 1608,
+        "state": "closed",
+        "title": "Fresh install broken and test suite escapes to live API since openai 3.0.0 (httpx \u2192 httpx2)",
+        "snippet": "Fresh install broken and test suite escapes to live API since openai 3.0.0 (httpx \u2192 httpx2) `openai` 3.0.0 was released today (2026-08-12) and its only breaking change is [the migration to HTTPX2](https://github.com/openai/openai-python/blob/main/httpx2.md): it now depends on `httpx2<3,>=2.7.0` where 2.x depended on `httpx<1,>=0.23.0`. `llm` requires `openai>=2.32.0` with no upper bound, so a clea"
+      },
+      {
+        "closed_at": "2026-08-21T20:59:06Z",
+        "comments": 2,
+        "created_at": "2026-08-12T07:50:52Z",
+        "html_url": "https://github.com/simonw/llm/pull/1609",
+        "is_pr": true,
+        "number": 1609,
+        "state": "closed",
+        "title": "Declare httpx as a dependency",
+        "snippet": "y`, `llm/utils.py` and `llm/default_plugins/openai_models.py`, but it was never declared in `dependencies` \u2014 it arrived transitively through `openai`. `openai` 3.0.0 (released 2026-08-12) migrated to HTTPX2, so a fresh install no longer gets `httpx` and every command dies at import time with `ModuleNotFoundError: No module named 'httpx'`. Verified both directions with a clean install, without the"
+      },
+      {
+        "closed_at": "2026-08-21T20:59:34Z",
+        "comments": 1,
+        "created_at": "2026-08-13T22:17:39Z",
+        "html_url": "https://github.com/simonw/llm/issues/1614",
+        "is_pr": false,
+        "number": 1614,
+        "state": "closed",
+        "title": "Upgrade to openai>=3",
+        "snippet": "Upgrade to openai>=3 The OpenAI 3.0 library came out the other day with a breaking change that causes our tests to fail in CI: - https://github.com/openai/openai-python/pull/3594 - https://github.com/openai/openai-python/issues/3375 See upgrade instructions here: https://github.com/openai/openai-python/blob/v3.0.0/httpx2.md"
+      },
+      {
+        "closed_at": "2026-08-21T20:58:39Z",
+        "comments": 2,
+        "created_at": "2026-08-19T20:42:54Z",
+        "html_url": "https://github.com/simonw/llm/pull/1621",
+        "is_pr": true,
+        "number": 1621,
+        "state": "closed",
+        "title": "Upgrade OpenAI tests to HTTPX2",
+        "snippet": "Upgrade OpenAI tests to HTTPX2 ## Summary - require OpenAI 3 and use HTTPX2 for the custom response-logging client, including the async path - move OpenAI request mocks to `pytest-httpx2` while retaining `pytest-httpx` for LLM's own legacy HTTPX requests - add a network-forbidden isolation regression plus sync/async logging and authorization-redaction coverage OpenAI 3 uses HTTPX2 by defau"
+      },
+      {
+        "closed_at": "2026-09-02T19:03:53Z",
+        "comments": 1,
+        "created_at": "2026-08-20T17:28:08Z",
+        "html_url": "https://github.com/simonw/llm/pull/1622",
+        "is_pr": true,
+        "number": 1622,
+        "state": "closed",
+        "title": "Declare typing-extensions, and a test that catches undeclared imports",
+        "snippet": "ions is a transitive dep via pydantic. from typing_extensions import NotRequired, TypedDict ``` That is exactly the arrangement `httpx` had via `openai` until openai 3.0 switched to httpx2 and every fresh install started dying at import time. It works today because pydantic pulls it in, and it keeps working right up until pydantic stops \u2014 at which point it breaks the same way, on users' machines"
+      },
+      {
+        "closed_at": "2026-08-22T16:40:00Z",
+        "comments": 1,
+        "created_at": "2026-08-21T12:14:37Z",
+        "html_url": "https://github.com/simonw/llm/pull/1628",
+        "is_pr": true,
+        "number": 1628,
+        "state": "closed",
+        "title": "Validate attachments in conversation prompts",
+        "snippet": "d an unsupported attachment to the provider. ## Validation - `pytest -q tests/test_attachments.py` \u2014 13 passed - `pytest -q` \u2014 1,099 passed with the current `httpx2` / OpenAI 3 dependency set - `black --check .` - `ruff check .` - `mypy llm` - Cog documentation check - `python -m build` - `tests/test-llm-load-plugins.sh` with `llm-cluster` and `llm-mistral` The branch has been merged normally w"
+      },
+      {
+        "closed_at": "2026-08-21T20:57:25Z",
+        "comments": 2,
+        "created_at": "2026-08-21T17:07:01Z",
+        "html_url": "https://github.com/simonw/llm/issues/1630",
+        "is_pr": false,
+        "number": 1630,
+        "state": "closed",
+        "title": "Release a 0.32.1 bugfix pinning to last known working OpenAI release",
+        "snippet": "Release a 0.32.1 bugfix pinning to last known working OpenAI release Installing LLM right now gives a broken build because the new OpenAI 3.x version no longer depends on `httpx`. I'll fix that properly in 0.32 but for the moment let's get a 0.32.1 release out that pins to the older OpenAI version. (I was going to use add `httpx` but the tests would all still fail, so this is a more robust short"
+      },
+      {
+        "closed_at": "2026-08-21T18:00:35Z",
+        "comments": 0,
+        "created_at": "2026-08-21T17:38:28Z",
+        "html_url": "https://github.com/simonw/llm/pull/1631",
+        "is_pr": true,
+        "number": 1631,
+        "state": "closed",
+        "title": "Switch to httpx2 and pytest-httpx2 and openai>3",
+        "snippet": "Switch to httpx2 and pytest-httpx2 and openai>3 Refs: - #1630 - #1608"
+      },
+      {
+        "closed_at": "2026-09-19T23:20:01Z",
+        "comments": 0,
+        "created_at": "2026-09-04T15:44:51Z",
+        "html_url": "https://github.com/simonw/llm/pull/1663",
+        "is_pr": true,
+        "number": 1663,
+        "state": "closed",
+        "title": "Fix default model options when constructing Prompt directly",
+        "snippet": "trol passes. After the fix, all 13 options tests pass. - Full suite: 1,128 passed (18 warnings). - Black, Ruff, mypy and package build pass. - Local tests use `httpx2-pytest==1.0.1`: version 2.0.0 renames the `httpx_mock` fixture required by the existing suite. No dependency files changed. - Cog reports an existing version mismatch in unchanged `docs/fragments.md` (0.33) versus `pyproject.toml` (0"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-09-08T07:40:28Z",
+        "html_url": "https://github.com/simonw/llm/pull/1677",
+        "is_pr": true,
+        "number": 1677,
+        "state": "open",
+        "title": "Add opt-in strict JSON Schema output for OpenAI models, closes #1661",
+        "snippet": "ation, `$defs` inlining, null unions, cosmetic-key stripping, error cases, input immutability. - `tests/test_cli_openai_models.py` \u2014 6 integration tests using `httpx2_mock`: chat + responses bodies with/without the option, the requires-schema error, and the unsupported-keyword error. - Full suite: 1148 passed. `ruff check` and `mypy` clean."
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/simonw/llm/issues/1608",
+      "title": "Fresh install broken and test suite escapes to live API since openai 3.0.0 (httpx \u2192 httpx2)",
+      "is_pr": false,
+      "created_at": "2026-08-12T07:49:36Z",
+      "closed_at": "2026-08-21T18:00:36Z",
+      "hours_after_release": 5.9,
+      "hours_to_close": 226.2
+    }
+  },
+  "sonuramashishnpm/npmai-agent": {
+    "dependents": [
+      "npmai-agents"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "pytorch/captum": {
+    "dependents": [
+      "captum"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "Microsoft/prompty": {
+    "dependents": [
+      "prompty"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-18T00:06:51Z",
+        "comments": 0,
+        "created_at": "2026-08-17T23:12:32Z",
+        "html_url": "https://github.com/microsoft/prompty/pull/470",
+        "is_pr": true,
+        "number": 470,
+        "state": "closed",
+        "title": "chore(deps): Bump the npm-v1-version group across 6 directories with 54 updates",
+        "snippet": "ttps://github.com/openai/openai-node) | `4.55.1` | `7.4.0` | | [@changesets/cli](https://github.com/changesets/changesets/tree/HEAD/packages/cli) | `2.29.6` | `3.0.0` | | [@types/glob](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/HEAD/types/glob) | `8.1.0` | `9.0.0` | | [@types/mustache](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/HEAD/types/mustache) | `4.2.5` | `4.2.6` | |"
+      },
+      {
+        "closed_at": "2026-08-31T18:50:35Z",
+        "comments": 1,
+        "created_at": "2026-08-24T18:54:11Z",
+        "html_url": "https://github.com/microsoft/prompty/pull/506",
+        "is_pr": true,
+        "number": 506,
+        "state": "closed",
+        "title": "chore(deps): bump the npm-v1-version group across 6 directories with 54 updates",
+        "snippet": "83b1914e\"><code>d0386b6</code></a>]: <ul> <li><code>@\u200bchangesets/write</code><a href=\"https://github.com/1\"><code>@\u200b1</code></a>.0.1</li> </ul> </li> </ul> <h2>3.0.0</h2> <h3>Major Changes</h3> <ul> <li> <p><a href=\"https://redirect.github.com/changesets/changesets/pull/2128\">#2128</a> <a href=\"https://github.com/changesets/changesets/commit/7113c014330b3f972e54ece8e67731613193958f\"><code>7113c01<"
+      },
+      {
+        "closed_at": "2026-09-09T19:53:22Z",
+        "comments": 3,
+        "created_at": "2026-08-31T18:54:01Z",
+        "html_url": "https://github.com/microsoft/prompty/pull/514",
+        "is_pr": true,
+        "number": 514,
+        "state": "closed",
+        "title": "chore(deps): bump the npm-v1-version group across 6 directories with 56 updates",
+        "snippet": "83b1914e\"><code>d0386b6</code></a>]: <ul> <li><code>@\u200bchangesets/write</code><a href=\"https://github.com/1\"><code>@\u200b1</code></a>.0.1</li> </ul> </li> </ul> <h2>3.0.0</h2> <h3>Major Changes</h3> <ul> <li> <p><a href=\"https://redirect.github.com/changesets/changesets/pull/2128\">#2128</a> <a href=\"https://github.com/changesets/changesets/commit/7113c014330b3f972e54ece8e67731613193958f\"><code>7113c01<"
+      },
+      {
+        "closed_at": "2026-09-09T20:15:43Z",
+        "comments": 1,
+        "created_at": "2026-09-09T20:01:34Z",
+        "html_url": "https://github.com/microsoft/prompty/pull/528",
+        "is_pr": true,
+        "number": 528,
+        "state": "closed",
+        "title": "chore(deps): bump the npm-v1-version group across 6 directories with 56 updates",
+        "snippet": "83b1914e\"><code>d0386b6</code></a>]: <ul> <li><code>@\u200bchangesets/write</code><a href=\"https://github.com/1\"><code>@\u200b1</code></a>.0.1</li> </ul> </li> </ul> <h2>3.0.0</h2> <h3>Major Changes</h3> <ul> <li> <p><a href=\"https://redirect.github.com/changesets/changesets/pull/2128\">#2128</a> <a href=\"https://github.com/changesets/changesets/commit/7113c014330b3f972e54ece8e67731613193958f\"><code>7113c01<"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-09-09T20:15:36Z",
+        "html_url": "https://github.com/microsoft/prompty/pull/532",
+        "is_pr": true,
+        "number": 532,
+        "state": "open",
+        "title": "chore(deps): bump the npm-v1-version group across 6 directories with 56 updates",
+        "snippet": "83b1914e\"><code>d0386b6</code></a>]: <ul> <li><code>@\u200bchangesets/write</code><a href=\"https://github.com/1\"><code>@\u200b1</code></a>.0.1</li> </ul> </li> </ul> <h2>3.0.0</h2> <h3>Major Changes</h3> <ul> <li> <p><a href=\"https://redirect.github.com/changesets/changesets/pull/2128\">#2128</a> <a href=\"https://github.com/changesets/changesets/commit/7113c014330b3f972e54ece8e67731613193958f\"><code>7113c01<"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/microsoft/prompty/pull/470",
+      "title": "chore(deps): Bump the npm-v1-version group across 6 directories with 54 updates",
+      "is_pr": true,
+      "created_at": "2026-08-17T23:12:32Z",
+      "closed_at": "2026-08-18T00:06:51Z",
+      "hours_after_release": 141.3,
+      "hours_to_close": 0.9
+    }
+  },
+  "chopratejas/headroom": {
+    "dependents": [
+      "headroom-ai"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "volcengine/openviking": {
+    "dependents": [
+      "openviking"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "primeintellect-ai/verifiers": {
+    "dependents": [
+      "verifiers"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-31T17:01:22Z",
+        "comments": 2,
+        "created_at": "2026-08-30T18:39:46Z",
+        "html_url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2474",
+        "is_pr": true,
+        "number": 2474,
+        "state": "closed",
+        "title": "Adopt MCP 2026-07-28",
+        "snippet": "`initialize()` with `mcp.Client` on streamable HTTP transports. Harness programs (null, bash, browser_use, compact) rename `mcp_session` \u2192 `mcp_client`, use **`httpx2`** for MCP HTTP timeouts, and read tool metadata via **`input_schema`** / image **`mime_type`**. The legacy experimental MCP env and NeMo Gym bridge follow the same client API. > > **Servers** move from `FastMCP` to **`MCPServer`**,"
+      },
+      {
+        "closed_at": "2026-09-01T22:09:18Z",
+        "comments": 1,
+        "created_at": "2026-09-01T21:53:27Z",
+        "html_url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2491",
+        "is_pr": true,
+        "number": 2491,
+        "state": "closed",
+        "title": "chore: trim and refresh v1 dependencies",
+        "snippet": "le releases. ## Breaking - Install `verifiers[lean]` before using the built-in Lean taskset. - Consumers must support `anthropic>=1.0.0` and `openai>=2.54.0,<3.0.0`. ## Verification - `uv sync --all-extras` - `uv run pytest tests` (`82 passed, 76 skipped`) - `uv run ty check verifiers` - `uv run pre-commit run --all-files` - Built and imported a minimal wheel without `datasets`. - Confirmed th"
+      },
+      {
+        "closed_at": "2026-09-06T10:46:53Z",
+        "comments": 2,
+        "created_at": "2026-09-04T21:20:02Z",
+        "html_url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2535",
+        "is_pr": true,
+        "number": 2535,
+        "state": "closed",
+        "title": "Reuse chat programs and rollout MCP clients",
+        "snippet": "\u2192 5.971 s cold and 0.519 \u2192 0.512 s on an already prepared runtime. These measurements used `python:3.11-slim` (Python 3.11.16), one CPU, 2 GiB, uv 0.12.9 and OpenAI 3.8.0 on OrbStack/macOS arm64. Container startup and image pulling are excluded; cold dependency downloads are included and can vary with the network. The cached-dependency case retains the container filesystem while clearing the run"
+      },
+      {
+        "closed_at": "2026-09-05T09:49:38Z",
+        "comments": 3,
+        "created_at": "2026-09-04T21:20:29Z",
+        "html_url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2536",
+        "is_pr": true,
+        "number": 2536,
+        "state": "closed",
+        "title": "Prepare one chat program for Null and Bash",
+        "snippet": "5.933 \u2192 5.971 s cold and 0.519 \u2192 0.512 s on an already prepared runtime. Measurements used `python:3.11-slim` (Python 3.11.16), one CPU, 2 GiB, uv 0.12.9 and OpenAI 3.8.0 on OrbStack/macOS arm64, comparing `1e3e72923` with this change. Local workloads were serialized across the performance tasks. Container startup/image pulling are excluded; cold dependency downloads are included and can vary wi"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/pull/2474",
+      "title": "Adopt MCP 2026-07-28",
+      "is_pr": true,
+      "created_at": "2026-08-30T18:39:46Z",
+      "closed_at": "2026-08-31T17:01:22Z",
+      "hours_after_release": 448.7,
+      "hours_to_close": 22.4
+    }
+  },
+  "QwenLM/Qwen-Agent": {
+    "dependents": [
+      "qwen-agent"
+    ],
+    "matching": [
+      {
+        "closed_at": null,
+        "comments": 1,
+        "created_at": "2026-08-19T17:00:55Z",
+        "html_url": "https://github.com/QwenLM/Qwen-Agent/pull/943",
+        "is_pr": true,
+        "number": 943,
+        "state": "open",
+        "title": "fix: merge parallel tool call chunks by index",
+        "snippet": "all IDs. ## Validation - `pytest -q tests/llm/test_oai.py -k parallel_tool_call_chunks_are_merged_by_index` - passed with `openai==0.28.1` - passed with `openai==3.3.1` - `pre-commit run --files qwen_agent/llm/oai.py tests/llm/test_oai.py` - `python -m compileall -q qwen_agent` - `python setup.py sdist bdist_wheel`"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/QwenLM/Qwen-Agent/pull/943",
+      "title": "fix: merge parallel tool call chunks by index",
+      "is_pr": true,
+      "created_at": "2026-08-19T17:00:55Z",
+      "closed_at": null,
+      "hours_after_release": 183.1,
+      "hours_to_close": null
+    }
+  },
+  "thinking-machines-lab/tinker-cookbook": {
+    "dependents": [
+      "tinker-cookbook"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "google/langextract": {
+    "dependents": [
+      "langextract"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "openai/openai-guardrails-python": {
+    "dependents": [
+      "openai-guardrails"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "meridianlabs-ai/inspect_scout": {
+    "dependents": [
+      "inspect-scout"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-14T14:13:33Z",
+        "comments": 12,
+        "created_at": "2026-08-13T17:51:46Z",
+        "html_url": "https://github.com/meridianlabs-ai/inspect_scout/pull/562",
+        "is_pr": true,
+        "number": 562,
+        "state": "closed",
+        "title": "fix: bump openai to >=3.0.0; pass allow_remote_mcp to inspect_ai bridge tool converters",
+        "snippet": "fix: bump openai to >=3.0.0; pass allow_remote_mcp to inspect_ai bridge tool converters inspect_ai \u22650.3.255 added a required `allow_remote_mcp` param to `tool_from_responses_tool` and `tools_from_anthropic_tools`, breaking mypy and (silently, via `try/except`) dropping tool info from observe events. Pass `True` to preserve recorded MCP tools when reconstructing observe events \u2014 matches inspect_ai'"
+      },
+      {
+        "closed_at": "2026-09-04T02:09:51Z",
+        "comments": 1,
+        "created_at": "2026-08-14T14:14:03Z",
+        "html_url": "https://github.com/meridianlabs-ai/inspect_scout/pull/563",
+        "is_pr": true,
+        "number": 563,
+        "state": "closed",
+        "title": "chore(main): release 0.5.0",
+        "snippet": "/inspect_scout/issues/555)) ([3985b81](https://github.com/meridianlabs-ai/inspect_scout/commit/3985b81f10c7740e5c064d973a6a91b6955a2ee1)) * bump openai to &gt;=3.0.0; pass allow_remote_mcp to inspect_ai bridge tool converters ([#562](https://github.com/meridianlabs-ai/inspect_scout/issues/562)) ([e799945](https://github.com/meridianlabs-ai/inspect_scout/commit/e79994514349d740e7b914fd5fdd2b9dc0b25"
+      },
+      {
+        "closed_at": "2026-08-21T10:44:44Z",
+        "comments": 2,
+        "created_at": "2026-08-21T10:36:26Z",
+        "html_url": "https://github.com/meridianlabs-ai/inspect_scout/pull/574",
+        "is_pr": true,
+        "number": 574,
+        "state": "closed",
+        "title": "chore: migrate to anthropic 1.0 SDK",
+        "snippet": "migrate to anthropic 1.0 SDK Fixes #573 Bump the dev dependency floor to anthropic>=1.0.0 and update the two tests that construct anthropic exceptions to pass httpx2 request and response objects, matching how the 1.x SDK types its exceptions (mirrors the existing openai>=3.0.0 handling). Fixes #573 Co-authored-by: Eric Patey <769548+epatey@users.noreply.github.com> Co-Authored-By: Claude Fable"
+      },
+      {
+        "closed_at": "2026-09-13T23:14:40Z",
+        "comments": 0,
+        "created_at": "2026-09-13T22:41:24Z",
+        "html_url": "https://github.com/meridianlabs-ai/inspect_scout/pull/638",
+        "is_pr": true,
+        "number": 638,
+        "state": "closed",
+        "title": "test: add SDK-backed observe proxy tests from #636",
+        "snippet": "uthor; from `1a5e76cd` and `755cb472`):** - `tests/observe/test_wrapt_compatibility.py` (new): real OpenAI and Anthropic SDK stream objects over mocked HTTP (`httpx2.MockTransport`) going through the capture proxies. Covers chat and responses streams, sync and async; Anthropic `messages.stream()` manager paths via iteration, `text_stream` and `get_final_message()`, with and without a mid-stream `"
+      },
+      {
+        "closed_at": null,
+        "comments": 1,
+        "created_at": "2026-09-13T23:13:18Z",
+        "html_url": "https://github.com/meridianlabs-ai/inspect_scout/issues/639",
+        "is_pr": false,
+        "number": 639,
+        "state": "open",
+        "title": "`observe` misses raw `stream=True` streams used as context managers; `async with` fails on wrapt 1.x",
+        "snippet": "context manager, the capture proxy is bypassed and no `ModelEvent` is recorded. On wrapt 1.x the async form raises instead. **Repro** (real SDK objects over `httpx2.MockTransport`; script: `probe_defects.py` from the salvage-636 brief, run against inspect_scout `1441c13b`): ```python raw = client.chat.completions.create(model=\"t\", messages=[], stream=True) proxy = OpenAIChatStreamCapture(raw, {"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/meridianlabs-ai/inspect_scout/pull/562",
+      "title": "fix: bump openai to >=3.0.0; pass allow_remote_mcp to inspect_ai bridge tool converters",
+      "is_pr": true,
+      "created_at": "2026-08-13T17:51:46Z",
+      "closed_at": "2026-08-14T14:13:33Z",
+      "hours_after_release": 39.9,
+      "hours_to_close": 20.4
+    }
+  },
+  "NVIDIA/Megatron-LM": {
+    "dependents": [
+      "megatron-core"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "ShishirPatil/gorilla": {
+    "dependents": [
+      "bfcl-eval"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "posit-dev/py-shiny": {
+    "dependents": [
+      "shiny"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-12T05:16:39Z",
+        "comments": 0,
+        "created_at": "2026-08-12T05:05:23Z",
+        "html_url": "https://github.com/posit-dev/py-shiny/pull/2437",
+        "is_pr": true,
+        "number": 2437,
+        "state": "closed",
+        "title": "fix(tests): Add httpx to the dev extra for chatlas",
+        "snippet": "`chatlas` does a bare `import httpx` in `_utils.py` and **does not declare httpx** in its dependencies \u2014 it relied on `openai` pulling it in transitively. - **`openai 3.0.0`**, released **2026-08-12T01:55Z**, switched its HTTP dependency from `httpx` to the separate **`httpx2`** distribution (`httpx2<3,>=2.7.0`). So a fresh resolve now installs `httpx2` and no `httpx`, and chatlas fails at import"
+      },
+      {
+        "closed_at": "2026-08-13T18:33:19Z",
+        "comments": 1,
+        "created_at": "2026-08-12T05:26:29Z",
+        "html_url": "https://github.com/posit-dev/py-shiny/pull/2438",
+        "is_pr": true,
+        "number": 2438,
+        "state": "closed",
+        "title": "chore: Remove the httpx workaround for chatlas",
+        "snippet": "at makes it unnecessary. ## Why it was there chatlas imported `httpx` unconditionally but did not declare it, relying on `openai` to supply it transitively. `openai 3.0.0` (2026-08-12) switched to the separate `httpx2` distribution, so a fresh resolve installed no `httpx` at all and `import chatlas` raised `ModuleNotFoundError` \u2014 taking out the chatlas bookmark Playwright test on every Python ve"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/posit-dev/py-shiny/pull/2437",
+      "title": "fix(tests): Add httpx to the dev extra for chatlas",
+      "is_pr": true,
+      "created_at": "2026-08-12T05:05:23Z",
+      "closed_at": "2026-08-12T05:16:39Z",
+      "hours_after_release": 3.2,
+      "hours_to_close": 0.2
+    }
+  },
+  "optuna/optuna-dashboard": {
+    "dependents": [
+      "optuna-dashboard"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-09-09T09:40:48Z",
+        "comments": 0,
+        "created_at": "2026-09-09T09:31:11Z",
+        "html_url": "https://github.com/optuna/optuna-dashboard/pull/1336",
+        "is_pr": true,
+        "number": 1336,
+        "state": "closed",
+        "title": "Drop the support for Python 3.8 and 3.9, and add support for openai 3.0.0 or later",
+        "snippet": "Drop the support for Python 3.8 and 3.9, and add support for openai 3.0.0 or later <!-- Thank you for creating a pull request! --> ## Contributor License Agreement This repository (``optuna-dashboard``) and [Goptuna](https://github.com/c-bata/goptuna) share common code. This pull request may therefore be ported to Goptuna. Make sure that you understand the consequences concerning licenses and ch"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/optuna/optuna-dashboard/pull/1336",
+      "title": "Drop the support for Python 3.8 and 3.9, and add support for openai 3.0.0 or later",
+      "is_pr": true,
+      "created_at": "2026-09-09T09:31:11Z",
+      "closed_at": "2026-09-09T09:40:48Z",
+      "hours_after_release": 679.6,
+      "hours_to_close": 0.2
+    }
+  },
+  "posit-dev/shinychat": {
+    "dependents": [
+      "shinychat"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "Azure/azure-sdk-for-python": {
+    "dependents": [
+      "azure-ai-evaluation"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-25T07:41:59Z",
+        "comments": 0,
+        "created_at": "2026-08-24T12:25:24Z",
+        "html_url": "https://github.com/Azure/azure-sdk-for-python/pull/48703",
+        "is_pr": true,
+        "number": 48703,
+        "state": "closed",
+        "title": "[azure-ai-projects] Fix ModuleNotFoundError for httpx by declaring it explicitly",
+        "snippet": "te Docs`, and `Generate API stub files` - and consequently blocking publishing to the dev feed. This is a latent packaging defect that detonated when `openai` 3.0.0 shipped. It is unrelated to any product change on this branch. ## Root cause `_patch.py` and `aio/_patch.py` import `httpx` directly and subclass `httpx.HTTPTransport`, but `httpx` was never declared in `pyproject.toml`. It was only"
+      },
+      {
+        "closed_at": "2026-08-27T23:28:33Z",
+        "comments": 2,
+        "created_at": "2026-08-27T19:24:07Z",
+        "html_url": "https://github.com/Azure/azure-sdk-for-python/pull/48786",
+        "is_pr": true,
+        "number": 48786,
+        "state": "closed",
+        "title": "[AI Projects] Add synthetic multi-turn evaluation sample",
+        "snippet": "which demonstrates the same flow with hand-authored seeds. ## Recorded sample test Adds a dedicated end-to-end recorded sample test using both Azure Core and HTTPX2 transports. It validates the complete generation -> simulation -> evaluation workflow by execution and intentionally skips the unrelated `gpt-5.2` console-output validator. The function-scoped `Location` header sanitizer is required"
+      },
+      {
+        "closed_at": "2026-09-04T16:53:41Z",
+        "comments": 4,
+        "created_at": "2026-09-02T19:58:18Z",
+        "html_url": "https://github.com/Azure/azure-sdk-for-python/pull/48862",
+        "is_pr": true,
+        "number": 48862,
+        "state": "closed",
+        "title": "[Evaluation] Fix OpenAI 2.54 test proxy compatibility",
+        "snippet": "[Evaluation] Fix OpenAI 2.54 test proxy compatibility ## Summary Fix the `azure-ai-evaluation` test-proxy adapter for OpenAI clients that send `httpx2` request objects. This unblocks the `latestdependency` release check after OpenAI 2.54.0 began exercising the newer transport. ## Root cause `tests/__openai_patcher.py` always constructed proxy URLs with `httpx.URL`. OpenAI 2.54.0 can pass an `ht"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/Azure/azure-sdk-for-python/pull/48703",
+      "title": "[azure-ai-projects] Fix ModuleNotFoundError for httpx by declaring it explicitly",
+      "is_pr": true,
+      "created_at": "2026-08-24T12:25:24Z",
+      "closed_at": "2026-08-25T07:41:59Z",
+      "hours_after_release": 298.5,
+      "hours_to_close": 19.3
+    }
+  },
+  "explorerhq/sql-explorer": {
+    "dependents": [
+      "django-sql-explorer"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "sipyourdrink-ltd/bernstein": {
+    "dependents": [
+      "bernstein"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-17T10:01:14Z",
+        "comments": 1,
+        "created_at": "2026-08-17T09:02:25Z",
+        "html_url": "https://github.com/sipyourdrink-ltd/bernstein/pull/4086",
+        "is_pr": true,
+        "number": 4086,
+        "state": "closed",
+        "title": "chore(deps): bump openai-agents from 0.13.6 to 0.19.4 in the python-minor-and-patch group",
+        "snippet": "ul> <h2>Breaking change changelog</h2> <h3>0.21.0</h3> <p>Version 0.21.0 requires <code>openai</code> v3 and moves the Agents SDK's OpenAI HTTP integrations to HTTPX2. Applications that use the default OpenAI client do not need to change their client setup, but applications that customize the OpenAI HTTP layer may need to migrate transport-facing code.</p> <p>Highlights:</p> <ul> <li>The required"
+      },
+      {
+        "closed_at": "2026-08-24T08:26:18Z",
+        "comments": 2,
+        "created_at": "2026-08-24T06:39:26Z",
+        "html_url": "https://github.com/sipyourdrink-ltd/bernstein/pull/4437",
+        "is_pr": true,
+        "number": 4437,
+        "state": "closed",
+        "title": "chore(deps): bump the python-minor-and-patch group with 13 updates",
+        "snippet": "deterministic Agent, Sandbox, Realtime, and Voice workflow tests without provider requests.</li> <li>Updated OpenAI provider compatibility to <code>openai&gt;=3.0.0,&lt;4</code>, including HTTPX2-aware request, response, transport, and exception handling.</li> <li>Hardened RunState interruption snapshots, recursive agent-tool approvals, max-turn finalization, streaming cleanup, and sensitive-erro"
+      },
+      {
+        "closed_at": "2026-08-24T08:58:32Z",
+        "comments": 1,
+        "created_at": "2026-08-24T06:40:41Z",
+        "html_url": "https://github.com/sipyourdrink-ltd/bernstein/pull/4440",
+        "is_pr": true,
+        "number": 4440,
+        "state": "closed",
+        "title": "chore(deps): bump openai from 2.53.0 to 3.1.0",
+        "snippet": "b.com/openai/openai-python/releases\">openai's releases</a>.</em></p> <blockquote> <h2>v3.1.0</h2> <h2><a href=\"https://github.com/openai/openai-python/compare/v3.0.0...v3.1.0\">3.1.0</a> (2026-08-14)</h2> <h3>Features</h3> <ul> <li><strong>api:</strong> add WebSocket stream IDs (<a href=\"https://redirect.github.com/openai/openai-python/issues/3612\">#3612</a>) (<a href=\"https://github.com/openai/ope"
+      },
+      {
+        "closed_at": "2026-08-24T09:18:13Z",
+        "comments": 2,
+        "created_at": "2026-08-24T08:27:36Z",
+        "html_url": "https://github.com/sipyourdrink-ltd/bernstein/pull/4450",
+        "is_pr": true,
+        "number": 4450,
+        "state": "closed",
+        "title": "chore(deps): bump the python-minor-and-patch group across 1 directory with 14 updates",
+        "snippet": "deterministic Agent, Sandbox, Realtime, and Voice workflow tests without provider requests.</li> <li>Updated OpenAI provider compatibility to <code>openai&gt;=3.0.0,&lt;4</code>, including HTTPX2-aware request, response, transport, and exception handling.</li> <li>Hardened RunState interruption snapshots, recursive agent-tool approvals, max-turn finalization, streaming cleanup, and sensitive-erro"
+      },
+      {
+        "closed_at": "2026-08-31T07:37:34Z",
+        "comments": 0,
+        "created_at": "2026-08-31T06:40:54Z",
+        "html_url": "https://github.com/sipyourdrink-ltd/bernstein/pull/4847",
+        "is_pr": true,
+        "number": 4847,
+        "state": "closed",
+        "title": "chore(deps): bump the python-minor-and-patch group with 11 updates",
+        "snippet": "schemathesis/releases\">schemathesis's releases</a>.</em></p> <blockquote> <h2>Release 4.25.1</h2> <h3>:rocket: Added</h3> <ul> <li>Support for validating <code>httpx2</code> responses in <code>Case.validate_response</code>.</li> </ul> <h3>:wrench: Changed</h3> <ul> <li>Suggest the server URL declared in the schema when the missing <code>base_url</code> error fires.</li> <li>Mention <code>warnings."
+      },
+      {
+        "closed_at": "2026-09-09T19:51:05Z",
+        "comments": 1,
+        "created_at": "2026-09-07T06:37:24Z",
+        "html_url": "https://github.com/sipyourdrink-ltd/bernstein/pull/5591",
+        "is_pr": true,
+        "number": 5591,
+        "state": "closed",
+        "title": "chore(deps): bump the python-minor-and-patch group across 1 directory with 18 updates",
+        "snippet": "Cloning/copying agents</a>.</li> </ul> <h3>0.21.0</h3> <p>Version 0.21.0 requires <code>openai</code> v3 and moves the Agents SDK's OpenAI HTTP integrations to HTTPX2. Applications that use the default OpenAI client do not need to change their client setup, but applications that customize the OpenAI HTTP layer may need to migrate transport-facing code.</p> <p>Highlights:</p> <ul> <li>The required"
+      },
+      {
+        "closed_at": "2026-09-16T19:19:32Z",
+        "comments": 5,
+        "created_at": "2026-09-14T10:25:40Z",
+        "html_url": "https://github.com/sipyourdrink-ltd/bernstein/pull/5898",
+        "is_pr": true,
+        "number": 5898,
+        "state": "closed",
+        "title": "chore(deps): bump the python-minor-and-patch group across 1 directory with 11 updates",
+        "snippet": "Cloning/copying agents</a>.</li> </ul> <h3>0.21.0</h3> <p>Version 0.21.0 requires <code>openai</code> v3 and moves the Agents SDK's OpenAI HTTP integrations to HTTPX2. Applications that use the default OpenAI client do not need to change their client setup, but applications that customize the OpenAI HTTP layer may need to migrate transport-facing code.</p> <p>Highlights:</p> <ul> <li>The required"
+      },
+      {
+        "closed_at": "2026-09-17T10:35:45Z",
+        "comments": 0,
+        "created_at": "2026-09-16T19:21:16Z",
+        "html_url": "https://github.com/sipyourdrink-ltd/bernstein/pull/5939",
+        "is_pr": true,
+        "number": 5939,
+        "state": "closed",
+        "title": "chore(deps): bump the python-minor-and-patch group across 1 directory with 15 updates",
+        "snippet": "Cloning/copying agents</a>.</li> </ul> <h3>0.21.0</h3> <p>Version 0.21.0 requires <code>openai</code> v3 and moves the Agents SDK's OpenAI HTTP integrations to HTTPX2. Applications that use the default OpenAI client do not need to change their client setup, but applications that customize the OpenAI HTTP layer may need to migrate transport-facing code.</p> <p>Highlights:</p> <ul> <li>The required"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-09-21T12:21:12Z",
+        "html_url": "https://github.com/sipyourdrink-ltd/bernstein/pull/6143",
+        "is_pr": true,
+        "number": 6143,
+        "state": "open",
+        "title": "chore(deps): bump the python-minor-and-patch group across 1 directory with 15 updates",
+        "snippet": ">#3101</a>)</li> <li><a href=\"https://github.com/Kludex/uvicorn/commit/fa324a415364563cf45908966435e2480a6b46bf\"><code>fa324a4</code></a> chore(deps-dev): bump httpx2 from 2.10.0 to 2.12.0 (<a href=\"https://redirect.github.com/Kludex/uvicorn/issues/3121\">#3121</a>)</li> <li>Additional commits viewable in <a href=\"https://github.com/Kludex/uvicorn/compare/0.52.4...0.53.0\">compare view</a></li> </ul"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/sipyourdrink-ltd/bernstein/pull/4086",
+      "title": "chore(deps): bump openai-agents from 0.13.6 to 0.19.4 in the python-minor-and-patch group",
+      "is_pr": true,
+      "created_at": "2026-08-17T09:02:25Z",
+      "closed_at": "2026-08-17T10:01:14Z",
+      "hours_after_release": 127.1,
+      "hours_to_close": 1.0
+    }
+  },
+  "microsoft/Foundry-Local": {
+    "dependents": [
+      "foundry-local-sdk"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "ArtificialAnalysis/Stirrup": {
+    "dependents": [
+      "stirrup"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "topoteretes/cognee": {
+    "dependents": [
+      "cognee"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "Future-House/ldp": {
+    "dependents": [
+      "fhlmi"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "Lumiwealth/lumibot": {
+    "dependents": [
+      "lumibot"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "zernio-dev/zernio-python": {
+    "dependents": [
+      "zernio-sdk",
+      "late-sdk"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "vanna-ai/vanna": {
+    "dependents": [
+      "vanna"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "chroma-core/chroma-mcp": {
+    "dependents": [
+      "chroma-mcp"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "evalplus/evalplus": {
+    "dependents": [
+      "evalplus"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "jgravelle/jcodemunch-mcp": {
+    "dependents": [
+      "jcodemunch-mcp"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "fuyuxiang/echo-agent": {
+    "dependents": [
+      "echo-agent"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "highcharts-for-python/highcharts-core": {
+    "dependents": [
+      "highcharts-core"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "mozilla-ai/any-llm": {
+    "dependents": [
+      "any-llm-sdk"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-09-03T09:29:23Z",
+        "comments": 2,
+        "created_at": "2026-08-21T14:39:39Z",
+        "html_url": "https://github.com/mozilla-ai/any-llm/pull/1329",
+        "is_pr": true,
+        "number": 1329,
+        "state": "closed",
+        "title": "feat(messages): add container continuity for code execution via Anthropic",
+        "snippet": "0 passed, 1 skipped`). The remaining unit suite passed when excluding the existing `tests/unit/providers/test_openai_exceptions.py`, which imports nonexistent `httpx2` on `main`. Pre-commit passed on the committed files. ## PR Type - \ud83c\udd95 New Feature ## Relevant issues Related to mozilla-ai/octonous#4913 ## Checklist - [x] I understand the code I am submitting. - [x] I have added unit tests tha"
+      },
+      {
+        "closed_at": "2026-09-11T08:49:10Z",
+        "comments": 18,
+        "created_at": "2026-08-28T11:31:13Z",
+        "html_url": "https://github.com/mozilla-ai/any-llm/pull/1346",
+        "is_pr": true,
+        "number": 1346,
+        "state": "closed",
+        "title": "build(openai): require the HTTPX2 SDK transport",
+        "snippet": "build(openai): require the HTTPX2 SDK transport ## Description Update the SDK transport requirement and the real-client test transport together. ## Verification 2431 passed, 69 skipped, 4 warnings; all-files pre-commit passed locally. No live-provider tests were run. Upstream CI awaits maintainer approval. ## PR Type Provider contract and tests. ## Checklist - [ ] I understand the code I a"
+      },
+      {
+        "closed_at": "2026-09-15T00:43:10Z",
+        "comments": 3,
+        "created_at": "2026-08-30T02:53:10Z",
+        "html_url": "https://github.com/mozilla-ai/any-llm/pull/1354",
+        "is_pr": true,
+        "number": 1354,
+        "state": "closed",
+        "title": "feat(providers): add orcarouter as a registry-only gateway",
+        "snippet": "passed). The full `tests/unit` run is green except for 16 pre-existing `test_anthropic_*` failures that reproduce on `main` without this change (anthropic SDK `httpx2` client-type conflict in the container's dependency set). ### Live verification Ran against the real endpoint with `AnyLLM.create(\"orcarouter\", ...)` (key from `ORCAROUTER_API_KEY`, redacted): ```python resp = llm.completion(model"
+      },
+      {
+        "closed_at": "2026-08-31T17:13:30Z",
+        "comments": 10,
+        "created_at": "2026-08-30T19:23:27Z",
+        "html_url": "https://github.com/mozilla-ai/any-llm/pull/1356",
+        "is_pr": true,
+        "number": 1356,
+        "state": "closed",
+        "title": "tests(anthropic): migrate transport tests to HTTPX2",
+        "snippet": "tests(anthropic): migrate transport tests to HTTPX2 ## Description Use `httpx2.AsyncClient` in the complete Anthropic Messages transport test module. Anthropic 1.x rejects injected legacy `httpx.AsyncClient` instances and requires HTTPX2 request, response, mock transport, and client types to come from the same package. The transport import covers all 15 affected call sites. The tests group now d"
+      },
+      {
+        "closed_at": "2026-09-11T08:59:10Z",
+        "comments": 3,
+        "created_at": "2026-08-31T03:12:17Z",
+        "html_url": "https://github.com/mozilla-ai/any-llm/pull/1358",
+        "is_pr": true,
+        "number": 1358,
+        "state": "closed",
+        "title": "fix(bedrock): map the full Converse stopReason set to finish_reason",
+        "snippet": "thropic_provider.py` and reproduce identically on an unmodified `main` in this environment: `TypeError: Invalid 'http_client' argument; Expected an instance of httpx2.AsyncClient but got <class 'httpx.AsyncClient'>`, from what a local `uv sync --all-extras -U` resolves. Nothing bedrock-related. - No integration run: I do not have AWS Bedrock credentials, and the two Bedrock paths this touches are"
+      },
+      {
+        "closed_at": "2026-09-09T09:59:54Z",
+        "comments": 2,
+        "created_at": "2026-09-09T09:52:52Z",
+        "html_url": "https://github.com/mozilla-ai/any-llm/pull/1385",
+        "is_pr": true,
+        "number": 1385,
+        "state": "closed",
+        "title": "tests: use Qwen 3.5 9B for Together AI",
+        "snippet": "otes - `uv run pytest tests/unit -q`: 2,447 passed, 69 skipped. - Hooks for `tests/conftest.py` pass. Full pre-commit is blocked locally by an `httpx` versus `httpx2` mypy type conflict in unchanged `tests/unit/providers/test_openai_exceptions.py:188`. - Targeted live Together CI run: `test_agent_loop_sequential_tool_calls[together]` passed on its first attempt in 15.93 seconds ([run 34337514731]"
+      },
+      {
+        "closed_at": "2026-09-14T08:26:35Z",
+        "comments": 2,
+        "created_at": "2026-09-11T11:05:49Z",
+        "html_url": "https://github.com/mozilla-ai/any-llm/pull/1391",
+        "is_pr": true,
+        "number": 1391,
+        "state": "closed",
+        "title": "test(integration): handle multi-turn tool calls and empty call lists",
+        "snippet": "mmit checks pass for the changed files. Full-repository checks pass except the existing mypy error at `tests/unit/providers/test_openai_exceptions.py:188`: an `httpx2.Response` is passed to the installed OpenAI SDK 2.53.0, which expects `httpx.Response`. ## PR Type - \ud83d\udc1b Bug Fix ## Relevant issues Regression from #1327 and [integration run 34586285143](https://github.com/mozilla-ai/any-llm/actio"
+      },
+      {
+        "closed_at": "2026-09-15T12:16:17Z",
+        "comments": 6,
+        "created_at": "2026-09-14T13:46:14Z",
+        "html_url": "https://github.com/mozilla-ai/any-llm/pull/1395",
+        "is_pr": true,
+        "number": 1395,
+        "state": "closed",
+        "title": "feat(files): add provider-neutral Files API with Anthropic support",
+        "snippet": "ruff format, mypy, codespell). - Full-repository mypy still reports one pre-existing, unrelated error at `tests/unit/providers/test_openai_exceptions.py:188` (`httpx2.Response` vs `httpx.Response`). Unchanged by this PR. ## Checklist - [x] I understand the code I am submitting. - [x] I have added unit tests that prove my fix/feature works - [x] I have run this code locally and verified it fixes"
+      },
+      {
+        "closed_at": "2026-09-16T08:47:51Z",
+        "comments": 2,
+        "created_at": "2026-09-15T13:10:59Z",
+        "html_url": "https://github.com/mozilla-ai/any-llm/pull/1400",
+        "is_pr": true,
+        "number": 1400,
+        "state": "closed",
+        "title": "fix(azureopenai): migrate to the v1 API",
+        "snippet": ". No dependency bump. - Changed-file pre-commit checks pass. Repository-wide mypy fails on the unchanged `tests/unit/providers/test_openai_exceptions.py:188` (`httpx2.Response` vs `httpx.Response`), unrelated to this PR. - Live Azure verification is pending: local credentials are absent. Mock transport tests do not verify live API-key or Entra access. Missing credentials fail rather than silently"
+      },
+      {
+        "closed_at": "2026-09-17T13:31:59Z",
+        "comments": 2,
+        "created_at": "2026-09-17T08:46:38Z",
+        "html_url": "https://github.com/mozilla-ai/any-llm/pull/1408",
+        "is_pr": true,
+        "number": 1408,
+        "state": "closed",
+        "title": "tests(otari): rename `mzai` provider to `nebius` provider",
+        "snippet": "ed. Local units: 2,782 passed, 74 skipped. Changed-file pre-commit passed; full local pre-commit encounters the unchanged `test_openai_exceptions.py:188` httpx/httpx2 type mismatch, which does not reproduce in CI. - PR type: test configuration bug fix. No SDK pin or production-code change. ### Checklist <!-- If this checklist is deleted from the PR submission it will be immediately closed --> - ["
+      },
+      {
+        "closed_at": "2026-09-18T10:01:20Z",
+        "comments": 3,
+        "created_at": "2026-09-18T09:15:19Z",
+        "html_url": "https://github.com/mozilla-ai/any-llm/pull/1414",
+        "is_pr": true,
+        "number": 1414,
+        "state": "closed",
+        "title": "fix(anthropic): support JSON Schema type arrays",
+        "snippet": "nthropic_provider.py` - The all-files pre-commit run has one unrelated existing mypy failure in `tests/unit/providers/test_openai_exceptions.py:188` involving `httpx2.Response` versus `httpx.Response`. - The original author reported a live Anthropic request with `claude-haiku-4-5` and a nullable type-array response schema. ## AI Usage Information - AI Model used: GPT-5 Codex and GPT-5.6 - AI Dev"
+      },
+      {
+        "closed_at": "2026-09-18T09:48:30Z",
+        "comments": 2,
+        "created_at": "2026-09-18T09:35:54Z",
+        "html_url": "https://github.com/mozilla-ai/any-llm/pull/1415",
+        "is_pr": true,
+        "number": 1415,
+        "state": "closed",
+        "title": "chore(deps): constrain OpenAI SDK below v4",
+        "snippet": "chore(deps): constrain OpenAI SDK below v4 ## Description OpenAI 3.12 added `AsyncStream.aclose()`. Our cleanup code already prefers that standard method, but tests mocked only the older `close()` method, so every unit-test matrix job failed after CI resolved OpenAI 3.13. The tests now assert the cleanup method exposed by the installed SDK. The dependency accepts supported OpenAI 2.x and 3.x rel"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/mozilla-ai/any-llm/pull/1329",
+      "title": "feat(messages): add container continuity for code execution via Anthropic",
+      "is_pr": true,
+      "created_at": "2026-08-21T14:39:39Z",
+      "closed_at": "2026-09-03T09:29:23Z",
+      "hours_after_release": 228.7,
+      "hours_to_close": 306.8
+    }
+  },
+  "apache/airflow": {
+    "dependents": [
+      "apache-airflow-providers-openai"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-09-20T23:31:55Z",
+        "comments": 0,
+        "created_at": "2026-09-18T22:55:26Z",
+        "html_url": "https://github.com/apache/airflow/pull/73363",
+        "is_pr": true,
+        "number": 73363,
+        "state": "closed",
+        "title": "Add support for TypeSafe Jev classifier models",
+        "snippet": "-ai-slim[typesafe]>=2.45.0`. That is what the first push carried, and CI showed why it cannot be: from 2.31 onwards pydantic-ai-slim's `openai` extra requires `openai>=3.8`, while `llama-index-llms-openai` (this provider's `llamaindex` extra) and the Google provider's `litellm` pin `openai<3`, and the workspace lock resolves every provider's extras together. Any floor above 2.31 is therefore unsat"
+      },
+      {
+        "closed_at": "2026-09-21T00:38:40Z",
+        "comments": 0,
+        "created_at": "2026-09-19T03:28:29Z",
+        "html_url": "https://github.com/apache/airflow/pull/73368",
+        "is_pr": true,
+        "number": 73368,
+        "state": "closed",
+        "title": "Add a decision policy so an LLM operator asks a person when the model is unsure",
+        "snippet": "#73367 before that; both emit the same schema and a test runs the fallback path. The floor stays at 2.23.0: every pydantic-ai-slim release since 2.31 requires `openai>=3.8` for its `openai` extra, while `llama-index-llms-openai` requires `openai<3`, so raising the floor makes the provider's own `openai` and `llamaindex` extras unsatisfiable in the workspace lock. That conflict predates this PR and"
+      },
+      {
+        "closed_at": "2026-09-21T12:04:39Z",
+        "comments": 1,
+        "created_at": "2026-09-21T09:42:07Z",
+        "html_url": "https://github.com/apache/airflow/pull/73447",
+        "is_pr": true,
+        "number": 73447,
+        "state": "closed",
+        "title": "Add `OpenAIAgentSessionOperator` for OpenAI Managed Agents",
+        "snippet": "or to 3.13 fails the provider dependency resolution because `llama-index-llms-openai` (pulled in through the Common AI provider's LlamaIndex extra) still pins `openai<3`. The hook checks for `client.beta.agents` at first use and raises an error naming the required version, so every other OpenAI operator keeps working on older SDKs and the new test module skips itself when the installed SDK predate"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/apache/airflow/pull/73363",
+      "title": "Add support for TypeSafe Jev classifier models",
+      "is_pr": true,
+      "created_at": "2026-09-18T22:55:26Z",
+      "closed_at": "2026-09-20T23:31:55Z",
+      "hours_after_release": 909.0,
+      "hours_to_close": 48.6
+    }
+  },
+  "microsoft/promptflow": {
+    "dependents": [
+      "promptflow-tracing"
+    ],
+    "matching": [
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-09-04T06:15:28Z",
+        "html_url": "https://github.com/microsoft/promptflow/issues/4219",
+        "is_pr": false,
+        "number": 4219,
+        "state": "open",
+        "title": "[HTTPXodus] Consider migrating from `httpx` to `httpx2` (the actively maintained fork)",
+        "snippet": "[HTTPXodus] Consider migrating from `httpx` to `httpx2` (the actively maintained fork) # [HTTPXodus] Consider migrating from `httpx` to `httpx2` (the actively maintained fork) > \ud83c\udff7\ufe0f *This issue is part of [HTTPXodus](https://github.com/ProgrammerPlus1998/httpxodus) \u2014 a community effort to help major Python projects plan their path off the stalled `httpx` stable line onto [`httpx2`](https://github."
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/microsoft/promptflow/issues/4219",
+      "title": "[HTTPXodus] Consider migrating from `httpx` to `httpx2` (the actively maintained fork)",
+      "is_pr": false,
+      "created_at": "2026-09-04T06:15:28Z",
+      "closed_at": null,
+      "hours_after_release": 556.3,
+      "hours_to_close": null
+    }
+  },
+  "mims-harvard/ToolUniverse": {
+    "dependents": [
+      "tooluniverse"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "MadcowD/ell": {
+    "dependents": [
+      "ell-ai"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "ArduPilot/MAVProxy": {
+    "dependents": [
+      "mavproxy"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "langwatch/scenario": {
+    "dependents": [
+      "langwatch-scenario"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "microsoft/markitdown": {
+    "dependents": [
+      "markitdown-ocr"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "cbcoutinho/nextcloud-mcp-server": {
+    "dependents": [
+      "nextcloud-mcp-server"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "widgetti/solara": {
+    "dependents": [
+      "solara"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "MinishLab/semble": {
+    "dependents": [
+      "semble"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "oracle-samples/oci-openai": {
+    "dependents": [
+      "oci-openai"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "oracle/langchain-oracle": {
+    "dependents": [
+      "langchain-oci"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-09-18T22:09:17Z",
+        "comments": 2,
+        "created_at": "2026-09-10T19:59:57Z",
+        "html_url": "https://github.com/oracle/langchain-oracle/pull/306",
+        "is_pr": true,
+        "number": 306,
+        "state": "closed",
+        "title": "fix(oci): pin openai below 3",
+        "snippet": "fix(oci): pin openai below 3 ## Problem `libs/oci` allows `openai>=2.6.1` with no upper bound. openai 3.x changed how a custom httpx `auth` object is accepted, and rejects oci-openai's `OciSessionAuth` with `TypeError: Invalid \"auth\" argument`. A fresh `pip install langchain-oci` today resolves openai 3.x, so the Responses API path (`ChatOCIGenAI(use_responses_api=True)`, `ChatOCIOpenAI`) is brok"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/oracle/langchain-oracle/pull/306",
+      "title": "fix(oci): pin openai below 3",
+      "is_pr": true,
+      "created_at": "2026-09-10T19:59:57Z",
+      "closed_at": "2026-09-18T22:09:17Z",
+      "hours_after_release": 714.1,
+      "hours_to_close": 194.2
+    }
+  },
+  "posit-dev/chatlas": {
+    "dependents": [
+      "chatlas"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-13T22:09:22Z",
+        "comments": 0,
+        "created_at": "2026-08-12T03:15:25Z",
+        "html_url": "https://github.com/posit-dev/chatlas/pull/385",
+        "is_pr": true,
+        "number": 385,
+        "state": "closed",
+        "title": "fix(google): keep streamed citations adjacent to text",
+        "snippet": "while preserving final-turn ordering and provider-supplied grounded spans. - Temporarily cap OpenAI below 3.0 and regenerate its client argument types because OpenAI 3 switched to `httpx2` while chatlas provider adapters still accept `httpx` clients. ## Verification - `UV_CACHE_DIR=/tmp/chatlas-uv-cache uv run pytest tests/test_provider_google.py -k \"grounding or web_search or web_fetch\" -q` - `"
+      },
+      {
+        "closed_at": "2026-08-12T16:53:33Z",
+        "comments": 0,
+        "created_at": "2026-08-12T05:05:40Z",
+        "html_url": "https://github.com/posit-dev/chatlas/issues/386",
+        "is_pr": false,
+        "number": 386,
+        "state": "closed",
+        "title": "Undeclared `httpx` dependency breaks `import chatlas` with openai 3.x",
+        "snippet": "Undeclared `httpx` dependency breaks `import chatlas` with openai 3.x ## Problem `import chatlas` fails with `ModuleNotFoundError: No module named 'httpx'` in environments where `openai` is installed at 3.x. ``` File \".../chatlas/_utils.py\", line 10, in <module> import httpx ModuleNotFoundError: No module named 'httpx' ``` ## Cause `chatlas` imports `httpx` at module scope (`_utils.py`, re"
+      },
+      {
+        "closed_at": "2026-08-12T16:53:32Z",
+        "comments": 1,
+        "created_at": "2026-08-12T05:08:31Z",
+        "html_url": "https://github.com/posit-dev/chatlas/pull/387",
+        "is_pr": true,
+        "number": 387,
+        "state": "closed",
+        "title": "fix: Declare the httpx dependency",
+        "snippet": "dError: No module named 'httpx' ``` ## Cause chatlas imports `httpx` unconditionally but never declared it, relying on `openai` to supply it transitively. **`openai 3.0.0`** (released 2026-08-12) switched to the separate **`httpx2`** distribution (`httpx2<3,>=2.7.0`), so a fresh resolve installs `httpx2` and no `httpx`. The import is not optional or lazy: `chatlas/__init__.py` \u2192 `types` \u2192 `_cha"
+      },
+      {
+        "closed_at": "2026-08-12T16:43:17Z",
+        "comments": 0,
+        "created_at": "2026-08-12T15:36:08Z",
+        "html_url": "https://github.com/posit-dev/chatlas/pull/389",
+        "is_pr": true,
+        "number": 389,
+        "state": "closed",
+        "title": "fix(openai): support native httpx2 clients",
+        "snippet": "fix(openai): support native httpx2 clients ## Why this matters OpenAI 3 moved its supported HTTP transport from `httpx` to `httpx2`. PR #387 restores chatlas's direct legacy `httpx` dependency, but OpenAI-backed providers still need native `httpx2` routing and updated type contracts to pass CI and support custom clients. ## What changes - Type and document custom OpenAI and Azure clients as `http"
+      },
+      {
+        "closed_at": "2026-08-25T19:51:47Z",
+        "comments": 0,
+        "created_at": "2026-08-25T19:07:19Z",
+        "html_url": "https://github.com/posit-dev/chatlas/pull/399",
+        "is_pr": true,
+        "number": 399,
+        "state": "closed",
+        "title": "Adapt to anthropic 1.0 (httpx2); update provider types and pricing",
+        "snippet": "Adapt to anthropic 1.0 (httpx2); update provider types and pricing ## Summary - Bumps the anthropic floor to `>=1.0.0` and adapts to its switch from `httpx` to `httpx2` for custom HTTP clients: - `PositAnthropicProvider` now builds `httpx2` clients with `PositHttpx2Auth` and the (now shared) `make_posit_error_hook(_async)` hooks, mirroring `PositOpenAIProvider`. The httpx-based `PositAuth` and"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-09-01T10:28:52Z",
+        "html_url": "https://github.com/posit-dev/chatlas/issues/410",
+        "is_pr": false,
+        "number": 410,
+        "state": "open",
+        "title": "`ChatBedrock()` mantle APIs send URL content sources, which Bedrock rejects",
+        "snippet": "onal in chatlas, the fallback here would need to go through `ensure_bytes()` to actually download. Tested against chatlas main (0.22.1.dev5), anthropic 1.2.0, openai 3.6.0."
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-09-14T01:03:08Z",
+        "html_url": "https://github.com/posit-dev/chatlas/issues/435",
+        "is_pr": false,
+        "number": 435,
+        "state": "open",
+        "title": "A streaming text delta that repeats everything streamed so far is missing from the recorded turn",
+        "snippet": "and records `abc`, while `[\"ab\", \"c\", \"ab\"]` comes out fine, so it seems to bite when the new delta equals the whole accumulation so far. chatlas at 7b3aa569, openai 3.13.0, python 3.12.14. Everything built on `OpenAICompletionsProvider` shares that call, so `ChatOllama()`, `ChatGroq()`, `ChatDeepSeek()` and `ChatOpenRouter()` are in the same boat. I found it driving the provider rather than a li"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/posit-dev/chatlas/pull/385",
+      "title": "fix(google): keep streamed citations adjacent to text",
+      "is_pr": true,
+      "created_at": "2026-08-12T03:15:25Z",
+      "closed_at": "2026-08-13T22:09:22Z",
+      "hours_after_release": 1.3,
+      "hours_to_close": 42.9
+    }
+  },
+  "modelscope/ms-swift": {
+    "dependents": [
+      "ms-swift"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "mpfaffenberger/code_puppy": {
+    "dependents": [
+      "code-puppy"
+    ],
+    "matching": [
+      {
+        "closed_at": null,
+        "comments": 4,
+        "created_at": "2026-08-19T02:29:21Z",
+        "html_url": "https://github.com/mpfaffenberger/code_puppy/pull/797",
+        "is_pr": true,
+        "number": 797,
+        "state": "open",
+        "title": "[experimental, do not merge] Run CI against the pydantic-ai httpx2 commit",
+        "snippet": "[experimental, do not merge] Run CI against the pydantic-ai httpx2 commit > This pull request was posted by Claude Code using claude-opus-5 on behalf of David. ## Experimental \u2014 not for merge This PR exists to run CI against an unreleased pydantic-ai commit. It should not be merged; it will be closed once the question below is answered. ## What it changes `pydantic-ai-slim[openai,anthropic,mcp"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-08-27T03:36:15Z",
+        "html_url": "https://github.com/mpfaffenberger/code_puppy/issues/871",
+        "is_pr": false,
+        "number": 871,
+        "state": "open",
+        "title": "ChatGPT OAuth httpx2.ReadTimeout bypasses streaming retry after HTTPX2 migration",
+        "snippet": "ChatGPT OAuth httpx2.ReadTimeout bypasses streaming retry after HTTPX2 migration ## Summary Code Puppy 0.0.788 appears to have a retry-classification regression for ChatGPT OAuth/Codex streamed responses. I have encountered the same `httpx2.ReadTimeout` failure twice in separate fresh Code Puppy sessions while using GPT-5.6 Terra through ChatGPT OAuth for long-running streamed agent tasks. The"
+      },
+      {
+        "closed_at": "2026-08-28T14:54:54Z",
+        "comments": 0,
+        "created_at": "2026-08-28T14:38:15Z",
+        "html_url": "https://github.com/mpfaffenberger/code_puppy/issues/876",
+        "is_pr": false,
+        "number": 876,
+        "state": "closed",
+        "title": "Migrate pydantic-ai provider HTTP clients from legacy httpx to httpx2",
+        "snippet": "Migrate pydantic-ai provider HTTP clients from legacy httpx to httpx2 ## Problem Every model built through the factory emits: ``` PydanticAIDeprecationWarning: `httpx.AsyncClient` support for OpenAI-compatible providers is deprecated and will be removed in v3; use `httpx2.AsyncClient` instead. ``` pydantic-ai now builds its own clients with `httpx2` (`pydantic_ai/providers/_openai_compatible.py"
+      },
+      {
+        "closed_at": "2026-08-28T14:54:53Z",
+        "comments": 0,
+        "created_at": "2026-08-28T14:49:58Z",
+        "html_url": "https://github.com/mpfaffenberger/code_puppy/pull/877",
+        "is_pr": true,
+        "number": 877,
+        "state": "closed",
+        "title": "fix(http): hand pydantic-ai providers httpx2 clients",
+        "snippet": "fix(http): hand pydantic-ai providers httpx2 clients ## What Kills the `PydanticAIDeprecationWarning` that fired on every `custom_openai` / `cerebras` model build: ``` `httpx.AsyncClient` support for OpenAI-compatible providers is deprecated and will be removed in v3; use `httpx2.AsyncClient` instead. ``` Closes #876 ## Scope (measured, not guessed) The warning comes from `pydantic_ai/provide"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-09-13T13:55:32Z",
+        "html_url": "https://github.com/mpfaffenberger/code_puppy/issues/938",
+        "is_pr": false,
+        "number": 938,
+        "state": "open",
+        "title": "universal_constructor: registry executes generated tool files at scan time \u2014 a generated tool can permanently corrupt the host interpreter's sys.path",
+        "snippet": "custom_openai_responses` model produced: ``` TypeError: Invalid `http_client` argument; Expected an instance of `httpx.AsyncClient` but got <class 'code_puppy.httpx2_utils.RetryingAsyncClient'> ``` `model_factory.py:969` hands the provider an httpx2 client (`httpx2_utils.py:28`), which openai < 3.0 rejects. The tool env's own `openai 3.13.0` would have accepted it \u2014 it just never got imported."
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/mpfaffenberger/code_puppy/pull/797",
+      "title": "[experimental, do not merge] Run CI against the pydantic-ai httpx2 commit",
+      "is_pr": true,
+      "created_at": "2026-08-19T02:29:21Z",
+      "closed_at": null,
+      "hours_after_release": 168.6,
+      "hours_to_close": null
+    }
+  },
+  "AI-Matrix-Engine/aidream-current": {
+    "dependents": [
+      "matrx-ai"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "eyelevelai/groundx-python": {
+    "dependents": [
+      "groundx"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "confident-ai/deepteam": {
+    "dependents": [
+      "deepteam"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "yutori-ai/yutori-sdk-python": {
+    "dependents": [
+      "yutori"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "pamelafox/openai-messages-token-helper": {
+    "dependents": [
+      "openai-messages-token-helper"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "dominodatalab/python-domino": {
+    "dependents": [
+      "dominodatalab"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "camel-ai/camel": {
+    "dependents": [
+      "camel-ai"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-09-03T05:27:15Z",
+        "comments": 1,
+        "created_at": "2026-09-03T05:19:18Z",
+        "html_url": "https://github.com/camel-ai/camel/pull/4313",
+        "is_pr": true,
+        "number": 4313,
+        "state": "closed",
+        "title": "release: 0.2.91a7 with dependency compatibility fixes",
+        "snippet": "to `>=1.3.0,<2` in the base, `dev_tools`, and `all` dependency sets. - Constrain `openai` to `>=1.86.0,<3` until CAMEL migrates its HTTP-layer integrations to HTTPX2. - Bump CAMEL from `0.2.91a6` to `0.2.91a7` across package metadata, runtime version, documentation config, bug report template, and lockfile. MCP v2 renamed `FastMCP` to `MCPServer` and removed the v1 import path. CAMEL still uses"
+      },
+      {
+        "closed_at": null,
+        "comments": 0,
+        "created_at": "2026-09-21T12:42:00Z",
+        "html_url": "https://github.com/camel-ai/camel/issues/4350",
+        "is_pr": false,
+        "number": 4350,
+        "state": "open",
+        "title": "[BUG] CAMEL Runtime API server exposes all registered tool endpoints without authentication, enabling unauthenticated tool invocation and host command execution when a command-execution toolkit is registered (CWE-306, CVSS 8.6)",
+        "snippet": "le level (docker_runtime.py:27), while tqdm is not # among camel-ai 0.2.91a5's base dependencies (its only dependency stub is the # dev types-tqdm) and current openai 3.x releases -- which the unbounded # openai>=1.86.0 pin resolves to -- no longer pull it transitively, so on a # fresh install every camel.runtimes import fails with # ModuleNotFoundError: No module named 'tqdm'. ``` **Steps to rep"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/camel-ai/camel/pull/4313",
+      "title": "release: 0.2.91a7 with dependency compatibility fixes",
+      "is_pr": true,
+      "created_at": "2026-09-03T05:19:18Z",
+      "closed_at": "2026-09-03T05:27:15Z",
+      "hours_after_release": 531.4,
+      "hours_to_close": 0.1
+    }
+  },
+  "vlm-run/vlmrun-hub": {
+    "dependents": [
+      "vlmrun-hub"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "ComposioHQ/composio": {
+    "dependents": [
+      "composio-openai"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-08-27T13:13:52Z",
+        "comments": 1,
+        "created_at": "2026-08-21T06:59:36Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4196",
+        "is_pr": true,
+        "number": 4196,
+        "state": "closed",
+        "title": "fix(deps-dev): bump langchain-openai from 1.4.3 to 1.6.0 in /python in the pip-version group across 1 directory",
+        "snippet": "n/issues/39651\">#39651</a>) release(openai): 1.5.0 (<a href=\"https://redirect.github.com/langchain-ai/langchain/issues/39629\">#39629</a>) feat(openai): support openai 3.0 SDK (<a href=\"https://redirect.github.com/langchain-ai/langchain/issues/39613\">#39613</a>) chore(partners): bump langgraph floor in openai and huggingface lockfiles (<a href=\"https://redirect.github.com/langchain-ai/langchain/iss"
+      },
+      {
+        "closed_at": "2026-08-25T00:00:52Z",
+        "comments": 2,
+        "created_at": "2026-08-24T19:18:16Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4229",
+        "is_pr": true,
+        "number": 4229,
+        "state": "closed",
+        "title": "fix(deps): bump the github-actions group across 1 directory with 8 updates",
+        "snippet": "ave-only</li> </ul> <h3>6.0.0</h3> <ul> <li>Updated <code>@actions/cache</code> to ^6.0.1, <code>@actions/core</code> to ^3.0.1, <code>@actions/exec</code> to ^3.0.0, <code>@actions/io</code> to ^3.0.2</li> <li>Migrated to ESM module system</li> <li>Upgraded Jest to v30 and test infrastructure to be ESM compatible</li> </ul> <h3>5.0.4</h3> <ul> <li>Bump <code>minimatch</code> to v3.1.5 (fixes ReDo"
+      },
+      {
+        "closed_at": "2026-08-25T14:05:30Z",
+        "comments": 1,
+        "created_at": "2026-08-25T00:00:56Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4239",
+        "is_pr": true,
+        "number": 4239,
+        "state": "closed",
+        "title": "fix(deps): bump the github-actions group across 1 directory with 7 updates",
+        "snippet": "ave-only</li> </ul> <h3>6.0.0</h3> <ul> <li>Updated <code>@actions/cache</code> to ^6.0.1, <code>@actions/core</code> to ^3.0.1, <code>@actions/exec</code> to ^3.0.0, <code>@actions/io</code> to ^3.0.2</li> <li>Migrated to ESM module system</li> <li>Upgraded Jest to v30 and test infrastructure to be ESM compatible</li> </ul> <h3>5.0.4</h3> <ul> <li>Bump <code>minimatch</code> to v3.1.5 (fixes ReDo"
+      },
+      {
+        "closed_at": "2026-09-11T14:24:04Z",
+        "comments": 2,
+        "created_at": "2026-09-11T06:36:30Z",
+        "html_url": "https://github.com/ComposioHQ/composio/pull/4440",
+        "is_pr": true,
+        "number": 4440,
+        "state": "closed",
+        "title": "chore(deps): update ag2 requirement from <1.0,>=0.14 to >=0.14,<2.0 in /python/providers/autogen",
+        "snippet": "Sourced from <a href=\"https://github.com/ag2ai/ag2/releases\">ag2's releases</a>.</em></p> <blockquote> <h2>v1.0.4</h2> <p>AG2 now targets the Anthropic 1.x and OpenAI 3.x SDKs, TealTiger governance gains two more policies, and ACP servers can resume sessions.</p> <h2>What's Changed</h2> <h3>Provider SDK support</h3> <p>Two provider SDKs released new majors, and AG2 has been adapted to both.</p> <u"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/ComposioHQ/composio/pull/4196",
+      "title": "fix(deps-dev): bump langchain-openai from 1.4.3 to 1.6.0 in /python in the pip-version group across 1 directory",
+      "is_pr": true,
+      "created_at": "2026-08-21T06:59:36Z",
+      "closed_at": "2026-08-27T13:13:52Z",
+      "hours_after_release": 221.1,
+      "hours_to_close": 150.2
+    }
+  },
+  "modelscope/evalscope": {
+    "dependents": [
+      "evalscope"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "nousergon/krepis": {
+    "dependents": [
+      "krepis"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "Clarifai/clarifai-python": {
+    "dependents": [
+      "clarifai"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "AgentToolkit/agent-lifecycle-toolkit": {
+    "dependents": [
+      "agent-lifecycle-toolkit"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "funstory-ai/BabelDOC": {
+    "dependents": [
+      "babeldoc"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "assafelovic/gpt-researcher": {
+    "dependents": [
+      "gpt-researcher"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "mindroom-ai/mindroom": {
+    "dependents": [
+      "mindroom"
+    ],
+    "matching": [],
+    "first_report": null
+  },
+  "langroid/langroid": {
+    "dependents": [
+      "langroid"
+    ],
+    "matching": [
+      {
+        "closed_at": "2026-09-16T10:16:39Z",
+        "comments": 1,
+        "created_at": "2026-09-13T12:54:33Z",
+        "html_url": "https://github.com/langroid/langroid/issues/1138",
+        "is_pr": false,
+        "number": 1138,
+        "state": "closed",
+        "title": "upgrade OpenAI SDK to 3.x.x versions",
+        "snippet": "upgrade OpenAI SDK to 3.x.x versions langroid currently pings openai-sdk to version < 3.0.0. OpenAI have released 3.0.0 version of their SDK in August - and since then have been working on 3.x.x tree. Major change in 3.0.0 release is a switch from HTTPX to HTTPX2 - that is actively maintained by Pydantic. It would be very nice if langroid could upgrade to the latest OpenAI SDK version."
+      },
+      {
+        "closed_at": "2026-09-16T10:16:38Z",
+        "comments": 3,
+        "created_at": "2026-09-16T10:07:03Z",
+        "html_url": "https://github.com/langroid/langroid/pull/1139",
+        "is_pr": true,
+        "number": 1139,
+        "state": "closed",
+        "title": "feat: support openai SDK 3.x (httpx2) alongside 2.x (httpx)",
+        "snippet": "feat: support openai SDK 3.x (httpx2) alongside 2.x (httpx) Fixes #1138 (reported by @alexagr). ## What - Widen the `openai` pin from `>=1.106.0,<3.0.0` to `>=1.106.0,<4.0.0`. - Add `langroid.language_models.httpx_compat`, a small shim that imports the httpx family the installed SDK is built on: `httpx` for openai 2.x, `httpx2` (the Pydantic-maintained successor, same `Client`/`AsyncClient`/"
+      }
+    ],
+    "first_report": {
+      "url": "https://github.com/langroid/langroid/issues/1138",
+      "title": "upgrade OpenAI SDK to 3.x.x versions",
+      "is_pr": false,
+      "created_at": "2026-09-13T12:54:33Z",
+      "closed_at": "2026-09-16T10:16:39Z",
+      "hours_after_release": 779.0,
+      "hours_to_close": 69.4
+    }
+  }
+}
