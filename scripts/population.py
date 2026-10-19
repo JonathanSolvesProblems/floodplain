@@ -17,8 +17,8 @@ from pathlib import Path
 from packaging.requirements import Requirement
 from packaging.version import Version
 
-from downstream.dependents import load
-from downstream.repos import resolve_source
+from floodplain.dependents import load
+from floodplain.repos import resolve_source
 
 
 def reaches(requirement: str, version: str) -> bool:

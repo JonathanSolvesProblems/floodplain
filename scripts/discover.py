@@ -12,8 +12,8 @@ import asyncio
 from datetime import UTC, datetime
 from pathlib import Path
 
-from downstream.dependents import find_dependents, save
-from downstream.pypi import PyPI, normalize, release_uploaded_at
+from floodplain.dependents import find_dependents, save
+from floodplain.pypi import PyPI, normalize, release_uploaded_at
 
 
 async def main() -> None:

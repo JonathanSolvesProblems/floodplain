@@ -17,14 +17,14 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-from downstream.backends import make_backend
-from downstream.fixer import Fixer
-from downstream.llm import TokenFactory
-from downstream.pypi import PyPI
-from downstream.repos import SourceRef, sdist_url
-from downstream.research import find_guidance
-from downstream.sandbox import Experiment, RunOutcome, Sandbox, experiment_to_json
-from downstream.triage import triage_experiment
+from floodplain.backends import make_backend
+from floodplain.fixer import Fixer
+from floodplain.llm import TokenFactory
+from floodplain.pypi import PyPI
+from floodplain.repos import SourceRef, sdist_url
+from floodplain.research import find_guidance
+from floodplain.sandbox import Experiment, RunOutcome, Sandbox, experiment_to_json
+from floodplain.triage import triage_experiment
 
 
 def load_experiment(path: Path) -> Experiment:
@@ -126,7 +126,7 @@ async def main() -> None:
                 if tri:
                     print(f"  triage {name:<34} [{tri.category}] {tri.cause[:90]}  quotes={len(tri.quotes)} dropped={tri.dropped_quotes}")
             if args.stage in ("fix", "all") and payload.get("triage") and (not payload.get("fix") or args.rerun):
-                from downstream.triage import Triage
+                from floodplain.triage import Triage
                 tri = Triage(**{k: v for k, v in payload["triage"].items()})
                 guidance = await find_guidance(args.target, args.release, tri.symbol, tri.category,
                                                fallback=root / "migration_guide.md")

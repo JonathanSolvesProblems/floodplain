@@ -5,8 +5,8 @@
     ultra -> frontier reasoning: the escalation when super's fix does not pass
 
 Model IDs are resolved from /v1/models at startup by substring so the code does
-not rot when Nebius renames a deployment. Override with DOWNSTREAM_MODEL_NANO,
-DOWNSTREAM_MODEL_SUPER, DOWNSTREAM_MODEL_ULTRA.
+not rot when Nebius renames a deployment. Override with FLOODPLAIN_MODEL_NANO,
+FLOODPLAIN_MODEL_SUPER, FLOODPLAIN_MODEL_ULTRA.
 """
 
 from __future__ import annotations
@@ -73,7 +73,7 @@ class TokenFactory:
     async def resolve_models(self) -> dict[Tier, str]:
         available = [m.id async for m in self.client.models.list()]
         for tier, needles in TIER_SUBSTRINGS.items():
-            override = os.environ.get(f"DOWNSTREAM_MODEL_{tier.upper()}")
+            override = os.environ.get(f"FLOODPLAIN_MODEL_{tier.upper()}")
             if override:
                 self.models[tier] = override
                 continue

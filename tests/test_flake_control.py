@@ -1,5 +1,5 @@
-from downstream.repos import SourceRef
-from downstream.sandbox import Experiment, RunOutcome
+from floodplain.repos import SourceRef
+from floodplain.sandbox import Experiment, RunOutcome
 
 
 def _outcome(label, tests, install_exit=0):

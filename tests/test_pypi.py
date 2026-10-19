@@ -1,6 +1,6 @@
 from datetime import UTC, datetime
 
-from downstream.pypi import declared_deps, normalize, version_at
+from floodplain.pypi import declared_deps, normalize, version_at
 
 
 def _project(releases: dict[str, list[dict]]) -> dict:

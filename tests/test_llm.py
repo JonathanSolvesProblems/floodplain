@@ -1,4 +1,4 @@
-from downstream.llm import extract_json, verified_quotes
+from floodplain.llm import extract_json, verified_quotes
 
 
 def test_extract_json_plain_and_fenced_and_think():

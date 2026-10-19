@@ -34,8 +34,8 @@ TEST_EXTRAS = ("test", "tests", "testing", "dev", "develop", "all")
 # PEP 735 dependency groups, the modern home for the same thing (uv's default for `dev`).
 TEST_GROUPS = ("dev", "test", "tests", "testing", "dev-dependencies")
 
-JUNIT_START = "-----DOWNSTREAM-JUNIT-START-----"
-JUNIT_END = "-----DOWNSTREAM-JUNIT-END-----"
+JUNIT_START = "-----FLOODPLAIN-JUNIT-START-----"
+JUNIT_END = "-----FLOODPLAIN-JUNIT-END-----"
 
 
 @dataclass
@@ -150,7 +150,7 @@ cd /work/repo
 uv venv /work/venv --python 3.12 --quiet
 export VIRTUAL_ENV=/work/venv PATH=/work/venv/bin:$PATH UV_EXCLUDE_NEWER={cutoff}
 export UV_PRERELEASE=allow
-uv pip install --quiet -e . 2>/tmp/base.err || {{ echo "[downstream] base install failed"; tail -n 20 /tmp/base.err; exit 41; }}
+uv pip install --quiet -e . 2>/tmp/base.err || {{ echo "[floodplain] base install failed"; tail -n 20 /tmp/base.err; exit 41; }}
 took=""
 for x in {extras_list}; do
   if uv pip install --quiet -e ".[$x]" 2>/dev/null; then took="$took extra:$x"; fi
@@ -158,9 +158,9 @@ done
 for g in {groups_list}; do
   if uv pip install --quiet --group "$g" 2>/dev/null; then took="$took group:$g"; fi
 done
-echo "[downstream] test deps installed from:$took"
+echo "[floodplain] test deps installed from:$took"
 uv pip install --quiet pytest pytest-timeout || exit 42
-echo "[downstream] resolved:"
+echo "[floodplain] resolved:"
 uv pip freeze | grep -iE '^(openai|httpx|httpx2|certifi|anyio|pydantic|pytest|pytest-httpx|llm-echo|typing-extensions)==' || true
 """
 
@@ -219,7 +219,7 @@ def clone_command(source: SourceRef) -> str:
         return (
             f"mkdir -p /work/sdist && cd /work/sdist && curl -sSL -o src.tar.gz {_shell_quote(source.sdist_url)} "
             f"&& tar xzf src.tar.gz && mv \"$(find . -mindepth 1 -maxdepth 1 -type d | head -n 1)\" /work/repo "
-            f"&& cd /work/repo && git init -q && git add -A && git -c user.name=downstream -c user.email=d@s "
+            f"&& cd /work/repo && git init -q && git add -A && git -c user.name=floodplain -c user.email=f@p "
             f"commit -qm sdist && echo sdist:{source.sdist_url}"
         )
     raise ValueError("no tag, sha, or sdist to check out")

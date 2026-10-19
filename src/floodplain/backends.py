@@ -16,7 +16,7 @@ from one parent. Three substrates provide it.
                     carries the backend name so a local number can never be quoted as
                     a Nebius one.
 
-Choose with DOWNSTREAM_BACKEND=contree|jobs|docker (default contree).
+Choose with FLOODPLAIN_BACKEND=contree|jobs|docker (default contree).
 """
 
 from __future__ import annotations
@@ -80,7 +80,7 @@ BASE_SETUP = (
     "pip install --quiet --root-user-action=ignore uv && mkdir -p /work && uv --version"
 )
 BASE_OCI = "python:3.12-slim-bookworm"
-BASE_TAG = "downstream-base-py312"
+BASE_TAG = "floodplain-base-py312"
 OUTPUT_CAP = 8 * 1024 * 1024
 
 
@@ -180,7 +180,7 @@ class DockerBackend:
         code, _, err = await self._docker("pull", "--quiet", BASE_OCI, timeout=900)
         if code != 0:
             raise RuntimeError(f"docker pull failed: {err[:500]}")
-        cname = f"downstream-base-{uuidlib.uuid4().hex[:10]}"
+        cname = f"floodplain-base-{uuidlib.uuid4().hex[:10]}"
         code, _, err = await self._docker("run", "--name", cname, BASE_OCI, "sh", "-c", BASE_SETUP, timeout=1800)
         if code != 0:
             await self._docker("rm", "-f", cname, timeout=60)
@@ -213,7 +213,7 @@ class DockerBackend:
         code, out, err = await self._docker(*args, timeout=timeout)
         new_image = None
         if persist and code != 124:
-            tag = f"downstream-step:{uuidlib.uuid4().hex[:12]}"
+            tag = f"floodplain-step:{uuidlib.uuid4().hex[:12]}"
             c2, _, e2 = await self._docker("commit", cname, tag, timeout=300)
             if c2 == 0:
                 new_image = ImageRef(tag, self.name)
@@ -257,7 +257,7 @@ class DockerBackend:
 # --------------------------------------------------------------------------- factory
 
 def make_backend(kind: str | None = None) -> Backend:
-    kind = (kind or os.environ.get("DOWNSTREAM_BACKEND") or "contree").lower()
+    kind = (kind or os.environ.get("FLOODPLAIN_BACKEND") or "contree").lower()
     if kind in ("contree", "sandboxes", "nebius"):
         return ContreeBackend()
     if kind in ("docker", "local"):

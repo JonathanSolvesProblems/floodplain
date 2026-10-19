@@ -1,5 +1,5 @@
-from downstream.repos import SourceRef
-from downstream.sandbox import Experiment, RunOutcome, parse_junit, parse_resolved
+from floodplain.repos import SourceRef
+from floodplain.sandbox import Experiment, RunOutcome, parse_junit, parse_resolved
 
 JUNIT = """<?xml version="1.0" encoding="utf-8"?>
 <testsuites><testsuite name="pytest" errors="1" failures="1" skipped="1" tests="4">
@@ -20,7 +20,7 @@ def test_parse_junit_statuses():
 
 
 def test_parse_resolved():
-    out = "[downstream] resolved:\nopenai==2.34.0\nhttpx==0.28.1\n"
+    out = "[floodplain] resolved:\nopenai==2.34.0\nhttpx==0.28.1\n"
     assert parse_resolved(out) == {"openai": "2.34.0", "httpx": "0.28.1"}
 
 

@@ -1,4 +1,4 @@
-from downstream.repos import github_repo, tag_candidates
+from floodplain.repos import github_repo, tag_candidates
 
 
 def test_github_repo_prefers_source_over_homepage():
@@ -20,7 +20,7 @@ def test_github_repo_none_when_absent():
 
 
 def test_fuzzy_tag_matches_monorepo_prefixes():
-    from downstream.repos import fuzzy_tag
+    from floodplain.repos import fuzzy_tag
     tags = {
         "python-openinference-instrumentation-openai-v0.1.54": "a",
         "python-openinference-instrumentation-openai-v0.1.53": "b",

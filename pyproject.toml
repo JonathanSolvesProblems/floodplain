@@ -1,5 +1,5 @@
 [project]
-name = "downstream"
+name = "floodplain"
 version = "0.1.0"
 description = "Run the test suites of everyone who depends on you, against a change you have not shipped yet."
 readme = "README.md"
@@ -19,9 +19,6 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "pytest-asyncio>=0.24"]
-
-[project.scripts]
-downstream = "downstream.cli:main"
 
 [build-system]
 requires = ["uv_build>=0.12.5,<0.13.0"]

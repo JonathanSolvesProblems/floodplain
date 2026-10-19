@@ -22,7 +22,7 @@ import httpx2
 from packaging.requirements import InvalidRequirement, Requirement
 from packaging.version import InvalidVersion, Version
 
-USER_AGENT = "downstream/0.1 (+https://github.com/JonathanSolvesProblems)"
+USER_AGENT = "floodplain/0.1 (+https://github.com/JonathanSolvesProblems)"
 CACHE_ROOT = Path("data/cache/pypi")
 
 

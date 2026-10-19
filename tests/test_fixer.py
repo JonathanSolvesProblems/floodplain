@@ -1,4 +1,4 @@
-from downstream.fixer import apply_edits
+from floodplain.fixer import apply_edits
 
 
 def test_apply_edits_exact_once():
