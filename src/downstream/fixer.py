@@ -21,9 +21,9 @@ from dataclasses import asdict, dataclass, field
 from datetime import datetime, timedelta
 from typing import Any
 
+from .backends import Backend, ImageRef
 from .llm import TokenFactory, Tier
-from .sandbox import (JUNIT_END, JUNIT_START, OUTPUT_CAP, TEST_SCRIPT, TEST_TIMEOUT, INSTALL_TIMEOUT,
-                      Experiment, parse_junit)
+from .sandbox import JUNIT_END, JUNIT_START, TEST_SCRIPT, TEST_TIMEOUT, Experiment, parse_junit
 from .triage import Triage
 
 SYSTEM = """You are a senior maintainer fixing a downstream package that broke after an upstream release.
@@ -140,21 +140,21 @@ DEP_FILES = ("pyproject.toml", "setup.py", "setup.cfg", "requirements.txt")
 
 
 class Fixer:
-    def __init__(self, tf: TokenFactory, sdk: Any) -> None:
+    def __init__(self, tf: TokenFactory, backend: Backend) -> None:
         self.tf = tf
-        self.sdk = sdk
+        self.backend = backend
 
-    async def gather_context(self, installed_img: Any, symbol: str | None) -> str:
+    async def gather_context(self, installed: ImageRef, symbol: str | None) -> str:
         sym = re.sub(r"[^A-Za-z0-9_.]", "", symbol or "")
-        res = await installed_img.run(shell=CONTEXT_SCRIPT.replace("{symbol}", sym), disposable=True,
-                                      timeout=120, truncate_output_at=OUTPUT_CAP)
-        return (res.result.stdout or "")[:60000]
+        res = await self.backend.run(installed, CONTEXT_SCRIPT.replace("{symbol}", sym),
+                                     persist=False, timeout=180)
+        return res.stdout[:60000]
 
-    async def read_files(self, img: Any, paths: list[str]) -> dict[str, str]:
+    async def read_files(self, img: ImageRef, paths: list[str]) -> dict[str, str]:
         files: dict[str, str] = {}
         for p in paths:
             try:
-                files[p] = (await img.read(f"/work/repo/{p}")).decode("utf-8", "replace")
+                files[p] = (await self.backend.read_file(img, f"/work/repo/{p}")).decode("utf-8", "replace")
             except Exception:  # noqa: BLE001 - a missing file just is not offered to the model
                 continue
         return files
@@ -169,7 +169,7 @@ class Fixer:
         )
         return await self.tf.chat_json(tier, SYSTEM, user, max_tokens=6000)
 
-    async def verify(self, installed_img: Any, edited: dict[str, str], touched_deps: bool,
+    async def verify(self, installed: ImageRef, edited: dict[str, str], touched_deps: bool,
                      after_cutoff: datetime, verdict: dict[str, Any], baseline_before: dict[str, str]) -> dict[str, Any]:
         upload = {f"/work/repo/{p}": content.encode("utf-8") for p, content in edited.items()}
         reinstall = ""
@@ -178,19 +178,19 @@ class Fixer:
             reinstall = (f"export VIRTUAL_ENV=/work/venv PATH=/work/venv/bin:$PATH UV_EXCLUDE_NEWER={cutoff}; "
                          f"cd /work/repo && (uv pip install --quiet -e . || exit 41); ")
         script = reinstall + "cd /work/repo && git diff > /work/fix.diff; " + TEST_SCRIPT
-        res = await installed_img.run(shell=script, files=upload, disposable=False, timeout=TEST_TIMEOUT,
-                                      truncate_output_at=OUTPUT_CAP)
-        r = res.result
-        out = r.stdout or ""
+        r = await self.backend.run(installed, script, files=upload, persist=True, timeout=TEST_TIMEOUT)
+        out = r.stdout
         xml = ""
         if JUNIT_START in out and JUNIT_END in out:
             xml = out.split(JUNIT_START, 1)[1].split(JUNIT_END, 1)[0]
             out = out.split(JUNIT_START, 1)[0]
         tests, collection = parse_junit(xml)
-        try:
-            diff = (await res.read("/work/fix.diff")).decode("utf-8", "replace")
-        except Exception:  # noqa: BLE001
-            diff = ""
+        diff = ""
+        if r.image is not None:
+            try:
+                diff = (await self.backend.read_file(r.image, "/work/fix.diff")).decode("utf-8", "replace")
+            except Exception:  # noqa: BLE001
+                diff = ""
         targets = list(verdict.get("newly_failing", [])) + list(verdict.get("new_collection_errors", []))
         still_failing = [t for t in targets if tests.get(t) != "passed" and t not in collection] if tests else targets
         if verdict.get("kind") == "install":
@@ -200,14 +200,14 @@ class Fixer:
         verified = (r.exit_code != 41) and not still_failing and not regressions and (bool(tests) or verdict.get("kind") == "install")
         return {"install_exit": 41 if r.exit_code == 41 else 0, "test_exit": r.exit_code, "tests": tests,
                 "still_failing": still_failing, "regressions": regressions, "verified": verified,
-                "diff": diff, "log": out[-6000:], "elapsed_s": r.elapsed_time.total_seconds(), "cost": r.cost}
+                "diff": diff, "log": out[-6000:], "elapsed_s": r.elapsed_s, "cost": r.cost}
 
     async def fix(self, exp: Experiment, triage: Triage, *, target: str, release: str, notes: str,
                   after_cutoff: datetime, plan: tuple[Tier, ...] = ("super", "super", "ultra")) -> FixResult:
         result = FixResult(dependent=exp.dependent)
         verdict = exp.verdict()
         assert exp.after is not None and exp.after.image_uuid and exp.before is not None
-        installed_img = self.sdk.images.use(exp.after.image_uuid)
+        installed_img = ImageRef(exp.after.image_uuid, self.backend.name)
         context = await self.gather_context(installed_img, triage.symbol)
         log = exp.after.test_tail if verdict.get("kind") == "tests" else exp.after.install_tail
         retry_note = ""

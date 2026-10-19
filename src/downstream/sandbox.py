@@ -1,4 +1,4 @@
-"""Run a dependent's test suite before and after a release, in Nebius Sandboxes.
+"""Run a dependent's test suite before and after a release, in forked sandboxes.
 
 The experiment for one dependent D and one release R of target T:
 
@@ -23,15 +23,11 @@ from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from typing import Any
 
-from contree_sdk import Contree
-
+from .backends import BASE_OCI, BASE_TAG, OUTPUT_CAP, Backend, ImageRef  # noqa: F401
 from .repos import SourceRef
 
-BASE_TAG = "downstream-base-py312"
-BASE_OCI = "python:3.12-slim-bookworm"
 INSTALL_TIMEOUT = 900
 TEST_TIMEOUT = 1200
-OUTPUT_CAP = 8 * 1024 * 1024
 
 # Extras that conventionally hold test dependencies, tried in order and unioned.
 TEST_EXTRAS = ("test", "tests", "testing", "dev", "develop", "all")
@@ -54,6 +50,7 @@ class RunOutcome:
     elapsed_s: float = 0.0
     cost: float = 0.0
     image_uuid: str | None = None
+    backend: str = ""
 
     @property
     def summary(self) -> dict[str, int]:
@@ -72,6 +69,7 @@ class Experiment:
     after: RunOutcome | None = None
     clone_uuid: str | None = None
     error: str | None = None
+    backend: str = ""
 
     def verdict(self) -> dict[str, Any]:
         """Deterministic comparison of the two forks. No model involved."""
@@ -175,88 +173,79 @@ def parse_resolved(stdout: str) -> dict[str, str]:
     return out
 
 
+def clone_command(source: SourceRef) -> str:
+    ref = source.sha or source.tag
+    if ref is not None:
+        return (
+            f"git clone --quiet --filter=blob:none {_shell_quote(source.clone_url)} /work/repo "
+            f"&& cd /work/repo && git checkout --quiet {_shell_quote(ref)} && git log -1 --format=%H"
+        )
+    if source.sdist_url:
+        # No git ref matched: unpack the PyPI sdist and make it a git repo so `git diff` still works for fixes.
+        return (
+            f"mkdir -p /work/sdist && cd /work/sdist && curl -sSL -o src.tar.gz {_shell_quote(source.sdist_url)} "
+            f"&& tar xzf src.tar.gz && mv \"$(find . -mindepth 1 -maxdepth 1 -type d | head -n 1)\" /work/repo "
+            f"&& cd /work/repo && git init -q && git add -A && git -c user.name=downstream -c user.email=d@s "
+            f"commit -qm sdist && echo sdist:{source.sdist_url}"
+        )
+    raise ValueError("no tag, sha, or sdist to check out")
+
+
 class Sandbox:
-    def __init__(self, sdk: Contree | None = None) -> None:
-        self.sdk = sdk or Contree()
+    """The experiment, expressed against any Backend (Nebius Sandboxes, Serverless Jobs, Docker)."""
 
-    async def base_image(self):
-        """python:3.12-slim with git and uv, tagged so every experiment shares it."""
-        try:
-            img = self.sdk.images.use(BASE_TAG, strict=True)
-            return await img if asyncio.iscoroutine(img) else img
-        except Exception:
-            pass
-        base = await self.sdk.images.oci(BASE_OCI)
-        built = await base.run(
-            shell=(
-                "apt-get update -qq && apt-get install -y -qq --no-install-recommends git ca-certificates curl "
-                "build-essential >/dev/null && pip install --quiet uv && mkdir -p /work && uv --version"
-            ),
-            disposable=False,
-            tag=BASE_TAG,
-            timeout=INSTALL_TIMEOUT,
-        )
-        return built
+    def __init__(self, backend: Backend) -> None:
+        self.backend = backend
 
-    async def clone(self, base, source: SourceRef):
-        ref = source.sha or source.tag
-        if ref is not None:
-            cmd = (
-                f"git clone --quiet --filter=blob:none {_shell_quote(source.clone_url)} /work/repo "
-                f"&& cd /work/repo && git checkout --quiet {_shell_quote(ref)} && git log -1 --format=%H"
-            )
-        elif source.sdist_url:
-            # No git ref matched: unpack the PyPI sdist and make it a git repo so `git diff` still works for fixes.
-            cmd = (
-                f"mkdir -p /work/sdist && cd /work/sdist && curl -sSL -o src.tar.gz {_shell_quote(source.sdist_url)} "
-                f"&& tar xzf src.tar.gz && mv \"$(find . -mindepth 1 -maxdepth 1 -type d | head -n 1)\" /work/repo "
-                f"&& cd /work/repo && git init -q && git add -A && git -c user.name=downstream -c user.email=d@s "
-                f"commit -qm sdist && echo sdist:{source.sdist_url}"
-            )
-        else:
-            raise ValueError("no tag, sha, or sdist to check out")
-        return await base.run(shell=cmd, disposable=False, timeout=INSTALL_TIMEOUT)
+    @property
+    def name(self) -> str:
+        return self.backend.name
 
-    async def fresh_install_and_test(self, clone_img, label: str, cutoff: datetime) -> RunOutcome:
+    async def base_image(self) -> ImageRef:
+        return await self.backend.prepare_base()
+
+    async def clone(self, base: ImageRef, source: SourceRef) -> ImageRef:
+        res = await self.backend.run(base, clone_command(source), persist=True, timeout=INSTALL_TIMEOUT)
+        if not res.ok or res.image is None:
+            raise RuntimeError(f"clone failed ({res.exit_code}): {(res.stderr or res.error or '')[-600:]}")
+        return res.image
+
+    async def fresh_install_and_test(self, clone_img: ImageRef, label: str, cutoff: datetime) -> RunOutcome:
         cutoff_s = cutoff.strftime("%Y-%m-%dT%H:%M:%SZ")
-        installed = await clone_img.run(
-            shell=install_script(TEST_EXTRAS, cutoff_s), disposable=False, timeout=INSTALL_TIMEOUT,
-            truncate_output_at=OUTPUT_CAP,
-        )
-        ir = installed.result
+        ir = await self.backend.run(clone_img, install_script(TEST_EXTRAS, cutoff_s),
+                                    persist=True, timeout=INSTALL_TIMEOUT)
         outcome = RunOutcome(
             label=label, cutoff=cutoff_s, install_exit=ir.exit_code,
-            install_tail=(ir.stdout or "")[-4000:] + (ir.stderr or "")[-4000:],
-            test_exit=None, test_tail="", elapsed_s=ir.elapsed_time.total_seconds(), cost=ir.cost,
-            image_uuid=str(installed.uuid) if installed.uuid else None,
-            resolved=parse_resolved(ir.stdout or ""),
+            install_tail=(ir.stdout[-4000:] + ir.stderr[-4000:]),
+            test_exit=None, test_tail="", elapsed_s=ir.elapsed_s, cost=ir.cost,
+            image_uuid=ir.image.id if ir.image else None,
+            resolved=parse_resolved(ir.stdout),
+            backend=self.backend.name,
         )
-        if ir.exit_code != 0:
+        if not ir.ok or ir.image is None:
             return outcome
-        tested = await installed.run(
-            shell=TEST_SCRIPT, disposable=True, timeout=TEST_TIMEOUT, truncate_output_at=OUTPUT_CAP,
-        )
-        tr = tested.result
-        out = tr.stdout or ""
+        tr = await self.backend.run(ir.image, TEST_SCRIPT, persist=False, timeout=TEST_TIMEOUT)
+        out = tr.stdout
         xml = ""
         if JUNIT_START in out and JUNIT_END in out:
             xml = out.split(JUNIT_START, 1)[1].split(JUNIT_END, 1)[0]
             out = out.split(JUNIT_START, 1)[0]
         outcome.test_exit = tr.exit_code
-        outcome.test_tail = out[-6000:]
+        outcome.test_tail = (out + ("\n" + tr.stderr if tr.stderr else ""))[-6000:]
         outcome.tests, outcome.collection_errors = parse_junit(xml)
-        outcome.elapsed_s += tr.elapsed_time.total_seconds()
+        outcome.elapsed_s += tr.elapsed_s
         outcome.cost += tr.cost
         return outcome
 
-    async def run_experiment(self, base, dependent: str, version: str, source: SourceRef,
+    async def run_experiment(self, base: ImageRef, dependent: str, version: str, source: SourceRef,
                              release_uploaded: datetime) -> Experiment:
-        exp = Experiment(dependent=dependent, version=version, source=source)
+        exp = Experiment(dependent=dependent, version=version, source=source, backend=self.backend.name)
         try:
             clone_img = await self.clone(base, source)
-            exp.clone_uuid = str(clone_img.uuid) if clone_img.uuid else None
+            exp.clone_uuid = clone_img.id
             before_cut = release_uploaded - timedelta(minutes=1)
             after_cut = release_uploaded + timedelta(minutes=1)
+            # The fork: two independent children of one checkpoint, run at the same time.
             exp.before, exp.after = await asyncio.gather(
                 self.fresh_install_and_test(clone_img, "before", before_cut),
                 self.fresh_install_and_test(clone_img, "after", after_cut),
@@ -277,6 +266,7 @@ def experiment_to_json(exp: Experiment) -> dict[str, Any]:
         "dependent": exp.dependent,
         "version": exp.version,
         "source": exp.source.__dict__,
+        "backend": exp.backend,
         "clone_uuid": exp.clone_uuid,
         "before": outcome(exp.before),
         "after": outcome(exp.after),

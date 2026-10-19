@@ -17,8 +17,7 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-from contree_sdk import Contree
-
+from downstream.backends import make_backend
 from downstream.fixer import Fixer
 from downstream.llm import TokenFactory
 from downstream.pypi import PyPI
@@ -37,7 +36,7 @@ def load_experiment(path: Path) -> Experiment:
         return RunOutcome(**o)
     exp = Experiment(dependent=d["dependent"], version=d["version"], source=SourceRef(**d["source"]),
                      before=outcome(d["before"]), after=outcome(d["after"]), clone_uuid=d.get("clone_uuid"),
-                     error=d.get("error"))
+                     error=d.get("error"), backend=d.get("backend", ""))
     return exp
 
 
@@ -50,6 +49,7 @@ async def main() -> None:
     ap.add_argument("--only", nargs="*", default=[])
     ap.add_argument("--concurrency", type=int, default=6)
     ap.add_argument("--rerun", action="store_true", help="ignore existing experiment files")
+    ap.add_argument("--backend", default=None, help="contree (default) | jobs | docker")
     args = ap.parse_args()
 
     root = Path(f"data/{args.target}-{args.release}")
@@ -78,12 +78,13 @@ async def main() -> None:
         todo = todo[: args.limit]
     print(f"{len(todo)} runnable dependents")
 
-    sdk = Contree()
-    sandbox = Sandbox(sdk)
+    backend = make_backend(args.backend)
+    sandbox = Sandbox(backend)
+    print(f"backend: {backend.name}")
 
     if args.stage in ("run", "all"):
         base = await sandbox.base_image()
-        print(f"base image ready: {base.uuid}")
+        print(f"base image ready: {base}")
         sem = asyncio.Semaphore(args.concurrency)
         t0 = time.time()
 
@@ -108,7 +109,7 @@ async def main() -> None:
         tf = TokenFactory()
         models = await tf.resolve_models()
         print(f"models: {models}")
-        fixer = Fixer(tf, sdk)
+        fixer = Fixer(tf, backend)
         for name, version, src, requirement in todo:
             path = exp_dir / f"{name}.json"
             if not path.exists():
