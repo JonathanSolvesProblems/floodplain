@@ -1,5 +1,5 @@
 ﻿1 runnable dependents
 backend: local-docker
 base image ready: local-docker:downstream-base-
-  llm                                      no-tests                     12.0s
-run stage done in 12s
+  llm                                      broken           tests      353.2s
+run stage done in 353s
