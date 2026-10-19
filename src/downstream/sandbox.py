@@ -31,6 +31,8 @@ TEST_TIMEOUT = 1200
 
 # Extras that conventionally hold test dependencies, tried in order and unioned.
 TEST_EXTRAS = ("test", "tests", "testing", "dev", "develop", "all")
+# PEP 735 dependency groups, the modern home for the same thing (uv's default for `dev`).
+TEST_GROUPS = ("dev", "test", "tests", "testing", "dev-dependencies")
 
 JUNIT_START = "-----DOWNSTREAM-JUNIT-START-----"
 JUNIT_END = "-----DOWNSTREAM-JUNIT-END-----"
@@ -67,12 +69,25 @@ class Experiment:
     source: SourceRef
     before: RunOutcome | None = None
     after: RunOutcome | None = None
+    control: RunOutcome | None = None   # a second "before" fork: the flake control
     clone_uuid: str | None = None
     error: str | None = None
     backend: str = ""
 
+    def flaky(self) -> set[str]:
+        """Tests that disagreed with themselves across two identical 'before' forks.
+
+        Same checkout, same dependency cutoff, same image: any test whose result differs
+        between these two runs is non-deterministic, and cannot be used as evidence that
+        the release broke anything.
+        """
+        if self.before is None or self.control is None:
+            return set()
+        a, c = self.before.tests, self.control.tests
+        return {t for t in set(a) | set(c) if a.get(t) != c.get(t)}
+
     def verdict(self) -> dict[str, Any]:
-        """Deterministic comparison of the two forks. No model involved."""
+        """Deterministic comparison of the forks. No model involved."""
         if self.error or self.before is None or self.after is None:
             return {"status": "not-run", "reason": self.error or "incomplete"}
         a, b = self.before, self.after
@@ -83,8 +98,10 @@ class Experiment:
                     "evidence": b.install_tail[-2000:]}
         if a.install_exit != 0 and b.install_exit == 0:
             return {"status": "fixed-by-release", "reason": "install failed before, succeeds after"}
+        flaky = self.flaky()
         newly_failing = sorted(
-            t for t, s in b.tests.items() if s in ("failed", "error") and a.tests.get(t) == "passed"
+            t for t, s in b.tests.items()
+            if s in ("failed", "error") and a.tests.get(t) == "passed" and t not in flaky
         )
         new_collection_errors = sorted(set(b.collection_errors) - set(a.collection_errors))
         pre_existing = sorted(
@@ -97,6 +114,8 @@ class Experiment:
                 "newly_failing": newly_failing,
                 "new_collection_errors": new_collection_errors,
                 "pre_existing_failures": len(pre_existing),
+                "excluded_as_flaky": sorted(flaky),
+                "flake_control": self.control is not None,
             }
         if not a.tests and not b.tests:
             return {"status": "no-tests", "reason": "no tests collected in either fork",
@@ -112,22 +131,37 @@ def _shell_quote(s: str) -> str:
     return "'" + s.replace("'", "'\"'\"'") + "'"
 
 
-def install_script(extras: tuple[str, ...], cutoff: str) -> str:
-    """Fresh venv + editable install of /work/repo with the world frozen at `cutoff`."""
-    extras_csv = ",".join(extras)
+def install_script(extras: tuple[str, ...], cutoff: str, groups: tuple[str, ...] = TEST_GROUPS) -> str:
+    """Fresh venv + editable install of /work/repo with the world frozen at `cutoff`.
+
+    A project's test dependencies live in one of two places and modern projects increasingly
+    use the second: `[project.optional-dependencies]` (extras, installed as `.[test]`) or
+    PEP 735 `[dependency-groups]` (installed as `--group test`). simonw/llm keeps pytest,
+    pytest-httpx and its llm-echo test plugin in a `dev` group, so an extras-only installer
+    collects zero tests from it. Both are tried, one name at a time so an unknown name is not
+    fatal, and the script reports exactly which ones took. The sequence is identical in every
+    fork, so any difference between forks comes from the dependency world, not from the recipe.
+    """
+    extras_list = " ".join(extras)
+    groups_list = " ".join(groups)
     return f"""
 set -o pipefail
 cd /work/repo
 uv venv /work/venv --python 3.12 --quiet
 export VIRTUAL_ENV=/work/venv PATH=/work/venv/bin:$PATH UV_EXCLUDE_NEWER={cutoff}
-# Try the test extras first; fall back to a bare install so a missing extra name is not fatal.
-if ! uv pip install --quiet -e ".[{extras_csv}]" 2>/tmp/install-extras.err; then
-  echo "[downstream] extras install failed, retrying without extras"; tail -n 5 /tmp/install-extras.err
-  uv pip install --quiet -e . || exit 41
-fi
+export UV_PRERELEASE=allow
+uv pip install --quiet -e . 2>/tmp/base.err || {{ echo "[downstream] base install failed"; tail -n 20 /tmp/base.err; exit 41; }}
+took=""
+for x in {extras_list}; do
+  if uv pip install --quiet -e ".[$x]" 2>/dev/null; then took="$took extra:$x"; fi
+done
+for g in {groups_list}; do
+  if uv pip install --quiet --group "$g" 2>/dev/null; then took="$took group:$g"; fi
+done
+echo "[downstream] test deps installed from:$took"
 uv pip install --quiet pytest pytest-timeout || exit 42
 echo "[downstream] resolved:"
-uv pip freeze | grep -iE '^(openai|httpx|httpx2|anyio|pydantic|typing-extensions)==' || true
+uv pip freeze | grep -iE '^(openai|httpx|httpx2|certifi|anyio|pydantic|pytest|pytest-httpx|llm-echo|typing-extensions)==' || true
 """
 
 
@@ -238,18 +272,33 @@ class Sandbox:
         return outcome
 
     async def run_experiment(self, base: ImageRef, dependent: str, version: str, source: SourceRef,
-                             release_uploaded: datetime) -> Experiment:
+                             release_uploaded: datetime, flake_control: bool = True) -> Experiment:
+        """Fork one checkout three ways and run all three at once.
+
+            before   the world one minute before the release
+            control  the world one minute before the release, again: identical inputs, so any
+                     test that disagrees with `before` is non-deterministic and cannot be
+                     evidence of anything
+            after    the world one minute after the release
+
+        Without the control arm, a flaky test that happens to fail in `after` looks exactly
+        like a break the release caused.
+        """
         exp = Experiment(dependent=dependent, version=version, source=source, backend=self.backend.name)
         try:
             clone_img = await self.clone(base, source)
             exp.clone_uuid = clone_img.id
             before_cut = release_uploaded - timedelta(minutes=1)
             after_cut = release_uploaded + timedelta(minutes=1)
-            # The fork: two independent children of one checkpoint, run at the same time.
-            exp.before, exp.after = await asyncio.gather(
+            arms = [
                 self.fresh_install_and_test(clone_img, "before", before_cut),
                 self.fresh_install_and_test(clone_img, "after", after_cut),
-            )
+            ]
+            if flake_control:
+                arms.append(self.fresh_install_and_test(clone_img, "control", before_cut))
+            results = await asyncio.gather(*arms)
+            exp.before, exp.after = results[0], results[1]
+            exp.control = results[2] if flake_control else None
         except Exception as e:  # noqa: BLE001 - recorded, never hidden
             exp.error = f"{type(e).__name__}: {e}"[:2000]
         return exp
@@ -270,6 +319,8 @@ def experiment_to_json(exp: Experiment) -> dict[str, Any]:
         "clone_uuid": exp.clone_uuid,
         "before": outcome(exp.before),
         "after": outcome(exp.after),
+        "control": outcome(exp.control),
+        "flaky_excluded": sorted(exp.flaky()),
         "verdict": exp.verdict(),
         "error": exp.error,
     }

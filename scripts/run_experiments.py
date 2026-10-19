@@ -35,7 +35,8 @@ def load_experiment(path: Path) -> Experiment:
         o = dict(o); o.pop("summary", None)
         return RunOutcome(**o)
     exp = Experiment(dependent=d["dependent"], version=d["version"], source=SourceRef(**d["source"]),
-                     before=outcome(d["before"]), after=outcome(d["after"]), clone_uuid=d.get("clone_uuid"),
+                     before=outcome(d["before"]), after=outcome(d["after"]),
+                     control=outcome(d.get("control")), clone_uuid=d.get("clone_uuid"),
                      error=d.get("error"), backend=d.get("backend", ""))
     return exp
 

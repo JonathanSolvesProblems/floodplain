@@ -63,7 +63,8 @@ def main() -> None:
         return None if not xs else (xs[len(xs) // 2] if len(xs) % 2 else (xs[len(xs) // 2 - 1] + xs[len(xs) // 2]) / 2)
 
     wall = [e.get("wall_s", 0) for e in exps]
-    cost = sum((e.get("before") or {}).get("cost", 0) + (e.get("after") or {}).get("cost", 0) for e in exps)
+    cost = sum(sum((e.get(arm) or {}).get("cost", 0) for arm in ("before", "after", "control"))
+               for e in exps)
     fix_cost = sum(a["cost"] for e in broken if e.get("fix") for a in e["fix"]["attempts"])
 
     stats = {
@@ -80,6 +81,9 @@ def main() -> None:
             "broken_tests": sum(1 for e in broken if e["verdict"].get("kind") == "tests"),
             "median_wall_s": median(wall),
             "total_sandbox_cost": round(cost, 4),
+            "backends": sorted({e.get("backend", "") for e in exps if e.get("backend")}),
+            "with_flake_control": sum(1 for e in exps if e.get("control")),
+            "tests_excluded_as_flaky": sum(len(e.get("flaky_excluded", [])) for e in exps),
         },
         "triage": {
             "triaged": len(triaged),
