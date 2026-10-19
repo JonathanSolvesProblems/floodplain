@@ -20,6 +20,9 @@ from typing import Any, Literal
 from openai import AsyncOpenAI
 
 BASE_URL = "https://api.tokenfactory.nebius.com/v1/"
+# Measured on 2026-10-19: a trivial prompt spends ~50 completion tokens on reasoning before the
+# first content token, so a small max_tokens returns an empty `content` with finish_reason="length".
+REASONING_HEADROOM = 2048
 Tier = Literal["nano", "super", "ultra"]
 TIER_SUBSTRINGS: dict[Tier, tuple[str, ...]] = {
     "nano": ("nemotron-3-nano", "nemotron-nano"),
@@ -28,11 +31,22 @@ TIER_SUBSTRINGS: dict[Tier, tuple[str, ...]] = {
 }
 
 
+def reasoning_of(message: Any) -> str:
+    """Nemotron returns its chain of thought in `reasoning` (Nano) or `reasoning_content` (Super)."""
+    for attr in ("reasoning_content", "reasoning"):
+        value = getattr(message, attr, None)
+        if value:
+            return str(value)
+    return ""
+
+
 @dataclass
 class Usage:
     calls: int = 0
     prompt_tokens: int = 0
     completion_tokens: int = 0
+    reasoning_tokens: int = 0
+    empty_replies: int = 0
     by_model: dict[str, int] = field(default_factory=dict)
 
     def add(self, model: str, resp: Any) -> None:
@@ -41,6 +55,9 @@ class Usage:
         if u:
             self.prompt_tokens += u.prompt_tokens or 0
             self.completion_tokens += u.completion_tokens or 0
+            details = getattr(u, "completion_tokens_details", None)
+            if details is not None and getattr(details, "reasoning_tokens", None):
+                self.reasoning_tokens += details.reasoning_tokens
         self.by_model[model] = self.by_model.get(model, 0) + 1
 
 
@@ -71,17 +88,32 @@ class TokenFactory:
 
     async def chat(self, tier: Tier, system: str, user: str, *, json_mode: bool = False,
                    max_tokens: int = 4096, temperature: float = 0.0) -> str:
+        """Nemotron 3 models are reasoning models: they spend completion tokens on a reasoning
+        trace delivered in a separate field, and `content` is empty if max_tokens runs out before
+        the trace ends. So the budget covers reasoning plus answer, and a truncated reply is
+        retried once with a larger budget rather than silently returned blank."""
         model = self.models[tier]
         kwargs: dict[str, Any] = {}
         if json_mode:
             kwargs["response_format"] = {"type": "json_object"}
-        resp = await self.client.chat.completions.create(
-            model=model,
-            messages=[{"role": "system", "content": system}, {"role": "user", "content": user}],
-            max_tokens=max_tokens, temperature=temperature, **kwargs,
-        )
-        self.usage.add(model, resp)
-        return resp.choices[0].message.content or ""
+        budget = max_tokens + REASONING_HEADROOM
+        for attempt in range(2):
+            resp = await self.client.chat.completions.create(
+                model=model,
+                messages=[{"role": "system", "content": system}, {"role": "user", "content": user}],
+                max_tokens=budget, temperature=temperature, **kwargs,
+            )
+            self.usage.add(model, resp)
+            choice = resp.choices[0]
+            content = (choice.message.content or "").strip()
+            if content:
+                return content
+            self.usage.empty_replies += 1
+            if choice.finish_reason != "length" or attempt == 1:
+                # Not a budget problem, or already retried: surface whatever the model did say.
+                return reasoning_of(choice.message).strip()
+            budget *= 3
+        return ""
 
     async def chat_json(self, tier: Tier, system: str, user: str, **kw: Any) -> dict[str, Any]:
         text = await self.chat(tier, system, user, json_mode=True, **kw)

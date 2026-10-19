@@ -9,3 +9,4 @@ data/**/logs/
 dist/
 build/
 .DS_Store
+tmp/
