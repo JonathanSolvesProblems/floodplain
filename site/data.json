@@ -23,14 +23,14 @@
   "lost": 33
  },
  "state_text": {
-  "positive": "Broke. A suite that passed before the release fails after it, and the background sample agrees with the before.",
-  "negative": "Read clean. The suite passed before, passed in the background sample, and still passes after.",
+  "positive": "A suite that passed before the release fails after it, and the background sample agrees with the before.",
+  "negative": "The suite passed before, passed again in the background sample, and still passes after.",
   "no-baseline": "Nothing passed here before the release either, so I cannot say the release changed anything.",
   "no-tests": "No test suite ships with this package at this version, so there was nothing to hang.",
   "lost": "The receptor was hung but came back unreadable: the install failed, the run timed out, or the sandbox returned nothing."
  },
  "readable": 31,
- "generated_at": "2026-10-20T16:03:51",
+ "generated_at": "2026-10-20T16:08:48",
  "receptors": [
   {
    "name": "sentry-sdk",
@@ -170,7 +170,7 @@
    "flaky_excluded": [],
    "wall_s": 75.2,
    "public_report": null,
-   "reach": 0.0398
+   "reach": 0.0069
   },
   {
    "name": "pydantic-ai-slim",
@@ -250,7 +250,7 @@
     "hours_after_release": 53.8,
     "hours_to_close": 343.3
    },
-   "reach": 0.0533
+   "reach": 0.0138
   },
   {
    "name": "langsmith",
@@ -333,7 +333,7 @@
     "hours_after_release": 489.5,
     "hours_to_close": 0.3
    },
-   "reach": 0.0599
+   "reach": 0.0207
   },
   {
    "name": "fastmcp-slim",
@@ -401,7 +401,7 @@
     "hours_after_release": 412.7,
     "hours_to_close": null
    },
-   "reach": 0.1225
+   "reach": 0.0276
   },
   {
    "name": "swebench",
@@ -467,7 +467,7 @@
    "flaky_excluded": [],
    "wall_s": 117.1,
    "public_report": null,
-   "reach": 0.2269
+   "reach": 0.0345
   },
   {
    "name": "mini-swe-agent",
@@ -539,7 +539,7 @@
    "flaky_excluded": [],
    "wall_s": 159.9,
    "public_report": null,
-   "reach": 0.366
+   "reach": 0.0414
   },
   {
    "name": "swesmith",
@@ -611,7 +611,7 @@
    "flaky_excluded": [],
    "wall_s": 57.5,
    "public_report": null,
-   "reach": 0.3834
+   "reach": 0.0483
   },
   {
    "name": "lancedb",
@@ -667,7 +667,7 @@
     "hours_after_release": 588.7,
     "hours_to_close": 81.2
    },
-   "reach": 0.388
+   "reach": 0.0552
   },
   {
    "name": "azure-ai-projects",
@@ -739,7 +739,7 @@
    "flaky_excluded": [],
    "wall_s": 51.5,
    "public_report": null,
-   "reach": 0.3982
+   "reach": 0.0621
   },
   {
    "name": "pyvespa",
@@ -802,7 +802,7 @@
    "flaky_excluded": [],
    "wall_s": 69.7,
    "public_report": null,
-   "reach": 0.4107
+   "reach": 0.069
   },
   {
    "name": "langchain-aws",
@@ -874,7 +874,7 @@
    "flaky_excluded": [],
    "wall_s": 56.7,
    "public_report": null,
-   "reach": 0.4128
+   "reach": 0.0759
   },
   {
    "name": "openinference-instrumentation",
@@ -953,7 +953,7 @@
     "hours_after_release": 136.5,
     "hours_to_close": 10.3
    },
-   "reach": 0.4547
+   "reach": 0.0828
   },
   {
    "name": "speechrecognition",
@@ -1024,7 +1024,7 @@
     "hours_after_release": 491.7,
     "hours_to_close": 10.4
    },
-   "reach": 0.4552
+   "reach": 0.0897
   },
   {
    "name": "inspect-ai",
@@ -1107,7 +1107,7 @@
     "hours_after_release": 11.6,
     "hours_to_close": 0.1
    },
-   "reach": 0.4659
+   "reach": 0.0966
   },
   {
    "name": "harbor",
@@ -1155,7 +1155,7 @@
    "flaky_excluded": [],
    "wall_s": 14.2,
    "public_report": null,
-   "reach": 0.4809
+   "reach": 0.1034
   },
   {
    "name": "llama-index-embeddings-openai",
@@ -1228,7 +1228,7 @@
    "flaky_excluded": [],
    "wall_s": 58.9,
    "public_report": null,
-   "reach": 0.486
+   "reach": 0.1103
   },
   {
    "name": "exa-py",
@@ -1301,7 +1301,7 @@
    "flaky_excluded": [],
    "wall_s": 51.5,
    "public_report": null,
-   "reach": 0.4864
+   "reach": 0.1172
   },
   {
    "name": "livekit-agents",
@@ -1381,7 +1381,7 @@
     "hours_after_release": 15.5,
     "hours_to_close": 308.8
    },
-   "reach": 0.4968
+   "reach": 0.1241
   },
   {
    "name": "dspy",
@@ -1453,7 +1453,7 @@
    "flaky_excluded": [],
    "wall_s": 1054.8,
    "public_report": null,
-   "reach": 0.498
+   "reach": 0.131
   },
   {
    "name": "deepeval",
@@ -1525,7 +1525,7 @@
    "flaky_excluded": [],
    "wall_s": 88.8,
    "public_report": null,
-   "reach": 0.531
+   "reach": 0.1379
   },
   {
    "name": "pyod",
@@ -1600,7 +1600,7 @@
    "flaky_excluded": [],
    "wall_s": 160.4,
    "public_report": null,
-   "reach": 0.5359
+   "reach": 0.1448
   },
   {
    "name": "autoevals",
@@ -1673,7 +1673,7 @@
    "flaky_excluded": [],
    "wall_s": 90.8,
    "public_report": null,
-   "reach": 0.5439
+   "reach": 0.1517
   },
   {
    "name": "mem0ai",
@@ -1746,7 +1746,7 @@
    "flaky_excluded": [],
    "wall_s": 51.8,
    "public_report": null,
-   "reach": 0.5616
+   "reach": 0.1586
   },
   {
    "name": "opentelemetry-instrumentation-openai",
@@ -1826,7 +1826,7 @@
     "hours_after_release": 852.6,
     "hours_to_close": null
    },
-   "reach": 0.5635
+   "reach": 0.1655
   },
   {
    "name": "borb",
@@ -1883,7 +1883,7 @@
    "flaky_excluded": [],
    "wall_s": 87.8,
    "public_report": null,
-   "reach": 0.5717
+   "reach": 0.1724
   },
   {
    "name": "llama-index-agent-openai",
@@ -1955,7 +1955,7 @@
    "flaky_excluded": [],
    "wall_s": 60.8,
    "public_report": null,
-   "reach": 0.5891
+   "reach": 0.1793
   },
   {
    "name": "opik",
@@ -2035,7 +2035,7 @@
     "hours_after_release": 545.2,
     "hours_to_close": null
    },
-   "reach": 0.5895
+   "reach": 0.1862
   },
   {
    "name": "livekit-plugins-openai",
@@ -2115,7 +2115,7 @@
     "hours_after_release": 15.5,
     "hours_to_close": 308.8
    },
-   "reach": 0.596
+   "reach": 0.1931
   },
   {
    "name": "mteb",
@@ -2184,7 +2184,7 @@
    "flaky_excluded": [],
    "wall_s": 239.6,
    "public_report": null,
-   "reach": 0.5982
+   "reach": 0.2
   },
   {
    "name": "redisvl",
@@ -2257,7 +2257,7 @@
    "flaky_excluded": [],
    "wall_s": 190.7,
    "public_report": null,
-   "reach": 0.6107
+   "reach": 0.2069
   },
   {
    "name": "semantic-kernel",
@@ -2330,7 +2330,7 @@
    "flaky_excluded": [],
    "wall_s": 106.0,
    "public_report": null,
-   "reach": 0.6177
+   "reach": 0.2138
   },
   {
    "name": "outlines",
@@ -2403,7 +2403,7 @@
    "flaky_excluded": [],
    "wall_s": 427.7,
    "public_report": null,
-   "reach": 0.6208
+   "reach": 0.2207
   },
   {
    "name": "agno",
@@ -2484,7 +2484,7 @@
     "hours_after_release": 251.5,
     "hours_to_close": 24.1
    },
-   "reach": 0.6224
+   "reach": 0.2276
   },
   {
    "name": "databricks-langchain",
@@ -2532,7 +2532,7 @@
    "flaky_excluded": [],
    "wall_s": 76.8,
    "public_report": null,
-   "reach": 0.6247
+   "reach": 0.2345
   },
   {
    "name": "openinference-instrumentation-openai",
@@ -2597,7 +2597,7 @@
     "hours_after_release": 136.5,
     "hours_to_close": 10.3
    },
-   "reach": 0.6275
+   "reach": 0.2414
   },
   {
    "name": "arize-phoenix",
@@ -2653,7 +2653,7 @@
     "hours_after_release": 130.4,
     "hours_to_close": 108.2
    },
-   "reach": 0.6279
+   "reach": 0.2483
   },
   {
    "name": "llama-index-legacy",
@@ -2734,7 +2734,7 @@
     "hours_after_release": 337.2,
     "hours_to_close": 0.1
    },
-   "reach": 0.63
+   "reach": 0.2552
   },
   {
    "name": "graphifyy",
@@ -2809,7 +2809,7 @@
    "flaky_excluded": [],
    "wall_s": 564.6,
    "public_report": null,
-   "reach": 0.6378
+   "reach": 0.2621
   },
   {
    "name": "composio",
@@ -2890,7 +2890,7 @@
     "hours_after_release": 221.1,
     "hours_to_close": 150.2
    },
-   "reach": 0.6436
+   "reach": 0.269
   },
   {
    "name": "ragas",
@@ -2965,7 +2965,7 @@
    "flaky_excluded": [],
    "wall_s": 254.7,
    "public_report": null,
-   "reach": 0.6666
+   "reach": 0.2759
   },
   {
    "name": "kedro-datasets",
@@ -3037,7 +3037,7 @@
    "flaky_excluded": [],
    "wall_s": 391.5,
    "public_report": null,
-   "reach": 0.6678
+   "reach": 0.2828
   },
   {
    "name": "inspect-evals",
@@ -3118,7 +3118,7 @@
     "hours_after_release": 0.3,
     "hours_to_close": 0.7
    },
-   "reach": 0.6703
+   "reach": 0.2897
   },
   {
    "name": "torch-geometric",
@@ -3178,7 +3178,7 @@
    "flaky_excluded": [],
    "wall_s": 142.2,
    "public_report": null,
-   "reach": 0.6738
+   "reach": 0.2966
   },
   {
    "name": "evidently",
@@ -3247,7 +3247,7 @@
    "flaky_excluded": [],
    "wall_s": 141.3,
    "public_report": null,
-   "reach": 0.6819
+   "reach": 0.3034
   },
   {
    "name": "chonkie",
@@ -3319,7 +3319,7 @@
    "flaky_excluded": [],
    "wall_s": 400.0,
    "public_report": null,
-   "reach": 0.6909
+   "reach": 0.3103
   },
   {
    "name": "databricks-openai",
@@ -3367,7 +3367,7 @@
    "flaky_excluded": [],
    "wall_s": 40.7,
    "public_report": null,
-   "reach": 0.691
+   "reach": 0.3172
   },
   {
    "name": "graphiti-core",
@@ -3448,7 +3448,7 @@
     "hours_after_release": 867.9,
     "hours_to_close": null
    },
-   "reach": 0.696
+   "reach": 0.3241
   },
   {
    "name": "codewords-client",
@@ -3517,7 +3517,7 @@
    "flaky_excluded": [],
    "wall_s": 63.3,
    "public_report": null,
-   "reach": 0.6967
+   "reach": 0.331
   },
   {
    "name": "traia-iatp",
@@ -3589,7 +3589,7 @@
    "flaky_excluded": [],
    "wall_s": 204.8,
    "public_report": null,
-   "reach": 0.7064
+   "reach": 0.3379
   },
   {
    "name": "openenv-core",
@@ -3664,7 +3664,7 @@
    "flaky_excluded": [],
    "wall_s": 139.2,
    "public_report": null,
-   "reach": 0.7074
+   "reach": 0.3448
   },
   {
    "name": "weave",
@@ -3737,7 +3737,7 @@
    "flaky_excluded": [],
    "wall_s": 157.1,
    "public_report": null,
-   "reach": 0.711
+   "reach": 0.3517
   },
   {
    "name": "unclecode-litellm",
@@ -3810,7 +3810,7 @@
    "flaky_excluded": [],
    "wall_s": 139.0,
    "public_report": null,
-   "reach": 0.7269
+   "reach": 0.3586
   },
   {
    "name": "haystack-ai",
@@ -3891,7 +3891,7 @@
     "hours_after_release": 29.6,
     "hours_to_close": 0.3
    },
-   "reach": 0.7326
+   "reach": 0.3655
   },
   {
    "name": "inspect-swe",
@@ -3972,7 +3972,7 @@
     "hours_after_release": 469.7,
     "hours_to_close": 199.7
    },
-   "reach": 0.7411
+   "reach": 0.3724
   },
   {
    "name": "arize-phoenix-evals",
@@ -4028,7 +4028,7 @@
     "hours_after_release": 130.4,
     "hours_to_close": 108.2
    },
-   "reach": 0.7425
+   "reach": 0.3793
   },
   {
    "name": "agentscope",
@@ -4101,7 +4101,7 @@
    "flaky_excluded": [],
    "wall_s": 217.8,
    "public_report": null,
-   "reach": 0.7461
+   "reach": 0.3862
   },
   {
    "name": "openinference-instrumentation-agno",
@@ -4190,24 +4190,58 @@
     "hours_to_close": 10.3
    },
    "cells": {
-    "seq": "fff|bbbbbbbbbb|bbbffbbbbbbb|bbbbbbbbbbbbbbb|ffbbbbfbbb|bb|bbbbbbfffffffffffffbbbbbffbb|bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
     "broke": 92,
     "passed_before": 92,
     "already_failing": 23,
     "collection_break": true,
-    "modules": 8
+    "files": 8,
+    "files_hit": 7,
+    "hit": [
+     {
+      "file": "tests/test_workflow_stream_context_finalization.py",
+      "codes": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+     },
+     {
+      "file": "tests/test_stream_tool_calls.py",
+      "codes": "bbbbbbbbbbbbbbb"
+     },
+     {
+      "file": "tests/test_workflow_instrumentation.py",
+      "codes": "bbbbbbfffffffffffffbbbbbffbb"
+     },
+     {
+      "file": "tests/test_instrumentor.py",
+      "codes": "bbbbbbbbbb"
+     },
+     {
+      "file": "tests/test_module_level_wrapping.py",
+      "codes": "bbbffbbbbbbb"
+     },
+     {
+      "file": "tests/test_team_context_isolation.py",
+      "codes": "ffbbbbfbbb"
+     },
+     {
+      "file": "tests/test_tool_error_handling.py",
+      "codes": "bb"
+     }
+    ],
+    "quiet": {
+     "files": 1,
+     "codes": "fff"
+    }
    },
    "triage": {
     "category": "removed-or-renamed-api",
-    "symbol": "httpx.HTTPTransport",
-    "cause": "The httpx library no longer provides HTTPTransport or AsyncClient symbols after the 3.0.0 release.",
+    "symbol": "HTTPTransport",
+    "cause": "The upstream release removed the HTTPTransport attribute from the httpx package, breaking imports that relied on it.",
     "quotes": [
-     "AttributeError: module 'httpx' has no attribute 'HTTPTransport'",
-     "ImportError: cannot import name 'AsyncClient' from 'httpx'"
+     "AttributeError: module 'httpx' has no attribute 'HTTPTransport'. Did you mean: 'Transport'?",
+     "ImportError: cannot import name 'AsyncClient' from 'httpx' (/work/venv/lib/python3.12/site-packages/httpx/__init__.py)"
     ],
     "dropped_quotes": 0,
     "fix_plan": "migrate-import",
-    "fix_notes": "Update imports to use the new httpx location for AsyncClient and replace HTTPTransport usage with the new Transport API, and add httpx as a direct dependency.",
+    "fix_notes": "Update the downstream package's imports and any code that references httpx.HTTPTransport to use the new HTTPX2 API, such as accessing Transport from httpx or the appropriate HTTPX2 module.",
     "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
     "confidence": 0.96
    },
@@ -4326,7 +4360,7 @@
     "merged": true,
     "hours_after_release": 146.8
    },
-   "reach": 0.7518
+   "reach": 0.3931
   },
   {
    "name": "reme-ai",
@@ -4401,7 +4435,7 @@
    "flaky_excluded": [],
    "wall_s": 174.3,
    "public_report": null,
-   "reach": 0.7563
+   "reach": 0.4
   },
   {
    "name": "renderers",
@@ -4474,7 +4508,7 @@
    "flaky_excluded": [],
    "wall_s": 426.6,
    "public_report": null,
-   "reach": 0.7615
+   "reach": 0.4069
   },
   {
    "name": "unstructured-ingest",
@@ -4543,7 +4577,7 @@
    "flaky_excluded": [],
    "wall_s": 85.2,
    "public_report": null,
-   "reach": 0.7625
+   "reach": 0.4138
   },
   {
    "name": "smolagents",
@@ -4618,7 +4652,7 @@
    "flaky_excluded": [],
    "wall_s": 184.5,
    "public_report": null,
-   "reach": 0.765
+   "reach": 0.4207
   },
   {
    "name": "openai-chatkit",
@@ -4693,7 +4727,7 @@
    "flaky_excluded": [],
    "wall_s": 127.0,
    "public_report": null,
-   "reach": 0.7713
+   "reach": 0.4276
   },
   {
    "name": "llm",
@@ -4892,12 +4926,50 @@
     "hours_to_close": 226.2
    },
    "cells": {
-    "seq": "ppppppppppppppp|pppp|ppppppppppppppppp|ppppppp|pppppppppp|ppp|bbppppppppppppppbbbbbbppppppbbpppppppbpbbpppppb|pppppp|pppppppp|ppppppppppppppp|ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp|pp|pbpp|ppppppb|ppbbbbbppbbbbbbbbbbbbbbbbbbpppppppppbbbbbbppppppppppppbbbbbpbpppppppppppppppp|ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp|pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp|pppppp|bbbpbbbbbbbbbbbbbbbbb|bbpppppppppppppbbbbbbbbb|bbbbbpbppppbbbppppppppppbpbbbpbppbppppppppppbbpbppppppppppp|ppppppppp|ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp|pppppppppppppp|ppppppppppp|ppppppppppppppppppppppppppppppppppppppppppppppppppp|ppppbbpbbbbbbbppppppppbpppppppppppppppppppppp|ppppppppppppppppppppppppppppppppppppppppppppppp|pppp|ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp",
     "broke": 110,
     "passed_before": 1069,
     "already_failing": 0,
     "collection_break": false,
-    "modules": 30
+    "files": 30,
+    "files_hit": 8,
+    "hit": [
+     {
+      "file": "tests/test_llm.py",
+      "codes": "ppbbbbbppbbbbbbbbbbbbbbbbbbpppppppppbbbbbbppppppppppppbbbbbpbpppppppppppppppp"
+     },
+     {
+      "file": "tests/test_openai_endpoint.py",
+      "codes": "bbbpbbbbbbbbbbbbbbbbb"
+     },
+     {
+      "file": "tests/test_openai_responses.py",
+      "codes": "bbbbbpbppppbbbppppppppppbpbbbpbppbppppppppppbbpbppppppppppp"
+     },
+     {
+      "file": "tests/test_cli_openai_models.py",
+      "codes": "bbppppppppppppppbbbbbbppppppbbpppppppbpbbpppppb"
+     },
+     {
+      "file": "tests/test_openai_messages.py",
+      "codes": "bbpppppppppppppbbbbbbbbb"
+     },
+     {
+      "file": "tests/test_templates.py",
+      "codes": "ppppbbpbbbbbbbppppppppbpppppppppppppppppppppp"
+     },
+     {
+      "file": "tests/test_fragments_cli.py",
+      "codes": "pbpp"
+     },
+     {
+      "file": "tests/test_keys.py",
+      "codes": "ppppppb"
+     }
+    ],
+    "quiet": {
+     "files": 22,
+     "codes": "ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp"
+    }
    },
    "triage": {
     "category": "changed-signature-or-behavior",
@@ -4987,7 +5059,7 @@
     },
     "hours_after_release": 231.3
    },
-   "reach": 0.772
+   "reach": 0.4345
   },
   {
    "name": "npmai-agents",
@@ -5044,7 +5116,7 @@
    "flaky_excluded": [],
    "wall_s": 63.6,
    "public_report": null,
-   "reach": 0.7741
+   "reach": 0.4414
   },
   {
    "name": "captum",
@@ -5116,7 +5188,7 @@
    "flaky_excluded": [],
    "wall_s": 363.5,
    "public_report": null,
-   "reach": 0.7815
+   "reach": 0.4483
   },
   {
    "name": "prompty",
@@ -5178,7 +5250,7 @@
     "hours_after_release": 141.3,
     "hours_to_close": 0.9
    },
-   "reach": 0.7824
+   "reach": 0.4552
   },
   {
    "name": "autogen-ext",
@@ -5238,7 +5310,7 @@
    "flaky_excluded": [],
    "wall_s": 87.6,
    "public_report": null,
-   "reach": 0.7867
+   "reach": 0.4621
   },
   {
    "name": "headroom-ai",
@@ -5310,7 +5382,7 @@
    "flaky_excluded": [],
    "wall_s": 4157.8,
    "public_report": null,
-   "reach": 0.7871
+   "reach": 0.469
   },
   {
    "name": "openviking",
@@ -5358,7 +5430,7 @@
    "flaky_excluded": [],
    "wall_s": 106.6,
    "public_report": null,
-   "reach": 0.7947
+   "reach": 0.4759
   },
   {
    "name": "verifiers",
@@ -5438,7 +5510,7 @@
     "hours_after_release": 448.7,
     "hours_to_close": 22.4
    },
-   "reach": 0.8005
+   "reach": 0.4828
   },
   {
    "name": "qwen-agent",
@@ -5519,7 +5591,7 @@
     "hours_after_release": 183.1,
     "hours_to_close": null
    },
-   "reach": 0.8041
+   "reach": 0.4897
   },
   {
    "name": "tinker-cookbook",
@@ -5594,7 +5666,7 @@
    "flaky_excluded": [],
    "wall_s": 197.0,
    "public_report": null,
-   "reach": 0.809
+   "reach": 0.4966
   },
   {
    "name": "embedchain",
@@ -5666,7 +5738,7 @@
    "flaky_excluded": [],
    "wall_s": 84.5,
    "public_report": null,
-   "reach": 0.8095
+   "reach": 0.5034
   },
   {
    "name": "langextract",
@@ -5739,7 +5811,7 @@
    "flaky_excluded": [],
    "wall_s": 87.9,
    "public_report": null,
-   "reach": 0.8156
+   "reach": 0.5103
   },
   {
    "name": "openai-guardrails",
@@ -5814,7 +5886,7 @@
    "flaky_excluded": [],
    "wall_s": 89.5,
    "public_report": null,
-   "reach": 0.8246
+   "reach": 0.5172
   },
   {
    "name": "inspect-scout",
@@ -5894,7 +5966,7 @@
     "hours_after_release": 39.9,
     "hours_to_close": 20.4
    },
-   "reach": 0.8275
+   "reach": 0.5241
   },
   {
    "name": "megatron-core",
@@ -5967,7 +6039,7 @@
    "flaky_excluded": [],
    "wall_s": 219.0,
    "public_report": null,
-   "reach": 0.8308
+   "reach": 0.531
   },
   {
    "name": "bfcl-eval",
@@ -6040,7 +6112,7 @@
    "flaky_excluded": [],
    "wall_s": 145.6,
    "public_report": null,
-   "reach": 0.8312
+   "reach": 0.5379
   },
   {
    "name": "shiny",
@@ -6120,7 +6192,7 @@
     "hours_after_release": 3.2,
     "hours_to_close": 0.2
    },
-   "reach": 0.8453
+   "reach": 0.5448
   },
   {
    "name": "optuna-dashboard",
@@ -6201,7 +6273,7 @@
     "hours_after_release": 679.6,
     "hours_to_close": 0.2
    },
-   "reach": 0.8483
+   "reach": 0.5517
   },
   {
    "name": "shinychat",
@@ -6267,7 +6339,7 @@
    "flaky_excluded": [],
    "wall_s": 94.7,
    "public_report": null,
-   "reach": 0.8531
+   "reach": 0.5586
   },
   {
    "name": "azure-ai-evaluation",
@@ -6323,7 +6395,7 @@
     "hours_after_release": 298.5,
     "hours_to_close": 19.3
    },
-   "reach": 0.8546
+   "reach": 0.5655
   },
   {
    "name": "genagent",
@@ -6396,7 +6468,7 @@
    "flaky_excluded": [],
    "wall_s": 47.6,
    "public_report": null,
-   "reach": 0.8568
+   "reach": 0.5724
   },
   {
    "name": "django-sql-explorer",
@@ -6453,7 +6525,7 @@
    "flaky_excluded": [],
    "wall_s": 75.0,
    "public_report": null,
-   "reach": 0.859
+   "reach": 0.5793
   },
   {
    "name": "bernstein",
@@ -6534,7 +6606,7 @@
     "hours_after_release": 127.1,
     "hours_to_close": 1.0
    },
-   "reach": 0.8618
+   "reach": 0.5862
   },
   {
    "name": "foundry-local-sdk",
@@ -6606,7 +6678,7 @@
    "flaky_excluded": [],
    "wall_s": 107.8,
    "public_report": null,
-   "reach": 0.8628
+   "reach": 0.5931
   },
   {
    "name": "stirrup",
@@ -6681,7 +6753,7 @@
    "flaky_excluded": [],
    "wall_s": 102.7,
    "public_report": null,
-   "reach": 0.8726
+   "reach": 0.6
   },
   {
    "name": "cognee",
@@ -6753,7 +6825,7 @@
    "flaky_excluded": [],
    "wall_s": 204.0,
    "public_report": null,
-   "reach": 0.8726
+   "reach": 0.6069
   },
   {
    "name": "fhlmi",
@@ -6825,7 +6897,7 @@
    "flaky_excluded": [],
    "wall_s": 128.8,
    "public_report": null,
-   "reach": 0.8748
+   "reach": 0.6138
   },
   {
    "name": "lumibot",
@@ -6897,7 +6969,7 @@
    "flaky_excluded": [],
    "wall_s": 3447.2,
    "public_report": null,
-   "reach": 0.876
+   "reach": 0.6207
   },
   {
    "name": "letta",
@@ -6972,7 +7044,7 @@
    "flaky_excluded": [],
    "wall_s": 128.7,
    "public_report": null,
-   "reach": 0.8763
+   "reach": 0.6276
   },
   {
    "name": "zernio-sdk",
@@ -7047,7 +7119,7 @@
    "flaky_excluded": [],
    "wall_s": 93.0,
    "public_report": null,
-   "reach": 0.8797
+   "reach": 0.6345
   },
   {
    "name": "geneva",
@@ -7119,7 +7191,7 @@
    "flaky_excluded": [],
    "wall_s": 138.1,
    "public_report": null,
-   "reach": 0.8804
+   "reach": 0.6414
   },
   {
    "name": "vanna",
@@ -7192,7 +7264,7 @@
    "flaky_excluded": [],
    "wall_s": 132.5,
    "public_report": null,
-   "reach": 0.8821
+   "reach": 0.6483
   },
   {
    "name": "lance-context",
@@ -7240,7 +7312,7 @@
    "flaky_excluded": [],
    "wall_s": 169.7,
    "public_report": null,
-   "reach": 0.886
+   "reach": 0.6552
   },
   {
    "name": "xpander-sdk",
@@ -7312,7 +7384,7 @@
    "flaky_excluded": [],
    "wall_s": 82.8,
    "public_report": null,
-   "reach": 0.8893
+   "reach": 0.6621
   },
   {
    "name": "chroma-mcp",
@@ -7385,7 +7457,7 @@
    "flaky_excluded": [],
    "wall_s": 103.4,
    "public_report": null,
-   "reach": 0.8901
+   "reach": 0.669
   },
   {
    "name": "evalplus",
@@ -7458,7 +7530,7 @@
    "flaky_excluded": [],
    "wall_s": 126.5,
    "public_report": null,
-   "reach": 0.8909
+   "reach": 0.6759
   },
   {
    "name": "jcodemunch-mcp",
@@ -7531,7 +7603,7 @@
    "flaky_excluded": [],
    "wall_s": 528.1,
    "public_report": null,
-   "reach": 0.8912
+   "reach": 0.6828
   },
   {
    "name": "echo-agent",
@@ -7604,7 +7676,7 @@
    "flaky_excluded": [],
    "wall_s": 269.9,
    "public_report": null,
-   "reach": 0.8921
+   "reach": 0.6897
   },
   {
    "name": "highcharts-core",
@@ -7677,7 +7749,7 @@
    "flaky_excluded": [],
    "wall_s": 269.7,
    "public_report": null,
-   "reach": 0.8944
+   "reach": 0.6966
   },
   {
    "name": "any-llm-sdk",
@@ -7758,7 +7830,7 @@
     "hours_after_release": 228.7,
     "hours_to_close": 306.8
    },
-   "reach": 0.8973
+   "reach": 0.7034
   },
   {
    "name": "apache-airflow-providers-openai",
@@ -7814,7 +7886,7 @@
     "hours_after_release": 909.0,
     "hours_to_close": 48.6
    },
-   "reach": 0.8974
+   "reach": 0.7103
   },
   {
    "name": "conductor-python",
@@ -7877,7 +7949,7 @@
    "flaky_excluded": [],
    "wall_s": 81.6,
    "public_report": null,
-   "reach": 0.9044
+   "reach": 0.7172
   },
   {
    "name": "tooluniverse",
@@ -7925,7 +7997,7 @@
    "flaky_excluded": [],
    "wall_s": 46.4,
    "public_report": null,
-   "reach": 0.9113
+   "reach": 0.7241
   },
   {
    "name": "late-sdk",
@@ -8000,7 +8072,7 @@
    "flaky_excluded": [],
    "wall_s": 88.7,
    "public_report": null,
-   "reach": 0.9163
+   "reach": 0.731
   },
   {
    "name": "ell-ai",
@@ -8073,7 +8145,7 @@
    "flaky_excluded": [],
    "wall_s": 45.9,
    "public_report": null,
-   "reach": 0.9164
+   "reach": 0.7379
   },
   {
    "name": "mavproxy",
@@ -8127,7 +8199,7 @@
    "flaky_excluded": [],
    "wall_s": 30.0,
    "public_report": null,
-   "reach": 0.9177
+   "reach": 0.7448
   },
   {
    "name": "mcp-server-appwrite",
@@ -8202,7 +8274,7 @@
    "flaky_excluded": [],
    "wall_s": 56.0,
    "public_report": null,
-   "reach": 0.9204
+   "reach": 0.7517
   },
   {
    "name": "textarena",
@@ -8275,7 +8347,7 @@
    "flaky_excluded": [],
    "wall_s": 92.1,
    "public_report": null,
-   "reach": 0.9229
+   "reach": 0.7586
   },
   {
    "name": "langwatch-scenario",
@@ -8350,7 +8422,7 @@
    "flaky_excluded": [],
    "wall_s": 104.8,
    "public_report": null,
-   "reach": 0.9273
+   "reach": 0.7655
   },
   {
    "name": "markitdown-ocr",
@@ -8398,7 +8470,7 @@
    "flaky_excluded": [],
    "wall_s": 9.8,
    "public_report": null,
-   "reach": 0.9292
+   "reach": 0.7724
   },
   {
    "name": "nextcloud-mcp-server",
@@ -8471,7 +8543,7 @@
    "flaky_excluded": [],
    "wall_s": 363.1,
    "public_report": null,
-   "reach": 0.9322
+   "reach": 0.7793
   },
   {
    "name": "solara",
@@ -8534,7 +8606,7 @@
    "flaky_excluded": [],
    "wall_s": 53.5,
    "public_report": null,
-   "reach": 0.9338
+   "reach": 0.7862
   },
   {
    "name": "semble",
@@ -8600,7 +8672,7 @@
    "flaky_excluded": [],
    "wall_s": 47.4,
    "public_report": null,
-   "reach": 0.9352
+   "reach": 0.7931
   },
   {
    "name": "oci-openai",
@@ -8678,7 +8750,7 @@
    "flaky_excluded": [],
    "wall_s": 104.2,
    "public_report": null,
-   "reach": 0.9362
+   "reach": 0.8
   },
   {
    "name": "langchain-oci",
@@ -8758,7 +8830,7 @@
     "hours_after_release": 714.1,
     "hours_to_close": 194.2
    },
-   "reach": 0.9365
+   "reach": 0.8069
   },
   {
    "name": "pgvecto-rs",
@@ -8812,7 +8884,7 @@
    "flaky_excluded": [],
    "wall_s": 20.0,
    "public_report": null,
-   "reach": 0.9404
+   "reach": 0.8138
   },
   {
    "name": "chatlas",
@@ -8893,7 +8965,7 @@
     "hours_after_release": 1.3,
     "hours_to_close": 42.9
    },
-   "reach": 0.9509
+   "reach": 0.8207
   },
   {
    "name": "ms-swift",
@@ -8966,7 +9038,7 @@
    "flaky_excluded": [],
    "wall_s": 260.7,
    "public_report": null,
-   "reach": 0.9515
+   "reach": 0.8276
   },
   {
    "name": "hindsight-api-slim",
@@ -9041,7 +9113,7 @@
    "flaky_excluded": [],
    "wall_s": 124.6,
    "public_report": null,
-   "reach": 0.952
+   "reach": 0.8345
   },
   {
    "name": "code-puppy",
@@ -9124,7 +9196,7 @@
     "hours_after_release": 168.6,
     "hours_to_close": null
    },
-   "reach": 0.9528
+   "reach": 0.8414
   },
   {
    "name": "pyrit",
@@ -9197,7 +9269,7 @@
    "flaky_excluded": [],
    "wall_s": 160.2,
    "public_report": null,
-   "reach": 0.9534
+   "reach": 0.8483
   },
   {
    "name": "matrx-ai",
@@ -9245,7 +9317,7 @@
    "flaky_excluded": [],
    "wall_s": 32.6,
    "public_report": null,
-   "reach": 0.9562
+   "reach": 0.8552
   },
   {
    "name": "groundx",
@@ -9311,7 +9383,7 @@
    "flaky_excluded": [],
    "wall_s": 31.8,
    "public_report": null,
-   "reach": 0.9566
+   "reach": 0.8621
   },
   {
    "name": "agentlightning",
@@ -9386,7 +9458,7 @@
    "flaky_excluded": [],
    "wall_s": 145.7,
    "public_report": null,
-   "reach": 0.9609
+   "reach": 0.869
   },
   {
    "name": "vlmrun",
@@ -9463,12 +9535,22 @@
    "wall_s": 49.9,
    "public_report": null,
    "cells": {
-    "seq": "ffffpppppppppppppppppppppppppppppppfffffffffppp|ffffffff|ppppppppp|fff|pppppppppppppp|ff|ffffff|ppppppppppppppppppppppppbbbpppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp|fff|pppppppppppppppppppppppppppppppppppppppppp|f|ffffffpppppppffffffffffffffffffff|pppppppppppppppppppppp",
     "broke": 3,
     "passed_before": 231,
     "already_failing": 62,
     "collection_break": false,
-    "modules": 13
+    "files": 13,
+    "files_hit": 1,
+    "hit": [
+     {
+      "file": "tests/test_gateway.py",
+      "codes": "ppppppppppppppppppppppppbbbpppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp"
+     }
+    ],
+    "quiet": {
+     "files": 12,
+     "codes": "ffffpppppppppppppppppppppppppppppppfffffffffpppffffffffpppppppppfffppppppppppppppfffffffffffppppppppppppppppppppppppppppppppppppppppppfffffffpppppppffffffffffffffffffffpppppppppppppppppppppp"
+    }
    },
    "triage": {
     "category": null,
@@ -9514,7 +9596,7 @@
     ],
     "hours_after_release": 457.9
    },
-   "reach": 0.9699
+   "reach": 0.8759
   },
   {
    "name": "deepteam",
@@ -9586,7 +9668,7 @@
    "flaky_excluded": [],
    "wall_s": 120.0,
    "public_report": null,
-   "reach": 0.9706
+   "reach": 0.8828
   },
   {
    "name": "yutori",
@@ -9659,7 +9741,7 @@
    "flaky_excluded": [],
    "wall_s": 114.5,
    "public_report": null,
-   "reach": 0.9718
+   "reach": 0.8897
   },
   {
    "name": "openai-messages-token-helper",
@@ -9731,7 +9813,7 @@
    "flaky_excluded": [],
    "wall_s": 83.6,
    "public_report": null,
-   "reach": 0.9748
+   "reach": 0.8966
   },
   {
    "name": "dominodatalab",
@@ -9804,7 +9886,7 @@
    "flaky_excluded": [],
    "wall_s": 107.1,
    "public_report": null,
-   "reach": 0.9758
+   "reach": 0.9034
   },
   {
    "name": "camel-ai",
@@ -9887,7 +9969,7 @@
     "hours_after_release": 531.4,
     "hours_to_close": 0.1
    },
-   "reach": 0.9772
+   "reach": 0.9103
   },
   {
    "name": "terminal-bench",
@@ -9962,7 +10044,7 @@
    "flaky_excluded": [],
    "wall_s": 77.8,
    "public_report": null,
-   "reach": 0.9773
+   "reach": 0.9172
   },
   {
    "name": "vlmrun-hub",
@@ -10034,7 +10116,7 @@
    "flaky_excluded": [],
    "wall_s": 73.1,
    "public_report": null,
-   "reach": 0.9789
+   "reach": 0.9241
   },
   {
    "name": "composio-openai",
@@ -10115,7 +10197,7 @@
     "hours_after_release": 221.1,
     "hours_to_close": 150.2
    },
-   "reach": 0.98
+   "reach": 0.931
   },
   {
    "name": "praisonaiagents",
@@ -10190,7 +10272,7 @@
    "flaky_excluded": [],
    "wall_s": 175.7,
    "public_report": null,
-   "reach": 0.9823
+   "reach": 0.9379
   },
   {
    "name": "evalscope",
@@ -10262,7 +10344,7 @@
    "flaky_excluded": [],
    "wall_s": 277.7,
    "public_report": null,
-   "reach": 0.9828
+   "reach": 0.9448
   },
   {
    "name": "krepis",
@@ -10334,7 +10416,7 @@
    "flaky_excluded": [],
    "wall_s": 90.5,
    "public_report": null,
-   "reach": 0.9874
+   "reach": 0.9517
   },
   {
    "name": "r2r",
@@ -10407,7 +10489,7 @@
    "flaky_excluded": [],
    "wall_s": 134.1,
    "public_report": null,
-   "reach": 0.9881
+   "reach": 0.9586
   },
   {
    "name": "clarifai",
@@ -10480,7 +10562,7 @@
    "flaky_excluded": [],
    "wall_s": 130.8,
    "public_report": null,
-   "reach": 0.9891
+   "reach": 0.9655
   },
   {
    "name": "agent-lifecycle-toolkit",
@@ -10552,7 +10634,7 @@
    "flaky_excluded": [],
    "wall_s": 206.7,
    "public_report": null,
-   "reach": 0.9892
+   "reach": 0.9724
   },
   {
    "name": "babeldoc",
@@ -10625,7 +10707,7 @@
    "flaky_excluded": [],
    "wall_s": 197.6,
    "public_report": null,
-   "reach": 0.9895
+   "reach": 0.9793
   },
   {
    "name": "gpt-researcher",
@@ -10700,7 +10782,7 @@
    "flaky_excluded": [],
    "wall_s": 127.9,
    "public_report": null,
-   "reach": 0.99
+   "reach": 0.9862
   },
   {
    "name": "mindroom",
@@ -10773,7 +10855,7 @@
    "flaky_excluded": [],
    "wall_s": 129.0,
    "public_report": null,
-   "reach": 0.9929
+   "reach": 0.9931
   },
   {
    "name": "tinygrad",

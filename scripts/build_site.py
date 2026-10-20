@@ -11,7 +11,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import math
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
@@ -79,7 +78,6 @@ def test_cells(d: dict, verdict: dict) -> dict:
     after = (d.get("after") or {}).get("tests", {})
     broke = set(verdict.get("newly_failing", []))
     collection_break = bool(verdict.get("new_collection_errors")) and not broke
-    codes, last_mod = [], None
     def test_file(tid: str) -> str:
         # junit classname is dotted: tests.test_gateway.TestGatewayResource -> tests.test_gateway
         # (the directory is usually "tests", which also starts with "test", so match test_ files)
@@ -89,23 +87,30 @@ def test_cells(d: dict, verdict: dict) -> dict:
             i = len(parts) - 2 if len(parts) > 1 and parts[-1][:1].isupper() else len(parts) - 1
         return ".".join(parts[: i + 1])
 
+    files: dict[str, list[str]] = {}
     for tid in sorted(before, key=lambda t: (test_file(t), t)):
-        mod = test_file(tid)
-        if last_mod is not None and mod != last_mod:
-            codes.append("|")
-        last_mod = mod
         s = before[tid]
-        if s != "passed":
-            codes.append("f" if s in ("failed", "error") else "")
+        if s in ("failed", "error"):
+            code = "f"
+        elif s != "passed":
             continue
-        if tid in broke or (collection_break and after.get(tid) != "passed"):
-            codes.append("b")
+        elif tid in broke or (collection_break and after.get(tid) != "passed"):
+            code = "b"
         else:
-            codes.append("p")
-    seq = "".join(c for c in codes if c)
-    return {"seq": seq, "broke": seq.count("b"), "passed_before": sum(1 for s in before.values() if s == "passed"),
-            "already_failing": seq.count("f"), "collection_break": collection_break,
-            "modules": seq.count("|") + 1}
+            code = "p"
+        files.setdefault(test_file(tid), []).append(code)
+    rows = [{"file": f.replace(".", "/") + ".py", "codes": "".join(c)} for f, c in files.items()]
+    hit = [r for r in rows if "b" in r["codes"]]
+    quiet = [r for r in rows if "b" not in r["codes"]]
+    allc = "".join(r["codes"] for r in rows)
+    return {
+        "broke": allc.count("b"), "passed_before": sum(1 for s in before.values() if s == "passed"),
+        "already_failing": allc.count("f"), "collection_break": collection_break,
+        "files": len(rows), "files_hit": len(hit),
+        # files with a break, worst first; the rest are folded into one row
+        "hit": sorted(hit, key=lambda r: -r["codes"].count("b")),
+        "quiet": {"files": len(quiet), "codes": "".join(r["codes"] for r in quiet)},
+    }
 
 
 def excerpt(tail: str, quotes: list[str], limit: int = 2400) -> str:
@@ -184,12 +189,12 @@ def main() -> None:
             r["maintainer_fix"] = fixes.get(name)
         receptors.append(r)
 
-    # Position along the reach: upstream (left) is the most downloaded, on a log scale, so the
-    # spacing reflects how much of the ecosystem each receptor stands for.
-    ranks = [r["rank"] for r in receptors if r["rank"]]
-    lo, hi = math.log(min(ranks)), math.log(max(ranks))
-    for r in receptors:
-        r["reach"] = round((math.log(r["rank"]) - lo) / (hi - lo), 4) if r["rank"] else 1.0
+    # Position along the reach: rank order, most downloaded upstream. A log scale crowded every
+    # positive into the last stretch of the river; ordinal spacing says the same thing ("most
+    # downloaded first") and gives each receptor room for its own label.
+    ordered = sorted(receptors, key=lambda r: (r["rank"] or 10**9, r["name"]))
+    for i, r in enumerate(ordered):
+        r["reach"] = round(i / max(len(ordered) - 1, 1), 4)
 
     states = Counter(r["state"] for r in receptors)
     meta = pop["meta"]

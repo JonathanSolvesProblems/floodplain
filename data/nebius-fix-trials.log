@@ -1,3 +1,11 @@
 ﻿3 runnable dependents
 backend: nebius-sandboxes
 models: {'nano': 'nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B', 'super': 'nvidia/nemotron-3-super-120b-a12b', 'ultra': 'nvidia/Nemotron-3-Ultra-550b-a55b'}
+  triage openinference-instrumentation-agno [removed-or-renamed-api] The upstream release removed the HTTPTransport attribute from the httpx package, breaking   quotes=2 dropped=0
+  fix    openinference-instrumentation-agno trial 1: VERIFIED after 4 attempt(s), 219.4s
+  fix    openinference-instrumentation-agno trial 2: VERIFIED after 1 attempt(s), 75.5s
+  fix    openinference-instrumentation-agno trial 3: VERIFIED after 2 attempt(s), 170.8s
+  fix    openinference-instrumentation-agno trial 4: VERIFIED after 1 attempt(s), 80.1s
+  fix    openinference-instrumentation-agno trial 5: VERIFIED after 2 attempt(s), 91.7s
+  fix    openinference-instrumentation-agno verified in 5 of 5 trials
+  triage llm                                [changed-signature-or-behavior] The upstream release switched to HTTPX2 as the default client, altering how HTTP requests   quotes=1 dropped=1

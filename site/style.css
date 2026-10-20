@@ -27,13 +27,15 @@
   --silt: #A9AA9F;
   --straw: #B09B6B;
   --water: #3E433F;
-  --dye: #C4E538;
+  --dye: #94D44A;
   --dye-ink: #1E1F1C;
   --powder: #8A2A12;
   --sheet: #F5F4F0;
   --rule: color-mix(in oklab, var(--water) 22%, var(--paper));
   --blend: multiply;
 
+  /* headlines: the roman of a survey bulletin's title block. body and map: Geologica */
+  --f-serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
   --f-sans: "Geologica", ui-sans-serif, system-ui, sans-serif;
   --f-mono: "Red Hat Mono", ui-monospace, "Cascadia Mono", monospace;
 
@@ -62,7 +64,7 @@
     --silt: #44473F;
     --straw: #8C7B55;
     --water: #2A2E2A;
-    --dye: #CFEE45;
+    --dye: #A6E35A;
     --powder: #C24A1D;
     --sheet: #ECEBE5;
     --rule: color-mix(in oklab, var(--ink) 16%, var(--paper));
@@ -112,20 +114,21 @@ main { display: block; }
 /* ------------------------------------------------------------------ the trace */
 .trace { padding: clamp(0.8rem, 2.4vw, 1.8rem) var(--gutter) 0; }
 .trace__head { max-width: 48rem; }
-.trace__title {
-  font-size: var(--s5); line-height: 1.04; font-weight: 620; letter-spacing: -0.028em;
-  font-variation-settings: "SHRP" 100, "CRSV" 0;
+.trace__title, .scene__title, .rcp-page h1, .block__head h2, .theirs h3 {
+  font-family: var(--f-serif); font-variation-settings: normal; font-optical-sizing: auto;
 }
+.trace__title { font-size: var(--s5); line-height: 1.06; font-weight: 560; letter-spacing: -0.018em; max-width: 21ch; }
 .trace__lede { margin-top: 0.85rem; font-size: var(--s1); line-height: 1.4; color: var(--muted); max-width: 44rem; }
 .trace__after { padding: 1.6rem var(--gutter) 0; max-width: 58rem; font-size: var(--s1); line-height: 1.42; }
 .trace__after a { font-weight: 600; }
 
 .reach { position: relative; margin: 0.6rem calc(var(--gutter) * -1) 0; }
+/* on a wide screen the river rises into the empty half beside the headline */
+@media (min-width: 1000px) { .trace__head { position: relative; z-index: 1; } .reach { margin-top: clamp(-15rem, -18vw, -9rem); } }
 .reach svg { display: block; width: 100%; height: auto; overflow: visible; }
 .reach--v { margin: 1rem auto 0; max-width: 26rem; }
-.reach .stream { fill: none; stroke: var(--water); stroke-width: 30; stroke-linecap: round; opacity: 0.13; }
-.reach .stream-line { fill: none; stroke: var(--water); stroke-width: 1.3; opacity: 0.5; }
-@media (prefers-color-scheme: dark) { .reach .stream { stroke: var(--ink); opacity: 0.08; } .reach .stream-line { stroke: var(--ink); opacity: 0.3; } }
+.reach .river { fill: var(--water); opacity: 0.2; }
+@media (prefers-color-scheme: dark) { .reach .river { fill: var(--ink); opacity: 0.12; } }
 .reach .inject { fill: var(--powder); }
 .reach .inject-label { font: 600 15px var(--f-sans); fill: var(--ink); }
 .reach .inject-sub { font: 400 13px var(--f-sans); fill: var(--muted); }
@@ -135,6 +138,10 @@ main { display: block; }
 .rcp { cursor: default; }
 .rcp .cord { stroke: var(--faint); stroke-width: 1.2; }
 .rcp .bag { fill: var(--paper); stroke: var(--faint); stroke-width: 1.3; }
+.rcp--no-baseline .bag { fill: color-mix(in oklab, var(--straw) 50%, var(--paper)); stroke: var(--straw); }
+.rcp--no-tests .bag { display: none; }
+.rcp--no-tests .cord { stroke: var(--straw); stroke-width: 2.4; stroke-linecap: round; } /* a stake, nothing hung */
+.rcp--lost .bag { fill: none; stroke-dasharray: 2.2 2; }
 .rcp--positive { cursor: pointer; }
 .rcp--positive .cord, .rcp--positive .bag { stroke: var(--water); stroke-width: 1.7; }
 @media (prefers-color-scheme: dark) { .rcp--positive .cord, .rcp--positive .bag { stroke: var(--ink); } }
@@ -142,14 +149,25 @@ main { display: block; }
 .rcp--positive .bag-dye { fill: var(--dye); stroke: var(--water); stroke-width: 1.7; transform-box: fill-box; transform-origin: 50% 100%; }
 .rcp--positive .leader { fill: none; stroke: var(--water); stroke-width: 1; opacity: 0.7; }
 @media (prefers-color-scheme: dark) { .rcp--positive .leader { stroke: var(--ink); opacity: 0.5; } }
-.rcp--positive .label { font: 640 24px var(--f-sans); fill: var(--ink); letter-spacing: -0.01em; }
+/* survey-map halo: a paper-coloured stroke behind each label keeps it legible over packets
+   without hiding any of them */
+.rcp--positive .label, .rcp--positive .label-sub, .reach .inject-label, .reach .inject-sub {
+  paint-order: stroke; stroke: var(--paper); stroke-width: 7px; stroke-linejoin: round;
+}
+.rcp--positive .label { font: 600 21px var(--f-sans); fill: var(--ink); letter-spacing: -0.01em; }
+.rcp--positive .label-n { font: 600 34px var(--f-serif); letter-spacing: -0.02em; }
 .rcp--positive .label-sub { font: 400 16px var(--f-sans); fill: var(--muted); }
+.reach .dye-run { fill: var(--dye); stroke: var(--water); stroke-width: 1.4; }
+@media (prefers-color-scheme: dark) { .reach .dye-run { stroke: none; } }
 .rcp:focus-visible { outline: none; }
 .rcp:focus-visible .bag, .rcp:focus-visible .cord { stroke: var(--ink); stroke-width: 2.6; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .poured .pool, .poured .bag-dye { animation: pour 700ms var(--ease-pour) both; }
-  .poured .bag-dye { animation-delay: 380ms; }
+  /* the dye arrives: the river's green stretch fills in, then the packet takes it up */
+  .reach .dye-run { opacity: 0; }
+  .poured .dye-run { animation: arrive 900ms var(--ease-pour) 150ms both; }
+  .poured .bag-dye { animation: pour 600ms var(--ease-pour) 700ms both; }
+  @keyframes arrive { from { opacity: 0; } to { opacity: 1; } }
   @keyframes pour { from { transform: scaleY(0); } to { transform: scaleY(1); } }
 }
 
@@ -166,14 +184,30 @@ main { display: block; }
 .scene__title { font-size: var(--s4); line-height: 1.08; font-weight: 620; max-width: 24ch; font-variation-settings: "SHRP" 100, "CRSV" 0; }
 .scene__lede { margin-top: 0.8rem; color: var(--muted); font-size: var(--s1); max-width: var(--measure); line-height: 1.4; }
 
-/* method: one passage of text beside two paintings that overlap, not a three-step row */
-.method { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: calc(var(--gutter) * 1.6); align-items: center; }
+/* method: one passage of text beside a schematic drawn in the river's own glyphs */
+.method { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: calc(var(--gutter) * 1.6); align-items: center; }
 .method__text p { margin-top: 1rem; font-size: var(--s1); line-height: 1.45; color: var(--muted); max-width: 40rem; }
 .method__text p b { color: var(--ink); font-weight: 600; }
-.method__art { position: relative; min-height: 22rem; }
-.method__art img { mix-blend-mode: var(--blend); }
-.method__inject { width: 74%; }
-.method__sample { position: absolute; width: 50%; right: 0; bottom: -1.5rem; }
+.diagram { width: 100%; height: auto; overflow: visible; }
+.diagram .fork { fill: none; stroke: var(--water); stroke-width: 1.6; }
+.diagram .d-box { fill: var(--paper); stroke: var(--water); stroke-width: 1.6; }
+.diagram .d-inject { fill: var(--powder); }
+.diagram .d-label { font: 600 15px var(--f-sans); fill: var(--ink); }
+.diagram .d-sub { font: 400 13px var(--f-sans); fill: var(--muted); }
+@media (prefers-color-scheme: dark) { .diagram .fork, .diagram .d-box { stroke: var(--ink); } }
+
+/* the accounting: every receptor as a packet, grouped by what it read */
+.strip { display: flex; flex-wrap: wrap; gap: 2.2rem calc(var(--gutter) * 1.4); margin-top: 2.2rem; align-items: start; }
+.strip__group { flex: 0 1 auto; max-width: 25rem; }
+.strip__group--positive { max-width: 12rem; }
+.strip__n { font: 560 var(--s4)/1 var(--f-serif); letter-spacing: -0.02em; }
+.strip__label { margin-top: 0.25rem; font-weight: 600; }
+.strip__packets { display: flex; flex-wrap: wrap; gap: 3px 4px; margin-top: 0.8rem; }
+.strip__packets .pk { width: 14px; height: 22px; overflow: visible; }
+.strip__why { margin-top: 0.7rem; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
+.strip__names { margin-top: 0.5rem; font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+.strip__names a { color: var(--ink); font-weight: 600; }
+.strip__names summary { cursor: pointer; color: var(--ink); }
 
 /* accounting: the five states as a field log */
 .ledger { margin-top: 2.2rem; border-top: 1.5px solid var(--water); }
@@ -192,7 +226,7 @@ main { display: block; }
 /* ------------------------------------------------------------------ receptor page */
 .rcp-page { padding: clamp(0.8rem, 2.4vw, 1.6rem) var(--gutter) 0; }
 .back { font-size: var(--s0); color: var(--muted); }
-.rcp-page__head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--gutter); align-items: start; margin-top: 0.6rem; }
+.rcp-page__head { margin-top: 0.6rem; }
 .rcp-page h1 { font-size: var(--s5); line-height: 1; font-weight: 640; letter-spacing: -0.03em; font-variation-settings: "SHRP" 100, "CRSV" 0; }
 .rcp-page h1 .ver { font-weight: 400; font-size: 0.42em; color: var(--muted); letter-spacing: 0; margin-left: 0.45em; }
 .rcp-page__lede { margin-top: 0.8rem; font-size: var(--s1); color: var(--muted); max-width: 48rem; line-height: 1.4; }
@@ -201,8 +235,15 @@ main { display: block; }
 .sample-sheet { margin-top: 1.6rem; }
 .forks { font-size: var(--s0); color: var(--muted); max-width: 64rem; }
 .forks b { color: var(--ink); font-weight: 600; }
-/* the receptor under the lamp: one cell per test that passed before the release */
-.cells { display: flex; flex-wrap: wrap; gap: 2px; margin-top: 1rem; max-width: 76rem; }
+/* the receptor under the lamp: one row per test file that broke, one square per test */
+.cells__lead { margin-top: 1.2rem; font-size: var(--s1); }
+.cells { margin-top: 0.9rem; display: grid; gap: 0.45rem; max-width: 80rem; }
+.file { display: grid; grid-template-columns: minmax(0, 17rem) 4.6rem minmax(0, 1fr); gap: 0 1rem; align-items: center; }
+.file__name { font-family: var(--f-mono); font-size: 0.8rem; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.file--quiet .file__name { color: var(--muted); font-family: var(--f-sans); font-size: 0.9rem; }
+.file__n { font-size: 0.84rem; color: var(--muted); text-align: right; }
+.file__cells { display: flex; flex-wrap: wrap; gap: 2px; }
+.file__rest { margin-top: 0.7rem; color: var(--muted); font-size: var(--s0); }
 .cells i { display: block; width: 9px; height: 9px; border-radius: 1px; }
 .cells .c--p { background: color-mix(in oklab, var(--water) 30%, var(--paper)); }
 .cells .c--b { background: var(--dye); box-shadow: inset 0 0 0 1px var(--water); }
@@ -246,7 +287,7 @@ main { display: block; }
 .attempt--won .attempt__out { color: var(--ink); font-weight: 600; }
 
 .patch { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: var(--gutter); margin-top: 1.4rem; align-items: start; }
-.patch--none { margin-top: 1.2rem; }
+.patch--none { margin-top: 1.4rem; max-width: 46rem; display: grid; gap: 1.6rem; }
 .diff { background: var(--sheet); color: #1E1F1C; border-radius: var(--radius); padding: 1rem 0;
         font-family: var(--f-mono); font-size: 0.84rem; line-height: 1.7; overflow-x: auto; }
 .diff div { padding: 0 1.1rem; white-space: pre; }
@@ -273,12 +314,20 @@ main { display: block; }
 /* ------------------------------------------------------------------ responsive */
 @media (max-width: 860px) {
   .method { grid-template-columns: 1fr; }
-  .method__art { min-height: 0; max-width: 26rem; }
-  .ledger__row { grid-template-columns: 4rem 1fr; }
-  .ledger__names { grid-column: 1 / -1; margin-top: 0.6rem; }
+  .method__art { max-width: 30rem; }
+  /* on a phone the river comes straight after the headline; the lede follows it */
+  .trace { display: flex; flex-direction: column; }
+  .trace__head { display: contents; }
+  .trace__title { order: 1; }
+  .reach { order: 2; }
+  .trace__lede { order: 3; margin-top: 1rem; }
+  .reach__note { order: 4; }
   .patch { grid-template-columns: 1fr; }
   .attempt { grid-template-columns: 1.6rem 1fr; }
   .attempt__out { grid-column: 2; margin-top: 0.3rem; }
   .rcp-page__art { width: 5rem; }
-  .cells__files { margin-left: 0; }
+  .file { grid-template-columns: 1fr auto; }
+  .file__cells { grid-column: 1 / -1; margin-top: 0.3rem; }
+  .rcp--positive .label { font-size: 17px; }
+  .rcp--positive .label-sub { font-size: 13px; }
 }

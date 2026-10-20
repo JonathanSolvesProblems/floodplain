@@ -75,11 +75,11 @@ function renderTrace() {
   $("#view").innerHTML = `
   <section class="trace" aria-labelledby="trace-title">
     <div class="trace__head">
-      <h1 class="trace__title" id="trace-title">${n(S.positive)} of ${n(D.readable)} readable packages broke on ${esc(D.target)}&nbsp;${esc(D.release)}</h1>
-      <p class="trace__lede">${esc(D.target)} ${esc(D.release)} went in upstream at ${fmtTime(D.release_uploaded_at)} on ${fmtDate(D.release_uploaded_at)}. I hung a receptor at <span class="num">${n(D.ran)}</span> of the <span class="num">${n(D.population.exposed)}</span> packages downstream that would take it, each one three forks of the same checkout on Nebius Sandboxes.</p>
+      <h1 class="trace__title" id="trace-title">${n(S.positive)} of the ${n(D.readable)} packages with working tests broke on ${esc(D.target)}&nbsp;${esc(D.release)}</h1>
+      <p class="trace__lede">It went in upstream at ${fmtTime(D.release_uploaded_at)} on ${fmtDate(D.release_uploaded_at)}. I hung a receptor at <span class="num">${n(D.ran)}</span> of the <span class="num">${n(D.population.exposed)}</span> packages downstream that would take it, three forks of one checkout each, on Nebius Sandboxes.</p>
     </div>
     <div class="reach" id="reach"><div class="reach__tip" id="tip" hidden></div></div>
-    <p class="reach__note">Each small packet is a package whose suite passed before the release and still passed after. The faint marks along the banks are the <span class="num">${n(unread)}</span> that could not be read: no tests shipped, nothing passing before the release either, or a run that did not finish.</p>
+    <p class="reach__note">Each small packet is a package whose tests passed before the release and still passed after. Another <span class="num">${n(unread)}</span> could not be read and are not drawn: no tests shipped, nothing passing before the release either, or a run that did not finish. All of them are listed below.</p>
   </section>
   ${fixedSentence || verifiedSentence ? `<p class="trace__after">${fixedSentence}${verifiedSentence}</p>` : ""}
 
@@ -91,34 +91,57 @@ function renderTrace() {
       <p><b>A background sample.</b> Before dye goes in, hydrogeologists take a sample of the plain water, so natural fluorescence is never mistaken for dye. Here each checkout is forked three ways at once: the world a minute before the release, the same again, and a minute after. A test that disagrees with itself across the two identical forks is natural fluorescence, and is thrown out.</p>
       <p><b>Read.</b> A suite that passed before and fails after, against an unchanged background, is a positive. NVIDIA Nemotron reads the log, quoting only lines that are in it, and drafts a patch that the package's own tests have to pass.</p>
     </div>
-    <div class="method__art">
-      <img class="method__inject" src="${art("injection")}" width="644" height="800" loading="lazy" alt="Watercolour of a white funnel wedged between stones, holding a heap of dark rust-red dye powder, with a thin green trickle reaching the stream below.">
-      <img class="method__sample" src="${art("sample")}" width="656" height="554" loading="lazy" alt="Watercolour of a corked glass bottle half full of plain grey stream water.">
-    </div>
+    <div class="method__art">${methodDiagram()}</div>
   </section>
 
   <section class="scene" aria-labelledby="ledger-title">
     <h2 class="scene__title" id="ledger-title">Every receptor I hung</h2>
-    <p class="scene__lede"><span class="num">${n(D.population.total)}</span> packages in the top <span class="num">${n(D.scanned)}</span> on PyPI declared ${esc(D.target)} on the day of the release. <span class="num">${n(D.population.protected)}</span> pinned below ${esc(D.release)} and were never exposed. Of the <span class="num">${n(D.population.exposed)}</span> that were, these are the <span class="num">${n(D.ran)}</span> I could hang a receptor at.</p>
-    <div class="ledger">${["positive", "negative", "no-baseline", "no-tests", "lost"].map(ledgerRow).join("")}</div>
+    <p class="scene__lede"><span class="num">${n(D.population.total)}</span> packages in the top <span class="num">${n(D.scanned)}</span> on PyPI declared ${esc(D.target)} on the day of the release. <span class="num">${n(D.population.protected)}</span> pinned below ${esc(D.release)} and were never exposed. Of the <span class="num">${n(D.population.exposed)}</span> that were, these are the <span class="num">${n(D.ran)}</span> I could hang a receptor at, one packet each.</p>
+    <div class="strip">${["positive", "negative", "no-baseline", "no-tests", "lost"].map(stripGroup).join("")}</div>
   </section>`;
 
-  drawReach(innerWidth < 640);
+  // labels are placed by measured width, so wait for the real typeface before drawing
+  document.fonts.ready.then(() => drawReach(innerWidth < 640));
 }
 
-function ledgerRow(state) {
+// The accounting in the river's own glyph: one packet per receptor, grouped by what it read.
+function stripGroup(state) {
   const items = DATA.receptors.filter((r) => r.state === state);
-  const names = items.map((r) => (state === "positive" ? link(r) : esc(r.name)));
-  const list = names.length > 18
-    ? `${names.slice(0, 18).join(", ")} <details><summary>and ${n(names.length - 18)} more</summary>${names.slice(18).join(", ")}</details>`
-    : names.join(", ");
-  const label = { positive: "Positive", negative: "Read clean", "no-baseline": "No working baseline", "no-tests": "No tests shipped", lost: "Unreadable" }[state];
+  const label = { positive: "broke", negative: "read clean", "no-baseline": "no working baseline", "no-tests": "no tests shipped", lost: "unreadable" }[state];
+  const glyphs = items.map((r) => `<svg class="pk" viewBox="0 0 14 22" role="img" aria-label="${esc(r.name)}">${receptorGlyph(state, 7, 2)}</svg>`).join("");
+  const names = items.map((r) => (state === "positive" ? link(r) : esc(r.name))).join(", ");
   return `
-    <div class="ledger__row ledger__row--${state}">
-      <p class="ledger__n num">${n(items.length)}</p>
-      <p class="ledger__state">${label}<small>${esc(DATA.state_text[state])}</small></p>
-      <div class="ledger__names">${list || "none"}</div>
+    <div class="strip__group strip__group--${state}">
+      <p class="strip__n num">${n(items.length)}</p>
+      <p class="strip__label">${label}</p>
+      <div class="strip__packets">${glyphs}</div>
+      <p class="strip__why">${esc(DATA.state_text[state])}</p>
+      ${state === "positive" ? `<p class="strip__names">${names}</p>` : `<details class="strip__names"><summary>Show the ${n(items.length)}</summary>${names}</details>`}
     </div>`;
+}
+
+// The method as a schematic in the same glyphs as the river: the release poured in, one
+// checkout forked three ways, and the three packets read.
+function methodDiagram() {
+  const D = DATA;
+  const t = (dm) => fmtTime(D.release_uploaded_at, dm);
+  const arm = (y, name, when, state) => `
+    <path class="fork" d="M 196 120 C 250 120, 250 ${y}, 304 ${y}"/>
+    <g transform="translate(0 0)">${receptorGlyph(state, 322, y - 14)}</g>
+    <text class="d-label" x="342" y="${y - 2}">${name}</text>
+    <text class="d-sub" x="342" y="${y + 15}">${when}</text>`;
+  return `
+  <svg class="diagram" viewBox="0 0 520 250" role="img" aria-label="The release poured into one checkout, which forks into three sandboxes: before, background and after. Before and background read clean; after reads positive.">
+    <circle class="d-inject" cx="22" cy="120" r="7"/>
+    <text class="d-label" x="10" y="150">${esc(D.target)} ${esc(D.release)}</text>
+    <text class="d-sub" x="10" y="167">poured in</text>
+    <path class="fork" d="M 30 120 L 150 120"/>
+    <rect class="d-box" x="150" y="104" width="46" height="32" rx="3"/>
+    <text class="d-sub" x="150" y="94">one checkout</text>
+    ${arm(48, "before", `the world at ${t(-1)}`, "negative")}
+    ${arm(120, "background", `the same minute again`, "negative")}
+    ${arm(192, "after", `the world at ${t(1)}`, "positive")}
+  </svg>`;
 }
 
 // ------------------------------------------------------------------ the reach
@@ -127,19 +150,37 @@ function ledgerRow(state) {
 function drawReach(vertical) {
   const host = $("#reach");
   host.classList.toggle("reach--v", vertical);
-  // The horizontal river sits in the lower part of its frame so the labels have clear water above.
-  const W = vertical ? 360 : 1200, H = vertical ? 980 : 400;
+  // Wide: the river runs low under the headline, then rises into the open right half of the
+  // first screen and comes back down to its mouth inside the frame.
+  const W = vertical ? 360 : 1200, H = vertical ? 680 : 430;
   const d = vertical
-    ? `M 120 30 C 260 140, 40 260, 180 380 S 330 560, 170 680 S 40 860, 200 ${H - 8}`
-    : `M 70 270 C 250 170, 380 370, 560 260 S 820 160, 930 270 S 1110 340, ${W - 6} 250`;
+    ? `M 110 26 C 250 110, 40 190, 170 290 S 320 410, 160 500 S 60 600, 180 ${H - 24}`
+    : `M 60 380 C 260 300, 400 420, 590 340 S 760 110, 920 115 S 1110 210, 1150 330`;
   const svg = document.createElementNS(SVG, "svg");
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
   svg.setAttribute("role", "img");
-  svg.setAttribute("aria-label", `A stream with the release poured in at its source. ${DATA.ran} receptors hang along it, most downloaded first. ${DATA.states.positive} came back green.`);
-  svg.innerHTML = `<path class="stream" d="${d}"/><path class="stream-line" d="${d}" id="stream-path"/>`;
+  svg.setAttribute("aria-label", `A river with the release poured in at its source. ${DATA.ran} receptors hang along it, most downloaded first. ${DATA.states.positive} came back green.`);
+  svg.innerHTML = `<path d="${d}" id="stream-path" fill="none" stroke="none"/>`;
   host.prepend(svg);
   const path = $("#stream-path", svg);
   const L = path.getTotalLength();
+
+  // One ribbon whose width grows downstream, the way a river gathers water: a filled outline
+  // offset either side of the centre path. ribbon(a, b) draws any stretch of it, so a positive
+  // can turn its own stretch of river green: the dye showing where the receptor caught it.
+  const widthAt = (len) => 2.5 + 15 * Math.pow(len / L, 0.8);
+  const ribbon = (from, to, steps = 160) => {
+    const left = [], right = [];
+    for (let s = 0; s <= steps; s++) {
+      const len = from + ((to - from) * s) / steps, p = path.getPointAtLength(len);
+      const a = path.getPointAtLength(Math.max(len - 1, 0)), b = path.getPointAtLength(Math.min(len + 1, L));
+      const dx = b.x - a.x, dy = b.y - a.y, m = Math.hypot(dx, dy) || 1, w = widthAt(len);
+      left.push(`${(p.x - (dy / m) * w).toFixed(1)},${(p.y + (dx / m) * w).toFixed(1)}`);
+      right.push(`${(p.x + (dy / m) * w).toFixed(1)},${(p.y - (dx / m) * w).toFixed(1)}`);
+    }
+    return `M ${left.join(" L ")} L ${right.reverse().join(" L ")} Z`;
+  };
+  svg.insertAdjacentHTML("afterbegin", `<path class="river" d="${ribbon(0, L)}"/>`);
 
   const p0 = path.getPointAtLength(0);
   svg.insertAdjacentHTML("beforeend",
@@ -170,16 +211,11 @@ function drawReach(vertical) {
     const [nx, ny] = normalAt(len);
     bank = -bank;
 
-    if (r.state === "no-baseline" || r.state === "no-tests" || r.state === "lost") {
-      // texture: a faint mark on a bank, offset by a little jitter derived from the name
-      const j = [...r.name].reduce((s, c) => s + c.charCodeAt(0), 0);
-      const off = (18 + (j % 22)) * bank;
-      const x = pt.x + nx * off, y = pt.y + ny * off;
-      svg.insertAdjacentHTML("beforeend", `<circle class="silt" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${1.4 + (j % 3) * 0.4}"><title>${esc(r.name)}: ${esc(r.why || DATA.state_text[r.state])}</title></circle>`);
-      continue;
-    }
+    // The unreadable are counted in the note and the ledger, not drawn: on the river they were
+    // only noise. What is drawn is what could actually be read.
+    if (r.state === "no-baseline" || r.state === "no-tests" || r.state === "lost") continue;
 
-    const off = r.state === "positive" ? 0 : 24 * bank;
+    const off = r.state === "positive" ? 0 : 28 * bank;
     const x = pt.x + nx * off, y = pt.y + ny * off - (r.state === "positive" ? 12 : 12);
     const g = document.createElementNS(SVG, "g");
     g.innerHTML = receptorGlyph(r.state, x, y);
@@ -190,8 +226,11 @@ function drawReach(vertical) {
 
     if (r.state === "positive") {
       const broke = r.cells ? r.cells.broke : (r.newly_failing.length || r.new_collection_errors.length);
-      node.insertAdjacentHTML("afterbegin", `<ellipse class="pool" cx="${x}" cy="${y + 22}" rx="${18 + Math.min(broke, 120) / 5}" ry="6.5"/>`);
-      pools.push({ r, x, y: y + 22, broke, node });
+      // the river runs green over a stretch whose length grows with how much broke
+      const half = 16 + Math.min(broke, 120) / 4;
+      svg.querySelector(".river").insertAdjacentHTML("afterend",
+        `<path class="dye-run" d="${ribbon(Math.max(len - half, 0), Math.min(len + half, L), 24)}"/>`);
+      pools.push({ r, x, y: y + 18, broke, node });
       const go = () => (location.hash = `#/${encodeURIComponent(r.name)}`);
       node.addEventListener("click", go);
       node.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
@@ -210,7 +249,14 @@ function drawReach(vertical) {
     svg.appendChild(node);
   }
 
-  labelPools(svg, pools, vertical, W);
+  // The headline overlaps the top of the river on a wide screen; labels must stay clear of it.
+  const obstacles = [];
+  const head = $(".trace__head");
+  if (head && !vertical) {
+    const sb = svg.getBoundingClientRect(), hb = head.getBoundingClientRect(), k = W / sb.width;
+    obstacles.push({ x: (hb.left - sb.left) * k, y: (hb.top - sb.top) * k, w: hb.width * k, h: hb.height * k + 10 });
+  }
+  labelPools(pools, vertical, W, H, obstacles);
 
   const io = new IntersectionObserver((es) => {
     if (es.some((e) => e.isIntersecting)) { svg.classList.add("poured"); io.disconnect(); }
@@ -218,25 +264,47 @@ function drawReach(vertical) {
   io.observe(svg);
 }
 
-// Survey-map labelling: names stacked in clear water above the reach (beside it, on a phone),
-// each joined to its pool by a thin leader, ordered so the leaders do not cross.
-function labelPools(svg, pools, vertical, W) {
-  const ordered = [...pools].sort((a, b) => (vertical ? a.y - b.y : a.y - b.y || a.x - b.x));
-  ordered.forEach((p, i) => {
+// Each name set directly beside its own pool. Candidate spots are tried in order around the
+// pool; the first whose measured box clears every label already placed, every pool and the
+// frame is taken. Real data puts positives close together, so fixed alternation cannot work.
+function labelPools(pools, vertical, W, H, obstacles = []) {
+  const placed = [...obstacles];
+  const poolBoxes = pools.map((p) => ({ x: p.x - 34, y: p.y - 30, w: 68, h: 40 }));
+  const hits = (a, b) => a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h;
+  [...pools].sort((a, b) => a.x - b.x).forEach((p) => {
     const fixed = p.r.maintainer_fix ? `, fixed upstream after ${daysAfter(p.r.maintainer_fix.hours_after_release)} days` : "";
     const sub = `${n(p.broke)} tests broke${fixed}`;
-    let lx, ly, anchor, ex, ey;
-    if (vertical) {
-      lx = 220; ly = Math.max(p.y - 6, 40 + i * 64); anchor = "start"; ex = lx - 8; ey = ly - 7;
-    } else {
-      // a column of labels in the clear water left of the crest, right-aligned
-      const colRight = Math.min(W * 0.6, Math.min(...pools.map((q) => q.x)) - 90);
-      lx = colRight; ly = 34 + i * 62; anchor = "end"; ex = lx + 10; ey = ly - 7;
+    const g = document.createElementNS(SVG, "g");
+    g.innerHTML = `<text class="label" text-anchor="start"><tspan class="label-n">${n(p.broke)}</tspan> ${esc(p.r.name)}</text><text class="label-sub" text-anchor="start">${sub.replace(/^[\d,]+ /, "")}</text>`;
+    p.node.appendChild(g);
+    const [t1, t2] = g.children;
+    const gap = vertical ? 20 : 26;
+    const w = Math.max(t1.getComputedTextLength(), t2.getComputedTextLength());
+    const h = gap + 8;
+    const dx = 26, up = vertical ? 30 : 46, down = vertical ? 30 : 34;
+    const spots = [
+      [p.x + dx, p.y - up], [p.x - dx - w, p.y - up], [p.x + dx, p.y + down], [p.x - dx - w, p.y + down],
+      [p.x + dx, p.y - up - 52], [p.x - dx - w, p.y - up - 52], [p.x + dx, p.y + down + 52], [p.x - dx - w, p.y + down + 52],
+      // a long name on a narrow river: set it flush with the frame edge, under or over the pool
+      [8, p.y + down], [8, p.y - up], [W - 8 - w, p.y + down], [W - 8 - w, p.y - up],
+    ];
+    let pick = null;
+    for (const [sx, sy] of spots) {
+      const box = { x: sx - 4, y: sy - 20, w: w + 8, h: h + 4 };
+      const inFrame = box.x >= 2 && box.x + box.w <= W - 2 && box.y >= 0 && box.y + box.h <= H;
+      if (inFrame && !placed.some((q) => hits(box, q)) && !poolBoxes.some((q) => hits(box, q))) { pick = [sx, sy]; break; }
     }
-    p.node.insertAdjacentHTML("afterbegin", `<path class="leader" d="M ${ex} ${ey} L ${p.x} ${p.y - 8}"/>`);
-    p.node.insertAdjacentHTML("beforeend",
-      `<text class="label" x="${lx}" y="${ly}" text-anchor="${anchor}">${esc(p.r.name)}</text>
-       <text class="label-sub" x="${lx}" y="${ly + 21}" text-anchor="${anchor}">${sub}</text>`);
+    // A name too long for a narrow river fits nowhere at full size: set it flush left under the
+    // pool and scale it down to the frame rather than letting it run off the edge.
+    let scale = 1;
+    if (!pick) {
+      pick = [8, p.y + down];
+      scale = Math.min(1, (W - 16) / w);
+      g.setAttribute("transform", `translate(${pick[0]} ${pick[1]}) scale(${scale.toFixed(3)}) translate(${-pick[0]} ${-pick[1]})`);
+    }
+    t1.setAttribute("x", pick[0]); t1.setAttribute("y", pick[1]);
+    t2.setAttribute("x", pick[0]); t2.setAttribute("y", pick[1] + gap);
+    placed.push({ x: pick[0] - 4, y: pick[1] - 20, w: w * scale + 8, h: h * scale + 4 });
   });
 }
 
@@ -270,41 +338,43 @@ function renderReceptor(r) {
   <article class="rcp-page" aria-labelledby="rcp-title">
     <p class="back"><a href="#/">Back to all ${n(D.ran)} receptors</a></p>
     <div class="rcp-page__head">
-      <div>
-        <h1 id="rcp-title">${esc(r.name)}<span class="ver">${esc(r.version)}</span></h1>
-        <p class="rcp-page__lede">${lede}${bg} Rank ${n(r.rank)} on PyPI, ${esc(fmtDownloads(r.downloads))}.</p>
-      </div>
-      <img class="rcp-page__art" src="${art("positive")}" width="660" height="854" alt="Watercolour of a charcoal receptor packet soaked fluorescent yellow-green, dripping into a green pool.">
+      <h1 id="rcp-title">${esc(r.name)}<span class="ver">${esc(r.version)}</span></h1>
+      <p class="rcp-page__lede">${lede}${bg} Rank ${n(r.rank)} on PyPI, ${esc(fmtDownloads(r.downloads))}.</p>
     </div>
 
     <section class="sample-sheet" aria-label="The three forks">
       <p class="forks"><b>Before</b>, ${fmtTime(D.release_uploaded_at, -1)}: <span class="num">${n(b.passed)}</span> passed. <b>Background</b>, the same minute again: <span class="num">${n(c.passed)}</span> passed${sameAsBefore ? ", the same tests" : ""}. <b>After</b>, ${fmtTime(D.release_uploaded_at, 1)}: <span class="num">${n(a.passed)}</span> passed.</p>
-      <div class="cells" id="cells" role="img" aria-label="${n(cells.passed_before)} tests that passed before the release, grouped by test file. ${n(cells.broke)} of them broke after it."></div>
-      <p class="cells__key"><span class="k k--b"></span>broke after the release <span class="k k--p"></span>still passes ${cells.already_failing ? `<span class="k k--f"></span>was already failing before` : ""}<span class="cells__files">${n(cells.modules)} test files</span></p>
+      <p class="cells__lead">The breaks sit in <span class="num">${n(cells.files_hit)}</span> of its <span class="num">${n(cells.files)}</span> test files. One square per test.</p>
+      <div class="cells" role="img" aria-label="${n(cells.broke)} broken tests across ${n(cells.files_hit)} of ${n(cells.files)} test files.">
+        ${cells.hit.map((h) => fileRow(h.file, h.codes)).join("")}
+      </div>
+      ${cells.quiet.files ? `<p class="file__rest">The other ${numberWord(cells.quiet.files)} test ${cells.quiet.files === 1 ? "file" : "files"}: all <span class="num">${n(cells.quiet.codes.replace(/f/g, "").length)}</span> tests still pass.</p>` : ""}
+      <p class="cells__key"><span class="k k--b"></span>broke after the release <span class="k k--p"></span>still passes ${cells.already_failing ? `<span class="k k--f"></span>was already failing before` : ""}</p>
       <p class="pins">${pins(b.resolved, a.resolved)}</p>
+
     </section>
 
     ${triageBlock(r)}
     ${patchBlock(r)}
   </article>`;
 
-  drawCells(cells.seq);
 }
 
+function fileRow(label, codes, quiet = false) {
+  const b = (codes.match(/b/g) || []).length;
+  const squares = [...codes].map((c) => `<i class="c c--${c}"></i>`).join("");
+  return `<div class="file ${quiet ? "file--quiet" : ""}"><span class="file__name">${esc(label)}</span><span class="file__n num">${b ? `${n(b)} of ${n(codes.replace(/f/g, "").length)}` : n(codes.replace(/f/g, "").length)}</span><span class="file__cells">${squares}</span></div>`;
+}
+
+// What the resolver changed between the before and after forks, said as a sentence.
 function pins(before, after) {
-  const keys = ["openai", "httpx", "httpx2"].filter((k) => before[k] || after[k]);
-  return keys.map((k) => `<span>${k} ${esc(before[k] || "absent")} <span aria-hidden="true">&rarr;</span><span class="vh"> becomes </span> ${esc(after[k] || "absent")}</span>`).join("");
-}
-
-function drawCells(seq) {
-  const host = $("#cells");
-  const frag = document.createDocumentFragment();
-  for (const ch of seq) {
-    const i = document.createElement("i");
-    i.className = ch === "|" ? "gap" : `c c--${ch}`;
-    frag.appendChild(i);
-  }
-  host.appendChild(frag);
+  const changed = ["openai", "httpx", "httpx2"].filter((k) => (before[k] || "") !== (after[k] || ""));
+  if (!changed.length) return "";
+  const phrase = (k) => !before[k] ? `added <code>${k} ${esc(after[k])}</code>`
+    : !after[k] ? `dropped <code>${k}</code>` : `moved <code>${k}</code> from ${esc(before[k])} to ${esc(after[k])}`;
+  const parts = changed.map(phrase);
+  const list = parts.length > 1 ? `${parts.slice(0, -1).join(", ")} and ${parts.at(-1)}` : parts[0];
+  return `Between the two, a fresh install ${list}. The package's own code was the same in both.`;
 }
 
 function triageBlock(r) {
@@ -316,12 +386,15 @@ function triageBlock(r) {
     if (e && log.includes(e)) log = log.split(e).join(`<mark>${e}</mark>`);
   }
   const kept = (t.quotes || []).length, dropped = t.dropped_quotes || 0;
+  const cited = kept === 1 ? "the one line the model cited, found word for word" : `the ${numberWord(kept)} lines the model cited, each found word for word`;
+  const thrown = dropped === 1 ? " It tried to cite one more line that is not in the log, and that was thrown out."
+    : dropped ? ` It tried to cite ${numberWord(dropped)} more lines that are not in the log, and those were thrown out.` : " It cited nothing that is not here.";
   return `
   <section class="block" aria-labelledby="why-title">
     <div class="block__head"><h2 id="why-title">Why it broke</h2><p class="block__by">read by ${esc(t.model)}</p></div>
     <p class="cause">${esc(t.cause)}</p>
     <pre class="log" tabindex="0" aria-label="The failing test output, with the evidence Nemotron cited highlighted">${log}</pre>
-    <p class="quotes-note">Highlighted: the ${numberWord(kept)} lines the model cited, each found word for word in this log.${dropped ? ` It tried to cite ${numberWord(dropped)} more that are not in the log, and those were thrown out.` : " It cited nothing that is not here."}</p>
+    <p class="quotes-note">Highlighted: ${cited} in this log.${thrown}</p>
   </section>`;
 }
 
@@ -378,7 +451,7 @@ function patchBlock(r) {
       <div class="block__head"><h2 id="patch-title">The patch</h2></div>
       ${trialLine}
       <div class="attempts">${attempts}</div>
-      <div class="patch patch--none">
+      <div class="patch--none">
         <p class="noverify">No patch passed this package's own tests, so Floodplain hands over the diagnosis rather than a patch it cannot prove.</p>
         ${theirs}
       </div>

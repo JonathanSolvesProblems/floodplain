@@ -3438,26 +3438,26 @@
   "triage": {
     "dependent": "llm",
     "category": "changed-signature-or-behavior",
-    "symbol": "tests.test_openai_responses.py::test_async_web_search_streaming_refreshes_from_final_payload",
-    "cause": "The upstream release switched the default HTTP client to HTTPX2, altering request signatures and causing mocked endpoints to no longer match the issued requests.",
+    "symbol": "openai.AsyncOpenAI",
+    "cause": "The upstream release switched to HTTPX2 as the default client, altering how HTTP requests are made and breaking test expectations for mocked POST requests.",
     "quotes": [
-      "Match POST request on https://api.openai.com/v1/chat/completions"
+      "The following responses are mocked but not requested: - Match POST request on https://api.openai.com/v1/chat/completions"
     ],
     "dropped_quotes": 1,
-    "fix_plan": "adapt-call-site",
-    "fix_notes": "Update any direct httpx usage to use httpx2's Client or AsyncClient and adjust transports/configurations so that the request URLs and headers match the mocked expectations.",
+    "fix_plan": "migrate-import",
+    "fix_notes": "Update code and tests to use the new httpx2 API or the legacy escape hatch, and adjust mocks to match the new request signatures.",
     "confidence": 0.96,
     "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
     "raw": {
       "category": "changed-signature-or-behavior",
-      "symbol": "tests.test_openai_responses.py::test_async_web_search_streaming_refreshes_from_final_payload",
-      "cause": "The upstream release switched the default HTTP client to HTTPX2, altering request signatures and causing mocked endpoints to no longer match the issued requests.",
+      "symbol": "openai.AsyncOpenAI",
+      "cause": "The upstream release switched to HTTPX2 as the default client, altering how HTTP requests are made and breaking test expectations for mocked POST requests.",
       "quotes": [
-        "api: migrate to HTTPX2 ([#3594](https://github.com/openai/openai-python/pull/3594))",
-        "Match POST request on https://api.openai.com/v1/chat/completions"
+        "HTTPX2 is now the default HTTP client, and `httpx` is no longer installed automatically.",
+        "The following responses are mocked but not requested: - Match POST request on https://api.openai.com/v1/chat/completions"
       ],
-      "fix_plan": "adapt-call-site",
-      "fix_notes": "Update any direct httpx usage to use httpx2's Client or AsyncClient and adjust transports/configurations so that the request URLs and headers match the mocked expectations.",
+      "fix_plan": "migrate-import",
+      "fix_notes": "Update code and tests to use the new httpx2 API or the legacy escape hatch, and adjust mocks to match the new request signatures.",
       "confidence": 0.96
     }
   },
