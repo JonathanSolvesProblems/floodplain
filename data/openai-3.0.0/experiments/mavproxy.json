@@ -1,0 +1,79 @@
+{
+  "dependent": "mavproxy",
+  "version": "1.8.74",
+  "source": {
+    "owner": "ArduPilot",
+    "repo": "MAVProxy",
+    "tag": "v1.8.74",
+    "sha": "932f6945cfc7fbc6579e166667d43e327fe44f2d",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "5042a5d3-a204-4754-8383-7e311580856c",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\npytest==9.1.1\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\n=============================== warnings summary ===============================\nMAVProxy/modules/mavproxy_test.py:13\n  /work/repo/MAVProxy/modules/mavproxy_test.py:13: PytestCollectionWarning: cannot collect test class 'TestModule' because it has a __init__ constructor (from: MAVProxy/modules/mavproxy_test.py)\n    class TestModule(mp_module.MPModule):\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n1 warning in 0.52s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "pytest": "9.1.1"
+    },
+    "elapsed_s": 6.715162,
+    "cost": 0.06836262000000001,
+    "image_uuid": "0be63511-c9c3-439c-9d0c-93d446648fa5",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\npytest==9.1.1\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\n=============================== warnings summary ===============================\nMAVProxy/modules/mavproxy_test.py:13\n  /work/repo/MAVProxy/modules/mavproxy_test.py:13: PytestCollectionWarning: cannot collect test class 'TestModule' because it has a __init__ constructor (from: MAVProxy/modules/mavproxy_test.py)\n    class TestModule(mp_module.MPModule):\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n1 warning in 0.54s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "pytest": "9.1.1"
+    },
+    "elapsed_s": 6.811061,
+    "cost": 0.06933428999999999,
+    "image_uuid": "76ccfa34-b307-4111-8cf0-24754520bee5",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\npytest==9.1.1\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\n=============================== warnings summary ===============================\nMAVProxy/modules/mavproxy_test.py:13\n  /work/repo/MAVProxy/modules/mavproxy_test.py:13: PytestCollectionWarning: cannot collect test class 'TestModule' because it has a __init__ constructor (from: MAVProxy/modules/mavproxy_test.py)\n    class TestModule(mp_module.MPModule):\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n1 warning in 0.53s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "pytest": "9.1.1"
+    },
+    "elapsed_s": 6.705114,
+    "cost": 0.06823724,
+    "image_uuid": "76afc10d-17bb-485b-820d-9dd9f9ab3af2",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "no-tests",
+    "reason": "the package ships no test suite at this release",
+    "pytest_exit": 5
+  },
+  "error": null,
+  "requirement": "openai; extra == \"recommended\"",
+  "wall_s": 30.0
+}

@@ -1,0 +1,89 @@
+{
+  "dependent": "torch-geometric",
+  "version": "2.8.0.post1",
+  "source": {
+    "owner": "pyg-team",
+    "repo": "pytorch_geometric",
+    "tag": "2.8.0.post1",
+    "sha": "d4e1c45689967a614a7f3d873ad4ba83c4a1f3bd",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "0152dee9-e1ce-4213-81c5-62ae539b8f9f",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\ncertifi==2026.7.22\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 4,
+    "test_tail": "ImportError while loading conftest '/work/repo/test/conftest.py'.\ntest/conftest.py:7: in <module>\n    import torch\nE   ModuleNotFoundError: No module named 'torch'\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "certifi": "2026.7.22",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 4.336011,
+    "cost": 0.04430395000000001,
+    "image_uuid": "63851f7a-b6c5-44b6-8787-1b03c69af331",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\ncertifi==2026.7.22\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 4,
+    "test_tail": "ImportError while loading conftest '/work/repo/test/conftest.py'.\ntest/conftest.py:7: in <module>\n    import torch\nE   ModuleNotFoundError: No module named 'torch'\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "certifi": "2026.7.22",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 4.892488999999999,
+    "cost": 0.04986467000000001,
+    "image_uuid": "d51f88a0-9895-45df-a4e5-80603dc54827",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\ncertifi==2026.7.22\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 4,
+    "test_tail": "ImportError while loading conftest '/work/repo/test/conftest.py'.\ntest/conftest.py:7: in <module>\n    import torch\nE   ModuleNotFoundError: No module named 'torch'\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "certifi": "2026.7.22",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 4.580228,
+    "cost": 0.046773659999999995,
+    "image_uuid": "f7c06fa0-c83f-4595-adf8-3eec936aa45b",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "incomplete",
+    "kind": "no-results",
+    "reason": "the before fork installed but returned no test results",
+    "arm": "before",
+    "test_exit": 4,
+    "error": null,
+    "evidence": "ImportError while loading conftest '/work/repo/test/conftest.py'.\ntest/conftest.py:7: in <module>\n    import torch\nE   ModuleNotFoundError: No module named 'torch'\n"
+  },
+  "error": null,
+  "requirement": "openai; extra == \"rag\"",
+  "wall_s": 142.2
+}

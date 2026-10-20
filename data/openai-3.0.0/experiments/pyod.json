@@ -1,0 +1,124 @@
+{
+  "dependent": "pyod",
+  "version": "3.6.4",
+  "source": {
+    "owner": "yzhao062",
+    "repo": "pyod",
+    "tag": "v3.6.4",
+    "sha": "3d0169a32ab8ce68aeaf7f0bb408c281f2fb1b1e",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "acc518eb-7787-46c8-b719-7f41ee3109ec",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n________________ ERROR collecting pyod/test/test_stat_models.py ________________\nImportError while importing test module '/work/repo/pyod/test/test_stat_models.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npyod/test/test_stat_models.py:22: in <module>\n    import statsmodels.distributions\nE   ModuleNotFoundError: No module named 'statsmodels'\n=============================== warnings summary ===============================\npyod/test/test_auto_model_selector.py:15\n  /work/repo/pyod/test/test_auto_model_selector.py:15: FutureWarning: AutoModelSelector is deprecated and will be removed in PyOD v2.3.0. Use pyod.utils.ad_engine.ADEngine instead.\n    from pyod.utils.auto_model_selector import (\n\n../venv/lib/python3.12/site-packages/torch/jit/_script.py:1488\n../venv/lib/python3.12/site-packages/torch/jit/_script.py:1488\n  /work/venv/lib/python3.12/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.\n    warnings.warn(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR pyod/test/test_stat_models.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n3 warnings, 1 error in 27.07s\n",
+    "tests": {
+      "::pyod.test.test_stat_models": "error"
+    },
+    "collection_errors": [
+      "::pyod.test.test_stat_models"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 41.77078899999999,
+    "cost": 0.42415227,
+    "image_uuid": "5f90d7f9-801f-49f8-88ae-bd338934bb2c",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==3.0.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n________________ ERROR collecting pyod/test/test_stat_models.py ________________\nImportError while importing test module '/work/repo/pyod/test/test_stat_models.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npyod/test/test_stat_models.py:22: in <module>\n    import statsmodels.distributions\nE   ModuleNotFoundError: No module named 'statsmodels'\n=============================== warnings summary ===============================\npyod/test/test_auto_model_selector.py:15\n  /work/repo/pyod/test/test_auto_model_selector.py:15: FutureWarning: AutoModelSelector is deprecated and will be removed in PyOD v2.3.0. Use pyod.utils.ad_engine.ADEngine instead.\n    from pyod.utils.auto_model_selector import (\n\n../venv/lib/python3.12/site-packages/torch/jit/_script.py:1488\n../venv/lib/python3.12/site-packages/torch/jit/_script.py:1488\n  /work/venv/lib/python3.12/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.\n    warnings.warn(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR pyod/test/test_stat_models.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n3 warnings, 1 error in 20.67s\n",
+    "tests": {
+      "::pyod.test.test_stat_models": "error"
+    },
+    "collection_errors": [
+      "::pyod.test.test_stat_models"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "3.0.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 41.604206000000005,
+    "cost": 0.42246716,
+    "image_uuid": "1056c8c2-9d60-4f03-b1ff-3f457cf41704",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n________________ ERROR collecting pyod/test/test_stat_models.py ________________\nImportError while importing test module '/work/repo/pyod/test/test_stat_models.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npyod/test/test_stat_models.py:22: in <module>\n    import statsmodels.distributions\nE   ModuleNotFoundError: No module named 'statsmodels'\n=============================== warnings summary ===============================\npyod/test/test_auto_model_selector.py:15\n  /work/repo/pyod/test/test_auto_model_selector.py:15: FutureWarning: AutoModelSelector is deprecated and will be removed in PyOD v2.3.0. Use pyod.utils.ad_engine.ADEngine instead.\n    from pyod.utils.auto_model_selector import (\n\n../venv/lib/python3.12/site-packages/torch/jit/_script.py:1488\n../venv/lib/python3.12/site-packages/torch/jit/_script.py:1488\n  /work/venv/lib/python3.12/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.\n    warnings.warn(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR pyod/test/test_stat_models.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n3 warnings, 1 error in 26.69s\n",
+    "tests": {
+      "::pyod.test.test_stat_models": "error"
+    },
+    "collection_errors": [
+      "::pyod.test.test_stat_models"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 41.361125,
+    "cost": 0.42005081,
+    "image_uuid": "4733c7ba-27e0-4b31-82f7-c4d870aea879",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "no-baseline",
+    "reason": "no test passed in the before fork, so nothing can be shown to break",
+    "before_summary": {
+      "error": 1
+    },
+    "after_summary": {
+      "error": 1
+    },
+    "collected_before": 1
+  },
+  "error": null,
+  "requirement": "openai>=1.0; extra == \"openai\"",
+  "wall_s": 160.4
+}

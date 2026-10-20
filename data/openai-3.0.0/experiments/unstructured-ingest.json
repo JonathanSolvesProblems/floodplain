@@ -1,0 +1,94 @@
+{
+  "dependent": "unstructured-ingest",
+  "version": "1.9.0",
+  "source": {
+    "owner": "pypi",
+    "repo": "unstructured-ingest",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/20/fe/024e60cfeee9cb9370e4f26207fa921f16175af960c9e0f7c8d7e5e56586/unstructured_ingest-1.9.0.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "b6cca066-41d3-471a-9dd0-96e73eb2972f",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:test\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\nno tests ran in 0.04s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 7.409249000000001,
+    "cost": 0.07586155,
+    "image_uuid": "2f37d321-10c1-437d-97bc-b01d73076749",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:test\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\nno tests ran in 0.04s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 7.985472,
+    "cost": 0.08172064,
+    "image_uuid": "4e341708-8ffc-4463-96e8-eb72e4cddd3d",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:test\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\nno tests ran in 0.04s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 7.7008659999999995,
+    "cost": 0.07885142,
+    "image_uuid": "f05543e8-47be-4af1-944f-0681a69d8356",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "no-tests",
+    "reason": "the package ships no test suite at this release",
+    "pytest_exit": 5
+  },
+  "error": null,
+  "requirement": "openai; extra == \"octoai\"",
+  "wall_s": 85.2
+}

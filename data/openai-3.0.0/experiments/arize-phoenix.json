@@ -1,0 +1,73 @@
+{
+  "dependent": "arize-phoenix",
+  "version": "20.0.0",
+  "source": {
+    "owner": "Arize-ai",
+    "repo": "phoenix",
+    "tag": "arize-phoenix-v20.0.0",
+    "sha": "bfe6ceba443b30980149ef1f505a621a05155b6f",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "32ed5ba7-8247-47bb-bb5a-f7fd3c41418b",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Required uv version `==0.11.31` does not match the running version `0.13.4`. Update `uv` by running `uv self update 0.11.31`.\nerror: Required uv version `==0.11.31` does not match the running version `0.13.4`. Update `uv` by running `uv self update 0.11.31`.\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.062112,
+    "cost": 0.0007807800000000001,
+    "image_uuid": "a215c4b1-8910-463f-a24b-18a254749b51",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Required uv version `==0.11.31` does not match the running version `0.13.4`. Update `uv` by running `uv self update 0.11.31`.\nerror: Required uv version `==0.11.31` does not match the running version `0.13.4`. Update `uv` by running `uv self update 0.11.31`.\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.064833,
+    "cost": 0.0008079900000000001,
+    "image_uuid": "1e5ff610-3b4c-4e04-a89d-36c520bb9e82",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Required uv version `==0.11.31` does not match the running version `0.13.4`. Update `uv` by running `uv self update 0.11.31`.\nerror: Required uv version `==0.11.31` does not match the running version `0.13.4`. Update `uv` by running `uv self update 0.11.31`.\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.066623,
+    "cost": 0.0008249700000000001,
+    "image_uuid": "4051c265-802a-42a9-b399-5322cf417849",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "unrunnable",
+    "reason": "install failed before and after",
+    "evidence": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Required uv version `==0.11.31` does not match the running version `0.13.4`. Update `uv` by running `uv self update 0.11.31`.\nerror: Required uv version `==0.11.31` does not match the running version `0.13.4`. Update `uv` by running `uv self update 0.11.31`.\n"
+  },
+  "error": null,
+  "requirement": "openai>=2.14.0; extra == \"container\"",
+  "wall_s": 103.9
+}

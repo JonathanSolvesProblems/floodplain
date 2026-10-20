@@ -1,0 +1,92 @@
+{
+  "dependent": "speechrecognition",
+  "version": "3.17.0",
+  "source": {
+    "owner": "Uberi",
+    "repo": "speech_recognition",
+    "tag": "3.17.0",
+    "sha": "d8232ce3b489c53eb5e471815a3752fae6323f73",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "6f35936d-523e-4236-a16e-297e18f51d30",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\ncertifi==2026.7.22\nhttpx==1.0.dev3\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 1,
+    "test_tail": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/work/venv/lib/python3.12/site-packages/pytest/__main__.py\", line 9, in <module>\n    raise SystemExit(_console_main())\n                     ^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 253, in _console_main\n    code = _main(prog=_get_prog_name(sys.argv))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 223, in _main\n    config = _prepareconfig(new_args, plugins, prog=prog)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 410, in _prepareconfig\n    config: Config = pluginmanager.hook.pytest_cmdline_parse(\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 167, in _multicall\n    raise exception\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\n    teardown.throw(exception)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/helpconfig.py\", line 124, in pytest_cmdline_parse\n    config = yield\n             ^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 1232, in pytest_cmdline_parse\n    self.parse(args)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 1583, in parse\n    self.pluginmanager.load_setuptools_entrypoints(\"pytest11\")\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 416, in load_setuptools_entrypoints\n    plugin = ep.load()\n             ^^^^^^^^^\n  File \"/usr/local/lib/python3.12/importlib/metadata/__init__.py\", line 205, in load\n    module = import_module(match.group('module'))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py\", line 188, in exec_module\n    exec(co, module.__dict__)\n  File \"/work/venv/lib/python3.12/site-packages/respx/__init__.py\", line 2, in <module>\n    from .handlers import ASGIHandler, WSGIHandler\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py\", line 188, in exec_module\n    exec(co, module.__dict__)\n  File \"/work/venv/lib/python3.12/site-packages/respx/handlers.py\", line 6, in <module>\n    class TransportHandler:\n  File \"/work/venv/lib/python3.12/site-packages/respx/handlers.py\", line 7, in TransportHandler\n    def __init__(self, transport: httpx.BaseTransport) -> None:\n                                  ^^^^^^^^^^^^^^^^^^^\nAttributeError: module 'httpx' has no attribute 'BaseTransport'. Did you mean: 'Transport'?\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "certifi": "2026.7.22",
+      "httpx": "1.0.dev3",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 7.040303,
+    "cost": 0.07128978999999999,
+    "image_uuid": "4db5d3e5-538b-4fd3-9919-cc6304684f33",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\ncertifi==2026.7.22\nhttpx==1.0.dev3\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 1,
+    "test_tail": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/work/venv/lib/python3.12/site-packages/pytest/__main__.py\", line 9, in <module>\n    raise SystemExit(_console_main())\n                     ^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 253, in _console_main\n    code = _main(prog=_get_prog_name(sys.argv))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 223, in _main\n    config = _prepareconfig(new_args, plugins, prog=prog)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 410, in _prepareconfig\n    config: Config = pluginmanager.hook.pytest_cmdline_parse(\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 167, in _multicall\n    raise exception\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\n    teardown.throw(exception)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/helpconfig.py\", line 124, in pytest_cmdline_parse\n    config = yield\n             ^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 1232, in pytest_cmdline_parse\n    self.parse(args)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 1583, in parse\n    self.pluginmanager.load_setuptools_entrypoints(\"pytest11\")\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 416, in load_setuptools_entrypoints\n    plugin = ep.load()\n             ^^^^^^^^^\n  File \"/usr/local/lib/python3.12/importlib/metadata/__init__.py\", line 205, in load\n    module = import_module(match.group('module'))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py\", line 188, in exec_module\n    exec(co, module.__dict__)\n  File \"/work/venv/lib/python3.12/site-packages/respx/__init__.py\", line 2, in <module>\n    from .handlers import ASGIHandler, WSGIHandler\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py\", line 188, in exec_module\n    exec(co, module.__dict__)\n  File \"/work/venv/lib/python3.12/site-packages/respx/handlers.py\", line 6, in <module>\n    class TransportHandler:\n  File \"/work/venv/lib/python3.12/site-packages/respx/handlers.py\", line 7, in TransportHandler\n    def __init__(self, transport: httpx.BaseTransport) -> None:\n                                  ^^^^^^^^^^^^^^^^^^^\nAttributeError: module 'httpx' has no attribute 'BaseTransport'. Did you mean: 'Transport'?\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "certifi": "2026.7.22",
+      "httpx": "1.0.dev3",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 6.8702689999999995,
+    "cost": 0.06959919,
+    "image_uuid": "2686502d-6388-4fcb-b539-ee290a710a6c",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\ncertifi==2026.7.22\nhttpx==1.0.dev3\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 1,
+    "test_tail": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/work/venv/lib/python3.12/site-packages/pytest/__main__.py\", line 9, in <module>\n    raise SystemExit(_console_main())\n                     ^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 253, in _console_main\n    code = _main(prog=_get_prog_name(sys.argv))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 223, in _main\n    config = _prepareconfig(new_args, plugins, prog=prog)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 410, in _prepareconfig\n    config: Config = pluginmanager.hook.pytest_cmdline_parse(\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 167, in _multicall\n    raise exception\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\n    teardown.throw(exception)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/helpconfig.py\", line 124, in pytest_cmdline_parse\n    config = yield\n             ^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 1232, in pytest_cmdline_parse\n    self.parse(args)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 1583, in parse\n    self.pluginmanager.load_setuptools_entrypoints(\"pytest11\")\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 416, in load_setuptools_entrypoints\n    plugin = ep.load()\n             ^^^^^^^^^\n  File \"/usr/local/lib/python3.12/importlib/metadata/__init__.py\", line 205, in load\n    module = import_module(match.group('module'))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py\", line 188, in exec_module\n    exec(co, module.__dict__)\n  File \"/work/venv/lib/python3.12/site-packages/respx/__init__.py\", line 2, in <module>\n    from .handlers import ASGIHandler, WSGIHandler\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py\", line 188, in exec_module\n    exec(co, module.__dict__)\n  File \"/work/venv/lib/python3.12/site-packages/respx/handlers.py\", line 6, in <module>\n    class TransportHandler:\n  File \"/work/venv/lib/python3.12/site-packages/respx/handlers.py\", line 7, in TransportHandler\n    def __init__(self, transport: httpx.BaseTransport) -> None:\n                                  ^^^^^^^^^^^^^^^^^^^\nAttributeError: module 'httpx' has no attribute 'BaseTransport'. Did you mean: 'Transport'?\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "certifi": "2026.7.22",
+      "httpx": "1.0.dev3",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 7.142784000000001,
+    "cost": 0.07234952,
+    "image_uuid": "c2329934-0500-4eba-b67d-bc4133366fac",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "incomplete",
+    "kind": "no-results",
+    "reason": "the before fork installed but returned no test results",
+    "arm": "before",
+    "test_exit": 1,
+    "error": null,
+    "evidence": "ort ASGIHandler, WSGIHandler\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py\", line 188, in exec_module\n    exec(co, module.__dict__)\n  File \"/work/venv/lib/python3.12/site-packages/respx/handlers.py\", line 6, in <module>\n    class TransportHandler:\n  File \"/work/venv/lib/python3.12/site-packages/respx/handlers.py\", line 7, in TransportHandler\n    def __init__(self, transport: httpx.BaseTransport) -> None:\n                                  ^^^^^^^^^^^^^^^^^^^\nAttributeError: module 'httpx' has no attribute 'BaseTransport'. Did you mean: 'Transport'?\n"
+  },
+  "error": null,
+  "requirement": "openai; extra == \"openai\"",
+  "wall_s": 40.3
+}

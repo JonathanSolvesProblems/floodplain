@@ -1,0 +1,89 @@
+{
+  "dependent": "fastmcp-slim",
+  "version": "3.4.7",
+  "source": {
+    "owner": "PrefectHQ",
+    "repo": "fastmcp",
+    "tag": "v3.4.7",
+    "sha": "758397efa66e2cedac95ada540001bc44a95a646",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "f6f0ff9f-c026-4a0c-8fee-0917f9432686",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo/fastmcp_slim\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 4,
+    "test_tail": "ERROR: usage: python -m pytest [options] [file_or_dir] [file_or_dir] [...]\npython -m pytest: error: unrecognized arguments: --inline-snapshot=disable\n  inifile: /work/repo/pyproject.toml\n  rootdir: /work/repo\n\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 5.761482,
+    "cost": 0.058528180000000006,
+    "image_uuid": "a4745cc2-e171-4055-8e20-e8396888b6d8",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo/fastmcp_slim\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 4,
+    "test_tail": "ERROR: usage: python -m pytest [options] [file_or_dir] [file_or_dir] [...]\npython -m pytest: error: unrecognized arguments: --inline-snapshot=disable\n  inifile: /work/repo/pyproject.toml\n  rootdir: /work/repo\n\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 6.027416,
+    "cost": 0.06113994,
+    "image_uuid": "3c96f113-ff4a-402e-afd1-03ac0bcaaca2",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo/fastmcp_slim\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 4,
+    "test_tail": "ERROR: usage: python -m pytest [options] [file_or_dir] [file_or_dir] [...]\npython -m pytest: error: unrecognized arguments: --inline-snapshot=disable\n  inifile: /work/repo/pyproject.toml\n  rootdir: /work/repo\n\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 5.826569999999999,
+    "cost": 0.05914884,
+    "image_uuid": "780e68ff-478a-4077-8ac9-e01acfb56337",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "incomplete",
+    "kind": "no-results",
+    "reason": "the before fork installed but returned no test results",
+    "arm": "before",
+    "test_exit": 4,
+    "error": null,
+    "evidence": "ERROR: usage: python -m pytest [options] [file_or_dir] [file_or_dir] [...]\npython -m pytest: error: unrecognized arguments: --inline-snapshot=disable\n  inifile: /work/repo/pyproject.toml\n  rootdir: /work/repo\n\n"
+  },
+  "error": null,
+  "requirement": "openai>=1.102.0; extra == \"openai\"",
+  "wall_s": 47.5
+}

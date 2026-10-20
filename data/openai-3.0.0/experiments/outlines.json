@@ -1,0 +1,128 @@
+{
+  "dependent": "outlines",
+  "version": "1.3.3",
+  "source": {
+    "owner": "dottxt-ai",
+    "repo": "outlines",
+    "tag": "1.3.3",
+    "sha": "3d251f8d758a01cfee4ddc99646886845dbd8c6d",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "3bdd413c-6597-4d02-8489-1de08f27c8dd",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n________________ ERROR collecting tests/models/test_mistral.py _________________\nImportError while importing test module '/work/repo/tests/models/test_mistral.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/models/test_mistral.py:8: in <module>\n    from mistralai import Mistral as MistralClient\nE   ImportError: cannot import name 'Mistral' from 'mistralai' (unknown location)\n__________ ERROR collecting tests/models/test_mistral_type_adapter.py __________\nImportError while importing test module '/work/repo/tests/models/test_mistral_type_adapter.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/models/test_mistral_type_adapter.py:10: in <module>\n    from mistralai import (\nE   ImportError: cannot import name 'AssistantMessage' from 'mistralai' (unknown location)\n=========================== short test summary info ============================\nERROR tests/models/test_mistral.py\nERROR tests/models/test_mistral_type_adapter.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n2 errors in 35.75s\n",
+    "tests": {
+      "::tests.models.test_mistral": "error",
+      "::tests.models.test_mistral_type_adapter": "error"
+    },
+    "collection_errors": [
+      "::tests.models.test_mistral",
+      "::tests.models.test_mistral_type_adapter"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 425.14259500000003,
+    "cost": 4.26298381,
+    "image_uuid": "ad22af30-7cef-42cd-9fd6-eb397d25e726",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 2
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==3.0.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n________________ ERROR collecting tests/models/test_mistral.py _________________\nImportError while importing test module '/work/repo/tests/models/test_mistral.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/models/test_mistral.py:8: in <module>\n    from mistralai import Mistral as MistralClient\nE   ImportError: cannot import name 'Mistral' from 'mistralai' (unknown location)\n__________ ERROR collecting tests/models/test_mistral_type_adapter.py __________\nImportError while importing test module '/work/repo/tests/models/test_mistral_type_adapter.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/models/test_mistral_type_adapter.py:10: in <module>\n    from mistralai import (\nE   ImportError: cannot import name 'AssistantMessage' from 'mistralai' (unknown location)\n=========================== short test summary info ============================\nERROR tests/models/test_mistral.py\nERROR tests/models/test_mistral_type_adapter.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n2 errors in 33.49s\n",
+    "tests": {
+      "::tests.models.test_mistral": "error",
+      "::tests.models.test_mistral_type_adapter": "error"
+    },
+    "collection_errors": [
+      "::tests.models.test_mistral",
+      "::tests.models.test_mistral_type_adapter"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "3.0.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 427.39984899999996,
+    "cost": 4.2855659699999995,
+    "image_uuid": "a7053ee8-c4dd-4871-964b-0cc87528fbf3",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 2
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n________________ ERROR collecting tests/models/test_mistral.py _________________\nImportError while importing test module '/work/repo/tests/models/test_mistral.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/models/test_mistral.py:8: in <module>\n    from mistralai import Mistral as MistralClient\nE   ImportError: cannot import name 'Mistral' from 'mistralai' (unknown location)\n__________ ERROR collecting tests/models/test_mistral_type_adapter.py __________\nImportError while importing test module '/work/repo/tests/models/test_mistral_type_adapter.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/models/test_mistral_type_adapter.py:10: in <module>\n    from mistralai import (\nE   ImportError: cannot import name 'AssistantMessage' from 'mistralai' (unknown location)\n=========================== short test summary info ============================\nERROR tests/models/test_mistral.py\nERROR tests/models/test_mistral_type_adapter.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n2 errors in 39.14s\n",
+    "tests": {
+      "::tests.models.test_mistral": "error",
+      "::tests.models.test_mistral_type_adapter": "error"
+    },
+    "collection_errors": [
+      "::tests.models.test_mistral",
+      "::tests.models.test_mistral_type_adapter"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 414.191574,
+    "cost": 4.15346366,
+    "image_uuid": "3bd42c63-c6c6-44c6-a8d1-4bf03645afd3",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 2
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "no-baseline",
+    "reason": "no test passed in the before fork, so nothing can be shown to break",
+    "before_summary": {
+      "error": 2
+    },
+    "after_summary": {
+      "error": 2
+    },
+    "collected_before": 2
+  },
+  "error": null,
+  "requirement": "openai; extra == \"openai\"",
+  "wall_s": 427.7
+}

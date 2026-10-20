@@ -1,0 +1,102 @@
+{
+  "dependent": "inspect-evals",
+  "version": "0.16.0",
+  "source": {
+    "owner": "UKGovernmentBEIS",
+    "repo": "inspect_evals",
+    "tag": "v0.16.0",
+    "sha": "3367d26374083aa794600b9c06b0b4f76faad76d",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "3cc84b69-c304-4b4c-84be-fff351f59e8f",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:test\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 4,
+    "test_tail": "ImportError while loading conftest '/work/repo/tests/conftest.py'.\ntests/conftest.py:8: in <module>\n    from inspect_evals.utils.hf_telemetry import (\nE   ModuleNotFoundError: No module named 'inspect_evals.utils.hf_telemetry'\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 72.22852400000001,
+    "cost": 0.7241873400000001,
+    "image_uuid": "aa0d579b-0ac8-4f3d-8909-8d726e7f88d8",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:test\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==3.0.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 4,
+    "test_tail": "ImportError while loading conftest '/work/repo/tests/conftest.py'.\ntests/conftest.py:8: in <module>\n    from inspect_evals.utils.hf_telemetry import (\nE   ModuleNotFoundError: No module named 'inspect_evals.utils.hf_telemetry'\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "3.0.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 70.609858,
+    "cost": 0.70799676,
+    "image_uuid": "fd3f4c25-172f-4659-ad44-5cb9474e577e",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:test\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 4,
+    "test_tail": "ImportError while loading conftest '/work/repo/tests/conftest.py'.\ntests/conftest.py:8: in <module>\n    from inspect_evals.utils.hf_telemetry import (\nE   ModuleNotFoundError: No module named 'inspect_evals.utils.hf_telemetry'\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 71.83682900000001,
+    "cost": 0.7202729500000001,
+    "image_uuid": "2c1ef1be-ac2e-4f9f-91dc-3f7c7ddf7c8c",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "incomplete",
+    "kind": "no-results",
+    "reason": "the before fork installed but returned no test results",
+    "arm": "before",
+    "test_exit": 4,
+    "error": null,
+    "evidence": "ImportError while loading conftest '/work/repo/tests/conftest.py'.\ntests/conftest.py:8: in <module>\n    from inspect_evals.utils.hf_telemetry import (\nE   ModuleNotFoundError: No module named 'inspect_evals.utils.hf_telemetry'\n"
+  },
+  "error": null,
+  "requirement": "openai; extra == \"b3\"",
+  "wall_s": 272.9
+}

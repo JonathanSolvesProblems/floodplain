@@ -1,0 +1,73 @@
+{
+  "dependent": "harbor",
+  "version": "0.21.0",
+  "source": {
+    "owner": "pypi",
+    "repo": "harbor",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/d1/30/c854dcf2b6cbc67f97265e1fd07de02b29419007d4258cded336c23d6356/harbor-0.21.0.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "5a2681d0-f22c-4545-b74a-feab0e3d68b8",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Failed to build `harbor @ file:///work/repo`\n  cause: Failed to parse entry in group `dev`: `harbor-rewardkit`\n  cause: `harbor-rewardkit` references a workspace in `tool.uv.sources` (e.g., `harbor-rewardkit = { workspace = true }`), but is not a workspace member\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.111627,
+    "cost": 0.0012922500000000002,
+    "image_uuid": "19184e01-1809-4f45-aac6-24785b6c330f",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Failed to build `harbor @ file:///work/repo`\n  cause: Failed to parse entry in group `dev`: `harbor-rewardkit`\n  cause: `harbor-rewardkit` references a workspace in `tool.uv.sources` (e.g., `harbor-rewardkit = { workspace = true }`), but is not a workspace member\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.11118,
+    "cost": 0.00128778,
+    "image_uuid": "480518bd-57af-4126-9a2c-9bb051ece7c5",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Failed to build `harbor @ file:///work/repo`\n  cause: Failed to parse entry in group `dev`: `harbor-rewardkit`\n  cause: `harbor-rewardkit` references a workspace in `tool.uv.sources` (e.g., `harbor-rewardkit = { workspace = true }`), but is not a workspace member\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.128291,
+    "cost": 0.00145889,
+    "image_uuid": "5e7864b6-b69b-4882-9f17-0ee92e4eacdd",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "unrunnable",
+    "reason": "install failed before and after",
+    "evidence": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Failed to build `harbor @ file:///work/repo`\n  cause: Failed to parse entry in group `dev`: `harbor-rewardkit`\n  cause: `harbor-rewardkit` references a workspace in `tool.uv.sources` (e.g., `harbor-rewardkit = { workspace = true }`), but is not a workspace member\n"
+  },
+  "error": null,
+  "requirement": "openai>=2.0; extra == \"computer-1\"",
+  "wall_s": 14.2
+}

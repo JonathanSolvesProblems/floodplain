@@ -1,0 +1,178 @@
+{
+  "dependent": "django-sql-explorer",
+  "version": "5.3",
+  "source": {
+    "owner": "explorerhq",
+    "repo": "sql-explorer",
+    "tag": "5.3.0",
+    "sha": "c1ed10af760a160d3f93038f8f2bf7e0c9fb5adc",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "6c8e961e-8718-4c4c-a212-cdc7350d96d3",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\ncertifi==2026.7.22\npytest==9.1.1\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "figured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\n________________ ERROR collecting explorer/tests/test_utils.py _________________\nexplorer/tests/test_utils.py:5: in <module>\n    from explorer import app_settings\nexplorer/app_settings.py:6: in <module>\n    EXPLORER_CONNECTIONS = getattr(settings, \"EXPLORER_CONNECTIONS\", {})\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/django/conf/__init__.py:122: in __getattr__\n    self._setup(name)\n../venv/lib/python3.12/site-packages/django/conf/__init__.py:102: in _setup\n    raise ImproperlyConfigured(\nE   django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\n________________ ERROR collecting explorer/tests/test_views.py _________________\nexplorer/tests/test_views.py:9: in <module>\n    from django.contrib.auth.models import User\n../venv/lib/python3.12/site-packages/django/contrib/auth/models.py:5: in <module>\n    from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager\n../venv/lib/python3.12/site-packages/django/contrib/auth/base_user.py:43: in <module>\n    class AbstractBaseUser(models.Model):\n../venv/lib/python3.12/site-packages/django/db/models/base.py:132: in __new__\n    app_config = apps.get_containing_app_config(module)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/django/apps/registry.py:260: in get_containing_app_config\n    self.check_apps_ready()\n../venv/lib/python3.12/site-packages/django/apps/registry.py:137: in check_apps_ready\n    settings.INSTALLED_APPS\n../venv/lib/python3.12/site-packages/django/conf/__init__.py:122: in __getattr__\n    self._setup(name)\n../venv/lib/python3.12/site-packages/django/conf/__init__.py:102: in _setup\n    raise ImproperlyConfigured(\nE   django.core.exceptions.ImproperlyConfigured: Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\n=========================== short test summary info ============================\nERROR explorer/tests/test_actions.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_assistant.py\nERROR explorer/tests/test_create_sqlite.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_csrf_cookie_name.py - django.core.exceptions.ImproperlyConfigured: Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_db_connection_utils.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_exporters.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_forms.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_models.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_schema.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_tasks.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_type_infer.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_utils.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_views.py - django.core.exceptions.ImproperlyConfigured: Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\n!!!!!!!!!!!!!!!!!!! Interrupted: 13 errors during collection !!!!!!!!!!!!!!!!!!!\n13 errors in 1.29s\n",
+    "tests": {
+      "::explorer.tests.test_actions": "error",
+      "::explorer.tests.test_assistant": "error",
+      "::explorer.tests.test_create_sqlite": "error",
+      "::explorer.tests.test_csrf_cookie_name": "error",
+      "::explorer.tests.test_db_connection_utils": "error",
+      "::explorer.tests.test_exporters": "error",
+      "::explorer.tests.test_forms": "error",
+      "::explorer.tests.test_models": "error",
+      "::explorer.tests.test_schema": "error",
+      "::explorer.tests.test_tasks": "error",
+      "::explorer.tests.test_type_infer": "error",
+      "::explorer.tests.test_utils": "error",
+      "::explorer.tests.test_views": "error"
+    },
+    "collection_errors": [
+      "::explorer.tests.test_actions",
+      "::explorer.tests.test_assistant",
+      "::explorer.tests.test_create_sqlite",
+      "::explorer.tests.test_csrf_cookie_name",
+      "::explorer.tests.test_db_connection_utils",
+      "::explorer.tests.test_exporters",
+      "::explorer.tests.test_forms",
+      "::explorer.tests.test_models",
+      "::explorer.tests.test_schema",
+      "::explorer.tests.test_tasks",
+      "::explorer.tests.test_type_infer",
+      "::explorer.tests.test_utils",
+      "::explorer.tests.test_views"
+    ],
+    "resolved": {
+      "certifi": "2026.7.22",
+      "pytest": "9.1.1"
+    },
+    "elapsed_s": 7.4403690000000005,
+    "cost": 0.07532741000000001,
+    "image_uuid": "853fb237-901e-4df5-8e10-f4515001a04d",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 13
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\ncertifi==2026.7.22\npytest==9.1.1\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "figured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\n________________ ERROR collecting explorer/tests/test_utils.py _________________\nexplorer/tests/test_utils.py:5: in <module>\n    from explorer import app_settings\nexplorer/app_settings.py:6: in <module>\n    EXPLORER_CONNECTIONS = getattr(settings, \"EXPLORER_CONNECTIONS\", {})\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/django/conf/__init__.py:122: in __getattr__\n    self._setup(name)\n../venv/lib/python3.12/site-packages/django/conf/__init__.py:102: in _setup\n    raise ImproperlyConfigured(\nE   django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\n________________ ERROR collecting explorer/tests/test_views.py _________________\nexplorer/tests/test_views.py:9: in <module>\n    from django.contrib.auth.models import User\n../venv/lib/python3.12/site-packages/django/contrib/auth/models.py:5: in <module>\n    from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager\n../venv/lib/python3.12/site-packages/django/contrib/auth/base_user.py:43: in <module>\n    class AbstractBaseUser(models.Model):\n../venv/lib/python3.12/site-packages/django/db/models/base.py:132: in __new__\n    app_config = apps.get_containing_app_config(module)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/django/apps/registry.py:260: in get_containing_app_config\n    self.check_apps_ready()\n../venv/lib/python3.12/site-packages/django/apps/registry.py:137: in check_apps_ready\n    settings.INSTALLED_APPS\n../venv/lib/python3.12/site-packages/django/conf/__init__.py:122: in __getattr__\n    self._setup(name)\n../venv/lib/python3.12/site-packages/django/conf/__init__.py:102: in _setup\n    raise ImproperlyConfigured(\nE   django.core.exceptions.ImproperlyConfigured: Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\n=========================== short test summary info ============================\nERROR explorer/tests/test_actions.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_assistant.py\nERROR explorer/tests/test_create_sqlite.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_csrf_cookie_name.py - django.core.exceptions.ImproperlyConfigured: Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_db_connection_utils.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_exporters.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_forms.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_models.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_schema.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_tasks.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_type_infer.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_utils.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_views.py - django.core.exceptions.ImproperlyConfigured: Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\n!!!!!!!!!!!!!!!!!!! Interrupted: 13 errors during collection !!!!!!!!!!!!!!!!!!!\n13 errors in 1.29s\n",
+    "tests": {
+      "::explorer.tests.test_actions": "error",
+      "::explorer.tests.test_assistant": "error",
+      "::explorer.tests.test_create_sqlite": "error",
+      "::explorer.tests.test_csrf_cookie_name": "error",
+      "::explorer.tests.test_db_connection_utils": "error",
+      "::explorer.tests.test_exporters": "error",
+      "::explorer.tests.test_forms": "error",
+      "::explorer.tests.test_models": "error",
+      "::explorer.tests.test_schema": "error",
+      "::explorer.tests.test_tasks": "error",
+      "::explorer.tests.test_type_infer": "error",
+      "::explorer.tests.test_utils": "error",
+      "::explorer.tests.test_views": "error"
+    },
+    "collection_errors": [
+      "::explorer.tests.test_actions",
+      "::explorer.tests.test_assistant",
+      "::explorer.tests.test_create_sqlite",
+      "::explorer.tests.test_csrf_cookie_name",
+      "::explorer.tests.test_db_connection_utils",
+      "::explorer.tests.test_exporters",
+      "::explorer.tests.test_forms",
+      "::explorer.tests.test_models",
+      "::explorer.tests.test_schema",
+      "::explorer.tests.test_tasks",
+      "::explorer.tests.test_type_infer",
+      "::explorer.tests.test_utils",
+      "::explorer.tests.test_views"
+    ],
+    "resolved": {
+      "certifi": "2026.7.22",
+      "pytest": "9.1.1"
+    },
+    "elapsed_s": 7.254022000000001,
+    "cost": 0.07347252,
+    "image_uuid": "ff2dd45f-f399-4f41-9c62-0e1defc00e58",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 13
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\ncertifi==2026.7.22\npytest==9.1.1\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "figured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\n________________ ERROR collecting explorer/tests/test_utils.py _________________\nexplorer/tests/test_utils.py:5: in <module>\n    from explorer import app_settings\nexplorer/app_settings.py:6: in <module>\n    EXPLORER_CONNECTIONS = getattr(settings, \"EXPLORER_CONNECTIONS\", {})\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/django/conf/__init__.py:122: in __getattr__\n    self._setup(name)\n../venv/lib/python3.12/site-packages/django/conf/__init__.py:102: in _setup\n    raise ImproperlyConfigured(\nE   django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\n________________ ERROR collecting explorer/tests/test_views.py _________________\nexplorer/tests/test_views.py:9: in <module>\n    from django.contrib.auth.models import User\n../venv/lib/python3.12/site-packages/django/contrib/auth/models.py:5: in <module>\n    from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager\n../venv/lib/python3.12/site-packages/django/contrib/auth/base_user.py:43: in <module>\n    class AbstractBaseUser(models.Model):\n../venv/lib/python3.12/site-packages/django/db/models/base.py:132: in __new__\n    app_config = apps.get_containing_app_config(module)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/django/apps/registry.py:260: in get_containing_app_config\n    self.check_apps_ready()\n../venv/lib/python3.12/site-packages/django/apps/registry.py:137: in check_apps_ready\n    settings.INSTALLED_APPS\n../venv/lib/python3.12/site-packages/django/conf/__init__.py:122: in __getattr__\n    self._setup(name)\n../venv/lib/python3.12/site-packages/django/conf/__init__.py:102: in _setup\n    raise ImproperlyConfigured(\nE   django.core.exceptions.ImproperlyConfigured: Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\n=========================== short test summary info ============================\nERROR explorer/tests/test_actions.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_assistant.py\nERROR explorer/tests/test_create_sqlite.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_csrf_cookie_name.py - django.core.exceptions.ImproperlyConfigured: Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_db_connection_utils.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_exporters.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_forms.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_models.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_schema.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_tasks.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_type_infer.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_utils.py - django.core.exceptions.ImproperlyConfigured: Requested setting EXPLORER_CONNECTIONS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\nERROR explorer/tests/test_views.py - django.core.exceptions.ImproperlyConfigured: Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.\n!!!!!!!!!!!!!!!!!!! Interrupted: 13 errors during collection !!!!!!!!!!!!!!!!!!!\n13 errors in 1.27s\n",
+    "tests": {
+      "::explorer.tests.test_actions": "error",
+      "::explorer.tests.test_assistant": "error",
+      "::explorer.tests.test_create_sqlite": "error",
+      "::explorer.tests.test_csrf_cookie_name": "error",
+      "::explorer.tests.test_db_connection_utils": "error",
+      "::explorer.tests.test_exporters": "error",
+      "::explorer.tests.test_forms": "error",
+      "::explorer.tests.test_models": "error",
+      "::explorer.tests.test_schema": "error",
+      "::explorer.tests.test_tasks": "error",
+      "::explorer.tests.test_type_infer": "error",
+      "::explorer.tests.test_utils": "error",
+      "::explorer.tests.test_views": "error"
+    },
+    "collection_errors": [
+      "::explorer.tests.test_actions",
+      "::explorer.tests.test_assistant",
+      "::explorer.tests.test_create_sqlite",
+      "::explorer.tests.test_csrf_cookie_name",
+      "::explorer.tests.test_db_connection_utils",
+      "::explorer.tests.test_exporters",
+      "::explorer.tests.test_forms",
+      "::explorer.tests.test_models",
+      "::explorer.tests.test_schema",
+      "::explorer.tests.test_tasks",
+      "::explorer.tests.test_type_infer",
+      "::explorer.tests.test_utils",
+      "::explorer.tests.test_views"
+    ],
+    "resolved": {
+      "certifi": "2026.7.22",
+      "pytest": "9.1.1"
+    },
+    "elapsed_s": 6.998296,
+    "cost": 0.07091388,
+    "image_uuid": "c00e77a3-31f3-4c56-8161-b94def141016",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 13
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "no-baseline",
+    "reason": "no test passed in the before fork, so nothing can be shown to break",
+    "before_summary": {
+      "error": 13
+    },
+    "after_summary": {
+      "error": 13
+    },
+    "collected_before": 13
+  },
+  "error": null,
+  "requirement": "openai>=1.6.1; extra == \"assistant\"",
+  "wall_s": 75.0
+}

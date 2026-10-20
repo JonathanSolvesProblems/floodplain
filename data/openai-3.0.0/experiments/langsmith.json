@@ -1,0 +1,132 @@
+{
+  "dependent": "langsmith",
+  "version": "0.10.18",
+  "source": {
+    "owner": "langchain-ai",
+    "repo": "langsmith-sdk",
+    "tag": "v0.10.18",
+    "sha": "51bff1a3a85a9f692346697c4dda5ec9fa12b947",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "b87b810c-803a-412f-ac14-4a38d3dfa6a6",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo/python\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev group:test\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\npytest-httpx==0.36.2\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n___________ ERROR collecting tests/external/test_instructor_evals.py ___________\nImportError while importing test module '/work/repo/python/tests/external/test_instructor_evals.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/external/test_instructor_evals.py:5: in <module>\n    import instructor  # type: ignore\n    ^^^^^^^^^^^^^^^^^\nE   ModuleNotFoundError: No module named 'instructor'\n=============================== warnings summary ===============================\nlangsmith/evaluation/_key_extraction.py:20\n  /work/repo/python/langsmith/evaluation/_key_extraction.py:20: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    (ast.Str, ast.Constant) if hasattr(ast, \"Str\") else (ast.Constant,)\n\nlangsmith/wrappers/__init__.py:6\n  /work/repo/python/langsmith/wrappers/__init__.py:6: DeprecationWarning: langsmith.wrappers._openai_agents is deprecated and has been moved to langsmith.integrations.openai_agents_sdk. Please update your imports.\n    from langsmith.wrappers._openai_agents import OpenAIAgentsTracingProcessor\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR tests/external/test_instructor_evals.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 skipped, 2 warnings, 1 error in 10.33s\n",
+    "tests": {
+      "::tests.external.test_instructor_evals": "error",
+      "::tests.unit_tests.test_hybrid_tracing": "skipped"
+    },
+    "collection_errors": [
+      "::tests.external.test_instructor_evals"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "pytest-httpx": "0.36.2",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 19.364899,
+    "cost": 0.19632173,
+    "image_uuid": "f5841b9b-ac85-485e-8057-4ede8789b791",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1,
+      "skipped": 1
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo/python\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev group:test\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\npytest-httpx==0.36.2\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n___________ ERROR collecting tests/external/test_instructor_evals.py ___________\nImportError while importing test module '/work/repo/python/tests/external/test_instructor_evals.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/external/test_instructor_evals.py:5: in <module>\n    import instructor  # type: ignore\n    ^^^^^^^^^^^^^^^^^\nE   ModuleNotFoundError: No module named 'instructor'\n=============================== warnings summary ===============================\nlangsmith/evaluation/_key_extraction.py:20\n  /work/repo/python/langsmith/evaluation/_key_extraction.py:20: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    (ast.Str, ast.Constant) if hasattr(ast, \"Str\") else (ast.Constant,)\n\nlangsmith/wrappers/__init__.py:6\n  /work/repo/python/langsmith/wrappers/__init__.py:6: DeprecationWarning: langsmith.wrappers._openai_agents is deprecated and has been moved to langsmith.integrations.openai_agents_sdk. Please update your imports.\n    from langsmith.wrappers._openai_agents import OpenAIAgentsTracingProcessor\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR tests/external/test_instructor_evals.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 skipped, 2 warnings, 1 error in 10.05s\n",
+    "tests": {
+      "::tests.external.test_instructor_evals": "error",
+      "::tests.unit_tests.test_hybrid_tracing": "skipped"
+    },
+    "collection_errors": [
+      "::tests.external.test_instructor_evals"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "pytest-httpx": "0.36.2",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 18.20646,
+    "cost": 0.18476530000000002,
+    "image_uuid": "6f2d9fa3-fb47-4fc6-b5fe-d6d3edbbfe09",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1,
+      "skipped": 1
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo/python\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev group:test\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\npytest-httpx==0.36.2\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n___________ ERROR collecting tests/external/test_instructor_evals.py ___________\nImportError while importing test module '/work/repo/python/tests/external/test_instructor_evals.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/external/test_instructor_evals.py:5: in <module>\n    import instructor  # type: ignore\n    ^^^^^^^^^^^^^^^^^\nE   ModuleNotFoundError: No module named 'instructor'\n=============================== warnings summary ===============================\nlangsmith/evaluation/_key_extraction.py:20\n  /work/repo/python/langsmith/evaluation/_key_extraction.py:20: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    (ast.Str, ast.Constant) if hasattr(ast, \"Str\") else (ast.Constant,)\n\nlangsmith/wrappers/__init__.py:6\n  /work/repo/python/langsmith/wrappers/__init__.py:6: DeprecationWarning: langsmith.wrappers._openai_agents is deprecated and has been moved to langsmith.integrations.openai_agents_sdk. Please update your imports.\n    from langsmith.wrappers._openai_agents import OpenAIAgentsTracingProcessor\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR tests/external/test_instructor_evals.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 skipped, 2 warnings, 1 error in 10.22s\n",
+    "tests": {
+      "::tests.external.test_instructor_evals": "error",
+      "::tests.unit_tests.test_hybrid_tracing": "skipped"
+    },
+    "collection_errors": [
+      "::tests.external.test_instructor_evals"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "pytest-httpx": "0.36.2",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 18.374288,
+    "cost": 0.18638296,
+    "image_uuid": "1099256b-ed2d-4f2b-8834-6d29453f04a7",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1,
+      "skipped": 1
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "no-baseline",
+    "reason": "no test passed in the before fork, so nothing can be shown to break",
+    "before_summary": {
+      "error": 1,
+      "skipped": 1
+    },
+    "after_summary": {
+      "error": 1,
+      "skipped": 1
+    },
+    "collected_before": 2
+  },
+  "error": null,
+  "requirement": "openai>=1.50; extra == \"openai-realtime\"",
+  "wall_s": 73.4
+}

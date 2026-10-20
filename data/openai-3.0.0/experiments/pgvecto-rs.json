@@ -1,0 +1,127 @@
+{
+  "dependent": "pgvecto-rs",
+  "version": "0.2.2",
+  "source": {
+    "owner": "pypi",
+    "repo": "pgvecto-rs",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/01/09/c0be8f54386367159fd22495635fba65ac6bbc436a34502bc2849d89f6ab/pgvecto_rs-0.2.2.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "07c83979-3c58-4d1c-8ded-a35d2ee543d5",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\npytest==9.1.1\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n____________________ ERROR collecting tests/test_django.py _____________________\nImportError while importing test module '/work/repo/tests/test_django.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/__init__.py:4: in <module>\n    import scipy\nE   ModuleNotFoundError: No module named 'scipy'\n____________________ ERROR collecting tests/test_psycopg.py ____________________\nImportError while importing test module '/work/repo/tests/test_psycopg.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/__init__.py:4: in <module>\n    import scipy\nE   ModuleNotFoundError: No module named 'scipy'\n______________________ ERROR collecting tests/test_sdk.py ______________________\nImportError while importing test module '/work/repo/tests/test_sdk.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/__init__.py:4: in <module>\n    import scipy\nE   ModuleNotFoundError: No module named 'scipy'\n__________________ ERROR collecting tests/test_sqlalchemy.py ___________________\nImportError while importing test module '/work/repo/tests/test_sqlalchemy.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/__init__.py:4: in <module>\n    import scipy\nE   ModuleNotFoundError: No module named 'scipy'\n_____________________ ERROR collecting tests/test_types.py _____________________\nImportError while importing test module '/work/repo/tests/test_types.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/__init__.py:4: in <module>\n    import scipy\nE   ModuleNotFoundError: No module named 'scipy'\n=========================== short test summary info ============================\nERROR tests/test_django.py\nERROR tests/test_psycopg.py\nERROR tests/test_sdk.py\nERROR tests/test_sqlalchemy.py\nERROR tests/test_types.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!\n5 errors in 0.33s\n",
+    "tests": {
+      "::tests.test_django": "error",
+      "::tests.test_psycopg": "error",
+      "::tests.test_sdk": "error",
+      "::tests.test_sqlalchemy": "error",
+      "::tests.test_types": "error"
+    },
+    "collection_errors": [
+      "::tests.test_django",
+      "::tests.test_psycopg",
+      "::tests.test_sdk",
+      "::tests.test_sqlalchemy",
+      "::tests.test_types"
+    ],
+    "resolved": {
+      "pytest": "9.1.1"
+    },
+    "elapsed_s": 3.514191,
+    "cost": 0.03588069,
+    "image_uuid": "6447e438-572a-479e-821c-701cec9956fc",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 5
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\npytest==9.1.1\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n____________________ ERROR collecting tests/test_django.py _____________________\nImportError while importing test module '/work/repo/tests/test_django.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/__init__.py:4: in <module>\n    import scipy\nE   ModuleNotFoundError: No module named 'scipy'\n____________________ ERROR collecting tests/test_psycopg.py ____________________\nImportError while importing test module '/work/repo/tests/test_psycopg.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/__init__.py:4: in <module>\n    import scipy\nE   ModuleNotFoundError: No module named 'scipy'\n______________________ ERROR collecting tests/test_sdk.py ______________________\nImportError while importing test module '/work/repo/tests/test_sdk.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/__init__.py:4: in <module>\n    import scipy\nE   ModuleNotFoundError: No module named 'scipy'\n__________________ ERROR collecting tests/test_sqlalchemy.py ___________________\nImportError while importing test module '/work/repo/tests/test_sqlalchemy.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/__init__.py:4: in <module>\n    import scipy\nE   ModuleNotFoundError: No module named 'scipy'\n_____________________ ERROR collecting tests/test_types.py _____________________\nImportError while importing test module '/work/repo/tests/test_types.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/__init__.py:4: in <module>\n    import scipy\nE   ModuleNotFoundError: No module named 'scipy'\n=========================== short test summary info ============================\nERROR tests/test_django.py\nERROR tests/test_psycopg.py\nERROR tests/test_sdk.py\nERROR tests/test_sqlalchemy.py\nERROR tests/test_types.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!\n5 errors in 0.32s\n",
+    "tests": {
+      "::tests.test_django": "error",
+      "::tests.test_psycopg": "error",
+      "::tests.test_sdk": "error",
+      "::tests.test_sqlalchemy": "error",
+      "::tests.test_types": "error"
+    },
+    "collection_errors": [
+      "::tests.test_django",
+      "::tests.test_psycopg",
+      "::tests.test_sdk",
+      "::tests.test_sqlalchemy",
+      "::tests.test_types"
+    ],
+    "resolved": {
+      "pytest": "9.1.1"
+    },
+    "elapsed_s": 3.398799,
+    "cost": 0.03472617,
+    "image_uuid": "39486db9-3339-4991-b96c-25974ea372f9",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 5
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\npytest==9.1.1\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n____________________ ERROR collecting tests/test_django.py _____________________\nImportError while importing test module '/work/repo/tests/test_django.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/__init__.py:4: in <module>\n    import scipy\nE   ModuleNotFoundError: No module named 'scipy'\n____________________ ERROR collecting tests/test_psycopg.py ____________________\nImportError while importing test module '/work/repo/tests/test_psycopg.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/__init__.py:4: in <module>\n    import scipy\nE   ModuleNotFoundError: No module named 'scipy'\n______________________ ERROR collecting tests/test_sdk.py ______________________\nImportError while importing test module '/work/repo/tests/test_sdk.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/__init__.py:4: in <module>\n    import scipy\nE   ModuleNotFoundError: No module named 'scipy'\n__________________ ERROR collecting tests/test_sqlalchemy.py ___________________\nImportError while importing test module '/work/repo/tests/test_sqlalchemy.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/__init__.py:4: in <module>\n    import scipy\nE   ModuleNotFoundError: No module named 'scipy'\n_____________________ ERROR collecting tests/test_types.py _____________________\nImportError while importing test module '/work/repo/tests/test_types.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/__init__.py:4: in <module>\n    import scipy\nE   ModuleNotFoundError: No module named 'scipy'\n=========================== short test summary info ============================\nERROR tests/test_django.py\nERROR tests/test_psycopg.py\nERROR tests/test_sdk.py\nERROR tests/test_sqlalchemy.py\nERROR tests/test_types.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!\n5 errors in 0.32s\n",
+    "tests": {
+      "::tests.test_django": "error",
+      "::tests.test_psycopg": "error",
+      "::tests.test_sdk": "error",
+      "::tests.test_sqlalchemy": "error",
+      "::tests.test_types": "error"
+    },
+    "collection_errors": [
+      "::tests.test_django",
+      "::tests.test_psycopg",
+      "::tests.test_sdk",
+      "::tests.test_sqlalchemy",
+      "::tests.test_types"
+    ],
+    "resolved": {
+      "pytest": "9.1.1"
+    },
+    "elapsed_s": 3.4370950000000002,
+    "cost": 0.03511089,
+    "image_uuid": "687afdae-07c8-4f87-a7bf-50c36cafdbc5",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 5
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "no-baseline",
+    "reason": "no test passed in the before fork, so nothing can be shown to break",
+    "before_summary": {
+      "error": 5
+    },
+    "after_summary": {
+      "error": 5
+    },
+    "collected_before": 5
+  },
+  "error": null,
+  "requirement": "openai>=1.2.2; extra == \"sdk\"",
+  "wall_s": 20.0
+}

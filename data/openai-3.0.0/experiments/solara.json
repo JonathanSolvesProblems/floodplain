@@ -1,0 +1,88 @@
+{
+  "dependent": "solara",
+  "version": "1.61.0",
+  "source": {
+    "owner": "widgetti",
+    "repo": "solara",
+    "tag": "v1.61.0",
+    "sha": "93f23dc69719728f69e05eb5cd5defe858bdb607",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "8ab1ef9d-d656-486b-94f6-5e8d07f472ec",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo/packages/solara-meta\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\nno tests ran in 0.01s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 7.3521160000000005,
+    "cost": 0.07485284,
+    "image_uuid": "3c9e02ad-da5b-4b5e-a555-d08704e7a55d",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo/packages/solara-meta\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\nno tests ran in 0.01s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 7.673493,
+    "cost": 0.07806665,
+    "image_uuid": "da781b57-e3a1-4267-867f-230ad5c0bfcd",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo/packages/solara-meta\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\nno tests ran in 0.01s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 7.747532,
+    "cost": 0.0788566,
+    "image_uuid": "f55aa766-c844-4b13-baa4-7231edb999bf",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "no-tests",
+    "reason": "the package ships no test suite at this release",
+    "pytest_exit": 5
+  },
+  "error": null,
+  "requirement": "openai; extra == \"all\"",
+  "wall_s": 53.5
+}

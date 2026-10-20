@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Floodplain</title>
+<meta name="description" content="Run the test suites of every package that depends on yours, against a release you have not shipped yet. A dye trace of openai 3.0.0 across its downstream packages, run on Nebius Sandboxes with NVIDIA Nemotron.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ECEDE8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161714" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Floodplain">
+<meta property="og:description" content="A dye trace of openai 3.0.0 across the packages downstream of it. Two came back green. Nemotron wrote the same patch one maintainer shipped nine days later.">
+<meta property="og:image" content="og.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:slnt,wght,CRSV,SHRP@-12..0,200..800,0..1,0..100&family=Red+Hat+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="preload" href="data.json" as="fetch" crossorigin>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the trace</a>
+
+<header class="top">
+  <a class="mark" href="#/" aria-label="Floodplain, back to the trace">
+    <svg class="mark__glyph" viewBox="0 0 28 28" aria-hidden="true">
+      <path d="M14 2v7" class="mark__cord"/>
+      <path d="M8.5 9.5h11l1.5 12a3 3 0 0 1-3 3.3h-8a3 3 0 0 1-3-3.3z" class="mark__packet"/>
+      <path d="M7.6 17h12.8l.6 4.8a3 3 0 0 1-3 3h-8a3 3 0 0 1-3-3z" class="mark__dye"/>
+    </svg>
+    <span class="mark__word">Floodplain</span>
+  </a>
+  <p class="top__run" id="run-line"></p>
+</header>
+
+<main id="main" tabindex="-1">
+  <div id="view" aria-live="polite">
+    <p class="loading">Reading the receptors</p>
+  </div>
+</main>
+
+<footer class="foot">
+  <p>Every number on this page is read from the committed results of a run on Nebius Token Factory Sandboxes, triaged and patched with NVIDIA Nemotron. <a href="https://github.com/JonathanSolvesProblems/floodplain">The code and the raw results</a> are public under MIT.</p>
+  <p>Built by Jonathan Andrei, who wanted to know who a release breaks before it ships. More of what I build at <a href="https://jonathansolvesproblems.com">jonathansolvesproblems.com</a>.</p>
+</footer>
+
+<template id="tpl-error">
+  <section class="sheet sheet--plain">
+    <h1>The trace did not load</h1>
+    <p>The results file could not be read. The raw data is in the repository under <code>data/openai-3.0.0/</code>.</p>
+  </section>
+</template>
+
+<script src="app.js" type="module"></script>
+</body>
+</html>

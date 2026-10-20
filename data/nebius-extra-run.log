@@ -1,0 +1,73 @@
+﻿71 runnable dependents
+backend: nebius-sandboxes
+base image ready: nebius-sandboxes:66b26d62-8f5f-4b
+  fastmcp-slim                             incomplete       no-results    47.5s
+  sentry-sdk                               no-baseline                  47.6s
+  pydantic-ai-slim                         no-tests                     56.9s
+  langsmith                                no-baseline                  73.4s
+  databricks-sdk                           no-tests                     75.2s
+  swesmith                                 no-tests                     57.5s
+  openinference-instrumentation            no-tests                     41.8s
+  swebench                                 ok                          117.1s
+  pyvespa                                  no-baseline                  69.7s
+  langchain-aws                            no-baseline                  56.7s
+  harbor                                   unrunnable                   14.2s
+  speechrecognition                        incomplete       no-results    40.3s
+  autoevals                                incomplete       no-results    90.8s
+  opentelemetry-instrumentation-openai     ok                           89.9s
+  borb                                     no-baseline                  87.8s
+  pyod                                     no-baseline                 160.4s
+  redisvl                                  no-baseline                 190.7s
+  lancedb                                  unrunnable                  391.1s
+  mteb                                     no-baseline                 239.6s
+  openinference-instrumentation-openai     no-baseline                  62.8s
+  arize-phoenix                            unrunnable                  103.9s
+  outlines                                 no-baseline                 427.7s
+  agno                                     no-baseline                 374.8s
+  evidently                                no-baseline                 141.3s
+  torch-geometric                          incomplete       no-results   142.2s
+  inspect-evals                            incomplete       no-results   272.9s
+  kedro-datasets                           no-baseline                 391.5s
+  codewords-client                         no-tests                     63.3s
+  arize-phoenix-evals                      unrunnable                   54.7s
+  inspect-ai                               incomplete       no-results   812.0s
+  weave                                    no-baseline                 157.1s
+  unstructured-ingest                      no-tests                     85.2s
+  openinference-instrumentation-agno       broken           tests       93.6s
+  inspect-swe                              ok                          148.8s
+  graphifyy                                ok                          564.6s
+  prompty                                  no-baseline                  62.9s
+  npmai-agents                             no-tests                     63.6s
+  autogen-ext                              no-baseline                  87.6s
+  smolagents                               no-baseline                 184.5s
+  langextract                              ok                           87.9s
+  chonkie                                  ok                          400.0s
+  tinker-cookbook                          no-baseline                 197.0s
+  shiny                                    ok                          175.0s
+  captum                                   ok                          363.5s
+  megatron-core                            no-baseline                 219.0s
+  django-sql-explorer                      no-baseline                  75.0s
+  optuna-dashboard                         incomplete       no-results   179.1s
+  shinychat                                no-tests                     94.7s
+  zernio-sdk                               no-baseline                  93.0s
+  vanna                                    ok                          132.5s
+  geneva                                   no-baseline                 138.1s
+  xpander-sdk                              ok                           82.8s
+  inspect-scout                            ok                          474.3s
+  lance-context                            unrunnable                  169.7s
+  conductor-python                         incomplete       no-results    81.6s
+  late-sdk                                 no-baseline                  88.7s
+  markitdown-ocr                           unrunnable                    9.8s
+  mavproxy                                 no-tests                     30.0s
+  semble                                   no-baseline                  47.4s
+  solara                                   no-tests                     53.5s
+  pgvecto-rs                               no-baseline                  20.0s
+  groundx                                  no-baseline                  31.8s
+  vlmrun                                   broken           tests       49.9s
+  echo-agent                               ok                          269.9s
+  highcharts-core                          ok                          269.7s
+  dominodatalab                            no-baseline                 107.1s
+  vlmrun-hub                               ok                           73.1s
+  krepis                                   ok                           90.5s
+  tinygrad                                 no-baseline                 139.5s
+  jcodemunch-mcp                           ok                          528.1s

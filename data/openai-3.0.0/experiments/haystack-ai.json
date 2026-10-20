@@ -498,32 +498,15 @@
   },
   "flaky_excluded": [],
   "verdict": {
-    "status": "broken",
-    "kind": "tests",
-    "newly_failing": [],
-    "new_collection_errors": [
-      "::e2e.pipelines.test_evaluation_pipeline",
-      "::e2e.pipelines.test_pdf_content_extraction_pipeline",
-      "::test.components.embedders.test_azure_document_embedder",
-      "::test.components.embedders.test_azure_text_embedder",
-      "::test.components.generators.chat.test_openai",
-      "::test.components.generators.chat.test_openai_responses_conversion",
-      "::test.components.joiners.test_list_joiner",
-      "::test.components.retrievers.test_multi_query_embedding_retriever",
-      "::test.components.retrievers.test_multi_query_text_retriever",
-      "::test.components.retrievers.test_text_embedding_retriever",
-      "::test.core.pipeline.test_utils",
-      "::test.tools.test_searchable_toolset",
-      "::test.tools.test_toolset",
-      "::test.tools.test_toolset_wrapper",
-      "::test.utils.test_deserialization",
-      "::test.utils.test_http_client"
-    ],
-    "pre_existing_failures": 61,
-    "excluded_as_flaky": [],
-    "flake_control": true,
-    "collected_before": 61,
-    "collected_after": 77
+    "status": "no-baseline",
+    "reason": "no test passed in the before fork, so nothing can be shown to break",
+    "before_summary": {
+      "error": 61
+    },
+    "after_summary": {
+      "error": 77
+    },
+    "collected_before": 61
   },
   "error": null,
   "requirement": "openai>=1.99.2",

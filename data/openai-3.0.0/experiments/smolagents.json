@@ -1,0 +1,178 @@
+{
+  "dependent": "smolagents",
+  "version": "1.26.0",
+  "source": {
+    "owner": "pypi",
+    "repo": "smolagents",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/bd/85/3ca67bb57743434ac321821ea54cbdbf0d3dcc8d55f37199709e83141340/smolagents-1.26.0.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "8cddb0b4-6309-46fc-abeb-74271bf199c4",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "_____________\nImportError while importing test module '/work/repo/tests/test_default_tools.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_default_tools.py:31: in <module>\n    from .test_tools import ToolTesterMixin\nE   ImportError: attempted relative import with no known parent package\n_________________ ERROR collecting tests/test_final_answer.py __________________\nImportError while importing test module '/work/repo/tests/test_final_answer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_final_answer.py:24: in <module>\n    from .test_tools import ToolTesterMixin\nE   ImportError: attempted relative import with no known parent package\n____________________ ERROR collecting tests/test_models.py _____________________\nImportError while importing test module '/work/repo/tests/test_models.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_models.py:46: in <module>\n    from .utils.markers import require_run_all\nE   ImportError: attempted relative import with no known parent package\n_______________ ERROR collecting tests/test_remote_executors.py ________________\nImportError while importing test module '/work/repo/tests/test_remote_executors.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_remote_executors.py:24: in <module>\n    from .utils.markers import require_run_all\nE   ImportError: attempted relative import with no known parent package\n____________________ ERROR collecting tests/test_search.py _____________________\nImportError while importing test module '/work/repo/tests/test_search.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_search.py:19: in <module>\n    from .test_tools import ToolTesterMixin\nE   ImportError: attempted relative import with no known parent package\n___________________ ERROR collecting tests/test_telemetry.py ___________________\nImportError while importing test module '/work/repo/tests/test_telemetry.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_telemetry.py:22: in <module>\n    from .utils.markers import require_run_all\nE   ImportError: attempted relative import with no known parent package\n_____________________ ERROR collecting tests/test_tools.py _____________________\nImportError while importing test module '/work/repo/tests/test_tools.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_tools.py:30: in <module>\n    from .utils.markers import require_run_all\nE   ImportError: attempted relative import with no known parent package\n_____________________ ERROR collecting tests/test_types.py _____________________\nImportError while importing test module '/work/repo/tests/test_types.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_types.py:24: in <module>\n    from .utils.markers import require_soundfile, require_torch\nE   ImportError: attempted relative import with no known parent package\n_________________ ERROR collecting tests/test_yield_support.py _________________\nImportError while importing test module '/work/repo/tests/test_yield_support.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_yield_support.py:22: in <module>\n    from smolagents.local_python_executor import (\nE   ImportError: cannot import name 'YieldException' from 'smolagents.local_python_executor' (/work/repo/src/smolagents/local_python_executor.py)\n--------------------- generated xml file: /work/junit.xml ----------------------\n=========================== short test summary info ============================\nERROR tests/test_all_docs.py\nERROR tests/test_default_tools.py\nERROR tests/test_final_answer.py\nERROR tests/test_models.py\nERROR tests/test_remote_executors.py\nERROR tests/test_search.py\nERROR tests/test_telemetry.py\nERROR tests/test_tools.py\nERROR tests/test_types.py\nERROR tests/test_yield_support.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\n============================== 10 errors in 3.40s ==============================\n",
+    "tests": {
+      "::tests.test_all_docs": "error",
+      "::tests.test_default_tools": "error",
+      "::tests.test_final_answer": "error",
+      "::tests.test_models": "error",
+      "::tests.test_remote_executors": "error",
+      "::tests.test_search": "error",
+      "::tests.test_telemetry": "error",
+      "::tests.test_tools": "error",
+      "::tests.test_types": "error",
+      "::tests.test_yield_support": "error"
+    },
+    "collection_errors": [
+      "::tests.test_all_docs",
+      "::tests.test_default_tools",
+      "::tests.test_final_answer",
+      "::tests.test_models",
+      "::tests.test_remote_executors",
+      "::tests.test_search",
+      "::tests.test_telemetry",
+      "::tests.test_tools",
+      "::tests.test_types",
+      "::tests.test_yield_support"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 45.200567,
+    "cost": 0.45600514999999997,
+    "image_uuid": "82f34cd8-d56a-43ed-9a64-a0a9a842fdea",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 10
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "_____________\nImportError while importing test module '/work/repo/tests/test_default_tools.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_default_tools.py:31: in <module>\n    from .test_tools import ToolTesterMixin\nE   ImportError: attempted relative import with no known parent package\n_________________ ERROR collecting tests/test_final_answer.py __________________\nImportError while importing test module '/work/repo/tests/test_final_answer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_final_answer.py:24: in <module>\n    from .test_tools import ToolTesterMixin\nE   ImportError: attempted relative import with no known parent package\n____________________ ERROR collecting tests/test_models.py _____________________\nImportError while importing test module '/work/repo/tests/test_models.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_models.py:46: in <module>\n    from .utils.markers import require_run_all\nE   ImportError: attempted relative import with no known parent package\n_______________ ERROR collecting tests/test_remote_executors.py ________________\nImportError while importing test module '/work/repo/tests/test_remote_executors.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_remote_executors.py:24: in <module>\n    from .utils.markers import require_run_all\nE   ImportError: attempted relative import with no known parent package\n____________________ ERROR collecting tests/test_search.py _____________________\nImportError while importing test module '/work/repo/tests/test_search.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_search.py:19: in <module>\n    from .test_tools import ToolTesterMixin\nE   ImportError: attempted relative import with no known parent package\n___________________ ERROR collecting tests/test_telemetry.py ___________________\nImportError while importing test module '/work/repo/tests/test_telemetry.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_telemetry.py:22: in <module>\n    from .utils.markers import require_run_all\nE   ImportError: attempted relative import with no known parent package\n_____________________ ERROR collecting tests/test_tools.py _____________________\nImportError while importing test module '/work/repo/tests/test_tools.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_tools.py:30: in <module>\n    from .utils.markers import require_run_all\nE   ImportError: attempted relative import with no known parent package\n_____________________ ERROR collecting tests/test_types.py _____________________\nImportError while importing test module '/work/repo/tests/test_types.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_types.py:24: in <module>\n    from .utils.markers import require_soundfile, require_torch\nE   ImportError: attempted relative import with no known parent package\n_________________ ERROR collecting tests/test_yield_support.py _________________\nImportError while importing test module '/work/repo/tests/test_yield_support.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_yield_support.py:22: in <module>\n    from smolagents.local_python_executor import (\nE   ImportError: cannot import name 'YieldException' from 'smolagents.local_python_executor' (/work/repo/src/smolagents/local_python_executor.py)\n--------------------- generated xml file: /work/junit.xml ----------------------\n=========================== short test summary info ============================\nERROR tests/test_all_docs.py\nERROR tests/test_default_tools.py\nERROR tests/test_final_answer.py\nERROR tests/test_models.py\nERROR tests/test_remote_executors.py\nERROR tests/test_search.py\nERROR tests/test_telemetry.py\nERROR tests/test_tools.py\nERROR tests/test_types.py\nERROR tests/test_yield_support.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\n============================== 10 errors in 6.96s ==============================\n",
+    "tests": {
+      "::tests.test_all_docs": "error",
+      "::tests.test_default_tools": "error",
+      "::tests.test_final_answer": "error",
+      "::tests.test_models": "error",
+      "::tests.test_remote_executors": "error",
+      "::tests.test_search": "error",
+      "::tests.test_telemetry": "error",
+      "::tests.test_tools": "error",
+      "::tests.test_types": "error",
+      "::tests.test_yield_support": "error"
+    },
+    "collection_errors": [
+      "::tests.test_all_docs",
+      "::tests.test_default_tools",
+      "::tests.test_final_answer",
+      "::tests.test_models",
+      "::tests.test_remote_executors",
+      "::tests.test_search",
+      "::tests.test_telemetry",
+      "::tests.test_tools",
+      "::tests.test_types",
+      "::tests.test_yield_support"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 43.062274,
+    "cost": 0.43474066,
+    "image_uuid": "50708f69-43d5-441d-9240-860e24b9d76a",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 10
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "_____________\nImportError while importing test module '/work/repo/tests/test_default_tools.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_default_tools.py:31: in <module>\n    from .test_tools import ToolTesterMixin\nE   ImportError: attempted relative import with no known parent package\n_________________ ERROR collecting tests/test_final_answer.py __________________\nImportError while importing test module '/work/repo/tests/test_final_answer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_final_answer.py:24: in <module>\n    from .test_tools import ToolTesterMixin\nE   ImportError: attempted relative import with no known parent package\n____________________ ERROR collecting tests/test_models.py _____________________\nImportError while importing test module '/work/repo/tests/test_models.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_models.py:46: in <module>\n    from .utils.markers import require_run_all\nE   ImportError: attempted relative import with no known parent package\n_______________ ERROR collecting tests/test_remote_executors.py ________________\nImportError while importing test module '/work/repo/tests/test_remote_executors.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_remote_executors.py:24: in <module>\n    from .utils.markers import require_run_all\nE   ImportError: attempted relative import with no known parent package\n____________________ ERROR collecting tests/test_search.py _____________________\nImportError while importing test module '/work/repo/tests/test_search.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_search.py:19: in <module>\n    from .test_tools import ToolTesterMixin\nE   ImportError: attempted relative import with no known parent package\n___________________ ERROR collecting tests/test_telemetry.py ___________________\nImportError while importing test module '/work/repo/tests/test_telemetry.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_telemetry.py:22: in <module>\n    from .utils.markers import require_run_all\nE   ImportError: attempted relative import with no known parent package\n_____________________ ERROR collecting tests/test_tools.py _____________________\nImportError while importing test module '/work/repo/tests/test_tools.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_tools.py:30: in <module>\n    from .utils.markers import require_run_all\nE   ImportError: attempted relative import with no known parent package\n_____________________ ERROR collecting tests/test_types.py _____________________\nImportError while importing test module '/work/repo/tests/test_types.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_types.py:24: in <module>\n    from .utils.markers import require_soundfile, require_torch\nE   ImportError: attempted relative import with no known parent package\n_________________ ERROR collecting tests/test_yield_support.py _________________\nImportError while importing test module '/work/repo/tests/test_yield_support.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_yield_support.py:22: in <module>\n    from smolagents.local_python_executor import (\nE   ImportError: cannot import name 'YieldException' from 'smolagents.local_python_executor' (/work/repo/src/smolagents/local_python_executor.py)\n--------------------- generated xml file: /work/junit.xml ----------------------\n=========================== short test summary info ============================\nERROR tests/test_all_docs.py\nERROR tests/test_default_tools.py\nERROR tests/test_final_answer.py\nERROR tests/test_models.py\nERROR tests/test_remote_executors.py\nERROR tests/test_search.py\nERROR tests/test_telemetry.py\nERROR tests/test_tools.py\nERROR tests/test_types.py\nERROR tests/test_yield_support.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\n============================== 10 errors in 3.65s ==============================\n",
+    "tests": {
+      "::tests.test_all_docs": "error",
+      "::tests.test_default_tools": "error",
+      "::tests.test_final_answer": "error",
+      "::tests.test_models": "error",
+      "::tests.test_remote_executors": "error",
+      "::tests.test_search": "error",
+      "::tests.test_telemetry": "error",
+      "::tests.test_tools": "error",
+      "::tests.test_types": "error",
+      "::tests.test_yield_support": "error"
+    },
+    "collection_errors": [
+      "::tests.test_all_docs",
+      "::tests.test_default_tools",
+      "::tests.test_final_answer",
+      "::tests.test_models",
+      "::tests.test_remote_executors",
+      "::tests.test_search",
+      "::tests.test_telemetry",
+      "::tests.test_tools",
+      "::tests.test_types",
+      "::tests.test_yield_support"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 45.082364999999996,
+    "cost": 0.45486327,
+    "image_uuid": "6fba34dc-baa5-4c1b-b2e3-ca45ea976a4d",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 10
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "no-baseline",
+    "reason": "no test passed in the before fork, so nothing can be shown to break",
+    "before_summary": {
+      "error": 10
+    },
+    "after_summary": {
+      "error": 10
+    },
+    "collected_before": 10
+  },
+  "error": null,
+  "requirement": "openai>=1.58.1; extra == \"openai\"",
+  "wall_s": 184.5
+}

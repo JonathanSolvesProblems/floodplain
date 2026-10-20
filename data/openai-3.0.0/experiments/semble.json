@@ -1,0 +1,115 @@
+{
+  "dependent": "semble",
+  "version": "0.5.4",
+  "source": {
+    "owner": "MinishLab",
+    "repo": "semble",
+    "tag": "v0.5.4",
+    "sha": "b491200bc39ef1df751dd4b2bea830ee0eeb1da0",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "97e332b7-8b29-44ac-bec2-57af168153f6",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n______________________ ERROR collecting tests/test_mcp.py ______________________\nImportError while importing test module '/work/repo/tests/test_mcp.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_mcp.py:11: in <module>\n    from semble.mcp import _CACHE_MAX_SIZE, _IndexCache, create_server, serve\nsrc/semble/mcp.py:12: in <module>\n    from mcp.server.fastmcp import FastMCP\nE   ModuleNotFoundError: No module named 'mcp'\n=========================== short test summary info ============================\nERROR tests/test_mcp.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 1.05s\n",
+    "tests": {
+      "::tests.test_mcp": "error"
+    },
+    "collection_errors": [
+      "::tests.test_mcp"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 11.027438,
+    "cost": 0.11149396,
+    "image_uuid": "260f431e-54e4-4a84-ada2-ed522ae450c0",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n______________________ ERROR collecting tests/test_mcp.py ______________________\nImportError while importing test module '/work/repo/tests/test_mcp.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_mcp.py:11: in <module>\n    from semble.mcp import _CACHE_MAX_SIZE, _IndexCache, create_server, serve\nsrc/semble/mcp.py:12: in <module>\n    from mcp.server.fastmcp import FastMCP\nE   ModuleNotFoundError: No module named 'mcp'\n=========================== short test summary info ============================\nERROR tests/test_mcp.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 1.01s\n",
+    "tests": {
+      "::tests.test_mcp": "error"
+    },
+    "collection_errors": [
+      "::tests.test_mcp"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 10.940148,
+    "cost": 0.11061992,
+    "image_uuid": "a4026a5e-8de4-4a8b-b68e-8224590e4d69",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n______________________ ERROR collecting tests/test_mcp.py ______________________\nImportError while importing test module '/work/repo/tests/test_mcp.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_mcp.py:11: in <module>\n    from semble.mcp import _CACHE_MAX_SIZE, _IndexCache, create_server, serve\nsrc/semble/mcp.py:12: in <module>\n    from mcp.server.fastmcp import FastMCP\nE   ModuleNotFoundError: No module named 'mcp'\n=========================== short test summary info ============================\nERROR tests/test_mcp.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 1.03s\n",
+    "tests": {
+      "::tests.test_mcp": "error"
+    },
+    "collection_errors": [
+      "::tests.test_mcp"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 11.576925000000001,
+    "cost": 0.11697791000000002,
+    "image_uuid": "6b7ad533-06fd-4dd0-a948-29142bb2ea88",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "no-baseline",
+    "reason": "no test passed in the before fork, so nothing can be shown to break",
+    "before_summary": {
+      "error": 1
+    },
+    "after_summary": {
+      "error": 1
+    },
+    "collected_before": 1
+  },
+  "error": null,
+  "requirement": "openai>=1.50; extra == \"benchmark\"",
+  "wall_s": 47.4
+}

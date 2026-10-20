@@ -1,0 +1,91 @@
+{
+  "dependent": "shinychat",
+  "version": "0.6.0",
+  "source": {
+    "owner": "posit-dev",
+    "repo": "shinychat",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/e0/05/b7b7de15046729f2a1c637fec9e98e0746a1feb244ce7406af9d21fdc0e4/shinychat-0.6.0.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "9de7ed42-33f0-4878-8e9e-066ae18c1c3e",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev group:test\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\n=============================== warnings summary ===============================\n../venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1624\n  /work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1624: PytestConfigWarning: No files were found in testpaths; consider removing or adjusting your testpaths configuration. Searching recursively from the current directory instead.\n    self.args, self.args_source = self._decide_args(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n1 warning in 0.01s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 9.403599999999999,
+    "cost": 0.0956184,
+    "image_uuid": "0a31645c-da5e-45b1-b77a-106fa4ee5d1e",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev group:test\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\n=============================== warnings summary ===============================\n../venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1624\n  /work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1624: PytestConfigWarning: No files were found in testpaths; consider removing or adjusting your testpaths configuration. Searching recursively from the current directory instead.\n    self.args, self.args_source = self._decide_args(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n1 warning in 0.01s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 9.240905,
+    "cost": 0.09395738999999999,
+    "image_uuid": "9e085403-7a6e-4526-b86d-99d1afbd8f87",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev group:test\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\n=============================== warnings summary ===============================\n../venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1624\n  /work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1624: PytestConfigWarning: No files were found in testpaths; consider removing or adjusting your testpaths configuration. Searching recursively from the current directory instead.\n    self.args, self.args_source = self._decide_args(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n1 warning in 0.01s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 9.298994,
+    "cost": 0.09453982,
+    "image_uuid": "a00d8fdf-48e2-4878-b841-c86ea5575cfd",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "no-tests",
+    "reason": "the package ships no test suite at this release",
+    "pytest_exit": 5
+  },
+  "error": null,
+  "requirement": "openai; extra == \"providers\"",
+  "wall_s": 94.7
+}

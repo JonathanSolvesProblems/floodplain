@@ -144,29 +144,15 @@
   },
   "flaky_excluded": [],
   "verdict": {
-    "status": "broken",
-    "kind": "tests",
-    "newly_failing": [],
-    "new_collection_errors": [
-      "::litellm.integrations.test_httpx",
-      "::tests.test_end_users",
-      "::tests.test_entrypoint",
-      "::tests.test_gpt5_azure_temperature_support",
-      "::tests.test_keys",
-      "::tests.test_litellm_proxy_responses_config",
-      "::tests.test_openai_endpoints",
-      "::tests.test_otel_thread_leak",
-      "::tests.test_presidio_latency",
-      "::tests.test_ratelimit",
-      "::tests.test_resource_cleanup",
-      "::tests.test_service_logger_otel",
-      "::tests.test_team_members"
-    ],
-    "pre_existing_failures": 3,
-    "excluded_as_flaky": [],
-    "flake_control": true,
-    "collected_before": 3,
-    "collected_after": 16
+    "status": "no-baseline",
+    "reason": "no test passed in the before fork, so nothing can be shown to break",
+    "before_summary": {
+      "error": 3
+    },
+    "after_summary": {
+      "error": 16
+    },
+    "collected_before": 3
   },
   "error": null,
   "requirement": "openai>=2.8.0",

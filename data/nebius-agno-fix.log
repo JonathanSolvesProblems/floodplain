@@ -1,0 +1,6 @@
+﻿1 runnable dependents
+backend: nebius-sandboxes
+models: {'nano': 'nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B', 'super': 'nvidia/nemotron-3-super-120b-a12b', 'ultra': 'nvidia/Nemotron-3-Ultra-550b-a55b'}
+  triage openinference-instrumentation-agno [removed-or-renamed-api] The OpenAI release switched to HTTPX2 and removed the HTTPTransport class that downstream   quotes=2 dropped=0
+  fix    openinference-instrumentation-agno VERIFIED after 3 attempt(s)
+token usage: Usage(calls=4, prompt_tokens=16512, completion_tokens=15190, reasoning_tokens=13776, empty_replies=0, by_model={'nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B': 1, 'nvidia/nemotron-3-super-120b-a12b': 2, 'nvidia/Nemotron-3-Ultra-550b-a55b': 1})

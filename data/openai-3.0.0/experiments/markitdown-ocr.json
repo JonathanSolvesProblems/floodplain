@@ -1,0 +1,73 @@
+{
+  "dependent": "markitdown-ocr",
+  "version": "0.1.0",
+  "source": {
+    "owner": "microsoft",
+    "repo": "markitdown",
+    "tag": "v0.1.0",
+    "sha": "2ffe6ea59140cf09afd1e7d41e1f29611bdba3e8",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "467de508-2516-4a4a-8d39-f15e72f936b8",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: `/work/repo` does not appear to be a Python project, as neither `pyproject.toml` nor `setup.py` are present in the directory\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.102613,
+    "cost": 0.00120043,
+    "image_uuid": "6f14badb-436e-4f32-95b7-c6759ae4d718",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: `/work/repo` does not appear to be a Python project, as neither `pyproject.toml` nor `setup.py` are present in the directory\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.111287,
+    "cost": 0.00128717,
+    "image_uuid": "70d865f1-1a7c-4ed3-a9b7-67dade016b03",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: `/work/repo` does not appear to be a Python project, as neither `pyproject.toml` nor `setup.py` are present in the directory\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.107535,
+    "cost": 0.0012496500000000002,
+    "image_uuid": "2f4b8a26-afc8-4255-a319-346e5eaea3f5",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "unrunnable",
+    "reason": "install failed before and after",
+    "evidence": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: `/work/repo` does not appear to be a Python project, as neither `pyproject.toml` nor `setup.py` are present in the directory\n"
+  },
+  "error": null,
+  "requirement": "openai>=1.0.0; extra == \"llm\"",
+  "wall_s": 9.8
+}

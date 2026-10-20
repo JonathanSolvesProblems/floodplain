@@ -1,0 +1,73 @@
+{
+  "dependent": "lance-context",
+  "version": "0.6.5",
+  "source": {
+    "owner": "pypi",
+    "repo": "lance-context",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/47/25/8f7bb408116c3f8a1b1db76fa14891ec9111d5843e1cc735515a356468b8/lance_context-0.6.5.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "39053671-aeca-46fe-8b6b-8969f8be286b",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\n           and include information about your system as well as this message.\n\n           $HOST = x86_64-unknown-linux-gnu\n           $TARGET = x86_64-unknown-linux-gnu\n           openssl-sys = 0.9.117\n\n\n           It looks like you're compiling on Linux and also targeting Linux. Currently this\n           requires the `pkg-config` utility to find OpenSSL but unfortunately `pkg-config`\n           could not be found. If you have OpenSSL installed you can likely fix this by\n           installing `pkg-config`.\n\n\n         warning: build failed, waiting for other jobs to finish...\n         \ud83d\udca5 maturin failed\n           Caused by: Failed to build a native library through cargo\n           Caused by: Cargo build finished with \"exit status: 101\": `env -u CARGO PYO3_BUILD_EXTENSION_MODULE=\"1\" PYO3_ENVIRONMENT_SIGNATURE=\"cpython-3.12-64bit\" PYO3_PYTHON=\"/root/.cache/uv/builds-v0/.tmpC2Bt8R/bin/python\" PYTHON_SYS_EXECUTABLE=\"/root/.cache/uv/builds-v0/.tmpC2Bt8R/bin/python\" \"cargo\" \"rustc\" \"--profile\" \"release\" \"--message-format\" \"json-render-diagnostics\" \"--manifest-path\" \"/work/repo/python/Cargo.toml\" \"--lib\"`\n         Error: command ['maturin', 'pep517', 'build-wheel', '-i', '/root/.cache/uv/builds-v0/.tmpC2Bt8R/bin/python', '--compatibility', 'off', '--editable'] returned non-zero exit status 1\n\nhint: Build failures usually indicate a problem with the package or the build environment\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 187.114165,
+    "cost": 1.8748586500000002,
+    "image_uuid": "0fe3259e-78e4-4b29-8df9-304b79e10b56",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\n           and include information about your system as well as this message.\n\n           $HOST = x86_64-unknown-linux-gnu\n           $TARGET = x86_64-unknown-linux-gnu\n           openssl-sys = 0.9.117\n\n\n           It looks like you're compiling on Linux and also targeting Linux. Currently this\n           requires the `pkg-config` utility to find OpenSSL but unfortunately `pkg-config`\n           could not be found. If you have OpenSSL installed you can likely fix this by\n           installing `pkg-config`.\n\n\n         warning: build failed, waiting for other jobs to finish...\n         \ud83d\udca5 maturin failed\n           Caused by: Failed to build a native library through cargo\n           Caused by: Cargo build finished with \"exit status: 101\": `env -u CARGO PYO3_BUILD_EXTENSION_MODULE=\"1\" PYO3_ENVIRONMENT_SIGNATURE=\"cpython-3.12-64bit\" PYO3_PYTHON=\"/root/.cache/uv/builds-v0/.tmpF3cBvz/bin/python\" PYTHON_SYS_EXECUTABLE=\"/root/.cache/uv/builds-v0/.tmpF3cBvz/bin/python\" \"cargo\" \"rustc\" \"--profile\" \"release\" \"--message-format\" \"json-render-diagnostics\" \"--manifest-path\" \"/work/repo/python/Cargo.toml\" \"--lib\"`\n         Error: command ['maturin', 'pep517', 'build-wheel', '-i', '/root/.cache/uv/builds-v0/.tmpF3cBvz/bin/python', '--compatibility', 'off', '--editable'] returned non-zero exit status 1\n\nhint: Build failures usually indicate a problem with the package or the build environment\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 186.67333,
+    "cost": 1.87050418,
+    "image_uuid": "69f46393-d211-4617-956b-23d879f1d6ed",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\n           and include information about your system as well as this message.\n\n           $HOST = x86_64-unknown-linux-gnu\n           $TARGET = x86_64-unknown-linux-gnu\n           openssl-sys = 0.9.117\n\n\n           It looks like you're compiling on Linux and also targeting Linux. Currently this\n           requires the `pkg-config` utility to find OpenSSL but unfortunately `pkg-config`\n           could not be found. If you have OpenSSL installed you can likely fix this by\n           installing `pkg-config`.\n\n\n         warning: build failed, waiting for other jobs to finish...\n         \ud83d\udca5 maturin failed\n           Caused by: Failed to build a native library through cargo\n           Caused by: Cargo build finished with \"exit status: 101\": `env -u CARGO PYO3_BUILD_EXTENSION_MODULE=\"1\" PYO3_ENVIRONMENT_SIGNATURE=\"cpython-3.12-64bit\" PYO3_PYTHON=\"/root/.cache/uv/builds-v0/.tmphptPwT/bin/python\" PYTHON_SYS_EXECUTABLE=\"/root/.cache/uv/builds-v0/.tmphptPwT/bin/python\" \"cargo\" \"rustc\" \"--profile\" \"release\" \"--message-format\" \"json-render-diagnostics\" \"--manifest-path\" \"/work/repo/python/Cargo.toml\" \"--lib\"`\n         Error: command ['maturin', 'pep517', 'build-wheel', '-i', '/root/.cache/uv/builds-v0/.tmphptPwT/bin/python', '--compatibility', 'off', '--editable'] returned non-zero exit status 1\n\nhint: Build failures usually indicate a problem with the package or the build environment\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 187.755063,
+    "cost": 1.88122697,
+    "image_uuid": "6f2c8c2f-1c5f-4e22-ac25-415a07f1ca9f",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "unrunnable",
+    "reason": "install failed before and after",
+    "evidence": "turin failed\n           Caused by: Failed to build a native library through cargo\n           Caused by: Cargo build finished with \"exit status: 101\": `env -u CARGO PYO3_BUILD_EXTENSION_MODULE=\"1\" PYO3_ENVIRONMENT_SIGNATURE=\"cpython-3.12-64bit\" PYO3_PYTHON=\"/root/.cache/uv/builds-v0/.tmpC2Bt8R/bin/python\" PYTHON_SYS_EXECUTABLE=\"/root/.cache/uv/builds-v0/.tmpC2Bt8R/bin/python\" \"cargo\" \"rustc\" \"--profile\" \"release\" \"--message-format\" \"json-render-diagnostics\" \"--manifest-path\" \"/work/repo/python/Cargo.toml\" \"--lib\"`\n         Error: command ['maturin', 'pep517', 'build-wheel', '-i', '/root/.cache/uv/builds-v0/.tmpC2Bt8R/bin/python', '--compatibility', 'off', '--editable'] returned non-zero exit status 1\n\nhint: Build failures usually indicate a problem with the package or the build environment\n"
+  },
+  "error": null,
+  "requirement": "openai>=1.0; extra == \"openai\"",
+  "wall_s": 169.7
+}

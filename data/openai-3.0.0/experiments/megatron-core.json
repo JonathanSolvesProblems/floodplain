@@ -1,0 +1,134 @@
+{
+  "dependent": "megatron-core",
+  "version": "0.18.2",
+  "source": {
+    "owner": "NVIDIA",
+    "repo": "Megatron-LM",
+    "tag": "core_v0.18.2",
+    "sha": "571370c829ca768fe37244f4e2e7f28d8accc4ab",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "9fd69e9e-453b-404e-a056-8edff296d641",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:develop extra:all group:test\n[floodplain] resolved:\nanyio==4.9.0\ncertifi==2026.7.22\nhttpx==0.27.2\nopenai==2.54.0\npydantic==2.14.0b1\npytest==8.3.5\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "/work/venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:292: PytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\nThe event loop scope for asynchronous fixtures will default to the \"fixture\" caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to \"function\" scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n\n==================================== ERRORS ====================================\n_ ERROR collecting tests/functional_tests/python_test_utils/test_optimizer_grads_match.py _\nImportError while importing test module '/work/repo/tests/functional_tests/python_test_utils/test_optimizer_grads_match.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/functional_tests/python_test_utils/test_optimizer_grads_match.py:6: in <module>\n    import torch\nE   ModuleNotFoundError: No module named 'torch'\n_ ERROR collecting tests/functional_tests/test_cases/common/moe_perf/test_cases.py _\nImportError while importing test module '/work/repo/tests/functional_tests/test_cases/common/moe_perf/test_cases.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/functional_tests/test_cases/common/moe_perf/test_cases.py:5: in <module>\n    import torch\nE   ModuleNotFoundError: No module named 'torch'\n______________________ ERROR collecting tests/unit_tests _______________________\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1310: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:488: in _call_with_frames_removed\n    ???\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n<frozen importlib._bootstrap_external>:999: in exec_module\n    ???\n<frozen importlib._bootstrap>:488: in _call_with_frames_removed\n    ???\ntests/unit_tests/__init__.py:1: in <module>\n    import torch._dynamo\nE   ModuleNotFoundError: No module named 'torch'\n--------------------- generated xml file: /work/junit.xml ----------------------\n=========================== short test summary info ============================\nERROR tests/functional_tests/python_test_utils/test_optimizer_grads_match.py\nERROR tests/functional_tests/test_cases/common/moe_perf/test_cases.py\nERROR tests/unit_tests - ModuleNotFoundError: No module named 'torch'\n!!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!\n3 errors in 1.23s\n",
+    "tests": {
+      "::tests.functional_tests.python_test_utils.test_optimizer_grads_match": "error",
+      "::tests.functional_tests.test_cases.common.moe_perf.test_cases": "error",
+      "::tests.unit_tests": "error"
+    },
+    "collection_errors": [
+      "::tests.functional_tests.python_test_utils.test_optimizer_grads_match",
+      "::tests.functional_tests.test_cases.common.moe_perf.test_cases",
+      "::tests.unit_tests"
+    ],
+    "resolved": {
+      "anyio": "4.9.0",
+      "certifi": "2026.7.22",
+      "httpx": "0.27.2",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "8.3.5",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 61.805889,
+    "cost": 0.62069107,
+    "image_uuid": "42fccf98-abd7-4ea1-b4ed-7dd25b2806e4",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 3
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:develop extra:all group:test\n[floodplain] resolved:\nanyio==4.9.0\ncertifi==2026.7.22\nhttpx==0.27.2\nhttpx2==2.10.0\nopenai==3.0.0\npydantic==2.14.0b1\npytest==8.3.5\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "/work/venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:292: PytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\nThe event loop scope for asynchronous fixtures will default to the \"fixture\" caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to \"function\" scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n\n==================================== ERRORS ====================================\n_ ERROR collecting tests/functional_tests/python_test_utils/test_optimizer_grads_match.py _\nImportError while importing test module '/work/repo/tests/functional_tests/python_test_utils/test_optimizer_grads_match.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/functional_tests/python_test_utils/test_optimizer_grads_match.py:6: in <module>\n    import torch\nE   ModuleNotFoundError: No module named 'torch'\n_ ERROR collecting tests/functional_tests/test_cases/common/moe_perf/test_cases.py _\nImportError while importing test module '/work/repo/tests/functional_tests/test_cases/common/moe_perf/test_cases.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/functional_tests/test_cases/common/moe_perf/test_cases.py:5: in <module>\n    import torch\nE   ModuleNotFoundError: No module named 'torch'\n______________________ ERROR collecting tests/unit_tests _______________________\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1310: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:488: in _call_with_frames_removed\n    ???\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n<frozen importlib._bootstrap_external>:999: in exec_module\n    ???\n<frozen importlib._bootstrap>:488: in _call_with_frames_removed\n    ???\ntests/unit_tests/__init__.py:1: in <module>\n    import torch._dynamo\nE   ModuleNotFoundError: No module named 'torch'\n--------------------- generated xml file: /work/junit.xml ----------------------\n=========================== short test summary info ============================\nERROR tests/functional_tests/python_test_utils/test_optimizer_grads_match.py\nERROR tests/functional_tests/test_cases/common/moe_perf/test_cases.py\nERROR tests/unit_tests - ModuleNotFoundError: No module named 'torch'\n!!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!\n3 errors in 1.29s\n",
+    "tests": {
+      "::tests.functional_tests.python_test_utils.test_optimizer_grads_match": "error",
+      "::tests.functional_tests.test_cases.common.moe_perf.test_cases": "error",
+      "::tests.unit_tests": "error"
+    },
+    "collection_errors": [
+      "::tests.functional_tests.python_test_utils.test_optimizer_grads_match",
+      "::tests.functional_tests.test_cases.common.moe_perf.test_cases",
+      "::tests.unit_tests"
+    ],
+    "resolved": {
+      "anyio": "4.9.0",
+      "certifi": "2026.7.22",
+      "httpx": "0.27.2",
+      "httpx2": "2.10.0",
+      "openai": "3.0.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "8.3.5",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 61.802924,
+    "cost": 0.6206612,
+    "image_uuid": "68946886-b562-4217-a389-84bda59409ee",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 3
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:develop extra:all group:test\n[floodplain] resolved:\nanyio==4.9.0\ncertifi==2026.7.22\nhttpx==0.27.2\nopenai==2.54.0\npydantic==2.14.0b1\npytest==8.3.5\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "/work/venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:292: PytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\nThe event loop scope for asynchronous fixtures will default to the \"fixture\" caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to \"function\" scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n\n==================================== ERRORS ====================================\n_ ERROR collecting tests/functional_tests/python_test_utils/test_optimizer_grads_match.py _\nImportError while importing test module '/work/repo/tests/functional_tests/python_test_utils/test_optimizer_grads_match.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/functional_tests/python_test_utils/test_optimizer_grads_match.py:6: in <module>\n    import torch\nE   ModuleNotFoundError: No module named 'torch'\n_ ERROR collecting tests/functional_tests/test_cases/common/moe_perf/test_cases.py _\nImportError while importing test module '/work/repo/tests/functional_tests/test_cases/common/moe_perf/test_cases.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/functional_tests/test_cases/common/moe_perf/test_cases.py:5: in <module>\n    import torch\nE   ModuleNotFoundError: No module named 'torch'\n______________________ ERROR collecting tests/unit_tests _______________________\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1310: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:488: in _call_with_frames_removed\n    ???\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n<frozen importlib._bootstrap_external>:999: in exec_module\n    ???\n<frozen importlib._bootstrap>:488: in _call_with_frames_removed\n    ???\ntests/unit_tests/__init__.py:1: in <module>\n    import torch._dynamo\nE   ModuleNotFoundError: No module named 'torch'\n--------------------- generated xml file: /work/junit.xml ----------------------\n=========================== short test summary info ============================\nERROR tests/functional_tests/python_test_utils/test_optimizer_grads_match.py\nERROR tests/functional_tests/test_cases/common/moe_perf/test_cases.py\nERROR tests/unit_tests - ModuleNotFoundError: No module named 'torch'\n!!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!\n3 errors in 1.23s\n",
+    "tests": {
+      "::tests.functional_tests.python_test_utils.test_optimizer_grads_match": "error",
+      "::tests.functional_tests.test_cases.common.moe_perf.test_cases": "error",
+      "::tests.unit_tests": "error"
+    },
+    "collection_errors": [
+      "::tests.functional_tests.python_test_utils.test_optimizer_grads_match",
+      "::tests.functional_tests.test_cases.common.moe_perf.test_cases",
+      "::tests.unit_tests"
+    ],
+    "resolved": {
+      "anyio": "4.9.0",
+      "certifi": "2026.7.22",
+      "httpx": "0.27.2",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "8.3.5",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 61.534861,
+    "cost": 0.6179806900000001,
+    "image_uuid": "61d3ea21-4f80-4541-8364-6bc1de1b4285",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 3
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "no-baseline",
+    "reason": "no test passed in the before fork, so nothing can be shown to break",
+    "before_summary": {
+      "error": 3
+    },
+    "after_summary": {
+      "error": 3
+    },
+    "collected_before": 3
+  },
+  "error": null,
+  "requirement": "openai[aiohttp]; extra == \"dev\"",
+  "wall_s": 219.0
+}

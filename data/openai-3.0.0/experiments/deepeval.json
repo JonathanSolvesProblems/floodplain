@@ -545,17 +545,17 @@
   },
   "flaky_excluded": [],
   "verdict": {
-    "status": "broken",
-    "kind": "tests",
-    "newly_failing": [],
-    "new_collection_errors": [
-      "::tests.test_core.test_models.test_openai_retry_policy"
-    ],
-    "pre_existing_failures": 73,
-    "excluded_as_flaky": [],
-    "flake_control": true,
-    "collected_before": 74,
-    "collected_after": 75
+    "status": "no-baseline",
+    "reason": "no test passed in the before fork, so nothing can be shown to break",
+    "before_summary": {
+      "error": 73,
+      "skipped": 1
+    },
+    "after_summary": {
+      "error": 74,
+      "skipped": 1
+    },
+    "collected_before": 74
   },
   "error": null,
   "requirement": "openai",

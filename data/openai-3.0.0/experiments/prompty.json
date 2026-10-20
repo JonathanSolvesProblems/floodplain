@@ -1,0 +1,133 @@
+{
+  "dependent": "prompty",
+  "version": "0.1.50",
+  "source": {
+    "owner": "Microsoft",
+    "repo": "prompty",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/85/bb/c2c9d17f23cba698c05cf9542f4d650ac3f3accd381c62c502263ed67ac4/prompty-0.1.50.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "b74a8e00-5622-453a-9b66-60a12b7af6af",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\npytest==9.1.1\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n____________________ ERROR collecting tests/test_common.py _____________________\nImportError while importing test module '/work/repo/tests/test_common.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_common.py:3: in <module>\n    import prompty\nprompty/__init__.py:15: in <module>\n    from .renderers import Jinja2Renderer, MustacheRenderer\nprompty/renderers.py:5: in <module>\n    from .mustache import render\nprompty/mustache.py:15: in <module>\n    from typing_extensions import TypeAlias\nE   ModuleNotFoundError: No module named 'typing_extensions'\n_____________________ ERROR collecting tests/test_core.py ______________________\nImportError while importing test module '/work/repo/tests/test_core.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_core.py:1: in <module>\n    import prompty\nprompty/__init__.py:15: in <module>\n    from .renderers import Jinja2Renderer, MustacheRenderer\nprompty/renderers.py:5: in <module>\n    from .mustache import render\nprompty/mustache.py:15: in <module>\n    from typing_extensions import TypeAlias\nE   ModuleNotFoundError: No module named 'typing_extensions'\n____________________ ERROR collecting tests/test_execute.py ____________________\nImportError while importing test module '/work/repo/tests/test_execute.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_execute.py:8: in <module>\n    import prompty\nprompty/__init__.py:15: in <module>\n    from .renderers import Jinja2Renderer, MustacheRenderer\nprompty/renderers.py:5: in <module>\n    from .mustache import render\nprompty/mustache.py:15: in <module>\n    from typing_extensions import TypeAlias\nE   ModuleNotFoundError: No module named 'typing_extensions'\n________________ ERROR collecting tests/test_factory_invoker.py ________________\nImportError while importing test module '/work/repo/tests/test_factory_invoker.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_factory_invoker.py:5: in <module>\n    import prompty\nprompty/__init__.py:15: in <module>\n    from .renderers import Jinja2Renderer, MustacheRenderer\nprompty/renderers.py:5: in <module>\n    from .mustache import render\nprompty/mustache.py:15: in <module>\n    from typing_extensions import TypeAlias\nE   ModuleNotFoundError: No module named 'typing_extensions'\n___________________ ERROR collecting tests/test_path_exec.py ___________________\nImportError while importing test module '/work/repo/tests/test_path_exec.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_path_exec.py:5: in <module>\n    import prompty\nprompty/__init__.py:15: in <module>\n    from .renderers import Jinja2Renderer, MustacheRenderer\nprompty/renderers.py:5: in <module>\n    from .mustache import render\nprompty/mustache.py:15: in <module>\n    from typing_extensions import TypeAlias\nE   ModuleNotFoundError: No module named 'typing_extensions'\n____________________ ERROR collecting tests/test_tracing.py ____________________\nImportError while importing test module '/work/repo/tests/test_tracing.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_tracing.py:5: in <module>\n    import prompty\nprompty/__init__.py:15: in <module>\n    from .renderers import Jinja2Renderer, MustacheRenderer\nprompty/renderers.py:5: in <module>\n    from .mustache import render\nprompty/mustache.py:15: in <module>\n    from typing_extensions import TypeAlias\nE   ModuleNotFoundError: No module named 'typing_extensions'\n=============================== warnings summary ===============================\n../venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1464\n  /work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope\n  \n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR tests/test_common.py\nERROR tests/test_core.py\nERROR tests/test_execute.py\nERROR tests/test_factory_invoker.py\nERROR tests/test_path_exec.py\nERROR tests/test_tracing.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 6 errors during collection !!!!!!!!!!!!!!!!!!!!\n1 warning, 6 errors in 0.47s\n",
+    "tests": {
+      "::tests.test_common": "error",
+      "::tests.test_core": "error",
+      "::tests.test_execute": "error",
+      "::tests.test_factory_invoker": "error",
+      "::tests.test_path_exec": "error",
+      "::tests.test_tracing": "error"
+    },
+    "collection_errors": [
+      "::tests.test_common",
+      "::tests.test_core",
+      "::tests.test_execute",
+      "::tests.test_factory_invoker",
+      "::tests.test_path_exec",
+      "::tests.test_tracing"
+    ],
+    "resolved": {
+      "pytest": "9.1.1"
+    },
+    "elapsed_s": 3.1949300000000003,
+    "cost": 0.03270432,
+    "image_uuid": "2fbee3aa-ac3b-4c40-b29d-50a5e5f1076c",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 6
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\npytest==9.1.1\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n____________________ ERROR collecting tests/test_common.py _____________________\nImportError while importing test module '/work/repo/tests/test_common.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_common.py:3: in <module>\n    import prompty\nprompty/__init__.py:15: in <module>\n    from .renderers import Jinja2Renderer, MustacheRenderer\nprompty/renderers.py:5: in <module>\n    from .mustache import render\nprompty/mustache.py:15: in <module>\n    from typing_extensions import TypeAlias\nE   ModuleNotFoundError: No module named 'typing_extensions'\n_____________________ ERROR collecting tests/test_core.py ______________________\nImportError while importing test module '/work/repo/tests/test_core.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_core.py:1: in <module>\n    import prompty\nprompty/__init__.py:15: in <module>\n    from .renderers import Jinja2Renderer, MustacheRenderer\nprompty/renderers.py:5: in <module>\n    from .mustache import render\nprompty/mustache.py:15: in <module>\n    from typing_extensions import TypeAlias\nE   ModuleNotFoundError: No module named 'typing_extensions'\n____________________ ERROR collecting tests/test_execute.py ____________________\nImportError while importing test module '/work/repo/tests/test_execute.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_execute.py:8: in <module>\n    import prompty\nprompty/__init__.py:15: in <module>\n    from .renderers import Jinja2Renderer, MustacheRenderer\nprompty/renderers.py:5: in <module>\n    from .mustache import render\nprompty/mustache.py:15: in <module>\n    from typing_extensions import TypeAlias\nE   ModuleNotFoundError: No module named 'typing_extensions'\n________________ ERROR collecting tests/test_factory_invoker.py ________________\nImportError while importing test module '/work/repo/tests/test_factory_invoker.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_factory_invoker.py:5: in <module>\n    import prompty\nprompty/__init__.py:15: in <module>\n    from .renderers import Jinja2Renderer, MustacheRenderer\nprompty/renderers.py:5: in <module>\n    from .mustache import render\nprompty/mustache.py:15: in <module>\n    from typing_extensions import TypeAlias\nE   ModuleNotFoundError: No module named 'typing_extensions'\n___________________ ERROR collecting tests/test_path_exec.py ___________________\nImportError while importing test module '/work/repo/tests/test_path_exec.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_path_exec.py:5: in <module>\n    import prompty\nprompty/__init__.py:15: in <module>\n    from .renderers import Jinja2Renderer, MustacheRenderer\nprompty/renderers.py:5: in <module>\n    from .mustache import render\nprompty/mustache.py:15: in <module>\n    from typing_extensions import TypeAlias\nE   ModuleNotFoundError: No module named 'typing_extensions'\n____________________ ERROR collecting tests/test_tracing.py ____________________\nImportError while importing test module '/work/repo/tests/test_tracing.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_tracing.py:5: in <module>\n    import prompty\nprompty/__init__.py:15: in <module>\n    from .renderers import Jinja2Renderer, MustacheRenderer\nprompty/renderers.py:5: in <module>\n    from .mustache import render\nprompty/mustache.py:15: in <module>\n    from typing_extensions import TypeAlias\nE   ModuleNotFoundError: No module named 'typing_extensions'\n=============================== warnings summary ===============================\n../venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1464\n  /work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope\n  \n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR tests/test_common.py\nERROR tests/test_core.py\nERROR tests/test_execute.py\nERROR tests/test_factory_invoker.py\nERROR tests/test_path_exec.py\nERROR tests/test_tracing.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 6 errors during collection !!!!!!!!!!!!!!!!!!!!\n1 warning, 6 errors in 0.46s\n",
+    "tests": {
+      "::tests.test_common": "error",
+      "::tests.test_core": "error",
+      "::tests.test_execute": "error",
+      "::tests.test_factory_invoker": "error",
+      "::tests.test_path_exec": "error",
+      "::tests.test_tracing": "error"
+    },
+    "collection_errors": [
+      "::tests.test_common",
+      "::tests.test_core",
+      "::tests.test_execute",
+      "::tests.test_factory_invoker",
+      "::tests.test_path_exec",
+      "::tests.test_tracing"
+    ],
+    "resolved": {
+      "pytest": "9.1.1"
+    },
+    "elapsed_s": 3.121836,
+    "cost": 0.0319705,
+    "image_uuid": "6349dd1f-0011-4b14-aceb-f507b142e339",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 6
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\npytest==9.1.1\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n____________________ ERROR collecting tests/test_common.py _____________________\nImportError while importing test module '/work/repo/tests/test_common.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_common.py:3: in <module>\n    import prompty\nprompty/__init__.py:15: in <module>\n    from .renderers import Jinja2Renderer, MustacheRenderer\nprompty/renderers.py:5: in <module>\n    from .mustache import render\nprompty/mustache.py:15: in <module>\n    from typing_extensions import TypeAlias\nE   ModuleNotFoundError: No module named 'typing_extensions'\n_____________________ ERROR collecting tests/test_core.py ______________________\nImportError while importing test module '/work/repo/tests/test_core.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_core.py:1: in <module>\n    import prompty\nprompty/__init__.py:15: in <module>\n    from .renderers import Jinja2Renderer, MustacheRenderer\nprompty/renderers.py:5: in <module>\n    from .mustache import render\nprompty/mustache.py:15: in <module>\n    from typing_extensions import TypeAlias\nE   ModuleNotFoundError: No module named 'typing_extensions'\n____________________ ERROR collecting tests/test_execute.py ____________________\nImportError while importing test module '/work/repo/tests/test_execute.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_execute.py:8: in <module>\n    import prompty\nprompty/__init__.py:15: in <module>\n    from .renderers import Jinja2Renderer, MustacheRenderer\nprompty/renderers.py:5: in <module>\n    from .mustache import render\nprompty/mustache.py:15: in <module>\n    from typing_extensions import TypeAlias\nE   ModuleNotFoundError: No module named 'typing_extensions'\n________________ ERROR collecting tests/test_factory_invoker.py ________________\nImportError while importing test module '/work/repo/tests/test_factory_invoker.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_factory_invoker.py:5: in <module>\n    import prompty\nprompty/__init__.py:15: in <module>\n    from .renderers import Jinja2Renderer, MustacheRenderer\nprompty/renderers.py:5: in <module>\n    from .mustache import render\nprompty/mustache.py:15: in <module>\n    from typing_extensions import TypeAlias\nE   ModuleNotFoundError: No module named 'typing_extensions'\n___________________ ERROR collecting tests/test_path_exec.py ___________________\nImportError while importing test module '/work/repo/tests/test_path_exec.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_path_exec.py:5: in <module>\n    import prompty\nprompty/__init__.py:15: in <module>\n    from .renderers import Jinja2Renderer, MustacheRenderer\nprompty/renderers.py:5: in <module>\n    from .mustache import render\nprompty/mustache.py:15: in <module>\n    from typing_extensions import TypeAlias\nE   ModuleNotFoundError: No module named 'typing_extensions'\n____________________ ERROR collecting tests/test_tracing.py ____________________\nImportError while importing test module '/work/repo/tests/test_tracing.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_tracing.py:5: in <module>\n    import prompty\nprompty/__init__.py:15: in <module>\n    from .renderers import Jinja2Renderer, MustacheRenderer\nprompty/renderers.py:5: in <module>\n    from .mustache import render\nprompty/mustache.py:15: in <module>\n    from typing_extensions import TypeAlias\nE   ModuleNotFoundError: No module named 'typing_extensions'\n=============================== warnings summary ===============================\n../venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1464\n  /work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1464: PytestConfigWarning: Unknown config option: asyncio_default_fixture_loop_scope\n  \n    self._warn_or_fail_if_strict(f\"Unknown config option: {key}\\n\")\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR tests/test_common.py\nERROR tests/test_core.py\nERROR tests/test_execute.py\nERROR tests/test_factory_invoker.py\nERROR tests/test_path_exec.py\nERROR tests/test_tracing.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 6 errors during collection !!!!!!!!!!!!!!!!!!!!\n1 warning, 6 errors in 0.46s\n",
+    "tests": {
+      "::tests.test_common": "error",
+      "::tests.test_core": "error",
+      "::tests.test_execute": "error",
+      "::tests.test_factory_invoker": "error",
+      "::tests.test_path_exec": "error",
+      "::tests.test_tracing": "error"
+    },
+    "collection_errors": [
+      "::tests.test_common",
+      "::tests.test_core",
+      "::tests.test_execute",
+      "::tests.test_factory_invoker",
+      "::tests.test_path_exec",
+      "::tests.test_tracing"
+    ],
+    "resolved": {
+      "pytest": "9.1.1"
+    },
+    "elapsed_s": 3.205558,
+    "cost": 0.03280344,
+    "image_uuid": "c917d0e8-909a-4a8f-a11e-aa1749b3e352",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 6
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "no-baseline",
+    "reason": "no test passed in the before fork, so nothing can be shown to break",
+    "before_summary": {
+      "error": 6
+    },
+    "after_summary": {
+      "error": 6
+    },
+    "collected_before": 6
+  },
+  "error": null,
+  "requirement": "openai>=1.43.0; extra == \"azure\"",
+  "wall_s": 62.9
+}

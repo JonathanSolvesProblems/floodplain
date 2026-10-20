@@ -1,0 +1,73 @@
+{
+  "dependent": "arize-phoenix-evals",
+  "version": "3.4.0",
+  "source": {
+    "owner": "Arize-ai",
+    "repo": "phoenix",
+    "tag": "arize-phoenix-evals-v3.4.0",
+    "sha": "c298db11bb80b92eb29879543552ba9545873fd1",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "4b2d6a61-986c-4e19-b096-42c34e528d7d",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo/packages/phoenix-evals\n[floodplain] base install failed\nerror: Required uv version `==0.11.31` does not match the running version `0.13.4`. Update `uv` by running `uv self update 0.11.31`.\nerror: Required uv version `==0.11.31` does not match the running version `0.13.4`. Update `uv` by running `uv self update 0.11.31`.\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.059571,
+    "cost": 0.00075507,
+    "image_uuid": "4dc6eb5c-51e0-498a-8c26-b84e940dc91d",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo/packages/phoenix-evals\n[floodplain] base install failed\nerror: Required uv version `==0.11.31` does not match the running version `0.13.4`. Update `uv` by running `uv self update 0.11.31`.\nerror: Required uv version `==0.11.31` does not match the running version `0.13.4`. Update `uv` by running `uv self update 0.11.31`.\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.057,
+    "cost": 0.0007293800000000001,
+    "image_uuid": "3ee9edc4-de1b-48b6-960d-7b30c69a3b84",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo/packages/phoenix-evals\n[floodplain] base install failed\nerror: Required uv version `==0.11.31` does not match the running version `0.13.4`. Update `uv` by running `uv self update 0.11.31`.\nerror: Required uv version `==0.11.31` does not match the running version `0.13.4`. Update `uv` by running `uv self update 0.11.31`.\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.06055,
+    "cost": 0.00076484,
+    "image_uuid": "5a32a6ba-7f7a-49b2-bd1d-beda9104dff4",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "unrunnable",
+    "reason": "install failed before and after",
+    "evidence": "[floodplain] package root: /work/repo/packages/phoenix-evals\n[floodplain] base install failed\nerror: Required uv version `==0.11.31` does not match the running version `0.13.4`. Update `uv` by running `uv self update 0.11.31`.\nerror: Required uv version `==0.11.31` does not match the running version `0.13.4`. Update `uv` by running `uv self update 0.11.31`.\n"
+  },
+  "error": null,
+  "requirement": "openai>=1.0.0; extra == \"dev\"",
+  "wall_s": 54.7
+}

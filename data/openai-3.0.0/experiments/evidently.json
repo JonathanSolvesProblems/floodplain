@@ -1,0 +1,118 @@
+{
+  "dependent": "evidently",
+  "version": "0.7.21",
+  "source": {
+    "owner": "evidentlyai",
+    "repo": "evidently",
+    "tag": "v0.7.21",
+    "sha": "17071a2a1d9e41c129226826d3fda9911782ca99",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "81ac1e1b-8563-4910-b417-1e985f90fe29",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.27.0\npydantic==2.14.0b1\npytest==7.4.4\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n________________________ ERROR collecting test session _________________________\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n../venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:186: in exec_module\n    exec(co, module.__dict__)\ntests/future/test_ui/conftest.py:6: in <module>\n    from sqlalchemy import create_engine\nE   ModuleNotFoundError: No module named 'sqlalchemy'\n=============================== warnings summary ===============================\nsrc/evidently/legacy/tests/utils.py:183\nsrc/evidently/legacy/tests/utils.py:183\n  /work/repo/src/evidently/legacy/tests/utils.py:183: DeprecationWarning: numpy.core is deprecated and has been renamed to numpy._core. The numpy._core namespace contains private NumPy internals and its use is discouraged, as NumPy internals can change without warning in any release. In practice, most real-world usage of numpy.core is to access functionality in the public NumPy API. If that is the case, use the public NumPy API. If not, you are using NumPy internals. If you would still like to access an internal attribute, use numpy._core.numeric.\n    np.core.numeric.ScalarType = np.core.numeric.ScalarType + (ApproxValue, ApproxValueNoDict)  # type: ignore[attr-defined]\n\nsrc/evidently/descriptors/text_match.py:140\n  /work/repo/src/evidently/descriptors/text_match.py:140: SyntaxWarning: invalid escape sequence '\\d'\n    TextMatch(text_column=\"description\", match_items=r\"\\b\\d{3}-\\d{3}-\\d{4}\\b\", match_type=\"regex\")\n\n../venv/lib/python3.12/site-packages/litestar/utils/deprecation.py:99: 36 warnings\n  /work/venv/lib/python3.12/site-packages/litestar/utils/deprecation.py:99: LitestarDeprecationWarning: Call to deprecated function 'Dependency'. Deprecated in litestar 2.23.0. This function will be removed in 3.0. Use 'di.NamedDependency' instead\n    warn_deprecation(\n\n../venv/lib/python3.12/site-packages/litestar/params.py:538: 36 warnings\n  /work/venv/lib/python3.12/site-packages/litestar/params.py:538: LitestarDeprecationWarning: Use of deprecated class 'DependencyKwarg'. Deprecated in litestar 2.23.0. This class will be removed in 3.0. Use 'di.NamedDependency' instead\n    warn_deprecation(\n\ntests/conftest.py:12\ntests/conftest.py:12\n  /work/repo/tests/conftest.py:12: DeprecationWarning: numpy.core is deprecated and has been renamed to numpy._core. The numpy._core namespace contains private NumPy internals and its use is discouraged, as NumPy internals can change without warning in any release. In practice, most real-world usage of numpy.core is to access functionality in the public NumPy API. If that is the case, use the public NumPy API. If not, you are using NumPy internals. If you would still like to access an internal attribute, use numpy._core.numeric.\n    np.core.numeric.ScalarType = np.core.numeric.ScalarType + (ApproxValue,)  # type: ignore[attr-defined]\n\n<string>:5: 17 warnings\n  <string>:5: LitestarDeprecationWarning: Deprecated parameter 'skip_validation'. This will be removed in Litestar 3.0. To skip validation of a dependency parameter, annotate it as 'SkipValidation[<type>]' instead\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n--------------------- generated xml file: /work/junit.xml ----------------------\n=========================== short test summary info ============================\nERROR  - ModuleNotFoundError: No module named 'sqlalchemy'\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n94 warnings, 1 error in 0.96s\n",
+    "tests": {
+      "::": "error"
+    },
+    "collection_errors": [
+      "::"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.27.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "7.4.4",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 21.559266,
+    "cost": 0.21849976000000002,
+    "image_uuid": "82350fed-c027-4fd1-9285-20c29695c557",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.27.0\npydantic==2.14.0b1\npytest==7.4.4\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n________________________ ERROR collecting test session _________________________\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n../venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:186: in exec_module\n    exec(co, module.__dict__)\ntests/future/test_ui/conftest.py:6: in <module>\n    from sqlalchemy import create_engine\nE   ModuleNotFoundError: No module named 'sqlalchemy'\n=============================== warnings summary ===============================\nsrc/evidently/legacy/tests/utils.py:183\nsrc/evidently/legacy/tests/utils.py:183\n  /work/repo/src/evidently/legacy/tests/utils.py:183: DeprecationWarning: numpy.core is deprecated and has been renamed to numpy._core. The numpy._core namespace contains private NumPy internals and its use is discouraged, as NumPy internals can change without warning in any release. In practice, most real-world usage of numpy.core is to access functionality in the public NumPy API. If that is the case, use the public NumPy API. If not, you are using NumPy internals. If you would still like to access an internal attribute, use numpy._core.numeric.\n    np.core.numeric.ScalarType = np.core.numeric.ScalarType + (ApproxValue, ApproxValueNoDict)  # type: ignore[attr-defined]\n\nsrc/evidently/descriptors/text_match.py:140\n  /work/repo/src/evidently/descriptors/text_match.py:140: SyntaxWarning: invalid escape sequence '\\d'\n    TextMatch(text_column=\"description\", match_items=r\"\\b\\d{3}-\\d{3}-\\d{4}\\b\", match_type=\"regex\")\n\n../venv/lib/python3.12/site-packages/litestar/utils/deprecation.py:99: 36 warnings\n  /work/venv/lib/python3.12/site-packages/litestar/utils/deprecation.py:99: LitestarDeprecationWarning: Call to deprecated function 'Dependency'. Deprecated in litestar 2.23.0. This function will be removed in 3.0. Use 'di.NamedDependency' instead\n    warn_deprecation(\n\n../venv/lib/python3.12/site-packages/litestar/params.py:538: 36 warnings\n  /work/venv/lib/python3.12/site-packages/litestar/params.py:538: LitestarDeprecationWarning: Use of deprecated class 'DependencyKwarg'. Deprecated in litestar 2.23.0. This class will be removed in 3.0. Use 'di.NamedDependency' instead\n    warn_deprecation(\n\ntests/conftest.py:12\ntests/conftest.py:12\n  /work/repo/tests/conftest.py:12: DeprecationWarning: numpy.core is deprecated and has been renamed to numpy._core. The numpy._core namespace contains private NumPy internals and its use is discouraged, as NumPy internals can change without warning in any release. In practice, most real-world usage of numpy.core is to access functionality in the public NumPy API. If that is the case, use the public NumPy API. If not, you are using NumPy internals. If you would still like to access an internal attribute, use numpy._core.numeric.\n    np.core.numeric.ScalarType = np.core.numeric.ScalarType + (ApproxValue,)  # type: ignore[attr-defined]\n\n<string>:5: 17 warnings\n  <string>:5: LitestarDeprecationWarning: Deprecated parameter 'skip_validation'. This will be removed in Litestar 3.0. To skip validation of a dependency parameter, annotate it as 'SkipValidation[<type>]' instead\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n--------------------- generated xml file: /work/junit.xml ----------------------\n=========================== short test summary info ============================\nERROR  - ModuleNotFoundError: No module named 'sqlalchemy'\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n94 warnings, 1 error in 1.01s\n",
+    "tests": {
+      "::": "error"
+    },
+    "collection_errors": [
+      "::"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.27.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "7.4.4",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 22.088221,
+    "cost": 0.22371757,
+    "image_uuid": "31c7a407-51f1-4d1b-a12f-83efe4ba2f1d",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.27.0\npydantic==2.14.0b1\npytest==7.4.4\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n________________________ ERROR collecting test session _________________________\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n../venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:186: in exec_module\n    exec(co, module.__dict__)\ntests/future/test_ui/conftest.py:6: in <module>\n    from sqlalchemy import create_engine\nE   ModuleNotFoundError: No module named 'sqlalchemy'\n=============================== warnings summary ===============================\nsrc/evidently/legacy/tests/utils.py:183\nsrc/evidently/legacy/tests/utils.py:183\n  /work/repo/src/evidently/legacy/tests/utils.py:183: DeprecationWarning: numpy.core is deprecated and has been renamed to numpy._core. The numpy._core namespace contains private NumPy internals and its use is discouraged, as NumPy internals can change without warning in any release. In practice, most real-world usage of numpy.core is to access functionality in the public NumPy API. If that is the case, use the public NumPy API. If not, you are using NumPy internals. If you would still like to access an internal attribute, use numpy._core.numeric.\n    np.core.numeric.ScalarType = np.core.numeric.ScalarType + (ApproxValue, ApproxValueNoDict)  # type: ignore[attr-defined]\n\nsrc/evidently/descriptors/text_match.py:140\n  /work/repo/src/evidently/descriptors/text_match.py:140: SyntaxWarning: invalid escape sequence '\\d'\n    TextMatch(text_column=\"description\", match_items=r\"\\b\\d{3}-\\d{3}-\\d{4}\\b\", match_type=\"regex\")\n\n../venv/lib/python3.12/site-packages/litestar/utils/deprecation.py:99: 36 warnings\n  /work/venv/lib/python3.12/site-packages/litestar/utils/deprecation.py:99: LitestarDeprecationWarning: Call to deprecated function 'Dependency'. Deprecated in litestar 2.23.0. This function will be removed in 3.0. Use 'di.NamedDependency' instead\n    warn_deprecation(\n\n../venv/lib/python3.12/site-packages/litestar/params.py:538: 36 warnings\n  /work/venv/lib/python3.12/site-packages/litestar/params.py:538: LitestarDeprecationWarning: Use of deprecated class 'DependencyKwarg'. Deprecated in litestar 2.23.0. This class will be removed in 3.0. Use 'di.NamedDependency' instead\n    warn_deprecation(\n\ntests/conftest.py:12\ntests/conftest.py:12\n  /work/repo/tests/conftest.py:12: DeprecationWarning: numpy.core is deprecated and has been renamed to numpy._core. The numpy._core namespace contains private NumPy internals and its use is discouraged, as NumPy internals can change without warning in any release. In practice, most real-world usage of numpy.core is to access functionality in the public NumPy API. If that is the case, use the public NumPy API. If not, you are using NumPy internals. If you would still like to access an internal attribute, use numpy._core.numeric.\n    np.core.numeric.ScalarType = np.core.numeric.ScalarType + (ApproxValue,)  # type: ignore[attr-defined]\n\n<string>:5: 17 warnings\n  <string>:5: LitestarDeprecationWarning: Deprecated parameter 'skip_validation'. This will be removed in Litestar 3.0. To skip validation of a dependency parameter, annotate it as 'SkipValidation[<type>]' instead\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n--------------------- generated xml file: /work/junit.xml ----------------------\n=========================== short test summary info ============================\nERROR  - ModuleNotFoundError: No module named 'sqlalchemy'\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n94 warnings, 1 error in 0.88s\n",
+    "tests": {
+      "::": "error"
+    },
+    "collection_errors": [
+      "::"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.27.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "7.4.4",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 21.494836,
+    "cost": 0.2178277,
+    "image_uuid": "b151e00c-f61e-480b-9aca-1e59f60061df",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "no-baseline",
+    "reason": "no test passed in the before fork, so nothing can be shown to break",
+    "before_summary": {
+      "error": 1
+    },
+    "after_summary": {
+      "error": 1
+    },
+    "collected_before": 1
+  },
+  "error": null,
+  "requirement": "openai>=1.16.2; extra == \"llm\"",
+  "wall_s": 141.3
+}

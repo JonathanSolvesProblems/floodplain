@@ -336,9 +336,15 @@
   },
   "flaky_excluded": [],
   "verdict": {
-    "status": "ok",
-    "passed_after": 0,
-    "pre_existing_failures": 39
+    "status": "no-baseline",
+    "reason": "no test passed in the before fork, so nothing can be shown to break",
+    "before_summary": {
+      "error": 39
+    },
+    "after_summary": {
+      "error": 39
+    },
+    "collected_before": 39
   },
   "error": null,
   "requirement": "openai>=1.82.0",

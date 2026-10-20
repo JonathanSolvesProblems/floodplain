@@ -1,0 +1,124 @@
+{
+  "dependent": "tinker-cookbook",
+  "version": "0.5.4",
+  "source": {
+    "owner": "thinking-machines-lab",
+    "repo": "tinker-cookbook",
+    "tag": "v0.5.4",
+    "sha": "c8ed9c764b59161391156f980102d82f05014765",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "85d3fe6c-f5d5-4113-a267-02004d21e70a",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 3,
+    "test_tail": "INTERNALERROR> Traceback (most recent call last):\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 330, in wrap_session\nINTERNALERROR>     session.exitstatus = doit(config, session) or 0\nINTERNALERROR>                          ^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 383, in _main\nINTERNALERROR>     config.hook.pytest_collection(session=session)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\nINTERNALERROR>     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\nINTERNALERROR>     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 167, in _multicall\nINTERNALERROR>     raise exception\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\nINTERNALERROR>     teardown.throw(exception)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/logging.py\", line 803, in pytest_collection\nINTERNALERROR>     return (yield)\nINTERNALERROR>             ^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\nINTERNALERROR>     teardown.throw(exception)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/warnings.py\", line 99, in pytest_collection\nINTERNALERROR>     return (yield)\nINTERNALERROR>             ^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\nINTERNALERROR>     teardown.throw(exception)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 1445, in pytest_collection\nINTERNALERROR>     return (yield)\nINTERNALERROR>             ^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\nINTERNALERROR>     res = hook_impl.function(*args)\nINTERNALERROR>           ^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 394, in pytest_collection\nINTERNALERROR>     session.perform_collect()\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 872, in perform_collect\nINTERNALERROR>     hook.pytest_collection_modifyitems(\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\nINTERNALERROR>     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\nINTERNALERROR>     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 167, in _multicall\nINTERNALERROR>     raise exception\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\nINTERNALERROR>     res = hook_impl.function(*args)\nINTERNALERROR>           ^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/repo/tests/conftest.py\", line 30, in pytest_collection_modifyitems\nINTERNALERROR>     pytest.fail(\"TINKER_API_KEY is not set but CI=true \u2014 smoke tests require an API key\")\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/outcomes.py\", line 162, in __call__\nINTERNALERROR>     raise Failed(msg=reason, pytrace=pytrace)\nINTERNALERROR> Failed: TINKER_API_KEY is not set but CI=true \u2014 smoke tests require an API key\n\nno tests ran in 31.65s\n",
+    "tests": {
+      "pytest::internal": "error"
+    },
+    "collection_errors": [
+      "pytest::internal"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 52.687099,
+    "cost": 0.53425925,
+    "image_uuid": "930b2db8-01ae-4506-a9f6-6df7295fbcdc",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 3,
+    "test_tail": "INTERNALERROR> Traceback (most recent call last):\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 330, in wrap_session\nINTERNALERROR>     session.exitstatus = doit(config, session) or 0\nINTERNALERROR>                          ^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 383, in _main\nINTERNALERROR>     config.hook.pytest_collection(session=session)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\nINTERNALERROR>     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\nINTERNALERROR>     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 167, in _multicall\nINTERNALERROR>     raise exception\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\nINTERNALERROR>     teardown.throw(exception)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/logging.py\", line 803, in pytest_collection\nINTERNALERROR>     return (yield)\nINTERNALERROR>             ^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\nINTERNALERROR>     teardown.throw(exception)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/warnings.py\", line 99, in pytest_collection\nINTERNALERROR>     return (yield)\nINTERNALERROR>             ^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\nINTERNALERROR>     teardown.throw(exception)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 1445, in pytest_collection\nINTERNALERROR>     return (yield)\nINTERNALERROR>             ^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\nINTERNALERROR>     res = hook_impl.function(*args)\nINTERNALERROR>           ^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 394, in pytest_collection\nINTERNALERROR>     session.perform_collect()\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 872, in perform_collect\nINTERNALERROR>     hook.pytest_collection_modifyitems(\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\nINTERNALERROR>     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\nINTERNALERROR>     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 167, in _multicall\nINTERNALERROR>     raise exception\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\nINTERNALERROR>     res = hook_impl.function(*args)\nINTERNALERROR>           ^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/repo/tests/conftest.py\", line 30, in pytest_collection_modifyitems\nINTERNALERROR>     pytest.fail(\"TINKER_API_KEY is not set but CI=true \u2014 smoke tests require an API key\")\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/outcomes.py\", line 162, in __call__\nINTERNALERROR>     raise Failed(msg=reason, pytrace=pytrace)\nINTERNALERROR> Failed: TINKER_API_KEY is not set but CI=true \u2014 smoke tests require an API key\n\nno tests ran in 31.65s\n",
+    "tests": {
+      "pytest::internal": "error"
+    },
+    "collection_errors": [
+      "pytest::internal"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 54.94915,
+    "cost": 0.55687974,
+    "image_uuid": "4d1afd5f-46b4-4b6b-ba21-fcd95e6e6ecd",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 3,
+    "test_tail": "INTERNALERROR> Traceback (most recent call last):\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 330, in wrap_session\nINTERNALERROR>     session.exitstatus = doit(config, session) or 0\nINTERNALERROR>                          ^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 383, in _main\nINTERNALERROR>     config.hook.pytest_collection(session=session)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\nINTERNALERROR>     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\nINTERNALERROR>     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 167, in _multicall\nINTERNALERROR>     raise exception\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\nINTERNALERROR>     teardown.throw(exception)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/logging.py\", line 803, in pytest_collection\nINTERNALERROR>     return (yield)\nINTERNALERROR>             ^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\nINTERNALERROR>     teardown.throw(exception)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/warnings.py\", line 99, in pytest_collection\nINTERNALERROR>     return (yield)\nINTERNALERROR>             ^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\nINTERNALERROR>     teardown.throw(exception)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 1445, in pytest_collection\nINTERNALERROR>     return (yield)\nINTERNALERROR>             ^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\nINTERNALERROR>     res = hook_impl.function(*args)\nINTERNALERROR>           ^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 394, in pytest_collection\nINTERNALERROR>     session.perform_collect()\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 872, in perform_collect\nINTERNALERROR>     hook.pytest_collection_modifyitems(\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\nINTERNALERROR>     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\nINTERNALERROR>     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 167, in _multicall\nINTERNALERROR>     raise exception\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\nINTERNALERROR>     res = hook_impl.function(*args)\nINTERNALERROR>           ^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/repo/tests/conftest.py\", line 30, in pytest_collection_modifyitems\nINTERNALERROR>     pytest.fail(\"TINKER_API_KEY is not set but CI=true \u2014 smoke tests require an API key\")\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/outcomes.py\", line 162, in __call__\nINTERNALERROR>     raise Failed(msg=reason, pytrace=pytrace)\nINTERNALERROR> Failed: TINKER_API_KEY is not set but CI=true \u2014 smoke tests require an API key\n\nno tests ran in 31.11s\n",
+    "tests": {
+      "pytest::internal": "error"
+    },
+    "collection_errors": [
+      "pytest::internal"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 51.764246,
+    "cost": 0.52502212,
+    "image_uuid": "f49415aa-3d94-4c1b-9277-dd1e36c915a7",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "no-baseline",
+    "reason": "no test passed in the before fork, so nothing can be shown to break",
+    "before_summary": {
+      "error": 1
+    },
+    "after_summary": {
+      "error": 1
+    },
+    "collected_before": 1
+  },
+  "error": null,
+  "requirement": "openai>=1.0.0; extra == \"all\"",
+  "wall_s": 197.0
+}

@@ -1,0 +1,196 @@
+{
+  "dependent": "pyvespa",
+  "version": "1.2.4",
+  "source": {
+    "owner": "vespa-engine",
+    "repo": "pyvespa",
+    "tag": "v1.2.4",
+    "sha": "5c2a129781bf3212fc765bdc17336595d7c3331d",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "6a23a579-5370-4dac-a8d3-47e9a68f3042",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\ncertifi==2026.7.22\nhttpx==1.0.dev3\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\n_______________ ERROR collecting tests/mktestdocs/test_mkdocs.py _______________\nImportError while importing test module '/work/repo/tests/mktestdocs/test_mkdocs.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/mktestdocs/test_mkdocs.py:4: in <module>\n    from mktestdocs import check_md_file\nE   ModuleNotFoundError: No module named 'mktestdocs'\n____________ ERROR collecting tests/mktestdocs/test_mkdocstring.py _____________\nImportError while importing test module '/work/repo/tests/mktestdocs/test_mkdocstring.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/mktestdocs/test_mkdocstring.py:5: in <module>\n    from mktestdocs import check_docstring\nE   ModuleNotFoundError: No module named 'mktestdocs'\n_________________________ ERROR collecting tests/perf __________________________\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n../venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:188: in exec_module\n    exec(co, module.__dict__)\ntests/perf/conftest.py:9: in <module>\n    from vespa.deployment import VespaCloud\nvespa/deployment.py:35: in <module>\n    from vespa.application import Vespa\nvespa/application.py:255: in <module>\n    class Vespa(object):\nvespa/application.py:325: in Vespa\n    timeout: Union[httpx.Timeout, int, float] = 30.0,\n                   ^^^^^^^^^^^^^\nE   AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\n_______________ ERROR collecting tests/unit/test_application.py ________________\ntests/unit/test_application.py:13: in <module>\n    from vespa.application import Vespa, raise_for_status\nvespa/application.py:255: in <module>\n    class Vespa(object):\nvespa/application.py:325: in Vespa\n    timeout: Union[httpx.Timeout, int, float] = 30.0,\n                   ^^^^^^^^^^^^^\nE   AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\n________________ ERROR collecting tests/unit/test_deployment.py ________________\ntests/unit/test_deployment.py:8: in <module>\n    from vespa.deployment import VespaCloud, DataplaneToken\nvespa/deployment.py:35: in <module>\n    from vespa.application import Vespa\nvespa/application.py:255: in <module>\n    class Vespa(object):\nvespa/application.py:325: in Vespa\n    timeout: Union[httpx.Timeout, int, float] = 30.0,\n                   ^^^^^^^^^^^^^\nE   AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\n________________ ERROR collecting tests/unit/test_evaluator.py _________________\ntests/unit/test_evaluator.py:2: in <module>\n    from vespa.evaluation import (\nvespa/evaluation/__init__.py:10: in <module>\n    from vespa.evaluation._base import *  # noqa: F401, F403\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nvespa/evaluation/_base.py:23: in <module>\n    from vespa.application import Vespa\nvespa/application.py:255: in <module>\n    class Vespa(object):\nvespa/application.py:325: in Vespa\n    timeout: Union[httpx.Timeout, int, float] = 30.0,\n                   ^^^^^^^^^^^^^\nE   AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\n=========================== short test summary info ============================\nERROR tests/integration/test_integration_docker.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_evaluation.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_grouping.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_mtebevaluation.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_queries.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_vespa_cloud.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_vespa_cloud_mteb.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_vespa_cloud_token.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_vespa_cloud_vector_search.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/mktestdocs/test_mkdocs.py\nERROR tests/mktestdocs/test_mkdocstring.py\nERROR tests/perf - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/unit/test_application.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/unit/test_deployment.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/unit/test_evaluator.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\n!!!!!!!!!!!!!!!!!!! Interrupted: 15 errors during collection !!!!!!!!!!!!!!!!!!!\n15 errors in 4.24s\n",
+    "tests": {
+      "::tests.integration.test_integration_docker": "error",
+      "::tests.integration.test_integration_evaluation": "error",
+      "::tests.integration.test_integration_grouping": "error",
+      "::tests.integration.test_integration_mtebevaluation": "error",
+      "::tests.integration.test_integration_queries": "error",
+      "::tests.integration.test_integration_vespa_cloud": "error",
+      "::tests.integration.test_integration_vespa_cloud_mteb": "error",
+      "::tests.integration.test_integration_vespa_cloud_token": "error",
+      "::tests.integration.test_integration_vespa_cloud_vector_search": "error",
+      "::tests.mktestdocs.test_mkdocs": "error",
+      "::tests.mktestdocs.test_mkdocstring": "error",
+      "::tests.perf": "error",
+      "::tests.unit.test_application": "error",
+      "::tests.unit.test_deployment": "error",
+      "::tests.unit.test_evaluator": "error"
+    },
+    "collection_errors": [
+      "::tests.integration.test_integration_docker",
+      "::tests.integration.test_integration_evaluation",
+      "::tests.integration.test_integration_grouping",
+      "::tests.integration.test_integration_mtebevaluation",
+      "::tests.integration.test_integration_queries",
+      "::tests.integration.test_integration_vespa_cloud",
+      "::tests.integration.test_integration_vespa_cloud_mteb",
+      "::tests.integration.test_integration_vespa_cloud_token",
+      "::tests.integration.test_integration_vespa_cloud_vector_search",
+      "::tests.mktestdocs.test_mkdocs",
+      "::tests.mktestdocs.test_mkdocstring",
+      "::tests.perf",
+      "::tests.unit.test_application",
+      "::tests.unit.test_deployment",
+      "::tests.unit.test_evaluator"
+    ],
+    "resolved": {
+      "certifi": "2026.7.22",
+      "httpx": "1.0.dev3",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 13.296700999999999,
+    "cost": 0.13502621,
+    "image_uuid": "aa340f86-28df-43e1-99f7-949ddaefebab",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 15
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\ncertifi==2026.7.22\nhttpx==1.0.dev3\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\n_______________ ERROR collecting tests/mktestdocs/test_mkdocs.py _______________\nImportError while importing test module '/work/repo/tests/mktestdocs/test_mkdocs.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/mktestdocs/test_mkdocs.py:4: in <module>\n    from mktestdocs import check_md_file\nE   ModuleNotFoundError: No module named 'mktestdocs'\n____________ ERROR collecting tests/mktestdocs/test_mkdocstring.py _____________\nImportError while importing test module '/work/repo/tests/mktestdocs/test_mkdocstring.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/mktestdocs/test_mkdocstring.py:5: in <module>\n    from mktestdocs import check_docstring\nE   ModuleNotFoundError: No module named 'mktestdocs'\n_________________________ ERROR collecting tests/perf __________________________\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n../venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:188: in exec_module\n    exec(co, module.__dict__)\ntests/perf/conftest.py:9: in <module>\n    from vespa.deployment import VespaCloud\nvespa/deployment.py:35: in <module>\n    from vespa.application import Vespa\nvespa/application.py:255: in <module>\n    class Vespa(object):\nvespa/application.py:325: in Vespa\n    timeout: Union[httpx.Timeout, int, float] = 30.0,\n                   ^^^^^^^^^^^^^\nE   AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\n_______________ ERROR collecting tests/unit/test_application.py ________________\ntests/unit/test_application.py:13: in <module>\n    from vespa.application import Vespa, raise_for_status\nvespa/application.py:255: in <module>\n    class Vespa(object):\nvespa/application.py:325: in Vespa\n    timeout: Union[httpx.Timeout, int, float] = 30.0,\n                   ^^^^^^^^^^^^^\nE   AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\n________________ ERROR collecting tests/unit/test_deployment.py ________________\ntests/unit/test_deployment.py:8: in <module>\n    from vespa.deployment import VespaCloud, DataplaneToken\nvespa/deployment.py:35: in <module>\n    from vespa.application import Vespa\nvespa/application.py:255: in <module>\n    class Vespa(object):\nvespa/application.py:325: in Vespa\n    timeout: Union[httpx.Timeout, int, float] = 30.0,\n                   ^^^^^^^^^^^^^\nE   AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\n________________ ERROR collecting tests/unit/test_evaluator.py _________________\ntests/unit/test_evaluator.py:2: in <module>\n    from vespa.evaluation import (\nvespa/evaluation/__init__.py:10: in <module>\n    from vespa.evaluation._base import *  # noqa: F401, F403\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nvespa/evaluation/_base.py:23: in <module>\n    from vespa.application import Vespa\nvespa/application.py:255: in <module>\n    class Vespa(object):\nvespa/application.py:325: in Vespa\n    timeout: Union[httpx.Timeout, int, float] = 30.0,\n                   ^^^^^^^^^^^^^\nE   AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\n=========================== short test summary info ============================\nERROR tests/integration/test_integration_docker.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_evaluation.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_grouping.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_mtebevaluation.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_queries.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_vespa_cloud.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_vespa_cloud_mteb.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_vespa_cloud_token.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_vespa_cloud_vector_search.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/mktestdocs/test_mkdocs.py\nERROR tests/mktestdocs/test_mkdocstring.py\nERROR tests/perf - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/unit/test_application.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/unit/test_deployment.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/unit/test_evaluator.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\n!!!!!!!!!!!!!!!!!!! Interrupted: 15 errors during collection !!!!!!!!!!!!!!!!!!!\n15 errors in 4.36s\n",
+    "tests": {
+      "::tests.integration.test_integration_docker": "error",
+      "::tests.integration.test_integration_evaluation": "error",
+      "::tests.integration.test_integration_grouping": "error",
+      "::tests.integration.test_integration_mtebevaluation": "error",
+      "::tests.integration.test_integration_queries": "error",
+      "::tests.integration.test_integration_vespa_cloud": "error",
+      "::tests.integration.test_integration_vespa_cloud_mteb": "error",
+      "::tests.integration.test_integration_vespa_cloud_token": "error",
+      "::tests.integration.test_integration_vespa_cloud_vector_search": "error",
+      "::tests.mktestdocs.test_mkdocs": "error",
+      "::tests.mktestdocs.test_mkdocstring": "error",
+      "::tests.perf": "error",
+      "::tests.unit.test_application": "error",
+      "::tests.unit.test_deployment": "error",
+      "::tests.unit.test_evaluator": "error"
+    },
+    "collection_errors": [
+      "::tests.integration.test_integration_docker",
+      "::tests.integration.test_integration_evaluation",
+      "::tests.integration.test_integration_grouping",
+      "::tests.integration.test_integration_mtebevaluation",
+      "::tests.integration.test_integration_queries",
+      "::tests.integration.test_integration_vespa_cloud",
+      "::tests.integration.test_integration_vespa_cloud_mteb",
+      "::tests.integration.test_integration_vespa_cloud_token",
+      "::tests.integration.test_integration_vespa_cloud_vector_search",
+      "::tests.mktestdocs.test_mkdocs",
+      "::tests.mktestdocs.test_mkdocstring",
+      "::tests.perf",
+      "::tests.unit.test_application",
+      "::tests.unit.test_deployment",
+      "::tests.unit.test_evaluator"
+    ],
+    "resolved": {
+      "certifi": "2026.7.22",
+      "httpx": "1.0.dev3",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 13.471341,
+    "cost": 0.13676275000000002,
+    "image_uuid": "99c5d168-4b24-43f9-a12c-a63ddff6d83f",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 15
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\ncertifi==2026.7.22\nhttpx==1.0.dev3\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\n_______________ ERROR collecting tests/mktestdocs/test_mkdocs.py _______________\nImportError while importing test module '/work/repo/tests/mktestdocs/test_mkdocs.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/mktestdocs/test_mkdocs.py:4: in <module>\n    from mktestdocs import check_md_file\nE   ModuleNotFoundError: No module named 'mktestdocs'\n____________ ERROR collecting tests/mktestdocs/test_mkdocstring.py _____________\nImportError while importing test module '/work/repo/tests/mktestdocs/test_mkdocstring.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/mktestdocs/test_mkdocstring.py:5: in <module>\n    from mktestdocs import check_docstring\nE   ModuleNotFoundError: No module named 'mktestdocs'\n_________________________ ERROR collecting tests/perf __________________________\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n../venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:188: in exec_module\n    exec(co, module.__dict__)\ntests/perf/conftest.py:9: in <module>\n    from vespa.deployment import VespaCloud\nvespa/deployment.py:35: in <module>\n    from vespa.application import Vespa\nvespa/application.py:255: in <module>\n    class Vespa(object):\nvespa/application.py:325: in Vespa\n    timeout: Union[httpx.Timeout, int, float] = 30.0,\n                   ^^^^^^^^^^^^^\nE   AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\n_______________ ERROR collecting tests/unit/test_application.py ________________\ntests/unit/test_application.py:13: in <module>\n    from vespa.application import Vespa, raise_for_status\nvespa/application.py:255: in <module>\n    class Vespa(object):\nvespa/application.py:325: in Vespa\n    timeout: Union[httpx.Timeout, int, float] = 30.0,\n                   ^^^^^^^^^^^^^\nE   AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\n________________ ERROR collecting tests/unit/test_deployment.py ________________\ntests/unit/test_deployment.py:8: in <module>\n    from vespa.deployment import VespaCloud, DataplaneToken\nvespa/deployment.py:35: in <module>\n    from vespa.application import Vespa\nvespa/application.py:255: in <module>\n    class Vespa(object):\nvespa/application.py:325: in Vespa\n    timeout: Union[httpx.Timeout, int, float] = 30.0,\n                   ^^^^^^^^^^^^^\nE   AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\n________________ ERROR collecting tests/unit/test_evaluator.py _________________\ntests/unit/test_evaluator.py:2: in <module>\n    from vespa.evaluation import (\nvespa/evaluation/__init__.py:10: in <module>\n    from vespa.evaluation._base import *  # noqa: F401, F403\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nvespa/evaluation/_base.py:23: in <module>\n    from vespa.application import Vespa\nvespa/application.py:255: in <module>\n    class Vespa(object):\nvespa/application.py:325: in Vespa\n    timeout: Union[httpx.Timeout, int, float] = 30.0,\n                   ^^^^^^^^^^^^^\nE   AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\n=========================== short test summary info ============================\nERROR tests/integration/test_integration_docker.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_evaluation.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_grouping.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_mtebevaluation.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_queries.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_vespa_cloud.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_vespa_cloud_mteb.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_vespa_cloud_token.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/integration/test_integration_vespa_cloud_vector_search.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/mktestdocs/test_mkdocs.py\nERROR tests/mktestdocs/test_mkdocstring.py\nERROR tests/perf - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/unit/test_application.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/unit/test_deployment.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\nERROR tests/unit/test_evaluator.py - AttributeError: module 'httpx' has no attribute 'Timeout'. Did you mean: 'timeout'?\n!!!!!!!!!!!!!!!!!!! Interrupted: 15 errors during collection !!!!!!!!!!!!!!!!!!!\n15 errors in 4.28s\n",
+    "tests": {
+      "::tests.integration.test_integration_docker": "error",
+      "::tests.integration.test_integration_evaluation": "error",
+      "::tests.integration.test_integration_grouping": "error",
+      "::tests.integration.test_integration_mtebevaluation": "error",
+      "::tests.integration.test_integration_queries": "error",
+      "::tests.integration.test_integration_vespa_cloud": "error",
+      "::tests.integration.test_integration_vespa_cloud_mteb": "error",
+      "::tests.integration.test_integration_vespa_cloud_token": "error",
+      "::tests.integration.test_integration_vespa_cloud_vector_search": "error",
+      "::tests.mktestdocs.test_mkdocs": "error",
+      "::tests.mktestdocs.test_mkdocstring": "error",
+      "::tests.perf": "error",
+      "::tests.unit.test_application": "error",
+      "::tests.unit.test_deployment": "error",
+      "::tests.unit.test_evaluator": "error"
+    },
+    "collection_errors": [
+      "::tests.integration.test_integration_docker",
+      "::tests.integration.test_integration_evaluation",
+      "::tests.integration.test_integration_grouping",
+      "::tests.integration.test_integration_mtebevaluation",
+      "::tests.integration.test_integration_queries",
+      "::tests.integration.test_integration_vespa_cloud",
+      "::tests.integration.test_integration_vespa_cloud_mteb",
+      "::tests.integration.test_integration_vespa_cloud_token",
+      "::tests.integration.test_integration_vespa_cloud_vector_search",
+      "::tests.mktestdocs.test_mkdocs",
+      "::tests.mktestdocs.test_mkdocstring",
+      "::tests.perf",
+      "::tests.unit.test_application",
+      "::tests.unit.test_deployment",
+      "::tests.unit.test_evaluator"
+    ],
+    "resolved": {
+      "certifi": "2026.7.22",
+      "httpx": "1.0.dev3",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 12.78253,
+    "cost": 0.12981985999999998,
+    "image_uuid": "dae7900a-9d2d-4abb-83f0-2113e754ff95",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 15
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "no-baseline",
+    "reason": "no test passed in the before fork, so nothing can be shown to break",
+    "before_summary": {
+      "error": 15
+    },
+    "after_summary": {
+      "error": 15
+    },
+    "collected_before": 15
+  },
+  "error": null,
+  "requirement": "openai; extra == \"notebooks\"",
+  "wall_s": 69.7
+}

@@ -1,0 +1,152 @@
+{
+  "dependent": "dominodatalab",
+  "version": "2.2.0",
+  "source": {
+    "owner": "dominodatalab",
+    "repo": "python-domino",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/d4/03/44caacda86f53ceadd86013b884122846e5eb5086ef1626e980b52b6193d/dominodatalab-2.2.0.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "850f93e2-d3a3-4340-babb-8f0f1fe2b32d",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==7.4.3\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "/work/venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:212: PytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\nThe event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n\n==================================== ERRORS ====================================\n___________________ ERROR collecting tests/test_operator.py ____________________\nImportError while importing test module '/work/repo/tests/test_operator.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_operator.py:5: in <module>\n    from airflow import DAG, settings\nE   ModuleNotFoundError: No module named 'airflow'\n________________ ERROR collecting tests/test_spark_operator.py _________________\nImportError while importing test module '/work/repo/tests/test_spark_operator.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_spark_operator.py:12: in <module>\n    from airflow import DAG\nE   ModuleNotFoundError: No module named 'airflow'\n_________ ERROR collecting tests/agents/test_verify_domino_support.py __________\nImportError while importing test module '/work/repo/tests/agents/test_verify_domino_support.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/agents/test_verify_domino_support.py:8: in <module>\n    from domino.agents._verify_domino_support import _get_version_endpoint\ndomino/agents/_verify_domino_support.py:5: in <module>\n    import mlflow\nE   ModuleNotFoundError: No module named 'mlflow'\n__________ ERROR collecting tests/integration/agents/test_logging.py ___________\nImportError while importing test module '/work/repo/tests/integration/agents/test_logging.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/integration/agents/test_logging.py:5: in <module>\n    from .mlflow_fixtures import fixture_create_traces\ntests/integration/agents/mlflow_fixtures.py:8: in <module>\n    from domino.agents._client import client\ndomino/agents/_client.py:1: in <module>\n    from mlflow import MlflowClient\nE   ModuleNotFoundError: No module named 'mlflow'\n__________ ERROR collecting tests/integration/agents/test_tracing.py ___________\nImportError while importing test module '/work/repo/tests/integration/agents/test_tracing.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/integration/agents/test_tracing.py:14: in <module>\n    from domino.agents.tracing._util import build_agent_experiment_name\ndomino/agents/tracing/__init__.py:1: in <module>\n    from .inittracing import init_tracing as init_tracing\ndomino/agents/tracing/inittracing.py:5: in <module>\n    import mlflow\nE   ModuleNotFoundError: No module named 'mlflow'\n____________ ERROR collecting tests/integration/agents/test_util.py ____________\nImportError while importing test module '/work/repo/tests/integration/agents/test_util.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/integration/agents/test_util.py:1: in <module>\n    import domino.agents.tracing.inittracing as inittracing\ndomino/agents/tracing/__init__.py:1: in <module>\n    from .inittracing import init_tracing as init_tracing\ndomino/agents/tracing/inittracing.py:5: in <module>\n    import mlflow\nE   ModuleNotFoundError: No module named 'mlflow'\n=============================== warnings summary ===============================\n../venv/lib/python3.12/site-packages/dateutil/tz/tz.py:37\n  /work/venv/lib/python3.12/site-packages/dateutil/tz/tz.py:37: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    EPOCH = datetime.datetime.utcfromtimestamp(0)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n--------------------- generated xml file: /work/junit.xml ----------------------\n=========================== short test summary info ============================\nERROR tests/test_operator.py\nERROR tests/test_spark_operator.py\nERROR tests/agents/test_verify_domino_support.py\nERROR tests/integration/agents/test_logging.py\nERROR tests/integration/agents/test_tracing.py\nERROR tests/integration/agents/test_util.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 6 errors during collection !!!!!!!!!!!!!!!!!!!!\n1 warning, 6 errors in 0.52s\n",
+    "tests": {
+      "::tests.test_operator": "error",
+      "::tests.test_spark_operator": "error",
+      "::tests.agents.test_verify_domino_support": "error",
+      "::tests.integration.agents.test_logging": "error",
+      "::tests.integration.agents.test_tracing": "error",
+      "::tests.integration.agents.test_util": "error"
+    },
+    "collection_errors": [
+      "::tests.test_operator",
+      "::tests.test_spark_operator",
+      "::tests.agents.test_verify_domino_support",
+      "::tests.integration.agents.test_logging",
+      "::tests.integration.agents.test_tracing",
+      "::tests.integration.agents.test_util"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "7.4.3",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 18.950473,
+    "cost": 0.19089905000000001,
+    "image_uuid": "6d8dbc71-4793-4245-86ca-02da2b79c362",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 6
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==1.0.dev3\nhttpx2==2.10.0\nopenai==3.0.0\npydantic==2.14.0b1\npytest==7.4.3\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "/work/venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:212: PytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\nThe event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n\n==================================== ERRORS ====================================\n___________________ ERROR collecting tests/test_operator.py ____________________\nImportError while importing test module '/work/repo/tests/test_operator.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_operator.py:5: in <module>\n    from airflow import DAG, settings\nE   ModuleNotFoundError: No module named 'airflow'\n________________ ERROR collecting tests/test_spark_operator.py _________________\nImportError while importing test module '/work/repo/tests/test_spark_operator.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_spark_operator.py:12: in <module>\n    from airflow import DAG\nE   ModuleNotFoundError: No module named 'airflow'\n_________ ERROR collecting tests/agents/test_verify_domino_support.py __________\nImportError while importing test module '/work/repo/tests/agents/test_verify_domino_support.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/agents/test_verify_domino_support.py:8: in <module>\n    from domino.agents._verify_domino_support import _get_version_endpoint\ndomino/agents/_verify_domino_support.py:5: in <module>\n    import mlflow\nE   ModuleNotFoundError: No module named 'mlflow'\n__________ ERROR collecting tests/integration/agents/test_logging.py ___________\nImportError while importing test module '/work/repo/tests/integration/agents/test_logging.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/integration/agents/test_logging.py:5: in <module>\n    from .mlflow_fixtures import fixture_create_traces\ntests/integration/agents/mlflow_fixtures.py:8: in <module>\n    from domino.agents._client import client\ndomino/agents/_client.py:1: in <module>\n    from mlflow import MlflowClient\nE   ModuleNotFoundError: No module named 'mlflow'\n__________ ERROR collecting tests/integration/agents/test_tracing.py ___________\nImportError while importing test module '/work/repo/tests/integration/agents/test_tracing.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/integration/agents/test_tracing.py:14: in <module>\n    from domino.agents.tracing._util import build_agent_experiment_name\ndomino/agents/tracing/__init__.py:1: in <module>\n    from .inittracing import init_tracing as init_tracing\ndomino/agents/tracing/inittracing.py:5: in <module>\n    import mlflow\nE   ModuleNotFoundError: No module named 'mlflow'\n____________ ERROR collecting tests/integration/agents/test_util.py ____________\nImportError while importing test module '/work/repo/tests/integration/agents/test_util.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/integration/agents/test_util.py:1: in <module>\n    import domino.agents.tracing.inittracing as inittracing\ndomino/agents/tracing/__init__.py:1: in <module>\n    from .inittracing import init_tracing as init_tracing\ndomino/agents/tracing/inittracing.py:5: in <module>\n    import mlflow\nE   ModuleNotFoundError: No module named 'mlflow'\n=============================== warnings summary ===============================\n../venv/lib/python3.12/site-packages/dateutil/tz/tz.py:37\n  /work/venv/lib/python3.12/site-packages/dateutil/tz/tz.py:37: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    EPOCH = datetime.datetime.utcfromtimestamp(0)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n--------------------- generated xml file: /work/junit.xml ----------------------\n=========================== short test summary info ============================\nERROR tests/test_operator.py\nERROR tests/test_spark_operator.py\nERROR tests/agents/test_verify_domino_support.py\nERROR tests/integration/agents/test_logging.py\nERROR tests/integration/agents/test_tracing.py\nERROR tests/integration/agents/test_util.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 6 errors during collection !!!!!!!!!!!!!!!!!!!!\n1 warning, 6 errors in 0.50s\n",
+    "tests": {
+      "::tests.test_operator": "error",
+      "::tests.test_spark_operator": "error",
+      "::tests.agents.test_verify_domino_support": "error",
+      "::tests.integration.agents.test_logging": "error",
+      "::tests.integration.agents.test_tracing": "error",
+      "::tests.integration.agents.test_util": "error"
+    },
+    "collection_errors": [
+      "::tests.test_operator",
+      "::tests.test_spark_operator",
+      "::tests.agents.test_verify_domino_support",
+      "::tests.integration.agents.test_logging",
+      "::tests.integration.agents.test_tracing",
+      "::tests.integration.agents.test_util"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "1.0.dev3",
+      "httpx2": "2.10.0",
+      "openai": "3.0.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "7.4.3",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 18.735828,
+    "cost": 0.18874298,
+    "image_uuid": "a0867bc2-1278-499c-b206-d18ff6ff344d",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 6
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==7.4.3\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "/work/venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:212: PytestDeprecationWarning: The configuration option \"asyncio_default_fixture_loop_scope\" is unset.\nThe event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: \"function\", \"class\", \"module\", \"package\", \"session\"\n\n  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))\n\n==================================== ERRORS ====================================\n___________________ ERROR collecting tests/test_operator.py ____________________\nImportError while importing test module '/work/repo/tests/test_operator.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_operator.py:5: in <module>\n    from airflow import DAG, settings\nE   ModuleNotFoundError: No module named 'airflow'\n________________ ERROR collecting tests/test_spark_operator.py _________________\nImportError while importing test module '/work/repo/tests/test_spark_operator.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/test_spark_operator.py:12: in <module>\n    from airflow import DAG\nE   ModuleNotFoundError: No module named 'airflow'\n_________ ERROR collecting tests/agents/test_verify_domino_support.py __________\nImportError while importing test module '/work/repo/tests/agents/test_verify_domino_support.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/agents/test_verify_domino_support.py:8: in <module>\n    from domino.agents._verify_domino_support import _get_version_endpoint\ndomino/agents/_verify_domino_support.py:5: in <module>\n    import mlflow\nE   ModuleNotFoundError: No module named 'mlflow'\n__________ ERROR collecting tests/integration/agents/test_logging.py ___________\nImportError while importing test module '/work/repo/tests/integration/agents/test_logging.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/integration/agents/test_logging.py:5: in <module>\n    from .mlflow_fixtures import fixture_create_traces\ntests/integration/agents/mlflow_fixtures.py:8: in <module>\n    from domino.agents._client import client\ndomino/agents/_client.py:1: in <module>\n    from mlflow import MlflowClient\nE   ModuleNotFoundError: No module named 'mlflow'\n__________ ERROR collecting tests/integration/agents/test_tracing.py ___________\nImportError while importing test module '/work/repo/tests/integration/agents/test_tracing.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/integration/agents/test_tracing.py:14: in <module>\n    from domino.agents.tracing._util import build_agent_experiment_name\ndomino/agents/tracing/__init__.py:1: in <module>\n    from .inittracing import init_tracing as init_tracing\ndomino/agents/tracing/inittracing.py:5: in <module>\n    import mlflow\nE   ModuleNotFoundError: No module named 'mlflow'\n____________ ERROR collecting tests/integration/agents/test_util.py ____________\nImportError while importing test module '/work/repo/tests/integration/agents/test_util.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\ntests/integration/agents/test_util.py:1: in <module>\n    import domino.agents.tracing.inittracing as inittracing\ndomino/agents/tracing/__init__.py:1: in <module>\n    from .inittracing import init_tracing as init_tracing\ndomino/agents/tracing/inittracing.py:5: in <module>\n    import mlflow\nE   ModuleNotFoundError: No module named 'mlflow'\n=============================== warnings summary ===============================\n../venv/lib/python3.12/site-packages/dateutil/tz/tz.py:37\n  /work/venv/lib/python3.12/site-packages/dateutil/tz/tz.py:37: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    EPOCH = datetime.datetime.utcfromtimestamp(0)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n--------------------- generated xml file: /work/junit.xml ----------------------\n=========================== short test summary info ============================\nERROR tests/test_operator.py\nERROR tests/test_spark_operator.py\nERROR tests/agents/test_verify_domino_support.py\nERROR tests/integration/agents/test_logging.py\nERROR tests/integration/agents/test_tracing.py\nERROR tests/integration/agents/test_util.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 6 errors during collection !!!!!!!!!!!!!!!!!!!!\n1 warning, 6 errors in 0.50s\n",
+    "tests": {
+      "::tests.test_operator": "error",
+      "::tests.test_spark_operator": "error",
+      "::tests.agents.test_verify_domino_support": "error",
+      "::tests.integration.agents.test_logging": "error",
+      "::tests.integration.agents.test_tracing": "error",
+      "::tests.integration.agents.test_util": "error"
+    },
+    "collection_errors": [
+      "::tests.test_operator",
+      "::tests.test_spark_operator",
+      "::tests.agents.test_verify_domino_support",
+      "::tests.integration.agents.test_logging",
+      "::tests.integration.agents.test_tracing",
+      "::tests.integration.agents.test_util"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "7.4.3",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 19.317429,
+    "cost": 0.19457079000000002,
+    "image_uuid": "395d5b37-8b68-4a4d-b327-af6e738a2f9e",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 6
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "no-baseline",
+    "reason": "no test passed in the before fork, so nothing can be shown to break",
+    "before_summary": {
+      "error": 6
+    },
+    "after_summary": {
+      "error": 6
+    },
+    "collected_before": 6
+  },
+  "error": null,
+  "requirement": "openai>=2.7.2; extra == \"dev\"",
+  "wall_s": 107.1
+}

@@ -1,0 +1,157 @@
+{
+  "dependent": "geneva",
+  "version": "0.14.0",
+  "source": {
+    "owner": "pypi",
+    "repo": "geneva",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/83/c2/52221c8fe7955f96ef9f4957b3e7fb4531eafe31ff36e0656abb81a99367/geneva-0.14.0.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "d85b3a28-5779-4375-9777-4174bf24a0e0",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "ib/python3.12/site-packages/_pytest/config/argparsing.py:119: in addoption\n    self._anonymous.addoption(*opts, **attrs)\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:357: in addoption\n    raise ValueError(f\"option names {conflict} already added\")\nE   ValueError: option names {'--num-images'} already added\n__________________ ERROR collecting e2e/large_image_embedding __________________\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n../venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:188: in exec_module\n    exec(co, module.__dict__)\ne2e/large_image_embedding/conftest.py:20: in <module>\n    from dataset import write_large_image_table\nE   ImportError: cannot import name 'write_large_image_table' from 'dataset' (/work/repo/e2e/document_embedding/dataset.py)\n_________________________ ERROR collecting e2e/openvid _________________________\n../venv/lib/python3.12/site-packages/pluggy/_manager.py:169: in register\n    hook._maybe_apply_history(hookimpl)\n../venv/lib/python3.12/site-packages/pluggy/_hooks.py:580: in _maybe_apply_history\n    res = self._hookexec(self.name, [method], kwargs, False)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/pluggy/_manager.py:120: in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ne2e/openvid/conftest.py:210: in pytest_addoption\n    parser.addoption(\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:119: in addoption\n    self._anonymous.addoption(*opts, **attrs)\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:357: in addoption\n    raise ValueError(f\"option names {conflict} already added\")\nE   ValueError: option names {'--batch-size'} already added\n_______________________ ERROR collecting e2e/oxford-pets _______________________\n../venv/lib/python3.12/site-packages/pluggy/_manager.py:169: in register\n    hook._maybe_apply_history(hookimpl)\n../venv/lib/python3.12/site-packages/pluggy/_hooks.py:580: in _maybe_apply_history\n    res = self._hookexec(self.name, [method], kwargs, False)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/pluggy/_manager.py:120: in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ne2e/oxford-pets/conftest.py:72: in pytest_addoption\n    parser.addoption(\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:119: in addoption\n    self._anonymous.addoption(*opts, **attrs)\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:357: in addoption\n    raise ValueError(f\"option names {conflict} already added\")\nE   ValueError: option names {'--num-images'} already added\n__________________ ERROR collecting e2e/whisper_transcription __________________\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n../venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:188: in exec_module\n    exec(co, module.__dict__)\ne2e/whisper_transcription/conftest.py:18: in <module>\n    from dataset import load_audio_samples\nE   ImportError: cannot import name 'load_audio_samples' from 'dataset' (/work/repo/e2e/document_embedding/dataset.py)\n_____________________________ ERROR collecting src _____________________________\n../venv/lib/python3.12/site-packages/pluggy/_manager.py:169: in register\n    hook._maybe_apply_history(hookimpl)\n../venv/lib/python3.12/site-packages/pluggy/_hooks.py:580: in _maybe_apply_history\n    res = self._hookexec(self.name, [method], kwargs, False)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/pluggy/_manager.py:120: in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/conftest.py:42: in pytest_addoption\n    parser.addoption(\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:119: in addoption\n    self._anonymous.addoption(*opts, **attrs)\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:357: in addoption\n    raise ValueError(f\"option names {conflict} already added\")\nE   ValueError: option names {'--csp'} already added\n=========================== short test summary info ============================\nERROR e2e/document_embedding - ValueError: option names {'--batch-size'} already added\nERROR e2e/image_dedupe - ValueError: option names {'--num-images'} already added\nERROR e2e/large_image_embedding - ImportError: cannot import name 'write_large_image_table' from 'dataset' (/work/repo/e2e/document_embedding/dataset.py)\nERROR e2e/openvid - ValueError: option names {'--batch-size'} already added\nERROR e2e/oxford-pets - ValueError: option names {'--num-images'} already added\nERROR e2e/whisper_transcription - ImportError: cannot import name 'load_audio_samples' from 'dataset' (/work/repo/e2e/document_embedding/dataset.py)\nERROR src - ValueError: option names {'--csp'} already added\n!!!!!!!!!!!!!!!!!!! Interrupted: 7 errors during collection !!!!!!!!!!!!!!!!!!!!\n7 errors in 6.62s\n",
+    "tests": {
+      "::e2e.document_embedding": "error",
+      "::e2e.image_dedupe": "error",
+      "::e2e.large_image_embedding": "error",
+      "::e2e.openvid": "error",
+      "::e2e.oxford-pets": "error",
+      "::e2e.whisper_transcription": "error",
+      "::src": "error"
+    },
+    "collection_errors": [
+      "::e2e.document_embedding",
+      "::e2e.image_dedupe",
+      "::e2e.large_image_embedding",
+      "::e2e.openvid",
+      "::e2e.oxford-pets",
+      "::e2e.whisper_transcription",
+      "::src"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 17.106342,
+    "cost": 0.17383456,
+    "image_uuid": "cacc42e1-e990-4235-a488-b6fa00534620",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 7
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "ib/python3.12/site-packages/_pytest/config/argparsing.py:119: in addoption\n    self._anonymous.addoption(*opts, **attrs)\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:357: in addoption\n    raise ValueError(f\"option names {conflict} already added\")\nE   ValueError: option names {'--num-images'} already added\n__________________ ERROR collecting e2e/large_image_embedding __________________\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n../venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:188: in exec_module\n    exec(co, module.__dict__)\ne2e/large_image_embedding/conftest.py:20: in <module>\n    from dataset import write_large_image_table\nE   ImportError: cannot import name 'write_large_image_table' from 'dataset' (/work/repo/e2e/document_embedding/dataset.py)\n_________________________ ERROR collecting e2e/openvid _________________________\n../venv/lib/python3.12/site-packages/pluggy/_manager.py:169: in register\n    hook._maybe_apply_history(hookimpl)\n../venv/lib/python3.12/site-packages/pluggy/_hooks.py:580: in _maybe_apply_history\n    res = self._hookexec(self.name, [method], kwargs, False)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/pluggy/_manager.py:120: in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ne2e/openvid/conftest.py:210: in pytest_addoption\n    parser.addoption(\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:119: in addoption\n    self._anonymous.addoption(*opts, **attrs)\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:357: in addoption\n    raise ValueError(f\"option names {conflict} already added\")\nE   ValueError: option names {'--batch-size'} already added\n_______________________ ERROR collecting e2e/oxford-pets _______________________\n../venv/lib/python3.12/site-packages/pluggy/_manager.py:169: in register\n    hook._maybe_apply_history(hookimpl)\n../venv/lib/python3.12/site-packages/pluggy/_hooks.py:580: in _maybe_apply_history\n    res = self._hookexec(self.name, [method], kwargs, False)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/pluggy/_manager.py:120: in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ne2e/oxford-pets/conftest.py:72: in pytest_addoption\n    parser.addoption(\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:119: in addoption\n    self._anonymous.addoption(*opts, **attrs)\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:357: in addoption\n    raise ValueError(f\"option names {conflict} already added\")\nE   ValueError: option names {'--num-images'} already added\n__________________ ERROR collecting e2e/whisper_transcription __________________\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n../venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:188: in exec_module\n    exec(co, module.__dict__)\ne2e/whisper_transcription/conftest.py:18: in <module>\n    from dataset import load_audio_samples\nE   ImportError: cannot import name 'load_audio_samples' from 'dataset' (/work/repo/e2e/document_embedding/dataset.py)\n_____________________________ ERROR collecting src _____________________________\n../venv/lib/python3.12/site-packages/pluggy/_manager.py:169: in register\n    hook._maybe_apply_history(hookimpl)\n../venv/lib/python3.12/site-packages/pluggy/_hooks.py:580: in _maybe_apply_history\n    res = self._hookexec(self.name, [method], kwargs, False)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/pluggy/_manager.py:120: in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/conftest.py:42: in pytest_addoption\n    parser.addoption(\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:119: in addoption\n    self._anonymous.addoption(*opts, **attrs)\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:357: in addoption\n    raise ValueError(f\"option names {conflict} already added\")\nE   ValueError: option names {'--csp'} already added\n=========================== short test summary info ============================\nERROR e2e/document_embedding - ValueError: option names {'--batch-size'} already added\nERROR e2e/image_dedupe - ValueError: option names {'--num-images'} already added\nERROR e2e/large_image_embedding - ImportError: cannot import name 'write_large_image_table' from 'dataset' (/work/repo/e2e/document_embedding/dataset.py)\nERROR e2e/openvid - ValueError: option names {'--batch-size'} already added\nERROR e2e/oxford-pets - ValueError: option names {'--num-images'} already added\nERROR e2e/whisper_transcription - ImportError: cannot import name 'load_audio_samples' from 'dataset' (/work/repo/e2e/document_embedding/dataset.py)\nERROR src - ValueError: option names {'--csp'} already added\n!!!!!!!!!!!!!!!!!!! Interrupted: 7 errors during collection !!!!!!!!!!!!!!!!!!!!\n7 errors in 6.24s\n",
+    "tests": {
+      "::e2e.document_embedding": "error",
+      "::e2e.image_dedupe": "error",
+      "::e2e.large_image_embedding": "error",
+      "::e2e.openvid": "error",
+      "::e2e.oxford-pets": "error",
+      "::e2e.whisper_transcription": "error",
+      "::src": "error"
+    },
+    "collection_errors": [
+      "::e2e.document_embedding",
+      "::e2e.image_dedupe",
+      "::e2e.large_image_embedding",
+      "::e2e.openvid",
+      "::e2e.oxford-pets",
+      "::e2e.whisper_transcription",
+      "::src"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 17.194108999999997,
+    "cost": 0.17465899000000001,
+    "image_uuid": "5f537b29-8b5c-4103-9920-521bd8b26d64",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 7
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "ib/python3.12/site-packages/_pytest/config/argparsing.py:119: in addoption\n    self._anonymous.addoption(*opts, **attrs)\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:357: in addoption\n    raise ValueError(f\"option names {conflict} already added\")\nE   ValueError: option names {'--num-images'} already added\n__________________ ERROR collecting e2e/large_image_embedding __________________\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n../venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:188: in exec_module\n    exec(co, module.__dict__)\ne2e/large_image_embedding/conftest.py:20: in <module>\n    from dataset import write_large_image_table\nE   ImportError: cannot import name 'write_large_image_table' from 'dataset' (/work/repo/e2e/document_embedding/dataset.py)\n_________________________ ERROR collecting e2e/openvid _________________________\n../venv/lib/python3.12/site-packages/pluggy/_manager.py:169: in register\n    hook._maybe_apply_history(hookimpl)\n../venv/lib/python3.12/site-packages/pluggy/_hooks.py:580: in _maybe_apply_history\n    res = self._hookexec(self.name, [method], kwargs, False)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/pluggy/_manager.py:120: in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ne2e/openvid/conftest.py:210: in pytest_addoption\n    parser.addoption(\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:119: in addoption\n    self._anonymous.addoption(*opts, **attrs)\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:357: in addoption\n    raise ValueError(f\"option names {conflict} already added\")\nE   ValueError: option names {'--batch-size'} already added\n_______________________ ERROR collecting e2e/oxford-pets _______________________\n../venv/lib/python3.12/site-packages/pluggy/_manager.py:169: in register\n    hook._maybe_apply_history(hookimpl)\n../venv/lib/python3.12/site-packages/pluggy/_hooks.py:580: in _maybe_apply_history\n    res = self._hookexec(self.name, [method], kwargs, False)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/pluggy/_manager.py:120: in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ne2e/oxford-pets/conftest.py:72: in pytest_addoption\n    parser.addoption(\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:119: in addoption\n    self._anonymous.addoption(*opts, **attrs)\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:357: in addoption\n    raise ValueError(f\"option names {conflict} already added\")\nE   ValueError: option names {'--num-images'} already added\n__________________ ERROR collecting e2e/whisper_transcription __________________\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n../venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:188: in exec_module\n    exec(co, module.__dict__)\ne2e/whisper_transcription/conftest.py:18: in <module>\n    from dataset import load_audio_samples\nE   ImportError: cannot import name 'load_audio_samples' from 'dataset' (/work/repo/e2e/document_embedding/dataset.py)\n_____________________________ ERROR collecting src _____________________________\n../venv/lib/python3.12/site-packages/pluggy/_manager.py:169: in register\n    hook._maybe_apply_history(hookimpl)\n../venv/lib/python3.12/site-packages/pluggy/_hooks.py:580: in _maybe_apply_history\n    res = self._hookexec(self.name, [method], kwargs, False)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/pluggy/_manager.py:120: in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/conftest.py:42: in pytest_addoption\n    parser.addoption(\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:119: in addoption\n    self._anonymous.addoption(*opts, **attrs)\n../venv/lib/python3.12/site-packages/_pytest/config/argparsing.py:357: in addoption\n    raise ValueError(f\"option names {conflict} already added\")\nE   ValueError: option names {'--csp'} already added\n=========================== short test summary info ============================\nERROR e2e/document_embedding - ValueError: option names {'--batch-size'} already added\nERROR e2e/image_dedupe - ValueError: option names {'--num-images'} already added\nERROR e2e/large_image_embedding - ImportError: cannot import name 'write_large_image_table' from 'dataset' (/work/repo/e2e/document_embedding/dataset.py)\nERROR e2e/openvid - ValueError: option names {'--batch-size'} already added\nERROR e2e/oxford-pets - ValueError: option names {'--num-images'} already added\nERROR e2e/whisper_transcription - ImportError: cannot import name 'load_audio_samples' from 'dataset' (/work/repo/e2e/document_embedding/dataset.py)\nERROR src - ValueError: option names {'--csp'} already added\n!!!!!!!!!!!!!!!!!!! Interrupted: 7 errors during collection !!!!!!!!!!!!!!!!!!!!\n7 errors in 6.37s\n",
+    "tests": {
+      "::e2e.document_embedding": "error",
+      "::e2e.image_dedupe": "error",
+      "::e2e.large_image_embedding": "error",
+      "::e2e.openvid": "error",
+      "::e2e.oxford-pets": "error",
+      "::e2e.whisper_transcription": "error",
+      "::src": "error"
+    },
+    "collection_errors": [
+      "::e2e.document_embedding",
+      "::e2e.image_dedupe",
+      "::e2e.large_image_embedding",
+      "::e2e.openvid",
+      "::e2e.oxford-pets",
+      "::e2e.whisper_transcription",
+      "::src"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 16.138613,
+    "cost": 0.16413543,
+    "image_uuid": "d09865de-b467-4346-b3d4-9305e7c8eeba",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 7
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "no-baseline",
+    "reason": "no test passed in the before fork, so nothing can be shown to break",
+    "before_summary": {
+      "error": 7
+    },
+    "after_summary": {
+      "error": 7
+    },
+    "collected_before": 7
+  },
+  "error": null,
+  "requirement": "openai>=1.0; extra == \"udf-text-openai\"",
+  "wall_s": 138.1
+}

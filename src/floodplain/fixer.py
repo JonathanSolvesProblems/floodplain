@@ -59,9 +59,14 @@ Failing test output (tail):
 {log}
 </log>"""
 
+# Runs from the located package directory, not the repo root. In a monorepo the root holds a
+# Makefile and CI config while the package's own pyproject lives in a subdirectory; showing the
+# model the root is how openinference-instrumentation-agno got three patches aimed at the
+# monorepo's Makefile and CI workflow and none at the package itself.
 CONTEXT_SCRIPT = r"""
-cd /work/repo
-echo "=== FILES ==="; git ls-files | head -n 400
+cd "$(cat /work/pkgdir 2>/dev/null || echo /work/repo)"
+echo "=== PACKAGE DIRECTORY (all paths below are relative to it) ==="; pwd
+echo "=== FILES ==="; git -c safe.directory='*' ls-files . | head -n 400
 for f in pyproject.toml setup.py setup.cfg requirements.txt requirements-dev.txt; do
   if [ -f "$f" ]; then echo "=== $f ==="; head -n 200 "$f"; fi
 done
@@ -92,6 +97,7 @@ class Attempt:
     diff: str
     elapsed_s: float
     cost: float
+    reasons: list[str] = field(default_factory=list)   # why it was not verified, if it was not
 
 
 @dataclass
@@ -138,6 +144,38 @@ def apply_edits(files: dict[str, str], edits: list[dict[str, str]]) -> tuple[dic
 
 DEP_FILES = ("pyproject.toml", "setup.py", "setup.cfg", "requirements.txt")
 
+PYTEST_OK = (0, 1)   # 0: all passed; 1: ran to completion with failures. 2+ means it did not.
+
+
+def judge_patch(exit_code: int | None, tests: dict[str, str], collection: list[str],
+                verdict: dict[str, Any], baseline_before: dict[str, str]) -> dict[str, Any]:
+    """A patch is verified only if the patched after fork does at least as well as the before
+    fork did: the suite ran to completion, nothing fails to collect, and every test that passed
+    before the release passes again.
+
+    This replaces a check that was inverted for collection errors. It excluded targets that
+    were still collection errors from the still-failing list, so a patch that fixed nothing in
+    a suite that could not import would have been reported verified. pytest exits 2 when
+    modules fail to collect, which is how it was caught: a 'verified' patch with test_exit=2.
+    """
+    reasons: list[str] = []
+    if exit_code == 41:
+        reasons.append("the patched package would not install")
+    elif exit_code not in PYTEST_OK:
+        reasons.append(f"pytest did not run to completion (exit {exit_code})")
+    if collection:
+        reasons.append(f"{len(collection)} modules still fail to collect")
+    passed_before = [t for t, s in baseline_before.items() if s == "passed"]
+    if not tests:
+        reasons.append("no test results came back")
+    still_failing = sorted(t for t in passed_before if tests.get(t) != "passed")
+    targets = set(verdict.get("newly_failing", []))
+    regressions = [t for t in still_failing if t not in targets]
+    if still_failing:
+        reasons.append(f"{len(still_failing)} tests that passed before the release do not pass")
+    return {"verified": not reasons, "still_failing": still_failing, "regressions": regressions,
+            "reasons": reasons}
+
 
 class Fixer:
     def __init__(self, tf: TokenFactory, backend: Backend) -> None:
@@ -150,11 +188,20 @@ class Fixer:
                                      persist=False, timeout=180)
         return res.stdout[:60000]
 
-    async def read_files(self, img: ImageRef, paths: list[str]) -> dict[str, str]:
+    async def package_dir(self, img: ImageRef) -> str:
+        """The directory the install located (/work/pkgdir), which is the repo root unless the
+        dependent lives inside a monorepo. Every path the model sees and edits is relative to it."""
+        try:
+            raw = (await self.backend.read_file(img, "/work/pkgdir")).decode("utf-8").strip()
+            return raw or "/work/repo"
+        except Exception:  # noqa: BLE001 - older images predate the locator
+            return "/work/repo"
+
+    async def read_files(self, img: ImageRef, paths: list[str], root: str = "/work/repo") -> dict[str, str]:
         files: dict[str, str] = {}
         for p in paths:
             try:
-                files[p] = (await self.backend.read_file(img, f"/work/repo/{p}")).decode("utf-8", "replace")
+                files[p] = (await self.backend.read_file(img, f"{root}/{p}")).decode("utf-8", "replace")
             except Exception:  # noqa: BLE001 - a missing file just is not offered to the model
                 continue
         return files
@@ -170,13 +217,14 @@ class Fixer:
         return await self.tf.chat_json(tier, SYSTEM, user, max_tokens=6000)
 
     async def verify(self, installed: ImageRef, edited: dict[str, str], touched_deps: bool,
-                     after_cutoff: datetime, verdict: dict[str, Any], baseline_before: dict[str, str]) -> dict[str, Any]:
-        upload = {f"/work/repo/{p}": content.encode("utf-8") for p, content in edited.items()}
+                     after_cutoff: datetime, verdict: dict[str, Any], baseline_before: dict[str, str],
+                     root: str = "/work/repo") -> dict[str, Any]:
+        upload = {f"{root}/{p}": content.encode("utf-8") for p, content in edited.items()}
         reinstall = ""
         if touched_deps:
             cutoff = after_cutoff.strftime("%Y-%m-%dT%H:%M:%SZ")
             reinstall = (f"export VIRTUAL_ENV=/work/venv PATH=/work/venv/bin:$PATH UV_EXCLUDE_NEWER={cutoff}; "
-                         f"cd /work/repo && (uv pip install --quiet -e . || exit 41); ")
+                         f"cd {root} && (uv pip install --quiet -e . || exit 41); ")
         script = (reinstall + 'cd "$(cat /work/pkgdir 2>/dev/null || echo /work/repo)" && '
                   f"{GIT} diff > /work/fix.diff; " + TEST_SCRIPT)
         r = await self.backend.run(installed, script, files=upload, persist=True, timeout=TEST_TIMEOUT)
@@ -192,15 +240,11 @@ class Fixer:
                 diff = (await self.backend.read_file(r.image, "/work/fix.diff")).decode("utf-8", "replace")
             except Exception:  # noqa: BLE001
                 diff = ""
-        targets = list(verdict.get("newly_failing", [])) + list(verdict.get("new_collection_errors", []))
-        still_failing = [t for t in targets if tests.get(t) != "passed" and t not in collection] if tests else targets
-        if verdict.get("kind") == "install":
-            still_failing = [] if r.exit_code == 0 or tests else ["install"]
-        regressions = sorted(t for t, s in tests.items()
-                             if s in ("failed", "error") and baseline_before.get(t) == "passed" and t not in targets)
-        verified = (r.exit_code != 41) and not still_failing and not regressions and (bool(tests) or verdict.get("kind") == "install")
+        judged = judge_patch(r.exit_code, tests, collection, verdict, baseline_before)
+        still_failing, regressions, verified = judged["still_failing"], judged["regressions"], judged["verified"]
         return {"install_exit": 41 if r.exit_code == 41 else 0, "test_exit": r.exit_code, "tests": tests,
                 "still_failing": still_failing, "regressions": regressions, "verified": verified,
+                "reasons": judged["reasons"],
                 "diff": diff, "log": out[-6000:], "elapsed_s": r.elapsed_s, "cost": r.cost}
 
     async def fix(self, exp: Experiment, triage: Triage, *, target: str, release: str, notes: str,
@@ -209,6 +253,7 @@ class Fixer:
         verdict = exp.verdict()
         assert exp.after is not None and exp.after.image_uuid and exp.before is not None
         installed_img = ImageRef(exp.after.image_uuid, self.backend.name)
+        root = await self.package_dir(installed_img)
         context = await self.gather_context(installed_img, triage.symbol)
         log = exp.after.test_tail if verdict.get("kind") == "tests" else exp.after.install_tail
         retry_note = ""
@@ -222,7 +267,7 @@ class Fixer:
                 continue
             edits = [e for e in proposal.get("edits", []) if isinstance(e, dict)]
             paths = sorted({e.get("path", "") for e in edits if e.get("path")})
-            files = await self.read_files(installed_img, paths)
+            files = await self.read_files(installed_img, paths, root)
             edited, err = apply_edits(files, edits)
             if err or not edits:
                 err = err or "model returned no edits"
@@ -232,11 +277,11 @@ class Fixer:
                 continue
             changed = {p: c for p, c in edited.items() if files.get(p) != c}
             touched_deps = any(p.split("/")[-1] in DEP_FILES for p in changed)
-            v = await self.verify(installed_img, changed, touched_deps, after_cutoff, verdict, exp.before.tests)
+            v = await self.verify(installed_img, changed, touched_deps, after_cutoff, verdict, exp.before.tests, root)
             result.attempts.append(Attempt(
                 tier, self.tf.models[tier], str(proposal.get("rationale", ""))[:500], edits, True, None,
                 v["install_exit"], v["test_exit"], v["still_failing"], v["regressions"], v["verified"],
-                v["diff"], v["elapsed_s"], v["cost"],
+                v["diff"], v["elapsed_s"], v["cost"], v["reasons"],
             ))
             if v["verified"]:
                 break

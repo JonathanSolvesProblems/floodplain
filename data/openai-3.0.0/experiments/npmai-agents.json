@@ -1,0 +1,82 @@
+{
+  "dependent": "npmai-agents",
+  "version": "1.0.2",
+  "source": {
+    "owner": "sonuramashishnpm",
+    "repo": "npmai-agent",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/3b/1d/c338ce7dba9deb72122767f90253a65eb70bfb11465415610e833b2038fd/npmai_agents-1.0.2.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "6629e3fc-f9a2-42f5-8192-e4e10097db67",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\ncertifi==2026.7.22\npytest==9.1.1\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\nno tests ran in 0.00s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "certifi": "2026.7.22",
+      "pytest": "9.1.1"
+    },
+    "elapsed_s": 5.318391,
+    "cost": 0.05397463,
+    "image_uuid": "cb4edcda-1563-47e3-a5b3-e11262ba017c",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\ncertifi==2026.7.22\npytest==9.1.1\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\nno tests ran in 0.00s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "certifi": "2026.7.22",
+      "pytest": "9.1.1"
+    },
+    "elapsed_s": 5.595307,
+    "cost": 0.056735890000000004,
+    "image_uuid": "b414f459-40dd-4dc6-8827-9a09aa5d124e",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\ncertifi==2026.7.22\npytest==9.1.1\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\nno tests ran in 0.00s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "certifi": "2026.7.22",
+      "pytest": "9.1.1"
+    },
+    "elapsed_s": 5.418641,
+    "cost": 0.054979190000000004,
+    "image_uuid": "842a566d-e551-4814-846d-cb13ef97d310",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "no-tests",
+    "reason": "the package ships no test suite at this release",
+    "pytest_exit": 5
+  },
+  "error": null,
+  "requirement": "openai; extra == \"full\"",
+  "wall_s": 63.6
+}

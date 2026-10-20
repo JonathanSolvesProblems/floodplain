@@ -1,0 +1,33 @@
+{
+  "llm": {
+    "kind": "release",
+    "repo": "simonw/llm",
+    "tag": "0.32.1",
+    "published_at": "2026-08-21T17:16:13Z",
+    "url": "https://github.com/simonw/llm/releases/tag/0.32.1",
+    "lines": [
+      "\"openai>=2.32.0,<3\","
+    ],
+    "followup": {
+      "tag": "0.33",
+      "published_at": "2026-08-22T17:01:16Z",
+      "url": "https://github.com/simonw/llm/releases/tag/0.33",
+      "lines": [
+        "\"httpx2\",",
+        "\"openai>3\",",
+        "\"httpx2-pytest>=1.0.1\","
+      ]
+    },
+    "hours_after_release": 231.3
+  },
+  "openinference-instrumentation-agno": {
+    "kind": "pr",
+    "repo": "Arize-ai/openinference",
+    "number": 3574,
+    "title": "test(langchain): route OpenAI SDK through legacy httpx so respx mocks work on openai>=3",
+    "url": "https://github.com/Arize-ai/openinference/pull/3574",
+    "published_at": "2026-08-18T04:43:05Z",
+    "merged": true,
+    "hours_after_release": 146.8
+  }
+}
