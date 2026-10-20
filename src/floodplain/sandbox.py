@@ -26,8 +26,9 @@ from typing import Any
 from .backends import BASE_OCI, BASE_TAG, OUTPUT_CAP, Backend, ImageRef  # noqa: F401
 from .repos import SourceRef
 
-INSTALL_TIMEOUT = 900
-TEST_TIMEOUT = 1200
+INSTALL_TIMEOUT = 1800
+TEST_TIMEOUT = 3300          # Nebius caps a single operation at 3600s
+PER_TEST_TIMEOUT = 60        # keep one hanging test from eating the whole suite's budget
 
 # Extras that conventionally hold test dependencies, tried in order and unioned.
 TEST_EXTRAS = ("test", "tests", "testing", "dev", "develop", "all")
@@ -91,8 +92,14 @@ class Experiment:
         if self.error or self.before is None or self.after is None:
             return {"status": "not-run", "reason": self.error or "incomplete"}
         a, b = self.before, self.after
+        if 124 in (a.install_exit, b.install_exit) or 124 in (a.test_exit, b.test_exit):
+            # 124 is the shell `timeout` exit code. Reported as its own status rather than
+            # folded into "unrunnable", so the writeup can state how many suites were too
+            # slow to finish rather than implying they were broken.
+            return {"status": "timed-out", "reason": "install or test exceeded the operation budget"}
         if a.install_exit != 0 and b.install_exit != 0:
-            return {"status": "unrunnable", "reason": "install failed before and after"}
+            return {"status": "unrunnable", "reason": "install failed before and after",
+                    "evidence": (a.install_tail or "")[-800:]}
         if a.install_exit == 0 and b.install_exit != 0:
             return {"status": "broken", "kind": "install", "reason": "fresh install fails after the release",
                     "evidence": b.install_tail[-2000:]}
@@ -131,7 +138,28 @@ def _shell_quote(s: str) -> str:
     return "'" + s.replace("'", "'\"'\"'") + "'"
 
 
-def install_script(extras: tuple[str, ...], cutoff: str, groups: tuple[str, ...] = TEST_GROUPS) -> str:
+LOCATE_SCRIPT = """
+# Monorepos: the git tag points at the repo root but the package lives in a subdirectory.
+# livekit/agents holds livekit-agents under livekit-agents/, comet-ml/opik holds opik under
+# sdks/python/. Find the directory whose pyproject.toml or setup.py declares OUR package name,
+# normalising - and _ the way PEP 503 does. Fall back to the repo root.
+PKG='{pkg}'
+PKGU=$(echo "$PKG" | tr '-' '_')
+FOUND=""
+for f in $(find /work/repo -maxdepth 5 \\( -name pyproject.toml -o -name setup.py -o -name setup.cfg \\) \\
+           -not -path '*/.venv/*' -not -path '*/node_modules/*' 2>/dev/null | head -200); do
+  if grep -qiE "^[[:space:]]*(name|NAME)[[:space:]]*=[[:space:]]*[\\"']?($PKG|$PKGU)[\\"']?[[:space:]]*,?[[:space:]]*$" "$f" 2>/dev/null; then
+    FOUND=$(dirname "$f"); break
+  fi
+done
+if [ -z "$FOUND" ]; then FOUND=/work/repo; fi
+echo "$FOUND" > /work/pkgdir
+echo "[floodplain] package root: $FOUND"
+"""
+
+
+def install_script(extras: tuple[str, ...], cutoff: str, groups: tuple[str, ...] = TEST_GROUPS,
+                   package: str = "") -> str:
     """Fresh venv + editable install of /work/repo with the world frozen at `cutoff`.
 
     A project's test dependencies live in one of two places and modern projects increasingly
@@ -144,9 +172,11 @@ def install_script(extras: tuple[str, ...], cutoff: str, groups: tuple[str, ...]
     """
     extras_list = " ".join(extras)
     groups_list = " ".join(groups)
+    locate = LOCATE_SCRIPT.replace("{pkg}", package or "")
     return f"""
 set -o pipefail
-cd /work/repo
+{locate}
+cd "$(cat /work/pkgdir)"
 uv venv /work/venv --python 3.12 --quiet
 export VIRTUAL_ENV=/work/venv PATH=/work/venv/bin:$PATH UV_EXCLUDE_NEWER={cutoff}
 export UV_PRERELEASE=allow
@@ -166,11 +196,14 @@ uv pip freeze | grep -iE '^(openai|httpx|httpx2|certifi|anyio|pydantic|pytest|py
 
 
 TEST_SCRIPT = f"""
-cd /work/repo
+cd "$(cat /work/pkgdir 2>/dev/null || echo /work/repo)"
 export VIRTUAL_ENV=/work/venv PATH=/work/venv/bin:$PATH
-export DOWNSTREAM=1 CI=1 PYTHONDONTWRITEBYTECODE=1
-timeout {TEST_TIMEOUT - 60} python -m pytest -q -p no:cacheprovider --timeout=300 \\
-  --junitxml=/work/junit.xml -o junit_family=xunit2 --maxfail=500 2>&1 | tail -n 200
+export FLOODPLAIN=1 CI=1 PYTHONDONTWRITEBYTECODE=1
+# Interrupt a little before the operation's own deadline so pytest still flushes the junit file.
+# A suite killed by the outer timeout returns no results at all.
+timeout -s INT {TEST_TIMEOUT - 300} python -m pytest -q -p no:cacheprovider \\
+  --timeout={PER_TEST_TIMEOUT} --timeout-method=thread \\
+  --junitxml=/work/junit.xml -o junit_family=xunit2 --maxfail=1000 2>&1 | tail -n 200
 code=${{PIPESTATUS[0]}}
 echo "{JUNIT_START}"; cat /work/junit.xml 2>/dev/null; echo; echo "{JUNIT_END}"
 exit $code
@@ -244,9 +277,10 @@ class Sandbox:
             raise RuntimeError(f"clone failed ({res.exit_code}): {(res.stderr or res.error or '')[-600:]}")
         return res.image
 
-    async def fresh_install_and_test(self, clone_img: ImageRef, label: str, cutoff: datetime) -> RunOutcome:
+    async def fresh_install_and_test(self, clone_img: ImageRef, label: str, cutoff: datetime,
+                                     package: str = "") -> RunOutcome:
         cutoff_s = cutoff.strftime("%Y-%m-%dT%H:%M:%SZ")
-        ir = await self.backend.run(clone_img, install_script(TEST_EXTRAS, cutoff_s),
+        ir = await self.backend.run(clone_img, install_script(TEST_EXTRAS, cutoff_s, package=package),
                                     persist=True, timeout=INSTALL_TIMEOUT)
         outcome = RunOutcome(
             label=label, cutoff=cutoff_s, install_exit=ir.exit_code,
@@ -291,11 +325,11 @@ class Sandbox:
             before_cut = release_uploaded - timedelta(minutes=1)
             after_cut = release_uploaded + timedelta(minutes=1)
             arms = [
-                self.fresh_install_and_test(clone_img, "before", before_cut),
-                self.fresh_install_and_test(clone_img, "after", after_cut),
+                self.fresh_install_and_test(clone_img, "before", before_cut, package=dependent),
+                self.fresh_install_and_test(clone_img, "after", after_cut, package=dependent),
             ]
             if flake_control:
-                arms.append(self.fresh_install_and_test(clone_img, "control", before_cut))
+                arms.append(self.fresh_install_and_test(clone_img, "control", before_cut, package=dependent))
             results = await asyncio.gather(*arms)
             exp.before, exp.after = results[0], results[1]
             exp.control = results[2] if flake_control else None
