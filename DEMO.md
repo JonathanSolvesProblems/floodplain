@@ -1,80 +1,69 @@
 # Demo script
 
-Target 90 seconds, hard ceiling 3 minutes (the hackathon limit). Narration locked before
-recording. The final shot is a patch, not a number.
+About 90 seconds; the hackathon limit is 3 minutes. Every number spoken here is on the live
+page, read from the committed data. Record against
+https://jonathansolvesproblems.github.io/floodplain/ at 1280 wide.
 
-## Opening, 0:00 to 0:12
+## 1. Simon's nine days (0:00 to 0:15)
 
-> On the twelfth of August, openai 3.0.0 moved from httpx to httpx2. Simon Willison's `llm`
-> is one of thousands of packages that depend on it. His fresh installs broke, and his test
-> suite started talking to the live API instead of the mock. It took nine days to find.
+> Simon Willison maintains `llm`, a command-line tool for language models. On the twelfth of
+> August, openai 3.0.0 came out and swapped its HTTP library. Six hours later a user told him
+> fresh installs of `llm` were broken. Nine days later he shipped a pin.
 
-On screen: the real GitHub issue, `simonw/llm#1608`, opened 5.9 hours after the release, closed
-nine days later.
+On screen: [llm #1608](https://github.com/simonw/llm/issues/1608), then the
+[0.32.1 release](https://github.com/simonw/llm/releases/tag/0.32.1) with its one changed line.
 
-## The question, 0:12 to 0:22
+## 2. The question (0:15 to 0:25)
 
-> Nobody could have known in advance, because the evidence was in other people's repositories
-> and other people's test suites. Floodplain goes and runs them.
+> OpenAI's own tests passed. The breakage only showed up in other people's test suites. So I
+> built something that runs them, before you publish.
 
-On screen: type `openai`, pick the `3.0.0` tag, press go.
+On screen: the overview page, the headline and the river.
 
-## The fan-out, 0:22 to 0:40
+## 3. The river (0:25 to 0:45)
 
-> It finds every package in the top fifteen thousand that depended on openai on the day of the
-> release, and that had no upper bound to protect it. A hundred and fifty-seven of them.
+> Every package in the top fifteen thousand that depended on openai on release day. A hundred
+> and forty-six of them, each run in Nebius Sandboxes as three forks of one checkout: the world a
+> minute before the release, the same minute again to catch flaky tests, and a minute after.
+> Of the twenty working test suites that actually got 3.0.0, three broke. Each one was later
+> pinned or patched by its own maintainers, six, nine and nineteen days afterwards.
 
-On screen: the grid fills in. Tiles light up as forks complete.
+On screen: hover along the river; the three green stretches; the sentence under it.
 
-> Each one gets a single checkout, then three forks of that checkpoint on Nebius Sandboxes at
-> once. One with the dependency world frozen a minute before the release. One a minute after.
-> And a third identical to the first, which is how we know a failure is real and not a flaky
-> test.
+## 4. Before the release (0:45 to 0:55)
 
-On screen: one tile expands to show its three forks running in parallel.
+> Then I ran it the way it is meant to be used: OpenAI's own 3.0.0 wheel as an unpublished file,
+> against the index a minute before they uploaded it. All thirty-one working suites gave the
+> same answer, down to the same broken tests.
 
-## The finding, 0:40 to 1:00
+On screen: the pre-release sentence on the overview. Optional cut-in: the terminal running
+`run_experiments.py --candidate` (sped up), from `data/nebius-candidate-run.log`.
 
-> `llm` passes one thousand and sixty-nine tests before. It passes one thousand and sixty-nine
-> again in the control. After the release, a hundred and ten of them fail.
+## 5. One break, read (0:55 to 1:10)
 
-On screen: the three columns, 1069 / 1069 / 959 + 110.
+> Open `llm`. One thousand and sixty-nine tests passed before, and the same again in the
+> background fork. After the release, a hundred and ten fail. Nemotron Nano reads the log and
+> says why. Its quote is highlighted where it really appears in the log, and the one line it
+> tried to cite that is not in the log was thrown out, and the page says so.
 
-> No test disagreed with itself across the two identical forks, so none of the hundred and ten
-> is flaky. Nemotron Nano reads the log and says why: pytest-httpx mocks httpx, openai now uses
-> httpx2, the mocks never fire, and the suite goes to the real API.
+On screen: click `llm`; the three sample columns; the test grid with the 110 in green; the
+triage with its quotes highlighted in the log.
 
-On screen: the triage card, with its evidence quotes highlighted **in the log**, and the count
-of quotes it tried to use that were not in the log, dropped.
+## 6. The patch (1:10 to 1:30)
 
-## The patch, 1:00 to 1:20
+> Nemotron Super and Ultra draft a patch, and `llm`'s own test suite judges it in a further
+> fork. It is the same pin Simon shipped nine days later. I ran the whole loop five times per
+> round, so this is a rate, not a lucky sample.
 
-> Nemotron Super drafts a fix, Tavily pulls the upstream's own migration guide, and the patch
-> is applied in a fourth fork where that project's own test suite decides whether it worked.
+On screen: scroll to the patch. The diff, then the maintainer's line beside it, then the round
+lines underneath (five of five in round 1, four of them the same pin). Hold on the diff for the
+last three seconds.
 
-On screen: the diff. Then the suite re-running. Then green.
+> Floodplain does not open pull requests in other people's repositories. It hands you the patch.
 
-> Floodplain does not open pull requests against repositories you do not own. It hands you the
-> patch.
+## Recording notes
 
-On screen: the `patches/` directory, one `.patch` file per broken dependent.
-
-## The receipt, 1:20 to 1:30
-
-> Across the hundred and fifty-seven, N broke, M have a patch verified by the project's own
-> tests, and K of the breaks were never reported publicly at all.
-
-On screen, for fifteen seconds only: the summary table, then back to the patch file.
-
----
-
-## Rules this script is checked against
-
-- **Check 1 / rule 87**: the last shot is an artifact the agent made (a patch), not a verdict
-  it returned. The grid is a receipt, not the climax.
-- **Rule 60**: the name promises a flood plain, and the demo shows the map of what gets hit.
-- **Rule 59**: every number on screen is produced by Nemotron or by the dependents' suites, and
-  the narration credits exactly what produced it.
-- **Rule 73**: the dropped-quote count and the unverified-patch count are both on screen,
-  announced by the product about itself.
-- **Pre-submit check 9**: the climax is a success (a green suite), not a diagnosis.
+- Say "a user told him", not that Simon found it: the issue was opened by @aborruso.
+- Say "the same pin Simon shipped", not "the same patch in every run": four of round 1's five
+  were that pin; one was a different, working migration.
+- Do not say Tavily produced the fix. Round 1 used OpenAI's own migration guide.
