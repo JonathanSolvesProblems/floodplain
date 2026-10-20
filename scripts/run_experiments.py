@@ -14,7 +14,7 @@ import argparse
 import asyncio
 import json
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 from floodplain.backends import make_backend
@@ -57,6 +57,10 @@ async def main() -> None:
     ap.add_argument("--skip", nargs="*", default=[], help="dependents to leave out, by name")
     ap.add_argument("--trials", type=int, default=1,
                     help="independent fix runs per broken dependent; every trial is recorded")
+    ap.add_argument("--append", action="store_true",
+                    help="add --trials more fix trials to the ones already recorded, keeping triage")
+    ap.add_argument("--refresh-research", action="store_true",
+                    help="ask Tavily again instead of replaying the committed research cache")
     args = ap.parse_args()
 
     root = Path(f"data/{args.target}-{args.release}")
@@ -66,6 +70,8 @@ async def main() -> None:
     exp_dir.mkdir(parents=True, exist_ok=True)
     notes_path = root / "release_notes.md"
     notes = notes_path.read_text(encoding="utf-8") if notes_path.exists() else ""
+    mf_path = root / "maintainer_fixes.json"
+    maintainer_fixes = json.loads(mf_path.read_text(encoding="utf-8")) if mf_path.exists() else {}
 
     # Build the runnable list: git ref if resolved, else the PyPI sdist.
     todo: list[tuple[str, str, SourceRef, str]] = []
@@ -137,15 +143,32 @@ async def main() -> None:
                 path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
                 if tri:
                     print(f"  triage {name:<34} [{tri.category}] {tri.cause[:90]}  quotes={len(tri.quotes)} dropped={tri.dropped_quotes}")
-            if args.stage in ("fix", "all") and payload.get("triage") and (not payload.get("fix") or args.rerun):
+            if args.stage in ("fix", "all") and payload.get("triage") and (
+                    not payload.get("fix") or args.rerun or args.append):
                 from floodplain.triage import Triage
                 tri = Triage(**{k: v for k, v in payload["triage"].items()})
+                # Research may only see what was public before this dependent's own maintainers
+                # acted, and never their own repo; otherwise a matching patch proves nothing.
+                mfix = maintainer_fixes.get(name) or {}
+                if mfix.get("published_at"):
+                    end = datetime.fromisoformat(mfix["published_at"].replace("Z", "+00:00")) - timedelta(days=1)
+                else:
+                    end = release_uploaded + timedelta(days=1)
+                exclude = [f"{exp.source.owner}/{exp.source.repo}"] + ([mfix["repo"]] if mfix.get("repo") else [])
                 guidance = await find_guidance(args.target, args.release, tri.symbol, tri.category,
-                                               fallback=root / "migration_guide.md")
+                                               fallback=root / "migration_guide.md",
+                                               cache_dir=root / "research", refresh=args.refresh_research,
+                                               exclude_repos=exclude, end_date=end.strftime("%Y-%m-%d"))
+                print(f"  guide  {name:<34} {guidance.source} {len(guidance.urls)} page(s)")
                 cutoff = exp.after.cutoff and datetime.strptime(exp.after.cutoff, "%Y-%m-%dT%H:%M:%SZ")
                 # Every trial is kept. Nemotron's sampling differs run to run, so one verified patch
                 # is a sample, not a behaviour; the page reports verified-in-K-of-N.
-                trials = list(payload.get("fix_trials", [])) if not args.rerun else []
+                trials = list(payload.get("fix_trials", [])) if (args.append or not args.rerun) else []
+                for t in trials:  # trials recorded before guidance was kept per trial
+                    t.setdefault("guidance", payload.get("guidance"))
+                g_rec = {"query": guidance.query, "source": guidance.source, "urls": guidance.urls,
+                         "fetched_at": guidance.fetched_at,
+                         "end_date": guidance.end_date, "excluded": guidance.excluded}
                 for i in range(args.trials):
                     t0 = time.time()
                     fix = await fixer.fix(exp, tri, target=args.target, release=args.release,
@@ -154,13 +177,14 @@ async def main() -> None:
                     rec = fix.to_json()
                     rec["wall_s"] = round(time.time() - t0, 1)
                     rec["trial"] = len(trials) + 1
+                    rec["guidance"] = g_rec
                     trials.append(rec)
                     status = "VERIFIED" if fix.verified else "not verified"
                     print(f"  fix    {name:<34} trial {rec['trial']}: {status} after {len(fix.attempts)} attempt(s), {rec['wall_s']}s")
                     payload["fix_trials"] = trials
                     first_ok = next((t for t in trials if t["verified"]), None)
                     payload["fix"] = first_ok or trials[-1]
-                    payload["guidance"] = {"query": guidance.query, "source": guidance.source, "urls": guidance.urls}
+                    payload["guidance"] = g_rec
                     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
                 k = sum(1 for t in trials if t["verified"])
                 print(f"  fix    {name:<34} verified in {k} of {len(trials)} trials")
