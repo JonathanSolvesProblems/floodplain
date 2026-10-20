@@ -71,3 +71,5 @@ base image ready: nebius-sandboxes:66b26d62-8f5f-4b
   krepis                                   ok                           90.5s
   tinygrad                                 no-baseline                 139.5s
   jcodemunch-mcp                           ok                          528.1s
+  headroom-ai                              incomplete       no-results  4157.8s
+run stage done in 5236s

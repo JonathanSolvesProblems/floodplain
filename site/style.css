@@ -119,7 +119,7 @@ main { display: block; outline: none; }
 .trace {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.62fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 15.5rem);
   grid-template-rows: auto auto;
   column-gap: var(--gutter);
   padding: clamp(1rem, 3vw, 2.4rem) var(--gutter) 0;
@@ -143,20 +143,22 @@ main { display: block; outline: none; }
 .trace__after { padding: 1.1rem var(--gutter) 0; max-width: 60rem; font-size: var(--s1); line-height: 1.4; }
 .trace__after a { font-weight: 600; }
 
+/* The reach runs in the first column and flows into the painting at its mouth. The blend sits on
+   the figure itself: a z-index on the figure would isolate an img-level blend from the page and
+   leave a pale rectangle of paper. */
 .trace__art {
   grid-column: 2; grid-row: 1 / span 2; align-self: end;
-  position: relative; z-index: 2; margin-bottom: 1.2rem; /* the packet hangs into the stream */
-  justify-self: end; width: min(100%, 17.5rem);
+  margin: 0 0 0.6rem; justify-self: start; width: min(100%, 17rem);
+  mix-blend-mode: var(--blend);
 }
-.trace__art img { mix-blend-mode: var(--blend); }
 @media (prefers-color-scheme: dark) {
   .trace__art { background: var(--sheet); padding: 0.9rem; border-radius: var(--radius); margin-bottom: -2rem; }
 }
 .trace__art figcaption { margin-top: 0.4rem; font-size: var(--s-1); color: var(--muted); }
 
 .reach {
-  grid-column: 1 / -1; grid-row: 2;
-  position: relative; margin: 0 calc(var(--gutter) * -1);
+  grid-column: 1; grid-row: 2;
+  position: relative; margin: 0 calc(var(--gutter) * -0.5) 0 calc(var(--gutter) * -1);
 }
 .reach svg { display: block; width: 100%; height: auto; overflow: visible; }
 .reach .stream { fill: none; stroke: var(--water); stroke-width: 26; stroke-linecap: round; opacity: 0.16; }
@@ -171,7 +173,7 @@ main { display: block; outline: none; }
 .rcp .bag { fill: var(--paper); stroke: var(--faint); stroke-width: 1.3; }
 .rcp--no-baseline .bag { fill: color-mix(in oklab, var(--straw) 55%, var(--paper)); stroke: var(--straw); }
 .rcp--no-tests .bag { display: none; }
-.rcp--no-tests .cord { stroke-dasharray: 2 2.4; }
+.rcp--no-tests .cord { stroke: var(--straw); stroke-width: 2.4; stroke-linecap: round; } /* a stake, nothing hung */
 .rcp--lost .bag { stroke-dasharray: 2.2 2; fill: none; }
 .rcp--positive { cursor: pointer; }
 .rcp--positive .cord, .rcp--positive .bag { stroke: var(--water); stroke-width: 1.6; }
@@ -240,7 +242,7 @@ main { display: block; outline: none; }
 /* ------------------------------------------------------------------ receptor page */
 .rcp-page { padding: clamp(1rem, 3vw, 2.2rem) var(--gutter) 0; }
 .rcp-page__head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--gutter); align-items: start; }
-.rcp-page__art { width: 9.5rem; margin-top: -0.4rem; mix-blend-mode: var(--blend); margin-bottom: -5rem; position: relative; z-index: 1; }
+.rcp-page__art { width: 9.5rem; margin-top: -0.4rem; mix-blend-mode: var(--blend); margin-bottom: -5rem; }
 @media (prefers-color-scheme: dark) { .rcp-page__art { background: var(--sheet); padding: 0.5rem; border-radius: var(--radius); } }
 @media (max-width: 860px) { .rcp-page__art { width: 5.5rem; margin-bottom: 0; } }
 .crumb { color: var(--muted); font-size: var(--s-1); }
@@ -317,9 +319,10 @@ main { display: block; outline: none; }
 
 /* ------------------------------------------------------------------ responsive */
 @media (max-width: 860px) {
+  /* the reach stays the first object on a phone; the painting follows it, small */
   .trace { grid-template-columns: 1fr; }
-  .trace__art { grid-column: 1; grid-row: 2; width: min(70%, 18rem); margin: 0 0 -2.5rem auto; }
-  .reach { grid-row: 3; }
+  .reach { grid-column: 1; grid-row: 2; margin: 0.8rem calc(var(--gutter) * -1) 0; }
+  .trace__art { grid-column: 1; grid-row: 3; width: min(46%, 11rem); margin: 0.4rem 0 0 auto; }
   .method { grid-template-columns: 1fr 1fr; }
   .method figure:nth-child(2) { margin-top: 2rem; }
   .method figure:nth-child(3) { margin-top: 0; grid-column: 1 / -1; max-width: 22rem; }

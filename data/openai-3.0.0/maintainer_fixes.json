@@ -29,5 +29,28 @@
     "published_at": "2026-08-18T04:43:05Z",
     "merged": true,
     "hours_after_release": 146.8
+  },
+  "vlmrun": {
+    "kind": "pr",
+    "repo": "vlm-run/vlmrun-python-sdk",
+    "number": 215,
+    "title": "chore: pin core dependencies and defer heavy imports",
+    "url": "https://github.com/vlm-run/vlmrun-python-sdk/pull/215",
+    "published_at": "2026-08-31T03:47:41Z",
+    "merged": true,
+    "note": "No public issue named the break; this PR pinned openai below 3 without saying why.",
+    "lines": [
+      "-openai>=1.0.0",
+      "+openai==1.109.1",
+      "-from openai import AsyncOpenAI, OpenAI",
+      "+from vlmrun.common.dependencies import require_openai",
+      "+        openai = require_openai()",
+      "-        openai_client = OpenAI(",
+      "+        openai_client = openai.OpenAI(",
+      "+        openai = require_openai()",
+      "-        async_openai_client = AsyncOpenAI(",
+      "+        async_openai_client = openai.AsyncOpenAI("
+    ],
+    "hours_after_release": 457.9
   }
 }

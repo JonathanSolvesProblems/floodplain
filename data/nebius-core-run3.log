@@ -75,3 +75,5 @@ base image ready: nebius-sandboxes:66b26d62-8f5f-4b
   mindroom                                 incomplete       no-results   129.0s
   graphiti-core                            ok                         1880.8s
   lumibot                                  ok                         3447.2s
+  any-llm-sdk                              incomplete       no-results  6201.4s
+run stage done in 6876s

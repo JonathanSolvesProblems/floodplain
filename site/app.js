@@ -152,14 +152,15 @@ function receptorGlyph(state, x, y, small = false) {
 // ------------------------------------------------------------------ the reach
 function drawReach() {
   const host = $("#reach");
-  const W = 1200, H = 250, padL = 90, padR = 30;
+  const W = 1200, H = 250, padL = 90, padR = 2;
   const svg = document.createElementNS(SVG, "svg");
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
   svg.setAttribute("role", "img");
   svg.setAttribute("aria-label", `A stream running left to right. The release is poured in at the left. ${DATA.ran} receptors hang along it, most downloaded first. ${DATA.states.positive} are poured green.`);
 
   // one meander, upstream at the left; a channel wash under a single line
-  const d = `M ${padL} 150 C 260 70, 360 210, 520 140 S 760 60, 880 150 S 1080 205, ${W - padR} 120`;
+  // ends low at the right edge, where the painting's own green pool sits: the reach runs into it
+  const d = `M ${padL} 150 C 260 70, 360 210, 520 140 S 760 60, 880 140 S 1090 120, ${W - padR} 214`;
   svg.innerHTML = `<path class="stream" d="${d}"/><path class="stream-line" d="${d}" id="stream-path"/>`;
   host.prepend(svg);
   const path = $("#stream-path", svg);
@@ -174,6 +175,8 @@ function drawReach() {
 
   const tip = $("#tip");
   const placed = [];
+  const placedPos = [];
+  const labelled = [];
   // non-positives first so the poured ones sit on top
   const order = [...DATA.receptors].sort((a, b) => (a.state === "positive") - (b.state === "positive"));
   for (const r of order) {
@@ -183,7 +186,11 @@ function drawReach() {
     // than stacking them upward, so every packet stays on a bank instead of floating above it.
     const near = placed.filter((q) => Math.abs(q.x - pt.x) < 11).length;
     const side = near % 2 ? 1 : -1;
-    const slide = r.state === "positive" ? 0 : Math.ceil(near / 2) * 7 * (near % 4 < 2 ? 1 : -1);
+    // positives near an earlier positive slide downstream far enough that the two pools read
+    // as two; position along the reach is a log-rank encoding, so a nudge does not change meaning
+    const posNear = r.state === "positive" ? placedPos.filter((q) => Math.abs(q - pt.x) < 60).length : 0;
+    const slide = r.state === "positive" ? posNear * 64 : Math.ceil(near / 2) * 7 * (near % 4 < 2 ? 1 : -1);
+    if (r.state === "positive") placedPos.push(pt.x);
     const ptS = slide ? path.getPointAtLength(Math.min(Math.max(t * L + slide, 0), L)) : pt;
     const lift = r.state === "positive" ? -4 : 16 * side;
     const x = ptS.x, y = ptS.y + lift - 10;
@@ -197,10 +204,15 @@ function drawReach() {
     node.setAttribute("aria-label", `${r.name} ${r.version}: ${stateLabel(r.state)}`);
     if (r.state === "positive") {
       node.insertAdjacentHTML("afterbegin", `<ellipse class="pool" cx="${x}" cy="${y + 21}" rx="${16 + Math.min(r.newly_failing.length + r.new_collection_errors.length, 120) / 6}" ry="5.5"/>`);
-      const lx = x + 18, ly = y - 18;
+      // labels near the mouth flip to the left so they never run off the reach; a positive that
+      // lands near an earlier one takes the opposite bank, so the two labels never overlap
+      const flip = x > W * 0.62;
+      const crowded = labelled.some((q) => Math.abs(q - x) < 170);
+      labelled.push(x);
+      const lx = flip ? x - 18 : x + 18, ly = crowded ? y + 62 : y - 18, anchor = flip ? "end" : "start";
       node.insertAdjacentHTML("beforeend",
-        `<text class="label" x="${lx}" y="${ly}">${esc(r.name)}</text>
-         <text class="label-sub" x="${lx}" y="${ly + 16}">${n(r.newly_failing.length || r.new_collection_errors.length)} ${r.newly_failing.length ? "tests broke" : "collection errors"}</text>`);
+        `<text class="label" x="${lx}" y="${ly}" text-anchor="${anchor}">${esc(r.name)}</text>
+         <text class="label-sub" x="${lx}" y="${ly + 16}" text-anchor="${anchor}">${n(r.newly_failing.length || r.new_collection_errors.length)} ${r.newly_failing.length ? "tests broke" : "modules could not import"}</text>`);
       node.addEventListener("click", () => (location.hash = `#/${encodeURIComponent(r.name)}`));
       node.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); location.hash = `#/${encodeURIComponent(r.name)}`; } });
     }

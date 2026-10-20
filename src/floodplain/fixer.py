@@ -130,16 +130,54 @@ def apply_edits(files: dict[str, str], edits: list[dict[str, str]]) -> tuple[dic
             return files, f"{path}: file was not provided to the model"
         content = out[path]
         n = content.count(search)
-        if n != 1:
-            # Forgive trailing-whitespace and CRLF drift once, then give up.
-            loose = search.rstrip()
-            n = content.count(loose) if loose else 0
-            if n != 1:
-                return files, f"{path}: search block matches {n} times, need exactly 1"
-            search = loose
-            replace = replace.rstrip()
-        out[path] = content.replace(search, replace, 1)
+        if n == 1:
+            out[path] = content.replace(search, replace, 1)
+            continue
+        # Models drift on indentation, blank lines and trailing spaces far more often than on
+        # content: that was the cause of most failed attempts. Match line by line with each line
+        # stripped, and accept only a unique match, so the edit still lands exactly once.
+        span = _whitespace_tolerant_span(content, search)
+        if span is None:
+            return files, f"{path}: search block matches {n} times, need exactly 1"
+        start, end = span
+        out[path] = content[:start] + _reindent(replace, content[start:end]) + content[end:]
     return out, None
+
+
+def _whitespace_tolerant_span(content: str, search: str) -> tuple[int, int] | None:
+    """Character span of the unique run of lines in `content` equal to `search` once every line is
+    stripped and blank lines are ignored. None when there is no match or more than one."""
+    want = [ln.strip() for ln in search.splitlines() if ln.strip()]
+    if not want:
+        return None
+    lines = content.splitlines(keepends=True)
+    offsets, pos = [], 0
+    for ln in lines:
+        offsets.append(pos)
+        pos += len(ln)
+    # indices of non-blank lines, with their stripped text
+    nb = [(i, ln.strip()) for i, ln in enumerate(lines) if ln.strip()]
+    hits = []
+    for k in range(len(nb) - len(want) + 1):
+        if all(nb[k + j][1] == want[j] for j in range(len(want))):
+            first, last = nb[k][0], nb[k + len(want) - 1][0]
+            hits.append((offsets[first], offsets[last] + len(lines[last].rstrip("\r\n"))))
+    return hits[0] if len(hits) == 1 else None
+
+
+def _reindent(replace: str, original: str) -> str:
+    """Give the replacement the leading indentation of the text it replaces, when the model wrote
+    it flush-left but the file indents that block."""
+    orig_lines = original.splitlines()
+    rep_lines = replace.splitlines()
+    if not orig_lines or not rep_lines:
+        return replace.rstrip("\n")
+    o_ind = len(orig_lines[0]) - len(orig_lines[0].lstrip())
+    r_ind = len(rep_lines[0]) - len(rep_lines[0].lstrip())
+    if o_ind == r_ind or r_ind > 0:
+        return replace.rstrip("\n")
+    pad = orig_lines[0][:o_ind]
+    return "\n".join((pad + ln) if ln.strip() else ln for ln in rep_lines)
 
 
 DEP_FILES = ("pyproject.toml", "setup.py", "setup.cfg", "requirements.txt")
@@ -214,7 +252,9 @@ class Fixer:
             fix_plan=triage.fix_plan, fix_notes=triage.fix_notes, retry_note=retry_note,
             notes=notes[:5000], context=context[:45000], log=log[-6000:],
         )
-        return await self.tf.chat_json(tier, SYSTEM, user, max_tokens=6000)
+        # Super and Ultra spend most of their budget reasoning before they write the JSON; at 6000
+        # one attempt was cut off mid-string and returned no parseable edit.
+        return await self.tf.chat_json(tier, SYSTEM, user, max_tokens=14000)
 
     async def verify(self, installed: ImageRef, edited: dict[str, str], touched_deps: bool,
                      after_cutoff: datetime, verdict: dict[str, Any], baseline_before: dict[str, str],
@@ -248,7 +288,7 @@ class Fixer:
                 "diff": diff, "log": out[-6000:], "elapsed_s": r.elapsed_s, "cost": r.cost}
 
     async def fix(self, exp: Experiment, triage: Triage, *, target: str, release: str, notes: str,
-                  after_cutoff: datetime, plan: tuple[Tier, ...] = ("super", "super", "ultra")) -> FixResult:
+                  after_cutoff: datetime, plan: tuple[Tier, ...] = ("super", "super", "ultra", "ultra")) -> FixResult:
         result = FixResult(dependent=exp.dependent)
         verdict = exp.verdict()
         assert exp.after is not None and exp.after.image_uuid and exp.before is not None
@@ -257,6 +297,7 @@ class Fixer:
         context = await self.gather_context(installed_img, triage.symbol)
         log = exp.after.test_tail if verdict.get("kind") == "tests" else exp.after.install_tail
         retry_note = ""
+        tried: list[str] = []
         for tier in plan:
             try:
                 proposal = await self.propose(tier, exp, triage, target=target, release=release, notes=notes,
@@ -285,6 +326,12 @@ class Fixer:
             ))
             if v["verified"]:
                 break
-            retry_note = ("Your previous edit was applied but did not fix it. Still failing: "
-                          f"{v['still_failing'][:5]}; regressions: {v['regressions'][:5]}. New log tail:\n{v['log'][-3000:]}")
+            tried.append(str(proposal.get("rationale", ""))[:240])
+            retry_note = (
+                "Your previous edit was applied in a fresh fork and the package's own test suite still "
+                f"failed ({'; '.join(v['reasons'])}). {len(v['still_failing'])} tests that passed before the "
+                "release still do not pass. That strategy did not work, so do NOT propose it again; pick a "
+                "different one from the list in your instructions. Strategies already tried:\n- "
+                + "\n- ".join(tried) + f"\n\nNew log tail:\n{v['log'][-3000:]}"
+            )
         return result

@@ -9,7 +9,7 @@
     "sdist_url": null
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "cb8068aa-bc98-4131-9130-e2c1156a3a1c",
+  "clone_uuid": "50ba9882-938c-4b0c-adef-339b21a9567f",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
@@ -28,11 +28,11 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 3398.285995999983,
-    "cost": 0.11309414,
-    "image_uuid": "f36a0353-e585-466b-9b07-9b82ee537b4f",
+    "elapsed_s": 1895.5697920000086,
+    "cost": 0.12106004000000001,
+    "image_uuid": "ee44654b-e08e-4df7-ad53-f72051c42933",
     "backend": "nebius-sandboxes",
-    "error": "ApiStatusCodeError: ApiStatusCodeError(request=RequestInfo(url='https://api.tokenfactory.nebius.com/sandboxes/v1/operations/01a159c7-0f1c-7552-ab4c-aebb9f73a97d', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 20 Oct 2026 15:02:28 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '49', 'connection': 'keep-alive', 'traceparent': '00-30707963dc3742a01bc2c252f213887d-1abfe36fd1000c18-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}), status=500, error='Internal Server Error')",
+    "error": "ApiStatusCodeError: ApiStatusCodeError(request=RequestInfo(url='https://api.tokenfactory.nebius.com/sandboxes/v1/operations/01a15a12-e7ae-753d-8dda-02d5a1cf4eab', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 20 Oct 2026 16:11:16 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '49', 'connection': 'keep-alive', 'traceparent': '00-d4f304fc204fa6c4c29fadbda0eb8b83-757d8428129eabb3-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}), status=500, error='Internal Server Error')",
     "summary": {}
   },
   "after": {
@@ -54,11 +54,11 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 4147.741283000006,
-    "cost": 0.10922819,
-    "image_uuid": "4d9055cb-f387-4d10-ac8b-4d6fba2c5f27",
+    "elapsed_s": 6142.544348,
+    "cost": 0.11163368,
+    "image_uuid": "70f81d44-9dfe-4f7f-b6b2-f47a41356515",
     "backend": "nebius-sandboxes",
-    "error": "ApiStatusCodeError: ApiStatusCodeError(request=RequestInfo(url='https://api.tokenfactory.nebius.com/sandboxes/v1/operations/01a159d4-8619-774a-9c67-3c269028dc8a', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 20 Oct 2026 15:14:57 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '49', 'connection': 'keep-alive', 'traceparent': '00-1fe1d09676f2b13df98baee7d32bd4ec-4062f4d394c83fa1-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}), status=500, error='Internal Server Error')",
+    "error": "ApiStatusCodeError: ApiStatusCodeError(request=RequestInfo(url='https://api.tokenfactory.nebius.com/sandboxes/v1/operations/01a15a4a-f26e-7451-b6d9-3ccc7271c610', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 20 Oct 2026 17:22:04 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '49', 'connection': 'keep-alive', 'traceparent': '00-8ee834e61e85475fd121f269bd907332-8162d82166b86e04-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}), status=500, error='Internal Server Error')",
     "summary": {}
   },
   "control": {
@@ -79,11 +79,11 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 4729.385070000006,
-    "cost": 0.11564806,
-    "image_uuid": "f60bf1e6-0398-4c95-89a5-5a5c074bc3ba",
+    "elapsed_s": 6011.37469700002,
+    "cost": 0.11569005,
+    "image_uuid": "ca4acf38-7ed1-47de-9bcb-21889dccf807",
     "backend": "nebius-sandboxes",
-    "error": "ApiStatusCodeError: ApiStatusCodeError(request=RequestInfo(url='https://api.tokenfactory.nebius.com/sandboxes/v1/operations/01a159e1-7f6d-748e-8c02-7e99d7547057', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 20 Oct 2026 15:24:37 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '49', 'connection': 'keep-alive', 'traceparent': '00-63b514c6220f31589fb203d761bbdc22-dfe3cc1b50b72e81-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}), status=500, error='Internal Server Error')",
+    "error": "ApiStatusCodeError: ApiStatusCodeError(request=RequestInfo(url='https://api.tokenfactory.nebius.com/sandboxes/v1/operations/01a15a26-13c9-77db-aa63-7fcb75cdd19a', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 20 Oct 2026 17:19:52 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '49', 'connection': 'keep-alive', 'traceparent': '00-a08684aee33dfcf6839343947599950c-79da0fda3e975e64-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}), status=500, error='Internal Server Error')",
     "summary": {}
   },
   "flaky_excluded": [],
@@ -93,10 +93,10 @@
     "reason": "the before fork installed but returned no test results",
     "arm": "before",
     "test_exit": -1,
-    "error": "ApiStatusCodeError: ApiStatusCodeError(request=RequestInfo(url='https://api.tokenfactory.nebius.com/sandboxes/v1/operations/01a159c7-0f1c-7552-ab4c-aebb9f73a97d', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 20 Oct 2026 15:02:28 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '49', 'connection': 'keep-alive', 'traceparent': '00-30707963dc3742a01bc2c252f213887d-1abfe36fd1000c18-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}), status=500, error='Internal Server Error')",
+    "error": "ApiStatusCodeError: ApiStatusCodeError(request=RequestInfo(url='https://api.tokenfactory.nebius.com/sandboxes/v1/operations/01a15a12-e7ae-753d-8dda-02d5a1cf4eab', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 20 Oct 2026 16:11:16 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '49', 'connection': 'keep-alive', 'traceparent': '00-d4f304fc204fa6c4c29fadbda0eb8b83-757d8428129eabb3-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}), status=500, error='Internal Server Error')",
     "evidence": ""
   },
   "error": null,
   "requirement": "openai>=2.18.0",
-  "wall_s": 4795.6
+  "wall_s": 6201.4
 }

@@ -22,6 +22,10 @@ KNOWN = {
     "llm": {"kind": "release", "repo": "simonw/llm", "tag": "0.32.1", "file": "pyproject.toml",
             "match": "openai", "followup": {"tag": "0.33", "match": ["openai", "httpx2"]}},
     "openinference-instrumentation-agno": {"kind": "pr", "repo": "Arize-ai/openinference", "number": 3574},
+    # No public issue names the break. PyPI lists no source URL, so the repo was found by name.
+    # The PR title is about pinning in general; the page says so rather than implying intent.
+    "vlmrun": {"kind": "pr", "repo": "vlm-run/vlmrun-python-sdk", "number": 215, "match": "openai",
+               "note": "No public issue named the break; this PR pinned openai below 3 without saying why."},
 }
 
 
@@ -73,6 +77,12 @@ def main() -> None:
                 at = pr.get("merged_at") or pr["created_at"]
                 rec = {"kind": "pr", "repo": spec["repo"], "number": spec["number"], "title": pr["title"],
                        "url": pr["html_url"], "published_at": at, "merged": bool(pr.get("merged_at"))}
+                if spec.get("note"):
+                    rec["note"] = spec["note"]
+                if spec.get("match"):
+                    files = json.loads(gh(f"repos/{spec['repo']}/pulls/{spec['number']}/files"))
+                    rec["lines"] = [ln for f in files for ln in (f.get("patch") or "").splitlines()
+                                    if ln[:1] in "+-" and not ln.startswith(("+++", "---")) and spec["match"] in ln]
             when = datetime.fromisoformat(rec["published_at"].replace("Z", "+00:00"))
             rec["hours_after_release"] = round((when - release_at).total_seconds() / 3600, 1)
             out[dep] = rec

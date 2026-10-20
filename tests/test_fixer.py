@@ -21,6 +21,22 @@ def test_apply_edits_rejects_unknown_file_unless_new():
     assert err is None and out["b.py"] == "new = 1\n"
 
 
+def test_apply_edits_tolerates_indentation_drift_but_stays_unique():
+    files = {"pyproject.toml": 'dependencies = [\n    "click",\n    "openai>=2.32.0",\n    "pydantic",\n]\n'}
+    # the model copied the line without its four-space indent
+    out, err = apply_edits(files, [{"path": "pyproject.toml", "search": '"openai>=2.32.0",',
+                                    "replace": '"openai>=2.32.0,<3.0.0",'}])
+    assert err is None
+    assert '    "openai>=2.32.0,<3.0.0",\n' in out["pyproject.toml"]
+    assert out["pyproject.toml"].count("openai") == 1
+
+
+def test_whitespace_tolerance_still_rejects_an_ambiguous_match():
+    files = {"a.toml": '  x = 1\n\n  x = 1\n'}
+    _, err = apply_edits(files, [{"path": "a.toml", "search": "x = 1", "replace": "x = 2"}])
+    assert err and "need exactly 1" in err
+
+
 def test_apply_edits_forgives_trailing_whitespace_once():
     files = {"pyproject.toml": 'dependencies = [\n  "click",\n]\n'}
     out, err = apply_edits(files, [{"path": "pyproject.toml", "search": '  "click",\n]\n   ',

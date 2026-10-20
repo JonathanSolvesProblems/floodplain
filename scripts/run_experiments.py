@@ -55,6 +55,8 @@ async def main() -> None:
                     help="all exposed dependents, only those declaring the target as a core "
                          "dependency, or only those declaring it under an extra")
     ap.add_argument("--skip", nargs="*", default=[], help="dependents to leave out, by name")
+    ap.add_argument("--trials", type=int, default=1,
+                    help="independent fix runs per broken dependent; every trial is recorded")
     args = ap.parse_args()
 
     root = Path(f"data/{args.target}-{args.release}")
@@ -140,14 +142,28 @@ async def main() -> None:
                 tri = Triage(**{k: v for k, v in payload["triage"].items()})
                 guidance = await find_guidance(args.target, args.release, tri.symbol, tri.category,
                                                fallback=root / "migration_guide.md")
-                fix = await fixer.fix(exp, tri, target=args.target, release=args.release,
-                                      notes=notes + "\n\n# Migration guidance\n" + guidance.text,
-                                      after_cutoff=exp.after.cutoff and datetime.strptime(exp.after.cutoff, "%Y-%m-%dT%H:%M:%SZ"))
-                payload["fix"] = fix.to_json()
-                payload["guidance"] = {"query": guidance.query, "source": guidance.source, "urls": guidance.urls}
-                path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
-                status = "VERIFIED" if fix.verified else "not verified"
-                print(f"  fix    {name:<34} {status} after {len(fix.attempts)} attempt(s)")
+                cutoff = exp.after.cutoff and datetime.strptime(exp.after.cutoff, "%Y-%m-%dT%H:%M:%SZ")
+                # Every trial is kept. Nemotron's sampling differs run to run, so one verified patch
+                # is a sample, not a behaviour; the page reports verified-in-K-of-N.
+                trials = list(payload.get("fix_trials", [])) if not args.rerun else []
+                for i in range(args.trials):
+                    t0 = time.time()
+                    fix = await fixer.fix(exp, tri, target=args.target, release=args.release,
+                                          notes=notes + "\n\n# Migration guidance\n" + guidance.text,
+                                          after_cutoff=cutoff)
+                    rec = fix.to_json()
+                    rec["wall_s"] = round(time.time() - t0, 1)
+                    rec["trial"] = len(trials) + 1
+                    trials.append(rec)
+                    status = "VERIFIED" if fix.verified else "not verified"
+                    print(f"  fix    {name:<34} trial {rec['trial']}: {status} after {len(fix.attempts)} attempt(s), {rec['wall_s']}s")
+                    payload["fix_trials"] = trials
+                    first_ok = next((t for t in trials if t["verified"]), None)
+                    payload["fix"] = first_ok or trials[-1]
+                    payload["guidance"] = {"query": guidance.query, "source": guidance.source, "urls": guidance.urls}
+                    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+                k = sum(1 for t in trials if t["verified"])
+                print(f"  fix    {name:<34} verified in {k} of {len(trials)} trials")
         print(f"token usage: {tf.usage}")
 
 
