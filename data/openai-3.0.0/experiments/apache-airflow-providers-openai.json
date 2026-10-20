@@ -9,20 +9,20 @@
     "sdist_url": null
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "ac9428ba-ad22-4ca4-afca-8adcf582885c",
+  "clone_uuid": "150487c4-1639-4dea-a276-6490c63ed547",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
     "install_exit": 41,
-    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\n           File \"<string>\", line 14, in <module>\n           File \"/root/.cache/uv/builds-v0/.tmpPUEZpn/lib/python3.12/site-packages/setuptools/build_meta.py\", line 481, in get_requires_for_build_editable\n             return self.get_requires_for_build_wheel(config_settings)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpPUEZpn/lib/python3.12/site-packages/setuptools/build_meta.py\", line 333, in get_requires_for_build_wheel\n             return self._get_build_requires(config_settings, requirements=[])\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpPUEZpn/lib/python3.12/site-packages/setuptools/build_meta.py\", line 301, in _get_build_requires\n             self.run_setup()\n           File \"/root/.cache/uv/builds-v0/.tmpPUEZpn/lib/python3.12/site-packages/setuptools/build_meta.py\", line 520, in run_setup\n             super().run_setup(setup_script=setup_script)\n           File \"/root/.cache/uv/builds-v0/.tmpPUEZpn/lib/python3.12/site-packages/setuptools/build_meta.py\", line 317, in run_setup\n             exec(code, locals())  # noqa: S102 # exec is intentional here\n             ^^^^^^^^^^^^^^^^^^^^\n           File \"<string>\", line 112\n             async = [\n                   ^\n         SyntaxError: invalid syntax\n\nhint: Build failures usually indicate a problem with the package or the build environment\n",
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\n           File \"<string>\", line 14, in <module>\n           File \"/root/.cache/uv/builds-v0/.tmpIXollE/lib/python3.12/site-packages/setuptools/build_meta.py\", line 481, in get_requires_for_build_editable\n             return self.get_requires_for_build_wheel(config_settings)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpIXollE/lib/python3.12/site-packages/setuptools/build_meta.py\", line 333, in get_requires_for_build_wheel\n             return self._get_build_requires(config_settings, requirements=[])\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpIXollE/lib/python3.12/site-packages/setuptools/build_meta.py\", line 301, in _get_build_requires\n             self.run_setup()\n           File \"/root/.cache/uv/builds-v0/.tmpIXollE/lib/python3.12/site-packages/setuptools/build_meta.py\", line 520, in run_setup\n             super().run_setup(setup_script=setup_script)\n           File \"/root/.cache/uv/builds-v0/.tmpIXollE/lib/python3.12/site-packages/setuptools/build_meta.py\", line 317, in run_setup\n             exec(code, locals())  # noqa: S102 # exec is intentional here\n             ^^^^^^^^^^^^^^^^^^^^\n           File \"<string>\", line 112\n             async = [\n                   ^\n         SyntaxError: invalid syntax\n\nhint: Build failures usually indicate a problem with the package or the build environment\n",
     "test_exit": null,
     "test_tail": "",
     "tests": {},
     "collection_errors": [],
     "resolved": {},
-    "elapsed_s": 0.40984,
-    "cost": 0.00441838,
-    "image_uuid": "ffa44b8d-f7ec-43f1-a092-e4da5626fedf",
+    "elapsed_s": 0.457416,
+    "cost": 0.00489224,
+    "image_uuid": "7598f28d-559d-49fb-aa56-c3e8a7ac400c",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -31,15 +31,15 @@
     "label": "after",
     "cutoff": "2026-08-12T01:56:48Z",
     "install_exit": 41,
-    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\n           File \"<string>\", line 14, in <module>\n           File \"/root/.cache/uv/builds-v0/.tmpHP961X/lib/python3.12/site-packages/setuptools/build_meta.py\", line 481, in get_requires_for_build_editable\n             return self.get_requires_for_build_wheel(config_settings)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpHP961X/lib/python3.12/site-packages/setuptools/build_meta.py\", line 333, in get_requires_for_build_wheel\n             return self._get_build_requires(config_settings, requirements=[])\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpHP961X/lib/python3.12/site-packages/setuptools/build_meta.py\", line 301, in _get_build_requires\n             self.run_setup()\n           File \"/root/.cache/uv/builds-v0/.tmpHP961X/lib/python3.12/site-packages/setuptools/build_meta.py\", line 520, in run_setup\n             super().run_setup(setup_script=setup_script)\n           File \"/root/.cache/uv/builds-v0/.tmpHP961X/lib/python3.12/site-packages/setuptools/build_meta.py\", line 317, in run_setup\n             exec(code, locals())  # noqa: S102 # exec is intentional here\n             ^^^^^^^^^^^^^^^^^^^^\n           File \"<string>\", line 112\n             async = [\n                   ^\n         SyntaxError: invalid syntax\n\nhint: Build failures usually indicate a problem with the package or the build environment\n",
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\n           File \"<string>\", line 14, in <module>\n           File \"/root/.cache/uv/builds-v0/.tmpH1IH7m/lib/python3.12/site-packages/setuptools/build_meta.py\", line 481, in get_requires_for_build_editable\n             return self.get_requires_for_build_wheel(config_settings)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpH1IH7m/lib/python3.12/site-packages/setuptools/build_meta.py\", line 333, in get_requires_for_build_wheel\n             return self._get_build_requires(config_settings, requirements=[])\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpH1IH7m/lib/python3.12/site-packages/setuptools/build_meta.py\", line 301, in _get_build_requires\n             self.run_setup()\n           File \"/root/.cache/uv/builds-v0/.tmpH1IH7m/lib/python3.12/site-packages/setuptools/build_meta.py\", line 520, in run_setup\n             super().run_setup(setup_script=setup_script)\n           File \"/root/.cache/uv/builds-v0/.tmpH1IH7m/lib/python3.12/site-packages/setuptools/build_meta.py\", line 317, in run_setup\n             exec(code, locals())  # noqa: S102 # exec is intentional here\n             ^^^^^^^^^^^^^^^^^^^^\n           File \"<string>\", line 112\n             async = [\n                   ^\n         SyntaxError: invalid syntax\n\nhint: Build failures usually indicate a problem with the package or the build environment\n",
     "test_exit": null,
     "test_tail": "",
     "tests": {},
     "collection_errors": [],
     "resolved": {},
-    "elapsed_s": 0.45496,
-    "cost": 0.00487056,
-    "image_uuid": "3336a1cd-07ca-456c-9a77-bb10e3954514",
+    "elapsed_s": 0.456597,
+    "cost": 0.00488337,
+    "image_uuid": "0cc3d12f-0568-4c05-a798-60fdc29acbbe",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -48,15 +48,15 @@
     "label": "control",
     "cutoff": "2026-08-12T01:54:48Z",
     "install_exit": 41,
-    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\n           File \"<string>\", line 14, in <module>\n           File \"/root/.cache/uv/builds-v0/.tmprgT7XB/lib/python3.12/site-packages/setuptools/build_meta.py\", line 481, in get_requires_for_build_editable\n             return self.get_requires_for_build_wheel(config_settings)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmprgT7XB/lib/python3.12/site-packages/setuptools/build_meta.py\", line 333, in get_requires_for_build_wheel\n             return self._get_build_requires(config_settings, requirements=[])\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmprgT7XB/lib/python3.12/site-packages/setuptools/build_meta.py\", line 301, in _get_build_requires\n             self.run_setup()\n           File \"/root/.cache/uv/builds-v0/.tmprgT7XB/lib/python3.12/site-packages/setuptools/build_meta.py\", line 520, in run_setup\n             super().run_setup(setup_script=setup_script)\n           File \"/root/.cache/uv/builds-v0/.tmprgT7XB/lib/python3.12/site-packages/setuptools/build_meta.py\", line 317, in run_setup\n             exec(code, locals())  # noqa: S102 # exec is intentional here\n             ^^^^^^^^^^^^^^^^^^^^\n           File \"<string>\", line 112\n             async = [\n                   ^\n         SyntaxError: invalid syntax\n\nhint: Build failures usually indicate a problem with the package or the build environment\n",
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\n           File \"<string>\", line 14, in <module>\n           File \"/root/.cache/uv/builds-v0/.tmp9Zko9m/lib/python3.12/site-packages/setuptools/build_meta.py\", line 481, in get_requires_for_build_editable\n             return self.get_requires_for_build_wheel(config_settings)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmp9Zko9m/lib/python3.12/site-packages/setuptools/build_meta.py\", line 333, in get_requires_for_build_wheel\n             return self._get_build_requires(config_settings, requirements=[])\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmp9Zko9m/lib/python3.12/site-packages/setuptools/build_meta.py\", line 301, in _get_build_requires\n             self.run_setup()\n           File \"/root/.cache/uv/builds-v0/.tmp9Zko9m/lib/python3.12/site-packages/setuptools/build_meta.py\", line 520, in run_setup\n             super().run_setup(setup_script=setup_script)\n           File \"/root/.cache/uv/builds-v0/.tmp9Zko9m/lib/python3.12/site-packages/setuptools/build_meta.py\", line 317, in run_setup\n             exec(code, locals())  # noqa: S102 # exec is intentional here\n             ^^^^^^^^^^^^^^^^^^^^\n           File \"<string>\", line 112\n             async = [\n                   ^\n         SyntaxError: invalid syntax\n\nhint: Build failures usually indicate a problem with the package or the build environment\n",
     "test_exit": null,
     "test_tail": "",
     "tests": {},
     "collection_errors": [],
     "resolved": {},
-    "elapsed_s": 0.468058,
-    "cost": 0.0050016800000000005,
-    "image_uuid": "ab702d6e-cd3e-4973-8ec1-dc859bc513a3",
+    "elapsed_s": 0.472837,
+    "cost": 0.00504555,
+    "image_uuid": "22adee01-71e1-4481-a45c-8d059417242b",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -65,9 +65,9 @@
   "verdict": {
     "status": "unrunnable",
     "reason": "install failed before and after",
-    "evidence": " \"/root/.cache/uv/builds-v0/.tmpPUEZpn/lib/python3.12/site-packages/setuptools/build_meta.py\", line 301, in _get_build_requires\n             self.run_setup()\n           File \"/root/.cache/uv/builds-v0/.tmpPUEZpn/lib/python3.12/site-packages/setuptools/build_meta.py\", line 520, in run_setup\n             super().run_setup(setup_script=setup_script)\n           File \"/root/.cache/uv/builds-v0/.tmpPUEZpn/lib/python3.12/site-packages/setuptools/build_meta.py\", line 317, in run_setup\n             exec(code, locals())  # noqa: S102 # exec is intentional here\n             ^^^^^^^^^^^^^^^^^^^^\n           File \"<string>\", line 112\n             async = [\n                   ^\n         SyntaxError: invalid syntax\n\nhint: Build failures usually indicate a problem with the package or the build environment\n"
+    "evidence": " \"/root/.cache/uv/builds-v0/.tmpIXollE/lib/python3.12/site-packages/setuptools/build_meta.py\", line 301, in _get_build_requires\n             self.run_setup()\n           File \"/root/.cache/uv/builds-v0/.tmpIXollE/lib/python3.12/site-packages/setuptools/build_meta.py\", line 520, in run_setup\n             super().run_setup(setup_script=setup_script)\n           File \"/root/.cache/uv/builds-v0/.tmpIXollE/lib/python3.12/site-packages/setuptools/build_meta.py\", line 317, in run_setup\n             exec(code, locals())  # noqa: S102 # exec is intentional here\n             ^^^^^^^^^^^^^^^^^^^^\n           File \"<string>\", line 112\n             async = [\n                   ^\n         SyntaxError: invalid syntax\n\nhint: Build failures usually indicate a problem with the package or the build environment\n"
   },
   "error": null,
   "requirement": "openai>=2.37.0",
-  "wall_s": 53.0
+  "wall_s": 67.3
 }

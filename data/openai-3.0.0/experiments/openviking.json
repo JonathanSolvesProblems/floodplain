@@ -9,20 +9,20 @@
     "sdist_url": null
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "8dd4c757-8e79-4650-885e-673198923e37",
+  "clone_uuid": "4a6cf4f3-02e8-4e8b-8aa6-fa522d3143ab",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
     "install_exit": 41,
-    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpkzi88F/lib/python3.12/site-packages/setuptools/command/editable_wheel.py\", line 275, in _run_build_commands\n             self._run_build_subcommands()\n           File \"/root/.cache/uv/builds-v0/.tmpkzi88F/lib/python3.12/site-packages/setuptools/command/editable_wheel.py\", line 302, in _run_build_subcommands\n             self.run_command(name)\n           File \"/root/.cache/uv/builds-v0/.tmpkzi88F/lib/python3.12/site-packages/setuptools/_distutils/cmd.py\", line 342, in run_command\n             self.distribution.run_command(command)\n           File \"/root/.cache/uv/builds-v0/.tmpkzi88F/lib/python3.12/site-packages/setuptools/dist.py\", line 1106, in run_command\n             super().run_command(command)\n           File \"/root/.cache/uv/builds-v0/.tmpkzi88F/lib/python3.12/site-packages/setuptools/_distutils/dist.py\", line 1047, in run_command\n             cmd_obj.run()\n           File \"<string>\", line 110, in run\n           File \"<string>\", line 182, in build_ov_cli_artifact\n           File \"<string>\", line 148, in _run_stage_with_artifact_checks\n           File \"<string>\", line 138, in _require_artifact\n         RuntimeError: ov CLI build did not produce required ov at /work/repo/openviking/bin/ov\n         An error occurred when building editable wheel for openviking.\n         See debugging tips in: https://setuptools.pypa.io/en/latest/userguide/development_mode.html#debugging-tips\n\nhint: Build failures usually indicate a problem with the package or the build environment\n",
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpKDG8JU/lib/python3.12/site-packages/setuptools/command/editable_wheel.py\", line 275, in _run_build_commands\n             self._run_build_subcommands()\n           File \"/root/.cache/uv/builds-v0/.tmpKDG8JU/lib/python3.12/site-packages/setuptools/command/editable_wheel.py\", line 302, in _run_build_subcommands\n             self.run_command(name)\n           File \"/root/.cache/uv/builds-v0/.tmpKDG8JU/lib/python3.12/site-packages/setuptools/_distutils/cmd.py\", line 342, in run_command\n             self.distribution.run_command(command)\n           File \"/root/.cache/uv/builds-v0/.tmpKDG8JU/lib/python3.12/site-packages/setuptools/dist.py\", line 1106, in run_command\n             super().run_command(command)\n           File \"/root/.cache/uv/builds-v0/.tmpKDG8JU/lib/python3.12/site-packages/setuptools/_distutils/dist.py\", line 1047, in run_command\n             cmd_obj.run()\n           File \"<string>\", line 110, in run\n           File \"<string>\", line 182, in build_ov_cli_artifact\n           File \"<string>\", line 148, in _run_stage_with_artifact_checks\n           File \"<string>\", line 138, in _require_artifact\n         RuntimeError: ov CLI build did not produce required ov at /work/repo/openviking/bin/ov\n         An error occurred when building editable wheel for openviking.\n         See debugging tips in: https://setuptools.pypa.io/en/latest/userguide/development_mode.html#debugging-tips\n\nhint: Build failures usually indicate a problem with the package or the build environment\n",
     "test_exit": null,
     "test_tail": "",
     "tests": {},
     "collection_errors": [],
     "resolved": {},
-    "elapsed_s": 5.395842,
-    "cost": 0.05524946,
-    "image_uuid": "0af3fa7c-43d4-4051-b287-11a57d9b3161",
+    "elapsed_s": 6.096368,
+    "cost": 0.06226888,
+    "image_uuid": "c957c3aa-6ead-48b0-8f58-596d0b62e64f",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -31,15 +31,15 @@
     "label": "after",
     "cutoff": "2026-08-12T01:56:48Z",
     "install_exit": 41,
-    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpci4yYH/lib/python3.12/site-packages/setuptools/command/editable_wheel.py\", line 275, in _run_build_commands\n             self._run_build_subcommands()\n           File \"/root/.cache/uv/builds-v0/.tmpci4yYH/lib/python3.12/site-packages/setuptools/command/editable_wheel.py\", line 302, in _run_build_subcommands\n             self.run_command(name)\n           File \"/root/.cache/uv/builds-v0/.tmpci4yYH/lib/python3.12/site-packages/setuptools/_distutils/cmd.py\", line 342, in run_command\n             self.distribution.run_command(command)\n           File \"/root/.cache/uv/builds-v0/.tmpci4yYH/lib/python3.12/site-packages/setuptools/dist.py\", line 1106, in run_command\n             super().run_command(command)\n           File \"/root/.cache/uv/builds-v0/.tmpci4yYH/lib/python3.12/site-packages/setuptools/_distutils/dist.py\", line 1047, in run_command\n             cmd_obj.run()\n           File \"<string>\", line 110, in run\n           File \"<string>\", line 182, in build_ov_cli_artifact\n           File \"<string>\", line 148, in _run_stage_with_artifact_checks\n           File \"<string>\", line 138, in _require_artifact\n         RuntimeError: ov CLI build did not produce required ov at /work/repo/openviking/bin/ov\n         An error occurred when building editable wheel for openviking.\n         See debugging tips in: https://setuptools.pypa.io/en/latest/userguide/development_mode.html#debugging-tips\n\nhint: Build failures usually indicate a problem with the package or the build environment\n",
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpcjz7VM/lib/python3.12/site-packages/setuptools/command/editable_wheel.py\", line 275, in _run_build_commands\n             self._run_build_subcommands()\n           File \"/root/.cache/uv/builds-v0/.tmpcjz7VM/lib/python3.12/site-packages/setuptools/command/editable_wheel.py\", line 302, in _run_build_subcommands\n             self.run_command(name)\n           File \"/root/.cache/uv/builds-v0/.tmpcjz7VM/lib/python3.12/site-packages/setuptools/_distutils/cmd.py\", line 342, in run_command\n             self.distribution.run_command(command)\n           File \"/root/.cache/uv/builds-v0/.tmpcjz7VM/lib/python3.12/site-packages/setuptools/dist.py\", line 1106, in run_command\n             super().run_command(command)\n           File \"/root/.cache/uv/builds-v0/.tmpcjz7VM/lib/python3.12/site-packages/setuptools/_distutils/dist.py\", line 1047, in run_command\n             cmd_obj.run()\n           File \"<string>\", line 110, in run\n           File \"<string>\", line 182, in build_ov_cli_artifact\n           File \"<string>\", line 148, in _run_stage_with_artifact_checks\n           File \"<string>\", line 138, in _require_artifact\n         RuntimeError: ov CLI build did not produce required ov at /work/repo/openviking/bin/ov\n         An error occurred when building editable wheel for openviking.\n         See debugging tips in: https://setuptools.pypa.io/en/latest/userguide/development_mode.html#debugging-tips\n\nhint: Build failures usually indicate a problem with the package or the build environment\n",
     "test_exit": null,
     "test_tail": "",
     "tests": {},
     "collection_errors": [],
     "resolved": {},
-    "elapsed_s": 5.334706,
-    "cost": 0.05463954,
-    "image_uuid": "454c182c-234f-4f45-b5e2-5f1d1b9bbd6c",
+    "elapsed_s": 5.427438,
+    "cost": 0.055596980000000004,
+    "image_uuid": "49c9f249-b497-4892-98fe-80071085b338",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -48,15 +48,15 @@
     "label": "control",
     "cutoff": "2026-08-12T01:54:48Z",
     "install_exit": 41,
-    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmplxaO0E/lib/python3.12/site-packages/setuptools/command/editable_wheel.py\", line 275, in _run_build_commands\n             self._run_build_subcommands()\n           File \"/root/.cache/uv/builds-v0/.tmplxaO0E/lib/python3.12/site-packages/setuptools/command/editable_wheel.py\", line 302, in _run_build_subcommands\n             self.run_command(name)\n           File \"/root/.cache/uv/builds-v0/.tmplxaO0E/lib/python3.12/site-packages/setuptools/_distutils/cmd.py\", line 342, in run_command\n             self.distribution.run_command(command)\n           File \"/root/.cache/uv/builds-v0/.tmplxaO0E/lib/python3.12/site-packages/setuptools/dist.py\", line 1106, in run_command\n             super().run_command(command)\n           File \"/root/.cache/uv/builds-v0/.tmplxaO0E/lib/python3.12/site-packages/setuptools/_distutils/dist.py\", line 1047, in run_command\n             cmd_obj.run()\n           File \"<string>\", line 110, in run\n           File \"<string>\", line 182, in build_ov_cli_artifact\n           File \"<string>\", line 148, in _run_stage_with_artifact_checks\n           File \"<string>\", line 138, in _require_artifact\n         RuntimeError: ov CLI build did not produce required ov at /work/repo/openviking/bin/ov\n         An error occurred when building editable wheel for openviking.\n         See debugging tips in: https://setuptools.pypa.io/en/latest/userguide/development_mode.html#debugging-tips\n\nhint: Build failures usually indicate a problem with the package or the build environment\n",
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpEnQsUd/lib/python3.12/site-packages/setuptools/command/editable_wheel.py\", line 275, in _run_build_commands\n             self._run_build_subcommands()\n           File \"/root/.cache/uv/builds-v0/.tmpEnQsUd/lib/python3.12/site-packages/setuptools/command/editable_wheel.py\", line 302, in _run_build_subcommands\n             self.run_command(name)\n           File \"/root/.cache/uv/builds-v0/.tmpEnQsUd/lib/python3.12/site-packages/setuptools/_distutils/cmd.py\", line 342, in run_command\n             self.distribution.run_command(command)\n           File \"/root/.cache/uv/builds-v0/.tmpEnQsUd/lib/python3.12/site-packages/setuptools/dist.py\", line 1106, in run_command\n             super().run_command(command)\n           File \"/root/.cache/uv/builds-v0/.tmpEnQsUd/lib/python3.12/site-packages/setuptools/_distutils/dist.py\", line 1047, in run_command\n             cmd_obj.run()\n           File \"<string>\", line 110, in run\n           File \"<string>\", line 182, in build_ov_cli_artifact\n           File \"<string>\", line 148, in _run_stage_with_artifact_checks\n           File \"<string>\", line 138, in _require_artifact\n         RuntimeError: ov CLI build did not produce required ov at /work/repo/openviking/bin/ov\n         An error occurred when building editable wheel for openviking.\n         See debugging tips in: https://setuptools.pypa.io/en/latest/userguide/development_mode.html#debugging-tips\n\nhint: Build failures usually indicate a problem with the package or the build environment\n",
     "test_exit": null,
     "test_tail": "",
     "tests": {},
     "collection_errors": [],
     "resolved": {},
-    "elapsed_s": 5.422256,
-    "cost": 0.055564720000000005,
-    "image_uuid": "bd10008a-d795-4799-b8c2-8acbd0805443",
+    "elapsed_s": 5.298357,
+    "cost": 0.05427923,
+    "image_uuid": "ec8342b7-7769-4687-80b2-bca5e96bead5",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -65,9 +65,9 @@
   "verdict": {
     "status": "unrunnable",
     "reason": "install failed before and after",
-    "evidence": "command(command)\n           File \"/root/.cache/uv/builds-v0/.tmpkzi88F/lib/python3.12/site-packages/setuptools/_distutils/dist.py\", line 1047, in run_command\n             cmd_obj.run()\n           File \"<string>\", line 110, in run\n           File \"<string>\", line 182, in build_ov_cli_artifact\n           File \"<string>\", line 148, in _run_stage_with_artifact_checks\n           File \"<string>\", line 138, in _require_artifact\n         RuntimeError: ov CLI build did not produce required ov at /work/repo/openviking/bin/ov\n         An error occurred when building editable wheel for openviking.\n         See debugging tips in: https://setuptools.pypa.io/en/latest/userguide/development_mode.html#debugging-tips\n\nhint: Build failures usually indicate a problem with the package or the build environment\n"
+    "evidence": "command(command)\n           File \"/root/.cache/uv/builds-v0/.tmpKDG8JU/lib/python3.12/site-packages/setuptools/_distutils/dist.py\", line 1047, in run_command\n             cmd_obj.run()\n           File \"<string>\", line 110, in run\n           File \"<string>\", line 182, in build_ov_cli_artifact\n           File \"<string>\", line 148, in _run_stage_with_artifact_checks\n           File \"<string>\", line 138, in _require_artifact\n         RuntimeError: ov CLI build did not produce required ov at /work/repo/openviking/bin/ov\n         An error occurred when building editable wheel for openviking.\n         See debugging tips in: https://setuptools.pypa.io/en/latest/userguide/development_mode.html#debugging-tips\n\nhint: Build failures usually indicate a problem with the package or the build environment\n"
   },
   "error": null,
   "requirement": "openai>=1.0.0",
-  "wall_s": 136.0
+  "wall_s": 106.6
 }

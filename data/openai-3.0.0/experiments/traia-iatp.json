@@ -9,16 +9,89 @@
     "sdist_url": "https://files.pythonhosted.org/packages/95/3d/872afd1ab20379b4982590e012aab122481f72ba3a5acf89a0527d6fb59f/traia_iatp-0.1.112.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": null,
-  "before": null,
-  "after": null,
-  "control": null,
+  "clone_uuid": "bef4dad4-d600-4097-86b3-2394244b16fd",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.12.5\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\nno tests ran in 0.03s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.12.5",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 10.473855,
+    "cost": 0.10646353000000001,
+    "image_uuid": "0a4c11d5-dac7-4429-81a9-5cbfc2f8dbf2",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.12.5\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\nno tests ran in 0.03s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.12.5",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 9.993294,
+    "cost": 0.10166804,
+    "image_uuid": "925e9797-89e6-4472-8330-0d6e0e6260c4",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.12.5\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\nno tests ran in 0.02s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.12.5",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 10.963048,
+    "cost": 0.11137474000000001,
+    "image_uuid": "b21c4497-5832-44ac-9d3b-5d318e7a4983",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
   "flaky_excluded": [],
   "verdict": {
-    "status": "not-run",
-    "reason": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n"
+    "status": "no-tests",
+    "reason": "the package ships no test suite at this release",
+    "pytest_exit": 5
   },
-  "error": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n",
+  "error": null,
   "requirement": "openai>=1.109.1",
-  "wall_s": 21.7
+  "wall_s": 204.8
 }

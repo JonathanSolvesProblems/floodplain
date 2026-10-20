@@ -9,14 +9,14 @@
     "sdist_url": "https://files.pythonhosted.org/packages/ed/45/320e115a552dd47de8a795970b012aafe7498273d5aa69d70aee7a017eb3/ell_ai-0.0.17.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "0941a055-630c-4065-820b-0aa0ece05bb2",
+  "clone_uuid": "26bb974a-88c0-4319-8b76-73a5d5bd1e66",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
     "install_exit": 0,
     "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
     "test_exit": 5,
-    "test_tail": "\nno tests ran in 0.03s\n",
+    "test_tail": "\nno tests ran in 0.02s\n",
     "tests": {},
     "collection_errors": [],
     "resolved": {
@@ -28,9 +28,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 5.550693,
-    "cost": 0.05657661,
-    "image_uuid": "8e15ec1b-28af-44f4-82de-22fa4b83dada",
+    "elapsed_s": 5.537497,
+    "cost": 0.05644639,
+    "image_uuid": "f08cd149-97fa-4a5d-ac4c-97a43349d541",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -54,9 +54,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 6.0001,
-    "cost": 0.06107574,
-    "image_uuid": "3a09dff3-c7b6-4837-bca2-561e5b5afc7e",
+    "elapsed_s": 5.582452,
+    "cost": 0.05687142,
+    "image_uuid": "3104c7cc-0c05-4bdb-93c7-b45b98b0fc2d",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -67,7 +67,7 @@
     "install_exit": 0,
     "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
     "test_exit": 5,
-    "test_tail": "\nno tests ran in 0.03s\n",
+    "test_tail": "\nno tests ran in 0.02s\n",
     "tests": {},
     "collection_errors": [],
     "resolved": {
@@ -79,9 +79,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 5.81815,
-    "cost": 0.05921734,
-    "image_uuid": "dc4bab20-8e2c-4744-8724-ab92268e7c01",
+    "elapsed_s": 5.464733,
+    "cost": 0.05569675,
+    "image_uuid": "99883a3b-c683-4aa5-a209-e723deb94ef0",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -94,5 +94,5 @@
   },
   "error": null,
   "requirement": "openai>=1.51.0",
-  "wall_s": 38.2
+  "wall_s": 45.9
 }

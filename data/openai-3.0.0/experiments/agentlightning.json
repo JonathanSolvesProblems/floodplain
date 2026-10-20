@@ -9,7 +9,7 @@
     "sdist_url": "https://files.pythonhosted.org/packages/b2/8f/1bed06f70d52ba4b2ed698605fa955a82ee5aaec3addee5a21e3fd7cd0cb/agentlightning-0.3.0.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "1ccee888-0c14-4ca6-aa65-d1b7f54e2bb0",
+  "clone_uuid": "5f07864a-c0cc-4a42-8eb6-d3fedde2647b",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
@@ -29,9 +29,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 9.177701,
-    "cost": 0.09338397000000001,
-    "image_uuid": "84d9baed-3897-4357-ac27-d2fdb9ca9807",
+    "elapsed_s": 9.496761,
+    "cost": 0.09657101,
+    "image_uuid": "dfda76c7-bd4f-46b6-8f23-00ab9037a12d",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -55,9 +55,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 9.316813999999999,
-    "cost": 0.09481826,
-    "image_uuid": "6aeb7342-cbf6-4375-8280-5da5d7f3f7aa",
+    "elapsed_s": 9.243741,
+    "cost": 0.09406186999999999,
+    "image_uuid": "48e63e2f-b446-41a9-8008-7e3cf5cd39c4",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -81,9 +81,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 9.918243,
-    "cost": 0.10084023,
-    "image_uuid": "9ad0ce4f-3c4c-4012-a75e-29670358be52",
+    "elapsed_s": 9.4593,
+    "cost": 0.09620028,
+    "image_uuid": "f8a8c675-b808-44ce-8f51-a4f2eccc2101",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -96,5 +96,5 @@
   },
   "error": null,
   "requirement": "openai",
-  "wall_s": 110.1
+  "wall_s": 145.7
 }

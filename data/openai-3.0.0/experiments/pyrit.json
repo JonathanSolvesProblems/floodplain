@@ -9,14 +9,14 @@
     "sdist_url": "https://files.pythonhosted.org/packages/09/00/9a19349045bc50eff50933ac2fa11a63f7930aa89c4e09f89f763b503955/pyrit-1.0.1.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "4fae14ae-8493-4858-8207-3e7f27a242d0",
+  "clone_uuid": "b7f2e7d6-95c6-4336-8fb9-fe5b78f34ce4",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
     "install_exit": 0,
     "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
     "test_exit": 5,
-    "test_tail": "\nno tests ran in 0.20s\n",
+    "test_tail": "\nno tests ran in 0.16s\n",
     "tests": {},
     "collection_errors": [],
     "resolved": {
@@ -28,9 +28,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 30.035197999999998,
-    "cost": 0.30207408,
-    "image_uuid": "5a74d4fb-c238-4d0d-b2a6-6bd02d9e5153",
+    "elapsed_s": 30.91828,
+    "cost": 0.31090636,
+    "image_uuid": "2483b21a-778e-49fb-9ddf-4788ad5a7006",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -41,7 +41,7 @@
     "install_exit": 0,
     "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
     "test_exit": 5,
-    "test_tail": "\nno tests ran in 0.15s\n",
+    "test_tail": "\nno tests ran in 0.16s\n",
     "tests": {},
     "collection_errors": [],
     "resolved": {
@@ -54,9 +54,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 29.965634,
-    "cost": 0.30138498,
-    "image_uuid": "1d06b517-1627-449a-b4c9-1644cd0b40e6",
+    "elapsed_s": 30.450349,
+    "cost": 0.30620654999999997,
+    "image_uuid": "e7339a91-6cc7-4f72-bcb3-0beb14c615d6",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -67,7 +67,7 @@
     "install_exit": 0,
     "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
     "test_exit": 5,
-    "test_tail": "\nno tests ran in 0.17s\n",
+    "test_tail": "\nno tests ran in 0.15s\n",
     "tests": {},
     "collection_errors": [],
     "resolved": {
@@ -79,9 +79,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 30.109188000000003,
-    "cost": 0.30280740000000006,
-    "image_uuid": "79e62bf9-4256-431d-9c3d-0511e2cd9a4b",
+    "elapsed_s": 33.021291,
+    "cost": 0.33194905,
+    "image_uuid": "226d36eb-c9be-49ac-93c9-8f784e780089",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -94,5 +94,5 @@
   },
   "error": null,
   "requirement": "openai>=2.2.0",
-  "wall_s": 149.6
+  "wall_s": 160.2
 }

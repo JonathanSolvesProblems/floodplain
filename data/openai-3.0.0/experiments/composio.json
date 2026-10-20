@@ -9,16 +9,150 @@
     "sdist_url": "https://files.pythonhosted.org/packages/6b/cb/f76d015ec30a2c67dd9946e3e3d139b0d906842830f42a0718962d38ffc9/composio-0.19.0.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": null,
-  "before": null,
-  "after": null,
-  "control": null,
+  "clone_uuid": "c40b661d-015a-44b5-8d4c-0acdd40b52af",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:88\n  /work/repo/tests/test_openapi.py:88: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:94\n  /work/repo/tests/test_openapi.py:94: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:95\n  /work/repo/tests/test_openapi.py:95: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:101\n  /work/repo/tests/test_openapi.py:101: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:102\n  /work/repo/tests/test_openapi.py:102: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:106\n  /work/repo/tests/test_openapi.py:106: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:107\n  /work/repo/tests/test_openapi.py:107: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:121\n  /work/repo/tests/test_openapi.py:121: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:122\n  /work/repo/tests/test_openapi.py:122: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:126\n  /work/repo/tests/test_openapi.py:126: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:127\n  /work/repo/tests/test_openapi.py:127: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:131\n  /work/repo/tests/test_openapi.py:131: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:132\n  /work/repo/tests/test_openapi.py:132: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:136\n  /work/repo/tests/test_openapi.py:136: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:137\n  /work/repo/tests/test_openapi.py:137: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:144\n  /work/repo/tests/test_openapi.py:144: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:145\n  /work/repo/tests/test_openapi.py:145: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:151\n  /work/repo/tests/test_openapi.py:151: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:152\n  /work/repo/tests/test_openapi.py:152: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR tests/test_auto_upload_download_files.py\nERROR tests/test_cross_sdk_compatibility.py\nERROR tests/test_provider.py\nERROR tests/test_schema_converter.py\nERROR tests/test_schema_parser.py\nERROR tests/test_tool_execution.py\nERROR tests/test_verify_webhook_integration.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 7 errors during collection !!!!!!!!!!!!!!!!!!!!\n1 skipped, 36 warnings, 7 errors in 3.02s\n",
+    "tests": {
+      "::composio.integration_test": "skipped",
+      "::tests.test_auto_upload_download_files": "error",
+      "::tests.test_cross_sdk_compatibility": "error",
+      "::tests.test_provider": "error",
+      "::tests.test_schema_converter": "error",
+      "::tests.test_schema_parser": "error",
+      "::tests.test_tool_execution": "error",
+      "::tests.test_verify_webhook_integration": "error"
+    },
+    "collection_errors": [
+      "::tests.test_auto_upload_download_files",
+      "::tests.test_cross_sdk_compatibility",
+      "::tests.test_provider",
+      "::tests.test_schema_converter",
+      "::tests.test_schema_parser",
+      "::tests.test_tool_execution",
+      "::tests.test_verify_webhook_integration"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 10.583252,
+    "cost": 0.10740384,
+    "image_uuid": "9ff2e558-da9d-4970-96f0-529b4cf50c2e",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "skipped": 1,
+      "error": 7
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:88\n  /work/repo/tests/test_openapi.py:88: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:94\n  /work/repo/tests/test_openapi.py:94: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:95\n  /work/repo/tests/test_openapi.py:95: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:101\n  /work/repo/tests/test_openapi.py:101: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:102\n  /work/repo/tests/test_openapi.py:102: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:106\n  /work/repo/tests/test_openapi.py:106: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:107\n  /work/repo/tests/test_openapi.py:107: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:121\n  /work/repo/tests/test_openapi.py:121: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:122\n  /work/repo/tests/test_openapi.py:122: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:126\n  /work/repo/tests/test_openapi.py:126: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:127\n  /work/repo/tests/test_openapi.py:127: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:131\n  /work/repo/tests/test_openapi.py:131: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:132\n  /work/repo/tests/test_openapi.py:132: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:136\n  /work/repo/tests/test_openapi.py:136: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:137\n  /work/repo/tests/test_openapi.py:137: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:144\n  /work/repo/tests/test_openapi.py:144: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:145\n  /work/repo/tests/test_openapi.py:145: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:151\n  /work/repo/tests/test_openapi.py:151: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:152\n  /work/repo/tests/test_openapi.py:152: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR tests/test_auto_upload_download_files.py\nERROR tests/test_cross_sdk_compatibility.py\nERROR tests/test_provider.py\nERROR tests/test_schema_converter.py\nERROR tests/test_schema_parser.py\nERROR tests/test_tool_execution.py\nERROR tests/test_verify_webhook_integration.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 7 errors during collection !!!!!!!!!!!!!!!!!!!!\n1 skipped, 36 warnings, 7 errors in 3.08s\n",
+    "tests": {
+      "::composio.integration_test": "skipped",
+      "::tests.test_auto_upload_download_files": "error",
+      "::tests.test_cross_sdk_compatibility": "error",
+      "::tests.test_provider": "error",
+      "::tests.test_schema_converter": "error",
+      "::tests.test_schema_parser": "error",
+      "::tests.test_tool_execution": "error",
+      "::tests.test_verify_webhook_integration": "error"
+    },
+    "collection_errors": [
+      "::tests.test_auto_upload_download_files",
+      "::tests.test_cross_sdk_compatibility",
+      "::tests.test_provider",
+      "::tests.test_schema_converter",
+      "::tests.test_schema_parser",
+      "::tests.test_tool_execution",
+      "::tests.test_verify_webhook_integration"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 10.801025,
+    "cost": 0.10956352999999999,
+    "image_uuid": "184c378a-c871-49bc-bd95-ce82680cc55c",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "skipped": 1,
+      "error": 7
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:88\n  /work/repo/tests/test_openapi.py:88: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:94\n  /work/repo/tests/test_openapi.py:94: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:95\n  /work/repo/tests/test_openapi.py:95: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:101\n  /work/repo/tests/test_openapi.py:101: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:102\n  /work/repo/tests/test_openapi.py:102: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:106\n  /work/repo/tests/test_openapi.py:106: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:107\n  /work/repo/tests/test_openapi.py:107: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:121\n  /work/repo/tests/test_openapi.py:121: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:122\n  /work/repo/tests/test_openapi.py:122: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:126\n  /work/repo/tests/test_openapi.py:126: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:127\n  /work/repo/tests/test_openapi.py:127: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:131\n  /work/repo/tests/test_openapi.py:131: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:132\n  /work/repo/tests/test_openapi.py:132: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:136\n  /work/repo/tests/test_openapi.py:136: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:137\n  /work/repo/tests/test_openapi.py:137: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:144\n  /work/repo/tests/test_openapi.py:144: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:145\n  /work/repo/tests/test_openapi.py:145: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\ntests/test_openapi.py:151\n  /work/repo/tests/test_openapi.py:151: PytestUnknownMarkWarning: Unknown pytest.mark.unit - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.unit\n\ntests/test_openapi.py:152\n  /work/repo/tests/test_openapi.py:152: PytestUnknownMarkWarning: Unknown pytest.mark.schema - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.schema\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR tests/test_auto_upload_download_files.py\nERROR tests/test_cross_sdk_compatibility.py\nERROR tests/test_provider.py\nERROR tests/test_schema_converter.py\nERROR tests/test_schema_parser.py\nERROR tests/test_tool_execution.py\nERROR tests/test_verify_webhook_integration.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 7 errors during collection !!!!!!!!!!!!!!!!!!!!\n1 skipped, 36 warnings, 7 errors in 2.89s\n",
+    "tests": {
+      "::composio.integration_test": "skipped",
+      "::tests.test_auto_upload_download_files": "error",
+      "::tests.test_cross_sdk_compatibility": "error",
+      "::tests.test_provider": "error",
+      "::tests.test_schema_converter": "error",
+      "::tests.test_schema_parser": "error",
+      "::tests.test_tool_execution": "error",
+      "::tests.test_verify_webhook_integration": "error"
+    },
+    "collection_errors": [
+      "::tests.test_auto_upload_download_files",
+      "::tests.test_cross_sdk_compatibility",
+      "::tests.test_provider",
+      "::tests.test_schema_converter",
+      "::tests.test_schema_parser",
+      "::tests.test_tool_execution",
+      "::tests.test_verify_webhook_integration"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 10.393123,
+    "cost": 0.10547185,
+    "image_uuid": "d08ff28d-7c02-44d2-9df8-2240ee4bb7d2",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "skipped": 1,
+      "error": 7
+    }
+  },
   "flaky_excluded": [],
   "verdict": {
-    "status": "not-run",
-    "reason": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n"
+    "status": "ok",
+    "passed_after": 0,
+    "pre_existing_failures": 7
   },
-  "error": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n",
+  "error": null,
   "requirement": "openai>=2.48.0",
-  "wall_s": 27.4
+  "wall_s": 98.7
 }

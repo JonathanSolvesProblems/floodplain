@@ -9,16 +9,110 @@
     "sdist_url": "https://files.pythonhosted.org/packages/74/78/7279820627acffb2dad12ef54119a521102bfca2e3f67c7879beeed1083d/praisonaiagents-1.6.165.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": null,
-  "before": null,
-  "after": null,
-  "control": null,
+  "clone_uuid": "414da90e-2ca7-4bc6-971f-d030cd7130a4",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n______________ ERROR collecting tests/test_runtime_middleware.py _______________\nImportError while importing test module '/work/repo/tests/test_runtime_middleware.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_runtime_middleware.py:18: in <module>\n    from praisonaiagents.runtime.registry import RuntimeRegistry, get_default_registry\nE   ImportError: cannot import name 'get_default_registry' from 'praisonaiagents.runtime.registry' (/work/repo/praisonaiagents/runtime/registry.py)\n=============================== warnings summary ===============================\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n  /work/venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    warnings.warn(\n\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n  /work/venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628: PytestUnknownMarkWarning: Unknown pytest.mark.integration - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    warnings.warn(\n\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n  /work/venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628: PytestUnknownMarkWarning: Unknown pytest.mark.live - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    warnings.warn(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR tests/test_runtime_middleware.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n8 warnings, 1 error in 5.47s\n",
+    "tests": {
+      "::tests.test_runtime_middleware": "error"
+    },
+    "collection_errors": [
+      "::tests.test_runtime_middleware"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 16.502521,
+    "cost": 0.16707275,
+    "image_uuid": "62bc7551-554d-4626-8073-f4fc82c4b5a0",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n______________ ERROR collecting tests/test_runtime_middleware.py _______________\nImportError while importing test module '/work/repo/tests/test_runtime_middleware.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_runtime_middleware.py:18: in <module>\n    from praisonaiagents.runtime.registry import RuntimeRegistry, get_default_registry\nE   ImportError: cannot import name 'get_default_registry' from 'praisonaiagents.runtime.registry' (/work/repo/praisonaiagents/runtime/registry.py)\n=============================== warnings summary ===============================\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n  /work/venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    warnings.warn(\n\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n  /work/venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628: PytestUnknownMarkWarning: Unknown pytest.mark.integration - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    warnings.warn(\n\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n  /work/venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628: PytestUnknownMarkWarning: Unknown pytest.mark.live - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    warnings.warn(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR tests/test_runtime_middleware.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n8 warnings, 1 error in 5.45s\n",
+    "tests": {
+      "::tests.test_runtime_middleware": "error"
+    },
+    "collection_errors": [
+      "::tests.test_runtime_middleware"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 15.229556,
+    "cost": 0.15434258,
+    "image_uuid": "3c8a2632-1b01-47f6-a17f-25c43ba4925a",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n______________ ERROR collecting tests/test_runtime_middleware.py _______________\nImportError while importing test module '/work/repo/tests/test_runtime_middleware.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_runtime_middleware.py:18: in <module>\n    from praisonaiagents.runtime.registry import RuntimeRegistry, get_default_registry\nE   ImportError: cannot import name 'get_default_registry' from 'praisonaiagents.runtime.registry' (/work/repo/praisonaiagents/runtime/registry.py)\n=============================== warnings summary ===============================\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n  /work/venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    warnings.warn(\n\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n  /work/venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628: PytestUnknownMarkWarning: Unknown pytest.mark.integration - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    warnings.warn(\n\n../venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628\n  /work/venv/lib/python3.12/site-packages/_pytest/mark/structures.py:628: PytestUnknownMarkWarning: Unknown pytest.mark.live - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    warnings.warn(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR tests/test_runtime_middleware.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n8 warnings, 1 error in 5.51s\n",
+    "tests": {
+      "::tests.test_runtime_middleware": "error"
+    },
+    "collection_errors": [
+      "::tests.test_runtime_middleware"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 15.184066,
+    "cost": 0.15395366000000002,
+    "image_uuid": "0a0decf2-eb7e-4875-b5ec-6e0094f0a031",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
   "flaky_excluded": [],
   "verdict": {
-    "status": "not-run",
-    "reason": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n"
+    "status": "ok",
+    "passed_after": 0,
+    "pre_existing_failures": 1
   },
-  "error": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n",
+  "error": null,
   "requirement": "openai>=1.68.2",
-  "wall_s": 12.3
+  "wall_s": 175.7
 }

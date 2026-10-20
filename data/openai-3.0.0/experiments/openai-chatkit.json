@@ -9,16 +9,116 @@
     "sdist_url": "https://files.pythonhosted.org/packages/ef/07/c4b4ea034f34f25e73cf1a872deb349e3acab6c929a5531d547a9a994890/openai_chatkit-1.6.5.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": null,
-  "before": null,
-  "after": null,
-  "control": null,
+  "clone_uuid": "865e5081-7e68-43f7-a30f-db52431feb68",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n________________ ERROR collecting tests/test_chatkit_server.py _________________\nImportError while importing test module '/work/repo/tests/test_chatkit_server.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_chatkit_server.py:10: in <module>\n    from helpers.mock_store import SQLiteStore\nE   ModuleNotFoundError: No module named 'helpers'\n_____________________ ERROR collecting tests/test_store.py _____________________\nImportError while importing test module '/work/repo/tests/test_store.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_store.py:6: in <module>\n    from helpers.mock_store import SQLiteStore\nE   ModuleNotFoundError: No module named 'helpers'\n=============================== warnings summary ===============================\n<frozen abc>:106\n<frozen abc>:106\n<frozen abc>:106\n<frozen abc>:106\n  <frozen abc>:106: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n\ntests/test_widgets.py:23\ntests/test_widgets.py:23\n  /work/repo/tests/test_widgets.py:23: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    (Card(children=[]), Card(children=[]), []),\n\ntests/test_widgets.py:25\ntests/test_widgets.py:25\n  /work/repo/tests/test_widgets.py:25: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    Card(children=[Text(id=\"text\", value=\"Hello\", streaming=True)]),\n\ntests/test_widgets.py:26\ntests/test_widgets.py:26\n  /work/repo/tests/test_widgets.py:26: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    Card(children=[Text(id=\"text\", value=\"Hello, world!\", streaming=True)]),\n\ntests/test_widgets.py:30\ntests/test_widgets.py:30\n  /work/repo/tests/test_widgets.py:30: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    Card(children=[Text(id=\"text\", value=\"Hello\", streaming=True)]),\n\ntests/test_widgets.py:31\ntests/test_widgets.py:31\n  /work/repo/tests/test_widgets.py:31: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    Card(children=[Text(id=\"text\", value=\"Hello, world!\", streaming=False)]),\n\ntests/test_widgets.py:35\ntests/test_widgets.py:35\n  /work/repo/tests/test_widgets.py:35: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    Card(children=[Text(value=\"Hello\")]),\n\ntests/test_widgets.py:36\ntests/test_widgets.py:36\n  /work/repo/tests/test_widgets.py:36: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    Card(children=[Text(value=\"world!\")]),\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR tests/test_chatkit_server.py\nERROR tests/test_store.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n18 warnings, 2 errors in 3.83s\n",
+    "tests": {
+      "::tests.test_chatkit_server": "error",
+      "::tests.test_store": "error"
+    },
+    "collection_errors": [
+      "::tests.test_chatkit_server",
+      "::tests.test_store"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 11.923173,
+    "cost": 0.12078283000000001,
+    "image_uuid": "1caffe48-2d9f-4df6-95db-d355a09fda11",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 2
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n________________ ERROR collecting tests/test_chatkit_server.py _________________\nImportError while importing test module '/work/repo/tests/test_chatkit_server.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_chatkit_server.py:10: in <module>\n    from helpers.mock_store import SQLiteStore\nE   ModuleNotFoundError: No module named 'helpers'\n_____________________ ERROR collecting tests/test_store.py _____________________\nImportError while importing test module '/work/repo/tests/test_store.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_store.py:6: in <module>\n    from helpers.mock_store import SQLiteStore\nE   ModuleNotFoundError: No module named 'helpers'\n=============================== warnings summary ===============================\n<frozen abc>:106\n<frozen abc>:106\n<frozen abc>:106\n<frozen abc>:106\n  <frozen abc>:106: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n\ntests/test_widgets.py:23\ntests/test_widgets.py:23\n  /work/repo/tests/test_widgets.py:23: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    (Card(children=[]), Card(children=[]), []),\n\ntests/test_widgets.py:25\ntests/test_widgets.py:25\n  /work/repo/tests/test_widgets.py:25: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    Card(children=[Text(id=\"text\", value=\"Hello\", streaming=True)]),\n\ntests/test_widgets.py:26\ntests/test_widgets.py:26\n  /work/repo/tests/test_widgets.py:26: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    Card(children=[Text(id=\"text\", value=\"Hello, world!\", streaming=True)]),\n\ntests/test_widgets.py:30\ntests/test_widgets.py:30\n  /work/repo/tests/test_widgets.py:30: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    Card(children=[Text(id=\"text\", value=\"Hello\", streaming=True)]),\n\ntests/test_widgets.py:31\ntests/test_widgets.py:31\n  /work/repo/tests/test_widgets.py:31: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    Card(children=[Text(id=\"text\", value=\"Hello, world!\", streaming=False)]),\n\ntests/test_widgets.py:35\ntests/test_widgets.py:35\n  /work/repo/tests/test_widgets.py:35: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    Card(children=[Text(value=\"Hello\")]),\n\ntests/test_widgets.py:36\ntests/test_widgets.py:36\n  /work/repo/tests/test_widgets.py:36: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    Card(children=[Text(value=\"world!\")]),\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR tests/test_chatkit_server.py\nERROR tests/test_store.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n18 warnings, 2 errors in 3.52s\n",
+    "tests": {
+      "::tests.test_chatkit_server": "error",
+      "::tests.test_store": "error"
+    },
+    "collection_errors": [
+      "::tests.test_chatkit_server",
+      "::tests.test_store"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 11.985261999999999,
+    "cost": 0.12142458,
+    "image_uuid": "53a6ad44-851d-447b-8450-aa25a714b0c3",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 2
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n________________ ERROR collecting tests/test_chatkit_server.py _________________\nImportError while importing test module '/work/repo/tests/test_chatkit_server.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_chatkit_server.py:10: in <module>\n    from helpers.mock_store import SQLiteStore\nE   ModuleNotFoundError: No module named 'helpers'\n_____________________ ERROR collecting tests/test_store.py _____________________\nImportError while importing test module '/work/repo/tests/test_store.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_store.py:6: in <module>\n    from helpers.mock_store import SQLiteStore\nE   ModuleNotFoundError: No module named 'helpers'\n=============================== warnings summary ===============================\n<frozen abc>:106\n<frozen abc>:106\n<frozen abc>:106\n<frozen abc>:106\n  <frozen abc>:106: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n\ntests/test_widgets.py:23\ntests/test_widgets.py:23\n  /work/repo/tests/test_widgets.py:23: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    (Card(children=[]), Card(children=[]), []),\n\ntests/test_widgets.py:25\ntests/test_widgets.py:25\n  /work/repo/tests/test_widgets.py:25: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    Card(children=[Text(id=\"text\", value=\"Hello\", streaming=True)]),\n\ntests/test_widgets.py:26\ntests/test_widgets.py:26\n  /work/repo/tests/test_widgets.py:26: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    Card(children=[Text(id=\"text\", value=\"Hello, world!\", streaming=True)]),\n\ntests/test_widgets.py:30\ntests/test_widgets.py:30\n  /work/repo/tests/test_widgets.py:30: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    Card(children=[Text(id=\"text\", value=\"Hello\", streaming=True)]),\n\ntests/test_widgets.py:31\ntests/test_widgets.py:31\n  /work/repo/tests/test_widgets.py:31: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    Card(children=[Text(id=\"text\", value=\"Hello, world!\", streaming=False)]),\n\ntests/test_widgets.py:35\ntests/test_widgets.py:35\n  /work/repo/tests/test_widgets.py:35: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    Card(children=[Text(value=\"Hello\")]),\n\ntests/test_widgets.py:36\ntests/test_widgets.py:36\n  /work/repo/tests/test_widgets.py:36: DeprecationWarning: Direct usage of named widget classes is deprecated. Use WidgetTemplate to build widgets from .widget files instead. Visit https://widgets.chatkit.studio/ to author widget files.\n    Card(children=[Text(value=\"world!\")]),\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR tests/test_chatkit_server.py\nERROR tests/test_store.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n18 warnings, 2 errors in 3.54s\n",
+    "tests": {
+      "::tests.test_chatkit_server": "error",
+      "::tests.test_store": "error"
+    },
+    "collection_errors": [
+      "::tests.test_chatkit_server",
+      "::tests.test_store"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 11.587686000000001,
+    "cost": 0.11747394,
+    "image_uuid": "875b8fa5-7782-4ac2-bc5c-82c8f0b2f906",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 2
+    }
+  },
   "flaky_excluded": [],
   "verdict": {
-    "status": "not-run",
-    "reason": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n"
+    "status": "ok",
+    "passed_after": 0,
+    "pre_existing_failures": 2
   },
-  "error": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n",
+  "error": null,
   "requirement": "openai",
-  "wall_s": 6.2
+  "wall_s": 127.0
 }

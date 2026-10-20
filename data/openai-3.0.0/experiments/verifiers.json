@@ -9,7 +9,7 @@
     "sdist_url": null
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "5c2d1b4d-eb61-4329-b708-086f77e0e9d5",
+  "clone_uuid": "20ab54f8-8da2-4eeb-9bb9-a671ec805ce1",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
@@ -36,9 +36,9 @@
       "pytest": "9.0.3",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 27.13709,
-    "cost": 0.27428444,
-    "image_uuid": "39ff5fa7-68b5-4f03-8e58-6aec63616218",
+    "elapsed_s": 25.526836,
+    "cost": 0.25814400000000004,
+    "image_uuid": "785ff70e-3aac-44a8-a5f6-c89f849ff93d",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {
@@ -71,9 +71,9 @@
       "pytest": "9.0.3",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 25.930187,
-    "cost": 0.26227183,
-    "image_uuid": "f64b35c0-007f-431f-9284-03dd25fcb5da",
+    "elapsed_s": 25.104978000000003,
+    "cost": 0.25397614,
+    "image_uuid": "193b5fa6-962b-45c0-a9e7-21cb75626565",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {
@@ -106,9 +106,9 @@
       "pytest": "9.0.3",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 26.047933,
-    "cost": 0.26336391000000003,
-    "image_uuid": "c1058745-60bb-48bb-b885-179c05b84d5d",
+    "elapsed_s": 24.525976,
+    "cost": 0.24814856,
+    "image_uuid": "461d4bc1-4f77-4901-b3a6-28c5ec4a3d27",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {
@@ -123,5 +123,5 @@
   },
   "error": null,
   "requirement": "openai>=2.9.0",
-  "wall_s": 172.2
+  "wall_s": 125.8
 }

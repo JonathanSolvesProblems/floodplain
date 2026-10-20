@@ -9,14 +9,14 @@
     "sdist_url": "https://files.pythonhosted.org/packages/13/b7/3c660423b8812611a01bfe2735ae049e8d20106741fec81d9105d4e59a53/openai_messages_token_helper-0.1.13.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "2aeb7232-978b-4e6a-8f78-a18923c9d987",
+  "clone_uuid": "43401423-1a1f-448e-93f4-00fe0df18442",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
     "install_exit": 0,
     "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
     "test_exit": 0,
-    "test_tail": "........................................................................ [ 98%]\n.                                                                        [100%]\n================================ tests coverage ================================\n_______________ coverage: platform linux, python 3.12.13-final-0 _______________\n\nName                                                  Stmts   Miss  Cover   Missing\n-----------------------------------------------------------------------------------\nsrc/openai_messages_token_helper/__init__.py              4      0   100%\nsrc/openai_messages_token_helper/function_format.py      53      1    98%   29\nsrc/openai_messages_token_helper/images_helper.py        38      0   100%\nsrc/openai_messages_token_helper/message_builder.py      64      6    91%   24, 82, 121, 124, 127, 151\nsrc/openai_messages_token_helper/model_helper.py         70      1    99%   100\ntests/__init__.py                                         0      0   100%\ntests/conftest.py                                         0      0   100%\ntests/functions.py                                       23      0   100%\ntests/image_messages.py                                   5      0   100%\ntests/messages.py                                        15      0   100%\ntests/test_imageshelper.py                               22      0   100%\ntests/test_messagebuilder.py                             88      0   100%\ntests/test_modelhelper.py                                76      0   100%\n-----------------------------------------------------------------------------------\nTOTAL                                                   458      8    98%\n73 passed in 10.44s\n",
+    "test_tail": "........................................................................ [ 98%]\n.                                                                        [100%]\n================================ tests coverage ================================\n_______________ coverage: platform linux, python 3.12.13-final-0 _______________\n\nName                                                  Stmts   Miss  Cover   Missing\n-----------------------------------------------------------------------------------\nsrc/openai_messages_token_helper/__init__.py              4      0   100%\nsrc/openai_messages_token_helper/function_format.py      53      1    98%   29\nsrc/openai_messages_token_helper/images_helper.py        38      0   100%\nsrc/openai_messages_token_helper/message_builder.py      64      6    91%   24, 82, 121, 124, 127, 151\nsrc/openai_messages_token_helper/model_helper.py         70      1    99%   100\ntests/__init__.py                                         0      0   100%\ntests/conftest.py                                         0      0   100%\ntests/functions.py                                       23      0   100%\ntests/image_messages.py                                   5      0   100%\ntests/messages.py                                        15      0   100%\ntests/test_imageshelper.py                               22      0   100%\ntests/test_messagebuilder.py                             88      0   100%\ntests/test_modelhelper.py                                76      0   100%\n-----------------------------------------------------------------------------------\nTOTAL                                                   458      8    98%\n73 passed in 9.11s\n",
     "tests": {
       "tests.test_imageshelper::test_count_tokens_for_image": "passed",
       "tests.test_messagebuilder::test_messagebuilder": "passed",
@@ -102,9 +102,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 6.656021,
-    "cost": 0.06843489,
-    "image_uuid": "36a5ed43-2816-4ad1-8380-63ac5ff82f64",
+    "elapsed_s": 6.305654,
+    "cost": 0.06497798,
+    "image_uuid": "b3783184-0d30-4e50-8a4c-49768d3b8845",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {
@@ -117,7 +117,7 @@
     "install_exit": 0,
     "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx2==2.10.0\nopenai==3.0.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
     "test_exit": 0,
-    "test_tail": "........................................................................ [ 98%]\n.                                                                        [100%]\n================================ tests coverage ================================\n_______________ coverage: platform linux, python 3.12.13-final-0 _______________\n\nName                                                  Stmts   Miss  Cover   Missing\n-----------------------------------------------------------------------------------\nsrc/openai_messages_token_helper/__init__.py              4      0   100%\nsrc/openai_messages_token_helper/function_format.py      53      1    98%   29\nsrc/openai_messages_token_helper/images_helper.py        38      0   100%\nsrc/openai_messages_token_helper/message_builder.py      64      6    91%   24, 82, 121, 124, 127, 151\nsrc/openai_messages_token_helper/model_helper.py         70      1    99%   100\ntests/__init__.py                                         0      0   100%\ntests/conftest.py                                         0      0   100%\ntests/functions.py                                       23      0   100%\ntests/image_messages.py                                   5      0   100%\ntests/messages.py                                        15      0   100%\ntests/test_imageshelper.py                               22      0   100%\ntests/test_messagebuilder.py                             88      0   100%\ntests/test_modelhelper.py                                76      0   100%\n-----------------------------------------------------------------------------------\nTOTAL                                                   458      8    98%\n73 passed in 9.33s\n",
+    "test_tail": "........................................................................ [ 98%]\n.                                                                        [100%]\n================================ tests coverage ================================\n_______________ coverage: platform linux, python 3.12.13-final-0 _______________\n\nName                                                  Stmts   Miss  Cover   Missing\n-----------------------------------------------------------------------------------\nsrc/openai_messages_token_helper/__init__.py              4      0   100%\nsrc/openai_messages_token_helper/function_format.py      53      1    98%   29\nsrc/openai_messages_token_helper/images_helper.py        38      0   100%\nsrc/openai_messages_token_helper/message_builder.py      64      6    91%   24, 82, 121, 124, 127, 151\nsrc/openai_messages_token_helper/model_helper.py         70      1    99%   100\ntests/__init__.py                                         0      0   100%\ntests/conftest.py                                         0      0   100%\ntests/functions.py                                       23      0   100%\ntests/image_messages.py                                   5      0   100%\ntests/messages.py                                        15      0   100%\ntests/test_imageshelper.py                               22      0   100%\ntests/test_messagebuilder.py                             88      0   100%\ntests/test_modelhelper.py                                76      0   100%\n-----------------------------------------------------------------------------------\nTOTAL                                                   458      8    98%\n73 passed in 10.33s\n",
     "tests": {
       "tests.test_imageshelper::test_count_tokens_for_image": "passed",
       "tests.test_messagebuilder::test_messagebuilder": "passed",
@@ -203,9 +203,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 6.425635,
-    "cost": 0.06612422999999999,
-    "image_uuid": "5062c64f-4014-4e44-97f8-d5b2c60f1aca",
+    "elapsed_s": 6.585133,
+    "cost": 0.06771903,
+    "image_uuid": "0191fa86-d220-4933-9e55-4005b09e1eac",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {
@@ -218,7 +218,7 @@
     "install_exit": 0,
     "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
     "test_exit": 0,
-    "test_tail": "........................................................................ [ 98%]\n.                                                                        [100%]\n================================ tests coverage ================================\n_______________ coverage: platform linux, python 3.12.13-final-0 _______________\n\nName                                                  Stmts   Miss  Cover   Missing\n-----------------------------------------------------------------------------------\nsrc/openai_messages_token_helper/__init__.py              4      0   100%\nsrc/openai_messages_token_helper/function_format.py      53      1    98%   29\nsrc/openai_messages_token_helper/images_helper.py        38      0   100%\nsrc/openai_messages_token_helper/message_builder.py      64      6    91%   24, 82, 121, 124, 127, 151\nsrc/openai_messages_token_helper/model_helper.py         70      1    99%   100\ntests/__init__.py                                         0      0   100%\ntests/conftest.py                                         0      0   100%\ntests/functions.py                                       23      0   100%\ntests/image_messages.py                                   5      0   100%\ntests/messages.py                                        15      0   100%\ntests/test_imageshelper.py                               22      0   100%\ntests/test_messagebuilder.py                             88      0   100%\ntests/test_modelhelper.py                                76      0   100%\n-----------------------------------------------------------------------------------\nTOTAL                                                   458      8    98%\n73 passed in 8.93s\n",
+    "test_tail": "........................................................................ [ 98%]\n.                                                                        [100%]\n================================ tests coverage ================================\n_______________ coverage: platform linux, python 3.12.13-final-0 _______________\n\nName                                                  Stmts   Miss  Cover   Missing\n-----------------------------------------------------------------------------------\nsrc/openai_messages_token_helper/__init__.py              4      0   100%\nsrc/openai_messages_token_helper/function_format.py      53      1    98%   29\nsrc/openai_messages_token_helper/images_helper.py        38      0   100%\nsrc/openai_messages_token_helper/message_builder.py      64      6    91%   24, 82, 121, 124, 127, 151\nsrc/openai_messages_token_helper/model_helper.py         70      1    99%   100\ntests/__init__.py                                         0      0   100%\ntests/conftest.py                                         0      0   100%\ntests/functions.py                                       23      0   100%\ntests/image_messages.py                                   5      0   100%\ntests/messages.py                                        15      0   100%\ntests/test_imageshelper.py                               22      0   100%\ntests/test_messagebuilder.py                             88      0   100%\ntests/test_modelhelper.py                                76      0   100%\n-----------------------------------------------------------------------------------\nTOTAL                                                   458      8    98%\n73 passed in 9.67s\n",
     "tests": {
       "tests.test_imageshelper::test_count_tokens_for_image": "passed",
       "tests.test_messagebuilder::test_messagebuilder": "passed",
@@ -304,9 +304,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 6.607365,
-    "cost": 0.06798111000000001,
-    "image_uuid": "eaf3ed4b-bc2f-443f-8856-88aea0a05fa4",
+    "elapsed_s": 6.624382,
+    "cost": 0.06810684,
+    "image_uuid": "54f9e853-9e2e-46fc-ac49-b4da5587592d",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {
@@ -321,5 +321,5 @@
   },
   "error": null,
   "requirement": "openai",
-  "wall_s": 73.6
+  "wall_s": 83.6
 }

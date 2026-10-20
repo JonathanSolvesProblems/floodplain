@@ -9,14 +9,14 @@
     "sdist_url": null
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "7ae61bb2-7095-4372-bb18-1c4721035e90",
+  "clone_uuid": "73dc793e-2947-4a14-85e6-48002e6e6ace",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
     "install_exit": 0,
     "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
     "test_exit": 0,
-    "test_tail": "........                                                                 [100%]\n8 passed in 2.88s\n",
+    "test_tail": "........                                                                 [100%]\n8 passed in 3.41s\n",
     "tests": {
       "tests.test_legacy_sanitizer::test_inline_fn": "passed",
       "tests.test_treesitter_sanitizer::test_code_extract": "passed",
@@ -37,9 +37,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 13.78613,
-    "cost": 0.1398767,
-    "image_uuid": "9c6b34a3-9935-4397-9388-c6f6a85f6ada",
+    "elapsed_s": 13.930021,
+    "cost": 0.14133351000000002,
+    "image_uuid": "b3198a4d-2ecf-4cf6-bf9f-e2eb8b19c9ea",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {
@@ -52,7 +52,7 @@
     "install_exit": 0,
     "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==3.0.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
     "test_exit": 0,
-    "test_tail": "........                                                                 [100%]\n8 passed in 3.02s\n",
+    "test_tail": "........                                                                 [100%]\n8 passed in 3.24s\n",
     "tests": {
       "tests.test_legacy_sanitizer::test_inline_fn": "passed",
       "tests.test_treesitter_sanitizer::test_code_extract": "passed",
@@ -74,9 +74,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 14.496350999999999,
-    "cost": 0.14703243,
-    "image_uuid": "6adcf4fb-a98b-4203-98b1-8f55adee4aef",
+    "elapsed_s": 13.995948,
+    "cost": 0.14201113999999998,
+    "image_uuid": "6d28d6e3-9576-4ffa-81ed-ed472803cd0a",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {
@@ -89,7 +89,7 @@
     "install_exit": 0,
     "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
     "test_exit": 0,
-    "test_tail": "........                                                                 [100%]\n8 passed in 3.00s\n",
+    "test_tail": "........                                                                 [100%]\n8 passed in 2.97s\n",
     "tests": {
       "tests.test_legacy_sanitizer::test_inline_fn": "passed",
       "tests.test_treesitter_sanitizer::test_code_extract": "passed",
@@ -110,9 +110,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 14.053852000000001,
-    "cost": 0.1425615,
-    "image_uuid": "d8197a7f-3013-4d82-8dbf-1f72106bb1c8",
+    "elapsed_s": 13.978372,
+    "cost": 0.14180482,
+    "image_uuid": "95a38448-2082-4f09-8cce-dd476e16b1ed",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {
@@ -127,5 +127,5 @@
   },
   "error": null,
   "requirement": "openai>=1.11.1",
-  "wall_s": 99.0
+  "wall_s": 126.5
 }

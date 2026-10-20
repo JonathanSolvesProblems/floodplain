@@ -9,16 +9,166 @@
     "sdist_url": "https://files.pythonhosted.org/packages/ce/c4/93ed52c49c2347184f908c692ebb7c1f06303805910774c3282ac68033db/unclecode_litellm-1.81.13.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": null,
-  "before": null,
-  "after": null,
-  "control": null,
+  "clone_uuid": "5cdd4cba-2514-4abc-b880-52d7db734a18",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "nup.py:14: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_resource_cleanup.py:56\n  /work/repo/tests/test_resource_cleanup.py:56: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_resource_cleanup.py:93\n  /work/repo/tests/test_resource_cleanup.py:93: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_spend_logs.py:103\n  /work/repo/tests/test_spend_logs.py:103: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_spend_logs.py:158\n  /work/repo/tests/test_spend_logs.py:158: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_spend_logs.py:236\n  /work/repo/tests/test_spend_logs.py:236: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_spend_logs.py:252\n  /work/repo/tests/test_spend_logs.py:252: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_spend_logs.py:305\n  /work/repo/tests/test_spend_logs.py:305: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:385\ntests/test_team.py:385\n  /work/repo/tests/test_team.py:385: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:420\ntests/test_team.py:420\n  /work/repo/tests/test_team.py:420: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:477\ntests/test_team.py:477\n  /work/repo/tests/test_team.py:477: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:542\ntests/test_team.py:542\n  /work/repo/tests/test_team.py:542: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:578\ntests/test_team.py:578\n  /work/repo/tests/test_team.py:578: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:628\ntests/test_team.py:628\n  /work/repo/tests/test_team.py:628: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:698\ntests/test_team.py:698\n  /work/repo/tests/test_team.py:698: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:732\ntests/test_team.py:732\n  /work/repo/tests/test_team.py:732: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team_logging.py:65\n  /work/repo/tests/test_team_logging.py:65: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team_logging.py:66\n  /work/repo/tests/test_team_logging.py:66: PytestUnknownMarkWarning: Unknown pytest.mark.flaky - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.flaky(retries=12, delay=2)\n\ntests/test_team_logging.py:118\n  /work/repo/tests/test_team_logging.py:118: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR tests/test_budget_management.py\nERROR tests/test_fallbacks.py\nERROR tests/test_users.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!\n111 warnings, 3 errors in 21.79s\n",
+    "tests": {
+      "::tests.test_budget_management": "error",
+      "::tests.test_fallbacks": "error",
+      "::tests.test_users": "error"
+    },
+    "collection_errors": [
+      "::tests.test_budget_management",
+      "::tests.test_fallbacks",
+      "::tests.test_users"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 15.851510999999999,
+    "cost": 0.16040627000000002,
+    "image_uuid": "4c5f3225-483c-426d-b0ea-f2632a748683",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 3
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==1.0.dev3\nhttpx2==2.10.0\nopenai==3.0.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "  @pytest.mark.asyncio\n\ntests/test_passthrough_endpoints.py:50\n  /work/repo/tests/test_passthrough_endpoints.py:50: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_spend_logs.py:103\n  /work/repo/tests/test_spend_logs.py:103: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_spend_logs.py:158\n  /work/repo/tests/test_spend_logs.py:158: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_spend_logs.py:236\n  /work/repo/tests/test_spend_logs.py:236: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_spend_logs.py:252\n  /work/repo/tests/test_spend_logs.py:252: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_spend_logs.py:305\n  /work/repo/tests/test_spend_logs.py:305: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:385\ntests/test_team.py:385\n  /work/repo/tests/test_team.py:385: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:420\ntests/test_team.py:420\n  /work/repo/tests/test_team.py:420: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:477\ntests/test_team.py:477\n  /work/repo/tests/test_team.py:477: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:542\ntests/test_team.py:542\n  /work/repo/tests/test_team.py:542: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:578\ntests/test_team.py:578\n  /work/repo/tests/test_team.py:578: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:628\ntests/test_team.py:628\n  /work/repo/tests/test_team.py:628: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:698\ntests/test_team.py:698\n  /work/repo/tests/test_team.py:698: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:732\ntests/test_team.py:732\n  /work/repo/tests/test_team.py:732: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team_logging.py:65\n  /work/repo/tests/test_team_logging.py:65: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team_logging.py:66\n  /work/repo/tests/test_team_logging.py:66: PytestUnknownMarkWarning: Unknown pytest.mark.flaky - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.flaky(retries=12, delay=2)\n\ntests/test_team_logging.py:118\n  /work/repo/tests/test_team_logging.py:118: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR litellm/integrations/test_httpx.py\nERROR tests/test_budget_management.py\nERROR tests/test_end_users.py\nERROR tests/test_entrypoint.py\nERROR tests/test_fallbacks.py\nERROR tests/test_gpt5_azure_temperature_support.py\nERROR tests/test_keys.py\nERROR tests/test_litellm_proxy_responses_config.py - KeyError: 'litellm'\nERROR tests/test_openai_endpoints.py\nERROR tests/test_otel_thread_leak.py\nERROR tests/test_presidio_latency.py\nERROR tests/test_ratelimit.py\nERROR tests/test_resource_cleanup.py\nERROR tests/test_service_logger_otel.py\nERROR tests/test_team_members.py\nERROR tests/test_users.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 16 errors during collection !!!!!!!!!!!!!!!!!!!\n47 warnings, 16 errors in 4.83s\n",
+    "tests": {
+      "::litellm.integrations.test_httpx": "error",
+      "::tests.test_budget_management": "error",
+      "::tests.test_end_users": "error",
+      "::tests.test_entrypoint": "error",
+      "::tests.test_fallbacks": "error",
+      "::tests.test_gpt5_azure_temperature_support": "error",
+      "::tests.test_keys": "error",
+      "::tests.test_litellm_proxy_responses_config": "error",
+      "::tests.test_openai_endpoints": "error",
+      "::tests.test_otel_thread_leak": "error",
+      "::tests.test_presidio_latency": "error",
+      "::tests.test_ratelimit": "error",
+      "::tests.test_resource_cleanup": "error",
+      "::tests.test_service_logger_otel": "error",
+      "::tests.test_team_members": "error",
+      "::tests.test_users": "error"
+    },
+    "collection_errors": [
+      "::litellm.integrations.test_httpx",
+      "::tests.test_budget_management",
+      "::tests.test_end_users",
+      "::tests.test_entrypoint",
+      "::tests.test_fallbacks",
+      "::tests.test_gpt5_azure_temperature_support",
+      "::tests.test_keys",
+      "::tests.test_litellm_proxy_responses_config",
+      "::tests.test_openai_endpoints",
+      "::tests.test_otel_thread_leak",
+      "::tests.test_presidio_latency",
+      "::tests.test_ratelimit",
+      "::tests.test_resource_cleanup",
+      "::tests.test_service_logger_otel",
+      "::tests.test_team_members",
+      "::tests.test_users"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "1.0.dev3",
+      "httpx2": "2.10.0",
+      "openai": "3.0.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 15.597840999999999,
+    "cost": 0.15767536999999998,
+    "image_uuid": "88a623d1-7359-477b-8557-b5486184001e",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 16
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "anup.py:14: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_resource_cleanup.py:56\n  /work/repo/tests/test_resource_cleanup.py:56: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_resource_cleanup.py:93\n  /work/repo/tests/test_resource_cleanup.py:93: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_spend_logs.py:103\n  /work/repo/tests/test_spend_logs.py:103: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_spend_logs.py:158\n  /work/repo/tests/test_spend_logs.py:158: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_spend_logs.py:236\n  /work/repo/tests/test_spend_logs.py:236: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_spend_logs.py:252\n  /work/repo/tests/test_spend_logs.py:252: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_spend_logs.py:305\n  /work/repo/tests/test_spend_logs.py:305: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:385\ntests/test_team.py:385\n  /work/repo/tests/test_team.py:385: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:420\ntests/test_team.py:420\n  /work/repo/tests/test_team.py:420: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:477\ntests/test_team.py:477\n  /work/repo/tests/test_team.py:477: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:542\ntests/test_team.py:542\n  /work/repo/tests/test_team.py:542: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:578\ntests/test_team.py:578\n  /work/repo/tests/test_team.py:578: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:628\ntests/test_team.py:628\n  /work/repo/tests/test_team.py:628: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:698\ntests/test_team.py:698\n  /work/repo/tests/test_team.py:698: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team.py:732\ntests/test_team.py:732\n  /work/repo/tests/test_team.py:732: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team_logging.py:65\n  /work/repo/tests/test_team_logging.py:65: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\ntests/test_team_logging.py:66\n  /work/repo/tests/test_team_logging.py:66: PytestUnknownMarkWarning: Unknown pytest.mark.flaky - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.flaky(retries=12, delay=2)\n\ntests/test_team_logging.py:118\n  /work/repo/tests/test_team_logging.py:118: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.asyncio\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR tests/test_budget_management.py\nERROR tests/test_fallbacks.py\nERROR tests/test_users.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!\n111 warnings, 3 errors in 4.87s\n",
+    "tests": {
+      "::tests.test_budget_management": "error",
+      "::tests.test_fallbacks": "error",
+      "::tests.test_users": "error"
+    },
+    "collection_errors": [
+      "::tests.test_budget_management",
+      "::tests.test_fallbacks",
+      "::tests.test_users"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 15.45347,
+    "cost": 0.15640692,
+    "image_uuid": "a7a3a4e8-a636-4d90-8df1-1a02e7327db5",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 3
+    }
+  },
   "flaky_excluded": [],
   "verdict": {
-    "status": "not-run",
-    "reason": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n"
+    "status": "broken",
+    "kind": "tests",
+    "newly_failing": [],
+    "new_collection_errors": [
+      "::litellm.integrations.test_httpx",
+      "::tests.test_end_users",
+      "::tests.test_entrypoint",
+      "::tests.test_gpt5_azure_temperature_support",
+      "::tests.test_keys",
+      "::tests.test_litellm_proxy_responses_config",
+      "::tests.test_openai_endpoints",
+      "::tests.test_otel_thread_leak",
+      "::tests.test_presidio_latency",
+      "::tests.test_ratelimit",
+      "::tests.test_resource_cleanup",
+      "::tests.test_service_logger_otel",
+      "::tests.test_team_members"
+    ],
+    "pre_existing_failures": 3,
+    "excluded_as_flaky": [],
+    "flake_control": true,
+    "collected_before": 3,
+    "collected_after": 16
   },
-  "error": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n",
+  "error": null,
   "requirement": "openai>=2.8.0",
-  "wall_s": 42.8
+  "wall_s": 139.0
 }

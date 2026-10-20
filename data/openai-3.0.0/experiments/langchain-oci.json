@@ -9,7 +9,7 @@
     "sdist_url": "https://files.pythonhosted.org/packages/a4/49/7369565e86dfb7f30a84ed0d28260a46942719a780ddd828d1482e968a49/langchain_oci-0.3.2.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "0ab0e056-5e04-40a7-9e73-5a03adea2dda",
+  "clone_uuid": "ae47e5f7-2927-4dfd-a1b2-28490b9339dd",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
@@ -28,9 +28,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 7.752337,
-    "cost": 0.07898431,
-    "image_uuid": "751f26a8-533e-40bd-9ea2-ae4089d115e2",
+    "elapsed_s": 7.524662,
+    "cost": 0.07672206000000001,
+    "image_uuid": "f619ca87-d2f7-48fe-a5c3-5320992ef5a5",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -53,9 +53,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 7.791753,
-    "cost": 0.07937309000000001,
-    "image_uuid": "a8e4964f-6754-4fd8-937e-905c04b791b2",
+    "elapsed_s": 7.834868,
+    "cost": 0.07981226,
+    "image_uuid": "3f8cf758-d697-4a58-b0b7-b892a8f40f85",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -78,9 +78,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 8.03941,
-    "cost": 0.08188156,
-    "image_uuid": "086d6426-a109-478b-ac63-3ffb2ac3964a",
+    "elapsed_s": 7.5582210000000005,
+    "cost": 0.07702003000000002,
+    "image_uuid": "94b79919-7823-44ff-9505-56174df00ec1",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -97,5 +97,5 @@
   },
   "error": null,
   "requirement": "openai>=2.6.1",
-  "wall_s": 82.7
+  "wall_s": 91.6
 }

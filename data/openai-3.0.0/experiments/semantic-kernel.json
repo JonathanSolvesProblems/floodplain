@@ -9,7 +9,7 @@
     "sdist_url": "https://files.pythonhosted.org/packages/14/76/3c5503aac032abd31ac896ce896192eeb7a76e9509d90b297e7106d0a4b3/semantic_kernel-1.44.1.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "fcf9163b-e269-40e7-8adf-2843eced2262",
+  "clone_uuid": "d0ce7bf7-c099-46bf-a6b9-d066e99754a5",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
@@ -28,9 +28,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 6.850356,
-    "cost": 0.06970142,
-    "image_uuid": "665b2ee7-8167-4016-8b8a-a951e8bf04f0",
+    "elapsed_s": 6.957722,
+    "cost": 0.07082806,
+    "image_uuid": "722fdafb-d826-4bc8-a240-0248c56f11dc",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -54,9 +54,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 6.854204,
-    "cost": 0.06979914000000001,
-    "image_uuid": "86f86e70-7aac-4880-9553-6862aeafc7d8",
+    "elapsed_s": 7.091444999999999,
+    "cost": 0.07220625,
+    "image_uuid": "b0d2bb79-d5c3-4ea7-84b7-1ceed834e427",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -79,9 +79,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 6.79464,
-    "cost": 0.06911468,
-    "image_uuid": "f8799997-cb4a-4a69-90c8-a00a66c8c226",
+    "elapsed_s": 7.447744,
+    "cost": 0.07578032,
+    "image_uuid": "f9fa2df9-da07-4c15-8af7-b12e0a1e0fa3",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -94,5 +94,5 @@
   },
   "error": null,
   "requirement": "openai>=2.0.0",
-  "wall_s": 99.0
+  "wall_s": 106.0
 }

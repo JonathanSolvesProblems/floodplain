@@ -9,16 +9,93 @@
     "sdist_url": "https://files.pythonhosted.org/packages/0c/dd/178a6a5b4098c3ef032ec5669f13b2c9ffbfd4b17092bcd1c34888fef7be/azure_ai_projects-2.4.0.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": null,
-  "before": null,
-  "after": null,
-  "control": null,
+  "clone_uuid": "968ad661-93ab-4756-90dd-bec75088f863",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 4,
+    "test_tail": "ImportError while loading conftest '/work/repo/tests/conftest.py'.\ntests/conftest.py:17: in <module>\n    from dotenv import find_dotenv, load_dotenv\nE   ModuleNotFoundError: No module named 'dotenv'\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 7.278585,
+    "cost": 0.07385527,
+    "image_uuid": "a1a1fdcf-4c27-4347-803e-6efc614d1fd8",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx2==2.10.0\nopenai==3.0.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 4,
+    "test_tail": "ImportError while loading conftest '/work/repo/tests/conftest.py'.\ntests/conftest.py:17: in <module>\n    from dotenv import find_dotenv, load_dotenv\nE   ModuleNotFoundError: No module named 'dotenv'\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx2": "2.10.0",
+      "openai": "3.0.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 7.068633,
+    "cost": 0.07171611,
+    "image_uuid": "cda93881-3dfa-4f00-9875-4659450cd5a1",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 4,
+    "test_tail": "ImportError while loading conftest '/work/repo/tests/conftest.py'.\ntests/conftest.py:17: in <module>\n    from dotenv import find_dotenv, load_dotenv\nE   ModuleNotFoundError: No module named 'dotenv'\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 7.346208,
+    "cost": 0.07445912,
+    "image_uuid": "1c23e1df-96ea-432e-b707-bba5d99ec126",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
   "flaky_excluded": [],
   "verdict": {
-    "status": "not-run",
-    "reason": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n"
+    "status": "incomplete",
+    "kind": "no-results",
+    "reason": "the before fork installed but returned no test results",
+    "arm": "before",
+    "test_exit": 4,
+    "error": null,
+    "evidence": "ImportError while loading conftest '/work/repo/tests/conftest.py'.\ntests/conftest.py:17: in <module>\n    from dotenv import find_dotenv, load_dotenv\nE   ModuleNotFoundError: No module named 'dotenv'\n"
   },
-  "error": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n",
+  "error": null,
   "requirement": "openai>=2.8.0",
-  "wall_s": 21.2
+  "wall_s": 51.5
 }

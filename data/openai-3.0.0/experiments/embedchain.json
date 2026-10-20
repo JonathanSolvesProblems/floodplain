@@ -9,14 +9,14 @@
     "sdist_url": "https://files.pythonhosted.org/packages/4f/18/63cdd649ff26dcc532f78ccfc565ee9b25fad2abcf82f04456f5ae7580d9/embedchain-0.1.128.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "975dbea2-ed7c-4b1a-a4c1-a62a14612212",
+  "clone_uuid": "3ab02461-66c6-461d-9734-5fd4b604cbfa",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
     "install_exit": 0,
     "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==1.109.1\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
     "test_exit": 5,
-    "test_tail": "\nno tests ran in 0.03s\n",
+    "test_tail": "\nno tests ran in 0.04s\n",
     "tests": {},
     "collection_errors": [],
     "resolved": {
@@ -28,9 +28,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 7.805425,
-    "cost": 0.07969715,
-    "image_uuid": "430a6082-e518-48ae-a722-e0b81d2ea13d",
+    "elapsed_s": 8.154527,
+    "cost": 0.08317919,
+    "image_uuid": "33070e31-6e2a-4204-93f5-fb40e879b330",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -53,9 +53,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 7.500603,
-    "cost": 0.07668063,
-    "image_uuid": "7ba6b0e4-bba6-4209-af2f-14de93f2a4c3",
+    "elapsed_s": 7.919253,
+    "cost": 0.08084753000000001,
+    "image_uuid": "0e7d3ac8-042f-4572-9489-98c059508178",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -78,9 +78,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 7.5982389999999995,
-    "cost": 0.07766673,
-    "image_uuid": "a3436cfc-18ec-4a60-a461-7359903ed3f8",
+    "elapsed_s": 8.315585,
+    "cost": 0.08480571,
+    "image_uuid": "07eacbd1-b5f4-489a-87e4-3b3dfcb7f964",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -93,5 +93,5 @@
   },
   "error": null,
   "requirement": "openai>=1.1.1",
-  "wall_s": 104.3
+  "wall_s": 84.5
 }

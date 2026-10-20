@@ -9,7 +9,7 @@
     "sdist_url": "https://files.pythonhosted.org/packages/0e/94/69decc46d11e954c6a8c64999cc237af5932d116eeb7a06515856641a6d4/llama_index_agent_openai-0.4.12.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "569c833d-904b-4184-8340-a000f0c5d8f3",
+  "clone_uuid": "06da186c-d8f7-4d64-8595-a06c56c044db",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
@@ -28,9 +28,9 @@
       "pytest": "7.2.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 6.8210310000000005,
-    "cost": 0.06950861,
-    "image_uuid": "360321e0-9808-44fd-bacd-c9fe6fc710ea",
+    "elapsed_s": 6.994896,
+    "cost": 0.07125388,
+    "image_uuid": "40609c6a-bc3b-433d-81d2-830cd7fe809f",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -53,9 +53,9 @@
       "pytest": "7.2.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 6.180292000000001,
-    "cost": 0.0630948,
-    "image_uuid": "b5dcc62e-baf4-45b2-874b-e4c996884bb6",
+    "elapsed_s": 7.22613,
+    "cost": 0.07355590000000001,
+    "image_uuid": "03be0eda-271c-462b-b42c-2d764bacd997",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -78,9 +78,9 @@
       "pytest": "7.2.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 6.6660900000000005,
-    "cost": 0.06795208000000001,
-    "image_uuid": "ad5c1e8c-6a65-4007-802a-2cd61491dec6",
+    "elapsed_s": 5.7306099999999995,
+    "cost": 0.05862375999999999,
+    "image_uuid": "2bd671b2-bf0d-4a75-a52f-9c7f3f370089",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -93,5 +93,5 @@
   },
   "error": null,
   "requirement": "openai>=1.14.0",
-  "wall_s": 55.7
+  "wall_s": 60.8
 }

@@ -9,16 +9,126 @@
     "sdist_url": "https://files.pythonhosted.org/packages/29/be/c618cc67a6efc1891696bdc72c3dcc31740a7445b18229194f447e08799f/genagent-0.4.1.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": null,
-  "before": null,
-  "after": null,
-  "control": null,
+  "clone_uuid": "2b49fc30-c032-4fb9-8898-d6eca74fdcc5",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n_____________________ ERROR collecting test/test_async.py ______________________\ntest/test_async.py:6: in <module>\n    from genagent.async_utils import a_gen, a_mod_gen, a_get_embedding\ngenagent/__init__.py:1: in <module>\n    from .llm_utils import (\ngenagent/llm_utils.py:381: in <module>\n    ProviderType.OPENAI.value: OpenAIProvider(),\n                               ^^^^^^^^^^^^^^^^\ngenagent/llm_utils.py:206: in __init__\n    self.client = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/openai/_client.py:231: in __init__\n    raise OpenAIError(\nE   openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\n_____________________ ERROR collecting test/test_image.py ______________________\ntest/test_image.py:3: in <module>\n    from genagent.llm_utils import gen, create_image_message\ngenagent/__init__.py:1: in <module>\n    from .llm_utils import (\ngenagent/llm_utils.py:381: in <module>\n    ProviderType.OPENAI.value: OpenAIProvider(),\n                               ^^^^^^^^^^^^^^^^\ngenagent/llm_utils.py:206: in __init__\n    self.client = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/openai/_client.py:231: in __init__\n    raise OpenAIError(\nE   openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\n_________________ ERROR collecting test/test_mod_gen_image.py __________________\ntest/test_mod_gen_image.py:3: in <module>\n    from genagent.llm_utils import mod_gen\ngenagent/__init__.py:1: in <module>\n    from .llm_utils import (\ngenagent/llm_utils.py:381: in <module>\n    ProviderType.OPENAI.value: OpenAIProvider(),\n                               ^^^^^^^^^^^^^^^^\ngenagent/llm_utils.py:206: in __init__\n    self.client = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/openai/_client.py:231: in __init__\n    raise OpenAIError(\nE   openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\n_______________ ERROR collecting test/test_structured_outputs.py _______________\ntest/test_structured_outputs.py:13: in <module>\n    from genagent import gen, mod_gen\ngenagent/__init__.py:1: in <module>\n    from .llm_utils import (\ngenagent/llm_utils.py:381: in <module>\n    ProviderType.OPENAI.value: OpenAIProvider(),\n                               ^^^^^^^^^^^^^^^^\ngenagent/llm_utils.py:206: in __init__\n    self.client = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/openai/_client.py:231: in __init__\n    raise OpenAIError(\nE   openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\n=========================== short test summary info ============================\nERROR test/test_async.py - openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\nERROR test/test_image.py - openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\nERROR test/test_mod_gen_image.py - openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\nERROR test/test_structured_outputs.py - openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\n!!!!!!!!!!!!!!!!!!! Interrupted: 4 errors during collection !!!!!!!!!!!!!!!!!!!!\n4 errors in 2.70s\n",
+    "tests": {
+      "::test.test_async": "error",
+      "::test.test_image": "error",
+      "::test.test_mod_gen_image": "error",
+      "::test.test_structured_outputs": "error"
+    },
+    "collection_errors": [
+      "::test.test_async",
+      "::test.test_image",
+      "::test.test_mod_gen_image",
+      "::test.test_structured_outputs"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 8.380225,
+    "cost": 0.08514645,
+    "image_uuid": "76556f3c-daf0-4911-a8b5-65bcb806e30e",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 4
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==3.0.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n_____________________ ERROR collecting test/test_async.py ______________________\ntest/test_async.py:6: in <module>\n    from genagent.async_utils import a_gen, a_mod_gen, a_get_embedding\ngenagent/__init__.py:1: in <module>\n    from .llm_utils import (\ngenagent/llm_utils.py:381: in <module>\n    ProviderType.OPENAI.value: OpenAIProvider(),\n                               ^^^^^^^^^^^^^^^^\ngenagent/llm_utils.py:206: in __init__\n    self.client = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/openai/_client.py:231: in __init__\n    raise OpenAIError(\nE   openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\n_____________________ ERROR collecting test/test_image.py ______________________\ntest/test_image.py:3: in <module>\n    from genagent.llm_utils import gen, create_image_message\ngenagent/__init__.py:1: in <module>\n    from .llm_utils import (\ngenagent/llm_utils.py:381: in <module>\n    ProviderType.OPENAI.value: OpenAIProvider(),\n                               ^^^^^^^^^^^^^^^^\ngenagent/llm_utils.py:206: in __init__\n    self.client = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/openai/_client.py:231: in __init__\n    raise OpenAIError(\nE   openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\n_________________ ERROR collecting test/test_mod_gen_image.py __________________\ntest/test_mod_gen_image.py:3: in <module>\n    from genagent.llm_utils import mod_gen\ngenagent/__init__.py:1: in <module>\n    from .llm_utils import (\ngenagent/llm_utils.py:381: in <module>\n    ProviderType.OPENAI.value: OpenAIProvider(),\n                               ^^^^^^^^^^^^^^^^\ngenagent/llm_utils.py:206: in __init__\n    self.client = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/openai/_client.py:231: in __init__\n    raise OpenAIError(\nE   openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\n_______________ ERROR collecting test/test_structured_outputs.py _______________\ntest/test_structured_outputs.py:13: in <module>\n    from genagent import gen, mod_gen\ngenagent/__init__.py:1: in <module>\n    from .llm_utils import (\ngenagent/llm_utils.py:381: in <module>\n    ProviderType.OPENAI.value: OpenAIProvider(),\n                               ^^^^^^^^^^^^^^^^\ngenagent/llm_utils.py:206: in __init__\n    self.client = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/openai/_client.py:231: in __init__\n    raise OpenAIError(\nE   openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\n=========================== short test summary info ============================\nERROR test/test_async.py - openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\nERROR test/test_image.py - openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\nERROR test/test_mod_gen_image.py - openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\nERROR test/test_structured_outputs.py - openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\n!!!!!!!!!!!!!!!!!!! Interrupted: 4 errors during collection !!!!!!!!!!!!!!!!!!!!\n4 errors in 2.79s\n",
+    "tests": {
+      "::test.test_async": "error",
+      "::test.test_image": "error",
+      "::test.test_mod_gen_image": "error",
+      "::test.test_structured_outputs": "error"
+    },
+    "collection_errors": [
+      "::test.test_async",
+      "::test.test_image",
+      "::test.test_mod_gen_image",
+      "::test.test_structured_outputs"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "3.0.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 8.679358,
+    "cost": 0.08813664,
+    "image_uuid": "66b48a05-31a3-4fbc-9eab-e387c8d4eabb",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 4
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n_____________________ ERROR collecting test/test_async.py ______________________\ntest/test_async.py:6: in <module>\n    from genagent.async_utils import a_gen, a_mod_gen, a_get_embedding\ngenagent/__init__.py:1: in <module>\n    from .llm_utils import (\ngenagent/llm_utils.py:381: in <module>\n    ProviderType.OPENAI.value: OpenAIProvider(),\n                               ^^^^^^^^^^^^^^^^\ngenagent/llm_utils.py:206: in __init__\n    self.client = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/openai/_client.py:231: in __init__\n    raise OpenAIError(\nE   openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\n_____________________ ERROR collecting test/test_image.py ______________________\ntest/test_image.py:3: in <module>\n    from genagent.llm_utils import gen, create_image_message\ngenagent/__init__.py:1: in <module>\n    from .llm_utils import (\ngenagent/llm_utils.py:381: in <module>\n    ProviderType.OPENAI.value: OpenAIProvider(),\n                               ^^^^^^^^^^^^^^^^\ngenagent/llm_utils.py:206: in __init__\n    self.client = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/openai/_client.py:231: in __init__\n    raise OpenAIError(\nE   openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\n_________________ ERROR collecting test/test_mod_gen_image.py __________________\ntest/test_mod_gen_image.py:3: in <module>\n    from genagent.llm_utils import mod_gen\ngenagent/__init__.py:1: in <module>\n    from .llm_utils import (\ngenagent/llm_utils.py:381: in <module>\n    ProviderType.OPENAI.value: OpenAIProvider(),\n                               ^^^^^^^^^^^^^^^^\ngenagent/llm_utils.py:206: in __init__\n    self.client = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/openai/_client.py:231: in __init__\n    raise OpenAIError(\nE   openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\n_______________ ERROR collecting test/test_structured_outputs.py _______________\ntest/test_structured_outputs.py:13: in <module>\n    from genagent import gen, mod_gen\ngenagent/__init__.py:1: in <module>\n    from .llm_utils import (\ngenagent/llm_utils.py:381: in <module>\n    ProviderType.OPENAI.value: OpenAIProvider(),\n                               ^^^^^^^^^^^^^^^^\ngenagent/llm_utils.py:206: in __init__\n    self.client = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/openai/_client.py:231: in __init__\n    raise OpenAIError(\nE   openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\n=========================== short test summary info ============================\nERROR test/test_async.py - openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\nERROR test/test_image.py - openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\nERROR test/test_mod_gen_image.py - openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\nERROR test/test_structured_outputs.py - openai.OpenAIError: Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.\n!!!!!!!!!!!!!!!!!!! Interrupted: 4 errors during collection !!!!!!!!!!!!!!!!!!!!\n4 errors in 2.75s\n",
+    "tests": {
+      "::test.test_async": "error",
+      "::test.test_image": "error",
+      "::test.test_mod_gen_image": "error",
+      "::test.test_structured_outputs": "error"
+    },
+    "collection_errors": [
+      "::test.test_async",
+      "::test.test_image",
+      "::test.test_mod_gen_image",
+      "::test.test_structured_outputs"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 8.860522,
+    "cost": 0.08994212000000001,
+    "image_uuid": "95c77f48-bb6d-4b50-ab80-7a1840ffbbaa",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 4
+    }
+  },
   "flaky_excluded": [],
   "verdict": {
-    "status": "not-run",
-    "reason": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n"
+    "status": "ok",
+    "passed_after": 0,
+    "pre_existing_failures": 4
   },
-  "error": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n",
+  "error": null,
   "requirement": "openai>=1.0.0",
-  "wall_s": 2.7
+  "wall_s": 47.6
 }

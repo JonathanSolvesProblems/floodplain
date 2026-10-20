@@ -37,6 +37,27 @@ def test_real_break_still_reported_with_control_present():
     assert v["flake_control"] is True
 
 
+def test_a_baseline_with_no_passing_test_is_not_a_baseline():
+    # haystack-ai: 61 errors and 0 passes before the release, 77 errors after. The 16 extra
+    # are not evidence the release broke anything; the sandbox simply cannot run that suite.
+    exp = _exp(
+        before=_outcome("before", {f"t::{i}": "error" for i in range(61)}),
+        after=_outcome("after", {f"t::{i}": "error" for i in range(77)}),
+    )
+    v = exp.verdict()
+    assert v["status"] == "no-baseline"
+    assert v["collected_before"] == 61
+
+
+def test_one_passing_test_is_enough_to_have_a_baseline():
+    before = {f"t::{i}": "error" for i in range(60)}
+    before["t::good"] = "passed"
+    after = dict(before)
+    after["t::good"] = "failed"
+    v = _exp(_outcome("before", before), _outcome("after", after)).verdict()
+    assert v["status"] == "broken" and v["newly_failing"] == ["t::good"]
+
+
 def test_pytest_exit_5_is_no_tests_not_incomplete():
     # A package that ships no test suite is a fact about the package, not a failed run.
     exp = _exp(before=_outcome("before", {}), after=_outcome("after", {}))
