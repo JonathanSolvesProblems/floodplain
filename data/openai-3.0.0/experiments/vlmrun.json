@@ -1004,5 +1004,600 @@
   },
   "error": null,
   "requirement": "openai; extra == \"test\"",
-  "wall_s": 49.9
+  "wall_s": 49.9,
+  "triage": {
+    "dependent": "vlmrun",
+    "category": "dependency-conflict",
+    "symbol": "httpx",
+    "cause": "The upstream release no longer installs the `httpx` package, causing a ModuleNotFoundError when code imports it.",
+    "quotes": [
+      "ModuleNotFoundError: No module named 'httpx'"
+    ],
+    "dropped_quotes": 0,
+    "fix_plan": "migrate-import",
+    "fix_notes": "Replace imports of `httpx` with HTTPX2 equivalents or use the temporary legacy escape hatch as described in the migration guide.",
+    "confidence": 0.96,
+    "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+    "raw": {
+      "category": "dependency-conflict",
+      "symbol": "httpx",
+      "cause": "The upstream release no longer installs the `httpx` package, causing a ModuleNotFoundError when code imports it.",
+      "quotes": [
+        "ModuleNotFoundError: No module named 'httpx'"
+      ],
+      "fix_plan": "migrate-import",
+      "fix_notes": "Replace imports of `httpx` with HTTPX2 equivalents or use the temporary legacy escape hatch as described in the migration guide.",
+      "confidence": 0.96
+    }
+  },
+  "fix_trials": [
+    {
+      "dependent": "vlmrun",
+      "verified": false,
+      "attempts": [
+        {
+          "tier": "super",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "rationale": "The upstream openai 3.0.0 no longer installs httpx transitively, but vlmrun's gateway code directly imports and uses httpx for health checks. Adding httpx to the openai optional dependency ensures it is installed when the openai SDK is present, which is required for the gateway to function.",
+          "edits": [
+            {
+              "path": "pyproject.toml",
+              "search": "openai = [\"openai>=1.0.0\"]",
+              "replace": "openai = [\"openai>=1.0.0\", \"httpx\"]"
+            }
+          ],
+          "applied": true,
+          "apply_error": null,
+          "install_exit": 0,
+          "test_exit": 1,
+          "still_failing": [
+            "tests.test_gateway.TestGatewayResource::test_health_dedicated_endpoint",
+            "tests.test_gateway.TestGatewayResource::test_health_falls_back_to_models_on_404",
+            "tests.test_gateway.TestGatewayResource::test_health_false_on_connection_error"
+          ],
+          "regressions": [],
+          "verified": false,
+          "diff": "diff --git a/pyproject.toml b/pyproject.toml\nindex 4b56e85..373cfbd 100644\n--- a/pyproject.toml\n+++ b/pyproject.toml\n@@ -33,7 +33,7 @@ dynamic = [\"version\", \"dependencies\"]\n [project.optional-dependencies]\n test = [\"pytest\", \"openai\", \"pre-commit\"]\n build = [\"twine\", \"build\"]\n-openai = [\"openai>=1.0.0\"]\n+openai = [\"openai>=1.0.0\", \"httpx\"]\n video = [\n     \"numpy>=1.24.0\",\n ]\ndiff --git a/vlmrun.egg-info/PKG-INFO b/vlmrun.egg-info/PKG-INFO\nindex dbad43d..38e4d1c 100644\n--- a/vlmrun.egg-info/PKG-INFO\n+++ b/vlmrun.egg-info/PKG-INFO\n@@ -49,6 +49,7 @@ Requires-Dist: twine; extra == \"build\"\n Requires-Dist: build; extra == \"build\"\n Provides-Extra: openai\n Requires-Dist: openai>=1.0.0; extra == \"openai\"\n+Requires-Dist: httpx; extra == \"openai\"\n Provides-Extra: video\n Requires-Dist: numpy>=1.24.0; extra == \"video\"\n Provides-Extra: doc\ndiff --git a/vlmrun.egg-info/SOURCES.txt b/vlmrun.egg-info/SOURCES.txt\nindex 037e6a6..0286ab1 100644\n--- a/vlmrun.egg-info/SOURCES.txt\n+++ b/vlmrun.egg-info/SOURCES.txt\n@@ -2,6 +2,7 @@ LICENSE\n MANIFEST.in\n README.md\n pyproject.toml\n+setup.cfg\n requirements/requirements.txt\n tests/test_agent.py\n tests/test_artifacts.py\ndiff --git a/vlmrun.egg-info/requires.txt b/vlmrun.egg-info/requires.txt\nindex 2cd0d75..2c351d6 100644\n--- a/vlmrun.egg-info/requires.txt\n+++ b/vlmrun.egg-info/requires.txt\n@@ -35,6 +35,7 @@ pypdfium2>=4.30.0\n \n [openai]\n openai>=1.0.0\n+httpx\n \n [test]\n pytest\n",
+          "elapsed_s": 11.550522,
+          "cost": 0.11627924,
+          "reasons": [
+            "3 tests that passed before the release do not pass"
+          ]
+        },
+        {
+          "tier": "super",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "rationale": "Add httpx to the openai optional dependency since the gateway code uses it for health checks, and move the import of httpx inside the function to avoid importing it at module level. This ensures httpx is available when the openai extra is installed and prevents import errors when the gateway module is imported without using the health check.",
+          "edits": [
+            {
+              "path": "pyproject.toml",
+              "search": "openai = [\"openai>=1.0.0\"]",
+              "replace": "openai = [\"openai>=1.0.0\", \"httpx\"]"
+            },
+            {
+              "path": "vlmrun/client/gateway.py",
+              "search": "        # httpx is a hard dependency of the openai SDK, so it is always\n        import httpx\n        resp = httpx.get(f\"{self.base_url}/health\", headers=headers, timeout=30.0)",
+              "replace": "        import httpx\n        resp = httpx.get(f\"{self.base_url}/health\", headers=headers, timeout=30.0)"
+            }
+          ],
+          "applied": false,
+          "apply_error": "vlmrun/client/gateway.py: search block matches 0 times, need exactly 1",
+          "install_exit": null,
+          "test_exit": null,
+          "still_failing": [],
+          "regressions": [],
+          "verified": false,
+          "diff": "",
+          "elapsed_s": 0.0,
+          "cost": 0.0,
+          "reasons": []
+        },
+        {
+          "tier": "ultra",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "rationale": "The upstream openai 3.0.0 release replaced httpx with httpx2 and no longer installs httpx transitively. The gateway health check imports httpx directly, so we migrate the import and call to httpx2 equivalents as described in the upstream migration guide.",
+          "edits": [
+            {
+              "path": "vlmrun/client/gateway.py",
+              "search": "        # httpx is a hard dependency of the openai SDK, so it is always\n        import httpx\n        try:\n            resp = httpx.get(f\"{self.base_url}/health\", headers=headers, timeout=30.0)",
+              "replace": "        # httpx2 is installed with the openai SDK\n        import httpx2\n        try:\n            resp = httpx2.Client().get(f\"{self.base_url}/health\", headers=headers, timeout=httpx2.Timeout(30.0))"
+            }
+          ],
+          "applied": false,
+          "apply_error": "vlmrun/client/gateway.py: search block matches 0 times, need exactly 1",
+          "install_exit": null,
+          "test_exit": null,
+          "still_failing": [],
+          "regressions": [],
+          "verified": false,
+          "diff": "",
+          "elapsed_s": 0.0,
+          "cost": 0.0,
+          "reasons": []
+        },
+        {
+          "tier": "ultra",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "rationale": "model error: no JSON object in model output: \"Let me analyze the error logs to understand what's happening.\\n\\nThe main error I see is:\\n```\\nModuleNotFoundError: No module named 'httpx'\\n```\\n\\nThis appears in multiple test files. The error is `ModuleNotFoundError: No module named 'httpx'`.\\n\\nLooking at the test files mentioned:\\n- tests/test_gateway.p\"",
+          "edits": [],
+          "applied": false,
+          "apply_error": "no JSON object in model output: \"Let me analyze the error logs to understand what's happening.\\n\\nThe main error I see is:\\n```\\nModuleNotFoundError: No module named 'httpx'\\n```\\n\\nThis appears in multiple test files. The error is `ModuleNotFoundError: No module named 'httpx'`.\\n\\nLooking at the test files mentioned:\\n- tests/test_gateway.p\"",
+          "install_exit": null,
+          "test_exit": null,
+          "still_failing": [],
+          "regressions": [],
+          "verified": false,
+          "diff": "",
+          "elapsed_s": 0.0,
+          "cost": 0.0,
+          "reasons": []
+        }
+      ],
+      "wall_s": 167.5,
+      "trial": 1
+    },
+    {
+      "dependent": "vlmrun",
+      "verified": false,
+      "attempts": [
+        {
+          "tier": "super",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "rationale": "The upstream openai 3.0.0 no longer installs httpx transitively, causing ModuleNotFoundError in vlmrun's gateway module which uses httpx for a health check. We migrate to httpx2 by changing the import and usage in vlmrun/client/gateway.py and updating the tests to mock httpx2.Client.get.",
+          "edits": [
+            {
+              "path": "vlmrun/client/gateway.py",
+              "search": "        import httpx",
+              "replace": "        import httpx2"
+            },
+            {
+              "path": "vlmrun/client/gateway.py",
+              "search": "            resp = httpx.get(f\\\"{self.base_url}/health\\\", headers=headers, timeout=30.0)",
+              "replace": "            with httpx2.Client() as client:\\n                resp = client.get(f\\\"{self.base_url}/health\\\", headers=headers, timeout=30.0)"
+            },
+            {
+              "path": "tests/test_gateway.py",
+              "search": "        monkeypatch.setattr(\"httpx.get\", lambda *a, **k: _Resp())",
+              "replace": "        monkeypatch.setattr(\"httpx2.Client.get\", lambda *a, **k: _Resp())"
+            },
+            {
+              "path": "tests/test_gateway.py",
+              "search": "        monkeypatch.setattr(\"httpx.get\", lambda *a, **k: _Resp())",
+              "replace": "        monkeypatch.setattr(\"httpx2.Client.get\", lambda *a, **k: _Resp())"
+            },
+            {
+              "path": "tests/test_gateway.py",
+              "search": "        monkeypatch.setattr(\"httpx.get\", _boom)",
+              "replace": "        monkeypatch.setattr(\"httpx2.Client.get\", _boom)"
+            }
+          ],
+          "applied": false,
+          "apply_error": "vlmrun/client/gateway.py: search block matches 0 times, need exactly 1",
+          "install_exit": null,
+          "test_exit": null,
+          "still_failing": [],
+          "regressions": [],
+          "verified": false,
+          "diff": "",
+          "elapsed_s": 0.0,
+          "cost": 0.0,
+          "reasons": []
+        },
+        {
+          "tier": "super",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "rationale": "The upstream openai 3.0.0 release removed the transitive dependency on httpx, causing ModuleNotFoundError when vlmrun/client/gateway.py imports httpx for a health check. To fix this while avoiding version pins, we migrate the import to httpx2 (which openai 3.0.0 installs) by importing httpx2 and aliasing it as httpx, preserving the existing call site.",
+          "edits": [
+            {
+              "path": "vlmrun/client/gateway.py",
+              "search": "        # httpx is a hard dependency of the openai SDK, so it is always\n        import httpx",
+              "replace": "        # httpx is a hard dependency of the openai SDK, so it is always\n        import httpx2 as httpx"
+            }
+          ],
+          "applied": false,
+          "apply_error": "vlmrun/client/gateway.py: search block matches 0 times, need exactly 1",
+          "install_exit": null,
+          "test_exit": null,
+          "still_failing": [],
+          "regressions": [],
+          "verified": false,
+          "diff": "",
+          "elapsed_s": 0.0,
+          "cost": 0.0,
+          "reasons": []
+        },
+        {
+          "tier": "ultra",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "rationale": "model error: no JSON object in model output: \"Let me analyze the error logs to understand what's happening.\\n\\nThe main error I see is:\\n```\\nModuleNotFoundError: No module named 'httpx'\\n```\\n\\nThis appears in multiple test files. The error is `ModuleNotFoundError: No module named 'httpx'`.\\n\\nLooking at the test files mentioned:\\n- tests/test_gateway.p\"",
+          "edits": [],
+          "applied": false,
+          "apply_error": "no JSON object in model output: \"Let me analyze the error logs to understand what's happening.\\n\\nThe main error I see is:\\n```\\nModuleNotFoundError: No module named 'httpx'\\n```\\n\\nThis appears in multiple test files. The error is `ModuleNotFoundError: No module named 'httpx'`.\\n\\nLooking at the test files mentioned:\\n- tests/test_gateway.p\"",
+          "install_exit": null,
+          "test_exit": null,
+          "still_failing": [],
+          "regressions": [],
+          "verified": false,
+          "diff": "",
+          "elapsed_s": 0.0,
+          "cost": 0.0,
+          "reasons": []
+        },
+        {
+          "tier": "ultra",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "rationale": "model error: no JSON object in model output: \"Let me analyze the error logs to understand what's happening.\\n\\nThe main error I see is:\\n```\\nModuleNotFoundError: No module named 'httpx'\\n```\\n\\nThis appears in multiple test files. The error is `ModuleNotFoundError: No module named 'httpx'`.\\n\\nLooking at the test files mentioned:\\n- tests/test_gateway.p\"",
+          "edits": [],
+          "applied": false,
+          "apply_error": "no JSON object in model output: \"Let me analyze the error logs to understand what's happening.\\n\\nThe main error I see is:\\n```\\nModuleNotFoundError: No module named 'httpx'\\n```\\n\\nThis appears in multiple test files. The error is `ModuleNotFoundError: No module named 'httpx'`.\\n\\nLooking at the test files mentioned:\\n- tests/test_gateway.p\"",
+          "install_exit": null,
+          "test_exit": null,
+          "still_failing": [],
+          "regressions": [],
+          "verified": false,
+          "diff": "",
+          "elapsed_s": 0.0,
+          "cost": 0.0,
+          "reasons": []
+        }
+      ],
+      "wall_s": 234.1,
+      "trial": 2
+    },
+    {
+      "dependent": "vlmrun",
+      "verified": false,
+      "attempts": [
+        {
+          "tier": "super",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "rationale": "The upstream openai 3.0.0 no longer installs httpx transitively, causing a ModuleNotFoundError. We migrate the httpx imports and calls to httpx2 as per the upstream migration guide.",
+          "edits": [
+            {
+              "path": "vlmrun/client/gateway.py",
+              "search": "import httpx",
+              "replace": "import httpx2"
+            },
+            {
+              "path": "vlmrun/client/gateway.py",
+              "search": "resp = httpx.get(f\"{self.base_url}/health\", headers=headers, timeout=30.0)",
+              "replace": "resp = httpx2.get(f\"{self.base_url}/health\", headers=headers, timeout=30.0)"
+            },
+            {
+              "path": "tests/test_gateway.py",
+              "search": "        monkeypatch.setattr(\"httpx.get\", lambda *a, **k: _Resp())",
+              "replace": "        monkeypatch.setattr(\"httpx2.get\", lambda *a, **k: _Resp())"
+            },
+            {
+              "path": "tests/test_gateway.py",
+              "search": "        monkeypatch.setattr(\"httpx.get\", lambda *a, **k: _Resp())",
+              "replace": "        monkeypatch.setattr(\"httpx2.get\", lambda *a, **k: _Resp())"
+            },
+            {
+              "path": "tests/test_gateway.py",
+              "search": "        monkeypatch.setattr(\"httpx.get\", _boom)",
+              "replace": "        monkeypatch.setattr(\"httpx2.get\", _boom)"
+            }
+          ],
+          "applied": false,
+          "apply_error": "tests/test_gateway.py: search block matches 2 times, need exactly 1",
+          "install_exit": null,
+          "test_exit": null,
+          "still_failing": [],
+          "regressions": [],
+          "verified": false,
+          "diff": "",
+          "elapsed_s": 0.0,
+          "cost": 0.0,
+          "reasons": []
+        },
+        {
+          "tier": "super",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "rationale": "The vlmrun package imports httpx in vlmrun/client/gateway.py for a health check, but the openai SDK 3.0.0 no longer installs httpx transitively. To fix the ModuleNotFoundError, we declare httpx as a dependency in the openai and all optional dependencies, ensuring it's installed when the openai SDK is present.",
+          "edits": [
+            {
+              "path": "pyproject.toml",
+              "search": "openai = [\"openai>=1.0.0\"]",
+              "replace": "openai = [\"openai>=1.0.0\", \"httpx\"]"
+            },
+            {
+              "path": "pyproject.toml",
+              "search": "                    \"openai>=1.0.0\",",
+              "replace": "                    \"openai>=1.0.0\",\n                    \"httpx\""
+            }
+          ],
+          "applied": false,
+          "apply_error": "pyproject.toml: search block matches 0 times, need exactly 1",
+          "install_exit": null,
+          "test_exit": null,
+          "still_failing": [],
+          "regressions": [],
+          "verified": false,
+          "diff": "",
+          "elapsed_s": 0.0,
+          "cost": 0.0,
+          "reasons": []
+        },
+        {
+          "tier": "ultra",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "rationale": "The upstream openai 3.0.0 release replaced httpx with httpx2 and no longer installs httpx transitively. The gateway.py code directly imports and uses httpx.get(), so it must be migrated to httpx2.get() per the upstream migration guide.",
+          "edits": [
+            {
+              "path": "vlmrun/client/gateway.py",
+              "search": "        # httpx is a hard dependency of the openai SDK, so it is always\n        import httpx\n        try:\n            resp = httpx.get(f\"{self.base_url}/health\", headers=headers, timeout=30.0)",
+              "replace": "        # httpx2 is a hard dependency of the openai SDK (>=3.0.0), so it is always\n        import httpx2\n        try:\n            resp = httpx2.get(f\"{self.base_url}/health\", headers=headers, timeout=30.0)"
+            }
+          ],
+          "applied": false,
+          "apply_error": "vlmrun/client/gateway.py: search block matches 0 times, need exactly 1",
+          "install_exit": null,
+          "test_exit": null,
+          "still_failing": [],
+          "regressions": [],
+          "verified": false,
+          "diff": "",
+          "elapsed_s": 0.0,
+          "cost": 0.0,
+          "reasons": []
+        },
+        {
+          "tier": "ultra",
+          "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+          "rationale": "model error: no JSON object in model output: \"Let me analyze the error logs to understand what's happening.\\n\\nThe main error I see is:\\n```\\nModuleNotFoundError: No module named 'httpx'\\n```\\n\\nThis appears in multiple test failures. The error is `ModuleNotFoundError: No module named 'httpx'`.\\n\\nLooking at the error trace:\\n```\\nE   ModuleNotFoundError:\"",
+          "edits": [],
+          "applied": false,
+          "apply_error": "no JSON object in model output: \"Let me analyze the error logs to understand what's happening.\\n\\nThe main error I see is:\\n```\\nModuleNotFoundError: No module named 'httpx'\\n```\\n\\nThis appears in multiple test failures. The error is `ModuleNotFoundError: No module named 'httpx'`.\\n\\nLooking at the error trace:\\n```\\nE   ModuleNotFoundError:\"",
+          "install_exit": null,
+          "test_exit": null,
+          "still_failing": [],
+          "regressions": [],
+          "verified": false,
+          "diff": "",
+          "elapsed_s": 0.0,
+          "cost": 0.0,
+          "reasons": []
+        }
+      ],
+      "wall_s": 254.3,
+      "trial": 3
+    },
+    {
+      "dependent": "vlmrun",
+      "verified": true,
+      "attempts": [
+        {
+          "tier": "super",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "rationale": "The upstream openai 3.0.0 release removed the transitive dependency on httpx, causing ModuleNotFoundError in vlmrun's gateway code that imports httpx. To fix this, we declare httpx as a dependency in the openai extra to ensure it is installed when the openai SDK is present.",
+          "edits": [
+            {
+              "path": "pyproject.toml",
+              "search": "openai = [\"openai>=1.0.0\"]",
+              "replace": "openai = [\"openai>=1.0.0\", \"httpx\"]"
+            }
+          ],
+          "applied": true,
+          "apply_error": null,
+          "install_exit": 0,
+          "test_exit": 1,
+          "still_failing": [
+            "tests.test_gateway.TestGatewayResource::test_health_dedicated_endpoint",
+            "tests.test_gateway.TestGatewayResource::test_health_falls_back_to_models_on_404",
+            "tests.test_gateway.TestGatewayResource::test_health_false_on_connection_error"
+          ],
+          "regressions": [],
+          "verified": false,
+          "diff": "diff --git a/pyproject.toml b/pyproject.toml\nindex 4b56e85..373cfbd 100644\n--- a/pyproject.toml\n+++ b/pyproject.toml\n@@ -33,7 +33,7 @@ dynamic = [\"version\", \"dependencies\"]\n [project.optional-dependencies]\n test = [\"pytest\", \"openai\", \"pre-commit\"]\n build = [\"twine\", \"build\"]\n-openai = [\"openai>=1.0.0\"]\n+openai = [\"openai>=1.0.0\", \"httpx\"]\n video = [\n     \"numpy>=1.24.0\",\n ]\ndiff --git a/vlmrun.egg-info/PKG-INFO b/vlmrun.egg-info/PKG-INFO\nindex dbad43d..38e4d1c 100644\n--- a/vlmrun.egg-info/PKG-INFO\n+++ b/vlmrun.egg-info/PKG-INFO\n@@ -49,6 +49,7 @@ Requires-Dist: twine; extra == \"build\"\n Requires-Dist: build; extra == \"build\"\n Provides-Extra: openai\n Requires-Dist: openai>=1.0.0; extra == \"openai\"\n+Requires-Dist: httpx; extra == \"openai\"\n Provides-Extra: video\n Requires-Dist: numpy>=1.24.0; extra == \"video\"\n Provides-Extra: doc\ndiff --git a/vlmrun.egg-info/SOURCES.txt b/vlmrun.egg-info/SOURCES.txt\nindex 037e6a6..0286ab1 100644\n--- a/vlmrun.egg-info/SOURCES.txt\n+++ b/vlmrun.egg-info/SOURCES.txt\n@@ -2,6 +2,7 @@ LICENSE\n MANIFEST.in\n README.md\n pyproject.toml\n+setup.cfg\n requirements/requirements.txt\n tests/test_agent.py\n tests/test_artifacts.py\ndiff --git a/vlmrun.egg-info/requires.txt b/vlmrun.egg-info/requires.txt\nindex 2cd0d75..2c351d6 100644\n--- a/vlmrun.egg-info/requires.txt\n+++ b/vlmrun.egg-info/requires.txt\n@@ -35,6 +35,7 @@ pypdfium2>=4.30.0\n \n [openai]\n openai>=1.0.0\n+httpx\n \n [test]\n pytest\n",
+          "elapsed_s": 11.495049,
+          "cost": 0.11572451,
+          "reasons": [
+            "3 tests that passed before the release do not pass"
+          ]
+        },
+        {
+          "tier": "super",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "rationale": "The vlmrun package imports and uses httpx in vlmrun/client/gateway.py, but httpx is not declared as a dependency. Since the openai SDK 3.0.0 no longer transitively includes httpx, we must explicitly declare httpx as a dependency for all extras that include openai (openai, cli, all, test) to ensure it is installed when the gateway functionality is used.",
+          "edits": [
+            {
+              "path": "pyproject.toml",
+              "search": "openai = [\"openai>=1.0.0\"]",
+              "replace": "openai = [\"openai>=1.0.0\", \"httpx\"]"
+            },
+            {
+              "path": "pyproject.toml",
+              "search": "cli = [\n    \"typer>=0.9.0\",\n    \"rich>=13.0.0\",\n    \"openai>=1.0.0\",\n]",
+              "replace": "cli = [\n    \"typer>=0.9.0\",\n    \"rich>=13.0.0\",\n    \"openai>=1.0.0\",\n    \"httpx\",\n]"
+            },
+            {
+              "path": "pyproject.toml",
+              "search": "all = [\n    \"numpy>=1.24.0\",\n    \"pypdfium2>=4.30.0\",\n    \"openai>=1.0.0\",\n    \"typer>=0.9.0\",\n    \"rich>=13.0.0\",\n]",
+              "replace": "all = [\n    \"numpy>=1.24.0\",\n    \"pypdfium2>=4.30.0\",\n    \"openai>=1.0.0\",\n    \"typer>=0.9.0\",\n    \"rich>=13.0.0\",\n    \"httpx\",\n]"
+            },
+            {
+              "path": "pyproject.toml",
+              "search": "test = [\"pytest\", \"openai\", \"pre-commit\"]",
+              "replace": "test = [\"pytest\", \"openai\", \"pre-commit\", \"httpx\"]"
+            }
+          ],
+          "applied": true,
+          "apply_error": null,
+          "install_exit": 0,
+          "test_exit": 1,
+          "still_failing": [],
+          "regressions": [],
+          "verified": true,
+          "diff": "diff --git a/pyproject.toml b/pyproject.toml\nindex 4b56e85..15f7006 100644\n--- a/pyproject.toml\n+++ b/pyproject.toml\n@@ -31,9 +31,9 @@ license = {text = \"Apache-2.0\"}\n dynamic = [\"version\", \"dependencies\"]\n \n [project.optional-dependencies]\n-test = [\"pytest\", \"openai\", \"pre-commit\"]\n+test = [\"pytest\", \"openai\", \"pre-commit\", \"httpx\"]\n build = [\"twine\", \"build\"]\n-openai = [\"openai>=1.0.0\"]\n+openai = [\"openai>=1.0.0\", \"httpx\"]\n video = [\n     \"numpy>=1.24.0\",\n ]\n@@ -44,6 +44,7 @@ cli = [\n     \"typer>=0.9.0\",\n     \"rich>=13.0.0\",\n     \"openai>=1.0.0\",\n+    \"httpx\",\n ]\n all = [\n     \"numpy>=1.24.0\",\n@@ -51,6 +52,7 @@ all = [\n     \"openai>=1.0.0\",\n     \"typer>=0.9.0\",\n     \"rich>=13.0.0\",\n+    \"httpx\",\n ]\n \n [tool.setuptools.dynamic]\ndiff --git a/vlmrun.egg-info/PKG-INFO b/vlmrun.egg-info/PKG-INFO\nindex dbad43d..5b13e3b 100644\n--- a/vlmrun.egg-info/PKG-INFO\n+++ b/vlmrun.egg-info/PKG-INFO\n@@ -44,11 +44,13 @@ Provides-Extra: test\n Requires-Dist: pytest; extra == \"test\"\n Requires-Dist: openai; extra == \"test\"\n Requires-Dist: pre-commit; extra == \"test\"\n+Requires-Dist: httpx; extra == \"test\"\n Provides-Extra: build\n Requires-Dist: twine; extra == \"build\"\n Requires-Dist: build; extra == \"build\"\n Provides-Extra: openai\n Requires-Dist: openai>=1.0.0; extra == \"openai\"\n+Requires-Dist: httpx; extra == \"openai\"\n Provides-Extra: video\n Requires-Dist: numpy>=1.24.0; extra == \"video\"\n Provides-Extra: doc\n@@ -57,12 +59,14 @@ Provides-Extra: cli\n Requires-Dist: typer>=0.9.0; extra == \"cli\"\n Requires-Dist: rich>=13.0.0; extra == \"cli\"\n Requires-Dist: openai>=1.0.0; extra == \"cli\"\n+Requires-Dist: httpx; extra == \"cli\"\n Provides-Extra: all\n Requires-Dist: numpy>=1.24.0; extra == \"all\"\n Requires-Dist: pypdfium2>=4.30.0; extra == \"all\"\n Requires-Dist: openai>=1.0.0; extra == \"all\"\n Requires-Dist: typer>=0.9.0; extra == \"all\"\n Requires-Dist: rich>=13.0.0; extra == \"all\"\n+Requires-Dist: httpx; extra == \"all\"\n Dynamic: license-file\n \n <div align=\"center\">\ndiff --git a/vlmrun.egg-info/SOURCES.txt b/vlmrun.egg-info/SOURCES.txt\nindex 037e6a6..0286ab1 100644\n--- a/vlmrun.egg-info/SOURCES.txt\n+++ b/vlmrun.egg-info/SOURCES.txt\n@@ -2,6 +2,7 @@ LICENSE\n MANIFEST.in\n README.md\n pyproject.toml\n+setup.cfg\n requirements/requirements.txt\n tests/test_agent.py\n tests/test_artifacts.py\ndiff --git a/vlmrun.egg-info/requires.txt b/vlmrun.egg-info/requires.txt\nindex 2cd0d75..41b5bf8 100644\n--- a/vlmrun.egg-info/requires.txt\n+++ b/vlmrun.egg-info/requires.txt\n@@ -20,6 +20,7 @@ pypdfium2>=4.30.0\n openai>=1.0.0\n typer>=0.9.0\n rich>=13.0.0\n+httpx\n \n [build]\n twine\n@@ -29,17 +30,20 @@ build\n typer>=0.9.0\n rich>=13.0.0\n openai>=1.0.0\n+httpx\n \n [doc]\n pypdfium2>=4.30.0\n \n [openai]\n openai>=1.0.0\n+httpx\n \n [test]\n pytest\n openai\n pre-commit\n+httpx\n \n [video]\n numpy>=1.24.0\n",
+          "elapsed_s": 11.190564,
+          "cost": 0.11268012,
+          "reasons": []
+        }
+      ],
+      "wall_s": 144.3,
+      "trial": 4
+    },
+    {
+      "dependent": "vlmrun",
+      "verified": true,
+      "attempts": [
+        {
+          "tier": "super",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "rationale": "The upstream openai 3.0.0 no longer installs httpx transitively. We add httpx to the optional dependencies that include openai (openai, cli, all) to ensure it is available when the gateway feature is used.",
+          "edits": [
+            {
+              "path": "pyproject.toml",
+              "search": "openai = [\"openai>=1.0.0\"]",
+              "replace": "openai = [\"openai>=1.0.0\", \"httpx\"]"
+            },
+            {
+              "path": "pyproject.toml",
+              "search": "cli = [\\n    \"typer>=0.9.0\",\\n    \"rich>=13.0.0\",\\n    \"openai>=1.0.0\",\\n]",
+              "replace": "cli = [\\n    \"typer>=0.9.0\",\\n    \"rich>=13.0.0\",\\n    \"openai>=1.0.0\",\\n    \"httpx\",\\n]"
+            },
+            {
+              "path": "pyproject.toml",
+              "search": "all = [\\n    \"numpy>=1.24.0\",\\n    \"pypdfium2>=4.30.0\",\\n    \"openai>=1.0.0\",\\n    \"typer>=0.9.0\",\\n    \"rich>=13.0.0\\n]",
+              "replace": "all = [\\n    \"numpy>=1.24.0\",\\n    \"pypdfium2>=4.30.0\\n    \"openai>=1.0.0\",\\n    \"typer>=0.9.0\",\\n    \"rich>=13.0.0\\n    \\\"httpx\\\"\\n]"
+            }
+          ],
+          "applied": false,
+          "apply_error": "pyproject.toml: search block matches 0 times, need exactly 1",
+          "install_exit": null,
+          "test_exit": null,
+          "still_failing": [],
+          "regressions": [],
+          "verified": false,
+          "diff": "",
+          "elapsed_s": 0.0,
+          "cost": 0.0,
+          "reasons": []
+        },
+        {
+          "tier": "super",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "rationale": "The vlmrun package imports and uses httpx in vlmrun/client/gateway.py, but does not declare it as a dependency. Since openai 3.0.0 no longer installs httpx transitively, we must add httpx as a dependency. We add it to the test, openai, cli, and all optional dependencies to ensure it is available when the Gateway is used and when tests run.",
+          "edits": [
+            {
+              "path": "pyproject.toml",
+              "search": "test = [\"pytest\", \"openai\", \"pre-commit\"]",
+              "replace": "test = [\"pytest\", \"openai\", \"pre-commit\", \"httpx\"]"
+            },
+            {
+              "path": "pyproject.toml",
+              "search": "openai = [\"openai>=1.0.0\"]",
+              "replace": "openai = [\"openai>=1.0.0\", \"httpx\"]"
+            },
+            {
+              "path": "pyproject.toml",
+              "search": "cli = [\n    \"typer>=0.9.0\",\n    \"rich>=13.0.0\",\n    \"openai>=1.0.0\",\n]",
+              "replace": "cli = [\n    \"typer>=0.9.0\",\n    \"rich>=13.0.0\",\n    \"openai>=1.0.0\",\n    \"httpx\",\n]"
+            },
+            {
+              "path": "pyproject.toml",
+              "search": "all = [\n    \"numpy>=1.24.0\",\n    \"pypdfium2>=4.30.0\",\n    \"openai>=1.0.0\",\n    \"typer>=0.9.0\",\n    \"rich>=13.0.0\",\n]",
+              "replace": "all = [\n    \"numpy>=1.24.0\",\n    \"pypdfium2>=4.30.0\",\n    \"openai>=1.0.0\",\n    \"typer>=0.9.0\",\n    \"rich>=13.0.0\",\n    \"httpx\",\n]"
+            }
+          ],
+          "applied": true,
+          "apply_error": null,
+          "install_exit": 0,
+          "test_exit": 1,
+          "still_failing": [],
+          "regressions": [],
+          "verified": true,
+          "diff": "diff --git a/pyproject.toml b/pyproject.toml\nindex 4b56e85..15f7006 100644\n--- a/pyproject.toml\n+++ b/pyproject.toml\n@@ -31,9 +31,9 @@ license = {text = \"Apache-2.0\"}\n dynamic = [\"version\", \"dependencies\"]\n \n [project.optional-dependencies]\n-test = [\"pytest\", \"openai\", \"pre-commit\"]\n+test = [\"pytest\", \"openai\", \"pre-commit\", \"httpx\"]\n build = [\"twine\", \"build\"]\n-openai = [\"openai>=1.0.0\"]\n+openai = [\"openai>=1.0.0\", \"httpx\"]\n video = [\n     \"numpy>=1.24.0\",\n ]\n@@ -44,6 +44,7 @@ cli = [\n     \"typer>=0.9.0\",\n     \"rich>=13.0.0\",\n     \"openai>=1.0.0\",\n+    \"httpx\",\n ]\n all = [\n     \"numpy>=1.24.0\",\n@@ -51,6 +52,7 @@ all = [\n     \"openai>=1.0.0\",\n     \"typer>=0.9.0\",\n     \"rich>=13.0.0\",\n+    \"httpx\",\n ]\n \n [tool.setuptools.dynamic]\ndiff --git a/vlmrun.egg-info/PKG-INFO b/vlmrun.egg-info/PKG-INFO\nindex dbad43d..5b13e3b 100644\n--- a/vlmrun.egg-info/PKG-INFO\n+++ b/vlmrun.egg-info/PKG-INFO\n@@ -44,11 +44,13 @@ Provides-Extra: test\n Requires-Dist: pytest; extra == \"test\"\n Requires-Dist: openai; extra == \"test\"\n Requires-Dist: pre-commit; extra == \"test\"\n+Requires-Dist: httpx; extra == \"test\"\n Provides-Extra: build\n Requires-Dist: twine; extra == \"build\"\n Requires-Dist: build; extra == \"build\"\n Provides-Extra: openai\n Requires-Dist: openai>=1.0.0; extra == \"openai\"\n+Requires-Dist: httpx; extra == \"openai\"\n Provides-Extra: video\n Requires-Dist: numpy>=1.24.0; extra == \"video\"\n Provides-Extra: doc\n@@ -57,12 +59,14 @@ Provides-Extra: cli\n Requires-Dist: typer>=0.9.0; extra == \"cli\"\n Requires-Dist: rich>=13.0.0; extra == \"cli\"\n Requires-Dist: openai>=1.0.0; extra == \"cli\"\n+Requires-Dist: httpx; extra == \"cli\"\n Provides-Extra: all\n Requires-Dist: numpy>=1.24.0; extra == \"all\"\n Requires-Dist: pypdfium2>=4.30.0; extra == \"all\"\n Requires-Dist: openai>=1.0.0; extra == \"all\"\n Requires-Dist: typer>=0.9.0; extra == \"all\"\n Requires-Dist: rich>=13.0.0; extra == \"all\"\n+Requires-Dist: httpx; extra == \"all\"\n Dynamic: license-file\n \n <div align=\"center\">\ndiff --git a/vlmrun.egg-info/SOURCES.txt b/vlmrun.egg-info/SOURCES.txt\nindex 037e6a6..0286ab1 100644\n--- a/vlmrun.egg-info/SOURCES.txt\n+++ b/vlmrun.egg-info/SOURCES.txt\n@@ -2,6 +2,7 @@ LICENSE\n MANIFEST.in\n README.md\n pyproject.toml\n+setup.cfg\n requirements/requirements.txt\n tests/test_agent.py\n tests/test_artifacts.py\ndiff --git a/vlmrun.egg-info/requires.txt b/vlmrun.egg-info/requires.txt\nindex 2cd0d75..41b5bf8 100644\n--- a/vlmrun.egg-info/requires.txt\n+++ b/vlmrun.egg-info/requires.txt\n@@ -20,6 +20,7 @@ pypdfium2>=4.30.0\n openai>=1.0.0\n typer>=0.9.0\n rich>=13.0.0\n+httpx\n \n [build]\n twine\n@@ -29,17 +30,20 @@ build\n typer>=0.9.0\n rich>=13.0.0\n openai>=1.0.0\n+httpx\n \n [doc]\n pypdfium2>=4.30.0\n \n [openai]\n openai>=1.0.0\n+httpx\n \n [test]\n pytest\n openai\n pre-commit\n+httpx\n \n [video]\n numpy>=1.24.0\n",
+          "elapsed_s": 11.437502,
+          "cost": 0.11514944,
+          "reasons": []
+        }
+      ],
+      "wall_s": 110.1,
+      "trial": 5
+    }
+  ],
+  "fix": {
+    "dependent": "vlmrun",
+    "verified": true,
+    "attempts": [
+      {
+        "tier": "super",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "rationale": "The upstream openai 3.0.0 release removed the transitive dependency on httpx, causing ModuleNotFoundError in vlmrun's gateway code that imports httpx. To fix this, we declare httpx as a dependency in the openai extra to ensure it is installed when the openai SDK is present.",
+        "edits": [
+          {
+            "path": "pyproject.toml",
+            "search": "openai = [\"openai>=1.0.0\"]",
+            "replace": "openai = [\"openai>=1.0.0\", \"httpx\"]"
+          }
+        ],
+        "applied": true,
+        "apply_error": null,
+        "install_exit": 0,
+        "test_exit": 1,
+        "still_failing": [
+          "tests.test_gateway.TestGatewayResource::test_health_dedicated_endpoint",
+          "tests.test_gateway.TestGatewayResource::test_health_falls_back_to_models_on_404",
+          "tests.test_gateway.TestGatewayResource::test_health_false_on_connection_error"
+        ],
+        "regressions": [],
+        "verified": false,
+        "diff": "diff --git a/pyproject.toml b/pyproject.toml\nindex 4b56e85..373cfbd 100644\n--- a/pyproject.toml\n+++ b/pyproject.toml\n@@ -33,7 +33,7 @@ dynamic = [\"version\", \"dependencies\"]\n [project.optional-dependencies]\n test = [\"pytest\", \"openai\", \"pre-commit\"]\n build = [\"twine\", \"build\"]\n-openai = [\"openai>=1.0.0\"]\n+openai = [\"openai>=1.0.0\", \"httpx\"]\n video = [\n     \"numpy>=1.24.0\",\n ]\ndiff --git a/vlmrun.egg-info/PKG-INFO b/vlmrun.egg-info/PKG-INFO\nindex dbad43d..38e4d1c 100644\n--- a/vlmrun.egg-info/PKG-INFO\n+++ b/vlmrun.egg-info/PKG-INFO\n@@ -49,6 +49,7 @@ Requires-Dist: twine; extra == \"build\"\n Requires-Dist: build; extra == \"build\"\n Provides-Extra: openai\n Requires-Dist: openai>=1.0.0; extra == \"openai\"\n+Requires-Dist: httpx; extra == \"openai\"\n Provides-Extra: video\n Requires-Dist: numpy>=1.24.0; extra == \"video\"\n Provides-Extra: doc\ndiff --git a/vlmrun.egg-info/SOURCES.txt b/vlmrun.egg-info/SOURCES.txt\nindex 037e6a6..0286ab1 100644\n--- a/vlmrun.egg-info/SOURCES.txt\n+++ b/vlmrun.egg-info/SOURCES.txt\n@@ -2,6 +2,7 @@ LICENSE\n MANIFEST.in\n README.md\n pyproject.toml\n+setup.cfg\n requirements/requirements.txt\n tests/test_agent.py\n tests/test_artifacts.py\ndiff --git a/vlmrun.egg-info/requires.txt b/vlmrun.egg-info/requires.txt\nindex 2cd0d75..2c351d6 100644\n--- a/vlmrun.egg-info/requires.txt\n+++ b/vlmrun.egg-info/requires.txt\n@@ -35,6 +35,7 @@ pypdfium2>=4.30.0\n \n [openai]\n openai>=1.0.0\n+httpx\n \n [test]\n pytest\n",
+        "elapsed_s": 11.495049,
+        "cost": 0.11572451,
+        "reasons": [
+          "3 tests that passed before the release do not pass"
+        ]
+      },
+      {
+        "tier": "super",
+        "model": "nvidia/nemotron-3-super-120b-a12b",
+        "rationale": "The vlmrun package imports and uses httpx in vlmrun/client/gateway.py, but httpx is not declared as a dependency. Since the openai SDK 3.0.0 no longer transitively includes httpx, we must explicitly declare httpx as a dependency for all extras that include openai (openai, cli, all, test) to ensure it is installed when the gateway functionality is used.",
+        "edits": [
+          {
+            "path": "pyproject.toml",
+            "search": "openai = [\"openai>=1.0.0\"]",
+            "replace": "openai = [\"openai>=1.0.0\", \"httpx\"]"
+          },
+          {
+            "path": "pyproject.toml",
+            "search": "cli = [\n    \"typer>=0.9.0\",\n    \"rich>=13.0.0\",\n    \"openai>=1.0.0\",\n]",
+            "replace": "cli = [\n    \"typer>=0.9.0\",\n    \"rich>=13.0.0\",\n    \"openai>=1.0.0\",\n    \"httpx\",\n]"
+          },
+          {
+            "path": "pyproject.toml",
+            "search": "all = [\n    \"numpy>=1.24.0\",\n    \"pypdfium2>=4.30.0\",\n    \"openai>=1.0.0\",\n    \"typer>=0.9.0\",\n    \"rich>=13.0.0\",\n]",
+            "replace": "all = [\n    \"numpy>=1.24.0\",\n    \"pypdfium2>=4.30.0\",\n    \"openai>=1.0.0\",\n    \"typer>=0.9.0\",\n    \"rich>=13.0.0\",\n    \"httpx\",\n]"
+          },
+          {
+            "path": "pyproject.toml",
+            "search": "test = [\"pytest\", \"openai\", \"pre-commit\"]",
+            "replace": "test = [\"pytest\", \"openai\", \"pre-commit\", \"httpx\"]"
+          }
+        ],
+        "applied": true,
+        "apply_error": null,
+        "install_exit": 0,
+        "test_exit": 1,
+        "still_failing": [],
+        "regressions": [],
+        "verified": true,
+        "diff": "diff --git a/pyproject.toml b/pyproject.toml\nindex 4b56e85..15f7006 100644\n--- a/pyproject.toml\n+++ b/pyproject.toml\n@@ -31,9 +31,9 @@ license = {text = \"Apache-2.0\"}\n dynamic = [\"version\", \"dependencies\"]\n \n [project.optional-dependencies]\n-test = [\"pytest\", \"openai\", \"pre-commit\"]\n+test = [\"pytest\", \"openai\", \"pre-commit\", \"httpx\"]\n build = [\"twine\", \"build\"]\n-openai = [\"openai>=1.0.0\"]\n+openai = [\"openai>=1.0.0\", \"httpx\"]\n video = [\n     \"numpy>=1.24.0\",\n ]\n@@ -44,6 +44,7 @@ cli = [\n     \"typer>=0.9.0\",\n     \"rich>=13.0.0\",\n     \"openai>=1.0.0\",\n+    \"httpx\",\n ]\n all = [\n     \"numpy>=1.24.0\",\n@@ -51,6 +52,7 @@ all = [\n     \"openai>=1.0.0\",\n     \"typer>=0.9.0\",\n     \"rich>=13.0.0\",\n+    \"httpx\",\n ]\n \n [tool.setuptools.dynamic]\ndiff --git a/vlmrun.egg-info/PKG-INFO b/vlmrun.egg-info/PKG-INFO\nindex dbad43d..5b13e3b 100644\n--- a/vlmrun.egg-info/PKG-INFO\n+++ b/vlmrun.egg-info/PKG-INFO\n@@ -44,11 +44,13 @@ Provides-Extra: test\n Requires-Dist: pytest; extra == \"test\"\n Requires-Dist: openai; extra == \"test\"\n Requires-Dist: pre-commit; extra == \"test\"\n+Requires-Dist: httpx; extra == \"test\"\n Provides-Extra: build\n Requires-Dist: twine; extra == \"build\"\n Requires-Dist: build; extra == \"build\"\n Provides-Extra: openai\n Requires-Dist: openai>=1.0.0; extra == \"openai\"\n+Requires-Dist: httpx; extra == \"openai\"\n Provides-Extra: video\n Requires-Dist: numpy>=1.24.0; extra == \"video\"\n Provides-Extra: doc\n@@ -57,12 +59,14 @@ Provides-Extra: cli\n Requires-Dist: typer>=0.9.0; extra == \"cli\"\n Requires-Dist: rich>=13.0.0; extra == \"cli\"\n Requires-Dist: openai>=1.0.0; extra == \"cli\"\n+Requires-Dist: httpx; extra == \"cli\"\n Provides-Extra: all\n Requires-Dist: numpy>=1.24.0; extra == \"all\"\n Requires-Dist: pypdfium2>=4.30.0; extra == \"all\"\n Requires-Dist: openai>=1.0.0; extra == \"all\"\n Requires-Dist: typer>=0.9.0; extra == \"all\"\n Requires-Dist: rich>=13.0.0; extra == \"all\"\n+Requires-Dist: httpx; extra == \"all\"\n Dynamic: license-file\n \n <div align=\"center\">\ndiff --git a/vlmrun.egg-info/SOURCES.txt b/vlmrun.egg-info/SOURCES.txt\nindex 037e6a6..0286ab1 100644\n--- a/vlmrun.egg-info/SOURCES.txt\n+++ b/vlmrun.egg-info/SOURCES.txt\n@@ -2,6 +2,7 @@ LICENSE\n MANIFEST.in\n README.md\n pyproject.toml\n+setup.cfg\n requirements/requirements.txt\n tests/test_agent.py\n tests/test_artifacts.py\ndiff --git a/vlmrun.egg-info/requires.txt b/vlmrun.egg-info/requires.txt\nindex 2cd0d75..41b5bf8 100644\n--- a/vlmrun.egg-info/requires.txt\n+++ b/vlmrun.egg-info/requires.txt\n@@ -20,6 +20,7 @@ pypdfium2>=4.30.0\n openai>=1.0.0\n typer>=0.9.0\n rich>=13.0.0\n+httpx\n \n [build]\n twine\n@@ -29,17 +30,20 @@ build\n typer>=0.9.0\n rich>=13.0.0\n openai>=1.0.0\n+httpx\n \n [doc]\n pypdfium2>=4.30.0\n \n [openai]\n openai>=1.0.0\n+httpx\n \n [test]\n pytest\n openai\n pre-commit\n+httpx\n \n [video]\n numpy>=1.24.0\n",
+        "elapsed_s": 11.190564,
+        "cost": 0.11268012,
+        "reasons": []
+      }
+    ],
+    "wall_s": 144.3,
+    "trial": 4
+  },
+  "guidance": {
+    "query": "openai 3.0.0 migration guide httpx breaking change",
+    "source": "local-fallback",
+    "urls": [
+      "data\\openai-3.0.0\\migration_guide.md"
+    ]
+  }
 }

@@ -9,3 +9,17 @@ models: {'nano': 'nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B', 'super': 'nvidia/nemot
   fix    openinference-instrumentation-agno trial 5: VERIFIED after 2 attempt(s), 91.7s
   fix    openinference-instrumentation-agno verified in 5 of 5 trials
   triage llm                                [changed-signature-or-behavior] The upstream release switched to HTTPX2 as the default client, altering how HTTP requests   quotes=1 dropped=1
+  fix    llm                                trial 1: VERIFIED after 2 attempt(s), 1033.8s
+  fix    llm                                trial 2: VERIFIED after 3 attempt(s), 716.9s
+  fix    llm                                trial 3: VERIFIED after 3 attempt(s), 1358.6s
+  fix    llm                                trial 4: VERIFIED after 3 attempt(s), 387.8s
+  fix    llm                                trial 5: VERIFIED after 3 attempt(s), 465.6s
+  fix    llm                                verified in 5 of 5 trials
+  triage vlmrun                             [dependency-conflict] The upstream release no longer installs the `httpx` package, causing a ModuleNotFoundError  quotes=1 dropped=0
+  fix    vlmrun                             trial 1: not verified after 4 attempt(s), 167.5s
+  fix    vlmrun                             trial 2: not verified after 4 attempt(s), 234.1s
+  fix    vlmrun                             trial 3: not verified after 4 attempt(s), 254.3s
+  fix    vlmrun                             trial 4: VERIFIED after 2 attempt(s), 144.3s
+  fix    vlmrun                             trial 5: VERIFIED after 2 attempt(s), 110.1s
+  fix    vlmrun                             verified in 2 of 5 trials
+token usage: Usage(calls=43, prompt_tokens=238082, completion_tokens=307326, reasoning_tokens=293490, empty_replies=0, by_model={'nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B': 3, 'nvidia/nemotron-3-super-120b-a12b': 28, 'nvidia/Nemotron-3-Ultra-550b-a55b': 12})

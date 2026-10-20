@@ -64,6 +64,10 @@ Failing test output (tail):
 # Makefile and CI config while the package's own pyproject lives in a subdirectory; showing the
 # model the root is how openinference-instrumentation-agno got three patches aimed at the
 # monorepo's Makefile and CI workflow and none at the package itself.
+#   1  head of each matching source file only; "copy exactly" on a failed apply
+#   2  every match with 8 lines of context; a failed apply is retried with the file's real text
+FIXER_REVISION = 2
+
 CONTEXT_SCRIPT = r"""
 cd "$(cat /work/pkgdir 2>/dev/null || echo /work/repo)"
 echo "=== PACKAGE DIRECTORY (all paths below are relative to it) ==="; pwd
@@ -75,8 +79,13 @@ SYMBOL='{symbol}'
 if [ -n "$SYMBOL" ]; then
   echo "=== GREP $SYMBOL ==="
   grep -rn --include='*.py' --include='*.toml' --include='*.cfg' --include='*.txt' -E "$SYMBOL" . 2>/dev/null | grep -v '/.venv/' | head -n 80
+  # The head of each file plus every match with the lines around it, numbered. Showing only the
+  # head hid vlmrun's `import httpx`, which sits inside a method below line 120: Nemotron saw the
+  # grep hit, reconstructed the lines around it wrongly, and its edit matched nothing, 3 times.
   for f in $(grep -rl --include='*.py' -E "$SYMBOL" . 2>/dev/null | grep -v '/.venv/' | grep -v '/tests\?/' | head -n 6); do
-    echo "=== SOURCE $f ==="; head -n 120 "$f"
+    echo "=== SOURCE $f (head) ==="; head -n 60 "$f"
+    echo "=== SOURCE $f (around each match, line numbers prefixed) ==="
+    grep -n -C 8 -E "$SYMBOL" "$f" | head -n 160
   done
 fi
 """
@@ -326,7 +335,9 @@ class Fixer:
                 err = err or "model returned no edits"
                 result.attempts.append(Attempt(tier, self.tf.models[tier], str(proposal.get("rationale", ""))[:500],
                                                edits, False, err, None, None, [], [], False, "", 0.0, 0.0))
-                retry_note = f"Your previous edits could not be applied: {err}. Copy search text exactly from the file."
+                retry_note = (f"Your previous edits could not be applied: {err}. Copy search text exactly "
+                              "from the file. The current text of every file you tried to edit follows.\n"
+                              + "".join(f"\n=== {p} ===\n{c[:12000]}\n" for p, c in files.items()))
                 continue
             changed = {p: c for p, c in edited.items() if files.get(p) != c}
             touched_deps = any(p.split("/")[-1] in DEP_FILES for p in changed)

@@ -18,7 +18,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from floodplain.backends import make_backend
-from floodplain.fixer import Fixer
+from floodplain.fixer import FIXER_REVISION, Fixer
 from floodplain.llm import TokenFactory
 from floodplain.pypi import PyPI
 from floodplain.repos import SourceRef, sdist_url
@@ -181,8 +181,9 @@ async def main() -> None:
                 # Every trial is kept. Nemotron's sampling differs run to run, so one verified patch
                 # is a sample, not a behaviour; the page reports verified-in-K-of-N.
                 trials = list(payload.get("fix_trials", [])) if (args.append or not args.rerun) else []
-                for t in trials:  # trials recorded before guidance was kept per trial
+                for t in trials:  # trials recorded before guidance and revision were kept per trial
                     t.setdefault("guidance", payload.get("guidance"))
+                    t.setdefault("fixer_revision", 1)
                 g_rec = {"query": guidance.query, "source": guidance.source, "urls": guidance.urls,
                          "fetched_at": guidance.fetched_at,
                          "end_date": guidance.end_date, "excluded": guidance.excluded}
@@ -195,6 +196,7 @@ async def main() -> None:
                     rec["wall_s"] = round(time.time() - t0, 1)
                     rec["trial"] = len(trials) + 1
                     rec["guidance"] = g_rec
+                    rec["fixer_revision"] = FIXER_REVISION
                     trials.append(rec)
                     status = "VERIFIED" if fix.verified else "not verified"
                     print(f"  fix    {name:<34} trial {rec['trial']}: {status} after {len(fix.attempts)} attempt(s), {rec['wall_s']}s")
