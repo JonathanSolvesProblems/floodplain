@@ -1,0 +1,36 @@
+﻿candidate openai-3.0.0-py3-none-any.whl, before world frozen at 2026-08-12T01:54:48+00:00
+31 runnable dependents
+backend: nebius-sandboxes
+base image ready: nebius-sandboxes:66b26d62-8f5f-4b
+  openenv-core                             ok                          198.8s
+  openinference-instrumentation-agno       broken           tests      198.9s
+  swebench                                 ok                          200.3s
+  opentelemetry-instrumentation-openai     ok                          200.4s
+  inspect-swe                              ok                          231.4s
+  foundry-local-sdk                        ok                          108.4s
+  langextract                              ok                          141.2s
+  shiny                                    ok                          204.0s
+  chonkie                                  ok                          456.3s
+  vanna                                    ok                          141.4s
+  xpander-sdk                              ok                           92.3s
+  evalplus                                 ok                           74.7s
+  captum                                   ok                          381.1s
+  graphifyy                                ok                          630.5s
+  inspect-scout                            ok                          472.8s
+  oci-openai                               ok                           61.5s
+  llm                                      broken           tests      699.6s
+  echo-agent                               ok                          271.2s
+  highcharts-core                          ok                          237.3s
+  vlmrun                                   broken           tests       84.9s
+  openai-messages-token-helper             ok                           37.4s
+  yutori                                   ok                           41.7s
+  vlmrun-hub                               ok                           48.4s
+  chatlas                                  ok                          173.6s
+  nextcloud-mcp-server                     ok                          275.4s
+  krepis                                   ok                           56.5s
+  dspy                                     ok                          966.3s
+  code-puppy                               ok                          305.8s
+  jcodemunch-mcp                           ok                          540.9s
+  graphiti-core                            ok                         1851.4s
+  lumibot                                  ok                         3601.8s
+run stage done in 3942s

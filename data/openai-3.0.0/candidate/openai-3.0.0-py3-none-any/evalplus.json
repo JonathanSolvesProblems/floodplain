@@ -1,0 +1,134 @@
+{
+  "dependent": "evalplus",
+  "version": "0.3.1",
+  "source": {
+    "owner": "evalplus",
+    "repo": "evalplus",
+    "tag": "v0.3.1",
+    "sha": "e5d0ed0bab96280b60b637ec7f15b5e4841b0cb2",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "e307f2a7-4185-4446-9bcc-0883547f8de6",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 0,
+    "test_tail": "........                                                                 [100%]\n8 passed in 2.90s\n",
+    "tests": {
+      "tests.test_legacy_sanitizer::test_inline_fn": "passed",
+      "tests.test_treesitter_sanitizer::test_code_extract": "passed",
+      "tests.test_treesitter_sanitizer::test_sanitize_simple": "passed",
+      "tests.test_treesitter_sanitizer::test_sanitize_class": "passed",
+      "tests.test_treesitter_sanitizer::test_entrypoint_basic": "passed",
+      "tests.test_treesitter_sanitizer::test_entrypoint_chain": "passed",
+      "tests.test_treesitter_sanitizer::test_entrypoint_no_chain": "passed",
+      "tests.test_treesitter_sanitizer::test_entrypoint_variable": "passed"
+    },
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 14.522772,
+    "cost": 0.14728744,
+    "image_uuid": "04271fb2-91e9-4f61-a646-74040e772cb9",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "candidate": null,
+    "summary": {
+      "passed": 8
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] candidate offered: openai-3.0.0-py3-none-any.whl\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==3.0.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 0,
+    "test_tail": "........                                                                 [100%]\n8 passed in 3.05s\n",
+    "tests": {
+      "tests.test_legacy_sanitizer::test_inline_fn": "passed",
+      "tests.test_treesitter_sanitizer::test_code_extract": "passed",
+      "tests.test_treesitter_sanitizer::test_sanitize_simple": "passed",
+      "tests.test_treesitter_sanitizer::test_sanitize_class": "passed",
+      "tests.test_treesitter_sanitizer::test_entrypoint_basic": "passed",
+      "tests.test_treesitter_sanitizer::test_entrypoint_chain": "passed",
+      "tests.test_treesitter_sanitizer::test_entrypoint_no_chain": "passed",
+      "tests.test_treesitter_sanitizer::test_entrypoint_variable": "passed"
+    },
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "3.0.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 14.435374999999999,
+    "cost": 0.14641205,
+    "image_uuid": "f20e8d22-e09b-46b7-86c0-ec3a01d64312",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "candidate": "openai-3.0.0-py3-none-any.whl",
+    "summary": {
+      "passed": 8
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 0,
+    "test_tail": "........                                                                 [100%]\n8 passed in 2.96s\n",
+    "tests": {
+      "tests.test_legacy_sanitizer::test_inline_fn": "passed",
+      "tests.test_treesitter_sanitizer::test_code_extract": "passed",
+      "tests.test_treesitter_sanitizer::test_sanitize_simple": "passed",
+      "tests.test_treesitter_sanitizer::test_sanitize_class": "passed",
+      "tests.test_treesitter_sanitizer::test_entrypoint_basic": "passed",
+      "tests.test_treesitter_sanitizer::test_entrypoint_chain": "passed",
+      "tests.test_treesitter_sanitizer::test_entrypoint_no_chain": "passed",
+      "tests.test_treesitter_sanitizer::test_entrypoint_variable": "passed"
+    },
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 13.93437,
+    "cost": 0.1414639,
+    "image_uuid": "23504086-f29c-4ab5-8370-5f984fb637d8",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "candidate": null,
+    "summary": {
+      "passed": 8
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "ok",
+    "passed_after": 8,
+    "pre_existing_failures": 0
+  },
+  "error": null,
+  "requirement": "openai>=1.11.1",
+  "wall_s": 74.7
+}

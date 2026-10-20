@@ -16,6 +16,7 @@ const WORDS = ["no", "one", "two", "three", "four", "five", "six", "seven", "eig
   "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty"];
 const numberWord = (k) => WORDS[k] ?? String(k);
 const daysAfter = (h) => numberWord(Math.floor(h / 24));
+const andList = (xs) => (xs.length > 1 ? `${xs.slice(0, -1).join(", ")} and ${xs[xs.length - 1]}` : xs.join(""));
 const hoursToWords = (h) => {
   const d = Math.floor(h / 24), r = Math.round(h - d * 24);
   return r ? `${numberWord(d)} days and ${numberWord(r)} hours` : `${numberWord(d)} days`;
@@ -53,7 +54,7 @@ const link = (r) => `<a href="#/${encodeURIComponent(r.name)}">${esc(r.name)}</a
 function renderTrace() {
   const D = DATA, S = D.states;
   const pos = D.receptors.filter((r) => r.state === "positive");
-  const unread = S["no-baseline"] + S["no-tests"] + S.lost;
+  const unread = S["no-baseline"] + S["no-tests"] + S.lost + (S["held-back"] || 0);
   document.title = `Floodplain: ${D.target} ${D.release}`;
 
   // Each positive paired with how long its own maintainers took. The replay ran weeks later, so
@@ -63,23 +64,35 @@ function renderTrace() {
   const fixedSentence = byWait.length
     ? `Each was later pinned or patched by its own maintainers: ${byWait.map((r) => `${link(r)} after ${daysAfter(r.maintainer_fix.hours_after_release)} days`).join(", ")}.`
     : "";
-  const kOfN = (r) => (r.fix.trials > 1 ? ` in ${numberWord(r.fix.trials_verified)} of ${numberWord(r.fix.trials)} independent runs` : "");
-  const sameFix = pos.filter((r) => r.fix && r.fix.verified && r.maintainer_fix && r.maintainer_fix.kind === "release");
-  const otherFix = pos.filter((r) => r.fix && r.fix.verified && !sameFix.includes(r));
-  const verifiedSentence =
-    sameFix.map((r) => ` For ${link(r)}, NVIDIA Nemotron wrote the same patch the maintainer shipped${kOfN(r)}, from the failing log alone, and the package's own tests passed it.`).join("") +
-    (otherFix.length ? ` For ${otherFix.map((r) => `${link(r)}${kOfN(r)}`).join(" and ")}, it wrote a patch the package's own tests passed.` : "");
+  // The sentence quotes the newest fixer revision's round for each package, as K of N, and says
+  // how many of the verified patches were the maintainer's own change, counted from the diffs.
+  const latest = (r) => (r.fix && r.fix.rounds && r.fix.rounds.length ? r.fix.rounds[r.fix.rounds.length - 1] : null);
+  const withPatch = pos.filter((r) => latest(r) && latest(r).k > 0);
+  const kOfN = (rd) => `${numberWord(rd.k)} of ${numberWord(rd.n)} runs`;
+  const same = withPatch.filter((r) => latest(r).same_as_maintainer > 0);
+  const verifiedSentence = withPatch.length
+    ? ` NVIDIA Nemotron wrote a patch the package's own tests passed, in a further fork, for ${andList(withPatch.map((r) => `${link(r)} in ${kOfN(latest(r))}`))}.` +
+      same.map((r) => ` For ${link(r)}, ${numberWord(latest(r).same_as_maintainer)} of those ${latest(r).same_as_maintainer === 1 ? "was" : "were"} the same change its maintainer shipped.`).join("")
+    : "";
+
+  // The pre-release check: the same dependents, with the release given as an unpublished wheel
+  // against the index a minute before the upload. Said only if every verdict matched.
+  const cand = D.candidate ? Object.values(D.candidate)[0] : null;
+  const candSentence = cand && cand.agree_with_replay === cand.run
+    ? `<p class="trace__after">I then ran it the way it is meant to be used, before the release: ${esc(D.target)}'s own ${esc(D.release)} wheel as an unpublished file, against the index at ${fmtTime(cand.as_of)}, a minute before it was uploaded. All <span class="num">${n(cand.run)}</span> working suites gave the same verdict as the replay${cand.same_broken_tests === cand.run ? ", with the same tests broken" : ""}.</p>`
+    : "";
 
   $("#view").innerHTML = `
   <section class="trace" aria-labelledby="trace-title">
     <div class="trace__head">
-      <h1 class="trace__title" id="trace-title">${n(S.positive)} of the ${n(D.readable)} packages with working tests broke on ${esc(D.target)}&nbsp;${esc(D.release)}</h1>
+      <h1 class="trace__title" id="trace-title">${n(S.positive)} of the ${n(D.readable)} working test suites that took ${esc(D.target)}&nbsp;${esc(D.release)} broke</h1>
       <p class="trace__lede">It went in upstream at ${fmtTime(D.release_uploaded_at)} on ${fmtDate(D.release_uploaded_at)}. I hung a receptor at <span class="num">${n(D.ran)}</span> of the <span class="num">${n(D.population.exposed)}</span> packages downstream that would take it, three forks of one checkout each, on Nebius Sandboxes.</p>
     </div>
     <div class="reach" id="reach"><div class="reach__tip" id="tip" hidden></div></div>
-    <p class="reach__note">Each small packet is a package whose tests passed before the release and still passed after. Another <span class="num">${n(unread)}</span> could not be read and are not drawn: no tests shipped, nothing passing before the release either, or a run that did not finish. All of them are listed below.</p>
+    <p class="reach__note">Each small packet is a package whose tests passed before the release and still passed after. Another <span class="num">${n(unread)}</span> could not be read and are not drawn: no tests shipped, nothing passing before the release either, a run that did not finish, or another package that held the old version so the release never arrived. All of them are listed below.</p>
   </section>
   ${fixedSentence || verifiedSentence ? `<p class="trace__after">${fixedSentence}${verifiedSentence}</p>` : ""}
+  ${candSentence}
 
   <section class="scene method" aria-labelledby="method-title">
     <div class="method__text">
@@ -95,7 +108,7 @@ function renderTrace() {
   <section class="scene" aria-labelledby="ledger-title">
     <h2 class="scene__title" id="ledger-title">Every receptor I hung</h2>
     <p class="scene__lede"><span class="num">${n(D.population.total)}</span> packages in the top <span class="num">${n(D.scanned)}</span> on PyPI declared ${esc(D.target)} on the day of the release. <span class="num">${n(D.population.protected)}</span> pinned below ${esc(D.release)} and were never exposed. Of the <span class="num">${n(D.population.exposed)}</span> that were, these are the <span class="num">${n(D.ran)}</span> I could hang a receptor at, one packet each.</p>
-    <div class="strip">${["positive", "negative", "no-baseline", "no-tests", "lost"].map(stripGroup).join("")}</div>
+    <div class="strip">${["positive", "negative", "held-back", "no-baseline", "no-tests", "lost"].map(stripGroup).join("")}</div>
   </section>`;
 
   // labels are placed by measured width, so wait for the real typeface before drawing
@@ -105,7 +118,7 @@ function renderTrace() {
 // The accounting in the river's own glyph: one packet per receptor, grouped by what it read.
 function stripGroup(state) {
   const items = DATA.receptors.filter((r) => r.state === state);
-  const label = { positive: "broke", negative: "read clean", "no-baseline": "no working baseline", "no-tests": "no tests shipped", lost: "unreadable" }[state];
+  const label = { positive: "broke", negative: "read clean", "held-back": "held back", "no-baseline": "no working baseline", "no-tests": "no tests shipped", lost: "unreadable" }[state];
   const glyphs = items.map((r) => `<svg class="pk" viewBox="0 0 14 22" role="img" aria-label="${esc(r.name)}">${receptorGlyph(state, 7, 2)}</svg>`).join("");
   const names = items.map((r) => (state === "positive" ? link(r) : esc(r.name))).join(", ");
   return `
@@ -212,7 +225,7 @@ function drawReach(vertical) {
 
     // The unreadable are counted in the note and the ledger, not drawn: on the river they were
     // only noise. What is drawn is what could actually be read.
-    if (r.state === "no-baseline" || r.state === "no-tests" || r.state === "lost") continue;
+    if (r.state === "no-baseline" || r.state === "no-tests" || r.state === "lost" || r.state === "held-back") continue;
 
     const off = r.state === "positive" ? 0 : 28 * bank;
     const x = pt.x + nx * off, y = pt.y + ny * off - (r.state === "positive" ? 12 : 12);
@@ -330,7 +343,7 @@ function labelPools(pools, vertical, W, H, obstacles = [], marks = []) {
   });
 }
 
-const rankOf = (s) => ({ "no-baseline": 0, "no-tests": 0, lost: 0, negative: 1, positive: 2 }[s]);
+const rankOf = (s) => ({ "no-baseline": 0, "no-tests": 0, lost: 0, "held-back": 0, negative: 1, positive: 2 }[s]);
 
 // A cord and a packet. Shape carries the state, so it never rests on colour alone.
 function receptorGlyph(state, x, y) {
@@ -340,7 +353,8 @@ function receptorGlyph(state, x, y) {
     const dye = `<path class="bag-dye" d="M${x - 5.1} ${y + 12.4} h10.2 l.6 3.8 a2 2 0 0 1 -2 2.3 h-7.4 a2 2 0 0 1 -2 -2.3 z"/>`;
     return `<g class="rcp rcp--positive">${cord}${bag}${dye}</g>`;
   }
-  return `<g class="rcp rcp--${state}">${cord}${bag}</g>`;
+  const weir = state === "held-back" ? `<line class="weir" x1="${x - 4}" y1="${y + 3.5}" x2="${x + 4}" y2="${y + 3.5}"/>` : "";
+  return `<g class="rcp rcp--${state}">${cord}${weir}${bag}</g>`;
 }
 
 // ------------------------------------------------------------------ a receptor
@@ -443,8 +457,25 @@ function patchBlock(r) {
       <span class="attempt__tier">Nemotron ${esc(x.tier[0].toUpperCase() + x.tier.slice(1))}<small>${esc(x.model.split("/").pop())}</small></span>
       <span class="attempt__out">${x.verified ? "passed the suite: applied in a fresh fork, every test that broke passes again, and nothing else regressed" : esc(plainReason(x))}</span>
     </div>`).join("");
-  const trialLine = fx.trials > 1
-    ? `<p class="trials"><span class="num">${n(fx.trials_verified)}</span> of <span class="num">${n(fx.trials)}</span> independent runs produced a patch the suite passed.${fx.trials_verified < fx.trials ? " In the rest, every patch Nemotron proposed was rejected by the package's own tests." : ""} The attempts below are from ${fx.verified ? "the first run that verified" : "the last run"}.</p>`
+  // One sentence per round. Rounds differ in fixer revision or guidance and are never pooled; a
+  // run whose edits never applied is told apart from one whose patch the suite rejected.
+  const roundLine = (rd) => {
+    const misses = rd.n - rd.k;
+    const why = misses === 1
+      ? (rd.never_applied ? " The other never produced an edit that applied to the file." : " The other was rejected by the package's own tests.")
+      : misses
+      ? ` Of the ${numberWord(misses)} that did not, ${andList([
+          rd.never_applied ? `${numberWord(rd.never_applied)} never produced an edit that applied to the file` : "",
+          rd.rejected ? `${numberWord(rd.rejected)} ${rd.rejected === 1 ? "was" : "were"} rejected by the package's own tests` : "",
+        ].filter(Boolean))}.`
+      : "";
+    const sameAs = rd.same_as_maintainer ? `, ${numberWord(rd.same_as_maintainer)} with the change its maintainer shipped` : "";
+    const fell = rd.fell_back ? " (Tavily found nothing dated before the maintainers acted that did not name the package, so it fell back to that guide)" : "";
+    return `<li>Fixer revision ${rd.revision}, given ${esc(rd.guidance)}${fell}: <span class="num">${n(rd.k)}</span> of <span class="num">${n(rd.n)}</span> runs passed the suite${sameAs}.${why}</li>`;
+  };
+  const rounds = fx.rounds || [];
+  const trialLine = rounds.length
+    ? `<div class="trials"><p>Every run is independent, so one green patch is a sample, not a behaviour.</p><ul>${rounds.map(roundLine).join("")}</ul><p>The attempts below are from ${fx.verified ? "the first run that passed" : "the last run"}.</p></div>`
     : "";
 
   const m = r.maintainer_fix;

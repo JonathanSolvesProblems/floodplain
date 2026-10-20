@@ -16,7 +16,7 @@ from collections import Counter
 from pathlib import Path
 
 from floodplain.repos import SourceRef
-from floodplain.sandbox import Experiment, RunOutcome, experiment_to_json
+from floodplain.sandbox import Experiment, RunOutcome, attribute, experiment_to_json
 
 
 def rebuild(d: dict) -> Experiment:
@@ -37,9 +37,10 @@ def main() -> None:
     ap.add_argument("--target", required=True)
     ap.add_argument("--release", required=True)
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--dir", default="experiments", help="experiments, or candidate/<wheel> for a pre-release run")
     args = ap.parse_args()
 
-    root = Path(f"data/{args.target}-{args.release}/experiments")
+    root = Path(f"data/{args.target}-{args.release}") / args.dir
     moves: Counter[str] = Counter()
     after: Counter[str] = Counter()
     for p in sorted(root.glob("*.json")):
@@ -47,12 +48,16 @@ def main() -> None:
         old = d["verdict"].get("status")
         exp = rebuild(d)
         new_payload = experiment_to_json(exp)
+        new_payload["verdict"] = attribute(new_payload["verdict"], d.get("after"), args.target, args.release)
         new = new_payload["verdict"].get("status")
         after[new] += 1
+        changed = new_payload["verdict"] != d["verdict"] or new_payload["flaky_excluded"] != d.get("flaky_excluded")
         if old != new:
             moves[f"{old} -> {new}"] += 1
             print(f"  {d['dependent']:<34} {old} -> {new}")
-        if not args.dry_run:
+        # Only a file whose derived fields moved is rewritten, so a fix run writing trials into
+        # the same files at the same time is never clobbered.
+        if changed and not args.dry_run:
             # Keep everything the run recorded; replace only the derived fields.
             d["verdict"] = new_payload["verdict"]
             d["flaky_excluded"] = new_payload["flaky_excluded"]

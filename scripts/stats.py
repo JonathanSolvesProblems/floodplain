@@ -96,10 +96,16 @@ def main() -> None:
         replay = {e["dependent"]: e["verdict"].get("status") for e in exps}
         cstatus = {d: r["verdict"].get("status") for d, r in runs.items()}
         disagree = sorted(d for d in cstatus if cstatus[d] != replay.get(d))
+        replay_v = {e["dependent"]: e["verdict"] for e in exps}
+
+        def broke(v: dict) -> set:
+            return set(v.get("newly_failing", [])) | set(v.get("new_collection_errors", []))
+        same_tests = sum(1 for d, r in runs.items() if broke(r["verdict"]) == broke(replay_v.get(d, {})))
         candidate[cdir.name] = {
             "run": len(runs), "by_status": dict(Counter(cstatus.values())),
             "broken": sorted(d for d, s in cstatus.items() if s == "broken"),
             "agree_with_replay": len(runs) - len(disagree),
+            "same_broken_tests": same_tests,
             "disagree": {d: {"candidate": cstatus[d], "replay": replay.get(d)} for d in disagree},
             "as_of": next((r["before"]["cutoff"] for r in runs.values() if r.get("before")), None),
         }

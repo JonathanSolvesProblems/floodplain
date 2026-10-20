@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
@@ -20,6 +21,7 @@ from pathlib import Path
 STATES = {
     "positive":   "A suite that passed before the release fails after it, and the background sample agrees with the before.",
     "negative":   "The suite passed before, passed again in the background sample, and still passes after.",
+    "held-back":  "Its own requirement allowed the release, but another package in its tree held the old version, so the release never reached its suite.",
     "no-baseline": "Nothing passed here before the release either, so I cannot say the release changed anything.",
     "no-tests":   "No test suite ships with this package at this version, so there was nothing to hang.",
     "lost":       "The receptor was hung but came back unreadable: the install failed, the run timed out, or the sandbox returned nothing.",
@@ -32,6 +34,8 @@ def state_of(verdict: dict) -> str:
         return "positive"
     if s == "ok":
         return "negative"
+    if s == "held-back":
+        return "held-back"
     if s == "no-baseline":
         return "no-baseline"
     if s == "no-tests":
@@ -41,6 +45,10 @@ def state_of(verdict: dict) -> str:
 
 def why(verdict: dict, d: dict) -> str:
     s = verdict.get("status")
+    if s == "held-back":
+        got = verdict.get("resolved")
+        return (f"The after fork installed version {got}, not the release." if got
+                else "The after fork never installed the package at all; it only arrives through an extra the tests do not use.")
     if s in ("incomplete", "unrunnable", "timed-out", "not-run", "fixed-by-release"):
         if s == "timed-out":
             return "The suite did not finish inside the hour each sandbox operation is allowed."
@@ -124,6 +132,63 @@ def excerpt(tail: str, quotes: list[str], limit: int = 2400) -> str:
     return tail[lo:lo + limit]
 
 
+def drop_generated(diff: str) -> str:
+    """Remove per-file sections for build metadata from a recorded diff. Runs from a PyPI sdist
+    track its egg-info, which the reinstall regenerates; those sections were never edited by
+    the model and are not part of the patch. The fixer excludes them from new diffs."""
+    out, keep = [], True
+    for line in diff.splitlines(keepends=True):
+        if line.startswith("diff --git "):
+            keep = ".egg-info/" not in line
+        if keep:
+            out.append(line)
+    return "".join(out)
+
+
+def norm_spec(s: str) -> str:
+    """The page's normSpec: `openai>=2.32.0,<3.0.0` and `"openai>=2.32.0,<3",` compare equal."""
+    s = re.sub(r"[\"',\s]", "", s or "")
+    return re.sub(r"(\.0)+(?=[<>=!]|$)", "", s)
+
+
+GUIDANCE_LABEL = {"tavily": "pages Tavily found", "local-fallback": "OpenAI's own migration guide",
+                  "none": "no migration guidance"}
+
+
+def trial_rounds(d: dict, maintainer: dict | None) -> list[dict]:
+    """Fix trials grouped by fixer revision and guidance source, never pooled.
+
+    For each round: how many trials verified, how many of those added a line the maintainer also
+    shipped, and why the others failed (edits that could not be applied never reached the tests,
+    which is a different failure from a patch the tests rejected)."""
+    theirs = {norm_spec(l.lstrip("+-")) for l in (maintainer or {}).get("lines", []) if l.startswith(("+", '"'))}
+    out: dict[str, dict] = {}
+    for t in d.get("fix_trials", []):
+        g = t.get("guidance") or d.get("guidance") or {}
+        src = (g.get("source") or "none").split(" ")[0]
+        src = "tavily" if src.startswith("tavily") else src
+        rev = t.get("fixer_revision", 1)
+        r = out.setdefault(f"r{rev}-{src}", {"revision": rev, "source": src,
+                                             "guidance": GUIDANCE_LABEL.get(src, src),
+                                             "fell_back": "tavily" in (g.get("source") or "") and src != "tavily",
+                                             "k": 0, "n": 0, "same_as_maintainer": 0,
+                                             "never_applied": 0, "rejected": 0})
+        r["n"] += 1
+        attempts = t.get("attempts", [])
+        if t.get("verified"):
+            r["k"] += 1
+            won = next(a for a in attempts if a.get("verified"))
+            added = {norm_spec(l[1:]) for l in won.get("diff", "").splitlines()
+                     if l.startswith("+") and not l.startswith("+++")}
+            if theirs & added:
+                r["same_as_maintainer"] += 1
+        elif any(a.get("applied") for a in attempts):
+            r["rejected"] += 1
+        else:
+            r["never_applied"] += 1
+    return sorted(out.values(), key=lambda r: (r["revision"], r["source"] != "local-fallback"))
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--target", required=True)
@@ -176,7 +241,7 @@ def main() -> None:
             r["fix"] = {
                 "verified": fx.get("verified", False),
                 "attempts": attempts_of(fx),
-                "diff": next((a["diff"] for a in fx.get("attempts", []) if a.get("verified")), ""),
+                "diff": drop_generated(next((a["diff"] for a in fx.get("attempts", []) if a.get("verified")), "")),
                 # every independent trial, so the page can say verified in K of N
                 "trials": len(trials),
                 "trials_verified": sum(1 for t in trials if t.get("verified")),
@@ -185,6 +250,7 @@ def main() -> None:
                                     "won_by": next((a["tier"] for a in t.get("attempts", []) if a.get("verified")), None),
                                     "wall_s": t.get("wall_s")} for i, t in enumerate(trials)],
             }
+            r["fix"]["rounds"] = trial_rounds(d, fixes.get(name))
             r["guidance"] = d.get("guidance")
             r["maintainer_fix"] = fixes.get(name)
         receptors.append(r)
@@ -204,6 +270,9 @@ def main() -> None:
         "ranking_snapshot": meta["ranking_snapshot"], "scanned": meta["scanned"],
         "population": pop["counts"],
         "ran": len(receptors),
+        # the pre-release check, compared dependent by dependent in stats.py (run that first)
+        "candidate": (json.loads((root / "stats.json").read_text(encoding="utf-8")).get("candidate")
+                      if (root / "stats.json").exists() else None),
         "backends": sorted(b for b in backends if b),
         "states": {k: states.get(k, 0) for k in STATES},
         "state_text": STATES,

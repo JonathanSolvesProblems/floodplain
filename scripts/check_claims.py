@@ -26,6 +26,9 @@ PROSE_FILES = ["README.md", "WRITEUP.md", "DEMO.md", "out/openai-3.0.0/REPORT.md
 # Numbers that were true at some point and must never reappear once the data moves on.
 RETIRED: list[tuple[str, str]] = [
     # (regex, why it was retired)
+    (r"of the 31", "31 counted 11 dependents whose after fork never installed the release; it is 20"),
+    (r"28 read clean", "11 of the 28 were held back; 17 read clean"),
+    (r"[Tt]wo came back green", "three did"),
 ]
 
 NEBIUS_BACKENDS = {"nebius-sandboxes", "nebius-serverless-jobs"}
@@ -136,6 +139,7 @@ def main() -> int:
         facts[f"candidate_run.{name}"] = cand["run"]
         facts[f"candidate_agree.{name}"] = cand["agree_with_replay"]
         facts[f"candidate_broken.{name}"] = len(cand["broken"])
+        facts[f"candidate_same_tests.{name}"] = cand.get("same_broken_tests", -1)
     for name, text in texts.items():
         for m in re.finditer(r"<!--\s*claim:([\w.\-]+)\s*-->\s*(\d[\d,]*(?:\.\d+)?)", text):
             key, value = m.group(1), float(m.group(2).replace(",", ""))

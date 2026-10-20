@@ -1,0 +1,148 @@
+{
+  "dependent": "openenv-core",
+  "version": "0.3.0",
+  "source": {
+    "owner": "pypi",
+    "repo": "openenv-core",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/ce/d6/3bebe8afb55fcc3ea9251c4c2dfbab2879e31089bc91a8fe9696e5ce019b/openenv_core-0.3.0.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "1e5fcc61-fe52-4fe2-93f1-2af32b3e694c",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 1,
+    "test_tail": "....FsFsss                                                               [100%]\n=================================== FAILURES ===================================\n_________________ TestGitAttributes.test_gitattributes_exists __________________\n\nself = <test_line_endings.TestGitAttributes object at 0x7ffff64b7590>\n\n    def test_gitattributes_exists(self):\n        \"\"\"Repository should have a .gitattributes file.\"\"\"\n        repo_root = get_repo_root()\n        gitattributes = repo_root / \".gitattributes\"\n>       assert gitattributes.exists(), (\n            \".gitattributes file not found at repository root. \"\n            \"This file is needed to enforce consistent line endings.\"\n        )\nE       AssertionError: .gitattributes file not found at repository root. This file is needed to enforce consistent line endings.\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/work/repo/.gitattributes').exists\n\ntests/test_line_endings.py:98: AssertionError\n______________ TestLineEndingCheckScript.test_check_script_exists ______________\n\nself = <test_line_endings.TestLineEndingCheckScript object at 0x7fffe2288890>\n\n    def test_check_script_exists(self):\n        \"\"\"The check-line-endings.sh script should exist.\"\"\"\n        repo_root = get_repo_root()\n        script_path = repo_root / \".claude\" / \"hooks\" / \"check-line-endings.sh\"\n>       assert script_path.exists(), (\n            f\"Line ending check script not found at {script_path}. \"\n            \"This script is needed to detect CRLF files in hooks and CI.\"\n        )\nE       AssertionError: Line ending check script not found at /work/repo/.claude/hooks/check-line-endings.sh. This script is needed to detect CRLF files in hooks and CI.\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/work/repo/.claude/hooks/check-line-endings.sh').exists\n\ntests/test_line_endings.py:133: AssertionError\n=============================== warnings summary ===============================\nsrc/openenv/core/containers/test_local_docker_provider.py::test_local_docker_provider\n  /work/venv/lib/python3.12/site-packages/_pytest/python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but src/openenv/core/containers/test_local_docker_provider.py::test_local_docker_provider returned <class 'bool'>.\n  Did you mean to use `assert` instead of `return`?\n  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.\n    warnings.warn(\n\nsrc/openenv/core/containers/test_local_docker_provider.py::test_provider_with_custom_port\n  /work/venv/lib/python3.12/site-packages/_pytest/python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but src/openenv/core/containers/test_local_docker_provider.py::test_provider_with_custom_port returned <class 'bool'>.\n  Did you mean to use `assert` instead of `return`?\n  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.\n    warnings.warn(\n\nsrc/openenv/core/containers/test_local_docker_provider.py::test_provider_with_env_vars\n  /work/venv/lib/python3.12/site-packages/_pytest/python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but src/openenv/core/containers/test_local_docker_provider.py::test_provider_with_env_vars returned <class 'bool'>.\n  Did you mean to use `assert` instead of `return`?\n  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.\n    warnings.warn(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED tests/test_line_endings.py::TestGitAttributes::test_gitattributes_exists - AssertionError: .gitattributes file not found at repository root. This file is needed to enforce consistent line endings.\nassert False\n +  where False = exists()\n +    where exists = PosixPath('/work/repo/.gitattributes').exists\nFAILED tests/test_line_endings.py::TestLineEndingCheckScript::test_check_script_exists - AssertionError: Line ending check script not found at /work/repo/.claude/hooks/check-line-endings.sh. This script is needed to detect CRLF files in hooks and CI.\nassert False\n +  where False = exists()\n +    where exists = PosixPath('/work/repo/.claude/hooks/check-line-endings.sh').exists\n2 failed, 4 passed, 4 skipped, 3 warnings in 6.26s\n",
+    "tests": {
+      "src.openenv.core.containers.test_local_docker_provider::test_local_docker_provider": "passed",
+      "src.openenv.core.containers.test_local_docker_provider::test_provider_with_custom_port": "passed",
+      "src.openenv.core.containers.test_local_docker_provider::test_provider_with_env_vars": "passed",
+      "tests.test_line_endings.TestLineEndings::test_no_crlf_in_tracked_files": "passed",
+      "tests.test_line_endings.TestGitAttributes::test_gitattributes_exists": "failed",
+      "tests.test_line_endings.TestGitAttributes::test_gitattributes_has_lf_normalization": "skipped",
+      "tests.test_line_endings.TestLineEndingCheckScript::test_check_script_exists": "failed",
+      "tests.test_line_endings.TestLineEndingCheckScript::test_check_script_is_executable": "skipped",
+      "tests.test_line_endings.TestLineEndingCheckScript::test_check_script_detects_crlf": "skipped",
+      "tests.test_line_endings.TestLineEndingCheckScript::test_check_script_passes_with_lf": "skipped"
+    },
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 12.953373,
+    "cost": 0.13146385,
+    "image_uuid": "53697b51-32d4-4028-8365-64620978db54",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "candidate": null,
+    "summary": {
+      "passed": 4,
+      "failed": 2,
+      "skipped": 4
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] candidate offered: openai-3.0.0-py3-none-any.whl\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==3.0.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 1,
+    "test_tail": "....FsFsss                                                               [100%]\n=================================== FAILURES ===================================\n_________________ TestGitAttributes.test_gitattributes_exists __________________\n\nself = <test_line_endings.TestGitAttributes object at 0x7fffe2289820>\n\n    def test_gitattributes_exists(self):\n        \"\"\"Repository should have a .gitattributes file.\"\"\"\n        repo_root = get_repo_root()\n        gitattributes = repo_root / \".gitattributes\"\n>       assert gitattributes.exists(), (\n            \".gitattributes file not found at repository root. \"\n            \"This file is needed to enforce consistent line endings.\"\n        )\nE       AssertionError: .gitattributes file not found at repository root. This file is needed to enforce consistent line endings.\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/work/repo/.gitattributes').exists\n\ntests/test_line_endings.py:98: AssertionError\n______________ TestLineEndingCheckScript.test_check_script_exists ______________\n\nself = <test_line_endings.TestLineEndingCheckScript object at 0x7fffe2289640>\n\n    def test_check_script_exists(self):\n        \"\"\"The check-line-endings.sh script should exist.\"\"\"\n        repo_root = get_repo_root()\n        script_path = repo_root / \".claude\" / \"hooks\" / \"check-line-endings.sh\"\n>       assert script_path.exists(), (\n            f\"Line ending check script not found at {script_path}. \"\n            \"This script is needed to detect CRLF files in hooks and CI.\"\n        )\nE       AssertionError: Line ending check script not found at /work/repo/.claude/hooks/check-line-endings.sh. This script is needed to detect CRLF files in hooks and CI.\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/work/repo/.claude/hooks/check-line-endings.sh').exists\n\ntests/test_line_endings.py:133: AssertionError\n=============================== warnings summary ===============================\nsrc/openenv/core/containers/test_local_docker_provider.py::test_local_docker_provider\n  /work/venv/lib/python3.12/site-packages/_pytest/python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but src/openenv/core/containers/test_local_docker_provider.py::test_local_docker_provider returned <class 'bool'>.\n  Did you mean to use `assert` instead of `return`?\n  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.\n    warnings.warn(\n\nsrc/openenv/core/containers/test_local_docker_provider.py::test_provider_with_custom_port\n  /work/venv/lib/python3.12/site-packages/_pytest/python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but src/openenv/core/containers/test_local_docker_provider.py::test_provider_with_custom_port returned <class 'bool'>.\n  Did you mean to use `assert` instead of `return`?\n  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.\n    warnings.warn(\n\nsrc/openenv/core/containers/test_local_docker_provider.py::test_provider_with_env_vars\n  /work/venv/lib/python3.12/site-packages/_pytest/python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but src/openenv/core/containers/test_local_docker_provider.py::test_provider_with_env_vars returned <class 'bool'>.\n  Did you mean to use `assert` instead of `return`?\n  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.\n    warnings.warn(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED tests/test_line_endings.py::TestGitAttributes::test_gitattributes_exists - AssertionError: .gitattributes file not found at repository root. This file is needed to enforce consistent line endings.\nassert False\n +  where False = exists()\n +    where exists = PosixPath('/work/repo/.gitattributes').exists\nFAILED tests/test_line_endings.py::TestLineEndingCheckScript::test_check_script_exists - AssertionError: Line ending check script not found at /work/repo/.claude/hooks/check-line-endings.sh. This script is needed to detect CRLF files in hooks and CI.\nassert False\n +  where False = exists()\n +    where exists = PosixPath('/work/repo/.claude/hooks/check-line-endings.sh').exists\n2 failed, 4 passed, 4 skipped, 3 warnings in 7.20s\n",
+    "tests": {
+      "src.openenv.core.containers.test_local_docker_provider::test_local_docker_provider": "passed",
+      "src.openenv.core.containers.test_local_docker_provider::test_provider_with_custom_port": "passed",
+      "src.openenv.core.containers.test_local_docker_provider::test_provider_with_env_vars": "passed",
+      "tests.test_line_endings.TestLineEndings::test_no_crlf_in_tracked_files": "passed",
+      "tests.test_line_endings.TestGitAttributes::test_gitattributes_exists": "failed",
+      "tests.test_line_endings.TestGitAttributes::test_gitattributes_has_lf_normalization": "skipped",
+      "tests.test_line_endings.TestLineEndingCheckScript::test_check_script_exists": "failed",
+      "tests.test_line_endings.TestLineEndingCheckScript::test_check_script_is_executable": "skipped",
+      "tests.test_line_endings.TestLineEndingCheckScript::test_check_script_detects_crlf": "skipped",
+      "tests.test_line_endings.TestLineEndingCheckScript::test_check_script_passes_with_lf": "skipped"
+    },
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "3.0.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 12.851987000000001,
+    "cost": 0.13051299,
+    "image_uuid": "0a76a2f7-d275-49b8-a613-e336b29a705e",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "candidate": "openai-3.0.0-py3-none-any.whl",
+    "summary": {
+      "passed": 4,
+      "failed": 2,
+      "skipped": 4
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 1,
+    "test_tail": "....FsFsss                                                               [100%]\n=================================== FAILURES ===================================\n_________________ TestGitAttributes.test_gitattributes_exists __________________\n\nself = <test_line_endings.TestGitAttributes object at 0x7fffe2288aa0>\n\n    def test_gitattributes_exists(self):\n        \"\"\"Repository should have a .gitattributes file.\"\"\"\n        repo_root = get_repo_root()\n        gitattributes = repo_root / \".gitattributes\"\n>       assert gitattributes.exists(), (\n            \".gitattributes file not found at repository root. \"\n            \"This file is needed to enforce consistent line endings.\"\n        )\nE       AssertionError: .gitattributes file not found at repository root. This file is needed to enforce consistent line endings.\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/work/repo/.gitattributes').exists\n\ntests/test_line_endings.py:98: AssertionError\n______________ TestLineEndingCheckScript.test_check_script_exists ______________\n\nself = <test_line_endings.TestLineEndingCheckScript object at 0x7fffe22899a0>\n\n    def test_check_script_exists(self):\n        \"\"\"The check-line-endings.sh script should exist.\"\"\"\n        repo_root = get_repo_root()\n        script_path = repo_root / \".claude\" / \"hooks\" / \"check-line-endings.sh\"\n>       assert script_path.exists(), (\n            f\"Line ending check script not found at {script_path}. \"\n            \"This script is needed to detect CRLF files in hooks and CI.\"\n        )\nE       AssertionError: Line ending check script not found at /work/repo/.claude/hooks/check-line-endings.sh. This script is needed to detect CRLF files in hooks and CI.\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/work/repo/.claude/hooks/check-line-endings.sh').exists\n\ntests/test_line_endings.py:133: AssertionError\n=============================== warnings summary ===============================\nsrc/openenv/core/containers/test_local_docker_provider.py::test_local_docker_provider\n  /work/venv/lib/python3.12/site-packages/_pytest/python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but src/openenv/core/containers/test_local_docker_provider.py::test_local_docker_provider returned <class 'bool'>.\n  Did you mean to use `assert` instead of `return`?\n  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.\n    warnings.warn(\n\nsrc/openenv/core/containers/test_local_docker_provider.py::test_provider_with_custom_port\n  /work/venv/lib/python3.12/site-packages/_pytest/python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but src/openenv/core/containers/test_local_docker_provider.py::test_provider_with_custom_port returned <class 'bool'>.\n  Did you mean to use `assert` instead of `return`?\n  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.\n    warnings.warn(\n\nsrc/openenv/core/containers/test_local_docker_provider.py::test_provider_with_env_vars\n  /work/venv/lib/python3.12/site-packages/_pytest/python.py:171: PytestReturnNotNoneWarning: Test functions should return None, but src/openenv/core/containers/test_local_docker_provider.py::test_provider_with_env_vars returned <class 'bool'>.\n  Did you mean to use `assert` instead of `return`?\n  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.\n    warnings.warn(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED tests/test_line_endings.py::TestGitAttributes::test_gitattributes_exists - AssertionError: .gitattributes file not found at repository root. This file is needed to enforce consistent line endings.\nassert False\n +  where False = exists()\n +    where exists = PosixPath('/work/repo/.gitattributes').exists\nFAILED tests/test_line_endings.py::TestLineEndingCheckScript::test_check_script_exists - AssertionError: Line ending check script not found at /work/repo/.claude/hooks/check-line-endings.sh. This script is needed to detect CRLF files in hooks and CI.\nassert False\n +  where False = exists()\n +    where exists = PosixPath('/work/repo/.claude/hooks/check-line-endings.sh').exists\n2 failed, 4 passed, 4 skipped, 3 warnings in 6.89s\n",
+    "tests": {
+      "src.openenv.core.containers.test_local_docker_provider::test_local_docker_provider": "passed",
+      "src.openenv.core.containers.test_local_docker_provider::test_provider_with_custom_port": "passed",
+      "src.openenv.core.containers.test_local_docker_provider::test_provider_with_env_vars": "passed",
+      "tests.test_line_endings.TestLineEndings::test_no_crlf_in_tracked_files": "passed",
+      "tests.test_line_endings.TestGitAttributes::test_gitattributes_exists": "failed",
+      "tests.test_line_endings.TestGitAttributes::test_gitattributes_has_lf_normalization": "skipped",
+      "tests.test_line_endings.TestLineEndingCheckScript::test_check_script_exists": "failed",
+      "tests.test_line_endings.TestLineEndingCheckScript::test_check_script_is_executable": "skipped",
+      "tests.test_line_endings.TestLineEndingCheckScript::test_check_script_detects_crlf": "skipped",
+      "tests.test_line_endings.TestLineEndingCheckScript::test_check_script_passes_with_lf": "skipped"
+    },
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 13.822521,
+    "cost": 0.14013653,
+    "image_uuid": "238a3f3d-0285-4372-b454-9fbcd1bef018",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "candidate": null,
+    "summary": {
+      "passed": 4,
+      "failed": 2,
+      "skipped": 4
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "ok",
+    "passed_after": 4,
+    "pre_existing_failures": 2
+  },
+  "error": null,
+  "requirement": "openai>=2.7.2",
+  "wall_s": 198.8
+}

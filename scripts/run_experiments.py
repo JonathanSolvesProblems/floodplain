@@ -23,7 +23,7 @@ from floodplain.llm import TokenFactory
 from floodplain.pypi import PyPI
 from floodplain.repos import SourceRef, sdist_url
 from floodplain.research import find_guidance
-from floodplain.sandbox import Experiment, RunOutcome, Sandbox, experiment_to_json
+from floodplain.sandbox import Experiment, RunOutcome, Sandbox, attribute, experiment_to_json
 from floodplain.triage import triage_experiment
 
 
@@ -74,7 +74,9 @@ async def main() -> None:
     release_uploaded = datetime.fromisoformat(pop["meta"]["release_uploaded_at"])
     exp_dir = root / "experiments"
     candidate = None
+    candidate_version = None
     if args.candidate:
+        candidate_version = args.candidate.name.split("-")[1]  # name-version-tags.whl (PEP 427)
         # Pre-release mode: before and control are the world at --as-of; after is that same
         # world plus the wheel. Nothing about the published release is used.
         candidate = (args.candidate.name, args.candidate.read_bytes())
@@ -132,6 +134,9 @@ async def main() -> None:
                 exp = await sandbox.run_experiment(base, name, version, src, release_uploaded,
                                                    candidate=candidate)
             payload = experiment_to_json(exp)
+            # only a fork that actually installed the release can say anything about it
+            payload["verdict"] = attribute(payload["verdict"], payload.get("after"), args.target,
+                                           candidate_version or args.release)
             payload["requirement"] = requirement
             payload["wall_s"] = round(time.time() - started, 1)
             out.write_text(json.dumps(payload, indent=2), encoding="utf-8")

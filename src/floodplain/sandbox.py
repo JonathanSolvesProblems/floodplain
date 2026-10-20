@@ -248,10 +248,12 @@ done
 for g in {groups_list}; do
   if uv pip install --quiet --group "$g" 2>/dev/null; then took="$took group:$g"; fi
 done
-echo "[floodplain] test deps installed from:$took"
 uv pip install --quiet pytest pytest-timeout || exit 42
+# The whole freeze, not a fixed list of names: attribute() needs the target's resolved version
+# whatever the target is. The summary line comes last so it survives tail truncation.
 echo "[floodplain] resolved:"
-uv pip freeze | grep -iE '^(openai|httpx|httpx2|certifi|anyio|pydantic|pytest|pytest-httpx|llm-echo|typing-extensions)==' || true
+uv pip freeze
+echo "[floodplain] test deps installed from:$took"
 """
 
 
@@ -416,6 +418,27 @@ class Sandbox:
         except Exception as e:  # noqa: BLE001 - recorded, never hidden
             exp.error = f"{type(e).__name__}: {e}"[:2000]
         return exp
+
+
+def attribute(verdict: dict[str, Any], after: RunOutcome | dict | None, target: str,
+              release: str) -> dict[str, Any]:
+    """A verdict is only about the release if the after fork actually installed it.
+
+    A dependent can allow the release in its own requirement and still never get it: another
+    package in its tree holds the target below the release, or the target only arrives through
+    an extra the test install does not use. Its suite then passes after the release because the
+    release was never there. For openai 3.0.0 that was 11 of the 31 dependents with a working
+    suite, all of which had been counted as "read clean".
+    """
+    if verdict.get("status") not in ("ok", "broken") or after is None:
+        return verdict
+    resolved = after.get("resolved") if isinstance(after, dict) else after.resolved
+    got = (resolved or {}).get(target.lower())
+    if got == release:
+        return verdict
+    return {"status": "held-back", "was": verdict.get("status"), "resolved": got,
+            "reason": f"the after fork resolved {target} {got} instead of {release}" if got
+                      else f"the after fork never installed {target}"}
 
 
 def experiment_to_json(exp: Experiment) -> dict[str, Any]:

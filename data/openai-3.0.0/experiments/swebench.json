@@ -129,9 +129,10 @@
   },
   "flaky_excluded": [],
   "verdict": {
-    "status": "ok",
-    "passed_after": 8,
-    "pre_existing_failures": 4
+    "status": "held-back",
+    "was": "ok",
+    "resolved": null,
+    "reason": "the after fork never installed openai"
   },
   "error": null,
   "requirement": "openai; extra == \"datasets\"",

@@ -7827,9 +7827,10 @@
   },
   "flaky_excluded": [],
   "verdict": {
-    "status": "ok",
-    "passed_after": 2210,
-    "pre_existing_failures": 145
+    "status": "held-back",
+    "was": "ok",
+    "resolved": "2.24.0",
+    "reason": "the after fork resolved openai 2.24.0 instead of 3.0.0"
   },
   "error": null,
   "requirement": "openai",

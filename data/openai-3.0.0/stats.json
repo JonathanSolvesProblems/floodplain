@@ -1,0 +1,282 @@
+{
+  "generated_at": "2026-10-20T23:18:58+00:00",
+  "target": "openai",
+  "release": "3.0.0",
+  "release_uploaded_at": "2026-08-12T01:55:48+00:00",
+  "ranking_snapshot": "2026-09-01 06:34:08",
+  "population": {
+    "total": 220,
+    "protected": 63,
+    "exposed": 157,
+    "exposed_core": 82,
+    "exposed_extra": 75
+  },
+  "experiments": {
+    "run": 146,
+    "by_status": {
+      "no-baseline": 54,
+      "no-tests": 28,
+      "incomplete": 20,
+      "unrunnable": 13,
+      "ok": 17,
+      "held-back": 11,
+      "broken": 3
+    },
+    "broken": 3,
+    "broken_install": 0,
+    "broken_tests": 3,
+    "median_wall_s": 111.15,
+    "total_sandbox_cost": 268.255,
+    "backends": [
+      "nebius-sandboxes"
+    ],
+    "with_flake_control": 146,
+    "tests_excluded_as_flaky": 1
+  },
+  "triage": {
+    "triaged": 3,
+    "categories": {
+      "changed-signature-or-behavior": 1,
+      "removed-or-renamed-api": 1,
+      "dependency-conflict": 1
+    },
+    "quotes_kept": 4,
+    "quotes_dropped_as_unverifiable": 1
+  },
+  "fixes": {
+    "verified": 3,
+    "attempted": 3,
+    "median_attempts": 2,
+    "verified_by_tier": {
+      "super": 2,
+      "ultra": 1
+    },
+    "sandbox_cost": 3.3966,
+    "trials": {
+      "llm": {
+        "r1-local-fallback": {
+          "k": 5,
+          "n": 5,
+          "verified_diffs": [
+            [
+              "+    \"openai>=2.32.0,<3.0.0\","
+            ],
+            [
+              "+    \"openai>=2.32.0,<3.0.0\","
+            ],
+            [
+              "+    \"openai>=2.32.0,<3.0.0\","
+            ],
+            [
+              "+    \"httpx\",",
+              "+    \"openai>=2.32.0,<3.0.0\","
+            ],
+            [
+              "+            return openai.AsyncOpenAI(http_client=httpx.AsyncClient(), **kwargs)",
+              "+            return openai.OpenAI(http_client=httpx.Client(), **kwargs)",
+              "+    \"httpx\","
+            ]
+          ]
+        },
+        "r2-tavily": {
+          "k": 4,
+          "n": 5,
+          "verified_diffs": [
+            [
+              "+            if 'http_client' not in kwargs and not os.environ.get(\"LLM_OPENAI_SHOW_RESPONSES\"):",
+              "+                kwargs['http_client'] = httpx.AsyncClient()",
+              "+            if 'http_client' not in kwargs and not os.environ.get(\"LLM_OPENAI_SHOW_RESPONSES\"):",
+              "+                kwargs['http_client'] = httpx.Client()",
+              "+            \"puremagic\",",
+              "+            \"httpx<0.24.0\","
+            ],
+            [
+              "+    \"openai>=2.32.0,<3.0.0\","
+            ],
+            [
+              "+            base_client = logging_client()",
+              "+        else:",
+              "+            if async_:",
+              "+                base_client = httpx.AsyncClient()",
+              "+            else:",
+              "+                base_client = httpx.Client()"
+            ],
+            [
+              "+            if \"http_client\" not in kwargs:",
+              "+                kwargs[\"http_client\"] = httpx.AsyncClient()",
+              "+            if \"http_client\" not in kwargs:",
+              "+                kwargs[\"http_client\"] = httpx.Client()",
+              "+    \"httpx\",",
+              "+"
+            ]
+          ]
+        }
+      },
+      "openinference-instrumentation-agno": {
+        "r1-local-fallback": {
+          "k": 5,
+          "n": 5,
+          "verified_diffs": [
+            [
+              "+  \"httpx<=0.27.2\","
+            ],
+            [
+              "+  \"httpx<0.27\","
+            ],
+            [
+              "+     \"agno>=2.7.2\",",
+              "+     \"httpx<0.24.0\",",
+              "+   ]",
+              "+     \"agno>=2.7.2\",",
+              "+     \"opentelemetry-sdk\",",
+              "+     \"pytest-recording\","
+            ],
+            [
+              "+  \"httpx<0.27.0\","
+            ],
+            [
+              "+  \"httpx<0.27\","
+            ]
+          ]
+        },
+        "r2-local-fallback": {
+          "k": 5,
+          "n": 5,
+          "verified_diffs": [
+            [
+              "+  \"openai<3.0.0\","
+            ],
+            [
+              "+  \"openai<3.0.0\","
+            ],
+            [
+              "+  \"openai<3.0.0\","
+            ],
+            [
+              "+  \"openai<3.0.0\","
+            ],
+            [
+              "+       \"agno>=2.7.2\",",
+              "+       \"opentelemetry-sdk\",",
+              "+       \"pytest-recording\",",
+              "+       \"brotli\",",
+              "+       \"openai\",",
+              "+       \"ddgs\","
+            ]
+          ]
+        }
+      },
+      "vlmrun": {
+        "r1-local-fallback": {
+          "k": 2,
+          "n": 5,
+          "verified_diffs": [
+            [
+              "+test = [\"pytest\", \"openai\", \"pre-commit\", \"httpx\"]",
+              "+openai = [\"openai>=1.0.0\", \"httpx\"]",
+              "+    \"httpx\",",
+              "+    \"httpx\",",
+              "+Requires-Dist: httpx; extra == \"test\"",
+              "+Requires-Dist: httpx; extra == \"openai\""
+            ],
+            [
+              "+test = [\"pytest\", \"openai\", \"pre-commit\", \"httpx\"]",
+              "+openai = [\"openai>=1.0.0\", \"httpx\"]",
+              "+    \"httpx\",",
+              "+    \"httpx\",",
+              "+Requires-Dist: httpx; extra == \"test\"",
+              "+Requires-Dist: httpx; extra == \"openai\""
+            ]
+          ]
+        },
+        "r2-tavily": {
+          "k": 4,
+          "n": 5,
+          "verified_diffs": [
+            [
+              "+test = [\"pytest\", \"openai>=1.0.0,<3.0.0\", \"pre-commit\"]",
+              "+openai = [\"openai>=1.0.0,<3.0.0\"]",
+              "+    \"openai>=1.0.0,<3.0.0\",",
+              "+    \"openai>=1.0.0,<3.0.0\",",
+              "+Requires-Dist: openai<3.0.0,>=1.0.0; extra == \"test\"",
+              "+Requires-Dist: openai<3.0.0,>=1.0.0; extra == \"openai\""
+            ],
+            [
+              "+test = [\"pytest\", \"openai\", \"pre-commit\", \"httpx\"]",
+              "+openai = [\"openai>=1.0.0\", \"httpx\"]",
+              "+Requires-Dist: httpx; extra == \"test\"",
+              "+Requires-Dist: httpx; extra == \"openai\"",
+              "+setup.cfg",
+              "+httpx"
+            ],
+            [
+              "+test = [\"pytest\", \"openai>=1.0.0,<3.0.0\", \"pre-commit\"]",
+              "+openai = [\"openai>=1.0.0,<3.0.0\"]",
+              "+    \"openai>=1.0.0,<3.0.0\",",
+              "+    \"openai>=1.0.0,<3.0.0\",",
+              "+Requires-Dist: openai<3.0.0,>=1.0.0; extra == \"test\"",
+              "+Requires-Dist: openai<3.0.0,>=1.0.0; extra == \"openai\""
+            ],
+            [
+              "+httpx",
+              "+Requires-Dist: httpx",
+              "+setup.cfg",
+              "+httpx"
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "readable": 20,
+  "candidate": {
+    "openai-3.0.0-py3-none-any": {
+      "run": 31,
+      "by_status": {
+        "ok": 17,
+        "held-back": 11,
+        "broken": 3
+      },
+      "broken": [
+        "llm",
+        "openinference-instrumentation-agno",
+        "vlmrun"
+      ],
+      "agree_with_replay": 31,
+      "same_broken_tests": 31,
+      "disagree": {},
+      "as_of": "2026-08-12T01:54:48Z"
+    }
+  },
+  "public_record": {
+    "broken_and_reported": 2,
+    "broken_and_never_reported": 1,
+    "unreported_dependents": [
+      "vlmrun"
+    ],
+    "median_hours_to_first_report": 71.2,
+    "median_hours_to_close": 118.25,
+    "reports": [
+      {
+        "dependent": "llm",
+        "url": "https://github.com/simonw/llm/issues/1608",
+        "title": "Fresh install broken and test suite escapes to live API since openai 3.0.0 (httpx \u2192 httpx2)",
+        "is_pr": false,
+        "created_at": "2026-08-12T07:49:36Z",
+        "closed_at": "2026-08-21T18:00:36Z",
+        "hours_after_release": 5.9,
+        "hours_to_close": 226.2
+      },
+      {
+        "dependent": "openinference-instrumentation-agno",
+        "url": "https://github.com/Arize-ai/openinference/pull/3574",
+        "title": "test(langchain): route OpenAI SDK through legacy httpx so respx mocks work on openai>=3",
+        "is_pr": true,
+        "created_at": "2026-08-17T18:27:28Z",
+        "closed_at": "2026-08-18T04:43:05Z",
+        "hours_after_release": 136.5,
+        "hours_to_close": 10.3
+      }
+    ]
+  }
+}

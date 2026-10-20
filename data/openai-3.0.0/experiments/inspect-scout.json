@@ -9959,9 +9959,10 @@
     "tests.concurrency.test_model_pickling::test_llm_scanner_with_model_instance_is_picklable"
   ],
   "verdict": {
-    "status": "ok",
-    "passed_after": 3151,
-    "pre_existing_failures": 27
+    "status": "held-back",
+    "was": "ok",
+    "resolved": "2.54.0",
+    "reason": "the after fork resolved openai 2.54.0 instead of 3.0.0"
   },
   "error": null,
   "requirement": "openai>=2.26.0; extra == \"dev\"",

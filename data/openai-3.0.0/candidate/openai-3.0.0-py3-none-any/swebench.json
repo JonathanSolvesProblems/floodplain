@@ -1,0 +1,143 @@
+{
+  "dependent": "swebench",
+  "version": "4.1.0",
+  "source": {
+    "owner": "swe-bench",
+    "repo": "SWE-bench",
+    "tag": "v4.1.0",
+    "sha": "726c5461e2ef52d83cf1ea2107870a8bb3328d57",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "c066dfcb-6d44-4174-a09c-0108c97e38b9",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 1,
+    "test_tail": "l) Either a boolean, in which case it controls whether\n            we verify the server's TLS certificate, or a string, in which case it\n            must be a path to a CA bundle to use\n        :param cert: (optional) Any user-provided SSL certificate to be trusted.\n        :param proxies: (optional) The proxies dictionary to apply to the request.\n        :rtype: requests.Response\n        \"\"\"\n    \n        assert _is_prepared(request)\n    \n        try:\n            conn = self.get_connection_with_tls_context(\n                request, verify, proxies=proxies, cert=cert\n            )\n        except LocationValueError as e:\n            raise InvalidURL(e, request=request)\n    \n        self.cert_verify(conn, request.url, verify, cert)\n        url = self.request_url(request, proxies)\n        self.add_headers(\n            request,\n            stream=stream,\n            timeout=timeout,\n            verify=verify,\n            cert=cert,\n            proxies=proxies,\n        )\n    \n        chunked = not (request.body is None or \"Content-Length\" in request.headers)\n    \n        if isinstance(timeout, tuple):\n            try:\n                connect, read = timeout\n                resolved_timeout = TimeoutSauce(connect=connect, read=read)\n            except ValueError:\n                raise ValueError(\n                    f\"Invalid timeout {timeout}. Pass a (connect, read) timeout tuple, \"\n                    f\"or a single float to set both timeouts to the same value.\"\n                )\n        elif isinstance(timeout, TimeoutSauce):\n            resolved_timeout = timeout\n        else:\n            resolved_timeout = TimeoutSauce(connect=timeout, read=timeout)\n    \n        try:\n            resp = conn.urlopen(\n                method=request.method,\n                url=url,\n                body=request.body,  # type: ignore[arg-type]  # urllib3 stubs don't accept Iterable[bytes | str]\n                headers=request.headers,  # type: ignore[arg-type]  # urllib3#3072\n                redirect=False,\n                assert_same_host=False,\n                preload_content=False,\n                decode_content=False,\n                retries=self.max_retries,\n                timeout=resolved_timeout,\n                chunked=chunked,\n            )\n    \n        except (ProtocolError, OSError) as err:\n>           raise ConnectionError(err, request=request)\nE           requests.exceptions.ConnectionError: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))\n\n../venv/lib/python3.12/site-packages/requests/adapters.py:711: ConnectionError\n\nThe above exception was the direct cause of the following exception:\n\ntmpdir = local('/tmp/pytest-of-root/pytest-0/test_make_run_report0')\n\n    def test_make_run_report(tmpdir) -> None:\n>       client = docker.from_env()\n                 ^^^^^^^^^^^^^^^^^\n\ntests/test_evaluation.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n../venv/lib/python3.12/site-packages/docker/client.py:110: in from_env\n    return cls(\n../venv/lib/python3.12/site-packages/docker/client.py:48: in __init__\n    self.api = APIClient(*args, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/docker/api/client.py:207: in __init__\n    self._version = self._retrieve_server_version()\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <docker.api.client.APIClient object at 0x7fffd9dc7050>\n\n    def _retrieve_server_version(self):\n        try:\n            return self.version(api_version=False)[\"ApiVersion\"]\n        except KeyError as ke:\n            raise DockerException(\n                'Invalid response from docker daemon: key \"ApiVersion\"'\n                ' is missing.'\n            ) from ke\n        except Exception as e:\n>           raise DockerException(\n                f'Error while fetching server API version: {e}'\n            ) from e\nE           docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))\n\n../venv/lib/python3.12/site-packages/docker/api/client.py:230: DockerException\n=============================== warnings summary ===============================\nswebench/harness/test_spec/test_spec.py:27\n  /work/repo/swebench/harness/test_spec/test_spec.py:27: PytestCollectionWarning: cannot collect test class 'TestSpec' because it has a __init__ constructor (from: swebench/harness/test_spec/test_spec.py)\n    @dataclass\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED tests/test_cli.py::test_one_instance - AssertionError: assert 1 == 0\n +  where 1 = CompletedProcess(args=['python', '-m', 'swebench.harness.run_evaluation', '--predictions_path', 'gold', '--max_workers...r while fetching server API version: (\\'Connection aborted.\\', FileNotFoundError(2, \\'No such file or directory\\'))\\n').returncode\nFAILED tests/test_collect_cli.py::test_collect_one - AssertionError: assert 1 == 0\n +  where 1 = CompletedProcess(args=['python', '-m', 'swebench.collect.print_pulls', 'pvlib/pvlib-python', '/tmp/pytest-of-root/pyte...r: \\'NoneType\\' object is not subscriptable\\nsys:1: RuntimeWarning: coroutine \\'OpFunc.__call__\\' was never awaited\\n').returncode\nFAILED tests/test_collect_cli.py::test_collect_get_issues - AssertionError: assert 1 == 0\n +  where 1 = CompletedProcess(args=['python', '-m', 'swebench.collect.print_pulls', 'lowRISC/opentitan', '/tmp/pytest-of-root/pytes...routine\\' object has no attribute \\'title\\'\\nsys:1: RuntimeWarning: coroutine \\'OpFunc.__call__\\' was never awaited\\n').returncode\nFAILED tests/test_evaluation.py::test_make_run_report - docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))\n4 failed, 8 passed, 1 warning in 44.87s\n",
+    "tests": {
+      "tests.test_cli::test_smoke_test": "passed",
+      "tests.test_cli::test_one_instance": "failed",
+      "tests.test_collect_cli::test_collect_smoke_test": "passed",
+      "tests.test_collect_cli::test_collect_one": "failed",
+      "tests.test_collect_cli::test_collect_ds": "passed",
+      "tests.test_collect_cli::test_collect_get_issues": "failed",
+      "tests.test_evaluation::test_make_run_report": "failed",
+      "tests.test_harness_utils.UtilTests::test_environment_yml_cleaner": "passed",
+      "tests.test_harness_utils.UtilTests::test_environment_yml_cleaner_no_pip_section": "passed",
+      "tests.test_harness_utils.UtilTests::test_environment_yml_cleaner_version_specifiers": "passed",
+      "tests.test_harness_utils.UtilTests::test_requirements_txt_cleaner_version_specifiers": "passed",
+      "tests.test_harness_utils.UtilTests::test_run_threadpool_all_failures": "passed"
+    },
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 35.657467000000004,
+    "cost": 0.3589942300000001,
+    "image_uuid": "77722300-46af-4e01-b477-9f8a92bac4c4",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "candidate": null,
+    "summary": {
+      "passed": 8,
+      "failed": 4
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] candidate offered: openai-3.0.0-py3-none-any.whl\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 1,
+    "test_tail": "l) Either a boolean, in which case it controls whether\n            we verify the server's TLS certificate, or a string, in which case it\n            must be a path to a CA bundle to use\n        :param cert: (optional) Any user-provided SSL certificate to be trusted.\n        :param proxies: (optional) The proxies dictionary to apply to the request.\n        :rtype: requests.Response\n        \"\"\"\n    \n        assert _is_prepared(request)\n    \n        try:\n            conn = self.get_connection_with_tls_context(\n                request, verify, proxies=proxies, cert=cert\n            )\n        except LocationValueError as e:\n            raise InvalidURL(e, request=request)\n    \n        self.cert_verify(conn, request.url, verify, cert)\n        url = self.request_url(request, proxies)\n        self.add_headers(\n            request,\n            stream=stream,\n            timeout=timeout,\n            verify=verify,\n            cert=cert,\n            proxies=proxies,\n        )\n    \n        chunked = not (request.body is None or \"Content-Length\" in request.headers)\n    \n        if isinstance(timeout, tuple):\n            try:\n                connect, read = timeout\n                resolved_timeout = TimeoutSauce(connect=connect, read=read)\n            except ValueError:\n                raise ValueError(\n                    f\"Invalid timeout {timeout}. Pass a (connect, read) timeout tuple, \"\n                    f\"or a single float to set both timeouts to the same value.\"\n                )\n        elif isinstance(timeout, TimeoutSauce):\n            resolved_timeout = timeout\n        else:\n            resolved_timeout = TimeoutSauce(connect=timeout, read=timeout)\n    \n        try:\n            resp = conn.urlopen(\n                method=request.method,\n                url=url,\n                body=request.body,  # type: ignore[arg-type]  # urllib3 stubs don't accept Iterable[bytes | str]\n                headers=request.headers,  # type: ignore[arg-type]  # urllib3#3072\n                redirect=False,\n                assert_same_host=False,\n                preload_content=False,\n                decode_content=False,\n                retries=self.max_retries,\n                timeout=resolved_timeout,\n                chunked=chunked,\n            )\n    \n        except (ProtocolError, OSError) as err:\n>           raise ConnectionError(err, request=request)\nE           requests.exceptions.ConnectionError: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))\n\n../venv/lib/python3.12/site-packages/requests/adapters.py:711: ConnectionError\n\nThe above exception was the direct cause of the following exception:\n\ntmpdir = local('/tmp/pytest-of-root/pytest-0/test_make_run_report0')\n\n    def test_make_run_report(tmpdir) -> None:\n>       client = docker.from_env()\n                 ^^^^^^^^^^^^^^^^^\n\ntests/test_evaluation.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n../venv/lib/python3.12/site-packages/docker/client.py:110: in from_env\n    return cls(\n../venv/lib/python3.12/site-packages/docker/client.py:48: in __init__\n    self.api = APIClient(*args, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/docker/api/client.py:207: in __init__\n    self._version = self._retrieve_server_version()\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <docker.api.client.APIClient object at 0x7fffd9dc6cf0>\n\n    def _retrieve_server_version(self):\n        try:\n            return self.version(api_version=False)[\"ApiVersion\"]\n        except KeyError as ke:\n            raise DockerException(\n                'Invalid response from docker daemon: key \"ApiVersion\"'\n                ' is missing.'\n            ) from ke\n        except Exception as e:\n>           raise DockerException(\n                f'Error while fetching server API version: {e}'\n            ) from e\nE           docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))\n\n../venv/lib/python3.12/site-packages/docker/api/client.py:230: DockerException\n=============================== warnings summary ===============================\nswebench/harness/test_spec/test_spec.py:27\n  /work/repo/swebench/harness/test_spec/test_spec.py:27: PytestCollectionWarning: cannot collect test class 'TestSpec' because it has a __init__ constructor (from: swebench/harness/test_spec/test_spec.py)\n    @dataclass\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED tests/test_cli.py::test_one_instance - AssertionError: assert 1 == 0\n +  where 1 = CompletedProcess(args=['python', '-m', 'swebench.harness.run_evaluation', '--predictions_path', 'gold', '--max_workers...r while fetching server API version: (\\'Connection aborted.\\', FileNotFoundError(2, \\'No such file or directory\\'))\\n').returncode\nFAILED tests/test_collect_cli.py::test_collect_one - AssertionError: assert 1 == 0\n +  where 1 = CompletedProcess(args=['python', '-m', 'swebench.collect.print_pulls', 'pvlib/pvlib-python', '/tmp/pytest-of-root/pyte...r: \\'NoneType\\' object is not subscriptable\\nsys:1: RuntimeWarning: coroutine \\'OpFunc.__call__\\' was never awaited\\n').returncode\nFAILED tests/test_collect_cli.py::test_collect_get_issues - AssertionError: assert 1 == 0\n +  where 1 = CompletedProcess(args=['python', '-m', 'swebench.collect.print_pulls', 'lowRISC/opentitan', '/tmp/pytest-of-root/pytes...routine\\' object has no attribute \\'title\\'\\nsys:1: RuntimeWarning: coroutine \\'OpFunc.__call__\\' was never awaited\\n').returncode\nFAILED tests/test_evaluation.py::test_make_run_report - docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))\n4 failed, 8 passed, 1 warning in 44.90s\n",
+    "tests": {
+      "tests.test_cli::test_smoke_test": "passed",
+      "tests.test_cli::test_one_instance": "failed",
+      "tests.test_collect_cli::test_collect_smoke_test": "passed",
+      "tests.test_collect_cli::test_collect_one": "failed",
+      "tests.test_collect_cli::test_collect_ds": "passed",
+      "tests.test_collect_cli::test_collect_get_issues": "failed",
+      "tests.test_evaluation::test_make_run_report": "failed",
+      "tests.test_harness_utils.UtilTests::test_environment_yml_cleaner": "passed",
+      "tests.test_harness_utils.UtilTests::test_environment_yml_cleaner_no_pip_section": "passed",
+      "tests.test_harness_utils.UtilTests::test_environment_yml_cleaner_version_specifiers": "passed",
+      "tests.test_harness_utils.UtilTests::test_requirements_txt_cleaner_version_specifiers": "passed",
+      "tests.test_harness_utils.UtilTests::test_run_threadpool_all_failures": "passed"
+    },
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 34.386451,
+    "cost": 0.34624843,
+    "image_uuid": "8eb3ffd9-d7c5-4a8f-850f-e81a51160d8d",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "candidate": "openai-3.0.0-py3-none-any.whl",
+    "summary": {
+      "passed": 8,
+      "failed": 4
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 1,
+    "test_tail": "l) Either a boolean, in which case it controls whether\n            we verify the server's TLS certificate, or a string, in which case it\n            must be a path to a CA bundle to use\n        :param cert: (optional) Any user-provided SSL certificate to be trusted.\n        :param proxies: (optional) The proxies dictionary to apply to the request.\n        :rtype: requests.Response\n        \"\"\"\n    \n        assert _is_prepared(request)\n    \n        try:\n            conn = self.get_connection_with_tls_context(\n                request, verify, proxies=proxies, cert=cert\n            )\n        except LocationValueError as e:\n            raise InvalidURL(e, request=request)\n    \n        self.cert_verify(conn, request.url, verify, cert)\n        url = self.request_url(request, proxies)\n        self.add_headers(\n            request,\n            stream=stream,\n            timeout=timeout,\n            verify=verify,\n            cert=cert,\n            proxies=proxies,\n        )\n    \n        chunked = not (request.body is None or \"Content-Length\" in request.headers)\n    \n        if isinstance(timeout, tuple):\n            try:\n                connect, read = timeout\n                resolved_timeout = TimeoutSauce(connect=connect, read=read)\n            except ValueError:\n                raise ValueError(\n                    f\"Invalid timeout {timeout}. Pass a (connect, read) timeout tuple, \"\n                    f\"or a single float to set both timeouts to the same value.\"\n                )\n        elif isinstance(timeout, TimeoutSauce):\n            resolved_timeout = timeout\n        else:\n            resolved_timeout = TimeoutSauce(connect=timeout, read=timeout)\n    \n        try:\n            resp = conn.urlopen(\n                method=request.method,\n                url=url,\n                body=request.body,  # type: ignore[arg-type]  # urllib3 stubs don't accept Iterable[bytes | str]\n                headers=request.headers,  # type: ignore[arg-type]  # urllib3#3072\n                redirect=False,\n                assert_same_host=False,\n                preload_content=False,\n                decode_content=False,\n                retries=self.max_retries,\n                timeout=resolved_timeout,\n                chunked=chunked,\n            )\n    \n        except (ProtocolError, OSError) as err:\n>           raise ConnectionError(err, request=request)\nE           requests.exceptions.ConnectionError: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))\n\n../venv/lib/python3.12/site-packages/requests/adapters.py:711: ConnectionError\n\nThe above exception was the direct cause of the following exception:\n\ntmpdir = local('/tmp/pytest-of-root/pytest-0/test_make_run_report0')\n\n    def test_make_run_report(tmpdir) -> None:\n>       client = docker.from_env()\n                 ^^^^^^^^^^^^^^^^^\n\ntests/test_evaluation.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n../venv/lib/python3.12/site-packages/docker/client.py:110: in from_env\n    return cls(\n../venv/lib/python3.12/site-packages/docker/client.py:48: in __init__\n    self.api = APIClient(*args, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n../venv/lib/python3.12/site-packages/docker/api/client.py:207: in __init__\n    self._version = self._retrieve_server_version()\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <docker.api.client.APIClient object at 0x7fffda240560>\n\n    def _retrieve_server_version(self):\n        try:\n            return self.version(api_version=False)[\"ApiVersion\"]\n        except KeyError as ke:\n            raise DockerException(\n                'Invalid response from docker daemon: key \"ApiVersion\"'\n                ' is missing.'\n            ) from ke\n        except Exception as e:\n>           raise DockerException(\n                f'Error while fetching server API version: {e}'\n            ) from e\nE           docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))\n\n../venv/lib/python3.12/site-packages/docker/api/client.py:230: DockerException\n=============================== warnings summary ===============================\nswebench/harness/test_spec/test_spec.py:27\n  /work/repo/swebench/harness/test_spec/test_spec.py:27: PytestCollectionWarning: cannot collect test class 'TestSpec' because it has a __init__ constructor (from: swebench/harness/test_spec/test_spec.py)\n    @dataclass\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED tests/test_cli.py::test_one_instance - AssertionError: assert 1 == 0\n +  where 1 = CompletedProcess(args=['python', '-m', 'swebench.harness.run_evaluation', '--predictions_path', 'gold', '--max_workers...r while fetching server API version: (\\'Connection aborted.\\', FileNotFoundError(2, \\'No such file or directory\\'))\\n').returncode\nFAILED tests/test_collect_cli.py::test_collect_one - AssertionError: assert 1 == 0\n +  where 1 = CompletedProcess(args=['python', '-m', 'swebench.collect.print_pulls', 'pvlib/pvlib-python', '/tmp/pytest-of-root/pyte...r: \\'NoneType\\' object is not subscriptable\\nsys:1: RuntimeWarning: coroutine \\'OpFunc.__call__\\' was never awaited\\n').returncode\nFAILED tests/test_collect_cli.py::test_collect_get_issues - AssertionError: assert 1 == 0\n +  where 1 = CompletedProcess(args=['python', '-m', 'swebench.collect.print_pulls', 'lowRISC/opentitan', '/tmp/pytest-of-root/pytes...routine\\' object has no attribute \\'title\\'\\nsys:1: RuntimeWarning: coroutine \\'OpFunc.__call__\\' was never awaited\\n').returncode\nFAILED tests/test_evaluation.py::test_make_run_report - docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))\n4 failed, 8 passed, 1 warning in 44.10s\n",
+    "tests": {
+      "tests.test_cli::test_smoke_test": "passed",
+      "tests.test_cli::test_one_instance": "failed",
+      "tests.test_collect_cli::test_collect_smoke_test": "passed",
+      "tests.test_collect_cli::test_collect_one": "failed",
+      "tests.test_collect_cli::test_collect_ds": "passed",
+      "tests.test_collect_cli::test_collect_get_issues": "failed",
+      "tests.test_evaluation::test_make_run_report": "failed",
+      "tests.test_harness_utils.UtilTests::test_environment_yml_cleaner": "passed",
+      "tests.test_harness_utils.UtilTests::test_environment_yml_cleaner_no_pip_section": "passed",
+      "tests.test_harness_utils.UtilTests::test_environment_yml_cleaner_version_specifiers": "passed",
+      "tests.test_harness_utils.UtilTests::test_requirements_txt_cleaner_version_specifiers": "passed",
+      "tests.test_harness_utils.UtilTests::test_run_threadpool_all_failures": "passed"
+    },
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 34.893758,
+    "cost": 0.35126964000000005,
+    "image_uuid": "781c51d0-7270-4f90-84f1-27cfb427c03e",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "candidate": null,
+    "summary": {
+      "passed": 8,
+      "failed": 4
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "held-back",
+    "was": "ok",
+    "resolved": null,
+    "reason": "the after fork never installed openai"
+  },
+  "error": null,
+  "requirement": "openai; extra == \"datasets\"",
+  "wall_s": 200.3
+}

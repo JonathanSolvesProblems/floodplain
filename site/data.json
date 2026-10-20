@@ -12,12 +12,32 @@
   "exposed_extra": 75
  },
  "ran": 146,
+ "candidate": {
+  "openai-3.0.0-py3-none-any": {
+   "run": 31,
+   "by_status": {
+    "ok": 17,
+    "held-back": 11,
+    "broken": 3
+   },
+   "broken": [
+    "llm",
+    "openinference-instrumentation-agno",
+    "vlmrun"
+   ],
+   "agree_with_replay": 31,
+   "same_broken_tests": 31,
+   "disagree": {},
+   "as_of": "2026-08-12T01:54:48Z"
+  }
+ },
  "backends": [
   "nebius-sandboxes"
  ],
  "states": {
   "positive": 3,
-  "negative": 28,
+  "negative": 17,
+  "held-back": 11,
   "no-baseline": 54,
   "no-tests": 28,
   "lost": 33
@@ -25,12 +45,13 @@
  "state_text": {
   "positive": "A suite that passed before the release fails after it, and the background sample agrees with the before.",
   "negative": "The suite passed before, passed again in the background sample, and still passes after.",
+  "held-back": "Its own requirement allowed the release, but another package in its tree held the old version, so the release never reached its suite.",
   "no-baseline": "Nothing passed here before the release either, so I cannot say the release changed anything.",
   "no-tests": "No test suite ships with this package at this version, so there was nothing to hang.",
   "lost": "The receptor was hung but came back unreadable: the install failed, the run timed out, or the sandbox returned nothing."
  },
- "readable": 31,
- "generated_at": "2026-10-20T16:08:48",
+ "readable": 20,
+ "generated_at": "2026-10-20T19:18:09",
  "receptors": [
   {
    "name": "sentry-sdk",
@@ -412,8 +433,8 @@
    "via_extra": "datasets",
    "repo": "swe-bench/SWE-bench",
    "tag": "v4.1.0",
-   "state": "negative",
-   "why": "",
+   "state": "held-back",
+   "why": "The after fork never installed the package at all; it only arrives through an extra the tests do not use.",
    "before": {
     "passed": 8,
     "failed": 4,
@@ -1392,8 +1413,8 @@
    "via_extra": null,
    "repo": "stanfordnlp/dspy",
    "tag": "3.3.0",
-   "state": "negative",
-   "why": "",
+   "state": "held-back",
+   "why": "The after fork installed version 2.54.0, not the release.",
    "before": {
     "passed": 1174,
     "failed": 3,
@@ -1757,8 +1778,8 @@
    "via_extra": "instruments",
    "repo": "traceloop/openllmetry",
    "tag": "v0.62.3",
-   "state": "negative",
-   "why": "",
+   "state": "held-back",
+   "why": "The after fork installed version 1.99.7, not the release.",
    "before": {
     "passed": 268,
     "failed": 0,
@@ -3258,8 +3279,8 @@
    "via_extra": "openai",
    "repo": "chonkie-inc/chonkie",
    "tag": "v1.7.0",
-   "state": "negative",
-   "why": "",
+   "state": "held-back",
+   "why": "The after fork installed version 2.54.0, not the release.",
    "before": {
     "passed": 1487,
     "failed": 0,
@@ -3378,8 +3399,8 @@
    "via_extra": null,
    "repo": "getzep/graphiti",
    "tag": "v0.29.3",
-   "state": "negative",
-   "why": "",
+   "state": "held-back",
+   "why": "The after fork installed version 2.54.0, not the release.",
    "before": {
     "passed": 401,
     "failed": 10,
@@ -4247,33 +4268,25 @@
    },
    "log": "quest\n                                         ^^^^^^^^^^^^^^^^^^^\nE   AttributeError: module 'httpx' has no attribute 'HTTPTransport'. Did you mean: 'Transport'?\n_____________ ERROR collecting tests/test_module_level_wrapping.py _____________\nImportError while importing test module '/work/repo/python/instrumentation/openinference-instrumentation-agno/tests/test_module_level_wrapping.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_module_level_wrapping.py:10: in <module>\n    from agno.agent import Agent\n/work/venv/lib/python3.12/site-packages/agno/agent/__init__.py:1: in <module>\n    from agno.agent.agent import (\n/work/venv/lib/python3.12/site-packages/agno/agent/agent.py:23: in <module>\n    from agno.agent import (\n/work/venv/lib/python3.12/site-packages/agno/agent/_default_tools.py:22: in <module>\n    from agno.knowledge.types import KnowledgeFilter\n/work/venv/lib/python3.12/site-packages/agno/knowledge/__init__.py:2: in <module>\n    from agno.knowledge.knowledge import Knowledge\n/work/venv/lib/python3.12/site-packages/agno/knowledge/knowledge.py:13: in <module>\n    from httpx import AsyncClient\nE   ImportError: cannot import name 'AsyncClient' from 'httpx' (/work/venv/lib/python3.12/site-packages/httpx/__init__.py)\n____________ ERROR collecting tests/test_team_context_isolation.py _____________\nImportError while importing test module '/work/repo/python/instrumentation/openinference-instrumentation-agno/tests/test_team_context_isolation.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_team_context_isolation.py:6: in <module>\n    from agno.agent import Agent\n/work/venv/lib/python3.12/site-packages/agno/agent/__init__.py:1: in <module>\n    from agno.agent.agent import (\n/work/venv/lib/python3.12/site-packages/agno/agent/agent.py:23: in <module>\n    from agno.agent import (\n/work/venv/lib/python3.12/site-packages/agno/agent/_default_tools.py:22: in <module>\n    from agno.knowledge",
    "fix": {
-    "verified": false,
+    "verified": true,
     "attempts": [
      {
       "tier": "super",
       "model": "nvidia/nemotron-3-super-120b-a12b",
-      "applied": true,
+      "applied": false,
       "verified": false,
-      "apply_error": null,
-      "reasons": [
-       "pytest did not run to completion (exit 2)",
-       "6 modules still fail to collect",
-       "92 tests that passed before the release do not pass"
-      ],
-      "rationale": "Add httpx<3.0.0 to the instruments and test optional dependencies to ensure the agno dependency (which imports AsyncClient and HTTPTransport from httpx) works with a version of httpx that still provides these symbols."
+      "apply_error": "model returned no edits",
+      "reasons": [],
+      "rationale": ""
      },
      {
       "tier": "super",
       "model": "nvidia/nemotron-3-super-120b-a12b",
-      "applied": true,
+      "applied": false,
       "verified": false,
-      "apply_error": null,
-      "reasons": [
-       "pytest did not run to completion (exit 2)",
-       "6 modules still fail to collect",
-       "92 tests that passed before the release do not pass"
-      ],
-      "rationale": "The package does not directly import httpx, but its test suite and optional dependencies (agno, vcr) require httpx<3.0.0 due to API changes in httpx 3.0.0. Adding httpx<3.0.0 to the main dependencies ensures a compatible version is installed for both runtime and tests."
+      "apply_error": "pyproject.toml: search block matches 0 times, need exactly 1",
+      "reasons": [],
+      "rationale": "The package indirectly relies on httpx via agno, which imports AsyncClient from httpx. Since openai 3.0.0 no longer installs httpx transitively, we must declare it as a dependency."
      },
      {
       "tier": "ultra",
@@ -4286,69 +4299,127 @@
        "6 modules still fail to collect",
        "92 tests that passed before the release do not pass"
       ],
-      "rationale": "The test failures stem from third-party dependencies (agno, vcr) importing removed symbols from httpx 3.0.0+. Since we cannot modify those packages, the only viable fix is to pin httpx<3.0.0 in the test optional-dependencies so the test environment gets a compatible version."
+      "rationale": "The upstream openai v3.0.0 no longer installs httpx transitively, but the test dependencies (agno and vcr) still import from httpx. Adding httpx to test dependencies restores the missing transitive dependency."
      },
      {
       "tier": "ultra",
       "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
       "applied": true,
-      "verified": false,
+      "verified": true,
       "apply_error": null,
-      "reasons": [
-       "pytest did not run to completion (exit 2)",
-       "6 modules still fail to collect",
-       "92 tests that passed before the release do not pass"
-      ],
-      "rationale": "The test suite imports vcr in test_tool_error_handling.py but vcr is not declared in test optional-dependencies, leaving its transitive dependency on httpx unconstrained. Declaring vcr allows the resolver to properly account for its dependency requirements in the test environment."
+      "reasons": [],
+      "rationale": "The test dependencies (agno, vcr via pytest-recording) require the legacy httpx API (HTTPTransport, AsyncClient) which was removed in httpx 0.28+. Since the downstream package doesn't directly import httpx and cannot migrate upstream dependencies, pinning httpx to the last compatible version in test dependencies restores the required API."
      }
     ],
-    "diff": "",
-    "trials": 5,
-    "trials_verified": 0,
+    "diff": "diff --git a/python/instrumentation/openinference-instrumentation-agno/pyproject.toml b/python/instrumentation/openinference-instrumentation-agno/pyproject.toml\nindex 4b708f2d..33f6d156 100644\n--- a/python/instrumentation/openinference-instrumentation-agno/pyproject.toml\n+++ b/python/instrumentation/openinference-instrumentation-agno/pyproject.toml\n@@ -47,6 +47,7 @@ test = [\n   \"ddgs\",\n   \"yfinance\",\n   \"fastapi\",\n+  \"httpx<=0.27.2\",\n ]\n \n [project.entry-points.opentelemetry_instrumentor]\n",
+    "trials": 10,
+    "trials_verified": 10,
     "trial_outcomes": [
      {
       "trial": 1,
-      "verified": false,
+      "verified": true,
       "attempts": 4,
-      "won_by": null,
-      "wall_s": 130.4
+      "won_by": "ultra",
+      "wall_s": 219.4
      },
      {
       "trial": 2,
-      "verified": false,
-      "attempts": 4,
-      "won_by": null,
-      "wall_s": 222.4
+      "verified": true,
+      "attempts": 1,
+      "won_by": "super",
+      "wall_s": 75.5
      },
      {
       "trial": 3,
-      "verified": false,
-      "attempts": 4,
-      "won_by": null,
-      "wall_s": 194.4
+      "verified": true,
+      "attempts": 2,
+      "won_by": "super",
+      "wall_s": 170.8
      },
      {
       "trial": 4,
-      "verified": false,
-      "attempts": 4,
-      "won_by": null,
-      "wall_s": 131.1
+      "verified": true,
+      "attempts": 1,
+      "won_by": "super",
+      "wall_s": 80.1
      },
      {
       "trial": 5,
-      "verified": false,
-      "attempts": 4,
-      "won_by": null,
-      "wall_s": 152.1
+      "verified": true,
+      "attempts": 2,
+      "won_by": "super",
+      "wall_s": 91.7
+     },
+     {
+      "trial": 6,
+      "verified": true,
+      "attempts": 3,
+      "won_by": "ultra",
+      "wall_s": 140.1
+     },
+     {
+      "trial": 7,
+      "verified": true,
+      "attempts": 3,
+      "won_by": "ultra",
+      "wall_s": 105.7
+     },
+     {
+      "trial": 8,
+      "verified": true,
+      "attempts": 3,
+      "won_by": "ultra",
+      "wall_s": 131.1
+     },
+     {
+      "trial": 9,
+      "verified": true,
+      "attempts": 3,
+      "won_by": "ultra",
+      "wall_s": 103.4
+     },
+     {
+      "trial": 10,
+      "verified": true,
+      "attempts": 1,
+      "won_by": "super",
+      "wall_s": 89.4
+     }
+    ],
+    "rounds": [
+     {
+      "revision": 1,
+      "source": "local-fallback",
+      "guidance": "OpenAI's own migration guide",
+      "fell_back": false,
+      "k": 5,
+      "n": 5,
+      "same_as_maintainer": 0,
+      "never_applied": 0,
+      "rejected": 0
+     },
+     {
+      "revision": 2,
+      "source": "local-fallback",
+      "guidance": "OpenAI's own migration guide",
+      "fell_back": true,
+      "k": 5,
+      "n": 5,
+      "same_as_maintainer": 0,
+      "never_applied": 0,
+      "rejected": 0
      }
     ]
    },
    "guidance": {
-    "query": "openai 3.0.0 migration guide httpx.HTTPTransport breaking change",
-    "source": "local-fallback",
+    "query": "openai python package 3.0.0 migration guide HTTPTransport breaking change",
+    "source": "local-fallback (tavily returned no usable pages)",
     "urls": [
      "data\\openai-3.0.0\\migration_guide.md"
-    ]
+    ],
+    "fetched_at": null,
+    "end_date": null,
+    "excluded": []
    },
    "maintainer_fix": {
     "kind": "pr",
@@ -4973,70 +5044,153 @@
    },
    "triage": {
     "category": "changed-signature-or-behavior",
-    "symbol": "tests.test_openai_responses.py::test_async_web_search_streaming_refreshes_from_final_payload",
-    "cause": "The upstream release switched the default HTTP client to HTTPX2, altering request signatures and causing mocked endpoints to no longer match the issued requests.",
+    "symbol": "openai.AsyncOpenAI",
+    "cause": "The upstream release switched to HTTPX2 as the default client, altering how HTTP requests are made and breaking test expectations for mocked POST requests.",
     "quotes": [
-     "Match POST request on https://api.openai.com/v1/chat/completions"
+     "The following responses are mocked but not requested: - Match POST request on https://api.openai.com/v1/chat/completions"
     ],
     "dropped_quotes": 1,
-    "fix_plan": "adapt-call-site",
-    "fix_notes": "Update any direct httpx usage to use httpx2's Client or AsyncClient and adjust transports/configurations so that the request URLs and headers match the mocked expectations.",
+    "fix_plan": "migrate-import",
+    "fix_notes": "Update code and tests to use the new httpx2 API or the legacy escape hatch, and adjust mocks to match the new request signatures.",
     "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
     "confidence": 0.96
    },
-   "log": "v1/responses\n  \n  If this is on purpose, refer to https://github.com/Colin-b/pytest_httpx/blob/master/README.md#allow-to-register-more-responses-than-what-will-be-requested\nassert not [<pytest_httpx._request_matcher._RequestMatcher object at 0x7fffe4ee29c0>]\nERROR tests/test_templates.py::test_execute_prompt_with_a_template['Summarize this: $input'-Input text-extra_args0-gpt-4o-mini-Summarize this: Input text-None-None] - AssertionError: The following responses are mocked but not requested:\n  - Match POST request on https://api.openai.com/v1/chat/completions\n  \n  If this is on purpose, refer to https://github.com/Colin-b/pytest_httpx/blob/master/README.md#allow-to-register-more-responses-than-what-will-be-requested\nassert not [<pytest_httpx._request_matcher._RequestMatcher object at 0x7fffe3afd370>]\nERROR tests/test_templates.py::test_execute_prompt_with_a_template[prompt: 'Summarize this: $input'\\nmodel: gpt-4-Input text-extra_args1-gpt-4-Summarize this: Input text-None-None] - AssertionError: The following responses are mocked but not requested:\n  - Match POST request on https://api.openai.com/v1/chat/completions\n  \n  If this is on purpose, refer to https://github.com/Colin-b/pytest_httpx/blob/master/README.md#allow-to-register-more-responses-than-what-will-be-requested\nassert not [<pytest_httpx._request_matcher._RequestMatcher object at 0x7fffe4099490>]\nERROR tests/test_templates.py::test_execute_prompt_with_a_template[prompt: 'Summarize this: $input'-Input text-extra_args2-gpt-4-Summarize this: Input text-None-None] - AssertionError: The following responses are mocked but not requested:\n  - Match POST request on https://api.openai.com/v1/chat/completions\n  \n  If this is on purpose, refer to https://github.com/Colin-b/pytest_httpx/blob/master/README.md#allow-to-register-more-responses-than-what-will-be-requested\nassert not [<pytest_httpx._request_matcher._RequestMatcher object at 0x7fffe14f04a0>]\nERROR tests/test_templates.py::test_execute_prompt_with_a_template[boo-Input text-extra_args3-gpt-4o-mini-expected_input3-None-None] - AssertionError: The following responses are mocked but not requested:\n  - Match POST request on https://api.openai.com/v1/chat/completions\n  \n  If this is on purpose, refer to https://github.com/Colin-b/pytest_httpx/blob/master/README.md#allow-to-register-more-responses-than-what-will-be-requested\nassert not [<pytest_httpx._reques",
+   "log": "-register-more-responses-than-what-will-be-requested\nassert not [<pytest_httpx._request_matcher._RequestMatcher object at 0x7fffe14ba000>]\nERROR tests/test_templates.py::test_execute_prompt_with_a_template[system: 'Summarize this'-Input text-extra_args7-gpt-4o-mini-expected_input7-None-None] - AssertionError: The following responses are mocked but not requested:\n  - Match POST request on https://api.openai.com/v1/chat/completions\n  \n  If this is on purpose, refer to https://github.com/Colin-b/pytest_httpx/blob/master/README.md#allow-to-register-more-responses-than-what-will-be-requested\nassert not [<pytest_httpx._request_matcher._RequestMatcher object at 0x7fffe1464710>]\nERROR tests/test_templates.py::test_execute_prompt_with_a_template[prompt: 'Summarize this: $input'\\noptions:\\n  temperature: 0.5-Input text-extra_args8-gpt-4o-mini-Summarize this: Input text-None-expected_options8] - AssertionError: The following responses are mocked but not requested:\n  - Match POST request on https://api.openai.com/v1/chat/completions\n  \n  If this is on purpose, refer to https://github.com/Colin-b/pytest_httpx/blob/master/README.md#allow-to-register-more-responses-than-what-will-be-requested\nassert not [<pytest_httpx._request_matcher._RequestMatcher object at 0x7fffe1919af0>]\nERROR tests/test_templates.py::test_execute_prompt_with_a_template[prompt: 'Summarize this: $input'\\noptions:\\n  temperature: 0.5-Input text-extra_args9-gpt-4o-mini-Summarize this: Input text-None-expected_options9] - AssertionError: The following responses are mocked but not requested:\n  - Match POST request on https://api.openai.com/v1/chat/completions\n  \n  If this is on purpose, refer to https://github.com/Colin-b/pytest_httpx/blob/master/README.md#allow-to-register-more-responses-than-what-will-be-requested\nassert not [<pytest_httpx._request_matcher._RequestMatcher object at 0x7fffe385ad80>]\nERROR tests/test_templates.py::test_template_respects_cli_extract_flag - AssertionError: The following responses are mocked but not requested:\n  - Match POST request on https://api.openai.com/v1/chat/completions\n  \n  If this is on purpose, refer to https://github.com/Colin-b/pytest_httpx/blob/master/README.md#allow-to-register-more-responses-than-what-will-be-requested\nassert not [<pytest_httpx._request_matcher._RequestMatcher object at 0x7fffe3d949b0>]\n110 failed, 959 passed, 110 errors in 584.74s (0:09:44)\n",
    "fix": {
-    "verified": false,
+    "verified": true,
     "attempts": [
      {
       "tier": "super",
       "model": "nvidia/nemotron-3-super-120b-a12b",
-      "applied": false,
-      "verified": false,
-      "apply_error": "model returned no edits",
-      "reasons": [],
-      "rationale": ""
-     },
-     {
-      "tier": "super",
-      "model": "nvidia/nemotron-3-super-120b-a12b",
-      "applied": false,
-      "verified": false,
-      "apply_error": "no JSON object in model output: '{\"rationale\": \"Add httpx dependency and use legacy HTTPX client for OpenAI instantiation to match pytest-httpx mocks.\", \"edits\": [{\"path\": \"pyproject.toml\", \"search\": \"dependencies = [\\\\n    \\\\\"click\\\\\",\\\\n    \\\\\"condense-json>=1.1\\\\\",\\\\n    \\\\\"openai>=2.32.0\\\\\",\\\\n    \\\\\"click-default-group>=1.2.3\\\\\",\\\\n    \\\\\"s'",
-      "reasons": [],
-      "rationale": "model error: no JSON object in model output: '{\"rationale\": \"Add httpx dependency and use legacy HTTPX client for OpenAI instantiation to match pytest-httpx mocks.\", \"edits\": [{\"path\": \"pyproject.toml\", \"search\": \"dependencies = [\\\\n    \\\\\"click\\\\\",\\\\n    \\\\\"condense-json>=1.1\\\\\",\\\\n    \\\\\"openai>=2.32.0\\\\\",\\\\n    \\\\\"click-default-group>=1.2.3\\\\\",\\\\n    \\\\\"s'"
-     },
-     {
-      "tier": "ultra",
-      "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
       "applied": true,
       "verified": false,
       "apply_error": null,
       "reasons": [
        "110 tests that passed before the release do not pass"
       ],
-      "rationale": "The package imports `httpx` in `llm/default_plugins/openai_models.py` but does not declare it as a dependency. Since openai 3.0.0 no longer installs `httpx` transitively, this missing declaration must be added to ensure the package's direct `httpx` usage continues to work."
+      "rationale": "The llm package imports httpx but does not declare it as a dependency. With openai 3.0.0, httpx is no longer a transitive dependency, so we must declare it explicitly to avoid ImportError. This also allows the llm package to continue using httpx for any custom HTTP client needs, ensuring compatibility with the existing pytest_httpx mocks."
+     },
+     {
+      "tier": "super",
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "applied": true,
+      "verified": true,
+      "apply_error": null,
+      "reasons": [],
+      "rationale": "Adding an upper bound on openai prevents the 3.0.0 release that switched to HTTPX2, which breaks the existing httpx-based test mocks. This restores the pre\u2011release behavior without requiring test modifications."
      }
     ],
-    "diff": "",
-    "trials": 1,
-    "trials_verified": 0,
+    "diff": "diff --git a/pyproject.toml b/pyproject.toml\nindex 8ec3191..eaa636e 100644\n--- a/pyproject.toml\n+++ b/pyproject.toml\n@@ -27,7 +27,7 @@ classifiers = [\n dependencies = [\n     \"click\",\n     \"condense-json>=1.1\",\n-    \"openai>=2.32.0\",\n+    \"openai>=2.32.0,<3.0.0\",\n     \"click-default-group>=1.2.3\",\n     \"sqlite-utils>=4.0\",\n     \"pydantic>=2.0.0\",\n",
+    "trials": 10,
+    "trials_verified": 9,
     "trial_outcomes": [
      {
       "trial": 1,
-      "verified": false,
+      "verified": true,
+      "attempts": 2,
+      "won_by": "super",
+      "wall_s": 1033.8
+     },
+     {
+      "trial": 2,
+      "verified": true,
       "attempts": 3,
+      "won_by": "ultra",
+      "wall_s": 716.9
+     },
+     {
+      "trial": 3,
+      "verified": true,
+      "attempts": 3,
+      "won_by": "ultra",
+      "wall_s": 1358.6
+     },
+     {
+      "trial": 4,
+      "verified": true,
+      "attempts": 3,
+      "won_by": "ultra",
+      "wall_s": 387.8
+     },
+     {
+      "trial": 5,
+      "verified": true,
+      "attempts": 3,
+      "won_by": "ultra",
+      "wall_s": 465.6
+     },
+     {
+      "trial": 6,
+      "verified": true,
+      "attempts": 2,
+      "won_by": "super",
+      "wall_s": 760.0
+     },
+     {
+      "trial": 7,
+      "verified": false,
+      "attempts": 4,
       "won_by": null,
-      "wall_s": null
+      "wall_s": 1486.8
+     },
+     {
+      "trial": 8,
+      "verified": true,
+      "attempts": 4,
+      "won_by": "ultra",
+      "wall_s": 1293.5
+     },
+     {
+      "trial": 9,
+      "verified": true,
+      "attempts": 1,
+      "won_by": "super",
+      "wall_s": 322.0
+     },
+     {
+      "trial": 10,
+      "verified": true,
+      "attempts": 1,
+      "won_by": "super",
+      "wall_s": 303.2
+     }
+    ],
+    "rounds": [
+     {
+      "revision": 1,
+      "source": "local-fallback",
+      "guidance": "OpenAI's own migration guide",
+      "fell_back": false,
+      "k": 5,
+      "n": 5,
+      "same_as_maintainer": 4,
+      "never_applied": 0,
+      "rejected": 0
+     },
+     {
+      "revision": 2,
+      "source": "tavily",
+      "guidance": "pages Tavily found",
+      "fell_back": false,
+      "k": 4,
+      "n": 5,
+      "same_as_maintainer": 1,
+      "never_applied": 0,
+      "rejected": 1
      }
     ]
    },
    "guidance": {
-    "query": "openai 3.0.0 migration guide openai.OpenAI breaking change",
-    "source": "local-fallback",
+    "query": "openai python package 3.0.0 migration guide openai.AsyncOpenAI breaking change",
+    "source": "tavily",
     "urls": [
-     "data\\openai-3.0.0\\migration_guide.md"
-    ]
+     "https://magica.com/news/openai-python-sdk-httpx2-migration",
+     "https://community.openai.com/t/openai-python-sdk-3-0-0-now-installing-needing-pydantic-teams-httpx2-fork/1391506",
+     "https://docs.haystack.deepset.ai/docs/migration"
+    ],
+    "fetched_at": "2026-10-20T21:49:42Z",
+    "end_date": "2026-08-20",
+    "excluded": []
    },
    "maintainer_fix": {
     "kind": "release",
@@ -5897,8 +6051,8 @@
    "via_extra": "dev",
    "repo": "meridianlabs-ai/inspect_scout",
    "tag": "0.4.46",
-   "state": "negative",
-   "why": "",
+   "state": "held-back",
+   "why": "The after fork installed version 2.54.0, not the release.",
    "before": {
     "passed": 3151,
     "failed": 27,
@@ -6908,8 +7062,8 @@
    "via_extra": null,
    "repo": "Lumiwealth/lumibot",
    "tag": "v4.5.83",
-   "state": "negative",
-   "why": "",
+   "state": "held-back",
+   "why": "The after fork installed version 2.24.0, not the release.",
    "before": {
     "passed": 2210,
     "failed": 145,
@@ -7323,8 +7477,8 @@
    "via_extra": "dev",
    "repo": null,
    "tag": null,
-   "state": "negative",
-   "why": "",
+   "state": "held-back",
+   "why": "The after fork installed version 2.54.0, not the release.",
    "before": {
     "passed": 676,
     "failed": 3,
@@ -8683,8 +8837,8 @@
    "via_extra": null,
    "repo": "oracle-samples/oci-openai",
    "tag": "v1.1.0",
-   "state": "negative",
-   "why": "",
+   "state": "held-back",
+   "why": "The after fork installed version 2.54.0, not the release.",
    "before": {
     "passed": 53,
     "failed": 0,
@@ -9553,26 +9707,155 @@
     }
    },
    "triage": {
-    "category": null,
-    "symbol": null,
-    "cause": null,
-    "quotes": null,
-    "dropped_quotes": null,
-    "fix_plan": null,
-    "fix_notes": null,
-    "model": null,
-    "confidence": null
+    "category": "dependency-conflict",
+    "symbol": "httpx",
+    "cause": "The upstream release no longer installs the `httpx` package, causing a ModuleNotFoundError when code imports it.",
+    "quotes": [
+     "ModuleNotFoundError: No module named 'httpx'"
+    ],
+    "dropped_quotes": 0,
+    "fix_plan": "migrate-import",
+    "fix_notes": "Replace imports of `httpx` with HTTPX2 equivalents or use the temporary legacy escape hatch as described in the migration guide.",
+    "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+    "confidence": 0.96
    },
-   "log": "t.py::test_dataset_get\nERROR tests/test_dataset.py::test_dataset_invalid_type\nERROR tests/test_feedback.py::test_submit_feedback\nERROR tests/test_feedback.py::test_get_feedback\nERROR tests/test_files.py::test_list_files\nERROR tests/test_files.py::test_upload_file\nERROR tests/test_files.py::test_get_file\nERROR tests/test_files.py::test_delete_file\nERROR tests/test_files.py::test_generate_presigned_url\nERROR tests/test_files.py::test_generate_presigned_url_without_purpose\nERROR tests/test_hub.py::test_hub_info\nERROR tests/test_hub.py::test_hub_list_domains\nERROR tests/test_hub.py::test_hub_get_schema\nERROR tests/test_models.py::test_list_models\nERROR tests/test_predictions.py::test_list_predictions\nERROR tests/test_predictions.py::test_get_prediction\nERROR tests/test_predictions.py::test_wait_prediction\nERROR tests/test_predictions.py::test_wait_prediction_timeout\nERROR tests/test_predictions.py::test_wait_prediction_polling\nERROR tests/test_predictions.py::test_wait_prediction_immediate_completion\nERROR tests/test_predictions.py::test_image_generate\nERROR tests/test_predictions.py::test_image_generate_with_url\nERROR tests/test_predictions.py::test_image_generate_validation\nERROR tests/test_predictions.py::test_document_generate\nERROR tests/test_predictions.py::test_video_generate\nERROR tests/test_predictions.py::test_audio_generate\nERROR tests/test_predictions.py::test_image_execute\nERROR tests/test_predictions.py::test_image_execute_with_url\nERROR tests/test_predictions.py::test_image_execute_validation\nERROR tests/test_predictions.py::test_document_execute\nERROR tests/test_predictions.py::test_video_execute\nERROR tests/test_predictions.py::test_audio_execute\nERROR tests/test_predictions.py::test_schema_casting_with_domain\nERROR tests/test_predictions.py::test_schema_casting_with_custom_schema\nERROR tests/test_predictions.py::test_schema_casting_across_prediction_types[image]\nERROR tests/test_predictions.py::test_schema_casting_across_prediction_types[document]\nERROR tests/test_predictions.py::test_schema_casting_across_prediction_types[video]\nERROR tests/test_predictions.py::test_schema_casting_across_prediction_types[audio]\nERROR tests/test_predictions.py::test_document_markdown_automatic_casting\nERROR tests/test_predictions.py::test_document_markdown_automatic_casting_in_get\n======= 3 failed, 228 passed, 2 skipped, 2 warnings, 62 errors in 9.91s ========\n",
+   "log": "esolve\n    found: object = importlib.import_module(used)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1324: in _find_and_load_unlocked\n    ???\nE   ModuleNotFoundError: No module named 'httpx'\n=============================== warnings summary ===============================\ntests/test_feedback.py:7\n  /work/repo/tests/test_feedback.py:7: PytestCollectionWarning: cannot collect test class 'TestLabel' because it has a __init__ constructor (from: tests/test_feedback.py)\n    class TestLabel(BaseModel):\n\ntests/test_agent.py::TestAgentProcessInputs::test_process_inputs_with_dict\n  /work/venv/lib/python3.12/site-packages/_pytest/python.py:167: DeprecationWarning: Passing inputs as a dictionary will be deprecated in the future. Please use a Pydantic BaseModel instead for better type safety and validation.\n    result = testfunction(**testargs)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n--------------------- generated xml file: /work/junit.xml ----------------------\n=========================== short test summary info ============================\nFAILED tests/test_gateway.py::TestGatewayResource::test_health_dedicated_endpoint - ModuleNotFoundError: No module named 'httpx'\nFAILED tests/test_gateway.py::TestGatewayResource::test_health_falls_back_to_models_on_404 - ModuleNotFoundError: No module named 'httpx'\nFAILED tests/test_gateway.py::TestGatewayResource::test_health_false_on_connection_error - ModuleNotFoundError: No module named 'httpx'\nERROR tests/test_agent.py::TestAgentMethods::test_agent_get_by_name_and_version\nERROR tests/test_agent.py::TestAgentMethods::test_agent_get_by_id\nERROR tests/test_agent.py::TestAgentMethods::test_agent_get_validation_error\nERROR tests/test_agent.py::TestAgentMethods::test_agent_list\nERROR tests/test_agent.py::TestAgentMethods::test_agent_create\nERROR tests/test_agent.py::TestAgentMethods::test_agent_create_validation_error\nERROR tests/test_agent.py::TestAgentMethods::test_agent_execute\nERROR tests/test_agent.py::TestAgentMethods::test_agent_execute_without_ve",
    "fix": {
-    "verified": false,
-    "attempts": [],
-    "diff": "",
-    "trials": 0,
-    "trials_verified": 0,
-    "trial_outcomes": []
+    "verified": true,
+    "attempts": [
+     {
+      "tier": "super",
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "applied": true,
+      "verified": false,
+      "apply_error": null,
+      "reasons": [
+       "3 tests that passed before the release do not pass"
+      ],
+      "rationale": "The upstream openai 3.0.0 release removed the transitive dependency on httpx, causing ModuleNotFoundError in vlmrun's gateway code that imports httpx. To fix this, we declare httpx as a dependency in the openai extra to ensure it is installed when the openai SDK is present."
+     },
+     {
+      "tier": "super",
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "applied": true,
+      "verified": true,
+      "apply_error": null,
+      "reasons": [],
+      "rationale": "The vlmrun package imports and uses httpx in vlmrun/client/gateway.py, but httpx is not declared as a dependency. Since the openai SDK 3.0.0 no longer transitively includes httpx, we must explicitly declare httpx as a dependency for all extras that include openai (openai, cli, all, test) to ensure it is installed when the gateway functionality is used."
+     }
+    ],
+    "diff": "diff --git a/pyproject.toml b/pyproject.toml\nindex 4b56e85..15f7006 100644\n--- a/pyproject.toml\n+++ b/pyproject.toml\n@@ -31,9 +31,9 @@ license = {text = \"Apache-2.0\"}\n dynamic = [\"version\", \"dependencies\"]\n \n [project.optional-dependencies]\n-test = [\"pytest\", \"openai\", \"pre-commit\"]\n+test = [\"pytest\", \"openai\", \"pre-commit\", \"httpx\"]\n build = [\"twine\", \"build\"]\n-openai = [\"openai>=1.0.0\"]\n+openai = [\"openai>=1.0.0\", \"httpx\"]\n video = [\n     \"numpy>=1.24.0\",\n ]\n@@ -44,6 +44,7 @@ cli = [\n     \"typer>=0.9.0\",\n     \"rich>=13.0.0\",\n     \"openai>=1.0.0\",\n+    \"httpx\",\n ]\n all = [\n     \"numpy>=1.24.0\",\n@@ -51,6 +52,7 @@ all = [\n     \"openai>=1.0.0\",\n     \"typer>=0.9.0\",\n     \"rich>=13.0.0\",\n+    \"httpx\",\n ]\n \n [tool.setuptools.dynamic]\n",
+    "trials": 10,
+    "trials_verified": 6,
+    "trial_outcomes": [
+     {
+      "trial": 1,
+      "verified": false,
+      "attempts": 4,
+      "won_by": null,
+      "wall_s": 167.5
+     },
+     {
+      "trial": 2,
+      "verified": false,
+      "attempts": 4,
+      "won_by": null,
+      "wall_s": 234.1
+     },
+     {
+      "trial": 3,
+      "verified": false,
+      "attempts": 4,
+      "won_by": null,
+      "wall_s": 254.3
+     },
+     {
+      "trial": 4,
+      "verified": true,
+      "attempts": 2,
+      "won_by": "super",
+      "wall_s": 144.3
+     },
+     {
+      "trial": 5,
+      "verified": true,
+      "attempts": 2,
+      "won_by": "super",
+      "wall_s": 110.1
+     },
+     {
+      "trial": 6,
+      "verified": true,
+      "attempts": 4,
+      "won_by": "ultra",
+      "wall_s": 336.4
+     },
+     {
+      "trial": 7,
+      "verified": true,
+      "attempts": 3,
+      "won_by": "ultra",
+      "wall_s": 206.6
+     },
+     {
+      "trial": 8,
+      "verified": true,
+      "attempts": 2,
+      "won_by": "super",
+      "wall_s": 201.0
+     },
+     {
+      "trial": 9,
+      "verified": true,
+      "attempts": 4,
+      "won_by": "ultra",
+      "wall_s": 151.2
+     },
+     {
+      "trial": 10,
+      "verified": false,
+      "attempts": 4,
+      "won_by": null,
+      "wall_s": 195.8
+     }
+    ],
+    "rounds": [
+     {
+      "revision": 1,
+      "source": "local-fallback",
+      "guidance": "OpenAI's own migration guide",
+      "fell_back": false,
+      "k": 2,
+      "n": 5,
+      "same_as_maintainer": 0,
+      "never_applied": 2,
+      "rejected": 1
+     },
+     {
+      "revision": 2,
+      "source": "tavily",
+      "guidance": "pages Tavily found",
+      "fell_back": false,
+      "k": 4,
+      "n": 5,
+      "same_as_maintainer": 0,
+      "never_applied": 0,
+      "rejected": 1
+     }
+    ]
    },
-   "guidance": null,
+   "guidance": {
+    "query": "openai python package 3.0.0 migration guide httpx breaking change",
+    "source": "tavily",
+    "urls": [
+     "https://magica.com/news/openai-python-sdk-httpx2-migration",
+     "https://community.openai.com/t/openai-python-sdk-3-0-0-now-installing-needing-pydantic-teams-httpx2-fork/1391506",
+     "https://www.threads.com/@githubprojects/post/DaqTknAmmh0/the-open-ai-python-sdk-now-supports-workload-identity-authentication-allowing"
+    ],
+    "fetched_at": "2026-10-20T22:59:15Z",
+    "end_date": "2026-08-30",
+    "excluded": []
+   },
    "maintainer_fix": {
     "kind": "pr",
     "repo": "vlm-run/vlmrun-python-sdk",
@@ -10055,8 +10338,8 @@
    "via_extra": "test",
    "repo": "vlm-run/vlmrun-hub",
    "tag": "v0.1.35",
-   "state": "negative",
-   "why": "",
+   "state": "held-back",
+   "why": "The after fork installed version 2.54.0, not the release.",
    "before": {
     "passed": 25,
     "failed": 0,
@@ -10355,8 +10638,8 @@
    "via_extra": "openai",
    "repo": "nousergon/krepis",
    "tag": "v0.47.0",
-   "state": "negative",
-   "why": "",
+   "state": "held-back",
+   "why": "The after fork installed version 2.54.0, not the release.",
    "before": {
     "passed": 1267,
     "failed": 0,

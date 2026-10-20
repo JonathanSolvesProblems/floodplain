@@ -142,6 +142,9 @@ main { display: block; }
 .rcp--no-tests .bag { display: none; }
 .rcp--no-tests .cord { stroke: var(--straw); stroke-width: 2.4; stroke-linecap: round; } /* a stake, nothing hung */
 .rcp--lost .bag { fill: none; stroke-dasharray: 2.2 2; }
+/* held back: a weir across the cord; the release never reached this packet */
+.rcp--held-back .bag { fill: none; stroke: var(--straw); }
+.rcp--held-back .weir { stroke: var(--ink); stroke-width: 1.6; stroke-linecap: round; }
 .rcp--positive { cursor: pointer; }
 .rcp--positive .cord, .rcp--positive .bag { stroke: var(--water); stroke-width: 1.7; }
 @media (prefers-color-scheme: dark) { .rcp--positive .cord, .rcp--positive .bag { stroke: var(--ink); } }
@@ -277,6 +280,9 @@ main { display: block; }
 .quotes-note { margin-top: 0.6rem; font-size: var(--s-1); color: var(--muted); }
 
 .trials { margin-top: 0.9rem; font-size: var(--s1); max-width: 52rem; line-height: 1.4; }
+.trials p { margin: 0.4rem 0; }
+.trials ul { margin: 0.4rem 0; padding-left: 1.1rem; }
+.trials li { margin: 0.3rem 0; }
 .attempts { margin-top: 1.2rem; }
 .attempt { display: grid; grid-template-columns: 2rem 10rem minmax(0, 1fr); gap: 0 1rem; padding: 0.7rem 0;
            border-bottom: 1px solid var(--rule); align-items: baseline; }

@@ -287,7 +287,9 @@ class Fixer:
                 f"echo '[floodplain] after the patch:'; uv pip freeze | grep -iE '^(openai|httpx|httpx2)==' ; "
             )
         script = (reinstall + 'cd "$(cat /work/pkgdir 2>/dev/null || echo /work/repo)" && '
-                  f"{GIT} diff > /work/fix.diff; " + TEST_SCRIPT)
+                  # Build metadata the reinstall regenerates (an sdist ships its egg-info, which
+                  # is then tracked) is not part of the patch; only what the model edited is.
+                  f"{GIT} diff -- . ':(exclude)*.egg-info/*' > /work/fix.diff; " + TEST_SCRIPT)
         r = await self.backend.run(installed, script, files=upload, persist=True, timeout=TEST_TIMEOUT)
         out = r.stdout
         xml = ""

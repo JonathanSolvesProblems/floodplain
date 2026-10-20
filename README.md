@@ -26,8 +26,8 @@ release day: <!-- claim:total_dependents -->220. Of those, <!-- claim:protected 
 below 3.0.0 and were never exposed. I ran the other <!-- claim:exposed -->157 wherever a source
 checkout could be found, <!-- claim:ran -->146 in all, three forks each.
 
-<!-- claim:readable -->31 of them had a test suite that worked before the release.
-<!-- claim:broken -->3 broke:
+<!-- claim:readable -->20 of them had a test suite that worked before the release and actually
+installed 3.0.0 in the after fork. <!-- claim:broken -->3 broke:
 
 | package | what broke | what its maintainers later shipped |
 |---|---|---|
@@ -35,15 +35,36 @@ checkout could be found, <!-- claim:ran -->146 in all, three forks each.
 | `openinference-instrumentation-agno` | all <!-- claim:broke.openinference-instrumentation-agno -->92 passing tests, lost to import errors | [Arize PR #3574](https://github.com/Arize-ai/openinference/pull/3574), routing the SDK through legacy `httpx`, <!-- claim:fix_hours.openinference-instrumentation-agno -->146.8 hours later |
 | `vlmrun` | <!-- claim:broke.vlmrun -->3 of <!-- claim:passed_before.vlmrun -->231, all in `test_gateway.py` | [PR #215](https://github.com/vlm-run/vlmrun-python-sdk/pull/215) pinned `openai==1.109.1`, <!-- claim:fix_hours.vlmrun -->457.9 hours later, without saying why |
 
-The other <!-- claim:status.ok -->28 read clean: every test that passed before still passed
-after. Each of the three breaks was later confirmed by its own maintainers' action, recorded
+The other <!-- claim:status.ok -->17 read clean: every test that passed before still passed
+after. A further <!-- claim:status.held-back -->11 had working suites but never received 3.0.0:
+their own requirement allowed it, but another package in their tree held openai at 2.x. They
+passed, but the release never reached them, so they are not counted either way. Each of the
+three breaks was later confirmed by its own maintainers' action, recorded
 with links in [maintainer_fixes.json](data/openai-3.0.0/maintainer_fixes.json).
+
+### Before the release, not after
+
+The replay above uses a release that is already on PyPI. The point is to run it before
+publishing, so I ran it again as OpenAI could have a minute before they did: their own 3.0.0 wheel (sha256
+checked against PyPI) given to Floodplain as an unpublished file, against the index as it stood
+at 01:54:48 UTC, one minute before the upload.
+
+All <!-- claim:candidate_run.openai-3.0.0-py3-none-any -->31 dependents with working suites gave
+the same verdict as the replay (<!-- claim:candidate_agree.openai-3.0.0-py3-none-any -->31
+agree), with the same set of broken tests in
+<!-- claim:candidate_same_tests.openai-3.0.0-py3-none-any -->31: the
+<!-- claim:candidate_broken.openai-3.0.0-py3-none-any -->3 breaks above, 110 tests for llm, 6
+modules for agno and 3 tests for vlmrun, and the same 11 held back. So the check that found
+these breaks could have run before anyone hit them.
 
 ### The patches
 
 For each break, Nemotron drafted a patch and the package's own suite judged it in a fresh fork.
 Nemotron samples differently every run, so one verified patch is a sample, not a behaviour. I
-ran the whole fix loop five times per package and report how many came back verified:
+ran the whole fix loop five times per package, in two rounds. Rounds are never pooled, because
+the fixer changed between them.
+
+**Round 1**, fixer revision 1, with OpenAI's own migration guide:
 
 | package | verified | what the verified patches did |
 |---|---|---|
@@ -51,10 +72,23 @@ ran the whole fix loop five times per package and report how many came back veri
 | `openinference-instrumentation-agno` | <!-- claim:fix_k.openinference-instrumentation-agno.r1-local-fallback -->5 of <!-- claim:fix_n.openinference-instrumentation-agno.r1-local-fallback -->5 | an upper pin on `httpx` in the test dependencies |
 | `vlmrun` | <!-- claim:fix_k.vlmrun.r1-local-fallback -->2 of <!-- claim:fix_n.vlmrun.r1-local-fallback -->5 | declared `httpx` explicitly, which 3.0.0 no longer brings in |
 
-The three vlmrun failures were my fixer's fault, not the model's diagnosis: it showed Nemotron
-only the first 120 lines of each file, and vlmrun imports `httpx` further down, so its edit
-could not be applied. The fixer now shows every match in context. Trials from the two fixer
-revisions are recorded separately and never pooled.
+Two of vlmrun's three failures were my fixer's fault, not the model's diagnosis: it showed
+Nemotron only the first 120 lines of each file, vlmrun imports `httpx` further down, and the
+edit could not be applied. Revision 2 shows every match with the lines around it, and retries a
+failed edit with the file's real text.
+
+**Round 2**, fixer revision 2, with the pages Tavily found:
+
+| package | verified | what the verified patches did |
+|---|---|---|
+| `llm` | <!-- claim:fix_k.llm.r2-tavily -->4 of <!-- claim:fix_n.llm.r2-tavily -->5 | three migrated, passing an explicit `httpx` client so the mocks fire again; one pinned below 3 |
+| `openinference-instrumentation-agno` | <!-- claim:fix_k.openinference-instrumentation-agno.r2-local-fallback -->5 of <!-- claim:fix_n.openinference-instrumentation-agno.r2-local-fallback -->5 | four pinned `openai<3.0.0` in the test dependencies, one pinned `httpx` |
+| `vlmrun` | <!-- claim:fix_k.vlmrun.r2-tavily -->4 of <!-- claim:fix_n.vlmrun.r2-tavily -->5 | two pinned `openai` below 3, two declared `httpx` |
+
+For agno, Tavily found nothing dated before Arize's fix that did not name the package, so its
+round 2 used OpenAI's guide, and the record says so. Round 2's llm patches lean towards a real
+migration rather than a pin, but the fixer revision changed at the same time as the guidance,
+so I do not attribute that to either one.
 
 ## How it works
 
@@ -96,13 +130,14 @@ issue, where the fix is discussed. Every response is committed under
 [data/openai-3.0.0/research/](data/openai-3.0.0/research/), so a rerun replays exactly what the
 original run saw and needs no Tavily key.
 
-## The other 115
+## The other 126
 
-Most dependents could not give a reading, and the page says why for each one rather than
-counting them as passes:
+Most dependents could not give a reading about the release, and the page says why for each one
+rather than counting them as passes:
 
 | reading | count | meaning |
 |---|---|---|
+| held back | <!-- claim:status.held-back -->11 | the suite worked, but another dependency kept openai below 3.0.0, so the release never arrived |
 | no baseline | <!-- claim:status.no-baseline -->54 | nothing passed before the release either: the suite needs services, credentials or system packages a sandbox does not have |
 | no tests | <!-- claim:status.no-tests -->28 | no test suite ships at the released version |
 | incomplete | <!-- claim:status.incomplete -->20 | a fork returned no results (timeout or transport failure) |
@@ -126,6 +161,9 @@ not add up:
 6. Tavily's top result for openai 3.0.0 was llm's own issue, which discusses the fix.
 7. The first pre-release mode installed the wheel over an environment already resolved with the
    old release. That kept `httpx` installed, which hid exactly the breaks agno and vlmrun had.
+8. 11 dependents were counted as reading clean although their after fork never installed
+   3.0.0. A verdict now only counts if the fork resolved the release; otherwise it is
+   `held back`. The headline went from 3 of 31 to 3 of 20.
 
 ## Run it
 
@@ -168,8 +206,8 @@ disagrees with [stats.json](data/openai-3.0.0/stats.json).
 
 ## Limits
 
-- Only Python packages with a pytest suite that runs without outside services can give a
-  reading; 31 of 146 did here.
+- Only Python packages with a pytest suite that runs without outside services, and that
+  actually resolve the release, can give a reading; 20 of 146 did here.
 - The replay freezes the index by PyPI upload time, so it reproduces what a fresh install
   resolved on release day, not what any one user's lockfile held.
 - One release so far. The method is not specific to openai, but I have only measured it there.

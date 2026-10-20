@@ -4713,9 +4713,10 @@
   },
   "flaky_excluded": [],
   "verdict": {
-    "status": "ok",
-    "passed_after": 1487,
-    "pre_existing_failures": 7
+    "status": "held-back",
+    "was": "ok",
+    "resolved": "2.54.0",
+    "reason": "the after fork resolved openai 2.54.0 instead of 3.0.0"
   },
   "error": null,
   "requirement": "openai>=1.0.0; extra == \"openai\"",

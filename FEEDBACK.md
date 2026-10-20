@@ -103,6 +103,13 @@ Two things would help: note the reasoning-token behaviour in the model card on t
 page, and have the Nano response include `completion_tokens_details.reasoning_tokens` the way
 Super already does, so the cost is visible in the usage object on both.
 
+The scale of it, from the fix loop (86 Super and Ultra calls across 30 fix trials): 541,660 of
+566,013 completion tokens were reasoning, 95.7%. At a 14,000-token budget, 4 of Ultra's first 12
+replies were still cut off mid-JSON, so the reasoning ate the whole budget before the answer
+started. One reply came back with empty `content` even with that headroom. A way to cap
+reasoning separately from the answer (a `reasoning_budget`, or `max_completion_tokens` that
+excludes reasoning) would make the budget predictable.
+
 ### 6. Per-run `cost` during the free beta
 
 Each run result carries a `cost` field, and my `llm` experiment reported about 2.67 across its
@@ -122,9 +129,18 @@ hedging.
   engineer. The clone is one checkpoint, and the forks are genuinely the same starting state,
   which is the difference between "my A/B is fair" and "I hope my A/B is fair".
 - **The preloaded image catalogue** is larger than I expected and removed an import step.
-- **Model tiering is real.** Nano is fast and good enough to classify a test failure by cause;
-  Super writes patches that apply; I reserve Ultra for the retry. Being able to move between
-  them with one string, on one API key, is the thing that made a three-tier design worth doing.
+- **Model tiering is real, and the numbers favour escalating early.** Nano is fast and good
+  enough to classify a test failure by cause. For patches, measured over 82 attempts across 30
+  trials, each judged by the dependent's own test suite: Ultra's patches passed 13 of 27 times
+  (48%), Super's 12 of 55 (22%), and 21 of Super's edits could not be applied at all because the
+  text it meant to replace was not in the file. My plan tries Super twice before Ultra; the data
+  says start with Ultra for anything that has to apply exactly. Being able to move between
+  tiers with one string, on one API key, is what made that measurable.
+- **The fork primitive made a pre-release check possible.** I uploaded an unpublished wheel
+  with `files=` (binary, first try) and offered it to the resolver inside a fork of the
+  "before" world. Against openai 3.0.0's own wheel, all 31 dependents with working suites gave
+  the same verdict as the replay of the real release, with the same tests broken. That only
+  works because every fork starts from exactly the same image.
 - **`/v1/models`** returning the catalogue means I resolve model ids at startup by substring
   instead of pinning them, so the project does not rot when a deployment is renamed.
 

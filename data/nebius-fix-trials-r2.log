@@ -1,0 +1,25 @@
+﻿3 runnable dependents
+backend: nebius-sandboxes
+models: {'nano': 'nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B', 'super': 'nvidia/nemotron-3-super-120b-a12b', 'ultra': 'nvidia/Nemotron-3-Ultra-550b-a55b'}
+  guide  openinference-instrumentation-agno local-fallback (tavily returned no usable pages) 1 page(s)
+  fix    openinference-instrumentation-agno trial 6: VERIFIED after 3 attempt(s), 140.1s
+  fix    openinference-instrumentation-agno trial 7: VERIFIED after 3 attempt(s), 105.7s
+  fix    openinference-instrumentation-agno trial 8: VERIFIED after 3 attempt(s), 131.1s
+  fix    openinference-instrumentation-agno trial 9: VERIFIED after 3 attempt(s), 103.4s
+  fix    openinference-instrumentation-agno trial 10: VERIFIED after 1 attempt(s), 89.4s
+  fix    openinference-instrumentation-agno verified in 10 of 10 trials
+  guide  llm                                tavily 3 page(s)
+  fix    llm                                trial 6: VERIFIED after 2 attempt(s), 760.0s
+  fix    llm                                trial 7: not verified after 4 attempt(s), 1486.8s
+  fix    llm                                trial 8: VERIFIED after 4 attempt(s), 1293.5s
+  fix    llm                                trial 9: VERIFIED after 1 attempt(s), 322.0s
+  fix    llm                                trial 10: VERIFIED after 1 attempt(s), 303.2s
+  fix    llm                                verified in 9 of 10 trials
+  guide  vlmrun                             tavily 3 page(s)
+  fix    vlmrun                             trial 6: VERIFIED after 4 attempt(s), 336.4s
+  fix    vlmrun                             trial 7: VERIFIED after 3 attempt(s), 206.6s
+  fix    vlmrun                             trial 8: VERIFIED after 2 attempt(s), 201.0s
+  fix    vlmrun                             trial 9: VERIFIED after 4 attempt(s), 151.2s
+  fix    vlmrun                             trial 10: not verified after 4 attempt(s), 195.8s
+  fix    vlmrun                             verified in 6 of 10 trials
+token usage: Usage(calls=43, prompt_tokens=249904, completion_tokens=258687, reasoning_tokens=248170, empty_replies=1, by_model={'nvidia/nemotron-3-super-120b-a12b': 28, 'nvidia/Nemotron-3-Ultra-550b-a55b': 15})
