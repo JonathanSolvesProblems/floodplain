@@ -14,7 +14,7 @@ import argparse
 import asyncio
 import json
 import time
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from floodplain.backends import make_backend
@@ -61,12 +61,28 @@ async def main() -> None:
                     help="add --trials more fix trials to the ones already recorded, keeping triage")
     ap.add_argument("--refresh-research", action="store_true",
                     help="ask Tavily again instead of replaying the committed research cache")
+    ap.add_argument("--candidate", type=Path, default=None,
+                    help="an unreleased wheel of the target: the after fork installs it over the "
+                         "before world instead of resolving the published release")
+    ap.add_argument("--as-of", default=None,
+                    help="with --candidate, the moment the before world is frozen at "
+                         "(RFC 3339, default now); results go to <data>/candidate/<wheel>/")
     args = ap.parse_args()
 
     root = Path(f"data/{args.target}-{args.release}")
     pop = json.loads((root / "population.json").read_text(encoding="utf-8"))
     release_uploaded = datetime.fromisoformat(pop["meta"]["release_uploaded_at"])
     exp_dir = root / "experiments"
+    candidate = None
+    if args.candidate:
+        # Pre-release mode: before and control are the world at --as-of; after is that same
+        # world plus the wheel. Nothing about the published release is used.
+        candidate = (args.candidate.name, args.candidate.read_bytes())
+        as_of = (datetime.fromisoformat(args.as_of.replace("Z", "+00:00")) if args.as_of
+                 else datetime.now(timezone.utc).replace(microsecond=0))
+        release_uploaded = as_of + timedelta(minutes=1)
+        exp_dir = root / "candidate" / args.candidate.stem
+        print(f"candidate {args.candidate.name}, before world frozen at {as_of.isoformat()}")
     exp_dir.mkdir(parents=True, exist_ok=True)
     notes_path = root / "release_notes.md"
     notes = notes_path.read_text(encoding="utf-8") if notes_path.exists() else ""
@@ -113,7 +129,8 @@ async def main() -> None:
                 return
             async with sem:
                 started = time.time()
-                exp = await sandbox.run_experiment(base, name, version, src, release_uploaded)
+                exp = await sandbox.run_experiment(base, name, version, src, release_uploaded,
+                                                   candidate=candidate)
             payload = experiment_to_json(exp)
             payload["requirement"] = requirement
             payload["wall_s"] = round(time.time() - started, 1)

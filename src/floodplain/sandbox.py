@@ -56,6 +56,7 @@ class RunOutcome:
     image_uuid: str | None = None
     backend: str = ""
     error: str | None = None     # backend/transport failure, as opposed to a test failure
+    candidate: str | None = None  # wheel installed on top of the cutoff world, if any
 
     @property
     def summary(self) -> dict[str, int]:
@@ -201,8 +202,11 @@ echo "[floodplain] package root: $FOUND"
 """
 
 
+CANDIDATE_DIR = "/work/candidate"
+
+
 def install_script(extras: tuple[str, ...], cutoff: str, groups: tuple[str, ...] = TEST_GROUPS,
-                   package: str = "") -> str:
+                   package: str = "", candidate: str = "") -> str:
     """Fresh venv + editable install of /work/repo with the world frozen at `cutoff`.
 
     A project's test dependencies live in one of two places and modern projects increasingly
@@ -212,10 +216,19 @@ def install_script(extras: tuple[str, ...], cutoff: str, groups: tuple[str, ...]
     collects zero tests from it. Both are tried, one name at a time so an unknown name is not
     fatal, and the script reports exactly which ones took. The sequence is identical in every
     fork, so any difference between forks comes from the dependency world, not from the recipe.
+
+    With `candidate`, an unreleased wheel uploaded to CANDIDATE_DIR is installed last, over
+    whatever version the cutoff world resolved. Its own dependencies still resolve inside the
+    cutoff, so the fork is the world the release would land in on the day it shipped.
     """
     extras_list = " ".join(extras)
     groups_list = " ".join(groups)
     locate = LOCATE_SCRIPT.replace("{pkg}", package or "")
+    cand = ""
+    if candidate:
+        cand = (f'uv pip install --quiet "{CANDIDATE_DIR}/{candidate}" 2>/tmp/cand.err || '
+                f'{{ echo "[floodplain] candidate install failed"; tail -n 20 /tmp/cand.err; exit 43; }}\n'
+                f'echo "[floodplain] candidate installed: {candidate}"')
     return f"""
 set -o pipefail
 {locate}
@@ -232,6 +245,7 @@ for g in {groups_list}; do
   if uv pip install --quiet --group "$g" 2>/dev/null; then took="$took group:$g"; fi
 done
 echo "[floodplain] test deps installed from:$took"
+{cand}
 uv pip install --quiet pytest pytest-timeout || exit 42
 echo "[floodplain] resolved:"
 uv pip freeze | grep -iE '^(openai|httpx|httpx2|certifi|anyio|pydantic|pytest|pytest-httpx|llm-echo|typing-extensions)==' || true
@@ -330,10 +344,13 @@ class Sandbox:
         return res.image
 
     async def fresh_install_and_test(self, clone_img: ImageRef, label: str, cutoff: datetime,
-                                     package: str = "") -> RunOutcome:
+                                     package: str = "",
+                                     candidate: tuple[str, bytes] | None = None) -> RunOutcome:
         cutoff_s = cutoff.strftime("%Y-%m-%dT%H:%M:%SZ")
-        ir = await self.backend.run(clone_img, install_script(TEST_EXTRAS, cutoff_s, package=package),
-                                    persist=True, timeout=INSTALL_TIMEOUT)
+        script = install_script(TEST_EXTRAS, cutoff_s, package=package,
+                                candidate=candidate[0] if candidate else "")
+        files = {f"{CANDIDATE_DIR}/{candidate[0]}": candidate[1]} if candidate else None
+        ir = await self.backend.run(clone_img, script, persist=True, timeout=INSTALL_TIMEOUT, files=files)
         outcome = RunOutcome(
             label=label, cutoff=cutoff_s, install_exit=ir.exit_code,
             install_tail=(ir.stdout[-4000:] + ir.stderr[-4000:]),
@@ -342,6 +359,7 @@ class Sandbox:
             resolved=parse_resolved(ir.stdout),
             backend=self.backend.name,
             error=ir.error,
+            candidate=candidate[0] if candidate else None,
         )
         if not ir.ok or ir.image is None:
             return outcome
@@ -360,14 +378,17 @@ class Sandbox:
         return outcome
 
     async def run_experiment(self, base: ImageRef, dependent: str, version: str, source: SourceRef,
-                             release_uploaded: datetime, flake_control: bool = True) -> Experiment:
+                             release_uploaded: datetime, flake_control: bool = True,
+                             candidate: tuple[str, bytes] | None = None) -> Experiment:
         """Fork one checkout three ways and run all three at once.
 
             before   the world one minute before the release
             control  the world one minute before the release, again: identical inputs, so any
                      test that disagrees with `before` is non-deterministic and cannot be
                      evidence of anything
-            after    the world one minute after the release
+            after    the world one minute after the release; or, with `candidate`, the before
+                     world with the unreleased wheel installed on top, which is the check a
+                     maintainer runs before publishing
 
         Without the control arm, a flaky test that happens to fail in `after` looks exactly
         like a break the release caused.
@@ -380,6 +401,8 @@ class Sandbox:
             after_cut = release_uploaded + timedelta(minutes=1)
             arms = [
                 self.fresh_install_and_test(clone_img, "before", before_cut, package=dependent),
+                self.fresh_install_and_test(clone_img, "after", before_cut, package=dependent,
+                                            candidate=candidate) if candidate else
                 self.fresh_install_and_test(clone_img, "after", after_cut, package=dependent),
             ]
             if flake_control:
