@@ -51,6 +51,10 @@ async def main() -> None:
     ap.add_argument("--concurrency", type=int, default=6)
     ap.add_argument("--rerun", action="store_true", help="ignore existing experiment files")
     ap.add_argument("--backend", default=None, help="contree (default) | jobs | docker")
+    ap.add_argument("--select", choices=["all", "core", "extra"], default="all",
+                    help="all exposed dependents, only those declaring the target as a core "
+                         "dependency, or only those declaring it under an extra")
+    ap.add_argument("--skip", nargs="*", default=[], help="dependents to leave out, by name")
     args = ap.parse_args()
 
     root = Path(f"data/{args.target}-{args.release}")
@@ -67,6 +71,12 @@ async def main() -> None:
         for e in pop["exposed"]:
             d = e["dependent"]
             if args.only and d["name"] not in args.only:
+                continue
+            if d["name"] in args.skip:
+                continue
+            if args.select == "core" and d["via_extra"] is not None:
+                continue
+            if args.select == "extra" and d["via_extra"] is None:
                 continue
             src = SourceRef(**e["source"]) if e["source"] else SourceRef("pypi", d["name"], None, None)
             if not (src.sha or src.tag):

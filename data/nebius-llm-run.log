@@ -1,5 +1,5 @@
 ﻿1 runnable dependents
 backend: nebius-sandboxes
 base image ready: nebius-sandboxes:37f90300-1bf0-49
-  llm                                      incomplete       no-results   136.6s
-run stage done in 137s
+  llm                                      broken           tests      564.4s
+run stage done in 564s
