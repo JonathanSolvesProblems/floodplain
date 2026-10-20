@@ -19,8 +19,8 @@ from pathlib import Path
 # Receptor states, in the order the page lists them. Each carries the sentence the page
 # shows for every receptor in that state, in the field voice (voice.md).
 STATES = {
-    "positive":   "Broke. A suite that passed before the release fails after it, and the background sample agrees with the before.",
-    "negative":   "Read clean. The suite passed before, passed in the background sample, and still passes after.",
+    "positive":   "A suite that passed before the release fails after it, and the background sample agrees with the before.",
+    "negative":   "The suite passed before, passed again in the background sample, and still passes after.",
     "no-baseline": "Nothing passed here before the release either, so I cannot say the release changed anything.",
     "no-tests":   "No test suite ships with this package at this version, so there was nothing to hang.",
     "lost":       "The receptor was hung but came back unreadable: the install failed, the run timed out, or the sandbox returned nothing.",
@@ -64,6 +64,48 @@ def counts(arm: dict | None) -> dict:
             "skipped": c.get("skipped", 0), "collected": len(arm.get("tests", {})),
             "install_exit": arm.get("install_exit"), "test_exit": arm.get("test_exit"),
             "resolved": arm.get("resolved", {})}
+
+
+def test_cells(d: dict, verdict: dict) -> dict:
+    """One cell per test that passed before the release, in suite order, grouped by module.
+
+    The detail page draws these: the receptor's sample under the lamp. Codes:
+      b  broke: passed before, fails after (or its module no longer imports)
+      p  still passes
+      f  was already failing before the release (drawn faint, never counted against it)
+    A module boundary is a "|" so the grid can leave a gap between modules.
+    """
+    before = (d.get("before") or {}).get("tests", {})
+    after = (d.get("after") or {}).get("tests", {})
+    broke = set(verdict.get("newly_failing", []))
+    collection_break = bool(verdict.get("new_collection_errors")) and not broke
+    codes, last_mod = [], None
+    def test_file(tid: str) -> str:
+        # junit classname is dotted: tests.test_gateway.TestGatewayResource -> tests.test_gateway
+        # (the directory is usually "tests", which also starts with "test", so match test_ files)
+        parts = tid.split("::")[0].split(".")
+        i = next((k for k, p in enumerate(parts) if p.startswith("test_") or p.endswith("_test")), None)
+        if i is None:
+            i = len(parts) - 2 if len(parts) > 1 and parts[-1][:1].isupper() else len(parts) - 1
+        return ".".join(parts[: i + 1])
+
+    for tid in sorted(before, key=lambda t: (test_file(t), t)):
+        mod = test_file(tid)
+        if last_mod is not None and mod != last_mod:
+            codes.append("|")
+        last_mod = mod
+        s = before[tid]
+        if s != "passed":
+            codes.append("f" if s in ("failed", "error") else "")
+            continue
+        if tid in broke or (collection_break and after.get(tid) != "passed"):
+            codes.append("b")
+        else:
+            codes.append("p")
+    seq = "".join(c for c in codes if c)
+    return {"seq": seq, "broke": seq.count("b"), "passed_before": sum(1 for s in before.values() if s == "passed"),
+            "already_failing": seq.count("f"), "collection_break": collection_break,
+            "modules": seq.count("|") + 1}
 
 
 def excerpt(tail: str, quotes: list[str], limit: int = 2400) -> str:
@@ -112,17 +154,31 @@ def main() -> None:
             "public_report": rep,
         }
         if st == "positive":
+            r["cells"] = test_cells(d, v)
             tri = d.get("triage") or {}
             r["triage"] = {k: tri.get(k) for k in ("category", "symbol", "cause", "quotes", "dropped_quotes",
                                                     "fix_plan", "fix_notes", "model", "confidence")}
             r["log"] = excerpt((d.get("after") or {}).get("test_tail", ""), tri.get("quotes") or [])
             fx = d.get("fix") or {}
+            trials = d.get("fix_trials") or ([fx] if fx else [])
+
+            def attempts_of(t):
+                return [{"tier": a["tier"], "model": a["model"], "applied": a["applied"],
+                         "verified": a["verified"], "apply_error": a.get("apply_error"),
+                         "reasons": a.get("reasons", []), "rationale": a.get("rationale", "")}
+                        for a in t.get("attempts", [])]
+
             r["fix"] = {
                 "verified": fx.get("verified", False),
-                "attempts": [{"tier": a["tier"], "model": a["model"], "applied": a["applied"],
-                              "verified": a["verified"], "apply_error": a.get("apply_error"),
-                              "rationale": a.get("rationale", "")} for a in fx.get("attempts", [])],
+                "attempts": attempts_of(fx),
                 "diff": next((a["diff"] for a in fx.get("attempts", []) if a.get("verified")), ""),
+                # every independent trial, so the page can say verified in K of N
+                "trials": len(trials),
+                "trials_verified": sum(1 for t in trials if t.get("verified")),
+                "trial_outcomes": [{"trial": t.get("trial", i + 1), "verified": t.get("verified", False),
+                                    "attempts": len(t.get("attempts", [])),
+                                    "won_by": next((a["tier"] for a in t.get("attempts", []) if a.get("verified")), None),
+                                    "wall_s": t.get("wall_s")} for i, t in enumerate(trials)],
             }
             r["guidance"] = d.get("guidance")
             r["maintainer_fix"] = fixes.get(name)

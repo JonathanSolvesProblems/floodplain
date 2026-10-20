@@ -23,7 +23,8 @@ from typing import Any
 
 from .backends import Backend, ImageRef
 from .llm import TokenFactory, Tier
-from .sandbox import GIT, JUNIT_END, JUNIT_START, TEST_SCRIPT, TEST_TIMEOUT, Experiment, parse_junit
+from .sandbox import (GIT, JUNIT_END, JUNIT_START, TEST_EXTRAS, TEST_GROUPS, TEST_SCRIPT, TEST_TIMEOUT,
+                      Experiment, parse_junit)
 from .triage import Triage
 
 SYSTEM = """You are a senior maintainer fixing a downstream package that broke after an upstream release.
@@ -263,8 +264,19 @@ class Fixer:
         reinstall = ""
         if touched_deps:
             cutoff = after_cutoff.strftime("%Y-%m-%dT%H:%M:%SZ")
-            reinstall = (f"export VIRTUAL_ENV=/work/venv PATH=/work/venv/bin:$PATH UV_EXCLUDE_NEWER={cutoff}; "
-                         f"cd {root} && (uv pip install --quiet -e . || exit 41); ")
+            # Replay the whole install recipe, not just the base package. A pin added to a test
+            # extra or a dependency group only takes effect when that extra or group is installed
+            # again; reinstalling `-e .` alone left openai 3.0.0 in place and rejected the right fix
+            # for openinference-instrumentation-agno in twenty attempts out of twenty.
+            extras = " ".join(TEST_EXTRAS)
+            groups = " ".join(TEST_GROUPS)
+            reinstall = (
+                f"export VIRTUAL_ENV=/work/venv PATH=/work/venv/bin:$PATH UV_EXCLUDE_NEWER={cutoff} UV_PRERELEASE=allow; "
+                f"cd {root} && (uv pip install --quiet -e . || exit 41); "
+                f'for x in {extras}; do uv pip install --quiet -e ".[$x]" 2>/dev/null; done; '
+                f'for g in {groups}; do uv pip install --quiet --group "$g" 2>/dev/null; done; '
+                f"echo '[floodplain] after the patch:'; uv pip freeze | grep -iE '^(openai|httpx|httpx2)==' ; "
+            )
         script = (reinstall + 'cd "$(cat /work/pkgdir 2>/dev/null || echo /work/repo)" && '
                   f"{GIT} diff > /work/fix.diff; " + TEST_SCRIPT)
         r = await self.backend.run(installed, script, files=upload, persist=True, timeout=TEST_TIMEOUT)

@@ -3438,27 +3438,26 @@
   "triage": {
     "dependent": "llm",
     "category": "changed-signature-or-behavior",
-    "symbol": "openai.OpenAI",
-    "cause": "The upgrade to HTTPX2 changed request signatures, so mocked POST requests to /v1/chat/completions were not recognized.",
+    "symbol": "tests.test_openai_responses.py::test_async_web_search_streaming_refreshes_from_final_payload",
+    "cause": "The upstream release switched the default HTTP client to HTTPX2, altering request signatures and causing mocked endpoints to no longer match the issued requests.",
     "quotes": [
-      "The following responses are mocked but not requested:",
       "Match POST request on https://api.openai.com/v1/chat/completions"
     ],
-    "dropped_quotes": 0,
+    "dropped_quotes": 1,
     "fix_plan": "adapt-call-site",
-    "fix_notes": "Update any custom HTTP client usage or test mocks to use the HTTPX2 request format, ensuring mocked responses match the new request signatures.",
+    "fix_notes": "Update any direct httpx usage to use httpx2's Client or AsyncClient and adjust transports/configurations so that the request URLs and headers match the mocked expectations.",
     "confidence": 0.96,
     "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
     "raw": {
       "category": "changed-signature-or-behavior",
-      "symbol": "openai.OpenAI",
-      "cause": "The upgrade to HTTPX2 changed request signatures, so mocked POST requests to /v1/chat/completions were not recognized.",
+      "symbol": "tests.test_openai_responses.py::test_async_web_search_streaming_refreshes_from_final_payload",
+      "cause": "The upstream release switched the default HTTP client to HTTPX2, altering request signatures and causing mocked endpoints to no longer match the issued requests.",
       "quotes": [
-        "The following responses are mocked but not requested:",
+        "api: migrate to HTTPX2 ([#3594](https://github.com/openai/openai-python/pull/3594))",
         "Match POST request on https://api.openai.com/v1/chat/completions"
       ],
       "fix_plan": "adapt-call-site",
-      "fix_notes": "Update any custom HTTP client usage or test mocks to use the HTTPX2 request format, ensuring mocked responses match the new request signatures.",
+      "fix_notes": "Update any direct httpx usage to use httpx2's Client or AsyncClient and adjust transports/configurations so that the request URLs and headers match the mocked expectations.",
       "confidence": 0.96
     }
   },

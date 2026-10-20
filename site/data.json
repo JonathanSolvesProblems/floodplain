@@ -11,16 +11,16 @@
   "exposed_core": 82,
   "exposed_extra": 75
  },
- "ran": 129,
+ "ran": 146,
  "backends": [
   "nebius-sandboxes"
  ],
  "states": {
-  "positive": 2,
-  "negative": 23,
-  "no-baseline": 48,
-  "no-tests": 26,
-  "lost": 30
+  "positive": 3,
+  "negative": 28,
+  "no-baseline": 54,
+  "no-tests": 28,
+  "lost": 33
  },
  "state_text": {
   "positive": "Broke. A suite that passed before the release fails after it, and the background sample agrees with the before.",
@@ -29,8 +29,8 @@
   "no-tests": "No test suite ships with this package at this version, so there was nothing to hang.",
   "lost": "The receptor was hung but came back unreadable: the install failed, the run timed out, or the sandbox returned nothing."
  },
- "readable": 25,
- "generated_at": "2026-10-20T13:00:21",
+ "readable": 31,
+ "generated_at": "2026-10-20T16:03:51",
  "receptors": [
   {
    "name": "sentry-sdk",
@@ -170,7 +170,7 @@
    "flaky_excluded": [],
    "wall_s": 75.2,
    "public_report": null,
-   "reach": 0.0401
+   "reach": 0.0398
   },
   {
    "name": "pydantic-ai-slim",
@@ -250,7 +250,7 @@
     "hours_after_release": 53.8,
     "hours_to_close": 343.3
    },
-   "reach": 0.0537
+   "reach": 0.0533
   },
   {
    "name": "langsmith",
@@ -333,7 +333,7 @@
     "hours_after_release": 489.5,
     "hours_to_close": 0.3
    },
-   "reach": 0.0603
+   "reach": 0.0599
   },
   {
    "name": "fastmcp-slim",
@@ -401,7 +401,7 @@
     "hours_after_release": 412.7,
     "hours_to_close": null
    },
-   "reach": 0.1233
+   "reach": 0.1225
   },
   {
    "name": "swebench",
@@ -467,7 +467,7 @@
    "flaky_excluded": [],
    "wall_s": 117.1,
    "public_report": null,
-   "reach": 0.2285
+   "reach": 0.2269
   },
   {
    "name": "mini-swe-agent",
@@ -539,7 +539,7 @@
    "flaky_excluded": [],
    "wall_s": 159.9,
    "public_report": null,
-   "reach": 0.3686
+   "reach": 0.366
   },
   {
    "name": "swesmith",
@@ -611,7 +611,7 @@
    "flaky_excluded": [],
    "wall_s": 57.5,
    "public_report": null,
-   "reach": 0.3861
+   "reach": 0.3834
   },
   {
    "name": "lancedb",
@@ -667,7 +667,7 @@
     "hours_after_release": 588.7,
     "hours_to_close": 81.2
    },
-   "reach": 0.3907
+   "reach": 0.388
   },
   {
    "name": "azure-ai-projects",
@@ -739,7 +739,7 @@
    "flaky_excluded": [],
    "wall_s": 51.5,
    "public_report": null,
-   "reach": 0.4011
+   "reach": 0.3982
   },
   {
    "name": "pyvespa",
@@ -802,7 +802,7 @@
    "flaky_excluded": [],
    "wall_s": 69.7,
    "public_report": null,
-   "reach": 0.4137
+   "reach": 0.4107
   },
   {
    "name": "langchain-aws",
@@ -874,7 +874,7 @@
    "flaky_excluded": [],
    "wall_s": 56.7,
    "public_report": null,
-   "reach": 0.4157
+   "reach": 0.4128
   },
   {
    "name": "openinference-instrumentation",
@@ -953,7 +953,7 @@
     "hours_after_release": 136.5,
     "hours_to_close": 10.3
    },
-   "reach": 0.458
+   "reach": 0.4547
   },
   {
    "name": "speechrecognition",
@@ -1024,7 +1024,7 @@
     "hours_after_release": 491.7,
     "hours_to_close": 10.4
    },
-   "reach": 0.4585
+   "reach": 0.4552
   },
   {
    "name": "inspect-ai",
@@ -1107,7 +1107,7 @@
     "hours_after_release": 11.6,
     "hours_to_close": 0.1
    },
-   "reach": 0.4692
+   "reach": 0.4659
   },
   {
    "name": "harbor",
@@ -1155,7 +1155,7 @@
    "flaky_excluded": [],
    "wall_s": 14.2,
    "public_report": null,
-   "reach": 0.4843
+   "reach": 0.4809
   },
   {
    "name": "llama-index-embeddings-openai",
@@ -1228,7 +1228,7 @@
    "flaky_excluded": [],
    "wall_s": 58.9,
    "public_report": null,
-   "reach": 0.4895
+   "reach": 0.486
   },
   {
    "name": "exa-py",
@@ -1301,7 +1301,7 @@
    "flaky_excluded": [],
    "wall_s": 51.5,
    "public_report": null,
-   "reach": 0.4899
+   "reach": 0.4864
   },
   {
    "name": "livekit-agents",
@@ -1381,7 +1381,7 @@
     "hours_after_release": 15.5,
     "hours_to_close": 308.8
    },
-   "reach": 0.5004
+   "reach": 0.4968
   },
   {
    "name": "dspy",
@@ -1453,7 +1453,7 @@
    "flaky_excluded": [],
    "wall_s": 1054.8,
    "public_report": null,
-   "reach": 0.5016
+   "reach": 0.498
   },
   {
    "name": "deepeval",
@@ -1525,7 +1525,7 @@
    "flaky_excluded": [],
    "wall_s": 88.8,
    "public_report": null,
-   "reach": 0.5348
+   "reach": 0.531
   },
   {
    "name": "pyod",
@@ -1600,7 +1600,7 @@
    "flaky_excluded": [],
    "wall_s": 160.4,
    "public_report": null,
-   "reach": 0.5397
+   "reach": 0.5359
   },
   {
    "name": "autoevals",
@@ -1673,7 +1673,7 @@
    "flaky_excluded": [],
    "wall_s": 90.8,
    "public_report": null,
-   "reach": 0.5478
+   "reach": 0.5439
   },
   {
    "name": "mem0ai",
@@ -1746,7 +1746,7 @@
    "flaky_excluded": [],
    "wall_s": 51.8,
    "public_report": null,
-   "reach": 0.5657
+   "reach": 0.5616
   },
   {
    "name": "opentelemetry-instrumentation-openai",
@@ -1826,7 +1826,7 @@
     "hours_after_release": 852.6,
     "hours_to_close": null
    },
-   "reach": 0.5676
+   "reach": 0.5635
   },
   {
    "name": "borb",
@@ -1883,7 +1883,7 @@
    "flaky_excluded": [],
    "wall_s": 87.8,
    "public_report": null,
-   "reach": 0.5758
+   "reach": 0.5717
   },
   {
    "name": "llama-index-agent-openai",
@@ -1955,7 +1955,7 @@
    "flaky_excluded": [],
    "wall_s": 60.8,
    "public_report": null,
-   "reach": 0.5934
+   "reach": 0.5891
   },
   {
    "name": "opik",
@@ -2035,7 +2035,7 @@
     "hours_after_release": 545.2,
     "hours_to_close": null
    },
-   "reach": 0.5937
+   "reach": 0.5895
   },
   {
    "name": "livekit-plugins-openai",
@@ -2115,7 +2115,7 @@
     "hours_after_release": 15.5,
     "hours_to_close": 308.8
    },
-   "reach": 0.6003
+   "reach": 0.596
   },
   {
    "name": "mteb",
@@ -2184,7 +2184,7 @@
    "flaky_excluded": [],
    "wall_s": 239.6,
    "public_report": null,
-   "reach": 0.6025
+   "reach": 0.5982
   },
   {
    "name": "redisvl",
@@ -2257,7 +2257,7 @@
    "flaky_excluded": [],
    "wall_s": 190.7,
    "public_report": null,
-   "reach": 0.6151
+   "reach": 0.6107
   },
   {
    "name": "semantic-kernel",
@@ -2330,7 +2330,7 @@
    "flaky_excluded": [],
    "wall_s": 106.0,
    "public_report": null,
-   "reach": 0.6221
+   "reach": 0.6177
   },
   {
    "name": "outlines",
@@ -2403,7 +2403,7 @@
    "flaky_excluded": [],
    "wall_s": 427.7,
    "public_report": null,
-   "reach": 0.6252
+   "reach": 0.6208
   },
   {
    "name": "agno",
@@ -2484,7 +2484,7 @@
     "hours_after_release": 251.5,
     "hours_to_close": 24.1
    },
-   "reach": 0.6269
+   "reach": 0.6224
   },
   {
    "name": "databricks-langchain",
@@ -2532,7 +2532,7 @@
    "flaky_excluded": [],
    "wall_s": 76.8,
    "public_report": null,
-   "reach": 0.6291
+   "reach": 0.6247
   },
   {
    "name": "openinference-instrumentation-openai",
@@ -2597,7 +2597,7 @@
     "hours_after_release": 136.5,
     "hours_to_close": 10.3
    },
-   "reach": 0.632
+   "reach": 0.6275
   },
   {
    "name": "arize-phoenix",
@@ -2653,7 +2653,7 @@
     "hours_after_release": 130.4,
     "hours_to_close": 108.2
    },
-   "reach": 0.6324
+   "reach": 0.6279
   },
   {
    "name": "llama-index-legacy",
@@ -2734,7 +2734,7 @@
     "hours_after_release": 337.2,
     "hours_to_close": 0.1
    },
-   "reach": 0.6345
+   "reach": 0.63
   },
   {
    "name": "graphifyy",
@@ -2809,7 +2809,7 @@
    "flaky_excluded": [],
    "wall_s": 564.6,
    "public_report": null,
-   "reach": 0.6424
+   "reach": 0.6378
   },
   {
    "name": "composio",
@@ -2890,7 +2890,7 @@
     "hours_after_release": 221.1,
     "hours_to_close": 150.2
    },
-   "reach": 0.6482
+   "reach": 0.6436
   },
   {
    "name": "ragas",
@@ -2965,7 +2965,7 @@
    "flaky_excluded": [],
    "wall_s": 254.7,
    "public_report": null,
-   "reach": 0.6713
+   "reach": 0.6666
   },
   {
    "name": "kedro-datasets",
@@ -3037,7 +3037,7 @@
    "flaky_excluded": [],
    "wall_s": 391.5,
    "public_report": null,
-   "reach": 0.6726
+   "reach": 0.6678
   },
   {
    "name": "inspect-evals",
@@ -3118,7 +3118,7 @@
     "hours_after_release": 0.3,
     "hours_to_close": 0.7
    },
-   "reach": 0.6751
+   "reach": 0.6703
   },
   {
    "name": "torch-geometric",
@@ -3178,7 +3178,7 @@
    "flaky_excluded": [],
    "wall_s": 142.2,
    "public_report": null,
-   "reach": 0.6786
+   "reach": 0.6738
   },
   {
    "name": "evidently",
@@ -3247,7 +3247,7 @@
    "flaky_excluded": [],
    "wall_s": 141.3,
    "public_report": null,
-   "reach": 0.6868
+   "reach": 0.6819
   },
   {
    "name": "chonkie",
@@ -3319,7 +3319,7 @@
    "flaky_excluded": [],
    "wall_s": 400.0,
    "public_report": null,
-   "reach": 0.6958
+   "reach": 0.6909
   },
   {
    "name": "databricks-openai",
@@ -3367,7 +3367,7 @@
    "flaky_excluded": [],
    "wall_s": 40.7,
    "public_report": null,
-   "reach": 0.6959
+   "reach": 0.691
   },
   {
    "name": "graphiti-core",
@@ -3448,7 +3448,7 @@
     "hours_after_release": 867.9,
     "hours_to_close": null
    },
-   "reach": 0.701
+   "reach": 0.696
   },
   {
    "name": "codewords-client",
@@ -3517,7 +3517,7 @@
    "flaky_excluded": [],
    "wall_s": 63.3,
    "public_report": null,
-   "reach": 0.7017
+   "reach": 0.6967
   },
   {
    "name": "traia-iatp",
@@ -3589,7 +3589,7 @@
    "flaky_excluded": [],
    "wall_s": 204.8,
    "public_report": null,
-   "reach": 0.7115
+   "reach": 0.7064
   },
   {
    "name": "openenv-core",
@@ -3664,7 +3664,7 @@
    "flaky_excluded": [],
    "wall_s": 139.2,
    "public_report": null,
-   "reach": 0.7124
+   "reach": 0.7074
   },
   {
    "name": "weave",
@@ -3737,7 +3737,7 @@
    "flaky_excluded": [],
    "wall_s": 157.1,
    "public_report": null,
-   "reach": 0.7161
+   "reach": 0.711
   },
   {
    "name": "unclecode-litellm",
@@ -3810,7 +3810,7 @@
    "flaky_excluded": [],
    "wall_s": 139.0,
    "public_report": null,
-   "reach": 0.7321
+   "reach": 0.7269
   },
   {
    "name": "haystack-ai",
@@ -3891,7 +3891,7 @@
     "hours_after_release": 29.6,
     "hours_to_close": 0.3
    },
-   "reach": 0.7378
+   "reach": 0.7326
   },
   {
    "name": "inspect-swe",
@@ -3972,7 +3972,7 @@
     "hours_after_release": 469.7,
     "hours_to_close": 199.7
    },
-   "reach": 0.7464
+   "reach": 0.7411
   },
   {
    "name": "arize-phoenix-evals",
@@ -4028,7 +4028,7 @@
     "hours_after_release": 130.4,
     "hours_to_close": 108.2
    },
-   "reach": 0.7479
+   "reach": 0.7425
   },
   {
    "name": "agentscope",
@@ -4101,7 +4101,7 @@
    "flaky_excluded": [],
    "wall_s": 217.8,
    "public_report": null,
-   "reach": 0.7515
+   "reach": 0.7461
   },
   {
    "name": "openinference-instrumentation-agno",
@@ -4189,27 +4189,133 @@
     "hours_after_release": 136.5,
     "hours_to_close": 10.3
    },
+   "cells": {
+    "seq": "fff|bbbbbbbbbb|bbbffbbbbbbb|bbbbbbbbbbbbbbb|ffbbbbfbbb|bb|bbbbbbfffffffffffffbbbbbffbb|bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "broke": 92,
+    "passed_before": 92,
+    "already_failing": 23,
+    "collection_break": true,
+    "modules": 8
+   },
    "triage": {
     "category": "removed-or-renamed-api",
     "symbol": "httpx.HTTPTransport",
-    "cause": "The openai 3.0.0 release switched to HTTPX2 and removed HTTPTransport and AsyncClient from the httpx package, breaking imports.",
+    "cause": "The httpx library no longer provides HTTPTransport or AsyncClient symbols after the 3.0.0 release.",
     "quotes": [
      "AttributeError: module 'httpx' has no attribute 'HTTPTransport'",
      "ImportError: cannot import name 'AsyncClient' from 'httpx'"
     ],
     "dropped_quotes": 0,
     "fix_plan": "migrate-import",
-    "fix_notes": "Update the code to import the new HTTPX2 equivalents (e.g., use httpx2.HTTPTransport or the appropriate httpx2 classes) and adjust any references to AsyncClient.",
+    "fix_notes": "Update imports to use the new httpx location for AsyncClient and replace HTTPTransport usage with the new Transport API, and add httpx as a direct dependency.",
     "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
     "confidence": 0.96
    },
    "log": "quest\n                                         ^^^^^^^^^^^^^^^^^^^\nE   AttributeError: module 'httpx' has no attribute 'HTTPTransport'. Did you mean: 'Transport'?\n_____________ ERROR collecting tests/test_module_level_wrapping.py _____________\nImportError while importing test module '/work/repo/python/instrumentation/openinference-instrumentation-agno/tests/test_module_level_wrapping.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_module_level_wrapping.py:10: in <module>\n    from agno.agent import Agent\n/work/venv/lib/python3.12/site-packages/agno/agent/__init__.py:1: in <module>\n    from agno.agent.agent import (\n/work/venv/lib/python3.12/site-packages/agno/agent/agent.py:23: in <module>\n    from agno.agent import (\n/work/venv/lib/python3.12/site-packages/agno/agent/_default_tools.py:22: in <module>\n    from agno.knowledge.types import KnowledgeFilter\n/work/venv/lib/python3.12/site-packages/agno/knowledge/__init__.py:2: in <module>\n    from agno.knowledge.knowledge import Knowledge\n/work/venv/lib/python3.12/site-packages/agno/knowledge/knowledge.py:13: in <module>\n    from httpx import AsyncClient\nE   ImportError: cannot import name 'AsyncClient' from 'httpx' (/work/venv/lib/python3.12/site-packages/httpx/__init__.py)\n____________ ERROR collecting tests/test_team_context_isolation.py _____________\nImportError while importing test module '/work/repo/python/instrumentation/openinference-instrumentation-agno/tests/test_team_context_isolation.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_team_context_isolation.py:6: in <module>\n    from agno.agent import Agent\n/work/venv/lib/python3.12/site-packages/agno/agent/__init__.py:1: in <module>\n    from agno.agent.agent import (\n/work/venv/lib/python3.12/site-packages/agno/agent/agent.py:23: in <module>\n    from agno.agent import (\n/work/venv/lib/python3.12/site-packages/agno/agent/_default_tools.py:22: in <module>\n    from agno.knowledge",
    "fix": {
     "verified": false,
-    "attempts": [],
-    "diff": ""
+    "attempts": [
+     {
+      "tier": "super",
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "applied": true,
+      "verified": false,
+      "apply_error": null,
+      "reasons": [
+       "pytest did not run to completion (exit 2)",
+       "6 modules still fail to collect",
+       "92 tests that passed before the release do not pass"
+      ],
+      "rationale": "Add httpx<3.0.0 to the instruments and test optional dependencies to ensure the agno dependency (which imports AsyncClient and HTTPTransport from httpx) works with a version of httpx that still provides these symbols."
+     },
+     {
+      "tier": "super",
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "applied": true,
+      "verified": false,
+      "apply_error": null,
+      "reasons": [
+       "pytest did not run to completion (exit 2)",
+       "6 modules still fail to collect",
+       "92 tests that passed before the release do not pass"
+      ],
+      "rationale": "The package does not directly import httpx, but its test suite and optional dependencies (agno, vcr) require httpx<3.0.0 due to API changes in httpx 3.0.0. Adding httpx<3.0.0 to the main dependencies ensures a compatible version is installed for both runtime and tests."
+     },
+     {
+      "tier": "ultra",
+      "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+      "applied": true,
+      "verified": false,
+      "apply_error": null,
+      "reasons": [
+       "pytest did not run to completion (exit 2)",
+       "6 modules still fail to collect",
+       "92 tests that passed before the release do not pass"
+      ],
+      "rationale": "The test failures stem from third-party dependencies (agno, vcr) importing removed symbols from httpx 3.0.0+. Since we cannot modify those packages, the only viable fix is to pin httpx<3.0.0 in the test optional-dependencies so the test environment gets a compatible version."
+     },
+     {
+      "tier": "ultra",
+      "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+      "applied": true,
+      "verified": false,
+      "apply_error": null,
+      "reasons": [
+       "pytest did not run to completion (exit 2)",
+       "6 modules still fail to collect",
+       "92 tests that passed before the release do not pass"
+      ],
+      "rationale": "The test suite imports vcr in test_tool_error_handling.py but vcr is not declared in test optional-dependencies, leaving its transitive dependency on httpx unconstrained. Declaring vcr allows the resolver to properly account for its dependency requirements in the test environment."
+     }
+    ],
+    "diff": "",
+    "trials": 5,
+    "trials_verified": 0,
+    "trial_outcomes": [
+     {
+      "trial": 1,
+      "verified": false,
+      "attempts": 4,
+      "won_by": null,
+      "wall_s": 130.4
+     },
+     {
+      "trial": 2,
+      "verified": false,
+      "attempts": 4,
+      "won_by": null,
+      "wall_s": 222.4
+     },
+     {
+      "trial": 3,
+      "verified": false,
+      "attempts": 4,
+      "won_by": null,
+      "wall_s": 194.4
+     },
+     {
+      "trial": 4,
+      "verified": false,
+      "attempts": 4,
+      "won_by": null,
+      "wall_s": 131.1
+     },
+     {
+      "trial": 5,
+      "verified": false,
+      "attempts": 4,
+      "won_by": null,
+      "wall_s": 152.1
+     }
+    ]
    },
-   "guidance": null,
+   "guidance": {
+    "query": "openai 3.0.0 migration guide httpx.HTTPTransport breaking change",
+    "source": "local-fallback",
+    "urls": [
+     "data\\openai-3.0.0\\migration_guide.md"
+    ]
+   },
    "maintainer_fix": {
     "kind": "pr",
     "repo": "Arize-ai/openinference",
@@ -4220,7 +4326,7 @@
     "merged": true,
     "hours_after_release": 146.8
    },
-   "reach": 0.7572
+   "reach": 0.7518
   },
   {
    "name": "reme-ai",
@@ -4295,7 +4401,7 @@
    "flaky_excluded": [],
    "wall_s": 174.3,
    "public_report": null,
-   "reach": 0.7617
+   "reach": 0.7563
   },
   {
    "name": "renderers",
@@ -4368,7 +4474,7 @@
    "flaky_excluded": [],
    "wall_s": 426.6,
    "public_report": null,
-   "reach": 0.767
+   "reach": 0.7615
   },
   {
    "name": "unstructured-ingest",
@@ -4437,7 +4543,7 @@
    "flaky_excluded": [],
    "wall_s": 85.2,
    "public_report": null,
-   "reach": 0.768
+   "reach": 0.7625
   },
   {
    "name": "smolagents",
@@ -4512,7 +4618,7 @@
    "flaky_excluded": [],
    "wall_s": 184.5,
    "public_report": null,
-   "reach": 0.7705
+   "reach": 0.765
   },
   {
    "name": "openai-chatkit",
@@ -4587,7 +4693,7 @@
    "flaky_excluded": [],
    "wall_s": 127.0,
    "public_report": null,
-   "reach": 0.7768
+   "reach": 0.7713
   },
   {
    "name": "llm",
@@ -4785,53 +4891,76 @@
     "hours_after_release": 5.9,
     "hours_to_close": 226.2
    },
+   "cells": {
+    "seq": "ppppppppppppppp|pppp|ppppppppppppppppp|ppppppp|pppppppppp|ppp|bbppppppppppppppbbbbbbppppppbbpppppppbpbbpppppb|pppppp|pppppppp|ppppppppppppppp|ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp|pp|pbpp|ppppppb|ppbbbbbppbbbbbbbbbbbbbbbbbbpppppppppbbbbbbppppppppppppbbbbbpbpppppppppppppppp|ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp|pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp|pppppp|bbbpbbbbbbbbbbbbbbbbb|bbpppppppppppppbbbbbbbbb|bbbbbpbppppbbbppppppppppbpbbbpbppbppppppppppbbpbppppppppppp|ppppppppp|ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp|pppppppppppppp|ppppppppppp|ppppppppppppppppppppppppppppppppppppppppppppppppppp|ppppbbpbbbbbbbppppppppbpppppppppppppppppppppp|ppppppppppppppppppppppppppppppppppppppppppppppp|pppp|ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp",
+    "broke": 110,
+    "passed_before": 1069,
+    "already_failing": 0,
+    "collection_break": false,
+    "modules": 30
+   },
    "triage": {
     "category": "changed-signature-or-behavior",
-    "symbol": "openai.chat.completions",
-    "cause": "The openai 3.0.0 release switched to HTTPX2, causing pytest-httpx mocks to no longer intercept requests, which leads to 'responses are mocked but not requested' errors.",
+    "symbol": "tests.test_openai_responses.py::test_async_web_search_streaming_refreshes_from_final_payload",
+    "cause": "The upstream release switched the default HTTP client to HTTPX2, altering request signatures and causing mocked endpoints to no longer match the issued requests.",
     "quotes": [
-     "The following responses are mocked but not requested:",
      "Match POST request on https://api.openai.com/v1/chat/completions"
     ],
-    "dropped_quotes": 0,
+    "dropped_quotes": 1,
     "fix_plan": "adapt-call-site",
-    "fix_notes": "Update the test suite to register expected HTTP requests with pytest-httpx in a way compatible with HTTPX2, such as ensuring all mocked responses are registered before the call or using the library's escape hatch.",
+    "fix_notes": "Update any direct httpx usage to use httpx2's Client or AsyncClient and adjust transports/configurations so that the request URLs and headers match the mocked expectations.",
     "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
     "confidence": 0.96
    },
-   "log": "ERROR tests/test_openai_responses.py::test_async_web_search_streaming_refreshes_from_final_payload - AssertionError: The following responses are mocked but not requested:\n  - Match POST request on https://api.openai.com/v1/responses\n  \n  If this is on purpose, refer to https://github.com/Colin-b/pytest_httpx/blob/master/README.md#allow-to-register-more-responses-than-what-will-be-requested\nassert not [<pytest_httpx._request_matcher._RequestMatcher object at 0x7fffe4ee29c0>]\nERROR tests/test_templates.py::test_execute_prompt_with_a_template['Summarize this: $input'-Input text-extra_args0-gpt-4o-mini-Summarize this: Input text-None-None] - AssertionError: The following responses are mocked but not requested:\n  - Match POST request on https://api.openai.com/v1/chat/completions\n  \n  If this is on purpose, refer to https://github.com/Colin-b/pytest_httpx/blob/master/README.md#allow-to-register-more-responses-than-what-will-be-requested\nassert not [<pytest_httpx._request_matcher._RequestMatcher object at 0x7fffe3afd370>]\nERROR tests/test_templates.py::test_execute_prompt_with_a_template[prompt: 'Summarize this: $input'\\nmodel: gpt-4-Input text-extra_args1-gpt-4-Summarize this: Input text-None-None] - AssertionError: The following responses are mocked but not requested:\n  - Match POST request on https://api.openai.com/v1/chat/completions\n  \n  If this is on purpose, refer to https://github.com/Colin-b/pytest_httpx/blob/master/README.md#allow-to-register-more-responses-than-what-will-be-requested\nassert not [<pytest_httpx._request_matcher._RequestMatcher object at 0x7fffe4099490>]\nERROR tests/test_templates.py::test_execute_prompt_with_a_template[prompt: 'Summarize this: $input'-Input text-extra_args2-gpt-4-Summarize this: Input text-None-None] - AssertionError: The following responses are mocked but not requested:\n  - Match POST request on https://api.openai.com/v1/chat/completions\n  \n  If this is on purpose, refer to https://github.com/Colin-b/pytest_httpx/blob/master/README.md#allow-to-register-more-responses-than-what-will-be-requested\nassert not [<pytest_httpx._request_matcher._RequestMatcher object at 0x7fffe14f04a0>]\nERROR tests/test_templates.py::test_execute_prompt_with_a_template[boo-Input text-extra_args3-gpt-4o-mini-expected_input3-None-None] - AssertionError: The following responses are mocked but not requested:\n  - Match POST request on https://api.open",
+   "log": "v1/responses\n  \n  If this is on purpose, refer to https://github.com/Colin-b/pytest_httpx/blob/master/README.md#allow-to-register-more-responses-than-what-will-be-requested\nassert not [<pytest_httpx._request_matcher._RequestMatcher object at 0x7fffe4ee29c0>]\nERROR tests/test_templates.py::test_execute_prompt_with_a_template['Summarize this: $input'-Input text-extra_args0-gpt-4o-mini-Summarize this: Input text-None-None] - AssertionError: The following responses are mocked but not requested:\n  - Match POST request on https://api.openai.com/v1/chat/completions\n  \n  If this is on purpose, refer to https://github.com/Colin-b/pytest_httpx/blob/master/README.md#allow-to-register-more-responses-than-what-will-be-requested\nassert not [<pytest_httpx._request_matcher._RequestMatcher object at 0x7fffe3afd370>]\nERROR tests/test_templates.py::test_execute_prompt_with_a_template[prompt: 'Summarize this: $input'\\nmodel: gpt-4-Input text-extra_args1-gpt-4-Summarize this: Input text-None-None] - AssertionError: The following responses are mocked but not requested:\n  - Match POST request on https://api.openai.com/v1/chat/completions\n  \n  If this is on purpose, refer to https://github.com/Colin-b/pytest_httpx/blob/master/README.md#allow-to-register-more-responses-than-what-will-be-requested\nassert not [<pytest_httpx._request_matcher._RequestMatcher object at 0x7fffe4099490>]\nERROR tests/test_templates.py::test_execute_prompt_with_a_template[prompt: 'Summarize this: $input'-Input text-extra_args2-gpt-4-Summarize this: Input text-None-None] - AssertionError: The following responses are mocked but not requested:\n  - Match POST request on https://api.openai.com/v1/chat/completions\n  \n  If this is on purpose, refer to https://github.com/Colin-b/pytest_httpx/blob/master/README.md#allow-to-register-more-responses-than-what-will-be-requested\nassert not [<pytest_httpx._request_matcher._RequestMatcher object at 0x7fffe14f04a0>]\nERROR tests/test_templates.py::test_execute_prompt_with_a_template[boo-Input text-extra_args3-gpt-4o-mini-expected_input3-None-None] - AssertionError: The following responses are mocked but not requested:\n  - Match POST request on https://api.openai.com/v1/chat/completions\n  \n  If this is on purpose, refer to https://github.com/Colin-b/pytest_httpx/blob/master/README.md#allow-to-register-more-responses-than-what-will-be-requested\nassert not [<pytest_httpx._reques",
    "fix": {
-    "verified": true,
+    "verified": false,
     "attempts": [
      {
       "tier": "super",
       "model": "nvidia/nemotron-3-super-120b-a12b",
       "applied": false,
       "verified": false,
-      "apply_error": "pyproject.toml: search block matches 0 times, need exactly 1",
-      "rationale": "Add 'httpx' to dev dependencies because the test suite uses pytest-httpx which requires the httpx module, but openai 3.0.0 no longer installs httpx transitively. This ensures the module is available for mocking, though further changes may be needed to make the openai client use the legacy HTTPX client for mocks to work."
+      "apply_error": "model returned no edits",
+      "reasons": [],
+      "rationale": ""
      },
      {
       "tier": "super",
       "model": "nvidia/nemotron-3-super-120b-a12b",
       "applied": false,
       "verified": false,
-      "apply_error": "model returned no edits",
-      "rationale": ""
+      "apply_error": "no JSON object in model output: '{\"rationale\": \"Add httpx dependency and use legacy HTTPX client for OpenAI instantiation to match pytest-httpx mocks.\", \"edits\": [{\"path\": \"pyproject.toml\", \"search\": \"dependencies = [\\\\n    \\\\\"click\\\\\",\\\\n    \\\\\"condense-json>=1.1\\\\\",\\\\n    \\\\\"openai>=2.32.0\\\\\",\\\\n    \\\\\"click-default-group>=1.2.3\\\\\",\\\\n    \\\\\"s'",
+      "reasons": [],
+      "rationale": "model error: no JSON object in model output: '{\"rationale\": \"Add httpx dependency and use legacy HTTPX client for OpenAI instantiation to match pytest-httpx mocks.\", \"edits\": [{\"path\": \"pyproject.toml\", \"search\": \"dependencies = [\\\\n    \\\\\"click\\\\\",\\\\n    \\\\\"condense-json>=1.1\\\\\",\\\\n    \\\\\"openai>=2.32.0\\\\\",\\\\n    \\\\\"click-default-group>=1.2.3\\\\\",\\\\n    \\\\\"s'"
      },
      {
       "tier": "ultra",
       "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
       "applied": true,
-      "verified": true,
+      "verified": false,
       "apply_error": null,
-      "rationale": "The openai 3.0.0 release switched to HTTPX2, which breaks pytest-httpx mocks that intercept HTTPX v1 requests. Since the test suite relies on pytest-httpx for mocking and cannot intercept HTTPX2 traffic without significant test rewrites (which require access to test files not provided), the minimal stopgap is to pin openai below 3.0.0 until the test infrastructure can be migrated."
+      "reasons": [
+       "110 tests that passed before the release do not pass"
+      ],
+      "rationale": "The package imports `httpx` in `llm/default_plugins/openai_models.py` but does not declare it as a dependency. Since openai 3.0.0 no longer installs `httpx` transitively, this missing declaration must be added to ensure the package's direct `httpx` usage continues to work."
      }
     ],
-    "diff": "diff --git a/pyproject.toml b/pyproject.toml\nindex 8ec3191..eaa636e 100644\n--- a/pyproject.toml\n+++ b/pyproject.toml\n@@ -27,7 +27,7 @@ classifiers = [\n dependencies = [\n     \"click\",\n     \"condense-json>=1.1\",\n-    \"openai>=2.32.0\",\n+    \"openai>=2.32.0,<3.0.0\",\n     \"click-default-group>=1.2.3\",\n     \"sqlite-utils>=4.0\",\n     \"pydantic>=2.0.0\",\n"
+    "diff": "",
+    "trials": 1,
+    "trials_verified": 0,
+    "trial_outcomes": [
+     {
+      "trial": 1,
+      "verified": false,
+      "attempts": 3,
+      "won_by": null,
+      "wall_s": null
+     }
+    ]
    },
    "guidance": {
-    "query": "openai 3.0.0 migration guide openai.chat.completions breaking change",
+    "query": "openai 3.0.0 migration guide openai.OpenAI breaking change",
     "source": "local-fallback",
     "urls": [
      "data\\openai-3.0.0\\migration_guide.md"
@@ -4858,7 +4987,7 @@
     },
     "hours_after_release": 231.3
    },
-   "reach": 0.7775
+   "reach": 0.772
   },
   {
    "name": "npmai-agents",
@@ -4915,7 +5044,7 @@
    "flaky_excluded": [],
    "wall_s": 63.6,
    "public_report": null,
-   "reach": 0.7797
+   "reach": 0.7741
   },
   {
    "name": "captum",
@@ -4987,7 +5116,7 @@
    "flaky_excluded": [],
    "wall_s": 363.5,
    "public_report": null,
-   "reach": 0.7871
+   "reach": 0.7815
   },
   {
    "name": "prompty",
@@ -5049,7 +5178,7 @@
     "hours_after_release": 141.3,
     "hours_to_close": 0.9
    },
-   "reach": 0.788
+   "reach": 0.7824
   },
   {
    "name": "autogen-ext",
@@ -5109,7 +5238,79 @@
    "flaky_excluded": [],
    "wall_s": 87.6,
    "public_report": null,
-   "reach": 0.7924
+   "reach": 0.7867
+  },
+  {
+   "name": "headroom-ai",
+   "version": "0.34.0",
+   "rank": 6139,
+   "downloads": 495271,
+   "requirement": "openai>=1.0.0; extra == \"dev\"",
+   "via_extra": "dev",
+   "repo": "chopratejas/headroom",
+   "tag": "v0.34.0",
+   "state": "lost",
+   "why": "The fork installed but returned no test results.",
+   "before": {
+    "passed": 10165,
+    "failed": 27,
+    "error": 0,
+    "skipped": 445,
+    "collected": 10637,
+    "install_exit": 0,
+    "test_exit": 1,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "control": {
+    "passed": 10165,
+    "failed": 27,
+    "error": 0,
+    "skipped": 445,
+    "collected": 10637,
+    "install_exit": 0,
+    "test_exit": 1,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "after": {
+    "passed": 0,
+    "failed": 0,
+    "error": 0,
+    "skipped": 0,
+    "collected": 0,
+    "install_exit": 0,
+    "test_exit": -1,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "newly_failing": [],
+   "new_collection_errors": [],
+   "flaky_excluded": [],
+   "wall_s": 4157.8,
+   "public_report": null,
+   "reach": 0.7871
   },
   {
    "name": "openviking",
@@ -5157,7 +5358,7 @@
    "flaky_excluded": [],
    "wall_s": 106.6,
    "public_report": null,
-   "reach": 0.8004
+   "reach": 0.7947
   },
   {
    "name": "verifiers",
@@ -5237,7 +5438,7 @@
     "hours_after_release": 448.7,
     "hours_to_close": 22.4
    },
-   "reach": 0.8062
+   "reach": 0.8005
   },
   {
    "name": "qwen-agent",
@@ -5318,7 +5519,7 @@
     "hours_after_release": 183.1,
     "hours_to_close": null
    },
-   "reach": 0.8098
+   "reach": 0.8041
   },
   {
    "name": "tinker-cookbook",
@@ -5393,7 +5594,7 @@
    "flaky_excluded": [],
    "wall_s": 197.0,
    "public_report": null,
-   "reach": 0.8148
+   "reach": 0.809
   },
   {
    "name": "embedchain",
@@ -5465,7 +5666,7 @@
    "flaky_excluded": [],
    "wall_s": 84.5,
    "public_report": null,
-   "reach": 0.8153
+   "reach": 0.8095
   },
   {
    "name": "langextract",
@@ -5538,7 +5739,7 @@
    "flaky_excluded": [],
    "wall_s": 87.9,
    "public_report": null,
-   "reach": 0.8215
+   "reach": 0.8156
   },
   {
    "name": "openai-guardrails",
@@ -5613,7 +5814,7 @@
    "flaky_excluded": [],
    "wall_s": 89.5,
    "public_report": null,
-   "reach": 0.8305
+   "reach": 0.8246
   },
   {
    "name": "inspect-scout",
@@ -5693,7 +5894,7 @@
     "hours_after_release": 39.9,
     "hours_to_close": 20.4
    },
-   "reach": 0.8334
+   "reach": 0.8275
   },
   {
    "name": "megatron-core",
@@ -5766,7 +5967,7 @@
    "flaky_excluded": [],
    "wall_s": 219.0,
    "public_report": null,
-   "reach": 0.8367
+   "reach": 0.8308
   },
   {
    "name": "bfcl-eval",
@@ -5839,7 +6040,7 @@
    "flaky_excluded": [],
    "wall_s": 145.6,
    "public_report": null,
-   "reach": 0.8372
+   "reach": 0.8312
   },
   {
    "name": "shiny",
@@ -5919,7 +6120,7 @@
     "hours_after_release": 3.2,
     "hours_to_close": 0.2
    },
-   "reach": 0.8514
+   "reach": 0.8453
   },
   {
    "name": "optuna-dashboard",
@@ -6000,7 +6201,7 @@
     "hours_after_release": 679.6,
     "hours_to_close": 0.2
    },
-   "reach": 0.8544
+   "reach": 0.8483
   },
   {
    "name": "shinychat",
@@ -6066,7 +6267,7 @@
    "flaky_excluded": [],
    "wall_s": 94.7,
    "public_report": null,
-   "reach": 0.8592
+   "reach": 0.8531
   },
   {
    "name": "azure-ai-evaluation",
@@ -6122,7 +6323,7 @@
     "hours_after_release": 298.5,
     "hours_to_close": 19.3
    },
-   "reach": 0.8607
+   "reach": 0.8546
   },
   {
    "name": "genagent",
@@ -6195,7 +6396,7 @@
    "flaky_excluded": [],
    "wall_s": 47.6,
    "public_report": null,
-   "reach": 0.8629
+   "reach": 0.8568
   },
   {
    "name": "django-sql-explorer",
@@ -6252,7 +6453,7 @@
    "flaky_excluded": [],
    "wall_s": 75.0,
    "public_report": null,
-   "reach": 0.8652
+   "reach": 0.859
   },
   {
    "name": "bernstein",
@@ -6333,7 +6534,7 @@
     "hours_after_release": 127.1,
     "hours_to_close": 1.0
    },
-   "reach": 0.868
+   "reach": 0.8618
   },
   {
    "name": "foundry-local-sdk",
@@ -6405,7 +6606,7 @@
    "flaky_excluded": [],
    "wall_s": 107.8,
    "public_report": null,
-   "reach": 0.869
+   "reach": 0.8628
   },
   {
    "name": "stirrup",
@@ -6480,7 +6681,7 @@
    "flaky_excluded": [],
    "wall_s": 102.7,
    "public_report": null,
-   "reach": 0.8788
+   "reach": 0.8726
   },
   {
    "name": "cognee",
@@ -6552,7 +6753,7 @@
    "flaky_excluded": [],
    "wall_s": 204.0,
    "public_report": null,
-   "reach": 0.8788
+   "reach": 0.8726
   },
   {
    "name": "fhlmi",
@@ -6624,7 +6825,7 @@
    "flaky_excluded": [],
    "wall_s": 128.8,
    "public_report": null,
-   "reach": 0.8811
+   "reach": 0.8748
   },
   {
    "name": "lumibot",
@@ -6696,7 +6897,7 @@
    "flaky_excluded": [],
    "wall_s": 3447.2,
    "public_report": null,
-   "reach": 0.8823
+   "reach": 0.876
   },
   {
    "name": "letta",
@@ -6771,7 +6972,7 @@
    "flaky_excluded": [],
    "wall_s": 128.7,
    "public_report": null,
-   "reach": 0.8826
+   "reach": 0.8763
   },
   {
    "name": "zernio-sdk",
@@ -6846,7 +7047,7 @@
    "flaky_excluded": [],
    "wall_s": 93.0,
    "public_report": null,
-   "reach": 0.886
+   "reach": 0.8797
   },
   {
    "name": "geneva",
@@ -6918,7 +7119,7 @@
    "flaky_excluded": [],
    "wall_s": 138.1,
    "public_report": null,
-   "reach": 0.8867
+   "reach": 0.8804
   },
   {
    "name": "vanna",
@@ -6991,7 +7192,7 @@
    "flaky_excluded": [],
    "wall_s": 132.5,
    "public_report": null,
-   "reach": 0.8885
+   "reach": 0.8821
   },
   {
    "name": "lance-context",
@@ -7039,7 +7240,7 @@
    "flaky_excluded": [],
    "wall_s": 169.7,
    "public_report": null,
-   "reach": 0.8924
+   "reach": 0.886
   },
   {
    "name": "xpander-sdk",
@@ -7111,7 +7312,7 @@
    "flaky_excluded": [],
    "wall_s": 82.8,
    "public_report": null,
-   "reach": 0.8956
+   "reach": 0.8893
   },
   {
    "name": "chroma-mcp",
@@ -7184,7 +7385,7 @@
    "flaky_excluded": [],
    "wall_s": 103.4,
    "public_report": null,
-   "reach": 0.8964
+   "reach": 0.8901
   },
   {
    "name": "evalplus",
@@ -7257,7 +7458,226 @@
    "flaky_excluded": [],
    "wall_s": 126.5,
    "public_report": null,
-   "reach": 0.8973
+   "reach": 0.8909
+  },
+  {
+   "name": "jcodemunch-mcp",
+   "version": "1.108.271",
+   "rank": 9458,
+   "downloads": 182096,
+   "requirement": "openai>=1.0.0; extra == \"all\"",
+   "via_extra": "all",
+   "repo": "jgravelle/jcodemunch-mcp",
+   "tag": "v1.108.271",
+   "state": "negative",
+   "why": "",
+   "before": {
+    "passed": 7622,
+    "failed": 1,
+    "error": 0,
+    "skipped": 9,
+    "collected": 7632,
+    "install_exit": 0,
+    "test_exit": 1,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "control": {
+    "passed": 7622,
+    "failed": 1,
+    "error": 0,
+    "skipped": 9,
+    "collected": 7632,
+    "install_exit": 0,
+    "test_exit": 1,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "after": {
+    "passed": 7622,
+    "failed": 1,
+    "error": 0,
+    "skipped": 9,
+    "collected": 7632,
+    "install_exit": 0,
+    "test_exit": 1,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "httpx2": "2.10.0",
+     "openai": "3.0.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "newly_failing": [],
+   "new_collection_errors": [],
+   "flaky_excluded": [],
+   "wall_s": 528.1,
+   "public_report": null,
+   "reach": 0.8912
+  },
+  {
+   "name": "echo-agent",
+   "version": "0.3.5",
+   "rank": 9490,
+   "downloads": 180595,
+   "requirement": "openai>=1.30; extra == \"all\"",
+   "via_extra": "all",
+   "repo": "fuyuxiang/echo-agent",
+   "tag": "v0.3.5",
+   "state": "negative",
+   "why": "",
+   "before": {
+    "passed": 4912,
+    "failed": 1,
+    "error": 0,
+    "skipped": 61,
+    "collected": 4974,
+    "install_exit": 0,
+    "test_exit": 1,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "control": {
+    "passed": 4912,
+    "failed": 1,
+    "error": 0,
+    "skipped": 61,
+    "collected": 4974,
+    "install_exit": 0,
+    "test_exit": 1,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "after": {
+    "passed": 4912,
+    "failed": 1,
+    "error": 0,
+    "skipped": 61,
+    "collected": 4974,
+    "install_exit": 0,
+    "test_exit": 1,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "httpx2": "2.10.0",
+     "openai": "3.0.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "newly_failing": [],
+   "new_collection_errors": [],
+   "flaky_excluded": [],
+   "wall_s": 269.9,
+   "public_report": null,
+   "reach": 0.8921
+  },
+  {
+   "name": "highcharts-core",
+   "version": "1.11.0",
+   "rank": 9582,
+   "downloads": 177602,
+   "requirement": "openai>=0.28.0; extra == \"ai\"",
+   "via_extra": "ai",
+   "repo": "highcharts-for-python/highcharts-core",
+   "tag": null,
+   "state": "negative",
+   "why": "",
+   "before": {
+    "passed": 2579,
+    "failed": 1000,
+    "error": 0,
+    "skipped": 0,
+    "collected": 3579,
+    "install_exit": 0,
+    "test_exit": 1,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "control": {
+    "passed": 2579,
+    "failed": 1000,
+    "error": 0,
+    "skipped": 0,
+    "collected": 3579,
+    "install_exit": 0,
+    "test_exit": 1,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "after": {
+    "passed": 2579,
+    "failed": 1000,
+    "error": 0,
+    "skipped": 0,
+    "collected": 3579,
+    "install_exit": 0,
+    "test_exit": 1,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "httpx2": "2.10.0",
+     "openai": "3.0.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "newly_failing": [],
+   "new_collection_errors": [],
+   "flaky_excluded": [],
+   "wall_s": 269.7,
+   "public_report": null,
+   "reach": 0.8944
   },
   {
    "name": "any-llm-sdk",
@@ -7328,7 +7748,7 @@
    "newly_failing": [],
    "new_collection_errors": [],
    "flaky_excluded": [],
-   "wall_s": 4795.6,
+   "wall_s": 6201.4,
    "public_report": {
     "url": "https://github.com/mozilla-ai/any-llm/pull/1329",
     "title": "feat(messages): add container continuity for code execution via Anthropic",
@@ -7338,7 +7758,7 @@
     "hours_after_release": 228.7,
     "hours_to_close": 306.8
    },
-   "reach": 0.9038
+   "reach": 0.8973
   },
   {
    "name": "apache-airflow-providers-openai",
@@ -7394,7 +7814,70 @@
     "hours_after_release": 909.0,
     "hours_to_close": 48.6
    },
-   "reach": 0.9038
+   "reach": 0.8974
+  },
+  {
+   "name": "conductor-python",
+   "version": "2.0.0",
+   "rank": 9989,
+   "downloads": 162197,
+   "requirement": "openai>=2.28.0; extra == \"openai\" or extra == \"agents\"",
+   "via_extra": "openai",
+   "repo": null,
+   "tag": null,
+   "state": "lost",
+   "why": "The fork installed but returned no test results.",
+   "before": {
+    "passed": 0,
+    "failed": 0,
+    "error": 0,
+    "skipped": 0,
+    "collected": 0,
+    "install_exit": 0,
+    "test_exit": 1,
+    "resolved": {
+     "certifi": "2026.7.22",
+     "httpx": "1.0.dev3",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "control": {
+    "passed": 0,
+    "failed": 0,
+    "error": 0,
+    "skipped": 0,
+    "collected": 0,
+    "install_exit": 0,
+    "test_exit": 1,
+    "resolved": {
+     "certifi": "2026.7.22",
+     "httpx": "1.0.dev3",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "after": {
+    "passed": 0,
+    "failed": 0,
+    "error": 0,
+    "skipped": 0,
+    "collected": 0,
+    "install_exit": 0,
+    "test_exit": 1,
+    "resolved": {
+     "certifi": "2026.7.22",
+     "httpx": "1.0.dev3",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "newly_failing": [],
+   "new_collection_errors": [],
+   "flaky_excluded": [],
+   "wall_s": 81.6,
+   "public_report": null,
+   "reach": 0.9044
   },
   {
    "name": "tooluniverse",
@@ -7442,7 +7925,82 @@
    "flaky_excluded": [],
    "wall_s": 46.4,
    "public_report": null,
-   "reach": 0.9179
+   "reach": 0.9113
+  },
+  {
+   "name": "late-sdk",
+   "version": "1.4.475",
+   "rank": 10496,
+   "downloads": 145853,
+   "requirement": "openai>=1.0.0; extra == \"ai\"",
+   "via_extra": "ai",
+   "repo": "zernio-dev/zernio-python",
+   "tag": "v1.4.475",
+   "state": "no-baseline",
+   "why": "",
+   "before": {
+    "passed": 0,
+    "failed": 0,
+    "error": 4,
+    "skipped": 0,
+    "collected": 4,
+    "install_exit": 0,
+    "test_exit": 2,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "httpx2": "2.10.0",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "control": {
+    "passed": 0,
+    "failed": 0,
+    "error": 4,
+    "skipped": 0,
+    "collected": 4,
+    "install_exit": 0,
+    "test_exit": 2,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "httpx2": "2.10.0",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "after": {
+    "passed": 0,
+    "failed": 0,
+    "error": 4,
+    "skipped": 0,
+    "collected": 4,
+    "install_exit": 0,
+    "test_exit": 2,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "httpx2": "2.10.0",
+     "openai": "3.0.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "newly_failing": [],
+   "new_collection_errors": [],
+   "flaky_excluded": [],
+   "wall_s": 88.7,
+   "public_report": null,
+   "reach": 0.9163
   },
   {
    "name": "ell-ai",
@@ -7515,7 +8073,61 @@
    "flaky_excluded": [],
    "wall_s": 45.9,
    "public_report": null,
-   "reach": 0.9229
+   "reach": 0.9164
+  },
+  {
+   "name": "mavproxy",
+   "version": "1.8.74",
+   "rank": 10555,
+   "downloads": 144458,
+   "requirement": "openai; extra == \"recommended\"",
+   "via_extra": "recommended",
+   "repo": "ArduPilot/MAVProxy",
+   "tag": "v1.8.74",
+   "state": "no-tests",
+   "why": "",
+   "before": {
+    "passed": 0,
+    "failed": 0,
+    "error": 0,
+    "skipped": 0,
+    "collected": 0,
+    "install_exit": 0,
+    "test_exit": 5,
+    "resolved": {
+     "pytest": "9.1.1"
+    }
+   },
+   "control": {
+    "passed": 0,
+    "failed": 0,
+    "error": 0,
+    "skipped": 0,
+    "collected": 0,
+    "install_exit": 0,
+    "test_exit": 5,
+    "resolved": {
+     "pytest": "9.1.1"
+    }
+   },
+   "after": {
+    "passed": 0,
+    "failed": 0,
+    "error": 0,
+    "skipped": 0,
+    "collected": 0,
+    "install_exit": 0,
+    "test_exit": 5,
+    "resolved": {
+     "pytest": "9.1.1"
+    }
+   },
+   "newly_failing": [],
+   "new_collection_errors": [],
+   "flaky_excluded": [],
+   "wall_s": 30.0,
+   "public_report": null,
+   "reach": 0.9177
   },
   {
    "name": "mcp-server-appwrite",
@@ -7590,7 +8202,7 @@
    "flaky_excluded": [],
    "wall_s": 56.0,
    "public_report": null,
-   "reach": 0.927
+   "reach": 0.9204
   },
   {
    "name": "textarena",
@@ -7663,7 +8275,7 @@
    "flaky_excluded": [],
    "wall_s": 92.1,
    "public_report": null,
-   "reach": 0.9295
+   "reach": 0.9229
   },
   {
    "name": "langwatch-scenario",
@@ -7738,7 +8350,55 @@
    "flaky_excluded": [],
    "wall_s": 104.8,
    "public_report": null,
-   "reach": 0.934
+   "reach": 0.9273
+  },
+  {
+   "name": "markitdown-ocr",
+   "version": "0.1.0",
+   "rank": 11072,
+   "downloads": 129632,
+   "requirement": "openai>=1.0.0; extra == \"llm\"",
+   "via_extra": "llm",
+   "repo": "microsoft/markitdown",
+   "tag": "v0.1.0",
+   "state": "lost",
+   "why": "It would not install in a clean environment before or after the release.",
+   "before": {
+    "passed": 0,
+    "failed": 0,
+    "error": 0,
+    "skipped": 0,
+    "collected": 0,
+    "install_exit": 41,
+    "test_exit": null,
+    "resolved": {}
+   },
+   "control": {
+    "passed": 0,
+    "failed": 0,
+    "error": 0,
+    "skipped": 0,
+    "collected": 0,
+    "install_exit": 41,
+    "test_exit": null,
+    "resolved": {}
+   },
+   "after": {
+    "passed": 0,
+    "failed": 0,
+    "error": 0,
+    "skipped": 0,
+    "collected": 0,
+    "install_exit": 41,
+    "test_exit": null,
+    "resolved": {}
+   },
+   "newly_failing": [],
+   "new_collection_errors": [],
+   "flaky_excluded": [],
+   "wall_s": 9.8,
+   "public_report": null,
+   "reach": 0.9292
   },
   {
    "name": "nextcloud-mcp-server",
@@ -7811,7 +8471,136 @@
    "flaky_excluded": [],
    "wall_s": 363.1,
    "public_report": null,
-   "reach": 0.9389
+   "reach": 0.9322
+  },
+  {
+   "name": "solara",
+   "version": "1.61.0",
+   "rank": 11285,
+   "downloads": 124197,
+   "requirement": "openai; extra == \"all\"",
+   "via_extra": "all",
+   "repo": "widgetti/solara",
+   "tag": "v1.61.0",
+   "state": "no-tests",
+   "why": "",
+   "before": {
+    "passed": 0,
+    "failed": 0,
+    "error": 0,
+    "skipped": 0,
+    "collected": 0,
+    "install_exit": 0,
+    "test_exit": 5,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "control": {
+    "passed": 0,
+    "failed": 0,
+    "error": 0,
+    "skipped": 0,
+    "collected": 0,
+    "install_exit": 0,
+    "test_exit": 5,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "after": {
+    "passed": 0,
+    "failed": 0,
+    "error": 0,
+    "skipped": 0,
+    "collected": 0,
+    "install_exit": 0,
+    "test_exit": 5,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "newly_failing": [],
+   "new_collection_errors": [],
+   "flaky_excluded": [],
+   "wall_s": 53.5,
+   "public_report": null,
+   "reach": 0.9338
+  },
+  {
+   "name": "semble",
+   "version": "0.5.4",
+   "rank": 11353,
+   "downloads": 122562,
+   "requirement": "openai>=1.50; extra == \"benchmark\"",
+   "via_extra": "benchmark",
+   "repo": "MinishLab/semble",
+   "tag": "v0.5.4",
+   "state": "no-baseline",
+   "why": "",
+   "before": {
+    "passed": 0,
+    "failed": 0,
+    "error": 1,
+    "skipped": 0,
+    "collected": 1,
+    "install_exit": 0,
+    "test_exit": 2,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "control": {
+    "passed": 0,
+    "failed": 0,
+    "error": 1,
+    "skipped": 0,
+    "collected": 1,
+    "install_exit": 0,
+    "test_exit": 2,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "after": {
+    "passed": 0,
+    "failed": 0,
+    "error": 1,
+    "skipped": 0,
+    "collected": 1,
+    "install_exit": 0,
+    "test_exit": 2,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "newly_failing": [],
+   "new_collection_errors": [],
+   "flaky_excluded": [],
+   "wall_s": 47.4,
+   "public_report": null,
+   "reach": 0.9352
   },
   {
    "name": "oci-openai",
@@ -7889,7 +8678,7 @@
    "flaky_excluded": [],
    "wall_s": 104.2,
    "public_report": null,
-   "reach": 0.9429
+   "reach": 0.9362
   },
   {
    "name": "langchain-oci",
@@ -7969,7 +8758,61 @@
     "hours_after_release": 714.1,
     "hours_to_close": 194.2
    },
-   "reach": 0.9432
+   "reach": 0.9365
+  },
+  {
+   "name": "pgvecto-rs",
+   "version": "0.2.2",
+   "rank": 11601,
+   "downloads": 116872,
+   "requirement": "openai>=1.2.2; extra == \"sdk\"",
+   "via_extra": "sdk",
+   "repo": null,
+   "tag": null,
+   "state": "no-baseline",
+   "why": "",
+   "before": {
+    "passed": 0,
+    "failed": 0,
+    "error": 5,
+    "skipped": 0,
+    "collected": 5,
+    "install_exit": 0,
+    "test_exit": 2,
+    "resolved": {
+     "pytest": "9.1.1"
+    }
+   },
+   "control": {
+    "passed": 0,
+    "failed": 0,
+    "error": 5,
+    "skipped": 0,
+    "collected": 5,
+    "install_exit": 0,
+    "test_exit": 2,
+    "resolved": {
+     "pytest": "9.1.1"
+    }
+   },
+   "after": {
+    "passed": 0,
+    "failed": 0,
+    "error": 5,
+    "skipped": 0,
+    "collected": 5,
+    "install_exit": 0,
+    "test_exit": 2,
+    "resolved": {
+     "pytest": "9.1.1"
+    }
+   },
+   "newly_failing": [],
+   "new_collection_errors": [],
+   "flaky_excluded": [],
+   "wall_s": 20.0,
+   "public_report": null,
+   "reach": 0.9404
   },
   {
    "name": "chatlas",
@@ -8050,7 +8893,7 @@
     "hours_after_release": 1.3,
     "hours_to_close": 42.9
    },
-   "reach": 0.9577
+   "reach": 0.9509
   },
   {
    "name": "ms-swift",
@@ -8123,7 +8966,7 @@
    "flaky_excluded": [],
    "wall_s": 260.7,
    "public_report": null,
-   "reach": 0.9583
+   "reach": 0.9515
   },
   {
    "name": "hindsight-api-slim",
@@ -8198,7 +9041,7 @@
    "flaky_excluded": [],
    "wall_s": 124.6,
    "public_report": null,
-   "reach": 0.9588
+   "reach": 0.952
   },
   {
    "name": "code-puppy",
@@ -8281,7 +9124,7 @@
     "hours_after_release": 168.6,
     "hours_to_close": null
    },
-   "reach": 0.9596
+   "reach": 0.9528
   },
   {
    "name": "pyrit",
@@ -8354,7 +9197,7 @@
    "flaky_excluded": [],
    "wall_s": 160.2,
    "public_report": null,
-   "reach": 0.9602
+   "reach": 0.9534
   },
   {
    "name": "matrx-ai",
@@ -8402,7 +9245,73 @@
    "flaky_excluded": [],
    "wall_s": 32.6,
    "public_report": null,
-   "reach": 0.9631
+   "reach": 0.9562
+  },
+  {
+   "name": "groundx",
+   "version": "3.9.3",
+   "rank": 12403,
+   "downloads": 101000,
+   "requirement": "openai; extra == \"extract\"",
+   "via_extra": "extract",
+   "repo": "eyelevelai/groundx-python",
+   "tag": "3.9.3",
+   "state": "no-baseline",
+   "why": "",
+   "before": {
+    "passed": 0,
+    "failed": 0,
+    "error": 18,
+    "skipped": 4,
+    "collected": 22,
+    "install_exit": 0,
+    "test_exit": 2,
+    "resolved": {
+     "certifi": "2026.7.22",
+     "httpx": "1.0.dev3",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "control": {
+    "passed": 0,
+    "failed": 0,
+    "error": 18,
+    "skipped": 4,
+    "collected": 22,
+    "install_exit": 0,
+    "test_exit": 2,
+    "resolved": {
+     "certifi": "2026.7.22",
+     "httpx": "1.0.dev3",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "after": {
+    "passed": 0,
+    "failed": 0,
+    "error": 18,
+    "skipped": 4,
+    "collected": 22,
+    "install_exit": 0,
+    "test_exit": 2,
+    "resolved": {
+     "certifi": "2026.7.22",
+     "httpx": "1.0.dev3",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "newly_failing": [],
+   "new_collection_errors": [],
+   "flaky_excluded": [],
+   "wall_s": 31.8,
+   "public_report": null,
+   "reach": 0.9566
   },
   {
    "name": "agentlightning",
@@ -8477,7 +9386,135 @@
    "flaky_excluded": [],
    "wall_s": 145.7,
    "public_report": null,
-   "reach": 0.9678
+   "reach": 0.9609
+  },
+  {
+   "name": "vlmrun",
+   "version": "0.7.3",
+   "rank": 13112,
+   "downloads": 89490,
+   "requirement": "openai; extra == \"test\"",
+   "via_extra": "test",
+   "repo": null,
+   "tag": null,
+   "state": "positive",
+   "why": "",
+   "before": {
+    "passed": 231,
+    "failed": 0,
+    "error": 62,
+    "skipped": 2,
+    "collected": 295,
+    "install_exit": 0,
+    "test_exit": 1,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "control": {
+    "passed": 231,
+    "failed": 0,
+    "error": 62,
+    "skipped": 2,
+    "collected": 295,
+    "install_exit": 0,
+    "test_exit": 1,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "after": {
+    "passed": 228,
+    "failed": 3,
+    "error": 62,
+    "skipped": 2,
+    "collected": 295,
+    "install_exit": 0,
+    "test_exit": 1,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx2": "2.10.0",
+     "openai": "3.0.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "newly_failing": [
+    "tests.test_gateway.TestGatewayResource::test_health_dedicated_endpoint",
+    "tests.test_gateway.TestGatewayResource::test_health_falls_back_to_models_on_404",
+    "tests.test_gateway.TestGatewayResource::test_health_false_on_connection_error"
+   ],
+   "new_collection_errors": [],
+   "flaky_excluded": [],
+   "wall_s": 49.9,
+   "public_report": null,
+   "cells": {
+    "seq": "ffffpppppppppppppppppppppppppppppppfffffffffppp|ffffffff|ppppppppp|fff|pppppppppppppp|ff|ffffff|ppppppppppppppppppppppppbbbpppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp|fff|pppppppppppppppppppppppppppppppppppppppppp|f|ffffffpppppppffffffffffffffffffff|pppppppppppppppppppppp",
+    "broke": 3,
+    "passed_before": 231,
+    "already_failing": 62,
+    "collection_break": false,
+    "modules": 13
+   },
+   "triage": {
+    "category": null,
+    "symbol": null,
+    "cause": null,
+    "quotes": null,
+    "dropped_quotes": null,
+    "fix_plan": null,
+    "fix_notes": null,
+    "model": null,
+    "confidence": null
+   },
+   "log": "t.py::test_dataset_get\nERROR tests/test_dataset.py::test_dataset_invalid_type\nERROR tests/test_feedback.py::test_submit_feedback\nERROR tests/test_feedback.py::test_get_feedback\nERROR tests/test_files.py::test_list_files\nERROR tests/test_files.py::test_upload_file\nERROR tests/test_files.py::test_get_file\nERROR tests/test_files.py::test_delete_file\nERROR tests/test_files.py::test_generate_presigned_url\nERROR tests/test_files.py::test_generate_presigned_url_without_purpose\nERROR tests/test_hub.py::test_hub_info\nERROR tests/test_hub.py::test_hub_list_domains\nERROR tests/test_hub.py::test_hub_get_schema\nERROR tests/test_models.py::test_list_models\nERROR tests/test_predictions.py::test_list_predictions\nERROR tests/test_predictions.py::test_get_prediction\nERROR tests/test_predictions.py::test_wait_prediction\nERROR tests/test_predictions.py::test_wait_prediction_timeout\nERROR tests/test_predictions.py::test_wait_prediction_polling\nERROR tests/test_predictions.py::test_wait_prediction_immediate_completion\nERROR tests/test_predictions.py::test_image_generate\nERROR tests/test_predictions.py::test_image_generate_with_url\nERROR tests/test_predictions.py::test_image_generate_validation\nERROR tests/test_predictions.py::test_document_generate\nERROR tests/test_predictions.py::test_video_generate\nERROR tests/test_predictions.py::test_audio_generate\nERROR tests/test_predictions.py::test_image_execute\nERROR tests/test_predictions.py::test_image_execute_with_url\nERROR tests/test_predictions.py::test_image_execute_validation\nERROR tests/test_predictions.py::test_document_execute\nERROR tests/test_predictions.py::test_video_execute\nERROR tests/test_predictions.py::test_audio_execute\nERROR tests/test_predictions.py::test_schema_casting_with_domain\nERROR tests/test_predictions.py::test_schema_casting_with_custom_schema\nERROR tests/test_predictions.py::test_schema_casting_across_prediction_types[image]\nERROR tests/test_predictions.py::test_schema_casting_across_prediction_types[document]\nERROR tests/test_predictions.py::test_schema_casting_across_prediction_types[video]\nERROR tests/test_predictions.py::test_schema_casting_across_prediction_types[audio]\nERROR tests/test_predictions.py::test_document_markdown_automatic_casting\nERROR tests/test_predictions.py::test_document_markdown_automatic_casting_in_get\n======= 3 failed, 228 passed, 2 skipped, 2 warnings, 62 errors in 9.91s ========\n",
+   "fix": {
+    "verified": false,
+    "attempts": [],
+    "diff": "",
+    "trials": 0,
+    "trials_verified": 0,
+    "trial_outcomes": []
+   },
+   "guidance": null,
+   "maintainer_fix": {
+    "kind": "pr",
+    "repo": "vlm-run/vlmrun-python-sdk",
+    "number": 215,
+    "title": "chore: pin core dependencies and defer heavy imports",
+    "url": "https://github.com/vlm-run/vlmrun-python-sdk/pull/215",
+    "published_at": "2026-08-31T03:47:41Z",
+    "merged": true,
+    "note": "No public issue named the break; this PR pinned openai below 3 without saying why.",
+    "lines": [
+     "-openai>=1.0.0",
+     "+openai==1.109.1",
+     "-from openai import AsyncOpenAI, OpenAI",
+     "+from vlmrun.common.dependencies import require_openai",
+     "+        openai = require_openai()",
+     "-        openai_client = OpenAI(",
+     "+        openai_client = openai.OpenAI(",
+     "+        openai = require_openai()",
+     "-        async_openai_client = AsyncOpenAI(",
+     "+        async_openai_client = openai.AsyncOpenAI("
+    ],
+    "hours_after_release": 457.9
+   },
+   "reach": 0.9699
   },
   {
    "name": "deepteam",
@@ -8549,7 +9586,7 @@
    "flaky_excluded": [],
    "wall_s": 120.0,
    "public_report": null,
-   "reach": 0.9776
+   "reach": 0.9706
   },
   {
    "name": "yutori",
@@ -8622,7 +9659,7 @@
    "flaky_excluded": [],
    "wall_s": 114.5,
    "public_report": null,
-   "reach": 0.9787
+   "reach": 0.9718
   },
   {
    "name": "openai-messages-token-helper",
@@ -8694,7 +9731,80 @@
    "flaky_excluded": [],
    "wall_s": 83.6,
    "public_report": null,
-   "reach": 0.9817
+   "reach": 0.9748
+  },
+  {
+   "name": "dominodatalab",
+   "version": "2.2.0",
+   "rank": 13433,
+   "downloads": 85637,
+   "requirement": "openai>=2.7.2; extra == \"dev\"",
+   "via_extra": "dev",
+   "repo": "dominodatalab/python-domino",
+   "tag": null,
+   "state": "no-baseline",
+   "why": "",
+   "before": {
+    "passed": 0,
+    "failed": 0,
+    "error": 6,
+    "skipped": 0,
+    "collected": 6,
+    "install_exit": 0,
+    "test_exit": 2,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "7.4.3",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "control": {
+    "passed": 0,
+    "failed": 0,
+    "error": 6,
+    "skipped": 0,
+    "collected": 6,
+    "install_exit": 0,
+    "test_exit": 2,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "7.4.3",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "after": {
+    "passed": 0,
+    "failed": 0,
+    "error": 6,
+    "skipped": 0,
+    "collected": 6,
+    "install_exit": 0,
+    "test_exit": 2,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "1.0.dev3",
+     "httpx2": "2.10.0",
+     "openai": "3.0.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "7.4.3",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "newly_failing": [],
+   "new_collection_errors": [],
+   "flaky_excluded": [],
+   "wall_s": 107.1,
+   "public_report": null,
+   "reach": 0.9758
   },
   {
    "name": "camel-ai",
@@ -8777,7 +9887,7 @@
     "hours_after_release": 531.4,
     "hours_to_close": 0.1
    },
-   "reach": 0.9842
+   "reach": 0.9772
   },
   {
    "name": "terminal-bench",
@@ -8852,7 +9962,79 @@
    "flaky_excluded": [],
    "wall_s": 77.8,
    "public_report": null,
-   "reach": 0.9843
+   "reach": 0.9773
+  },
+  {
+   "name": "vlmrun-hub",
+   "version": "0.1.35",
+   "rank": 13607,
+   "downloads": 83605,
+   "requirement": "openai>=1.58.1; extra == \"test\"",
+   "via_extra": "test",
+   "repo": "vlm-run/vlmrun-hub",
+   "tag": "v0.1.35",
+   "state": "negative",
+   "why": "",
+   "before": {
+    "passed": 25,
+    "failed": 0,
+    "error": 0,
+    "skipped": 3,
+    "collected": 28,
+    "install_exit": 0,
+    "test_exit": 0,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "control": {
+    "passed": 25,
+    "failed": 0,
+    "error": 0,
+    "skipped": 3,
+    "collected": 28,
+    "install_exit": 0,
+    "test_exit": 0,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "after": {
+    "passed": 25,
+    "failed": 0,
+    "error": 0,
+    "skipped": 3,
+    "collected": 28,
+    "install_exit": 0,
+    "test_exit": 0,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "newly_failing": [],
+   "new_collection_errors": [],
+   "flaky_excluded": [],
+   "wall_s": 73.1,
+   "public_report": null,
+   "reach": 0.9789
   },
   {
    "name": "composio-openai",
@@ -8933,7 +10115,7 @@
     "hours_after_release": 221.1,
     "hours_to_close": 150.2
    },
-   "reach": 0.987
+   "reach": 0.98
   },
   {
    "name": "praisonaiagents",
@@ -9008,7 +10190,7 @@
    "flaky_excluded": [],
    "wall_s": 175.7,
    "public_report": null,
-   "reach": 0.9894
+   "reach": 0.9823
   },
   {
    "name": "evalscope",
@@ -9080,7 +10262,79 @@
    "flaky_excluded": [],
    "wall_s": 277.7,
    "public_report": null,
-   "reach": 0.9898
+   "reach": 0.9828
+  },
+  {
+   "name": "krepis",
+   "version": "0.47.0",
+   "rank": 14100,
+   "downloads": 76720,
+   "requirement": "openai>=1.40; extra == \"openai\"",
+   "via_extra": "openai",
+   "repo": "nousergon/krepis",
+   "tag": "v0.47.0",
+   "state": "negative",
+   "why": "",
+   "before": {
+    "passed": 1267,
+    "failed": 0,
+    "error": 0,
+    "skipped": 3,
+    "collected": 1270,
+    "install_exit": 0,
+    "test_exit": 0,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "control": {
+    "passed": 1267,
+    "failed": 0,
+    "error": 0,
+    "skipped": 3,
+    "collected": 1270,
+    "install_exit": 0,
+    "test_exit": 0,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "after": {
+    "passed": 1267,
+    "failed": 0,
+    "error": 0,
+    "skipped": 3,
+    "collected": 1270,
+    "install_exit": 0,
+    "test_exit": 0,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "newly_failing": [],
+   "new_collection_errors": [],
+   "flaky_excluded": [],
+   "wall_s": 90.5,
+   "public_report": null,
+   "reach": 0.9874
   },
   {
    "name": "r2r",
@@ -9153,7 +10407,7 @@
    "flaky_excluded": [],
    "wall_s": 134.1,
    "public_report": null,
-   "reach": 0.9951
+   "reach": 0.9881
   },
   {
    "name": "clarifai",
@@ -9226,7 +10480,7 @@
    "flaky_excluded": [],
    "wall_s": 130.8,
    "public_report": null,
-   "reach": 0.9962
+   "reach": 0.9891
   },
   {
    "name": "agent-lifecycle-toolkit",
@@ -9298,7 +10552,7 @@
    "flaky_excluded": [],
    "wall_s": 206.7,
    "public_report": null,
-   "reach": 0.9962
+   "reach": 0.9892
   },
   {
    "name": "babeldoc",
@@ -9371,7 +10625,7 @@
    "flaky_excluded": [],
    "wall_s": 197.6,
    "public_report": null,
-   "reach": 0.9966
+   "reach": 0.9895
   },
   {
    "name": "gpt-researcher",
@@ -9446,7 +10700,7 @@
    "flaky_excluded": [],
    "wall_s": 127.9,
    "public_report": null,
-   "reach": 0.9971
+   "reach": 0.99
   },
   {
    "name": "mindroom",
@@ -9518,6 +10772,79 @@
    "new_collection_errors": [],
    "flaky_excluded": [],
    "wall_s": 129.0,
+   "public_report": null,
+   "reach": 0.9929
+  },
+  {
+   "name": "tinygrad",
+   "version": "0.13.0",
+   "rank": 14854,
+   "downloads": 69219,
+   "requirement": "openai; extra == \"testing-unit\"",
+   "via_extra": "testing-unit",
+   "repo": null,
+   "tag": null,
+   "state": "no-baseline",
+   "why": "",
+   "before": {
+    "passed": 0,
+    "failed": 0,
+    "error": 1,
+    "skipped": 0,
+    "collected": 1,
+    "install_exit": 0,
+    "test_exit": 2,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "control": {
+    "passed": 0,
+    "failed": 0,
+    "error": 1,
+    "skipped": 0,
+    "collected": 1,
+    "install_exit": 0,
+    "test_exit": 2,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "openai": "2.54.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "after": {
+    "passed": 0,
+    "failed": 0,
+    "error": 1,
+    "skipped": 0,
+    "collected": 1,
+    "install_exit": 0,
+    "test_exit": 2,
+    "resolved": {
+     "anyio": "4.14.2",
+     "certifi": "2026.7.22",
+     "httpx": "0.28.1",
+     "httpx2": "2.10.0",
+     "openai": "3.0.0",
+     "pydantic": "2.14.0b1",
+     "pytest": "9.1.1",
+     "typing-extensions": "4.16.0"
+    }
+   },
+   "newly_failing": [],
+   "new_collection_errors": [],
+   "flaky_excluded": [],
+   "wall_s": 139.5,
    "public_report": null,
    "reach": 1.0
   }
