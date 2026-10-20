@@ -9,20 +9,20 @@
     "sdist_url": null
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "8e0e328e-8616-490f-bfd4-1298c2b66139",
+  "clone_uuid": "7fd61f2c-d47e-489f-bd9a-d8cdbe1d2849",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
     "install_exit": 41,
-    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: The build backend returned an error\n  cause: Call to `setuptools.build_meta:__legacy__.get_requires_for_build_editable` failed (exit status: 1)\n\n         [stderr]\n         Traceback (most recent call last):\n           File \"<string>\", line 14, in <module>\n           File \"/root/.cache/uv/builds-v0/.tmpDXq58b/lib/python3.12/site-packages/setuptools/build_meta.py\", line 481, in get_requires_for_build_editable\n             return self.get_requires_for_build_wheel(config_settings)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpDXq58b/lib/python3.12/site-packages/setuptools/build_meta.py\", line 333, in get_requires_for_build_wheel\n             return self._get_build_requires(config_settings, requirements=[])\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpDXq58b/lib/python3.12/site-packages/setuptools/build_meta.py\", line 301, in _get_build_requires\n             self.run_setup()\n           File \"/root/.cache/uv/builds-v0/.tmpDXq58b/lib/python3.12/site-packages/setuptools/build_meta.py\", line 520, in run_setup\n             super().run_setup(setup_script=setup_script)\n           File \"/root/.cache/uv/builds-v0/.tmpDXq58b/lib/python3.12/site-packages/setuptools/build_meta.py\", line 317, in run_setup\n             exec(code, locals())\n           File \"<string>\", line 35, in <module>\n         ValueError: list.remove(x): x not in list\n",
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: The build backend returned an error\n  cause: Call to `setuptools.build_meta:__legacy__.get_requires_for_build_editable` failed (exit status: 1)\n\n         [stderr]\n         Traceback (most recent call last):\n           File \"<string>\", line 14, in <module>\n           File \"/root/.cache/uv/builds-v0/.tmp0UP3Ag/lib/python3.12/site-packages/setuptools/build_meta.py\", line 481, in get_requires_for_build_editable\n             return self.get_requires_for_build_wheel(config_settings)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmp0UP3Ag/lib/python3.12/site-packages/setuptools/build_meta.py\", line 333, in get_requires_for_build_wheel\n             return self._get_build_requires(config_settings, requirements=[])\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmp0UP3Ag/lib/python3.12/site-packages/setuptools/build_meta.py\", line 301, in _get_build_requires\n             self.run_setup()\n           File \"/root/.cache/uv/builds-v0/.tmp0UP3Ag/lib/python3.12/site-packages/setuptools/build_meta.py\", line 520, in run_setup\n             super().run_setup(setup_script=setup_script)\n           File \"/root/.cache/uv/builds-v0/.tmp0UP3Ag/lib/python3.12/site-packages/setuptools/build_meta.py\", line 317, in run_setup\n             exec(code, locals())\n           File \"<string>\", line 35, in <module>\n         ValueError: list.remove(x): x not in list\n",
     "test_exit": null,
     "test_tail": "",
     "tests": {},
     "collection_errors": [],
     "resolved": {},
-    "elapsed_s": 0.809347,
-    "cost": 0.00843031,
-    "image_uuid": "b38c946c-77ca-4459-988c-a6781999c2f9",
+    "elapsed_s": 0.832376,
+    "cost": 0.00865984,
+    "image_uuid": "811f2dca-2765-4dd9-8aa1-c5b75f1969e0",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -31,15 +31,15 @@
     "label": "after",
     "cutoff": "2026-08-12T01:56:48Z",
     "install_exit": 41,
-    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: The build backend returned an error\n  cause: Call to `setuptools.build_meta:__legacy__.get_requires_for_build_editable` failed (exit status: 1)\n\n         [stderr]\n         Traceback (most recent call last):\n           File \"<string>\", line 14, in <module>\n           File \"/root/.cache/uv/builds-v0/.tmp9fCnZx/lib/python3.12/site-packages/setuptools/build_meta.py\", line 481, in get_requires_for_build_editable\n             return self.get_requires_for_build_wheel(config_settings)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmp9fCnZx/lib/python3.12/site-packages/setuptools/build_meta.py\", line 333, in get_requires_for_build_wheel\n             return self._get_build_requires(config_settings, requirements=[])\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmp9fCnZx/lib/python3.12/site-packages/setuptools/build_meta.py\", line 301, in _get_build_requires\n             self.run_setup()\n           File \"/root/.cache/uv/builds-v0/.tmp9fCnZx/lib/python3.12/site-packages/setuptools/build_meta.py\", line 520, in run_setup\n             super().run_setup(setup_script=setup_script)\n           File \"/root/.cache/uv/builds-v0/.tmp9fCnZx/lib/python3.12/site-packages/setuptools/build_meta.py\", line 317, in run_setup\n             exec(code, locals())\n           File \"<string>\", line 35, in <module>\n         ValueError: list.remove(x): x not in list\n",
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: The build backend returned an error\n  cause: Call to `setuptools.build_meta:__legacy__.get_requires_for_build_editable` failed (exit status: 1)\n\n         [stderr]\n         Traceback (most recent call last):\n           File \"<string>\", line 14, in <module>\n           File \"/root/.cache/uv/builds-v0/.tmpmYxnEc/lib/python3.12/site-packages/setuptools/build_meta.py\", line 481, in get_requires_for_build_editable\n             return self.get_requires_for_build_wheel(config_settings)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpmYxnEc/lib/python3.12/site-packages/setuptools/build_meta.py\", line 333, in get_requires_for_build_wheel\n             return self._get_build_requires(config_settings, requirements=[])\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpmYxnEc/lib/python3.12/site-packages/setuptools/build_meta.py\", line 301, in _get_build_requires\n             self.run_setup()\n           File \"/root/.cache/uv/builds-v0/.tmpmYxnEc/lib/python3.12/site-packages/setuptools/build_meta.py\", line 520, in run_setup\n             super().run_setup(setup_script=setup_script)\n           File \"/root/.cache/uv/builds-v0/.tmpmYxnEc/lib/python3.12/site-packages/setuptools/build_meta.py\", line 317, in run_setup\n             exec(code, locals())\n           File \"<string>\", line 35, in <module>\n         ValueError: list.remove(x): x not in list\n",
     "test_exit": null,
     "test_tail": "",
     "tests": {},
     "collection_errors": [],
     "resolved": {},
-    "elapsed_s": 0.814654,
-    "cost": 0.00847204,
-    "image_uuid": "fb0e3294-2578-4c73-8990-5069e5cc8d1b",
+    "elapsed_s": 0.773539,
+    "cost": 0.00807025,
+    "image_uuid": "9849dfe6-d1f7-4adc-bc4e-c14b581863be",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -48,15 +48,15 @@
     "label": "control",
     "cutoff": "2026-08-12T01:54:48Z",
     "install_exit": 41,
-    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: The build backend returned an error\n  cause: Call to `setuptools.build_meta:__legacy__.get_requires_for_build_editable` failed (exit status: 1)\n\n         [stderr]\n         Traceback (most recent call last):\n           File \"<string>\", line 14, in <module>\n           File \"/root/.cache/uv/builds-v0/.tmpSNanCD/lib/python3.12/site-packages/setuptools/build_meta.py\", line 481, in get_requires_for_build_editable\n             return self.get_requires_for_build_wheel(config_settings)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpSNanCD/lib/python3.12/site-packages/setuptools/build_meta.py\", line 333, in get_requires_for_build_wheel\n             return self._get_build_requires(config_settings, requirements=[])\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpSNanCD/lib/python3.12/site-packages/setuptools/build_meta.py\", line 301, in _get_build_requires\n             self.run_setup()\n           File \"/root/.cache/uv/builds-v0/.tmpSNanCD/lib/python3.12/site-packages/setuptools/build_meta.py\", line 520, in run_setup\n             super().run_setup(setup_script=setup_script)\n           File \"/root/.cache/uv/builds-v0/.tmpSNanCD/lib/python3.12/site-packages/setuptools/build_meta.py\", line 317, in run_setup\n             exec(code, locals())\n           File \"<string>\", line 35, in <module>\n         ValueError: list.remove(x): x not in list\n",
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: The build backend returned an error\n  cause: Call to `setuptools.build_meta:__legacy__.get_requires_for_build_editable` failed (exit status: 1)\n\n         [stderr]\n         Traceback (most recent call last):\n           File \"<string>\", line 14, in <module>\n           File \"/root/.cache/uv/builds-v0/.tmpDwFtxb/lib/python3.12/site-packages/setuptools/build_meta.py\", line 481, in get_requires_for_build_editable\n             return self.get_requires_for_build_wheel(config_settings)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpDwFtxb/lib/python3.12/site-packages/setuptools/build_meta.py\", line 333, in get_requires_for_build_wheel\n             return self._get_build_requires(config_settings, requirements=[])\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpDwFtxb/lib/python3.12/site-packages/setuptools/build_meta.py\", line 301, in _get_build_requires\n             self.run_setup()\n           File \"/root/.cache/uv/builds-v0/.tmpDwFtxb/lib/python3.12/site-packages/setuptools/build_meta.py\", line 520, in run_setup\n             super().run_setup(setup_script=setup_script)\n           File \"/root/.cache/uv/builds-v0/.tmpDwFtxb/lib/python3.12/site-packages/setuptools/build_meta.py\", line 317, in run_setup\n             exec(code, locals())\n           File \"<string>\", line 35, in <module>\n         ValueError: list.remove(x): x not in list\n",
     "test_exit": null,
     "test_tail": "",
     "tests": {},
     "collection_errors": [],
     "resolved": {},
-    "elapsed_s": 0.881437,
-    "cost": 0.00913991,
-    "image_uuid": "0157ff48-c55b-4c58-967c-5323153a0006",
+    "elapsed_s": 0.801341,
+    "cost": 0.00834973,
+    "image_uuid": "4a5e5743-570a-48d0-8c23-881b546174fe",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -65,9 +65,9 @@
   "verdict": {
     "status": "unrunnable",
     "reason": "install failed before and after",
-    "evidence": "uild_wheel\n             return self._get_build_requires(config_settings, requirements=[])\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmpDXq58b/lib/python3.12/site-packages/setuptools/build_meta.py\", line 301, in _get_build_requires\n             self.run_setup()\n           File \"/root/.cache/uv/builds-v0/.tmpDXq58b/lib/python3.12/site-packages/setuptools/build_meta.py\", line 520, in run_setup\n             super().run_setup(setup_script=setup_script)\n           File \"/root/.cache/uv/builds-v0/.tmpDXq58b/lib/python3.12/site-packages/setuptools/build_meta.py\", line 317, in run_setup\n             exec(code, locals())\n           File \"<string>\", line 35, in <module>\n         ValueError: list.remove(x): x not in list\n"
+    "evidence": "uild_wheel\n             return self._get_build_requires(config_settings, requirements=[])\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n           File \"/root/.cache/uv/builds-v0/.tmp0UP3Ag/lib/python3.12/site-packages/setuptools/build_meta.py\", line 301, in _get_build_requires\n             self.run_setup()\n           File \"/root/.cache/uv/builds-v0/.tmp0UP3Ag/lib/python3.12/site-packages/setuptools/build_meta.py\", line 520, in run_setup\n             super().run_setup(setup_script=setup_script)\n           File \"/root/.cache/uv/builds-v0/.tmp0UP3Ag/lib/python3.12/site-packages/setuptools/build_meta.py\", line 317, in run_setup\n             exec(code, locals())\n           File \"<string>\", line 35, in <module>\n         ValueError: list.remove(x): x not in list\n"
   },
   "error": null,
   "requirement": "openai>=1.108.0",
-  "wall_s": 181.6
+  "wall_s": 171.3
 }

@@ -9,14 +9,14 @@
     "sdist_url": null
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "c99a8dbd-b3b7-4819-b721-7e21add02fde",
+  "clone_uuid": "8a6d6a59-2976-4514-892b-f490b24b51ba",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
     "install_exit": 0,
     "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
     "test_exit": 2,
-    "test_tail": "\n==================================== ERRORS ====================================\n________________ ERROR collecting tests/test_mcp_image_smoke.py ________________\nImportError while importing test module '/work/repo/tests/test_mcp_image_smoke.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\nsrc/stirrup/tools/mcp.py:57: in <module>\n    from mcp.client.streamable_http import streamablehttp_client\nE   ImportError: cannot import name 'streamablehttp_client' from 'mcp.client.streamable_http' (/work/venv/lib/python3.12/site-packages/mcp/client/streamable_http.py)\n\nThe above exception was the direct cause of the following exception:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_mcp_image_smoke.py:15: in <module>\n    from stirrup.tools.mcp import MCPConfig, MCPToolProvider\nsrc/stirrup/tools/mcp.py:68: in <module>\n    raise ImportError(\nE   ImportError: Requires installation of the mcp extra. Install with (for example): `uv pip install stirrup[mcp]` or `uv add stirrup[mcp]`\n=========================== short test summary info ============================\nERROR tests/test_mcp_image_smoke.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 13.28s\n",
+    "test_tail": "\n==================================== ERRORS ====================================\n________________ ERROR collecting tests/test_mcp_image_smoke.py ________________\nImportError while importing test module '/work/repo/tests/test_mcp_image_smoke.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\nsrc/stirrup/tools/mcp.py:57: in <module>\n    from mcp.client.streamable_http import streamablehttp_client\nE   ImportError: cannot import name 'streamablehttp_client' from 'mcp.client.streamable_http' (/work/venv/lib/python3.12/site-packages/mcp/client/streamable_http.py)\n\nThe above exception was the direct cause of the following exception:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_mcp_image_smoke.py:15: in <module>\n    from stirrup.tools.mcp import MCPConfig, MCPToolProvider\nsrc/stirrup/tools/mcp.py:68: in <module>\n    raise ImportError(\nE   ImportError: Requires installation of the mcp extra. Install with (for example): `uv pip install stirrup[mcp]` or `uv add stirrup[mcp]`\n=========================== short test summary info ============================\nERROR tests/test_mcp_image_smoke.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 8.88s\n",
     "tests": {
       "::tests.test_mcp_image_smoke": "error"
     },
@@ -33,9 +33,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 14.58376,
-    "cost": 0.14864936,
-    "image_uuid": "8dab0aef-a753-4699-bb48-6ef4e2c6883e",
+    "elapsed_s": 14.497501999999999,
+    "cost": 0.1477774,
+    "image_uuid": "682e30cc-85ff-4f87-bbdc-dfb504a5935f",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {
@@ -48,7 +48,7 @@
     "install_exit": 0,
     "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
     "test_exit": 2,
-    "test_tail": "\n==================================== ERRORS ====================================\n________________ ERROR collecting tests/test_mcp_image_smoke.py ________________\nImportError while importing test module '/work/repo/tests/test_mcp_image_smoke.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\nsrc/stirrup/tools/mcp.py:57: in <module>\n    from mcp.client.streamable_http import streamablehttp_client\nE   ImportError: cannot import name 'streamablehttp_client' from 'mcp.client.streamable_http' (/work/venv/lib/python3.12/site-packages/mcp/client/streamable_http.py)\n\nThe above exception was the direct cause of the following exception:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_mcp_image_smoke.py:15: in <module>\n    from stirrup.tools.mcp import MCPConfig, MCPToolProvider\nsrc/stirrup/tools/mcp.py:68: in <module>\n    raise ImportError(\nE   ImportError: Requires installation of the mcp extra. Install with (for example): `uv pip install stirrup[mcp]` or `uv add stirrup[mcp]`\n=========================== short test summary info ============================\nERROR tests/test_mcp_image_smoke.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 13.94s\n",
+    "test_tail": "\n==================================== ERRORS ====================================\n________________ ERROR collecting tests/test_mcp_image_smoke.py ________________\nImportError while importing test module '/work/repo/tests/test_mcp_image_smoke.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\nsrc/stirrup/tools/mcp.py:57: in <module>\n    from mcp.client.streamable_http import streamablehttp_client\nE   ImportError: cannot import name 'streamablehttp_client' from 'mcp.client.streamable_http' (/work/venv/lib/python3.12/site-packages/mcp/client/streamable_http.py)\n\nThe above exception was the direct cause of the following exception:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_mcp_image_smoke.py:15: in <module>\n    from stirrup.tools.mcp import MCPConfig, MCPToolProvider\nsrc/stirrup/tools/mcp.py:68: in <module>\n    raise ImportError(\nE   ImportError: Requires installation of the mcp extra. Install with (for example): `uv pip install stirrup[mcp]` or `uv add stirrup[mcp]`\n=========================== short test summary info ============================\nERROR tests/test_mcp_image_smoke.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 9.02s\n",
     "tests": {
       "::tests.test_mcp_image_smoke": "error"
     },
@@ -65,9 +65,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 14.613544000000001,
-    "cost": 0.1489123,
-    "image_uuid": "5a6ae25a-3ce7-46f2-999b-c374c0582c13",
+    "elapsed_s": 15.198874,
+    "cost": 0.1547447,
+    "image_uuid": "ccef3eec-adb2-4f60-a2ba-92592526c641",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {
@@ -80,7 +80,7 @@
     "install_exit": 0,
     "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
     "test_exit": 2,
-    "test_tail": "\n==================================== ERRORS ====================================\n________________ ERROR collecting tests/test_mcp_image_smoke.py ________________\nImportError while importing test module '/work/repo/tests/test_mcp_image_smoke.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\nsrc/stirrup/tools/mcp.py:57: in <module>\n    from mcp.client.streamable_http import streamablehttp_client\nE   ImportError: cannot import name 'streamablehttp_client' from 'mcp.client.streamable_http' (/work/venv/lib/python3.12/site-packages/mcp/client/streamable_http.py)\n\nThe above exception was the direct cause of the following exception:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_mcp_image_smoke.py:15: in <module>\n    from stirrup.tools.mcp import MCPConfig, MCPToolProvider\nsrc/stirrup/tools/mcp.py:68: in <module>\n    raise ImportError(\nE   ImportError: Requires installation of the mcp extra. Install with (for example): `uv pip install stirrup[mcp]` or `uv add stirrup[mcp]`\n=========================== short test summary info ============================\nERROR tests/test_mcp_image_smoke.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 14.37s\n",
+    "test_tail": "\n==================================== ERRORS ====================================\n________________ ERROR collecting tests/test_mcp_image_smoke.py ________________\nImportError while importing test module '/work/repo/tests/test_mcp_image_smoke.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\nsrc/stirrup/tools/mcp.py:57: in <module>\n    from mcp.client.streamable_http import streamablehttp_client\nE   ImportError: cannot import name 'streamablehttp_client' from 'mcp.client.streamable_http' (/work/venv/lib/python3.12/site-packages/mcp/client/streamable_http.py)\n\nThe above exception was the direct cause of the following exception:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_mcp_image_smoke.py:15: in <module>\n    from stirrup.tools.mcp import MCPConfig, MCPToolProvider\nsrc/stirrup/tools/mcp.py:68: in <module>\n    raise ImportError(\nE   ImportError: Requires installation of the mcp extra. Install with (for example): `uv pip install stirrup[mcp]` or `uv add stirrup[mcp]`\n=========================== short test summary info ============================\nERROR tests/test_mcp_image_smoke.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 8.98s\n",
     "tests": {
       "::tests.test_mcp_image_smoke": "error"
     },
@@ -97,9 +97,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 14.956806,
-    "cost": 0.1523648,
-    "image_uuid": "b9a46de3-9b34-4e89-b96d-a8c23e72d624",
+    "elapsed_s": 14.441195,
+    "cost": 0.14721179,
+    "image_uuid": "39b73676-3c39-442a-8212-2b6e74406fdb",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {
@@ -114,5 +114,5 @@
   },
   "error": null,
   "requirement": "openai>=1.0.0",
-  "wall_s": 109.2
+  "wall_s": 127.8
 }

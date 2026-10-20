@@ -9,7 +9,7 @@
     "sdist_url": "https://files.pythonhosted.org/packages/a4/ac/ba1e3eb35652a307589206b5e470980b29e89ac575f3f305efdf20a052f4/databricks_langchain-0.20.0.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "68dfed08-f239-46ab-aec4-581d872ae3bc",
+  "clone_uuid": "e97d970b-ecb2-4488-b24f-a0b759273576",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
@@ -20,9 +20,9 @@
     "tests": {},
     "collection_errors": [],
     "resolved": {},
-    "elapsed_s": 0.103527,
-    "cost": 0.00120699,
-    "image_uuid": "b87ceb45-7fb9-49c2-97f9-b72357cb338e",
+    "elapsed_s": 0.112246,
+    "cost": 0.00129418,
+    "image_uuid": "9e79bd5e-1c26-41cd-b920-ecc450b2d2ed",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -37,9 +37,9 @@
     "tests": {},
     "collection_errors": [],
     "resolved": {},
-    "elapsed_s": 0.106889,
-    "cost": 0.00124061,
-    "image_uuid": "f5d481fe-df11-49fe-8b5d-31b91fb15849",
+    "elapsed_s": 0.123249,
+    "cost": 0.00140421,
+    "image_uuid": "a997ab5e-a97f-494b-b127-19abfb1eb0f8",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -54,9 +54,9 @@
     "tests": {},
     "collection_errors": [],
     "resolved": {},
-    "elapsed_s": 0.112401,
-    "cost": 0.00129573,
-    "image_uuid": "a37e1cfe-f040-4e06-aefb-faf01a6c5573",
+    "elapsed_s": 0.125211,
+    "cost": 0.00142319,
+    "image_uuid": "cf384914-04e5-4b7f-9c2a-328be3bbe053",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -69,5 +69,5 @@
   },
   "error": null,
   "requirement": "openai>=1.99.9",
-  "wall_s": 19.1
+  "wall_s": 37.8
 }

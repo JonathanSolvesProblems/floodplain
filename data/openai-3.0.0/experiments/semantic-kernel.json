@@ -9,7 +9,7 @@
     "sdist_url": "https://files.pythonhosted.org/packages/14/76/3c5503aac032abd31ac896ce896192eeb7a76e9509d90b297e7106d0a4b3/semantic_kernel-1.44.1.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "5bed6291-9007-47bc-8926-aa8eab8c749f",
+  "clone_uuid": "fcf9163b-e269-40e7-8adf-2843eced2262",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
@@ -28,9 +28,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 6.7729099999999995,
-    "cost": 0.06898750000000001,
-    "image_uuid": "d1d3dff6-e7a8-4570-ab45-3081a5e05203",
+    "elapsed_s": 6.850356,
+    "cost": 0.06970142,
+    "image_uuid": "665b2ee7-8167-4016-8b8a-a951e8bf04f0",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -54,9 +54,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 7.233077000000001,
-    "cost": 0.07362893000000001,
-    "image_uuid": "50289880-d274-4721-b69a-76cc4b66a5ef",
+    "elapsed_s": 6.854204,
+    "cost": 0.06979914000000001,
+    "image_uuid": "86f86e70-7aac-4880-9553-6862aeafc7d8",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -79,24 +79,20 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 6.997349,
-    "cost": 0.07122199,
-    "image_uuid": "706d8827-7305-4617-ab0b-4def1591bd9b",
+    "elapsed_s": 6.79464,
+    "cost": 0.06911468,
+    "image_uuid": "f8799997-cb4a-4a69-90c8-a00a66c8c226",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
   },
   "flaky_excluded": [],
   "verdict": {
-    "status": "incomplete",
-    "kind": "no-results",
-    "reason": "the before fork installed but returned no test results",
-    "arm": "before",
-    "test_exit": 5,
-    "error": null,
-    "evidence": "\n=============================== warnings summary ===============================\n../venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1624\n  /work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1624: PytestConfigWarning: No files were found in testpaths; consider removing or adjusting your testpaths configuration. Searching recursively from the current directory instead.\n    self.args, self.args_source = self._decide_args(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n"
+    "status": "no-tests",
+    "reason": "the package ships no test suite at this release",
+    "pytest_exit": 5
   },
   "error": null,
   "requirement": "openai>=2.0.0",
-  "wall_s": 96.7
+  "wall_s": 99.0
 }

@@ -79,17 +79,19 @@ BASE_SETUP = (
     "apt-get install -y -qq --no-install-recommends git ca-certificates curl build-essential "
     ">/dev/null 2>&1 && "
     "pip install --quiet --root-user-action=ignore uv && mkdir -p /work && "
-    # Without this, `git checkout` after a clone fails with "detected dubious ownership in
-    # repository at '/work/repo'", because the sandbox's uid does not own the cloned tree.
-    # It took out 14 of 75 dependents before being fixed.
-    "git config --global --add safe.directory '*' && "
+    # Without this, git refuses to touch the tree with "detected dubious ownership in
+    # repository at '/work/repo'", because the sandbox's uid does not own it. --system writes
+    # /etc/gitconfig, which applies whatever HOME is set to at run time; --global writes
+    # $HOME/.gitconfig and silently does nothing when HOME differs between build and run,
+    # which is why the first attempt at this fix changed nothing.
+    "git config --system --add safe.directory '*' && "
     "uv --version"
 )
 # Nebius preloads a catalogue of public images (`contree images`). Using a preloaded tag avoids
 # an OCI import from Docker Hub, which is slower and, during beta, returns a 500 on the import
 # operation. The same tag exists on Docker Hub so the local backend resolves it identically.
 BASE_OCI = "python:3.12-slim"
-BASE_TAG = "floodplain-base-py312-v2"
+BASE_TAG = "floodplain-base-py312-v3"
 OUTPUT_CAP = 8 * 1024 * 1024
 
 

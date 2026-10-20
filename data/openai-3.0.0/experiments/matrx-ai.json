@@ -9,7 +9,7 @@
     "sdist_url": "https://files.pythonhosted.org/packages/06/cc/cb36d5ec89af5e2085ba925bd47758d897f8e50f15662ac4eff41a0c8628/matrx_ai-0.5.10.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "d7d3c375-de93-45d0-b182-10d2a447b86d",
+  "clone_uuid": "ca563d03-9ebe-4553-a136-dcd42cb8f910",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
@@ -20,9 +20,9 @@
     "tests": {},
     "collection_errors": [],
     "resolved": {},
-    "elapsed_s": 0.123138,
-    "cost": 0.00140234,
-    "image_uuid": "642aa2db-56a3-4498-85bb-22e477d1a32a",
+    "elapsed_s": 0.125161,
+    "cost": 0.00142257,
+    "image_uuid": "a67353f0-c4cc-4fac-9308-f9af14891ab7",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -37,9 +37,9 @@
     "tests": {},
     "collection_errors": [],
     "resolved": {},
-    "elapsed_s": 0.122175,
-    "cost": 0.0013927100000000001,
-    "image_uuid": "51582e7f-9fca-4b7f-8023-bbef323a1251",
+    "elapsed_s": 0.122947,
+    "cost": 0.00140043,
+    "image_uuid": "e45ec092-1abd-4c2d-84a0-8629a14a5c9f",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -54,9 +54,9 @@
     "tests": {},
     "collection_errors": [],
     "resolved": {},
-    "elapsed_s": 0.128859,
-    "cost": 0.00145955,
-    "image_uuid": "68b24cfc-d90a-4caf-bb70-b2fb93933eea",
+    "elapsed_s": 0.125823,
+    "cost": 0.0014291899999999999,
+    "image_uuid": "1f78a513-9f46-45c6-8d86-bb0301ac3928",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -69,5 +69,5 @@
   },
   "error": null,
   "requirement": "openai>=2.35.1",
-  "wall_s": 52.0
+  "wall_s": 44.8
 }

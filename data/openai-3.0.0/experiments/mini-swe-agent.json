@@ -9,14 +9,14 @@
     "sdist_url": null
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "3690140e-2917-4940-9be9-82df4854a358",
+  "clone_uuid": "a3b97eed-e9d3-4789-94ba-a3f50e4f8daf",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
     "install_exit": 0,
     "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
     "test_exit": 2,
-    "test_tail": "\n==================================== ERRORS ====================================\n__________ ERROR collecting tests/environments/extra/test_contree.py ___________\nImportError while importing test module '/work/repo/tests/environments/extra/test_contree.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/environments/extra/test_contree.py:6: in <module>\n    from contree_sdk.config import ContreeConfig\nE   ModuleNotFoundError: No module named 'contree_sdk'\n________ ERROR collecting tests/environments/extra/test_swerex_modal.py ________\nImportError while importing test module '/work/repo/tests/environments/extra/test_swerex_modal.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/environments/extra/test_swerex_modal.py:5: in <module>\n    from minisweagent.environments.extra.swerex_modal import (\nsrc/minisweagent/environments/extra/swerex_modal.py:5: in <module>\n    from swerex.deployment.modal import ModalDeployment\n../venv/lib/python3.12/site-packages/swerex/deployment/modal.py:10: in <module>\n    import modal\nE   ModuleNotFoundError: No module named 'modal'\n=========================== short test summary info ============================\nERROR tests/environments/extra/test_contree.py\nERROR tests/environments/extra/test_swerex_modal.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n2 errors in 11.54s\n",
+    "test_tail": "\n==================================== ERRORS ====================================\n__________ ERROR collecting tests/environments/extra/test_contree.py ___________\nImportError while importing test module '/work/repo/tests/environments/extra/test_contree.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/environments/extra/test_contree.py:6: in <module>\n    from contree_sdk.config import ContreeConfig\nE   ModuleNotFoundError: No module named 'contree_sdk'\n________ ERROR collecting tests/environments/extra/test_swerex_modal.py ________\nImportError while importing test module '/work/repo/tests/environments/extra/test_swerex_modal.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/environments/extra/test_swerex_modal.py:5: in <module>\n    from minisweagent.environments.extra.swerex_modal import (\nsrc/minisweagent/environments/extra/swerex_modal.py:5: in <module>\n    from swerex.deployment.modal import ModalDeployment\n../venv/lib/python3.12/site-packages/swerex/deployment/modal.py:10: in <module>\n    import modal\nE   ModuleNotFoundError: No module named 'modal'\n=========================== short test summary info ============================\nERROR tests/environments/extra/test_contree.py\nERROR tests/environments/extra/test_swerex_modal.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n2 errors in 10.68s\n",
     "tests": {
       "::tests.environments.extra.test_contree": "error",
       "::tests.environments.extra.test_swerex_modal": "error"
@@ -34,9 +34,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 21.40235,
-    "cost": 0.21721258,
-    "image_uuid": "1b21c473-1437-4379-9c83-c00e35d061ed",
+    "elapsed_s": 22.035818,
+    "cost": 0.22354962,
+    "image_uuid": "9599ceda-50a3-4b81-9b06-7cc10ace8c5f",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {
@@ -49,7 +49,7 @@
     "install_exit": 0,
     "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
     "test_exit": 2,
-    "test_tail": "\n==================================== ERRORS ====================================\n__________ ERROR collecting tests/environments/extra/test_contree.py ___________\nImportError while importing test module '/work/repo/tests/environments/extra/test_contree.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/environments/extra/test_contree.py:6: in <module>\n    from contree_sdk.config import ContreeConfig\nE   ModuleNotFoundError: No module named 'contree_sdk'\n________ ERROR collecting tests/environments/extra/test_swerex_modal.py ________\nImportError while importing test module '/work/repo/tests/environments/extra/test_swerex_modal.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/environments/extra/test_swerex_modal.py:5: in <module>\n    from minisweagent.environments.extra.swerex_modal import (\nsrc/minisweagent/environments/extra/swerex_modal.py:5: in <module>\n    from swerex.deployment.modal import ModalDeployment\n../venv/lib/python3.12/site-packages/swerex/deployment/modal.py:10: in <module>\n    import modal\nE   ModuleNotFoundError: No module named 'modal'\n=========================== short test summary info ============================\nERROR tests/environments/extra/test_contree.py\nERROR tests/environments/extra/test_swerex_modal.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n2 errors in 11.60s\n",
+    "test_tail": "\n==================================== ERRORS ====================================\n__________ ERROR collecting tests/environments/extra/test_contree.py ___________\nImportError while importing test module '/work/repo/tests/environments/extra/test_contree.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/environments/extra/test_contree.py:6: in <module>\n    from contree_sdk.config import ContreeConfig\nE   ModuleNotFoundError: No module named 'contree_sdk'\n________ ERROR collecting tests/environments/extra/test_swerex_modal.py ________\nImportError while importing test module '/work/repo/tests/environments/extra/test_swerex_modal.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/environments/extra/test_swerex_modal.py:5: in <module>\n    from minisweagent.environments.extra.swerex_modal import (\nsrc/minisweagent/environments/extra/swerex_modal.py:5: in <module>\n    from swerex.deployment.modal import ModalDeployment\n../venv/lib/python3.12/site-packages/swerex/deployment/modal.py:10: in <module>\n    import modal\nE   ModuleNotFoundError: No module named 'modal'\n=========================== short test summary info ============================\nERROR tests/environments/extra/test_contree.py\nERROR tests/environments/extra/test_swerex_modal.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n2 errors in 10.22s\n",
     "tests": {
       "::tests.environments.extra.test_contree": "error",
       "::tests.environments.extra.test_swerex_modal": "error"
@@ -67,9 +67,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 21.552087,
-    "cost": 0.21869457,
-    "image_uuid": "5ada0fb8-e155-4903-a7df-58f748596c57",
+    "elapsed_s": 21.396754,
+    "cost": 0.21716142,
+    "image_uuid": "8082c147-614e-4a25-a626-0f162eced1d0",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {
@@ -82,7 +82,7 @@
     "install_exit": 0,
     "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
     "test_exit": 2,
-    "test_tail": "\n==================================== ERRORS ====================================\n__________ ERROR collecting tests/environments/extra/test_contree.py ___________\nImportError while importing test module '/work/repo/tests/environments/extra/test_contree.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/environments/extra/test_contree.py:6: in <module>\n    from contree_sdk.config import ContreeConfig\nE   ModuleNotFoundError: No module named 'contree_sdk'\n________ ERROR collecting tests/environments/extra/test_swerex_modal.py ________\nImportError while importing test module '/work/repo/tests/environments/extra/test_swerex_modal.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/environments/extra/test_swerex_modal.py:5: in <module>\n    from minisweagent.environments.extra.swerex_modal import (\nsrc/minisweagent/environments/extra/swerex_modal.py:5: in <module>\n    from swerex.deployment.modal import ModalDeployment\n../venv/lib/python3.12/site-packages/swerex/deployment/modal.py:10: in <module>\n    import modal\nE   ModuleNotFoundError: No module named 'modal'\n=========================== short test summary info ============================\nERROR tests/environments/extra/test_contree.py\nERROR tests/environments/extra/test_swerex_modal.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n2 errors in 11.53s\n",
+    "test_tail": "\n==================================== ERRORS ====================================\n__________ ERROR collecting tests/environments/extra/test_contree.py ___________\nImportError while importing test module '/work/repo/tests/environments/extra/test_contree.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/environments/extra/test_contree.py:6: in <module>\n    from contree_sdk.config import ContreeConfig\nE   ModuleNotFoundError: No module named 'contree_sdk'\n________ ERROR collecting tests/environments/extra/test_swerex_modal.py ________\nImportError while importing test module '/work/repo/tests/environments/extra/test_swerex_modal.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/environments/extra/test_swerex_modal.py:5: in <module>\n    from minisweagent.environments.extra.swerex_modal import (\nsrc/minisweagent/environments/extra/swerex_modal.py:5: in <module>\n    from swerex.deployment.modal import ModalDeployment\n../venv/lib/python3.12/site-packages/swerex/deployment/modal.py:10: in <module>\n    import modal\nE   ModuleNotFoundError: No module named 'modal'\n=========================== short test summary info ============================\nERROR tests/environments/extra/test_contree.py\nERROR tests/environments/extra/test_swerex_modal.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n2 errors in 10.49s\n",
     "tests": {
       "::tests.environments.extra.test_contree": "error",
       "::tests.environments.extra.test_swerex_modal": "error"
@@ -100,9 +100,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 22.0563,
-    "cost": 0.22373374000000001,
-    "image_uuid": "723f3160-96a0-47a5-8309-a9caf7d432f4",
+    "elapsed_s": 21.776673000000002,
+    "cost": 0.22095595,
+    "image_uuid": "70431374-90a4-4b87-92ea-e21bbff3a0cf",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {
@@ -117,5 +117,5 @@
   },
   "error": null,
   "requirement": "openai!=1.100.0,!=1.100.1",
-  "wall_s": 139.9
+  "wall_s": 100.2
 }

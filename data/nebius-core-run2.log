@@ -1,0 +1,79 @@
+﻿75 runnable dependents
+backend: nebius-sandboxes
+base image ready: nebius-sandboxes:1b97971d-c64a-45
+  azure-ai-projects                        not-run                      21.2s
+  mem0ai                                   no-tests                     45.1s
+  exa-py                                   no-tests                     45.1s
+  llama-index-embeddings-openai            no-tests                     55.7s
+  llama-index-agent-openai                 no-tests                     55.7s
+  livekit-plugins-openai                   no-tests                     47.5s
+  livekit-agents                           no-tests                     68.9s
+  deepeval                                 broken           tests       82.3s
+  databricks-langchain                     unrunnable                   37.8s
+  composio                                 not-run                      27.4s
+  mini-swe-agent                           ok                          100.2s
+  openenv-core                             not-run                      21.3s
+  databricks-openai                        unrunnable                   35.6s
+  traia-iatp                               not-run                      21.7s
+  unclecode-litellm                        not-run                      42.8s
+  opik                                     incomplete       no-results   144.0s
+  semantic-kernel                          no-tests                     99.0s
+  llama-index-legacy                       no-tests                     88.4s
+  openai-chatkit                           not-run                       6.2s
+  haystack-ai                              broken           tests      165.1s
+  qwen-agent                               not-run                       9.8s
+  reme-ai                                  ok                          174.8s
+  openviking                               unrunnable                  136.0s
+  bfcl-eval                                not-run                       3.8s
+  agentscope                               ok                          179.4s
+  genagent                                 not-run                       2.7s
+  verifiers                                ok                          172.2s
+  ragas                                    incomplete       no-results   253.8s
+  embedchain                               no-tests                    104.3s
+  openai-guardrails                        ok                          121.6s
+  foundry-local-sdk                        ok                           88.8s
+  stirrup                                  ok                          127.8s
+  azure-ai-evaluation                      unrunnable                  171.3s
+  renderers                                incomplete       no-results   356.5s
+  fhlmi                                    incomplete       no-results   120.5s
+  bernstein                                ok                          244.9s
+  cognee                                   ok                          155.1s
+  chroma-mcp                               ok                          109.6s
+  letta                                    incomplete       no-results   122.5s
+  tooluniverse                             unrunnable                   45.7s
+  apache-airflow-providers-openai          unrunnable                   53.0s
+  textarena                                not-run                       7.6s
+  evalplus                                 ok                           99.0s
+  ell-ai                                   no-tests                     38.2s
+  mcp-server-appwrite                      ok                           49.5s
+  langwatch-scenario                       incomplete       no-results    84.4s
+  langchain-oci                            incomplete       no-results    82.7s
+  oci-openai                               ok                           87.1s
+  hindsight-api-slim                       no-tests                    133.7s
+  chatlas                                  ok                          224.0s
+  llm                                      broken           tests      703.1s
+  matrx-ai                                 unrunnable                   44.8s
+  nextcloud-mcp-server                     ok                          317.8s
+  ms-swift                                 ok                          255.5s
+  deepteam                                 ok                           59.4s
+  agentlightning                           no-tests                    110.1s
+  pyrit                                    no-tests                    149.6s
+  composio-openai                          not-run                       7.7s
+  dspy                                     ok                          981.2s
+  yutori                                   ok                           77.1s
+  praisonaiagents                          not-run                      12.3s
+  openai-messages-token-helper             ok                           73.6s
+  r2r                                      not-run                      12.6s
+  code-puppy                               ok                          345.2s
+  gpt-researcher                           not-run                      42.7s
+  terminal-bench                           ok                          116.6s
+  clarifai                                 ok                           85.1s
+  agent-lifecycle-toolkit                  ok                          181.1s
+  babeldoc                                 no-tests                    238.9s
+  camel-ai                                 ok                          288.2s
+  mindroom                                 incomplete       no-results   168.5s
+  evalscope                                ok                          287.0s
+  graphiti-core                            ok                         3077.0s
+  lumibot                                  incomplete       no-results  3196.0s
+  any-llm-sdk                              incomplete       no-results  4795.6s
+run stage done in 5317s

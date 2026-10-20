@@ -273,20 +273,27 @@ def parse_resolved(stdout: str) -> dict[str, str]:
     return out
 
 
+# Passed to every git invocation so the tree's ownership never matters, regardless of what
+# HOME is set to inside the sandbox or which uid extracted the files.
+GIT = "git -c safe.directory='*' -c advice.detachedHead=false"
+
+
 def clone_command(source: SourceRef) -> str:
     ref = source.sha or source.tag
     if ref is not None:
         return (
-            f"git clone --quiet --filter=blob:none {_shell_quote(source.clone_url)} /work/repo "
-            f"&& cd /work/repo && git checkout --quiet {_shell_quote(ref)} && git log -1 --format=%H"
+            f"{GIT} clone --quiet --filter=blob:none {_shell_quote(source.clone_url)} /work/repo "
+            f"&& cd /work/repo && {GIT} checkout --quiet {_shell_quote(ref)} "
+            f"&& {GIT} log -1 --format=%H"
         )
     if source.sdist_url:
         # No git ref matched: unpack the PyPI sdist and make it a git repo so `git diff` still works for fixes.
         return (
             f"mkdir -p /work/sdist && cd /work/sdist && curl -sSL -o src.tar.gz {_shell_quote(source.sdist_url)} "
             f"&& tar xzf src.tar.gz && mv \"$(find . -mindepth 1 -maxdepth 1 -type d | head -n 1)\" /work/repo "
-            f"&& cd /work/repo && git init -q && git add -A && git -c user.name=floodplain -c user.email=f@p "
-            f"commit -qm sdist && echo sdist:{source.sdist_url}"
+            f"&& cd /work/repo && {GIT} init -q && {GIT} add -A "
+            f"&& {GIT} -c user.name=floodplain -c user.email=f@p commit -qm sdist "
+            f"&& echo sdist:{source.sdist_url}"
         )
     raise ValueError("no tag, sha, or sdist to check out")
 

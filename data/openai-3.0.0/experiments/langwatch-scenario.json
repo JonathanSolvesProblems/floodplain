@@ -9,7 +9,7 @@
     "sdist_url": null
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "f230a8cb-b1dd-4d67-986f-8d0fe16ca744",
+  "clone_uuid": "6e1b64ed-888b-40fe-b4c9-cc6dd51ef9ac",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
@@ -29,9 +29,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 13.196887,
-    "cost": 0.13422597,
-    "image_uuid": "677ce9b3-32d6-4f35-8b0c-544cd8a45441",
+    "elapsed_s": 13.021322,
+    "cost": 0.13255824,
+    "image_uuid": "25ec6ac2-0fd2-41ef-b2fb-7ab4a9ca16f7",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -55,9 +55,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 13.237706,
-    "cost": 0.13470276,
-    "image_uuid": "b416ae4f-9acf-4a09-9289-883ac458a376",
+    "elapsed_s": 12.75968,
+    "cost": 0.12991118000000001,
+    "image_uuid": "d636160f-1e41-4335-83a2-08001f0c6349",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -81,9 +81,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 13.297487,
-    "cost": 0.13531233,
-    "image_uuid": "24cf205f-4a6e-4235-b22b-711139b2c57e",
+    "elapsed_s": 13.047879,
+    "cost": 0.13279741,
+    "image_uuid": "32dda84c-7e50-4410-9230-f78099eeaf52",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -100,5 +100,5 @@
   },
   "error": null,
   "requirement": "openai>=1.88.0",
-  "wall_s": 82.6
+  "wall_s": 84.4
 }

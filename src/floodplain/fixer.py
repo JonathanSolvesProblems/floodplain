@@ -23,7 +23,7 @@ from typing import Any
 
 from .backends import Backend, ImageRef
 from .llm import TokenFactory, Tier
-from .sandbox import JUNIT_END, JUNIT_START, TEST_SCRIPT, TEST_TIMEOUT, Experiment, parse_junit
+from .sandbox import GIT, JUNIT_END, JUNIT_START, TEST_SCRIPT, TEST_TIMEOUT, Experiment, parse_junit
 from .triage import Triage
 
 SYSTEM = """You are a senior maintainer fixing a downstream package that broke after an upstream release.
@@ -177,7 +177,8 @@ class Fixer:
             cutoff = after_cutoff.strftime("%Y-%m-%dT%H:%M:%SZ")
             reinstall = (f"export VIRTUAL_ENV=/work/venv PATH=/work/venv/bin:$PATH UV_EXCLUDE_NEWER={cutoff}; "
                          f"cd /work/repo && (uv pip install --quiet -e . || exit 41); ")
-        script = reinstall + "cd /work/repo && git diff > /work/fix.diff; " + TEST_SCRIPT
+        script = (reinstall + 'cd "$(cat /work/pkgdir 2>/dev/null || echo /work/repo)" && '
+                  f"{GIT} diff > /work/fix.diff; " + TEST_SCRIPT)
         r = await self.backend.run(installed, script, files=upload, persist=True, timeout=TEST_TIMEOUT)
         out = r.stdout
         xml = ""

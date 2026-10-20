@@ -9,7 +9,7 @@
     "sdist_url": "https://files.pythonhosted.org/packages/0e/94/69decc46d11e954c6a8c64999cc237af5932d116eeb7a06515856641a6d4/llama_index_agent_openai-0.4.12.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "1956ecc4-bfaa-4c2d-a420-ee0f14656dd3",
+  "clone_uuid": "569c833d-904b-4184-8340-a000f0c5d8f3",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
@@ -28,9 +28,9 @@
       "pytest": "7.2.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 6.832919,
-    "cost": 0.06964261000000001,
-    "image_uuid": "83990a99-89f0-4c23-b3a8-56fbcf756370",
+    "elapsed_s": 6.8210310000000005,
+    "cost": 0.06950861,
+    "image_uuid": "360321e0-9808-44fd-bacd-c9fe6fc710ea",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -53,9 +53,9 @@
       "pytest": "7.2.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 6.486406,
-    "cost": 0.06618342,
-    "image_uuid": "cc94e4cd-7164-40c6-8db0-0cba5d7e2550",
+    "elapsed_s": 6.180292000000001,
+    "cost": 0.0630948,
+    "image_uuid": "b5dcc62e-baf4-45b2-874b-e4c996884bb6",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -78,24 +78,20 @@
       "pytest": "7.2.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 6.131577,
-    "cost": 0.06263553,
-    "image_uuid": "ca6ad9d0-7754-49ac-8226-8551a5a21d4a",
+    "elapsed_s": 6.6660900000000005,
+    "cost": 0.06795208000000001,
+    "image_uuid": "ad5c1e8c-6a65-4007-802a-2cd61491dec6",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
   },
   "flaky_excluded": [],
   "verdict": {
-    "status": "incomplete",
-    "kind": "no-results",
-    "reason": "the before fork installed but returned no test results",
-    "arm": "before",
-    "test_exit": 5,
-    "error": null,
-    "evidence": "\n--------------------- generated xml file: /work/junit.xml ----------------------\nno tests ran in 0.00s\n"
+    "status": "no-tests",
+    "reason": "the package ships no test suite at this release",
+    "pytest_exit": 5
   },
   "error": null,
   "requirement": "openai>=1.14.0",
-  "wall_s": 82.2
+  "wall_s": 55.7
 }

@@ -9,7 +9,7 @@
     "sdist_url": "https://files.pythonhosted.org/packages/46/6a/db1dd2b5e23de73b25ee0edf79e9888f6508fe66cf927582c381f5fd124f/livekit_plugins_openai-1.6.9.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "d61765e9-9bac-4b50-8ca4-908c1817a6d2",
+  "clone_uuid": "f99440f3-88f5-42c2-bd88-9f04ddffea9c",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
@@ -28,9 +28,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 5.360797,
-    "cost": 0.05489989,
-    "image_uuid": "693e2953-74f9-4c96-b5e5-05420b069a86",
+    "elapsed_s": 5.688523,
+    "cost": 0.05817099,
+    "image_uuid": "11d60c02-3011-4d79-9519-a9d72ffc45c7",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -53,9 +53,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 5.421501,
-    "cost": 0.055498450000000005,
-    "image_uuid": "beeda3cf-05e7-4f10-9cd3-97f98f53c83c",
+    "elapsed_s": 5.2126280000000005,
+    "cost": 0.05342824000000001,
+    "image_uuid": "0d7924d5-e1d6-4d1c-aa0a-09a2f9ffe709",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -78,24 +78,20 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 5.118043,
-    "cost": 0.05247877000000001,
-    "image_uuid": "00c2bed9-cbc4-41fd-85bf-efde6fed67e4",
+    "elapsed_s": 5.603072,
+    "cost": 0.057351400000000004,
+    "image_uuid": "3e6caaf9-365e-4550-a936-fc248aea34ac",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
   },
   "flaky_excluded": [],
   "verdict": {
-    "status": "incomplete",
-    "kind": "no-results",
-    "reason": "the before fork installed but returned no test results",
-    "arm": "before",
-    "test_exit": 5,
-    "error": null,
-    "evidence": "\nno tests ran in 0.01s\n"
+    "status": "no-tests",
+    "reason": "the package ships no test suite at this release",
+    "pytest_exit": 5
   },
   "error": null,
   "requirement": "openai[realtime]>=2.50",
-  "wall_s": 41.7
+  "wall_s": 47.5
 }

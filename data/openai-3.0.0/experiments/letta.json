@@ -9,7 +9,7 @@
     "sdist_url": "https://files.pythonhosted.org/packages/6a/94/b51b0746dd862b86538f10085b57c216ab32e3d40532e45b63afe0925c4c/letta-0.16.8.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "d36bc3b9-ad2b-4e03-ae04-31be2c82dc98",
+  "clone_uuid": "40f55721-abbc-416b-ac11-6621645ac291",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
@@ -29,9 +29,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 17.225239000000002,
-    "cost": 0.17495303,
-    "image_uuid": "aa8d69fb-584d-43e1-9d72-cea5cabc1dd1",
+    "elapsed_s": 17.900599,
+    "cost": 0.18179035000000002,
+    "image_uuid": "e4c694cd-566f-4419-b1e3-3125a989edb9",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -55,9 +55,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 17.39492,
-    "cost": 0.1766778,
-    "image_uuid": "8ce4cdc9-de1e-4e63-9a7d-cca14b3f00bc",
+    "elapsed_s": 17.392294,
+    "cost": 0.17677202000000003,
+    "image_uuid": "1905ca47-2bba-471d-b8f6-b9ecd53f7288",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -81,9 +81,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 18.717317,
-    "cost": 0.18985929,
-    "image_uuid": "2b159d5d-f00b-425d-b996-1754ebb600b4",
+    "elapsed_s": 17.38621,
+    "cost": 0.17665616,
+    "image_uuid": "9c165954-8a8a-4384-a6a7-a77d514e41b1",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -100,5 +100,5 @@
   },
   "error": null,
   "requirement": "openai[realtime]>=2.24.0",
-  "wall_s": 126.4
+  "wall_s": 122.5
 }

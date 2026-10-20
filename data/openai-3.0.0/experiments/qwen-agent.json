@@ -20,5 +20,5 @@
   },
   "error": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n",
   "requirement": "openai",
-  "wall_s": 19.1
+  "wall_s": 9.8
 }

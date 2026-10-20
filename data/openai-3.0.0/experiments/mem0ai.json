@@ -9,7 +9,7 @@
     "sdist_url": "https://files.pythonhosted.org/packages/50/42/00de525fc6a4ec4a6bddb180356e7a1587179cfb12e37953075bc7751328/mem0ai-2.0.18.tar.gz"
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "b91fd5d9-eb73-43bd-afcb-9d071748221e",
+  "clone_uuid": "7a86523c-21f8-4122-9fb0-86caf16161a4",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
@@ -28,9 +28,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 4.142626,
-    "cost": 0.042541239999999994,
-    "image_uuid": "4b3ec764-8cee-46ce-b856-c6b2359d9865",
+    "elapsed_s": 4.5390060000000005,
+    "cost": 0.04644292,
+    "image_uuid": "9cde5613-3daa-4da8-a371-91766fb7d7e4",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -54,9 +54,9 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 4.2534670000000006,
-    "cost": 0.04366007,
-    "image_uuid": "a09ee21a-58fe-4321-b84d-f28f3f8c2b8c",
+    "elapsed_s": 4.0944840000000005,
+    "cost": 0.04199464,
+    "image_uuid": "30caa6e7-c98f-4647-b165-121503b48eac",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -79,24 +79,20 @@
       "pytest": "9.1.1",
       "typing-extensions": "4.16.0"
     },
-    "elapsed_s": 4.175939,
-    "cost": 0.04282439,
-    "image_uuid": "53491410-7916-4388-b309-4154f93d11d2",
+    "elapsed_s": 4.021549,
+    "cost": 0.04130655,
+    "image_uuid": "2d7396df-75fe-45ae-b69c-ea9d68c7cf9d",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
   },
   "flaky_excluded": [],
   "verdict": {
-    "status": "incomplete",
-    "kind": "no-results",
-    "reason": "the before fork installed but returned no test results",
-    "arm": "before",
-    "test_exit": 5,
-    "error": null,
-    "evidence": "\nno tests ran in 0.02s\n"
+    "status": "no-tests",
+    "reason": "the package ships no test suite at this release",
+    "pytest_exit": 5
   },
   "error": null,
   "requirement": "openai>=1.90.0",
-  "wall_s": 43.6
+  "wall_s": 45.1
 }

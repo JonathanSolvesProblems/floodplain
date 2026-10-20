@@ -9,7 +9,7 @@
     "sdist_url": null
   },
   "backend": "nebius-sandboxes",
-  "clone_uuid": "84f14e1b-3509-46ac-bda9-29dadf1a170a",
+  "clone_uuid": "70594047-ed83-42e1-a33a-175295e8644b",
   "before": {
     "label": "before",
     "cutoff": "2026-08-12T01:54:48Z",
@@ -20,9 +20,9 @@
     "tests": {},
     "collection_errors": [],
     "resolved": {},
-    "elapsed_s": 0.446518,
-    "cost": 0.0053694,
-    "image_uuid": "1a67b670-2ed5-45f6-820c-0ca967f8c767",
+    "elapsed_s": 0.437238,
+    "cost": 0.00519366,
+    "image_uuid": "70050e0b-8078-465e-a148-09c9276d40d5",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -37,9 +37,9 @@
     "tests": {},
     "collection_errors": [],
     "resolved": {},
-    "elapsed_s": 0.453985,
-    "cost": 0.005407210000000001,
-    "image_uuid": "1abbcae1-5f30-41f3-a04d-4c36ecf4c1d8",
+    "elapsed_s": 0.422358,
+    "cost": 0.00509196,
+    "image_uuid": "d8c23508-24ad-444d-974e-4c8116b77ba4",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -54,9 +54,9 @@
     "tests": {},
     "collection_errors": [],
     "resolved": {},
-    "elapsed_s": 0.441053,
-    "cost": 0.0052610700000000005,
-    "image_uuid": "3bd95939-bafa-42c1-9041-2f19df003f64",
+    "elapsed_s": 0.41976,
+    "cost": 0.00506482,
+    "image_uuid": "c3e96765-8183-4645-a66e-d443131e209f",
     "backend": "nebius-sandboxes",
     "error": null,
     "summary": {}
@@ -69,5 +69,5 @@
   },
   "error": null,
   "requirement": "openai>=1.107.0",
-  "wall_s": 42.2
+  "wall_s": 45.7
 }
