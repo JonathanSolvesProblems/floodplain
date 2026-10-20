@@ -5,8 +5,6 @@ const $ = (s, el = document) => el.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const n = (x) => (x ?? 0).toLocaleString("en-GB");
 const SVG = "http://www.w3.org/2000/svg";
-const dark = () => matchMedia("(prefers-color-scheme: dark)").matches;
-const art = (name) => `art/${name}${dark() ? "-cut" : ""}.webp`;
 
 let DATA = null;
 
