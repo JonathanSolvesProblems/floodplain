@@ -43,7 +43,7 @@ class Guidance:
 
 
 def cache_key(query: str, exclude_repos: list[str], end_date: str | None) -> str:
-    return f"{query}|exclude={','.join(sorted(r.lower() for r in exclude_repos))}|end={end_date or ''}"
+    return f"{query}|exclude={','.join(sorted({r.lower() for r in exclude_repos}))}|end={end_date or ''}"
 
 
 def cache_path(cache_dir: Path, key: str) -> Path:
