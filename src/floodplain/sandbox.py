@@ -54,6 +54,7 @@ class RunOutcome:
     cost: float = 0.0
     image_uuid: str | None = None
     backend: str = ""
+    error: str | None = None     # backend/transport failure, as opposed to a test failure
 
     @property
     def summary(self) -> dict[str, int]:
@@ -105,6 +106,18 @@ class Experiment:
                     "evidence": b.install_tail[-2000:]}
         if a.install_exit != 0 and b.install_exit == 0:
             return {"status": "fixed-by-release", "reason": "install failed before, succeeds after"}
+        # An arm that installed cleanly but returned no test results at all did not run; it is
+        # NOT evidence that nothing broke. Without this, a transport error in the `after` fork
+        # produces an empty result set, no newly-failing tests, and a verdict of "ok", which
+        # silently understates how much the release broke.
+        for arm in (a, b, self.control):
+            if arm is None:
+                continue
+            if arm.install_exit == 0 and not arm.tests and not arm.collection_errors:
+                return {"status": "incomplete", "kind": "no-results",
+                        "reason": f"the {arm.label} fork installed but returned no test results",
+                        "arm": arm.label, "test_exit": arm.test_exit, "error": arm.error,
+                        "evidence": (arm.test_tail or "")[-800:]}
         flaky = self.flaky()
         newly_failing = sorted(
             t for t, s in b.tests.items()
@@ -123,10 +136,19 @@ class Experiment:
                 "pre_existing_failures": len(pre_existing),
                 "excluded_as_flaky": sorted(flaky),
                 "flake_control": self.control is not None,
+                # Coverage, so a break found in a partially reported suite is never quoted as
+                # if the whole suite had run.
+                "collected_before": len(a.tests),
+                "collected_after": len(b.tests),
             }
         if not a.tests and not b.tests:
             return {"status": "no-tests", "reason": "no tests collected in either fork",
                     "pre_existing_collection_errors": len(a.collection_errors)}
+        if len(b.tests) < len(a.tests) * 0.5:
+            # Half the suite vanishing is a run that fell over, not a release that deleted tests.
+            return {"status": "incomplete", "kind": "partial-results",
+                    "reason": f"after fork reported {len(b.tests)} tests against {len(a.tests)} before",
+                    "collected_before": len(a.tests), "collected_after": len(b.tests)}
         return {
             "status": "ok",
             "passed_after": b.summary.get("passed", 0),
@@ -289,6 +311,7 @@ class Sandbox:
             image_uuid=ir.image.id if ir.image else None,
             resolved=parse_resolved(ir.stdout),
             backend=self.backend.name,
+            error=ir.error,
         )
         if not ir.ok or ir.image is None:
             return outcome
@@ -299,6 +322,7 @@ class Sandbox:
             xml = out.split(JUNIT_START, 1)[1].split(JUNIT_END, 1)[0]
             out = out.split(JUNIT_START, 1)[0]
         outcome.test_exit = tr.exit_code
+        outcome.error = tr.error or outcome.error
         outcome.test_tail = (out + ("\n" + tr.stderr if tr.stderr else ""))[-6000:]
         outcome.tests, outcome.collection_errors = parse_junit(xml)
         outcome.elapsed_s += tr.elapsed_s

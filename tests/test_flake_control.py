@@ -37,6 +37,35 @@ def test_real_break_still_reported_with_control_present():
     assert v["flake_control"] is True
 
 
+def test_empty_after_fork_is_incomplete_not_ok():
+    # The bug this guards: a transport error in the after fork returns no tests, so nothing
+    # is "newly failing" and the run would otherwise be reported as "nothing broke".
+    exp = _exp(
+        before=_outcome("before", {f"t::{i}": "passed" for i in range(100)}),
+        after=_outcome("after", {}),
+    )
+    v = exp.verdict()
+    assert v["status"] == "incomplete" and v["kind"] == "no-results" and v["arm"] == "after"
+
+
+def test_half_the_suite_vanishing_is_incomplete():
+    exp = _exp(
+        before=_outcome("before", {f"t::{i}": "passed" for i in range(100)}),
+        after=_outcome("after", {f"t::{i}": "passed" for i in range(20)}),
+    )
+    v = exp.verdict()
+    assert v["status"] == "incomplete" and v["collected_after"] == 20
+
+
+def test_real_break_reports_coverage():
+    before = {f"t::{i}": "passed" for i in range(100)}
+    after = dict(before)
+    after["t::1"] = "failed"
+    v = _exp(_outcome("before", before), _outcome("after", after)).verdict()
+    assert v["status"] == "broken"
+    assert v["collected_before"] == 100 and v["collected_after"] == 100
+
+
 def test_without_control_nothing_is_excluded():
     exp = _exp(
         before=_outcome("before", {"t::a": "passed"}),
