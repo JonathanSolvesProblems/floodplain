@@ -197,6 +197,7 @@ function drawReach(vertical) {
   const order = [...DATA.receptors].sort((a, b) => rankOf(a.state) - rankOf(b.state));
   const placedPos = [];
   const pools = [];
+  const marks = [];
   let bank = 1;
   for (const r of order) {
     let len = (0.06 + r.reach * 0.92) * L;
@@ -218,6 +219,7 @@ function drawReach(vertical) {
     const g = document.createElementNS(SVG, "g");
     g.innerHTML = receptorGlyph(r.state, x, y);
     const node = g.firstElementChild;
+    if (r.state !== "positive") marks.push({ x: x - 7, y: y - 2, w: 14, h: 22 });
     node.setAttribute("tabindex", "0");
     node.setAttribute("role", r.state === "positive" ? "link" : "img");
     node.setAttribute("aria-label", `${r.name} ${r.version}: ${r.state === "positive" ? "broke, open the receptor" : "read clean"}`);
@@ -254,7 +256,7 @@ function drawReach(vertical) {
     const sb = svg.getBoundingClientRect(), hb = head.getBoundingClientRect(), k = W / sb.width;
     obstacles.push({ x: (hb.left - sb.left) * k, y: (hb.top - sb.top) * k, w: hb.width * k, h: hb.height * k + 10 });
   }
-  labelPools(pools, vertical, W, H, obstacles);
+  labelPools(pools, vertical, W, H, obstacles, marks);
 
   const io = new IntersectionObserver((es) => {
     if (es.some((e) => e.isIntersecting)) { svg.classList.add("poured"); io.disconnect(); }
@@ -265,12 +267,13 @@ function drawReach(vertical) {
 // Each name set directly beside its own pool. Candidate spots are tried in order around the
 // pool; the first whose measured box clears every label already placed, every pool and the
 // frame is taken. Real data puts positives close together, so fixed alternation cannot work.
-function labelPools(pools, vertical, W, H, obstacles = []) {
+// A spot that also clears every clean packet is preferred; the halo only covers for the rest.
+function labelPools(pools, vertical, W, H, obstacles = [], marks = []) {
   const placed = [...obstacles];
   const poolBoxes = pools.map((p) => ({ x: p.x - 34, y: p.y - 30, w: 68, h: 40 }));
   const hits = (a, b) => a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h;
   [...pools].sort((a, b) => a.x - b.x).forEach((p) => {
-    const fixed = p.r.maintainer_fix ? `, fixed upstream after ${daysAfter(p.r.maintainer_fix.hours_after_release)} days` : "";
+    const fixed = p.r.maintainer_fix ? `, fixed after ${daysAfter(p.r.maintainer_fix.hours_after_release)} days` : "";
     const sub = `${n(p.broke)} tests broke${fixed}`;
     const g = document.createElementNS(SVG, "g");
     g.innerHTML = `<text class="label" text-anchor="start"><tspan class="label-n">${n(p.broke)}</tspan> ${esc(p.r.name)}</text><text class="label-sub" text-anchor="start">${sub.replace(/^[\d,]+ /, "")}</text>`;
@@ -278,19 +281,26 @@ function labelPools(pools, vertical, W, H, obstacles = []) {
     const [t1, t2] = g.children;
     const gap = vertical ? 20 : 26;
     const w = Math.max(t1.getComputedTextLength(), t2.getComputedTextLength());
-    const h = gap + 8;
+    // from the large numeral's cap height above the first baseline to the subtitle's descenders
+    const top = 24, h = top + gap + 7;
     const dx = 26, up = vertical ? 30 : 46, down = vertical ? 30 : 34;
     const spots = [
       [p.x + dx, p.y - up], [p.x - dx - w, p.y - up], [p.x + dx, p.y + down], [p.x - dx - w, p.y + down],
       [p.x + dx, p.y - up - 52], [p.x - dx - w, p.y - up - 52], [p.x + dx, p.y + down + 52], [p.x - dx - w, p.y + down + 52],
+      [p.x - w / 2, p.y + down + 26], [p.x - w / 2, p.y - up - 26], [p.x - w * 0.75, p.y + down + 52],
+      [p.x - dx - w, p.y + down + 104], [p.x - w / 2, p.y + down + 104],
       // a long name on a narrow river: set it flush with the frame edge, under or over the pool
       [8, p.y + down], [8, p.y - up], [W - 8 - w, p.y + down], [W - 8 - w, p.y - up],
     ];
     let pick = null;
-    for (const [sx, sy] of spots) {
-      const box = { x: sx - 4, y: sy - 20, w: w + 8, h: h + 4 };
-      const inFrame = box.x >= 2 && box.x + box.w <= W - 2 && box.y >= 0 && box.y + box.h <= H;
-      if (inFrame && !placed.some((q) => hits(box, q)) && !poolBoxes.some((q) => hits(box, q))) { pick = [sx, sy]; break; }
+    for (const avoidMarks of [true, false]) {
+      for (const [sx, sy] of spots) {
+        const box = { x: sx - 4, y: sy - top, w: w + 8, h };
+        const inFrame = box.x >= 2 && box.x + box.w <= W - 2 && box.y >= 0 && box.y + box.h <= H;
+        if (inFrame && !placed.some((q) => hits(box, q)) && !poolBoxes.some((q) => hits(box, q))
+            && !(avoidMarks && marks.some((q) => hits(box, q)))) { pick = [sx, sy]; break; }
+      }
+      if (pick) break;
     }
     // A name too long for a narrow river fits nowhere at full size: set it flush left under the
     // pool and scale it down to the frame rather than letting it run off the edge.
@@ -300,9 +310,23 @@ function labelPools(pools, vertical, W, H, obstacles = []) {
       scale = Math.min(1, (W - 16) / w);
       g.setAttribute("transform", `translate(${pick[0]} ${pick[1]}) scale(${scale.toFixed(3)}) translate(${-pick[0]} ${-pick[1]})`);
     }
-    t1.setAttribute("x", pick[0]); t1.setAttribute("y", pick[1]);
-    t2.setAttribute("x", pick[0]); t2.setAttribute("y", pick[1] + gap);
-    placed.push({ x: pick[0] - 4, y: pick[1] - 20, w: w * scale + 8, h: h * scale + 4 });
+    // Map practice: a label left of its point is set flush right, so the name ends at its own pool
+    // rather than starting next to a neighbour's.
+    const leftOf = scale === 1 && pick[0] + w <= p.x;
+    const tx = leftOf ? pick[0] + w : pick[0];
+    for (const t of [t1, t2]) { t.setAttribute("x", tx); t.setAttribute("text-anchor", leftOf ? "end" : "start"); }
+    t1.setAttribute("y", pick[1]); t2.setAttribute("y", pick[1] + gap);
+    const lb = { x: pick[0] - 4, y: pick[1] - top * scale, w: w * scale + 8, h: h * scale };
+    placed.push(lb);
+    // A leader from the pool to the nearest edge of its label, so a label that had to sit beside
+    // a neighbour's pool still reads as its own.
+    const cx = p.x, cy = p.y - 6;
+    const ex = Math.max(lb.x, Math.min(cx, lb.x + lb.w)), ey = Math.max(lb.y, Math.min(cy, lb.y + lb.h));
+    const dist = Math.hypot(ex - cx, ey - cy);
+    if (dist > 18) {
+      const k = (dist - 4) / dist, s = 12 / dist;
+      g.insertAdjacentHTML("afterbegin", `<line class="leader" x1="${(cx + (ex - cx) * s).toFixed(1)}" y1="${(cy + (ey - cy) * s).toFixed(1)}" x2="${(cx + (ex - cx) * k).toFixed(1)}" y2="${(cy + (ey - cy) * k).toFixed(1)}"/>`);
+    }
   });
 }
 
