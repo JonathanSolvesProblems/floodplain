@@ -1,6 +1,6 @@
-"""Execution substrates for Downstream.
+"""Execution substrates for Floodplain.
 
-Downstream needs one primitive: run a command on an immutable filesystem image and
+Floodplain needs one primitive: run a command on an immutable filesystem image and
 optionally keep the result as a new immutable image, so that N children can be forked
 from one parent. Three substrates provide it.
 

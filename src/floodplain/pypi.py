@@ -1,6 +1,6 @@
 """PyPI JSON API client with an on-disk cache.
 
-Everything Downstream knows about a package comes from two public endpoints:
+Everything Floodplain knows about a package comes from two public endpoints:
 
     https://pypi.org/pypi/{name}/json            (all releases, upload times)
     https://pypi.org/pypi/{name}/{version}/json  (that version's requires_dist)

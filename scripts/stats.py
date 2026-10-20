@@ -67,6 +67,43 @@ def main() -> None:
                for e in exps)
     fix_cost = sum(a["cost"] for e in broken if e.get("fix") for a in e["fix"]["attempts"])
 
+    # Fix trials, one round per (fixer revision, guidance source). Trials from different rounds
+    # are never pooled: a K of N always describes one fixer seeing one kind of guidance.
+    def round_of(t: dict, e: dict) -> str:
+        # trials recorded before guidance was kept per trial ran under the experiment's record
+        g = t.get("guidance") or e.get("guidance") or {}
+        src = (g.get("source") or "none").split(" ")[0]
+        src = "tavily" if src.startswith("tavily") else src
+        return f"r{t.get('fixer_revision', 1)}-{src}"
+
+    trials: dict[str, dict[str, dict]] = {}
+    for e in broken:
+        for t in e.get("fix_trials", []):
+            r = trials.setdefault(e["dependent"], {}).setdefault(round_of(t, e), {"k": 0, "n": 0, "verified_diffs": []})
+            r["n"] += 1
+            if t.get("verified"):
+                r["k"] += 1
+                won = next(a for a in t["attempts"] if a["verified"])
+                r["verified_diffs"].append([l for l in won["diff"].splitlines()
+                                            if l.startswith("+") and not l.startswith("+++")][:6])
+
+    # Pre-release check: the same dependents with the release fed in as an unpublished wheel.
+    # It only counts as agreeing if every dependent gets the same verdict as the replay.
+    candidate = {}
+    for cdir in sorted((root / "candidate").glob("*")) if (root / "candidate").exists() else []:
+        runs = {json.loads(p.read_text(encoding="utf-8"))["dependent"]: json.loads(p.read_text(encoding="utf-8"))
+                for p in cdir.glob("*.json")}
+        replay = {e["dependent"]: e["verdict"].get("status") for e in exps}
+        cstatus = {d: r["verdict"].get("status") for d, r in runs.items()}
+        disagree = sorted(d for d in cstatus if cstatus[d] != replay.get(d))
+        candidate[cdir.name] = {
+            "run": len(runs), "by_status": dict(Counter(cstatus.values())),
+            "broken": sorted(d for d, s in cstatus.items() if s == "broken"),
+            "agree_with_replay": len(runs) - len(disagree),
+            "disagree": {d: {"candidate": cstatus[d], "replay": replay.get(d)} for d in disagree},
+            "as_of": next((r["before"]["cutoff"] for r in runs.values() if r.get("before")), None),
+        }
+
     stats = {
         "generated_at": datetime.now(UTC).isoformat(timespec="seconds"),
         "target": args.target, "release": args.release,
@@ -97,7 +134,10 @@ def main() -> None:
             "median_attempts": median(attempts),
             "verified_by_tier": dict(tiers_that_won),
             "sandbox_cost": round(fix_cost, 4),
+            "trials": trials,
         },
+        "readable": status.get("broken", 0) + status.get("ok", 0),
+        "candidate": candidate,
         "public_record": {
             "broken_and_reported": len(reported),
             "broken_and_never_reported": len(unreported),

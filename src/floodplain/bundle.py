@@ -1,6 +1,6 @@
 """The thing the user walks away holding: a patch per broken dependent, plus a release note.
 
-Downstream is not a scoreboard. The run produces a directory the maintainer can act on:
+Floodplain is not a scoreboard. The run produces a directory the maintainer can act on:
 
     out/<target>-<release>/
       patches/<dependent>.patch     a unified diff, produced by `git diff` inside the fork that
@@ -10,7 +10,7 @@ Downstream is not a scoreboard. The run produces a directory the maintainer can 
       REPORT.md                     who broke, why, and which patch belongs to which project
       UNFIXED.md                    the breaks no patch was verified for, stated plainly
 
-Downstream never opens pull requests against repositories the user does not own. The patches are
+Floodplain never opens pull requests against repositories the user does not own. The patches are
 handed over; filing them is a human decision, because 157 unsolicited PRs is spam and a maintainer
 knows which of their dependents they actually have standing with.
 """
@@ -25,7 +25,7 @@ from pathlib import Path
 from typing import Any
 
 REFUSAL = (
-    "Downstream does not open pull requests against repositories you do not own. "
+    "Floodplain does not open pull requests against repositories you do not own. "
     "Every patch below was verified inside a sandbox by that project's own test suite, "
     "and filing it is your call."
 )
@@ -145,7 +145,7 @@ def write_bundle(root: Path, target: str, release: str, experiments: list[dict[s
 
     # ---- UNFIXED.md: say plainly what has no patch
     u = [f"# Breaks with no verified patch ({len(unpatched)})", "",
-         "Downstream reports these rather than shipping a patch it could not prove. A patch is only "
+         "Floodplain reports these rather than shipping a patch it could not prove. A patch is only "
          "written out when the dependent's own suite goes green with it applied and nothing else regresses.", ""]
     for e in unpatched:
         tri = e.get("triage") or {}

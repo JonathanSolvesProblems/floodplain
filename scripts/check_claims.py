@@ -1,6 +1,6 @@
 """Fail the build if the prose and the data disagree.
 
-Every number Downstream states in public lives in data/<target>-<release>/stats.json.
+Every number Floodplain states in public lives in data/<target>-<release>/stats.json.
 This script re-reads that file, pulls every figure out of the README, the writeup and the
 demo script, and exits non-zero when any of them no longer matches, or when a number that
 was retired reappears somewhere.
@@ -109,10 +109,36 @@ def main() -> int:
         "protected": pop["protected"],
         "total_dependents": pop["total"],
         "verified_fixes": stats["fixes"]["verified"],
+        "ran": run,
+        "readable": stats["readable"],
     }
+    for status, n in exp["by_status"].items():
+        facts[f"status.{status}"] = n
+    # fix_k.<dependent>.<round> and fix_n.<dependent>.<round>, e.g. fix_k.llm.r1-local-fallback
+    for dep, rounds in stats["fixes"].get("trials", {}).items():
+        for rnd, v in rounds.items():
+            facts[f"fix_k.{dep}.{rnd}"] = v["k"]
+            facts[f"fix_n.{dep}.{rnd}"] = v["n"]
+    # per-dependent figures, from the same site bundle the page renders
+    site = ROOT / "site" / "data.json"
+    if site.exists():
+        for r in json.loads(site.read_text(encoding="utf-8")).get("receptors", []):
+            cells = r.get("cells") or {}
+            if "broke" in cells:
+                facts[f"broke.{r['name']}"] = cells["broke"]
+                facts[f"passed_before.{r['name']}"] = cells.get("passed_before")
+    mf = ROOT / "data" / f"{stats['target']}-{stats['release']}" / "maintainer_fixes.json"
+    if mf.exists():
+        for dep, rec in json.loads(mf.read_text(encoding="utf-8")).items():
+            if rec.get("hours_after_release") is not None:
+                facts[f"fix_hours.{dep}"] = rec["hours_after_release"]
+    for name, cand in stats.get("candidate", {}).items():
+        facts[f"candidate_run.{name}"] = cand["run"]
+        facts[f"candidate_agree.{name}"] = cand["agree_with_replay"]
+        facts[f"candidate_broken.{name}"] = len(cand["broken"])
     for name, text in texts.items():
-        for m in re.finditer(r"<!--\s*claim:(\w+)\s*-->\s*(\d[\d,]*)", text):
-            key, value = m.group(1), int(m.group(2).replace(",", ""))
+        for m in re.finditer(r"<!--\s*claim:([\w.\-]+)\s*-->\s*(\d[\d,]*(?:\.\d+)?)", text):
+            key, value = m.group(1), float(m.group(2).replace(",", ""))
             c.check(key in facts, f"{name}: unknown claim key '{key}'")
             if key in facts:
                 c.check(facts[key] == value,
