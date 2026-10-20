@@ -217,18 +217,21 @@ def install_script(extras: tuple[str, ...], cutoff: str, groups: tuple[str, ...]
     fatal, and the script reports exactly which ones took. The sequence is identical in every
     fork, so any difference between forks comes from the dependency world, not from the recipe.
 
-    With `candidate`, an unreleased wheel uploaded to CANDIDATE_DIR is installed last, over
-    whatever version the cutoff world resolved. Its own dependencies still resolve inside the
-    cutoff, so the fork is the world the release would land in on the day it shipped.
+    With `candidate`, an unreleased wheel uploaded to CANDIDATE_DIR is offered to every
+    resolution in the script as a find-links source, so uv treats it as the newest published
+    version: a fresh install gets it with exactly the dependencies it declares (and none it
+    dropped), and a dependent that pins below it keeps the old version, as it would on release
+    day. Its dependencies still resolve inside the cutoff.
+
+    The first version installed the wheel last, over an environment the cutoff world had
+    already resolved. That is an upgrade, not a fresh install: httpx, which openai 3.0.0 no
+    longer depends on, stayed installed, so the two dependents whose break was "httpx is
+    missing" passed.
     """
     extras_list = " ".join(extras)
     groups_list = " ".join(groups)
     locate = LOCATE_SCRIPT.replace("{pkg}", package or "")
-    cand = ""
-    if candidate:
-        cand = (f'uv pip install --quiet "{CANDIDATE_DIR}/{candidate}" 2>/tmp/cand.err || '
-                f'{{ echo "[floodplain] candidate install failed"; tail -n 20 /tmp/cand.err; exit 43; }}\n'
-                f'echo "[floodplain] candidate installed: {candidate}"')
+    cand = f"export UV_FIND_LINKS={CANDIDATE_DIR}\necho \"[floodplain] candidate offered: {candidate}\"" if candidate else ""
     return f"""
 set -o pipefail
 {locate}
@@ -236,6 +239,7 @@ cd "$(cat /work/pkgdir)"
 uv venv /work/venv --python 3.12 --quiet
 export VIRTUAL_ENV=/work/venv PATH=/work/venv/bin:$PATH UV_EXCLUDE_NEWER={cutoff}
 export UV_PRERELEASE=allow
+{cand}
 uv pip install --quiet -e . 2>/tmp/base.err || {{ echo "[floodplain] base install failed"; tail -n 20 /tmp/base.err; exit 41; }}
 took=""
 for x in {extras_list}; do
@@ -245,7 +249,6 @@ for g in {groups_list}; do
   if uv pip install --quiet --group "$g" 2>/dev/null; then took="$took group:$g"; fi
 done
 echo "[floodplain] test deps installed from:$took"
-{cand}
 uv pip install --quiet pytest pytest-timeout || exit 42
 echo "[floodplain] resolved:"
 uv pip freeze | grep -iE '^(openai|httpx|httpx2|certifi|anyio|pydantic|pytest|pytest-httpx|llm-echo|typing-extensions)==' || true
