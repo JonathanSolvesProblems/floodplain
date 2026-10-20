@@ -1,0 +1,118 @@
+{
+  "dependent": "mcp-server-appwrite",
+  "version": "0.8.31",
+  "source": {
+    "owner": "pypi",
+    "repo": "mcp-server-appwrite",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/23/eb/f1772b49ff2804e76cc2c4b5a93725c4b893f45966309328cbc83d41cbee/mcp_server_appwrite-0.8.31.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "cb233063-b307-48b6-a362-2772353e39ca",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n_________________ ERROR collecting tests/unit/test_operator.py _________________\nimport file mismatch:\nimported module 'test_operator' has this __file__ attribute:\n  /work/repo/tests/integration/test_operator.py\nwhich is not the same as the test file we want to collect:\n  /work/repo/tests/unit/test_operator.py\nHINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules\n=========================== short test summary info ============================\nERROR tests/unit/test_operator.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 2.87s\n",
+    "tests": {
+      "::tests.unit.test_operator": "error"
+    },
+    "collection_errors": [
+      "::tests.unit.test_operator"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 8.484612,
+    "cost": 0.08650984,
+    "image_uuid": "66941819-1655-4100-9e3c-e8798933df2c",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==1.0.dev3\nhttpx2==2.10.0\nopenai==3.0.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n_________________ ERROR collecting tests/unit/test_operator.py _________________\nimport file mismatch:\nimported module 'test_operator' has this __file__ attribute:\n  /work/repo/tests/integration/test_operator.py\nwhich is not the same as the test file we want to collect:\n  /work/repo/tests/unit/test_operator.py\nHINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules\n=========================== short test summary info ============================\nERROR tests/unit/test_operator.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 3.03s\n",
+    "tests": {
+      "::tests.unit.test_operator": "error"
+    },
+    "collection_errors": [
+      "::tests.unit.test_operator"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "1.0.dev3",
+      "httpx2": "2.10.0",
+      "openai": "3.0.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 8.283106,
+    "cost": 0.08445342,
+    "image_uuid": "cfc9351d-354b-4160-a5ee-e2d14d995765",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n_________________ ERROR collecting tests/unit/test_operator.py _________________\nimport file mismatch:\nimported module 'test_operator' has this __file__ attribute:\n  /work/repo/tests/integration/test_operator.py\nwhich is not the same as the test file we want to collect:\n  /work/repo/tests/unit/test_operator.py\nHINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules\n=========================== short test summary info ============================\nERROR tests/unit/test_operator.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 2.86s\n",
+    "tests": {
+      "::tests.unit.test_operator": "error"
+    },
+    "collection_errors": [
+      "::tests.unit.test_operator"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 8.612518999999999,
+    "cost": 0.08779481,
+    "image_uuid": "b41e8c62-a307-4dc2-a958-844c9832afd0",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "ok",
+    "passed_after": 0,
+    "pre_existing_failures": 1
+  },
+  "error": null,
+  "requirement": "openai>=1.40",
+  "wall_s": 59.3
+}

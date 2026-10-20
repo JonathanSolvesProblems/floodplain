@@ -1,0 +1,73 @@
+{
+  "dependent": "databricks-openai",
+  "version": "0.17.0",
+  "source": {
+    "owner": "pypi",
+    "repo": "databricks-openai",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/0b/28/27ce46bca417c22de7881a9f224fea31e9d290a5b80015635070b23587d9/databricks_openai-0.17.0.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "aefb240f-ff3c-4081-94b8-aa7ddc961bb8",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Failed to build `databricks-ai-bridge @ file:///`\n  cause: `/` does not appear to be a Python project, as neither `pyproject.toml` nor `setup.py` are present in the directory\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.106166,
+    "cost": 0.00123708,
+    "image_uuid": "3ff2fb6b-e662-4dff-bc33-9441d3186d19",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Failed to build `databricks-ai-bridge @ file:///`\n  cause: `/` does not appear to be a Python project, as neither `pyproject.toml` nor `setup.py` are present in the directory\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.104473,
+    "cost": 0.00122093,
+    "image_uuid": "ba97ea6e-f0e0-4f93-ba17-f48838ae27f7",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Failed to build `databricks-ai-bridge @ file:///`\n  cause: `/` does not appear to be a Python project, as neither `pyproject.toml` nor `setup.py` are present in the directory\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.110754,
+    "cost": 0.0012837400000000002,
+    "image_uuid": "6f4c9e1a-23d4-49e6-8b74-00851565d2e1",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "unrunnable",
+    "reason": "install failed before and after",
+    "evidence": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Failed to build `databricks-ai-bridge @ file:///`\n  cause: `/` does not appear to be a Python project, as neither `pyproject.toml` nor `setup.py` are present in the directory\n"
+  },
+  "error": null,
+  "requirement": "openai>=1.99.9",
+  "wall_s": 61.1
+}

@@ -1,0 +1,127 @@
+{
+  "dependent": "verifiers",
+  "version": "0.3.0",
+  "source": {
+    "owner": "primeintellect-ai",
+    "repo": "verifiers",
+    "tag": "v0.3.0",
+    "sha": "0a4d872f021022310a08ec213a25f4efb4a0244a",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "496d599f-1008-4881-a271-37c0029fa275",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.0.3\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n________________ ERROR collecting tests/test_renderer_client.py ________________\nImportError while importing test module '/work/repo/tests/test_renderer_client.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_renderer_client.py:10: in <module>\n    from renderers import RendererPool\nE   ImportError: cannot import name 'RendererPool' from 'renderers' (/work/venv/lib/python3.12/site-packages/renderers/__init__.py)\n_________________ ERROR collecting tests/test_renderer_e2e.py __________________\nImportError while importing test module '/work/repo/tests/test_renderer_e2e.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_renderer_e2e.py:31: in <module>\n    from verifiers.clients.renderer_client import RendererClient, _to_renderer_message\nverifiers/clients/renderer_client.py:22: in <module>\n    from renderers import (\nE   ImportError: cannot import name 'RendererPool' from 'renderers' (/work/venv/lib/python3.12/site-packages/renderers/__init__.py)\n____________ ERROR collecting tests/v1/test_color_codeword_tasks.py ____________\nImportError while importing test module '/work/repo/tests/v1/test_color_codeword_tasks.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/v1/test_color_codeword_tasks.py:1: in <module>\n    from color_codeword_v1 import taskset\nE   ModuleNotFoundError: No module named 'color_codeword_v1'\n=========================== short test summary info ============================\nERROR tests/test_renderer_client.py\nERROR tests/test_renderer_e2e.py\nERROR tests/v1/test_color_codeword_tasks.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!\n",
+    "tests": {
+      "::tests.test_renderer_client": "error",
+      "::tests.test_renderer_e2e": "error",
+      "::tests.v1.test_color_codeword_tasks": "error"
+    },
+    "collection_errors": [
+      "::tests.test_renderer_client",
+      "::tests.test_renderer_e2e",
+      "::tests.v1.test_color_codeword_tasks"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.0.3",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 25.749823,
+    "cost": 0.26039539,
+    "image_uuid": "ef71d816-5f8e-423a-b8a8-9b96a79ba857",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 3
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.0.3\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n________________ ERROR collecting tests/test_renderer_client.py ________________\nImportError while importing test module '/work/repo/tests/test_renderer_client.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_renderer_client.py:10: in <module>\n    from renderers import RendererPool\nE   ImportError: cannot import name 'RendererPool' from 'renderers' (/work/venv/lib/python3.12/site-packages/renderers/__init__.py)\n_________________ ERROR collecting tests/test_renderer_e2e.py __________________\nImportError while importing test module '/work/repo/tests/test_renderer_e2e.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_renderer_e2e.py:31: in <module>\n    from verifiers.clients.renderer_client import RendererClient, _to_renderer_message\nverifiers/clients/renderer_client.py:22: in <module>\n    from renderers import (\nE   ImportError: cannot import name 'RendererPool' from 'renderers' (/work/venv/lib/python3.12/site-packages/renderers/__init__.py)\n____________ ERROR collecting tests/v1/test_color_codeword_tasks.py ____________\nImportError while importing test module '/work/repo/tests/v1/test_color_codeword_tasks.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/v1/test_color_codeword_tasks.py:1: in <module>\n    from color_codeword_v1 import taskset\nE   ModuleNotFoundError: No module named 'color_codeword_v1'\n=========================== short test summary info ============================\nERROR tests/test_renderer_client.py\nERROR tests/test_renderer_e2e.py\nERROR tests/v1/test_color_codeword_tasks.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!\n",
+    "tests": {
+      "::tests.test_renderer_client": "error",
+      "::tests.test_renderer_e2e": "error",
+      "::tests.v1.test_color_codeword_tasks": "error"
+    },
+    "collection_errors": [
+      "::tests.test_renderer_client",
+      "::tests.test_renderer_e2e",
+      "::tests.v1.test_color_codeword_tasks"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.0.3",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 25.025561,
+    "cost": 0.25314075,
+    "image_uuid": "d39612ae-ccd9-4a5b-8ec9-72e9a6ce1b6b",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 3
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.0.3\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n________________ ERROR collecting tests/test_renderer_client.py ________________\nImportError while importing test module '/work/repo/tests/test_renderer_client.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_renderer_client.py:10: in <module>\n    from renderers import RendererPool\nE   ImportError: cannot import name 'RendererPool' from 'renderers' (/work/venv/lib/python3.12/site-packages/renderers/__init__.py)\n_________________ ERROR collecting tests/test_renderer_e2e.py __________________\nImportError while importing test module '/work/repo/tests/test_renderer_e2e.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_renderer_e2e.py:31: in <module>\n    from verifiers.clients.renderer_client import RendererClient, _to_renderer_message\nverifiers/clients/renderer_client.py:22: in <module>\n    from renderers import (\nE   ImportError: cannot import name 'RendererPool' from 'renderers' (/work/venv/lib/python3.12/site-packages/renderers/__init__.py)\n____________ ERROR collecting tests/v1/test_color_codeword_tasks.py ____________\nImportError while importing test module '/work/repo/tests/v1/test_color_codeword_tasks.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/v1/test_color_codeword_tasks.py:1: in <module>\n    from color_codeword_v1 import taskset\nE   ModuleNotFoundError: No module named 'color_codeword_v1'\n=========================== short test summary info ============================\nERROR tests/test_renderer_client.py\nERROR tests/test_renderer_e2e.py\nERROR tests/v1/test_color_codeword_tasks.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!\n",
+    "tests": {
+      "::tests.test_renderer_client": "error",
+      "::tests.test_renderer_e2e": "error",
+      "::tests.v1.test_color_codeword_tasks": "error"
+    },
+    "collection_errors": [
+      "::tests.test_renderer_client",
+      "::tests.test_renderer_e2e",
+      "::tests.v1.test_color_codeword_tasks"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.0.3",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 25.358511,
+    "cost": 0.25649309000000003,
+    "image_uuid": "b92b4d46-0b1e-4086-a174-58a65018d815",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 3
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "ok",
+    "passed_after": 0,
+    "pre_existing_failures": 3
+  },
+  "error": null,
+  "requirement": "openai>=2.9.0",
+  "wall_s": 164.3
+}

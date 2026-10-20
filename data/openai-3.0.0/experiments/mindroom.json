@@ -1,0 +1,81 @@
+{
+  "dependent": "mindroom",
+  "version": "2026.8.36",
+  "source": {
+    "owner": "mindroom-ai",
+    "repo": "mindroom",
+    "tag": "v2026.8.36",
+    "sha": "62dbc1d89b6fba27d869517eca22781eb2d994ca",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "7b5f822d-e715-4e45-a591-1778e79b8086",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": -1,
+    "install_tail": "",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 100.39100000000326,
+    "cost": 0.0,
+    "image_uuid": null,
+    "backend": "nebius-sandboxes",
+    "error": "FailedOperationError: Operation 01a15968-664a-76cd-9d7f-260e5f139be1 has failed: RemoteCallError('CalledProcessError')",
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==3.0.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 4,
+    "test_tail": "ImportError while loading conftest '/work/repo/tests/conftest.py'.\ntests/conftest.py:45: in <module>\n    import mindroom.bot  # noqa: F401\n    ^^^^^^^^^^^^^^^^^^^\nsrc/mindroom/bot.py:70: in <module>\n    from mindroom.matrix_rtc.call_manager import CallManager, maybe_build_call_manager\nsrc/mindroom/matrix_rtc/__init__.py:3: in <module>\n    from mindroom.matrix_rtc.call_manager import CallManager, maybe_build_call_manager\nsrc/mindroom/matrix_rtc/call_manager.py:32: in <module>\n    from mindroom.matrix_rtc.call_tools import CallAgentTooling, build_call_tools\nsrc/mindroom/matrix_rtc/call_tools.py:35: in <module>\n    from mindroom.agents import create_agent\nsrc/mindroom/agents.py:21: in <module>\n    from mindroom import agent_storage, constants, model_loading\nsrc/mindroom/agent_storage.py:9: in <module>\n    from agno.db.sqlite import SqliteDb\n../venv/lib/python3.12/site-packages/agno/db/sqlite/__init__.py:1: in <module>\n    from agno.db.sqlite.async_sqlite import AsyncSqliteDb\n../venv/lib/python3.12/site-packages/agno/db/sqlite/async_sqlite.py:20: in <module>\n    from agno.db.sqlite.utils import (\n../venv/lib/python3.12/site-packages/agno/db/sqlite/utils.py:7: in <module>\n    from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession\n../venv/lib/python3.12/site-packages/sqlalchemy/ext/asyncio/__init__.py:28: in <module>\n    concurrency._concurrency_shim._initialize()\n../venv/lib/python3.12/site-packages/sqlalchemy/util/concurrency.py:83: in _initialize\n    raise ImportError(_ERROR_MESSAGE) from e\nE   ImportError: The SQLAlchemy asyncio module requires that the Python 'greenlet' library is installed.  In order to ensure this dependency is available, use the 'sqlalchemy[asyncio]' install target:  'pip install sqlalchemy[asyncio]'\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "3.0.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 14.569551,
+    "cost": 0.14785145000000002,
+    "image_uuid": "10697005-60c3-4805-bc45-e8af4e2d6b7c",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": -1,
+    "install_tail": "",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 101.28099999998813,
+    "cost": 0.0,
+    "image_uuid": null,
+    "backend": "nebius-sandboxes",
+    "error": "FailedOperationError: Operation 01a15968-6665-7633-861b-e7d128bee6e2 has failed: RemoteCallError('CalledProcessError')",
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "fixed-by-release",
+    "reason": "install failed before, succeeds after"
+  },
+  "error": null,
+  "requirement": "openai",
+  "wall_s": 231.1
+}

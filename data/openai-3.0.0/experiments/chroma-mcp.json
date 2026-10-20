@@ -1,0 +1,116 @@
+{
+  "dependent": "chroma-mcp",
+  "version": "0.2.6",
+  "source": {
+    "owner": "chroma-core",
+    "repo": "chroma-mcp",
+    "tag": "v0.2.6",
+    "sha": "e19e4b3b9cca00faa0658d765bbbb51fa4a2e099",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "79d9ebfe-2ecb-4e4b-96fe-4640db723b21",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n____________________ ERROR collecting tests/test_server.py _____________________\nImportError while importing test module '/work/repo/tests/test_server.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_server.py:2: in <module>\n    from chroma_mcp.server import get_chroma_client, create_parser, mcp\nsrc/chroma_mcp/__init__.py:3: in <module>\n    from .server import main\nsrc/chroma_mcp/server.py:4: in <module>\n    from mcp.server.fastmcp import FastMCP\n../venv/lib/python3.12/site-packages/mcp/__init__.py:3: in <module>\n    from .server.session import ServerSession\n../venv/lib/python3.12/site-packages/mcp/server/__init__.py:1: in <module>\n    from .fastmcp import FastMCP\n../venv/lib/python3.12/site-packages/mcp/server/fastmcp/__init__.py:5: in <module>\n    from .server import Context, FastMCP\n../venv/lib/python3.12/site-packages/mcp/server/fastmcp/server.py:29: in <module>\n    from mcp.server.fastmcp.tools import ToolManager\n../venv/lib/python3.12/site-packages/mcp/server/fastmcp/tools/__init__.py:1: in <module>\n    from .base import Tool\n../venv/lib/python3.12/site-packages/mcp/server/fastmcp/tools/base.py:10: in <module>\n    from mcp.server.fastmcp.utilities.func_metadata import FuncMetadata, func_metadata\n../venv/lib/python3.12/site-packages/mcp/server/fastmcp/utilities/func_metadata.py:11: in <module>\n    from pydantic._internal._typing_extra import eval_type_backport\nE   ImportError: cannot import name 'eval_type_backport' from 'pydantic._internal._typing_extra' (/work/venv/lib/python3.12/site-packages/pydantic/_internal/_typing_extra.py)\n=========================== short test summary info ============================\nERROR tests/test_server.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 1.36s\n",
+    "tests": {
+      "::tests.test_server": "error"
+    },
+    "collection_errors": [
+      "::tests.test_server"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 8.221886000000001,
+    "cost": 0.08400748000000001,
+    "image_uuid": "ccaf4ed4-f0d7-4ae1-bd16-2fc24cf16b97",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==1.0.dev3\nhttpx2==2.10.0\nopenai==3.0.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n____________________ ERROR collecting tests/test_server.py _____________________\ntests/test_server.py:2: in <module>\n    from chroma_mcp.server import get_chroma_client, create_parser, mcp\nsrc/chroma_mcp/__init__.py:3: in <module>\n    from .server import main\nsrc/chroma_mcp/server.py:3: in <module>\n    import chromadb\n../venv/lib/python3.12/site-packages/chromadb/__init__.py:6: in <module>\n    from chromadb.api.client import Client as ClientCreator\n../venv/lib/python3.12/site-packages/chromadb/api/client.py:14: in <module>\n    from chromadb.api.shared_system_client import SharedSystemClient\n../venv/lib/python3.12/site-packages/chromadb/api/shared_system_client.py:6: in <module>\n    from chromadb.api.base_http_client import BaseHTTPClient\n../venv/lib/python3.12/site-packages/chromadb/api/base_http_client.py:15: in <module>\n    class BaseHTTPClient(Component):\n../venv/lib/python3.12/site-packages/chromadb/api/base_http_client.py:31: in BaseHTTPClient\n    def _build_limits(self) -> httpx.Limits:\n                               ^^^^^^^^^^^^\nE   AttributeError: module 'httpx' has no attribute 'Limits'\n=========================== short test summary info ============================\nERROR tests/test_server.py - AttributeError: module 'httpx' has no attribute 'Limits'\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 1.04s\n",
+    "tests": {
+      "::tests.test_server": "error"
+    },
+    "collection_errors": [
+      "::tests.test_server"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "1.0.dev3",
+      "httpx2": "2.10.0",
+      "openai": "3.0.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 6.785126,
+    "cost": 0.0694656,
+    "image_uuid": "794c9505-d958-42fd-bc88-80819d8bffaa",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "\n==================================== ERRORS ====================================\n____________________ ERROR collecting tests/test_server.py _____________________\nImportError while importing test module '/work/repo/tests/test_server.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_server.py:2: in <module>\n    from chroma_mcp.server import get_chroma_client, create_parser, mcp\nsrc/chroma_mcp/__init__.py:3: in <module>\n    from .server import main\nsrc/chroma_mcp/server.py:4: in <module>\n    from mcp.server.fastmcp import FastMCP\n../venv/lib/python3.12/site-packages/mcp/__init__.py:3: in <module>\n    from .server.session import ServerSession\n../venv/lib/python3.12/site-packages/mcp/server/__init__.py:1: in <module>\n    from .fastmcp import FastMCP\n../venv/lib/python3.12/site-packages/mcp/server/fastmcp/__init__.py:5: in <module>\n    from .server import Context, FastMCP\n../venv/lib/python3.12/site-packages/mcp/server/fastmcp/server.py:29: in <module>\n    from mcp.server.fastmcp.tools import ToolManager\n../venv/lib/python3.12/site-packages/mcp/server/fastmcp/tools/__init__.py:1: in <module>\n    from .base import Tool\n../venv/lib/python3.12/site-packages/mcp/server/fastmcp/tools/base.py:10: in <module>\n    from mcp.server.fastmcp.utilities.func_metadata import FuncMetadata, func_metadata\n../venv/lib/python3.12/site-packages/mcp/server/fastmcp/utilities/func_metadata.py:11: in <module>\n    from pydantic._internal._typing_extra import eval_type_backport\nE   ImportError: cannot import name 'eval_type_backport' from 'pydantic._internal._typing_extra' (/work/venv/lib/python3.12/site-packages/pydantic/_internal/_typing_extra.py)\n=========================== short test summary info ============================\nERROR tests/test_server.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 1.32s\n",
+    "tests": {
+      "::tests.test_server": "error"
+    },
+    "collection_errors": [
+      "::tests.test_server"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 7.645695999999999,
+    "cost": 0.07823062,
+    "image_uuid": "904a87f0-7564-4906-9e18-4118dc1c35f0",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "ok",
+    "passed_after": 0,
+    "pre_existing_failures": 1
+  },
+  "error": null,
+  "requirement": "openai>=1.70.0",
+  "wall_s": 111.8
+}

@@ -1,0 +1,101 @@
+{
+  "dependent": "opik",
+  "version": "2.2.26",
+  "source": {
+    "owner": "comet-ml",
+    "repo": "opik",
+    "tag": "2.2.26",
+    "sha": "a4b4451dee75209317a040638f5f3a40e73e14bc",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "190b365a-b139-4f9a-8259-130dc24fa447",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo/sdks/python\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 4,
+    "test_tail": "ImportError while loading conftest '/work/repo/sdks/python/tests/conftest.py'.\ntests/conftest.py:8: in <module>\n    import numpy as np\nE   ModuleNotFoundError: No module named 'numpy'\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 10.900744,
+    "cost": 0.11061657999999999,
+    "image_uuid": "9cd339da-8c20-4695-87fc-9dba0219ef92",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo/sdks/python\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 4,
+    "test_tail": "ImportError while loading conftest '/work/repo/sdks/python/tests/conftest.py'.\ntests/conftest.py:8: in <module>\n    import numpy as np\nE   ModuleNotFoundError: No module named 'numpy'\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 10.903965000000001,
+    "cost": 0.11061961000000001,
+    "image_uuid": "657011d1-bb11-4719-a1a1-81d82c14fffb",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo/sdks/python\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 4,
+    "test_tail": "ImportError while loading conftest '/work/repo/sdks/python/tests/conftest.py'.\ntests/conftest.py:8: in <module>\n    import numpy as np\nE   ModuleNotFoundError: No module named 'numpy'\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 10.833503,
+    "cost": 0.10988823,
+    "image_uuid": "4d8e8bce-cd2d-40fb-a4a2-38a5f3604560",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "incomplete",
+    "kind": "no-results",
+    "reason": "the before fork installed but returned no test results",
+    "arm": "before",
+    "test_exit": 4,
+    "error": null,
+    "evidence": "ImportError while loading conftest '/work/repo/sdks/python/tests/conftest.py'.\ntests/conftest.py:8: in <module>\n    import numpy as np\nE   ModuleNotFoundError: No module named 'numpy'\n"
+  },
+  "error": null,
+  "requirement": "openai",
+  "wall_s": 140.3
+}

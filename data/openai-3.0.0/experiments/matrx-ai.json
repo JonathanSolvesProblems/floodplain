@@ -1,0 +1,73 @@
+{
+  "dependent": "matrx-ai",
+  "version": "0.5.10",
+  "source": {
+    "owner": "AI-Matrix-Engine",
+    "repo": "aidream-current",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/06/cc/cb36d5ec89af5e2085ba925bd47758d897f8e50f15662ac4eff41a0c8628/matrx_ai-0.5.10.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "d7d3c375-de93-45d0-b182-10d2a447b86d",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Failed to build `matrx-ai @ file:///work/repo`\n  cause: Failed to parse entry: `matrx-utils`\n  cause: `matrx-utils` references a workspace in `tool.uv.sources` (e.g., `matrx-utils = { workspace = true }`), but is not a workspace member\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.123138,
+    "cost": 0.00140234,
+    "image_uuid": "642aa2db-56a3-4498-85bb-22e477d1a32a",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Failed to build `matrx-ai @ file:///work/repo`\n  cause: Failed to parse entry: `matrx-utils`\n  cause: `matrx-utils` references a workspace in `tool.uv.sources` (e.g., `matrx-utils = { workspace = true }`), but is not a workspace member\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.122175,
+    "cost": 0.0013927100000000001,
+    "image_uuid": "51582e7f-9fca-4b7f-8023-bbef323a1251",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Failed to build `matrx-ai @ file:///work/repo`\n  cause: Failed to parse entry: `matrx-utils`\n  cause: `matrx-utils` references a workspace in `tool.uv.sources` (e.g., `matrx-utils = { workspace = true }`), but is not a workspace member\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.128859,
+    "cost": 0.00145955,
+    "image_uuid": "68b24cfc-d90a-4caf-bb70-b2fb93933eea",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "unrunnable",
+    "reason": "install failed before and after",
+    "evidence": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Failed to build `matrx-ai @ file:///work/repo`\n  cause: Failed to parse entry: `matrx-utils`\n  cause: `matrx-utils` references a workspace in `tool.uv.sources` (e.g., `matrx-utils = { workspace = true }`), but is not a workspace member\n"
+  },
+  "error": null,
+  "requirement": "openai>=2.35.1",
+  "wall_s": 52.0
+}

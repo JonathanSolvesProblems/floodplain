@@ -1,0 +1,24 @@
+{
+  "dependent": "praisonaiagents",
+  "version": "1.6.165",
+  "source": {
+    "owner": "pypi",
+    "repo": "praisonaiagents",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/74/78/7279820627acffb2dad12ef54119a521102bfca2e3f67c7879beeed1083d/praisonaiagents-1.6.165.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n"
+  },
+  "error": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n",
+  "requirement": "openai>=1.68.2",
+  "wall_s": 3.9
+}

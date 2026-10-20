@@ -1,0 +1,101 @@
+{
+  "dependent": "fhlmi",
+  "version": "1.0.5",
+  "source": {
+    "owner": "Future-House",
+    "repo": "ldp",
+    "tag": "v1.0.5",
+    "sha": "2586718e10073735de1262d45c191fcaf74ec243",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "f5497925-a209-4aaa-85da-7b37c0caabb9",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo/packages/lmi\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 4,
+    "test_tail": "ImportError while loading conftest '/work/repo/packages/lmi/tests/conftest.py'.\ntests/conftest.py:11: in <module>\n    import vcr.stubs.httpcore_stubs\nE   ModuleNotFoundError: No module named 'vcr.stubs.httpcore_stubs'\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 28.04274,
+    "cost": 0.2827779,
+    "image_uuid": "b2ef12fb-1327-4462-a469-2c436a6168cc",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo/packages/lmi\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 4,
+    "test_tail": "ImportError while loading conftest '/work/repo/packages/lmi/tests/conftest.py'.\ntests/conftest.py:11: in <module>\n    import vcr.stubs.httpcore_stubs\nE   ModuleNotFoundError: No module named 'vcr.stubs.httpcore_stubs'\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 28.251772,
+    "cost": 0.28487286,
+    "image_uuid": "b91fe29a-29cd-47d1-8003-2af5c10be81a",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo/packages/lmi\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 4,
+    "test_tail": "ImportError while loading conftest '/work/repo/packages/lmi/tests/conftest.py'.\ntests/conftest.py:11: in <module>\n    import vcr.stubs.httpcore_stubs\nE   ModuleNotFoundError: No module named 'vcr.stubs.httpcore_stubs'\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 27.829784,
+    "cost": 0.28065018,
+    "image_uuid": "056d8998-11c3-4e95-85c1-c1743290347a",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "incomplete",
+    "kind": "no-results",
+    "reason": "the before fork installed but returned no test results",
+    "arm": "before",
+    "test_exit": 4,
+    "error": null,
+    "evidence": "ImportError while loading conftest '/work/repo/packages/lmi/tests/conftest.py'.\ntests/conftest.py:11: in <module>\n    import vcr.stubs.httpcore_stubs\nE   ModuleNotFoundError: No module named 'vcr.stubs.httpcore_stubs'\n"
+  },
+  "error": null,
+  "requirement": "openai>=2",
+  "wall_s": 164.0
+}

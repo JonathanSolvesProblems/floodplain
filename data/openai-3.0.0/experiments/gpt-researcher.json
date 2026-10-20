@@ -1,0 +1,24 @@
+{
+  "dependent": "gpt-researcher",
+  "version": "0.16.0",
+  "source": {
+    "owner": "assafelovic",
+    "repo": "gpt-researcher",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/7d/26/1fa27951b0b812901cb6cf68fb2341aa2f892df0192e06a75dc4be7c5e3a/gpt_researcher-0.16.0.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n"
+  },
+  "error": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n",
+  "requirement": "openai>=1.82.0",
+  "wall_s": 5.4
+}

@@ -1,0 +1,24 @@
+{
+  "dependent": "r2r",
+  "version": "3.6.6",
+  "source": {
+    "owner": "pypi",
+    "repo": "r2r",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/81/00/9b9953e9adf115ed245e4d52ce1a9d8cbc4ae2c037315b748a7f0e2f1f6e/r2r-3.6.6.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n"
+  },
+  "error": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n",
+  "requirement": "openai>=1.99.0",
+  "wall_s": 18.9
+}

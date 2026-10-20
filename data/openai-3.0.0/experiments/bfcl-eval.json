@@ -1,0 +1,24 @@
+{
+  "dependent": "bfcl-eval",
+  "version": "2026.3.23",
+  "source": {
+    "owner": "ShishirPatil",
+    "repo": "gorilla",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/85/aa/b90a61aad83db569be58a9c5c44d7b9fddb632268a5b51b4e17afd4dfd41/bfcl_eval-2026.3.23.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n"
+  },
+  "error": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n",
+  "requirement": "openai>=1.86.0",
+  "wall_s": 8.1
+}

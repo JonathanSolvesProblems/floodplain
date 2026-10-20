@@ -1,0 +1,101 @@
+{
+  "dependent": "llama-index-agent-openai",
+  "version": "0.4.12",
+  "source": {
+    "owner": "pypi",
+    "repo": "llama-index-agent-openai",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/0e/94/69decc46d11e954c6a8c64999cc237af5932d116eeb7a06515856641a6d4/llama_index_agent_openai-0.4.12.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "1956ecc4-bfaa-4c2d-a420-ee0f14656dd3",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==1.109.1\npydantic==2.14.0b1\npytest==7.2.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\n--------------------- generated xml file: /work/junit.xml ----------------------\nno tests ran in 0.00s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "1.109.1",
+      "pydantic": "2.14.0b1",
+      "pytest": "7.2.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 6.832919,
+    "cost": 0.06964261000000001,
+    "image_uuid": "83990a99-89f0-4c23-b3a8-56fbcf756370",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==1.109.1\npydantic==2.14.0b1\npytest==7.2.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\n--------------------- generated xml file: /work/junit.xml ----------------------\nno tests ran in 0.00s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "1.109.1",
+      "pydantic": "2.14.0b1",
+      "pytest": "7.2.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 6.486406,
+    "cost": 0.06618342,
+    "image_uuid": "cc94e4cd-7164-40c6-8db0-0cba5d7e2550",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==1.109.1\npydantic==2.14.0b1\npytest==7.2.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 5,
+    "test_tail": "\n--------------------- generated xml file: /work/junit.xml ----------------------\nno tests ran in 0.00s\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "1.109.1",
+      "pydantic": "2.14.0b1",
+      "pytest": "7.2.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 6.131577,
+    "cost": 0.06263553,
+    "image_uuid": "ca6ad9d0-7754-49ac-8226-8551a5a21d4a",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "incomplete",
+    "kind": "no-results",
+    "reason": "the before fork installed but returned no test results",
+    "arm": "before",
+    "test_exit": 5,
+    "error": null,
+    "evidence": "\n--------------------- generated xml file: /work/junit.xml ----------------------\nno tests ran in 0.00s\n"
+  },
+  "error": null,
+  "requirement": "openai>=1.14.0",
+  "wall_s": 82.2
+}

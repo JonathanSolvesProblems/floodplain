@@ -1,0 +1,73 @@
+{
+  "dependent": "tooluniverse",
+  "version": "1.4.0",
+  "source": {
+    "owner": "mims-harvard",
+    "repo": "ToolUniverse",
+    "tag": "v1.4.0",
+    "sha": "95ea136ff90db620e54ab40f1645f89321b26ea0",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "84f14e1b-3509-46ac-bda9-29dadf1a170a",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: No solution found when resolving dependencies\n  cause: Because only fitz==0.0.0 is available and tooluniverse==1.4.0 depends on fitz>=0.0.1.dev2, we can conclude that tooluniverse==1.4.0 cannot be used.\n         And because only tooluniverse==1.4.0 is available and you require tooluniverse, we can conclude that your requirements are unsatisfiable.\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.446518,
+    "cost": 0.0053694,
+    "image_uuid": "1a67b670-2ed5-45f6-820c-0ca967f8c767",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: No solution found when resolving dependencies\n  cause: Because only fitz==0.0.0 is available and tooluniverse==1.4.0 depends on fitz>=0.0.1.dev2, we can conclude that tooluniverse==1.4.0 cannot be used.\n         And because only tooluniverse==1.4.0 is available and you require tooluniverse, we can conclude that your requirements are unsatisfiable.\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.453985,
+    "cost": 0.005407210000000001,
+    "image_uuid": "1abbcae1-5f30-41f3-a04d-4c36ecf4c1d8",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: No solution found when resolving dependencies\n  cause: Because only fitz==0.0.0 is available and tooluniverse==1.4.0 depends on fitz>=0.0.1.dev2, we can conclude that tooluniverse==1.4.0 cannot be used.\n         And because only tooluniverse==1.4.0 is available and you require tooluniverse, we can conclude that your requirements are unsatisfiable.\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.441053,
+    "cost": 0.0052610700000000005,
+    "image_uuid": "3bd95939-bafa-42c1-9041-2f19df003f64",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "unrunnable",
+    "reason": "install failed before and after",
+    "evidence": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: No solution found when resolving dependencies\n  cause: Because only fitz==0.0.0 is available and tooluniverse==1.4.0 depends on fitz>=0.0.1.dev2, we can conclude that tooluniverse==1.4.0 cannot be used.\n         And because only tooluniverse==1.4.0 is available and you require tooluniverse, we can conclude that your requirements are unsatisfiable.\n"
+  },
+  "error": null,
+  "requirement": "openai>=1.107.0",
+  "wall_s": 42.2
+}

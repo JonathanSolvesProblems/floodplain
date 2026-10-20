@@ -1,0 +1,73 @@
+{
+  "dependent": "databricks-langchain",
+  "version": "0.20.0",
+  "source": {
+    "owner": "pypi",
+    "repo": "databricks-langchain",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/a4/ac/ba1e3eb35652a307589206b5e470980b29e89ac575f3f305efdf20a052f4/databricks_langchain-0.20.0.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "68dfed08-f239-46ab-aec4-581d872ae3bc",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Distribution not found at: file:///work/openai\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.103527,
+    "cost": 0.00120699,
+    "image_uuid": "b87ceb45-7fb9-49c2-97f9-b72357cb338e",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Distribution not found at: file:///work/openai\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.106889,
+    "cost": 0.00124061,
+    "image_uuid": "f5d481fe-df11-49fe-8b5d-31b91fb15849",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 41,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Distribution not found at: file:///work/openai\n",
+    "test_exit": null,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {},
+    "elapsed_s": 0.112401,
+    "cost": 0.00129573,
+    "image_uuid": "a37e1cfe-f040-4e06-aefb-faf01a6c5573",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "unrunnable",
+    "reason": "install failed before and after",
+    "evidence": "[floodplain] package root: /work/repo\n[floodplain] base install failed\nerror: Distribution not found at: file:///work/openai\n"
+  },
+  "error": null,
+  "requirement": "openai>=1.99.9",
+  "wall_s": 19.1
+}

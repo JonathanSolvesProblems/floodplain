@@ -1,0 +1,24 @@
+{
+  "dependent": "traia-iatp",
+  "version": "0.1.112",
+  "source": {
+    "owner": "Traia-IO",
+    "repo": "IATP",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/95/3d/872afd1ab20379b4982590e012aab122481f72ba3a5acf89a0527d6fb59f/traia_iatp-0.1.112.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n"
+  },
+  "error": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n",
+  "requirement": "openai>=1.109.1",
+  "wall_s": 10.3
+}

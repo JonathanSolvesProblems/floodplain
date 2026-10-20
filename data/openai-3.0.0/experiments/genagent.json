@@ -1,0 +1,24 @@
+{
+  "dependent": "genagent",
+  "version": "0.4.1",
+  "source": {
+    "owner": "pypi",
+    "repo": "genagent",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/29/be/c618cc67a6efc1891696bdc72c3dcc31740a7445b18229194f447e08799f/genagent-0.4.1.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n"
+  },
+  "error": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n",
+  "requirement": "openai>=1.0.0",
+  "wall_s": 15.7
+}

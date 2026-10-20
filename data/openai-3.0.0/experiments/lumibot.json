@@ -1,0 +1,101 @@
+{
+  "dependent": "lumibot",
+  "version": "4.5.83",
+  "source": {
+    "owner": "Lumiwealth",
+    "repo": "lumibot",
+    "tag": "v4.5.83",
+    "sha": "07b2514700f473c84258865e5ed11144db38090f",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "3a42ba60-02b0-456e-8729-ac8662b2ffa9",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2025.11.12\nhttpx==0.28.1\nopenai==2.24.0\npydantic==2.12.5\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": -1,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2025.11.12",
+      "httpx": "0.28.1",
+      "openai": "2.24.0",
+      "pydantic": "2.12.5",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 2176.5338230000034,
+    "cost": 0.12804839,
+    "image_uuid": "6f4457a3-cab6-4c42-b968-5c43804c6fd4",
+    "backend": "nebius-sandboxes",
+    "error": "ApiStatusCodeError: ApiStatusCodeError(request=RequestInfo(url='https://api.tokenfactory.nebius.com/sandboxes/v1/operations/01a15982-1299-7698-8341-4bd88a2a2e84', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 20 Oct 2026 13:31:32 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '49', 'connection': 'keep-alive', 'traceparent': '00-7f7ed7a279c5f4252895dd70ea1d984f-0378fff0a92b936b-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}), status=500, error='Internal Server Error')",
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2025.11.12\nhttpx==0.28.1\nopenai==2.24.0\npydantic==2.12.5\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 1,
+    "test_tail": "firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 377, in pytest_cmdline_main\n    return wrap_session(config, _main)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 330, in wrap_session\n    session.exitstatus = doit(config, session) or 0\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 384, in _main\n    config.hook.pytest_runtestloop(session=session)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 408, in pytest_runtestloop\n    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/runner.py\", line 118, in pytest_runtest_protocol\n    runtestprotocol(item, nextitem=nextitem)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/runner.py\", line 139, in runtestprotocol\n    reports.append(call_and_report(item, \"call\", log))\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/runner.py\", line 249, in call_and_report\n    call = CallInfo.from_call(\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/runner.py\", line 361, in from_call\n    result: TResult | None = func()\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/runner.py\", line 250, in <lambda>\n    lambda: runtest_hook(item=item, **kwds),\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/runner.py\", line 184, in pytest_runtest_call\n    item.runtest()\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/python.py\", line 1707, in runtest\n    self.ihook.pytest_pyfunc_call(pyfuncitem=self)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/python.py\", line 167, in pytest_pyfunc_call\n    result = testfunction(**testargs)\n  File \"/work/repo/tests/test_routed_backtesting_ibkr_daily_prefetch.py\", line 73, in test_routed_backtesting_prefetches_ibkr_crypto_daily_window_once\n    routed._update_pandas_data(base, quote, 205, \"day\", start_dt=backtest_start)\n  File \"/work/repo/lumibot/backtesting/routed_backtesting.py\", line 1167, in _update_pandas_data\n    return adapter.update_pandas_data(\n  File \"/work/repo/lumibot/backtesting/routed_backtesting.py\", line 597, in update_pandas_data\n    df = ibkr_helper.get_price_data(\n  File \"/work/repo/lumibot/tools/ibkr_helper.py\", line 618, in get_price_data\n    return _get_crypto_daily_bars(\n  File \"/work/repo/lumibot/tools/ibkr_helper.py\", line 3302, in _get_crypto_daily_bars\n    hourly = _get_cached_bars_for_source(\n  File \"/work/repo/lumibot/tools/ibkr_helper.py\", line 1694, in _get_cached_bars_for_source\n    fetched = _fetch_history_between_dates(\n  File \"/work/repo/lumibot/tools/ibkr_helper.py\", line 1916, in _fetch_history_between_dates\n    conid = _resolve_conid(asset=asset, quote=quote, exchange=exchange)\n  File \"/work/repo/lumibot/tools/ibkr_helper.py\", line 3646, in _resolve_conid\n    conid = _lookup_conid_remote(asset=asset, quote=quote, exchange=effective_exchange, mapping=mapping, keys_added=keys_added)\n  File \"/work/repo/lumibot/tools/ibkr_helper.py\", line 3856, in _lookup_conid_remote\n    return _lookup_conid_crypto(asset=asset, quote=quote)\n  File \"/work/repo/lumibot/tools/ibkr_helper.py\", line 3922, in _lookup_conid_crypto\n    payload = queue_request(\n  File \"/work/repo/lumibot/tools/data_downloader_queue_client.py\", line 1225, in queue_request\n    result, status_code = client.execute_request(\n  File \"/work/repo/lumibot/tools/data_downloader_queue_client.py\", line 990, in execute_request\n    request_id, status, was_pending = self.check_or_submit(\n  File \"/work/repo/lumibot/tools/data_downloader_queue_client.py\", line 436, in check_or_submit\n    request_id, status = self._submit_request(\n  File \"/work/repo/lumibot/tools/data_downloader_queue_client.py\", line 537, in _submit_request\n    time.sleep(delay)\n+++++++++++++++++++++++++++++++++++ Timeout ++++++++++++++++++++++++++++++++++++\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2025.11.12",
+      "httpx": "0.28.1",
+      "openai": "2.24.0",
+      "pydantic": "2.12.5",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 818.446869,
+    "cost": 8.19197139,
+    "image_uuid": "eae14fe9-261d-4901-b977-39861ae0a59b",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2025.11.12\nhttpx==0.28.1\nopenai==2.24.0\npydantic==2.12.5\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 1,
+    "test_tail": "firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 377, in pytest_cmdline_main\n    return wrap_session(config, _main)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 330, in wrap_session\n    session.exitstatus = doit(config, session) or 0\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 384, in _main\n    config.hook.pytest_runtestloop(session=session)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 408, in pytest_runtestloop\n    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/runner.py\", line 118, in pytest_runtest_protocol\n    runtestprotocol(item, nextitem=nextitem)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/runner.py\", line 139, in runtestprotocol\n    reports.append(call_and_report(item, \"call\", log))\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/runner.py\", line 249, in call_and_report\n    call = CallInfo.from_call(\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/runner.py\", line 361, in from_call\n    result: TResult | None = func()\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/runner.py\", line 250, in <lambda>\n    lambda: runtest_hook(item=item, **kwds),\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/runner.py\", line 184, in pytest_runtest_call\n    item.runtest()\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/python.py\", line 1707, in runtest\n    self.ihook.pytest_pyfunc_call(pyfuncitem=self)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n  File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n  File \"/work/venv/lib/python3.12/site-packages/_pytest/python.py\", line 167, in pytest_pyfunc_call\n    result = testfunction(**testargs)\n  File \"/work/repo/tests/test_routed_backtesting_ibkr_daily_prefetch.py\", line 73, in test_routed_backtesting_prefetches_ibkr_crypto_daily_window_once\n    routed._update_pandas_data(base, quote, 205, \"day\", start_dt=backtest_start)\n  File \"/work/repo/lumibot/backtesting/routed_backtesting.py\", line 1167, in _update_pandas_data\n    return adapter.update_pandas_data(\n  File \"/work/repo/lumibot/backtesting/routed_backtesting.py\", line 597, in update_pandas_data\n    df = ibkr_helper.get_price_data(\n  File \"/work/repo/lumibot/tools/ibkr_helper.py\", line 618, in get_price_data\n    return _get_crypto_daily_bars(\n  File \"/work/repo/lumibot/tools/ibkr_helper.py\", line 3302, in _get_crypto_daily_bars\n    hourly = _get_cached_bars_for_source(\n  File \"/work/repo/lumibot/tools/ibkr_helper.py\", line 1694, in _get_cached_bars_for_source\n    fetched = _fetch_history_between_dates(\n  File \"/work/repo/lumibot/tools/ibkr_helper.py\", line 1916, in _fetch_history_between_dates\n    conid = _resolve_conid(asset=asset, quote=quote, exchange=exchange)\n  File \"/work/repo/lumibot/tools/ibkr_helper.py\", line 3646, in _resolve_conid\n    conid = _lookup_conid_remote(asset=asset, quote=quote, exchange=effective_exchange, mapping=mapping, keys_added=keys_added)\n  File \"/work/repo/lumibot/tools/ibkr_helper.py\", line 3856, in _lookup_conid_remote\n    return _lookup_conid_crypto(asset=asset, quote=quote)\n  File \"/work/repo/lumibot/tools/ibkr_helper.py\", line 3922, in _lookup_conid_crypto\n    payload = queue_request(\n  File \"/work/repo/lumibot/tools/data_downloader_queue_client.py\", line 1225, in queue_request\n    result, status_code = client.execute_request(\n  File \"/work/repo/lumibot/tools/data_downloader_queue_client.py\", line 990, in execute_request\n    request_id, status, was_pending = self.check_or_submit(\n  File \"/work/repo/lumibot/tools/data_downloader_queue_client.py\", line 436, in check_or_submit\n    request_id, status = self._submit_request(\n  File \"/work/repo/lumibot/tools/data_downloader_queue_client.py\", line 537, in _submit_request\n    time.sleep(delay)\n+++++++++++++++++++++++++++++++++++ Timeout ++++++++++++++++++++++++++++++++++++\n",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2025.11.12",
+      "httpx": "0.28.1",
+      "openai": "2.24.0",
+      "pydantic": "2.12.5",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 890.2245260000001,
+    "cost": 8.90972292,
+    "image_uuid": "d67d1ba2-242b-4bcf-9401-b1835f0a796b",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "incomplete",
+    "kind": "no-results",
+    "reason": "the before fork installed but returned no test results",
+    "arm": "before",
+    "test_exit": -1,
+    "error": "ApiStatusCodeError: ApiStatusCodeError(request=RequestInfo(url='https://api.tokenfactory.nebius.com/sandboxes/v1/operations/01a15982-1299-7698-8341-4bd88a2a2e84', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 20 Oct 2026 13:31:32 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '49', 'connection': 'keep-alive', 'traceparent': '00-7f7ed7a279c5f4252895dd70ea1d984f-0378fff0a92b936b-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}), status=500, error='Internal Server Error')",
+    "evidence": ""
+  },
+  "error": null,
+  "requirement": "openai",
+  "wall_s": 2509.9
+}

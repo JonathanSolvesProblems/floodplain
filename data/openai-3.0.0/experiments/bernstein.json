@@ -1,0 +1,116 @@
+{
+  "dependent": "bernstein",
+  "version": "3.14.159",
+  "source": {
+    "owner": "sipyourdrink-ltd",
+    "repo": "bernstein",
+    "tag": "v3.14.159",
+    "sha": "21480b21c698ed8f6d5efd10985cb665f6401f7a",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "9a23755b-ef29-4396-a6c1-471922a76f11",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 3,
+    "test_tail": "INTERNALERROR> Traceback (most recent call last):\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 330, in wrap_session\nINTERNALERROR>     session.exitstatus = doit(config, session) or 0\nINTERNALERROR>                          ^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 383, in _main\nINTERNALERROR>     config.hook.pytest_collection(session=session)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\nINTERNALERROR>     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\nINTERNALERROR>     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 167, in _multicall\nINTERNALERROR>     raise exception\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\nINTERNALERROR>     teardown.throw(exception)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/logging.py\", line 803, in pytest_collection\nINTERNALERROR>     return (yield)\nINTERNALERROR>             ^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\nINTERNALERROR>     teardown.throw(exception)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/warnings.py\", line 99, in pytest_collection\nINTERNALERROR>     return (yield)\nINTERNALERROR>             ^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\nINTERNALERROR>     teardown.throw(exception)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 1445, in pytest_collection\nINTERNALERROR>     return (yield)\nINTERNALERROR>             ^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\nINTERNALERROR>     res = hook_impl.function(*args)\nINTERNALERROR>           ^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 394, in pytest_collection\nINTERNALERROR>     session.perform_collect()\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 872, in perform_collect\nINTERNALERROR>     hook.pytest_collection_modifyitems(\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\nINTERNALERROR>     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\nINTERNALERROR>     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 167, in _multicall\nINTERNALERROR>     raise exception\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\nINTERNALERROR>     res = hook_impl.function(*args)\nINTERNALERROR>           ^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/repo/tests/protocol/conftest.py\", line 12, in pytest_collection_modifyitems\nINTERNALERROR>     item.add_marker(\"protocol\")\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/nodes.py\", line 321, in add_marker\nINTERNALERROR>     marker_ = getattr(MARK_GEN, marker)\nINTERNALERROR>               ^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/mark/structures.py\", line 623, in __getattr__\nINTERNALERROR>     fail(\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/outcomes.py\", line 162, in __call__\nINTERNALERROR>     raise Failed(msg=reason, pytrace=pytrace)\nINTERNALERROR> Failed: 'protocol' not found in `markers` configuration option\n\n7 warnings in 132.74s (0:02:12)\n",
+    "tests": {
+      "pytest::internal": "error"
+    },
+    "collection_errors": [
+      "pytest::internal"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 123.968205,
+    "cost": 1.2445265900000002,
+    "image_uuid": "aa1866d0-d92d-4215-9c70-35357399ceea",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==3.0.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 3,
+    "test_tail": "INTERNALERROR> Traceback (most recent call last):\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 330, in wrap_session\nINTERNALERROR>     session.exitstatus = doit(config, session) or 0\nINTERNALERROR>                          ^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 383, in _main\nINTERNALERROR>     config.hook.pytest_collection(session=session)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\nINTERNALERROR>     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\nINTERNALERROR>     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 167, in _multicall\nINTERNALERROR>     raise exception\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\nINTERNALERROR>     teardown.throw(exception)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/logging.py\", line 803, in pytest_collection\nINTERNALERROR>     return (yield)\nINTERNALERROR>             ^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\nINTERNALERROR>     teardown.throw(exception)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/warnings.py\", line 99, in pytest_collection\nINTERNALERROR>     return (yield)\nINTERNALERROR>             ^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\nINTERNALERROR>     teardown.throw(exception)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 1445, in pytest_collection\nINTERNALERROR>     return (yield)\nINTERNALERROR>             ^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\nINTERNALERROR>     res = hook_impl.function(*args)\nINTERNALERROR>           ^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 394, in pytest_collection\nINTERNALERROR>     session.perform_collect()\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 872, in perform_collect\nINTERNALERROR>     hook.pytest_collection_modifyitems(\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\nINTERNALERROR>     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\nINTERNALERROR>     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 167, in _multicall\nINTERNALERROR>     raise exception\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\nINTERNALERROR>     res = hook_impl.function(*args)\nINTERNALERROR>           ^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/repo/tests/protocol/conftest.py\", line 12, in pytest_collection_modifyitems\nINTERNALERROR>     item.add_marker(\"protocol\")\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/nodes.py\", line 321, in add_marker\nINTERNALERROR>     marker_ = getattr(MARK_GEN, marker)\nINTERNALERROR>               ^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/mark/structures.py\", line 623, in __getattr__\nINTERNALERROR>     fail(\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/outcomes.py\", line 162, in __call__\nINTERNALERROR>     raise Failed(msg=reason, pytrace=pytrace)\nINTERNALERROR> Failed: 'protocol' not found in `markers` configuration option\n\n6 warnings in 120.95s (0:02:00)\n",
+    "tests": {
+      "pytest::internal": "error"
+    },
+    "collection_errors": [
+      "pytest::internal"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "3.0.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 110.75891399999999,
+    "cost": 1.11242286,
+    "image_uuid": "9a3f4589-fba0-40ec-8cee-7eb495b2af78",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 3,
+    "test_tail": "INTERNALERROR> Traceback (most recent call last):\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 330, in wrap_session\nINTERNALERROR>     session.exitstatus = doit(config, session) or 0\nINTERNALERROR>                          ^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 383, in _main\nINTERNALERROR>     config.hook.pytest_collection(session=session)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\nINTERNALERROR>     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\nINTERNALERROR>     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 167, in _multicall\nINTERNALERROR>     raise exception\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\nINTERNALERROR>     teardown.throw(exception)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/logging.py\", line 803, in pytest_collection\nINTERNALERROR>     return (yield)\nINTERNALERROR>             ^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\nINTERNALERROR>     teardown.throw(exception)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/warnings.py\", line 99, in pytest_collection\nINTERNALERROR>     return (yield)\nINTERNALERROR>             ^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\nINTERNALERROR>     teardown.throw(exception)\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 1445, in pytest_collection\nINTERNALERROR>     return (yield)\nINTERNALERROR>             ^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\nINTERNALERROR>     res = hook_impl.function(*args)\nINTERNALERROR>           ^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 394, in pytest_collection\nINTERNALERROR>     session.perform_collect()\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/main.py\", line 872, in perform_collect\nINTERNALERROR>     hook.pytest_collection_modifyitems(\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\nINTERNALERROR>     return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\nINTERNALERROR>     return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\nINTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 167, in _multicall\nINTERNALERROR>     raise exception\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\nINTERNALERROR>     res = hook_impl.function(*args)\nINTERNALERROR>           ^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/repo/tests/protocol/conftest.py\", line 12, in pytest_collection_modifyitems\nINTERNALERROR>     item.add_marker(\"protocol\")\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/nodes.py\", line 321, in add_marker\nINTERNALERROR>     marker_ = getattr(MARK_GEN, marker)\nINTERNALERROR>               ^^^^^^^^^^^^^^^^^^^^^^^^^\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/mark/structures.py\", line 623, in __getattr__\nINTERNALERROR>     fail(\nINTERNALERROR>   File \"/work/venv/lib/python3.12/site-packages/_pytest/outcomes.py\", line 162, in __call__\nINTERNALERROR>     raise Failed(msg=reason, pytrace=pytrace)\nINTERNALERROR> Failed: 'protocol' not found in `markers` configuration option\n\n7 warnings in 112.95s (0:01:52)\n",
+    "tests": {
+      "pytest::internal": "error"
+    },
+    "collection_errors": [
+      "pytest::internal"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 107.644403,
+    "cost": 1.08124205,
+    "image_uuid": "ef107714-abe8-42ae-a648-8a8afbd4c73e",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 1
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "ok",
+    "passed_after": 0,
+    "pre_existing_failures": 1
+  },
+  "error": null,
+  "requirement": "openai>=2.36.0",
+  "wall_s": 285.4
+}

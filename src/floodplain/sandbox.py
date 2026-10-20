@@ -28,7 +28,8 @@ from .repos import SourceRef
 
 INSTALL_TIMEOUT = 1800
 TEST_TIMEOUT = 3300          # Nebius caps a single operation at 3600s
-PER_TEST_TIMEOUT = 60        # keep one hanging test from eating the whole suite's budget
+PER_TEST_TIMEOUT = 45        # keep one hanging test from eating the whole suite's budget
+PYTEST_NO_TESTS = 5          # pytest's exit code for "no tests were collected"
 
 # Extras that conventionally hold test dependencies, tried in order and unioned.
 TEST_EXTRAS = ("test", "tests", "testing", "dev", "develop", "all")
@@ -106,10 +107,18 @@ class Experiment:
                     "evidence": b.install_tail[-2000:]}
         if a.install_exit != 0 and b.install_exit == 0:
             return {"status": "fixed-by-release", "reason": "install failed before, succeeds after"}
-        # An arm that installed cleanly but returned no test results at all did not run; it is
-        # NOT evidence that nothing broke. Without this, a transport error in the `after` fork
-        # produces an empty result set, no newly-failing tests, and a verdict of "ok", which
-        # silently understates how much the release broke.
+        # pytest exit 5 means "no tests were collected", which is a fact about the package, not
+        # a failure of the run. A surprising number of published packages ship no test suite at
+        # the tagged release: babeldoc declares testpaths = ["tests"] and has no tests directory.
+        # Those are excluded from the denominator rather than counted as "nothing broke".
+        if a.test_exit == PYTEST_NO_TESTS and b.test_exit == PYTEST_NO_TESTS:
+            return {"status": "no-tests",
+                    "reason": "the package ships no test suite at this release",
+                    "pytest_exit": PYTEST_NO_TESTS}
+        # An arm that installed cleanly but returned no results for any OTHER reason did not
+        # run, and is NOT evidence that nothing broke. Without this, a transport error in the
+        # after fork produces an empty result set, no newly-failing tests, and a verdict of
+        # "ok", which silently understates how much the release broke.
         for arm in (a, b, self.control):
             if arm is None:
                 continue
@@ -223,8 +232,10 @@ export VIRTUAL_ENV=/work/venv PATH=/work/venv/bin:$PATH
 export FLOODPLAIN=1 CI=1 PYTHONDONTWRITEBYTECODE=1
 # Interrupt a little before the operation's own deadline so pytest still flushes the junit file.
 # A suite killed by the outer timeout returns no results at all.
+# signal is the only method that interrupts a blocking sleep or socket read, and several
+# suites hang in a vendored SDK's retry loop when the network is reachable but unauthorised.
 timeout -s INT {TEST_TIMEOUT - 300} python -m pytest -q -p no:cacheprovider \\
-  --timeout={PER_TEST_TIMEOUT} --timeout-method=thread \\
+  --timeout={PER_TEST_TIMEOUT} --timeout-method=signal \\
   --junitxml=/work/junit.xml -o junit_family=xunit2 --maxfail=1000 2>&1 | tail -n 200
 code=${{PIPESTATUS[0]}}
 echo "{JUNIT_START}"; cat /work/junit.xml 2>/dev/null; echo; echo "{JUNIT_END}"

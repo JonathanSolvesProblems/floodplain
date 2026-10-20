@@ -37,6 +37,14 @@ def test_real_break_still_reported_with_control_present():
     assert v["flake_control"] is True
 
 
+def test_pytest_exit_5_is_no_tests_not_incomplete():
+    # A package that ships no test suite is a fact about the package, not a failed run.
+    exp = _exp(before=_outcome("before", {}), after=_outcome("after", {}))
+    exp.before.test_exit = exp.after.test_exit = 5
+    v = exp.verdict()
+    assert v["status"] == "no-tests" and v["pytest_exit"] == 5
+
+
 def test_empty_after_fork_is_incomplete_not_ok():
     # The bug this guards: a transport error in the after fork returns no tests, so nothing
     # is "newly failing" and the run would otherwise be reported as "nothing broke".

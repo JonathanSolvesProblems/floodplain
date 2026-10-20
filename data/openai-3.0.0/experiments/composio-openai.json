@@ -1,0 +1,24 @@
+{
+  "dependent": "composio-openai",
+  "version": "0.19.0",
+  "source": {
+    "owner": "ComposioHQ",
+    "repo": "composio",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/03/04/b32d42735336ca11c4053b4d8ee392f5388813549dc13191943a2b4c2d41/composio_openai-0.19.0.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n"
+  },
+  "error": "RuntimeError: clone failed (128): fatal: detected dubious ownership in repository at '/work/repo'\nTo add an exception for this directory, call:\n\n\tgit config --global --add safe.directory /work/repo\n",
+  "requirement": "openai>=2.48.0",
+  "wall_s": 4.1
+}

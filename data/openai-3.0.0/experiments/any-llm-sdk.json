@@ -1,0 +1,102 @@
+{
+  "dependent": "any-llm-sdk",
+  "version": "1.25.0",
+  "source": {
+    "owner": "mozilla-ai",
+    "repo": "any-llm",
+    "tag": "1.25.0",
+    "sha": "2107c19f9a8d7f9fbe1327a21fb58a5395f1822a",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "1ec16bdd-1b6e-420e-80e2-a2e7662a1c15",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev group:tests\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": -1,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 3390.5678510000084,
+    "cost": 0.11356177,
+    "image_uuid": "976af422-65c2-4d37-ab31-1d85ba743b82",
+    "backend": "nebius-sandboxes",
+    "error": "ApiStatusCodeError: ApiStatusCodeError(request=RequestInfo(url='https://api.tokenfactory.nebius.com/sandboxes/v1/operations/01a1598f-3d86-7383-9b21-12a229ee653d', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 20 Oct 2026 13:52:13 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '49', 'connection': 'keep-alive', 'traceparent': '00-6bb22cd1c83f7aa925421ebae3f4df17-fdcd0ca979c63f45-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}), status=500, error='Internal Server Error')",
+    "summary": {}
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev group:tests\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==3.0.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": -1,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "3.0.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 1284.4823269999913,
+    "cost": 0.11803193,
+    "image_uuid": "fbcaa4dd-e0da-45c7-b177-202333cd92dd",
+    "backend": "nebius-sandboxes",
+    "error": "ApiStatusCodeError: ApiStatusCodeError(request=RequestInfo(url='https://api.tokenfactory.nebius.com/sandboxes/v1/operations/01a15975-53d0-77d1-b991-0a1cde728640', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 20 Oct 2026 13:17:06 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '49', 'connection': 'keep-alive', 'traceparent': '00-c4860897ac0e55784ea5692c6dc719d8-f5fa081470fe5e8c-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}), status=500, error='Internal Server Error')",
+    "summary": {}
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev group:tests\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": -1,
+    "test_tail": "",
+    "tests": {},
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 3393.8931009999797,
+    "cost": 0.11182327,
+    "image_uuid": "6af2592a-d6d8-4c27-b552-2b7535d0ec55",
+    "backend": "nebius-sandboxes",
+    "error": "ApiStatusCodeError: ApiStatusCodeError(request=RequestInfo(url='https://api.tokenfactory.nebius.com/sandboxes/v1/operations/01a1598d-172e-72d0-8210-2a47f44d7ac3', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 20 Oct 2026 13:52:17 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '49', 'connection': 'keep-alive', 'traceparent': '00-80fd9ffcd6524477384016a3e00dc246-69c18ac2c948fb4b-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}), status=500, error='Internal Server Error')",
+    "summary": {}
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "incomplete",
+    "kind": "no-results",
+    "reason": "the before fork installed but returned no test results",
+    "arm": "before",
+    "test_exit": -1,
+    "error": "ApiStatusCodeError: ApiStatusCodeError(request=RequestInfo(url='https://api.tokenfactory.nebius.com/sandboxes/v1/operations/01a1598f-3d86-7383-9b21-12a229ee653d', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 20 Oct 2026 13:52:13 GMT', 'content-type': 'application/json; charset=utf-8', 'content-length': '49', 'connection': 'keep-alive', 'traceparent': '00-6bb22cd1c83f7aa925421ebae3f4df17-fdcd0ca979c63f45-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains'}), status=500, error='Internal Server Error')",
+    "evidence": ""
+  },
+  "error": null,
+  "requirement": "openai>=2.18.0",
+  "wall_s": 3447.1
+}

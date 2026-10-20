@@ -1,0 +1,152 @@
+{
+  "dependent": "ms-swift",
+  "version": "4.4.2",
+  "source": {
+    "owner": "modelscope",
+    "repo": "ms-swift",
+    "tag": "v4.4.2",
+    "sha": "f48847d23dbcd72ceb15fdbc5a1482cc7eb0359d",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "7787aed1-2c36-4906-b4e5-ca77d9537e25",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.12.3\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "opIteration\n\nDuring handling of the above exception, another exception occurred:\n../venv/lib/python3.12/site-packages/transformers/utils/versions.py:101: in require_version\n    got_ver = importlib.metadata.version(pkg)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/usr/local/lib/python3.12/importlib/metadata/__init__.py:889: in version\n    return distribution(distribution_name).version\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/usr/local/lib/python3.12/importlib/metadata/__init__.py:862: in distribution\n    return Distribution.from_name(distribution_name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/usr/local/lib/python3.12/importlib/metadata/__init__.py:399: in from_name\n    raise PackageNotFoundError(name)\nE   importlib.metadata.PackageNotFoundError: No package metadata was found for mcore-bridge\n\nDuring handling of the above exception, another exception occurred:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/megatron/export/test_export.py:3: in <module>\n    from swift.megatron import MegatronExportArguments, megatron_export_main\nswift/megatron/__init__.py:10: in <module>\n    init_megatron_env()\nswift/megatron/init.py:210: in init_megatron_env\n    _patch_mcore_bridge()\nswift/megatron/init.py:118: in _patch_mcore_bridge\n    require_version('mcore-bridge>=1.5.0', 'please install mcore-bridge via `pip install mcore-bridge -U`')\n../venv/lib/python3.12/site-packages/transformers/utils/versions.py:103: in require_version\n    raise importlib.metadata.PackageNotFoundError(\nE   importlib.metadata.PackageNotFoundError: No package metadata was found for The 'mcore-bridge>=1.5.0' distribution was not found and is required by this application. \nE   please install mcore-bridge via `pip install mcore-bridge -U`\n_______________ ERROR collecting tests/megatron/test_ray_gkd.py ________________\nImportError while importing test module '/work/repo/tests/megatron/test_ray_gkd.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/megatron/test_ray_gkd.py:5: in <module>\n    from swift.ray.megatron.gkd_trainer import GKDTrainer\nswift/ray/megatron/gkd_trainer.py:15: in <module>\n    from swift.rlhf_trainers.utils import parse_prompt_logprobs\nswift/rlhf_trainers/utils.py:17: in <module>\n    from msgspec import field\nE   ModuleNotFoundError: No module named 'msgspec'\n_________ ERROR collecting tests/test_align/test_template/test_llm.py __________\nimport file mismatch:\nimported module 'test_llm' has this __file__ attribute:\n  /work/repo/tests/models/test_llm.py\nwhich is not the same as the test file we want to collect:\n  /work/repo/tests/test_align/test_template/test_llm.py\nHINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules\n___________________ ERROR collecting tests/train/test_cls.py ___________________\nimport file mismatch:\nimported module 'test_cls' has this __file__ attribute:\n  /work/repo/tests/test_align/test_cls.py\nwhich is not the same as the test file we want to collect:\n  /work/repo/tests/train/test_cls.py\nHINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules\n_____ ERROR collecting tests/utils/test_assemble_teacher_topk_logprobs.py ______\nImportError while importing test module '/work/repo/tests/utils/test_assemble_teacher_topk_logprobs.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/utils/test_assemble_teacher_topk_logprobs.py:8: in <module>\n    from swift.rlhf_trainers.utils import assemble_teacher_topk_logprobs\nswift/rlhf_trainers/utils.py:17: in <module>\n    from msgspec import field\nE   ModuleNotFoundError: No module named 'msgspec'\n______________ ERROR collecting tests/utils/test_multi_teacher.py ______________\nImportError while importing test module '/work/repo/tests/utils/test_multi_teacher.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/utils/test_multi_teacher.py:20: in <module>\n    from swift.rlhf_trainers.gkd_helpers import (TeacherServerConfig, fetch_teacher_parsed_by_routing,\nswift/rlhf_trainers/gkd_helpers.py:16: in <module>\n    from .utils import (assemble_teacher_topk_logprobs, encode_sample, get_response_prefix_ids,\nswift/rlhf_trainers/utils.py:17: in <module>\n    from msgspec import field\nE   ModuleNotFoundError: No module named 'msgspec'\n=============================== warnings summary ===============================\n../venv/lib/python3.12/site-packages/torch/jit/_script.py:1488\n  /work/venv/lib/python3.12/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.\n    warnings.warn(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR examples/custom/my_qwen2_5_omni/test_register.py\nERROR tests/megatron/export/test_export.py\nERROR tests/megatron/test_ray_gkd.py\nERROR tests/test_align/test_template/test_llm.py\nERROR tests/train/test_cls.py\nERROR tests/utils/test_assemble_teacher_topk_logprobs.py\nERROR tests/utils/test_multi_teacher.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 7 errors during collection !!!!!!!!!!!!!!!!!!!!\n1 warning, 7 errors in 63.81s (0:01:03)\n",
+    "tests": {
+      "::examples.custom.my_qwen2_5_omni.test_register": "error",
+      "::tests.megatron.export.test_export": "error",
+      "::tests.megatron.test_ray_gkd": "error",
+      "::tests.test_align.test_template.test_llm": "error",
+      "::tests.train.test_cls": "error",
+      "::tests.utils.test_assemble_teacher_topk_logprobs": "error",
+      "::tests.utils.test_multi_teacher": "error"
+    },
+    "collection_errors": [
+      "::examples.custom.my_qwen2_5_omni.test_register",
+      "::tests.megatron.export.test_export",
+      "::tests.megatron.test_ray_gkd",
+      "::tests.test_align.test_template.test_llm",
+      "::tests.train.test_cls",
+      "::tests.utils.test_assemble_teacher_topk_logprobs",
+      "::tests.utils.test_multi_teacher"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.12.3",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 66.087616,
+    "cost": 0.6684502,
+    "image_uuid": "5ff6bd99-ce19-4ccc-9ee9-0a48163543d2",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 7
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.12.3\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "opIteration\n\nDuring handling of the above exception, another exception occurred:\n../venv/lib/python3.12/site-packages/transformers/utils/versions.py:101: in require_version\n    got_ver = importlib.metadata.version(pkg)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/usr/local/lib/python3.12/importlib/metadata/__init__.py:889: in version\n    return distribution(distribution_name).version\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/usr/local/lib/python3.12/importlib/metadata/__init__.py:862: in distribution\n    return Distribution.from_name(distribution_name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/usr/local/lib/python3.12/importlib/metadata/__init__.py:399: in from_name\n    raise PackageNotFoundError(name)\nE   importlib.metadata.PackageNotFoundError: No package metadata was found for mcore-bridge\n\nDuring handling of the above exception, another exception occurred:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/megatron/export/test_export.py:3: in <module>\n    from swift.megatron import MegatronExportArguments, megatron_export_main\nswift/megatron/__init__.py:10: in <module>\n    init_megatron_env()\nswift/megatron/init.py:210: in init_megatron_env\n    _patch_mcore_bridge()\nswift/megatron/init.py:118: in _patch_mcore_bridge\n    require_version('mcore-bridge>=1.5.0', 'please install mcore-bridge via `pip install mcore-bridge -U`')\n../venv/lib/python3.12/site-packages/transformers/utils/versions.py:103: in require_version\n    raise importlib.metadata.PackageNotFoundError(\nE   importlib.metadata.PackageNotFoundError: No package metadata was found for The 'mcore-bridge>=1.5.0' distribution was not found and is required by this application. \nE   please install mcore-bridge via `pip install mcore-bridge -U`\n_______________ ERROR collecting tests/megatron/test_ray_gkd.py ________________\nImportError while importing test module '/work/repo/tests/megatron/test_ray_gkd.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/megatron/test_ray_gkd.py:5: in <module>\n    from swift.ray.megatron.gkd_trainer import GKDTrainer\nswift/ray/megatron/gkd_trainer.py:15: in <module>\n    from swift.rlhf_trainers.utils import parse_prompt_logprobs\nswift/rlhf_trainers/utils.py:17: in <module>\n    from msgspec import field\nE   ModuleNotFoundError: No module named 'msgspec'\n_________ ERROR collecting tests/test_align/test_template/test_llm.py __________\nimport file mismatch:\nimported module 'test_llm' has this __file__ attribute:\n  /work/repo/tests/models/test_llm.py\nwhich is not the same as the test file we want to collect:\n  /work/repo/tests/test_align/test_template/test_llm.py\nHINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules\n___________________ ERROR collecting tests/train/test_cls.py ___________________\nimport file mismatch:\nimported module 'test_cls' has this __file__ attribute:\n  /work/repo/tests/test_align/test_cls.py\nwhich is not the same as the test file we want to collect:\n  /work/repo/tests/train/test_cls.py\nHINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules\n_____ ERROR collecting tests/utils/test_assemble_teacher_topk_logprobs.py ______\nImportError while importing test module '/work/repo/tests/utils/test_assemble_teacher_topk_logprobs.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/utils/test_assemble_teacher_topk_logprobs.py:8: in <module>\n    from swift.rlhf_trainers.utils import assemble_teacher_topk_logprobs\nswift/rlhf_trainers/utils.py:17: in <module>\n    from msgspec import field\nE   ModuleNotFoundError: No module named 'msgspec'\n______________ ERROR collecting tests/utils/test_multi_teacher.py ______________\nImportError while importing test module '/work/repo/tests/utils/test_multi_teacher.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/utils/test_multi_teacher.py:20: in <module>\n    from swift.rlhf_trainers.gkd_helpers import (TeacherServerConfig, fetch_teacher_parsed_by_routing,\nswift/rlhf_trainers/gkd_helpers.py:16: in <module>\n    from .utils import (assemble_teacher_topk_logprobs, encode_sample, get_response_prefix_ids,\nswift/rlhf_trainers/utils.py:17: in <module>\n    from msgspec import field\nE   ModuleNotFoundError: No module named 'msgspec'\n=============================== warnings summary ===============================\n../venv/lib/python3.12/site-packages/torch/jit/_script.py:1488\n  /work/venv/lib/python3.12/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.\n    warnings.warn(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR examples/custom/my_qwen2_5_omni/test_register.py\nERROR tests/megatron/export/test_export.py\nERROR tests/megatron/test_ray_gkd.py\nERROR tests/test_align/test_template/test_llm.py\nERROR tests/train/test_cls.py\nERROR tests/utils/test_assemble_teacher_topk_logprobs.py\nERROR tests/utils/test_multi_teacher.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 7 errors during collection !!!!!!!!!!!!!!!!!!!!\n1 warning, 7 errors in 63.76s (0:01:03)\n",
+    "tests": {
+      "::examples.custom.my_qwen2_5_omni.test_register": "error",
+      "::tests.megatron.export.test_export": "error",
+      "::tests.megatron.test_ray_gkd": "error",
+      "::tests.test_align.test_template.test_llm": "error",
+      "::tests.train.test_cls": "error",
+      "::tests.utils.test_assemble_teacher_topk_logprobs": "error",
+      "::tests.utils.test_multi_teacher": "error"
+    },
+    "collection_errors": [
+      "::examples.custom.my_qwen2_5_omni.test_register",
+      "::tests.megatron.export.test_export",
+      "::tests.megatron.test_ray_gkd",
+      "::tests.test_align.test_template.test_llm",
+      "::tests.train.test_cls",
+      "::tests.utils.test_assemble_teacher_topk_logprobs",
+      "::tests.utils.test_multi_teacher"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.12.3",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 65.483689,
+    "cost": 0.66236599,
+    "image_uuid": "45833394-0e91-4626-a652-658763a0611d",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 7
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nopenai==2.54.0\npydantic==2.12.3\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 2,
+    "test_tail": "opIteration\n\nDuring handling of the above exception, another exception occurred:\n../venv/lib/python3.12/site-packages/transformers/utils/versions.py:101: in require_version\n    got_ver = importlib.metadata.version(pkg)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/usr/local/lib/python3.12/importlib/metadata/__init__.py:889: in version\n    return distribution(distribution_name).version\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/usr/local/lib/python3.12/importlib/metadata/__init__.py:862: in distribution\n    return Distribution.from_name(distribution_name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/usr/local/lib/python3.12/importlib/metadata/__init__.py:399: in from_name\n    raise PackageNotFoundError(name)\nE   importlib.metadata.PackageNotFoundError: No package metadata was found for mcore-bridge\n\nDuring handling of the above exception, another exception occurred:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/megatron/export/test_export.py:3: in <module>\n    from swift.megatron import MegatronExportArguments, megatron_export_main\nswift/megatron/__init__.py:10: in <module>\n    init_megatron_env()\nswift/megatron/init.py:210: in init_megatron_env\n    _patch_mcore_bridge()\nswift/megatron/init.py:118: in _patch_mcore_bridge\n    require_version('mcore-bridge>=1.5.0', 'please install mcore-bridge via `pip install mcore-bridge -U`')\n../venv/lib/python3.12/site-packages/transformers/utils/versions.py:103: in require_version\n    raise importlib.metadata.PackageNotFoundError(\nE   importlib.metadata.PackageNotFoundError: No package metadata was found for The 'mcore-bridge>=1.5.0' distribution was not found and is required by this application. \nE   please install mcore-bridge via `pip install mcore-bridge -U`\n_______________ ERROR collecting tests/megatron/test_ray_gkd.py ________________\nImportError while importing test module '/work/repo/tests/megatron/test_ray_gkd.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/megatron/test_ray_gkd.py:5: in <module>\n    from swift.ray.megatron.gkd_trainer import GKDTrainer\nswift/ray/megatron/gkd_trainer.py:15: in <module>\n    from swift.rlhf_trainers.utils import parse_prompt_logprobs\nswift/rlhf_trainers/utils.py:17: in <module>\n    from msgspec import field\nE   ModuleNotFoundError: No module named 'msgspec'\n_________ ERROR collecting tests/test_align/test_template/test_llm.py __________\nimport file mismatch:\nimported module 'test_llm' has this __file__ attribute:\n  /work/repo/tests/models/test_llm.py\nwhich is not the same as the test file we want to collect:\n  /work/repo/tests/test_align/test_template/test_llm.py\nHINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules\n___________________ ERROR collecting tests/train/test_cls.py ___________________\nimport file mismatch:\nimported module 'test_cls' has this __file__ attribute:\n  /work/repo/tests/test_align/test_cls.py\nwhich is not the same as the test file we want to collect:\n  /work/repo/tests/train/test_cls.py\nHINT: remove __pycache__ / .pyc files and/or use a unique basename for your test file modules\n_____ ERROR collecting tests/utils/test_assemble_teacher_topk_logprobs.py ______\nImportError while importing test module '/work/repo/tests/utils/test_assemble_teacher_topk_logprobs.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/utils/test_assemble_teacher_topk_logprobs.py:8: in <module>\n    from swift.rlhf_trainers.utils import assemble_teacher_topk_logprobs\nswift/rlhf_trainers/utils.py:17: in <module>\n    from msgspec import field\nE   ModuleNotFoundError: No module named 'msgspec'\n______________ ERROR collecting tests/utils/test_multi_teacher.py ______________\nImportError while importing test module '/work/repo/tests/utils/test_multi_teacher.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/utils/test_multi_teacher.py:20: in <module>\n    from swift.rlhf_trainers.gkd_helpers import (TeacherServerConfig, fetch_teacher_parsed_by_routing,\nswift/rlhf_trainers/gkd_helpers.py:16: in <module>\n    from .utils import (assemble_teacher_topk_logprobs, encode_sample, get_response_prefix_ids,\nswift/rlhf_trainers/utils.py:17: in <module>\n    from msgspec import field\nE   ModuleNotFoundError: No module named 'msgspec'\n=============================== warnings summary ===============================\n../venv/lib/python3.12/site-packages/torch/jit/_script.py:1488\n  /work/venv/lib/python3.12/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.\n    warnings.warn(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR examples/custom/my_qwen2_5_omni/test_register.py\nERROR tests/megatron/export/test_export.py\nERROR tests/megatron/test_ray_gkd.py\nERROR tests/test_align/test_template/test_llm.py\nERROR tests/train/test_cls.py\nERROR tests/utils/test_assemble_teacher_topk_logprobs.py\nERROR tests/utils/test_multi_teacher.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 7 errors during collection !!!!!!!!!!!!!!!!!!!!\n1 warning, 7 errors in 63.23s (0:01:03)\n",
+    "tests": {
+      "::examples.custom.my_qwen2_5_omni.test_register": "error",
+      "::tests.megatron.export.test_export": "error",
+      "::tests.megatron.test_ray_gkd": "error",
+      "::tests.test_align.test_template.test_llm": "error",
+      "::tests.train.test_cls": "error",
+      "::tests.utils.test_assemble_teacher_topk_logprobs": "error",
+      "::tests.utils.test_multi_teacher": "error"
+    },
+    "collection_errors": [
+      "::examples.custom.my_qwen2_5_omni.test_register",
+      "::tests.megatron.export.test_export",
+      "::tests.megatron.test_ray_gkd",
+      "::tests.test_align.test_template.test_llm",
+      "::tests.train.test_cls",
+      "::tests.utils.test_assemble_teacher_topk_logprobs",
+      "::tests.utils.test_multi_teacher"
+    ],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "openai": "2.54.0",
+      "pydantic": "2.12.3",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 65.003097,
+    "cost": 0.65759551,
+    "image_uuid": "dea94575-83ab-42fd-b819-db27008519db",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "error": 7
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "ok",
+    "passed_after": 0,
+    "pre_existing_failures": 7
+  },
+  "error": null,
+  "requirement": "openai",
+  "wall_s": 257.0
+}

@@ -1,0 +1,112 @@
+{
+  "dependent": "terminal-bench",
+  "version": "0.2.18",
+  "source": {
+    "owner": "pypi",
+    "repo": "terminal-bench",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/bd/04/0f32893404091a45a53662eae25099db0c9e57890ede23ba2466c8d9c608/terminal_bench-0.2.18.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": "7ca2ca15-2ca1-41e3-8b5e-59067ae3561f",
+  "before": {
+    "label": "before",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 1,
+    "test_tail": "F                                                                        [100%]\n=================================== FAILURES ===================================\n________________________ test_hello_file_exists_example ________________________\n\n    def test_hello_file_exists_example():\n        # Reference the directory the agent operated in (the WORKDIR in the Docker env)\n        hello_path = Path(\"/app/hello-world.txt\")\n    \n>       assert hello_path.exists(), f\"File {hello_path} does not exist\"\nE       AssertionError: File /app/hello-world.txt does not exist\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/app/hello-world.txt').exists\n\nterminal_bench/cli/template-task/tests/test_outputs.py:14: AssertionError\n=============================== warnings summary ===============================\n../venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1624\n  /work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1624: PytestConfigWarning: No files were found in testpaths; consider removing or adjusting your testpaths configuration. Searching recursively from the current directory instead.\n    self.args, self.args_source = self._decide_args(\n\nterminal_bench/cli/template-task/tests/test_outputs.py::test_hello_file_exists_example\n  /work/repo/terminal_bench/db.py:24: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED terminal_bench/cli/template-task/tests/test_outputs.py::test_hello_file_exists_example - AssertionError: File /app/hello-world.txt does not exist\nassert False\n +  where False = exists()\n +    where exists = PosixPath('/app/hello-world.txt').exists\n1 failed, 2 warnings in 8.22s\n",
+    "tests": {
+      "terminal_bench.cli.template-task.tests.test_outputs::test_hello_file_exists_example": "failed"
+    },
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 14.339844,
+    "cost": 0.14621058,
+    "image_uuid": "5b16b1fb-94e9-4ea0-baa8-9b41af48befa",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "failed": 1
+    }
+  },
+  "after": {
+    "label": "after",
+    "cutoff": "2026-08-12T01:56:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 1,
+    "test_tail": "F                                                                        [100%]\n=================================== FAILURES ===================================\n________________________ test_hello_file_exists_example ________________________\n\n    def test_hello_file_exists_example():\n        # Reference the directory the agent operated in (the WORKDIR in the Docker env)\n        hello_path = Path(\"/app/hello-world.txt\")\n    \n>       assert hello_path.exists(), f\"File {hello_path} does not exist\"\nE       AssertionError: File /app/hello-world.txt does not exist\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/app/hello-world.txt').exists\n\nterminal_bench/cli/template-task/tests/test_outputs.py:14: AssertionError\n=============================== warnings summary ===============================\n../venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1624\n  /work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1624: PytestConfigWarning: No files were found in testpaths; consider removing or adjusting your testpaths configuration. Searching recursively from the current directory instead.\n    self.args, self.args_source = self._decide_args(\n\nterminal_bench/cli/template-task/tests/test_outputs.py::test_hello_file_exists_example\n  /work/repo/terminal_bench/db.py:24: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED terminal_bench/cli/template-task/tests/test_outputs.py::test_hello_file_exists_example - AssertionError: File /app/hello-world.txt does not exist\nassert False\n +  where False = exists()\n +    where exists = PosixPath('/app/hello-world.txt').exists\n1 failed, 2 warnings in 7.95s\n",
+    "tests": {
+      "terminal_bench.cli.template-task.tests.test_outputs::test_hello_file_exists_example": "failed"
+    },
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 14.344524,
+    "cost": 0.14623898,
+    "image_uuid": "d6a32d00-001b-437c-8103-d215630f3c84",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "failed": 1
+    }
+  },
+  "control": {
+    "label": "control",
+    "cutoff": "2026-08-12T01:54:48Z",
+    "install_exit": 0,
+    "install_tail": "[floodplain] package root: /work/repo\n[floodplain] test deps installed from: extra:test extra:tests extra:testing extra:dev extra:develop extra:all group:dev\n[floodplain] resolved:\nanyio==4.14.2\ncertifi==2026.7.22\nhttpx==0.28.1\nhttpx2==2.10.0\nopenai==2.54.0\npydantic==2.14.0b1\npytest==9.1.1\ntyping-extensions==4.16.0\nUsing Python 3.12.13 environment at: /work/venv\n",
+    "test_exit": 1,
+    "test_tail": "F                                                                        [100%]\n=================================== FAILURES ===================================\n________________________ test_hello_file_exists_example ________________________\n\n    def test_hello_file_exists_example():\n        # Reference the directory the agent operated in (the WORKDIR in the Docker env)\n        hello_path = Path(\"/app/hello-world.txt\")\n    \n>       assert hello_path.exists(), f\"File {hello_path} does not exist\"\nE       AssertionError: File /app/hello-world.txt does not exist\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/app/hello-world.txt').exists\n\nterminal_bench/cli/template-task/tests/test_outputs.py:14: AssertionError\n=============================== warnings summary ===============================\n../venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1624\n  /work/venv/lib/python3.12/site-packages/_pytest/config/__init__.py:1624: PytestConfigWarning: No files were found in testpaths; consider removing or adjusting your testpaths configuration. Searching recursively from the current directory instead.\n    self.args, self.args_source = self._decide_args(\n\nterminal_bench/cli/template-task/tests/test_outputs.py::test_hello_file_exists_example\n  /work/repo/terminal_bench/db.py:24: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)\n    Base = declarative_base()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED terminal_bench/cli/template-task/tests/test_outputs.py::test_hello_file_exists_example - AssertionError: File /app/hello-world.txt does not exist\nassert False\n +  where False = exists()\n +    where exists = PosixPath('/app/hello-world.txt').exists\n1 failed, 2 warnings in 7.96s\n",
+    "tests": {
+      "terminal_bench.cli.template-task.tests.test_outputs::test_hello_file_exists_example": "failed"
+    },
+    "collection_errors": [],
+    "resolved": {
+      "anyio": "4.14.2",
+      "certifi": "2026.7.22",
+      "httpx": "0.28.1",
+      "httpx2": "2.10.0",
+      "openai": "2.54.0",
+      "pydantic": "2.14.0b1",
+      "pytest": "9.1.1",
+      "typing-extensions": "4.16.0"
+    },
+    "elapsed_s": 13.444551,
+    "cost": 0.13727897,
+    "image_uuid": "626c457d-e95a-4be2-b930-ed9da6c6afff",
+    "backend": "nebius-sandboxes",
+    "error": null,
+    "summary": {
+      "failed": 1
+    }
+  },
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "ok",
+    "passed_after": 0,
+    "pre_existing_failures": 1
+  },
+  "error": null,
+  "requirement": "openai>=1.59.9",
+  "wall_s": 85.0
+}
