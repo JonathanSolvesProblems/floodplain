@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import asyncio
 import os
+import random
 import shlex
 import time
 import uuid as uuidlib
@@ -101,6 +102,38 @@ def bash_wrap(script: str) -> str:
 
 # --------------------------------------------------------------------------- Nebius Sandboxes
 
+RETRY_STATUSES = (500, 502, 503, 504, 429)
+MAX_ATTEMPTS = 5
+
+
+def _is_retryable(exc: BaseException) -> bool:
+    """The Sandboxes beta returns 500 intermittently on POST /v1/instances and on the
+    GET /v1/operations/{uuid} poll. Their own CLI retries these ("server answered 500,
+    retrying in 0.1s"); the SDK does not, so an otherwise healthy run surfaces as a
+    transport error. Retrying is safe here because every parent image is immutable, so a
+    re-run either produces the same content-addressed result or a fresh sibling."""
+    status = getattr(exc, "status", None)
+    if status in RETRY_STATUSES:
+        return True
+    name = type(exc).__name__
+    return name in ("ContreeTransportError", "ApiTimeoutError", "OperationTimedOutError",
+                    "ReadTimeout", "ConnectError", "RemoteProtocolError")
+
+
+async def with_retry(label: str, fn, *, attempts: int = MAX_ATTEMPTS):
+    """Run an awaitable factory, retrying 5xx and transport errors with backoff."""
+    last: BaseException | None = None
+    for attempt in range(attempts):
+        try:
+            return await fn()
+        except Exception as e:  # noqa: BLE001 - re-raised below if not retryable
+            if not _is_retryable(e) or attempt == attempts - 1:
+                raise
+            last = e
+            await asyncio.sleep(min(2 ** attempt, 20) + random.random())
+    raise last  # unreachable, kept for type-checkers
+
+
 class ContreeBackend:
     """Nebius Token Factory Sandboxes, via the contree SDK. The judged substrate."""
 
@@ -117,24 +150,32 @@ class ContreeBackend:
 
     async def prepare_base(self) -> ImageRef:
         try:
-            img = await self._image(BASE_TAG, strict=True)
+            img = await with_retry("base-lookup", lambda: self._image(BASE_TAG, strict=True))
             if getattr(img, "uuid", None):
                 return ImageRef(str(img.uuid), self.name)
         except Exception:
             pass
-        base = await self._image(BASE_OCI)
-        built = await base.run(shell=BASE_SETUP, disposable=False, tag=BASE_TAG, timeout=1800)
+
+        async def build():
+            base = await self._image(BASE_OCI)
+            return await base.run(shell=BASE_SETUP, disposable=False, tag=BASE_TAG, timeout=1800)
+
+        built = await with_retry("base-build", build)
         return ImageRef(str(built.uuid), self.name)
 
     async def run(self, image: ImageRef, shell: str, *, persist: bool = False,
                   timeout: int = 900, files: dict[str, bytes] | None = None,
                   env: dict[str, str] | None = None) -> ExecResult:
-        img = await self._image(image.id)
         t0 = time.monotonic()
+
+        async def once():
+            img = await self._image(image.id)
+            return await img.run(shell=bash_wrap(shell), disposable=not persist, timeout=timeout,
+                                 files=files or None, env=env or None,
+                                 truncate_output_at=OUTPUT_CAP)
+
         try:
-            res = await img.run(shell=bash_wrap(shell), disposable=not persist, timeout=timeout,
-                                files=files or None, env=env or None,
-                                truncate_output_at=OUTPUT_CAP)
+            res = await with_retry("run", once)
         except Exception as e:  # noqa: BLE001 - recorded, never hidden
             return ExecResult(-1, "", "", None, time.monotonic() - t0, backend=self.name,
                               error=f"{type(e).__name__}: {e}"[:2000])
@@ -147,8 +188,11 @@ class ContreeBackend:
         )
 
     async def read_file(self, image: ImageRef, path: str) -> bytes:
-        img = await self._image(image.id)
-        return await img.read(path)
+        async def once():
+            img = await self._image(image.id)
+            return await img.read(path)
+
+        return await with_retry("read", once)
 
     async def close(self) -> None:
         return None
