@@ -74,10 +74,18 @@ async def main() -> None:
     for label, kid in zip("ABC", kids):
         got = kid.stdout.split()
         want = ["parent", label]
-        print(f"   {label}: {kid.image}  ->  {got}")
+        print(f"   {label}: {kid.image}  exit={kid.exit_code}  ->  {got}")
+        if kid.error:
+            print(f"      error: {kid.error}")
+        if kid.stderr.strip():
+            print(f"      stderr: {kid.stderr.strip()[-300:]}")
         ok = ok and got == want
-    print("  fork OK: each child saw the parent's state and none saw a sibling's"
-          if ok else "  FORK MISMATCH: state leaked between branches")
+    if ok:
+        print("  fork OK: each child saw the parent's state and none saw a sibling's")
+    elif any(k.stdout.split() not in ([], ["parent", lbl]) for lbl, k in zip("ABC", kids)):
+        print("  FORK MISMATCH: state leaked between branches")
+    else:
+        print("  a branch did not complete (see errors above); no state leaked between those that did")
 
     await backend.close()
 

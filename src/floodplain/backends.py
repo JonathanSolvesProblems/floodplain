@@ -79,7 +79,10 @@ BASE_SETUP = (
     ">/dev/null 2>&1 && "
     "pip install --quiet --root-user-action=ignore uv && mkdir -p /work && uv --version"
 )
-BASE_OCI = "python:3.12-slim-bookworm"
+# Nebius preloads a catalogue of public images (`contree images`). Using a preloaded tag avoids
+# an OCI import from Docker Hub, which is slower and, during beta, returns a 500 on the import
+# operation. The same tag exists on Docker Hub so the local backend resolves it identically.
+BASE_OCI = "python:3.12-slim"
 BASE_TAG = "floodplain-base-py312"
 OUTPUT_CAP = 8 * 1024 * 1024
 
@@ -107,22 +110,26 @@ class ContreeBackend:
         from contree_sdk import Contree
         self.sdk = sdk or Contree()
 
+    async def _image(self, ref: str, strict: bool = False):
+        """images.use() returns a coroutine on the async SDK, even when it makes no API call."""
+        img = self.sdk.images.use(ref, strict=strict)
+        return await img if asyncio.iscoroutine(img) else img
+
     async def prepare_base(self) -> ImageRef:
         try:
-            img = self.sdk.images.use(BASE_TAG, strict=True)
-            img = await img if asyncio.iscoroutine(img) else img
+            img = await self._image(BASE_TAG, strict=True)
             if getattr(img, "uuid", None):
                 return ImageRef(str(img.uuid), self.name)
         except Exception:
             pass
-        base = await self.sdk.images.oci(BASE_OCI)
-        built = await base.run(shell=BASE_SETUP, disposable=False, tag=BASE_TAG, timeout=900)
+        base = await self._image(BASE_OCI)
+        built = await base.run(shell=BASE_SETUP, disposable=False, tag=BASE_TAG, timeout=1800)
         return ImageRef(str(built.uuid), self.name)
 
     async def run(self, image: ImageRef, shell: str, *, persist: bool = False,
                   timeout: int = 900, files: dict[str, bytes] | None = None,
                   env: dict[str, str] | None = None) -> ExecResult:
-        img = self.sdk.images.use(image.id)
+        img = await self._image(image.id)
         t0 = time.monotonic()
         try:
             res = await img.run(shell=bash_wrap(shell), disposable=not persist, timeout=timeout,
@@ -140,7 +147,8 @@ class ContreeBackend:
         )
 
     async def read_file(self, image: ImageRef, path: str) -> bytes:
-        return await self.sdk.images.use(image.id).read(path)
+        img = await self._image(image.id)
+        return await img.read(path)
 
     async def close(self) -> None:
         return None

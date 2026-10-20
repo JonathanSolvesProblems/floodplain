@@ -1,0 +1,17 @@
+﻿13 runnable dependents
+backend: local-docker
+base image ready: local-docker:floodplain-base-
+  livekit-agents                           unrunnable                   12.6s
+  deepeval                                 broken           tests       76.5s
+  mini-swe-agent                           ok                          184.2s
+  opik                                     unrunnable                   99.6s
+  ragas                                    unrunnable                  972.4s
+  graphiti-core                            no-tests                   1023.9s
+  haystack-ai                              not-run                     166.2s
+  agentscope                               not-run                     166.2s
+  dspy                                     no-tests                   1382.4s
+  verifiers                                not-run                     166.1s
+  openai-guardrails                        not-run                     166.2s
+  chatlas                                  not-run                     166.2s
+  code-puppy                               not-run                     166.2s
+run stage done in 1655s
