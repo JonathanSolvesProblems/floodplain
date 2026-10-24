@@ -112,8 +112,8 @@ five independent runs, and every revision is kept, including the ones that did w
 Revision 8 is the one that ships. It fixes agno and vlmrun every time, in 8 to 35 steps:
 it reads the draft, runs the failing tests, revises when they say so, and submits. On llm it
 never fixes anything. Given a 3,000-line plugin, the agent investigates the openai package
-instead of submitting, every time, while the same model writing a whole patch from the right
-context, as revisions 1 and 2 did, fixed llm in 9 of 10 runs. That is the clearest thing I learned
+instead of submitting, every time, while the scripted fixer writing whole patches from the right
+context (Super, then Ultra), as revisions 1 and 2 did, fixed llm in 9 of 10 runs. That is the clearest thing I learned
 about Nemotron here: as a patch writer it is excellent, and as an open-ended investigator of a
 large codebase it does not know when to stop.
 

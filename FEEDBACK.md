@@ -120,7 +120,7 @@ On `llm`, a 3,000-line plugin broken by openai 3.0.0, I ran the agent 30 times a
 and harness revisions, five runs each. In none of the 30 did it call `submit` or `give_up`. Every
 run spent its whole step budget reading files and running tests, including in the final revision,
 which handed it a ready patch to start from and, every 12 steps, asked it to name the cause in two
-sentences and submit the smallest fix. A single Ultra drafting call, with no tools, fixed the same break in 9 of 10 runs. On the two
+sentences and submit the smallest fix. The scripted fixer, writing whole patches with no tools (Super first, then Ultra), fixed the same break in 9 of 10 runs. On the two
 smaller breaks the same final agent submitted and passed in 5 of 5 runs each, in about 16 and 29
 steps per run.
 

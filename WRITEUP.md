@@ -63,7 +63,7 @@ Each was later pinned or patched by its own maintainers, 6, 9 and 19 days after 
 
 Most of the work was refusing results that looked good: a fork that returned nothing, reported as "nothing broke"; a patch that fixed nothing in a suite that could not import, reported "verified"; 11 dependents counted as passing although 3.0.0 never reached them, which took the headline from 3 of 31 to 3 of 20; a first pre-release mode that hid two of the three breaks; and a flaky test on 3.37.0 that would have been my first published "break".
 
-The agent took eight revisions, each measured on five runs per package, all kept in the repository. As an open-ended investigator, Nemotron explored llm's 3,000-line plugin until its step budget ran out and never submitted. Given a first draft to work from, it fixed agno and vlmrun every time. On llm the final agent still does not, where a single drafting call fixed it in 9 of 10 runs, and the page says so.
+The agent took eight revisions, each measured on five runs per package, all kept in the repository. As an open-ended investigator, Nemotron explored llm's 3,000-line plugin until its step budget ran out and never submitted. Given a first draft to work from, it fixed agno and vlmrun every time. On llm the final agent still does not, where the scripted fixer, writing whole patches with Super and escalating to Ultra, fixed it in 9 of 10 runs, and the page says so.
 
 ## Accomplishments that I'm proud of
 
@@ -218,7 +218,7 @@ On `llm`, a 3,000-line plugin broken by openai 3.0.0, I ran the agent 30 times a
 and harness revisions, five runs each. In none of the 30 did it call `submit` or `give_up`. Every
 run spent its whole step budget reading files and running tests, including in the final revision,
 which handed it a ready patch to start from and, every 12 steps, asked it to name the cause in two
-sentences and submit the smallest fix. A single Ultra drafting call, with no tools, fixed the same break in 9 of 10 runs. On the two
+sentences and submit the smallest fix. The scripted fixer, writing whole patches with no tools (Super first, then Ultra), fixed the same break in 9 of 10 runs. On the two
 smaller breaks the same final agent submitted and passed in 5 of 5 runs each, in about 16 and 29
 steps per run.
 
@@ -298,7 +298,7 @@ Nemotron 3 Ultra (550B-A55B) writes the patches and drives the fixer agent throu
 ```
 7 out of 10.
 
-What worked: as a patch writer it is excellent. Given the failing log, the dependency files and the code around the failing symbol, one Ultra call fixed llm in 9 of 10 runs, and four of those patches were the exact pin llm's maintainer shipped nine days after the release. With a first draft to work from, the agent fixed the other two breaks in 5 of 5 runs each, in 8 to 35 steps. Nano's triage was accurate and grounded; when it tried to cite a line that was not in the log, the check caught it. Native tool calls were well-formed throughout.
+What worked: as a patch writer it is excellent. Given the failing log, the dependency files and the code around the failing symbol, the scripted fixer (two Super attempts, then Ultra) fixed llm in 9 of 10 runs, and four of those patches were the exact pin llm's maintainer shipped nine days after the release. With a first draft to work from, the agent fixed the other two breaks in 5 of 5 runs each, in 8 to 35 steps. Nano's triage was accurate and grounded; when it tried to cite a line that was not in the log, the check caught it. Native tool calls were well-formed throughout.
 
 What fell short: knowing when to stop. As an open-ended investigator of a large codebase (llm's 3,000-line plugin), the agent never submitted in 30 runs across six revisions; it kept reading files and running tests until the step budget ran out, even when handed a working draft and asked every 12 steps to submit. Reasoning also takes most of the budget: 95.7% of completion tokens were reasoning, and a small max_tokens returns empty content with no error.
 ```
@@ -320,7 +320,7 @@ I did not run another vendor's model on these breaks, so the comparisons I can s
 
 Across tiers: Ultra's patches passed 13 of 27 times, Super's 12 of 55, and 21 of Super's edits could not be applied at all. For anything that has to apply exactly, start with Ultra.
 
-Across ways of using the same model: one Ultra drafting call with the right context fixed llm in 9 of 10 runs, while Ultra as an open-ended agent fixed it in 0 of 30. Given a first draft, the agent fixed the two smaller breaks in 5 of 5 runs each. So Nemotron compares best as a patch writer and worst as an investigator that has to decide on its own when it is done.
+Across ways of using the same model: writing whole patches from the right context (Super first, then Ultra), the scripted fixer fixed llm in 9 of 10 runs, while Ultra as an open-ended agent fixed it in 0 of 30. Given a first draft, the agent fixed the two smaller breaks in 5 of 5 runs each. So Nemotron compares best as a patch writer and worst as an investigator that has to decide on its own when it is done.
 ```
 
 ## Which Nebius platform capabilities were most valuable to your project and how?
@@ -366,7 +366,7 @@ The deductions are reliability and observability: the unreported 503 outage, a b
 ## What do you most hope to see from the Nemotron team next?
 
 ```
-A Nemotron tuned to finish agentic work, not only to do it well. Its patches are excellent when it commits to one; the gap I measured is the decision to stop investigating and submit (0 of 30 agent runs on a large codebase, against 9 of 10 for a single drafting call on the same break). Training or guidance aimed at that decision, plus a reasoning budget I can set per request, would make it the default model for this kind of coding agent.
+A Nemotron tuned to finish agentic work, not only to do it well. Its patches are excellent when it commits to one; the gap I measured is the decision to stop investigating and submit (0 of 30 agent runs on a large codebase, against 9 of 10 for the scripted fixer writing whole patches on the same break). Training or guidance aimed at that decision, plus a reasoning budget I can set per request, would make it the default model for this kind of coding agent.
 ```
 
 ## Track
