@@ -1,7 +1,7 @@
 [project]
 name = "floodplain"
 version = "0.1.0"
-description = "Run the test suites of everyone who depends on you, against a change you have not shipped yet."
+description = "Test a release against the packages that depend on it, in forked Nebius Sandboxes, and let a Nemotron agent fix what it breaks."
 readme = "README.md"
 license = "MIT"
 authors = [
@@ -16,6 +16,9 @@ dependencies = [
     "tavily-python>=0.8",
     "pydantic>=2.7,<3",
 ]
+
+[project.scripts]
+floodplain = "floodplain.cli:main"
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "pytest-asyncio>=0.24"]

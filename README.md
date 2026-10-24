@@ -90,6 +90,27 @@ round 2 used OpenAI's guide, and the record says so. Round 2's llm patches lean 
 migration rather than a pin, but the fixer revision changed at the same time as the guidance,
 so I do not attribute that to either one.
 
+**Rounds 3 to 8: the agent.** Revisions 1 and 2 ran a fixed sequence in code. From revision 3 the
+fixer is an agent: Nemotron 3 Ultra chooses every step with tools (described below). Each row is
+five independent runs, and every revision is kept, including the ones that did worse:
+
+| revision | what changed | llm | agno | vlmrun |
+|---|---|---|---|---|
+| 3 | the agent, 24 steps | <!-- claim:fix_k.llm.r3-tavily -->0 of 5 | <!-- claim:fix_k.openinference-instrumentation-agno.r3-local-fallback -->1 of 5 | <!-- claim:fix_k.vlmrun.r3-tavily -->6 of 6 |
+| 4 | 40 steps, the budget shown, a shell tool | <!-- claim:fix_k.llm.r4-tavily -->0 of 5 | <!-- claim:fix_k.openinference-instrumentation-agno.r4-local-fallback -->0 of 5 | <!-- claim:fix_k.vlmrun.r4-tavily -->2 of 5 |
+| 5 | repeat guard, shorter history, a checkpoint every 12 steps | <!-- claim:fix_k.llm.r5-tavily -->0 of 5 | <!-- claim:fix_k.openinference-instrumentation-agno.r5-local-fallback -->0 of 5 | <!-- claim:fix_k.vlmrun.r5-tavily -->4 of 5 |
+| 6 | a drafting tool (never called) | <!-- claim:fix_k.llm.r6-tavily -->0 of 5 | <!-- claim:fix_k.openinference-instrumentation-agno.r6-local-fallback -->3 of 5 | <!-- claim:fix_k.vlmrun.r6-tavily -->3 of 5 |
+| 7 | the drafting tool named, shell use capped | <!-- claim:fix_k.llm.r7-tavily -->0 of 5 | <!-- claim:fix_k.openinference-instrumentation-agno.r7-local-fallback -->1 of 5 | not run |
+| 8 | a first draft written before the loop; the agent decides what to do with it | <!-- claim:fix_k.llm.r8-tavily -->0 of 5 | <!-- claim:fix_k.openinference-instrumentation-agno.r8-local-fallback -->5 of 5 | <!-- claim:fix_k.vlmrun.r8-tavily -->5 of 5 |
+
+Revision 8 is the one that ships. It fixes agno and vlmrun every time, in 8 to 35 steps:
+it reads the draft, runs the failing tests, revises when they say so, and submits. On llm it
+never fixes anything. Given a 3,000-line plugin, the agent investigates the openai package
+instead of submitting, every time, while the same model writing a whole patch from the right
+context, as revisions 1 and 2 did, fixed llm in 9 of 10 runs. That is the clearest thing I learned
+about Nemotron here: as a patch writer it is excellent, and as an open-ended investigator of a
+large codebase it does not know when to stop.
+
 ## How it works
 
 **Three forks of one checkout.** For each dependent, one Nebius Sandbox clones the source at the
@@ -115,12 +136,35 @@ the old version, as it would on release day.
 Every quote is checked verbatim against the log; one it invented is dropped and counted, not
 shown as evidence.
 
-**Fix.** Nemotron 3 Super, then Ultra, proposes search-and-replace edits. Each is applied in a
-further fork of the after image, the full install recipe is replayed (extras and dependency
-groups included, so a pin in a test extra actually takes effect), and the suite runs. A patch
-counts as verified only if pytest runs to completion, nothing fails to collect, and every test
-that passed before the release passes again. A rejected strategy is named back to the model so
-it tries a different one.
+**Fix: an agent that decides its own next step.** One Nemotron 3 Ultra call first drafts a whole
+patch from the package's dependency files, the code around the failing symbol and the log. The
+agent starts from that draft with the triage, the log and the tools below, and at every step
+chooses what to do from what the last tool returned: test the draft, revise it, replace it, or
+submit it ([agent.py](src/floodplain/agent.py)):
+
+| tool | what it does |
+|---|---|
+| `list_files`, `read_file`, `search` | find and read the code and the dependency declarations |
+| `edit_file` | a search-and-replace edit on its working copy |
+| `run_tests` | any subset of the suite, in a fresh sandbox fork with its edits applied |
+| `run_command` | a shell command (pip freeze, python -c) in a disposable fork with its edits applied |
+| `draft_patch` | ask the drafting model for a fresh candidate patch, with the agent's notes |
+| `submit` | the whole suite in a further fork, judged in code; a rejection comes back with the reasons |
+| `give_up` | stop, saying why |
+
+Code enforces only the step budget and the verification gate. A patch counts as verified only if
+pytest runs to completion, nothing fails to collect, and every test that passed before the release
+passes again, with the full install recipe replayed so a pin in a test extra actually takes
+effect. What the agent says about its own patch never counts. Earlier fixer revisions ran a fixed
+propose, apply, verify sequence; their trials are kept and reported separately.
+
+**Where it lands.** `floodplain watch` runs every new release of a package against the
+dependents that gave a reading last time, lets the agent fix what broke, and opens a GitHub issue
+with the report and the verified patches. A daily GitHub Actions job ([watch.yml](.github/workflows/watch.yml))
+runs it and commits the results and its state, so it only ever checks releases it has not seen.
+`floodplain check --wheel ... --pr N` does the same for an unpublished wheel and posts the report
+on the release pull request ([check.yml](.github/workflows/check.yml)). Floodplain never opens
+pull requests in other people's repositories; it hands over the patch.
 
 **Research.** Tavily searches for the upstream's migration guidance and extracts the relevant
 pages in full. Two guards stop it handing Nemotron the answer: it only sees pages dated before
@@ -164,6 +208,12 @@ not add up:
 8. 11 dependents were counted as reading clean although their after fork never installed
    3.0.0. A verdict now only counts if the fork resolved the release; otherwise it is
    `held back`. The headline went from 3 of 31 to 3 of 20.
+9. The first release the watcher checked, openai 3.37.0, showed echo-agent "broken": one test
+   of 6,205, with openai the only package that differed between the forks. The control fork
+   cannot catch a test that is flaky only after the release, so every break is now re-run: its
+   failing tests twice more in the same after fork and once in the before fork. That one was a
+   45-second timeout downloading an embedding model, passed every re-run, and is reported as
+   flaky, not as a break.
 
 ## Run it
 
@@ -176,11 +226,18 @@ uv sync --extra dev
 uv run python -m pytest                     # unit tests, no keys needed
 uv run python scripts/smoke.py              # one fork round trip on Nebius Sandboxes
 
+# the product: watch a package's releases, or check a wheel before you publish it
+uv run floodplain watch --target openai --base 3.0.0 --repo OWNER/NAME
+uv run floodplain check --target openai --wheel dist/openai-X-py3-none-any.whl --pr 123 --repo OWNER/NAME
+uv run floodplain report data/openai-3.0.0/experiments --target openai --release 3.0.0
+
+# the openai 3.0.0 study, step by step
+
 # who depended on the release, and who was exposed to it
 uv run python scripts/discover.py   --target openai --release 3.0.0 --scan 15000
 uv run python scripts/population.py --target openai --release 3.0.0
 
-# three forks per dependent, then triage and five fix trials for each break
+# three forks per dependent, then triage and five agent fix trials for each break
 uv run python scripts/run_experiments.py --target openai --release 3.0.0 --stage run
 uv run python scripts/run_experiments.py --target openai --release 3.0.0 --stage fix --trials 5
 

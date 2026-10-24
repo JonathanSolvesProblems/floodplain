@@ -1,7 +1,7 @@
 # Demo script
 
-About 90 seconds; the hackathon limit is 3 minutes. Every number spoken here is on the live
-page, read from the committed data. Record against
+About two minutes; the hackathon limit is three. Every number spoken here is on the live page
+or in the repository, read from the committed data. Record against
 https://jonathansolvesproblems.github.io/floodplain/ at 1280 wide.
 
 ## 1. Simon's nine days (0:00 to 0:15)
@@ -15,55 +15,58 @@ On screen: [llm #1608](https://github.com/simonw/llm/issues/1608), then the
 
 ## 2. The question (0:15 to 0:25)
 
-> OpenAI's own tests passed. The breakage only showed up in other people's test suites. So I
-> built something that runs them, before you publish.
+> OpenAI's own tests passed. The break only showed up in other people's test suites. openai
+> ships three or four releases a week. So I built something that runs those suites before you
+> publish, and fixes what breaks.
 
 On screen: the overview page, the headline and the river.
 
-## 3. The river (0:25 to 0:45)
+## 3. Before the release (0:25 to 0:50)
 
-> Every package in the top fifteen thousand that depended on openai on release day. A hundred
-> and forty-six of them, each run in Nebius Sandboxes as three forks of one checkout: the world a
-> minute before the release, the same minute again to catch flaky tests, and a minute after.
-> Of the twenty working test suites that actually got 3.0.0, three broke. Each one was later
-> pinned or patched by its own maintainers, six, nine and nineteen days afterwards.
+> I gave it OpenAI's own 3.0.0 wheel as an unpublished file, against PyPI as it was a minute
+> before the upload. Every package that depended on openai, each run in Nebius Sandboxes as
+> three forks of one checkout: before, the same again to catch flaky tests, and after. Of the
+> twenty working test suites the release reached, three broke, the same three users hit, down to
+> the same tests. Each break is re-run before it is believed.
 
-On screen: hover along the river; the three green stretches; the sentence under it.
+On screen: the river with its three green stretches; the pre-release sentence under it.
 
-## 4. Before the release (0:45 to 0:55)
+## 4. One break, read (0:50 to 1:05)
 
-> Then I ran it the way it is meant to be used: OpenAI's own 3.0.0 wheel as an unpublished file,
-> against the index a minute before they uploaded it. All thirty-one working suites gave the
-> same answer, down to the same broken tests.
-
-On screen: the pre-release sentence on the overview. Optional cut-in: the terminal running
-`run_experiments.py --candidate` (sped up), from `data/nebius-candidate-run.log`.
-
-## 5. One break, read (0:55 to 1:10)
-
-> Open `llm`. One thousand and sixty-nine tests passed before, and the same again in the
-> background fork. After the release, a hundred and ten fail. Nemotron Nano reads the log and
-> says why. Its quote is highlighted where it really appears in the log, and the one line it
-> tried to cite that is not in the log was thrown out, and the page says so.
+> Open `llm`. A thousand and sixty-nine tests passed before. After the release, a hundred and ten
+> fail. Nemotron Nano reads the log and says why, quoting the log, and the one line it tried to
+> cite that is not in the log was thrown out.
 
 On screen: click `llm`; the three sample columns; the test grid with the 110 in green; the
-triage with its quotes highlighted in the log.
+triage with its quote highlighted in the log.
 
-## 6. The patch (1:10 to 1:30)
+## 5. The patch (1:05 to 1:20)
 
-> Nemotron Super and Ultra draft a patch, and `llm`'s own test suite judges it in a further
-> fork. It is the same pin Simon shipped nine days later. I ran the whole loop five times per
-> round, so this is a rate, not a lucky sample.
+> Nemotron writes the patch, and llm's own test suite judges it in a further fork. It is the same
+> pin Simon shipped nine days later.
 
-On screen: scroll to the patch. The diff, then the maintainer's line beside it, then the round
-lines underneath (five of five in round 1, four of them the same pin). Hold on the diff for the
-last three seconds.
+On screen: the diff beside the maintainer's line. Hold three seconds.
 
-> Floodplain does not open pull requests in other people's repositories. It hands you the patch.
+## 6. The agent (1:20 to 1:40)
+
+> For agno, the agent takes it from a first draft. Every step here is its own choice: it reads the
+> draft, runs the failing tests in a fresh sandbox, revises, and submits. Five runs out of five.
+
+On screen: open openinference-instrumentation-agno; the list of the agent's steps ending in
+"VERIFIED".
+
+## 7. It keeps watching (1:40 to 1:55)
+
+> Every day it checks for a new openai release and writes what it found into GitHub. Its first:
+> openai 3.37.0. Nothing broke, and the one test that looked broken passed when it was re-run,
+> so it says so instead of counting it.
+
+On screen: the GitHub issue the watcher opened for 3.37.0. End on it.
 
 ## Recording notes
 
 - Say "a user told him", not that Simon found it: the issue was opened by @aborruso.
-- Say "the same pin Simon shipped", not "the same patch in every run": four of round 1's five
-  were that pin; one was a different, working migration.
-- Do not say Tavily produced the fix. Round 1 used OpenAI's own migration guide.
+- Say "the same pin Simon shipped": four of the first round's five verified patches were that pin.
+- Do not say the agent fixed llm. It did not (0 of 25 runs across revisions 3 to 7, 0 of 5 for
+  revision 8); the llm patch comes from the drafting call, as in the first rounds.
+- Do not say Tavily produced the fix.

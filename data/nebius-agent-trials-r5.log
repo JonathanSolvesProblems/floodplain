@@ -1,0 +1,25 @@
+﻿3 runnable dependents
+backend: nebius-sandboxes
+models: {'nano': 'nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B', 'super': 'nvidia/nemotron-3-super-120b-a12b', 'ultra': 'nvidia/Nemotron-3-Ultra-550b-a55b'}
+  guide  openinference-instrumentation-agno local-fallback (tavily returned no usable pages) 1 page(s)
+  fix    openinference-instrumentation-agno trial 21: not verified after 0 attempt(s), 40 steps, out of steps, 137.2s
+  fix    openinference-instrumentation-agno trial 22: not verified after 0 attempt(s), 44 steps, out of steps, 185.9s
+  fix    openinference-instrumentation-agno trial 23: not verified after 1 attempt(s), 40 steps, out of steps, 205.7s
+  fix    openinference-instrumentation-agno trial 24: not verified after 0 attempt(s), 41 steps, out of steps, 213.2s
+  fix    openinference-instrumentation-agno trial 25: not verified after 0 attempt(s), 40 steps, out of steps, 240.9s
+  fix    openinference-instrumentation-agno verified in 11 of 25 trials
+  guide  llm                                tavily-cache 3 page(s)
+  fix    llm                                trial 21: not verified after 0 attempt(s), 40 steps, out of steps, 138.9s
+  fix    llm                                trial 22: not verified after 0 attempt(s), 40 steps, out of steps, 156.8s
+  fix    llm                                trial 23: not verified after 0 attempt(s), 40 steps, out of steps, 184.9s
+  fix    llm                                trial 24: not verified after 0 attempt(s), 40 steps, out of steps, 189.8s
+  fix    llm                                trial 25: not verified after 0 attempt(s), 40 steps, out of steps, 199.3s
+  fix    llm                                verified in 9 of 25 trials
+  guide  vlmrun                             tavily-cache 3 page(s)
+  fix    vlmrun                             trial 22: VERIFIED after 1 attempt(s), 16 steps, verified, 70.3s
+  fix    vlmrun                             trial 23: VERIFIED after 1 attempt(s), 17 steps, verified, 119.8s
+  fix    vlmrun                             trial 24: not verified after 0 attempt(s), 41 steps, out of steps, 180.4s
+  fix    vlmrun                             trial 25: VERIFIED after 1 attempt(s), 27 steps, verified, 209.1s
+  fix    vlmrun                             trial 26: VERIFIED after 1 attempt(s), 30 steps, verified, 212.3s
+  fix    vlmrun                             verified in 18 of 26 trials
+token usage: Usage(calls=527, prompt_tokens=5146924, completion_tokens=94177, reasoning_tokens=65442, empty_replies=0, by_model={'nvidia/Nemotron-3-Ultra-550b-a55b': 527})

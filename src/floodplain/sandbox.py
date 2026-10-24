@@ -441,6 +441,88 @@ def attribute(verdict: dict[str, Any], after: RunOutcome | dict | None, target: 
                       else f"the after fork never installed {target}"}
 
 
+CONFIRM_RUNS = 2
+CONFIRM_TIMEOUT_PER_TEST = 120
+
+
+def test_files(test_ids: list[str]) -> list[str]:
+    """Test files to re-run for junit ids. `tests.test_x::name` and `tests.test_x.TestC::name` are in
+    tests/test_x.py; a collection error is `::tests.unit.test_y`, the module itself."""
+    files = set()
+    for tid in test_ids:
+        cls, _, name = tid.partition("::")
+        parts = (cls or name).split(".")
+        while len(parts) > 1 and parts[-1][:1].isupper():
+            parts.pop()
+        files.add("/".join(parts) + ".py")
+    return sorted(files)
+
+
+def confirm_script(files: list[str]) -> str:
+    quoted = " ".join(_shell_quote(f) for f in files)
+    return f"""
+cd "$(cat /work/pkgdir 2>/dev/null || echo /work/repo)"
+export VIRTUAL_ENV=/work/venv PATH=/work/venv/bin:$PATH FLOODPLAIN=1 CI=1 PYTHONDONTWRITEBYTECODE=1
+timeout -s INT {TEST_TIMEOUT - 300} python -m pytest -q -p no:cacheprovider \\
+  --timeout={CONFIRM_TIMEOUT_PER_TEST} --timeout-method=signal \\
+  --junitxml=/work/confirm.xml -o junit_family=xunit2 {quoted} 2>&1 | tail -n 40
+code=${{PIPESTATUS[0]}}
+echo "{JUNIT_START}"; cat /work/confirm.xml 2>/dev/null; echo; echo "{JUNIT_END}"
+exit $code
+"""
+
+
+def apply_confirm(verdict: dict[str, Any], confirm: dict[str, Any] | None) -> dict[str, Any]:
+    """A break counts only if its failing tests fail again on re-run in the same after fork and
+    pass on re-run in the before fork. The control fork cannot catch a test that is flaky only
+    after the release: on openai 3.37.0, echo-agent's one "broken" test was a 45-second timeout
+    while downloading an embedding model, and every other package in its world was identical."""
+    if verdict.get("status") != "broken" or not confirm:
+        return verdict
+    kept = set(confirm.get("reproduced_tests", []))
+    if kept:
+        # The break stands on the tests that reproduced; any that did not are named, not counted.
+        flaky = [t for t in confirm.get("tests", []) if t not in kept]
+        return {**verdict, "confirmed": True, "flaky_after": flaky,
+                "newly_failing": [t for t in verdict.get("newly_failing", []) if t in kept],
+                "new_collection_errors": [t for t in verdict.get("new_collection_errors", []) if t in kept]}
+    return {"status": "ok", "was": "broken", "flaky_after": confirm.get("tests", []),
+            "reason": "failed once after the release but passed when re-run in the same after fork",
+            "confirm": {k: confirm.get(k) for k in ("after_runs", "before_run")}}
+
+
+async def confirm_break(backend: Backend, d: dict[str, Any], runs: int = CONFIRM_RUNS) -> dict[str, Any] | None:
+    """Re-run a broken dependent's newly failing tests: `runs` times on the after image, once on
+    the before image. Reproduced only if they fail every time after and pass before."""
+    v = d["verdict"]
+    targets = list(v.get("newly_failing", [])) + list(v.get("new_collection_errors", []))
+    after_img = (d.get("after") or {}).get("image_uuid")
+    before_img = (d.get("before") or {}).get("image_uuid")
+    if not targets or not after_img or not before_img:
+        return None
+    script = confirm_script(test_files(targets))
+
+    async def once(image: str) -> dict[str, str]:
+        r = await backend.run(ImageRef(image, backend.name), script, persist=False, timeout=TEST_TIMEOUT)
+        out = r.stdout
+        xml = out.split(JUNIT_START, 1)[1].split(JUNIT_END, 1)[0] if JUNIT_START in out and JUNIT_END in out else ""
+        tests, collection = parse_junit(xml)
+        status = {t: tests.get(t, "missing") for t in targets}
+        for t in collection:
+            status[t] = "error"
+        return status
+
+    after_runs = [await once(after_img) for _ in range(runs)]
+    before_run = await once(before_img)
+    failed_every_time = [t for t in targets if all(run[t] in ("failed", "error") for run in after_runs)]
+    # A collection error has no junit row of its own once the module imports; "missing" in the
+    # before run then means it collected fine, which is what "passes before" means for it.
+    passed_before = [t for t in targets if before_run[t] in ("passed", "missing" if t.startswith("::") else "passed")]
+    reproduced = [t for t in failed_every_time if t in passed_before]
+    return {"tests": targets, "after_runs": after_runs, "before_run": before_run,
+            "reproduced_tests": reproduced, "reproduced": bool(reproduced)}
+
+
 def experiment_to_json(exp: Experiment) -> dict[str, Any]:
     def outcome(o: RunOutcome | None) -> dict[str, Any] | None:
         if o is None:

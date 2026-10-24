@@ -31,3 +31,20 @@ def test_a_verdict_counts_only_if_the_after_fork_installed_the_release():
 def test_the_install_records_the_whole_freeze():
     s = install_script(("test",), "2026-08-12T01:54:48Z")
     assert "uv pip freeze\n" in s and "grep -iE '^(openai" not in s
+
+
+def test_test_files_maps_junit_ids_to_paths():
+    from floodplain.sandbox import test_files
+    assert test_files(["tests.test_local_embed::test_x", "tests.unit.test_y.TestZ::test_w",
+                       "::tests.unit.models.azure.test_azure_claude_client"]) == [
+        "tests/test_local_embed.py", "tests/unit/models/azure/test_azure_claude_client.py", "tests/unit/test_y.py"]
+
+
+def test_a_break_stands_only_on_tests_that_reproduce():
+    from floodplain.sandbox import apply_confirm
+    v = {"status": "broken", "newly_failing": ["a", "b"], "new_collection_errors": []}
+    kept = apply_confirm(v, {"tests": ["a", "b"], "reproduced_tests": ["a"], "reproduced": True})
+    assert kept["status"] == "broken" and kept["newly_failing"] == ["a"] and kept["flaky_after"] == ["b"]
+    gone = apply_confirm(v, {"tests": ["a", "b"], "reproduced_tests": [], "reproduced": False,
+                             "after_runs": [], "before_run": {}})
+    assert gone["status"] == "ok" and gone["was"] == "broken" and gone["flaky_after"] == ["a", "b"]

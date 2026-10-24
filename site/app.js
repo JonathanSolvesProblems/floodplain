@@ -66,9 +66,13 @@ function renderTrace() {
     : "";
   // The sentence quotes the newest fixer revision's round for each package, as K of N, and says
   // how many of the verified patches were the maintainer's own change, counted from the diffs.
-  const latest = (r) => (r.fix && r.fix.rounds && r.fix.rounds.length ? r.fix.rounds[r.fix.rounds.length - 1] : null);
+  // The newest round that produced a verified patch, as the GitHub report hands over.
+  const latest = (r) => {
+    const rs = (r.fix && r.fix.rounds) || [];
+    return [...rs].reverse().find((rd) => rd.k > 0) || rs[rs.length - 1] || null;
+  };
   const withPatch = pos.filter((r) => latest(r) && latest(r).k > 0);
-  const kOfN = (rd) => `${numberWord(rd.k)} of ${numberWord(rd.n)} runs`;
+  const kOfN = (rd) => `${numberWord(rd.k)} of ${numberWord(rd.n)} ${rd.agent ? "agent runs" : "runs of the scripted fixer"}`;
   const same = withPatch.filter((r) => latest(r).same_as_maintainer > 0);
   const verifiedSentence = withPatch.length
     ? ` NVIDIA Nemotron wrote a patch the package's own tests passed, in a further fork, for ${andList(withPatch.map((r) => `${link(r)} in ${kOfN(latest(r))}`))}.` +
@@ -81,6 +85,15 @@ function renderTrace() {
   const candSentence = cand && cand.agree_with_replay === cand.run
     ? `<p class="trace__after">I then ran it the way it is meant to be used, before the release: ${esc(D.target)}'s own ${esc(D.release)} wheel as an unpublished file, against the index at ${fmtTime(cand.as_of)}, a minute before it was uploaded. All <span class="num">${n(cand.run)}</span> working suites gave the same verdict as the replay${cand.same_broken_tests === cand.run ? ", with the same tests broken" : ""}.</p>`
     : "";
+
+  // Still watching: every release since, checked by the scheduled job and reported as an issue.
+  const W = D.watch;
+  const watchBlock = W && W.checked.length ? `
+  <section class="scene watch" aria-labelledby="watch-title">
+    <h2 class="scene__title" id="watch-title">Still watching</h2>
+    <p class="scene__lede">Every day a scheduled job checks PyPI for ${esc(D.target)} releases it has not seen and runs them against the <span class="num">${n(W.watched)}</span> dependents whose suites gave a reading on ${esc(W.base)}. Each result is an issue in the repository.</p>
+    <ul class="watch__list">${W.checked.map((c) => `<li><span class="num">${esc(c.release)}</span> ${c.issue ? `<a href="${esc(c.issue)}">${esc(c.headline.replace(/^\S+ \S+: /, ""))}</a>` : esc(c.headline.replace(/^\S+ \S+: /, ""))}</li>`).join("")}</ul>
+  </section>` : "";
 
   $("#view").innerHTML = `
   <section class="trace" aria-labelledby="trace-title">
@@ -104,6 +117,8 @@ function renderTrace() {
     </div>
     <div class="method__art">${methodDiagram()}</div>
   </section>
+
+  ${watchBlock}
 
   <section class="scene" aria-labelledby="ledger-title">
     <h2 class="scene__title" id="ledger-title">Every receptor I hung</h2>
@@ -462,17 +477,38 @@ function patchBlock(r) {
   const roundLine = (rd) => {
     const misses = rd.n - rd.k;
     const why = misses === 1
-      ? (rd.never_applied ? " The other never produced an edit that applied to the file." : " The other was rejected by the package's own tests.")
+      ? (rd.never_applied ? " The other never produced an edit that applied to the file."
+        : rd.out_of_steps ? " The other ran out of steps without submitting." : " The other was rejected by the package's own tests.")
       : misses
       ? ` Of the ${numberWord(misses)} that did not, ${andList([
           rd.never_applied ? `${numberWord(rd.never_applied)} never produced an edit that applied to the file` : "",
           rd.rejected ? `${numberWord(rd.rejected)} ${rd.rejected === 1 ? "was" : "were"} rejected by the package's own tests` : "",
+          rd.out_of_steps ? `${numberWord(rd.out_of_steps)} ran out of steps without submitting` : "",
         ].filter(Boolean))}.`
       : "";
     const sameAs = rd.same_as_maintainer ? `, ${numberWord(rd.same_as_maintainer)} with the change its maintainer shipped` : "";
-    const fell = rd.fell_back ? " (Tavily found nothing dated before the maintainers acted that did not name the package, so it fell back to that guide)" : "";
-    return `<li>Fixer revision ${rd.revision}, given ${esc(rd.guidance)}${fell}: <span class="num">${n(rd.k)}</span> of <span class="num">${n(rd.n)}</span> runs passed the suite${sameAs}.${why}</li>`;
+    const fell = rd.fell_back && rd === rounds.find((x) => x.fell_back) ? " (Tavily found nothing dated before the maintainers acted that did not name the package, so it fell back to that guide)" : "";
+    const who = rd.agent ? `The agent, revision ${rd.revision}` : `The scripted fixer, revision ${rd.revision}`;
+    return `<li>${who}, given ${esc(rd.guidance)}${fell}: <span class="num">${n(rd.k)}</span> of <span class="num">${n(rd.n)}</span> runs passed the suite${sameAs}.${why}</li>`;
   };
+  // The agent's own decisions, in order: each step is a tool Nemotron chose after reading the
+  // previous result. Shown verbatim and short, never summarised.
+  const argOf = (s) => {
+    const a = s.args || {};
+    if (s.tool === "read_file") return `${a.path || ""}${a.start ? ` ${a.start}-${a.end || ""}` : ""}`;
+    if (s.tool === "search" || s.tool === "list_files") return a.pattern || "";
+    if (s.tool === "run_tests") return a.targets || "";
+    if (s.tool === "edit_file") return a.path || "";
+    return a.rationale || a.reason || "";
+  };
+  const firstLine = (t) => String(t || "").split("\n").find((l) => l.trim()) || "";
+  const stepsBlock = fx.agent && fx.steps && fx.steps.length ? `
+    <details class="agent-steps" open>
+      <summary>${fx.steps[0].tool === "draft_patch" && /first draft/.test((fx.steps[0].args || {}).notes || "")
+        ? `A first draft, then the <span class="num">${n(fx.steps.length - 1)}</span> steps the agent chose, each from what the previous one returned`
+        : `The <span class="num">${n(fx.steps.length)}</span> steps of the run below, each chosen by Nemotron from what the previous one returned`}</summary>
+      <ol>${fx.steps.map((s) => `<li><code class="agent-steps__tool">${esc(s.tool)}</code> <code>${esc(argOf(s).slice(0, 90))}</code><span class="agent-steps__out">${esc(firstLine(s.result).slice(0, 140))}</span></li>`).join("")}</ol>
+    </details>` : "";
   const rounds = fx.rounds || [];
   const trialLine = rounds.length
     ? `<div class="trials"><p>Every run is independent, so one green patch is a sample, not a behaviour.</p><ul>${rounds.map(roundLine).join("")}</ul><p>The attempts below are from ${fx.verified ? "the first run that passed" : "the last run"}.</p></div>`
@@ -503,6 +539,7 @@ function patchBlock(r) {
     <section class="block" aria-labelledby="patch-title">
       <div class="block__head"><h2 id="patch-title">The patch</h2></div>
       ${trialLine}
+      ${stepsBlock}
       <div class="attempts">${attempts}</div>
       <div class="patch--none">
         <p class="noverify">No patch passed this package's own tests, so Floodplain hands over the diagnosis rather than a patch it cannot prove.</p>
@@ -523,6 +560,7 @@ function patchBlock(r) {
   <section class="block" aria-labelledby="patch-title">
     <div class="block__head"><h2 id="patch-title">The patch</h2><p class="block__by">verified by the package's own tests in a further fork</p></div>
     ${trialLine}
+    ${stepsBlock}
     <div class="attempts">${attempts}</div>
     <div class="patch">
       <div>

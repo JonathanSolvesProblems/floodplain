@@ -1,0 +1,47 @@
+name: Check a release candidate
+
+# Before publishing: test a wheel that is not on PyPI yet against openai's dependents, let the
+# Nemotron agent fix what it breaks, and post the report on the release pull request.
+
+on:
+  workflow_dispatch:
+    inputs:
+      wheel_url:
+        description: "URL of the unpublished wheel (for example a build artifact or a release asset)"
+        required: true
+      pr:
+        description: "Pull request number to comment on"
+        required: true
+      repo:
+        description: "OWNER/NAME of that pull request (defaults to this repository)"
+        required: false
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync
+      - name: Fetch the wheel
+        env:
+          WHEEL_URL: ${{ inputs.wheel_url }}
+        run: |
+          name="$(basename "${WHEEL_URL%%\?*}")"
+          case "$name" in *.whl) ;; *) echo "not a wheel: $name"; exit 1 ;; esac
+          mkdir -p dist && curl -sSfL -o "dist/$name" "$WHEEL_URL"
+      - name: Run the check and comment on the pull request
+        env:
+          NEBIUS_API_KEY: ${{ secrets.NEBIUS_API_KEY }}
+          NEBIUS_PROJECT_ID: ${{ secrets.NEBIUS_PROJECT_ID }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
+          PYTHONUNBUFFERED: "1"
+          PR: ${{ inputs.pr }}
+          REPO: ${{ inputs.repo || github.repository }}
+        run: uv run floodplain check --target openai --wheel dist/*.whl --pr "$PR" --repo "$REPO"

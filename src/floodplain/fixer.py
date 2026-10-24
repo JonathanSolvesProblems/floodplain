@@ -225,6 +225,27 @@ def judge_patch(exit_code: int | None, tests: dict[str, str], collection: list[s
             "reasons": reasons}
 
 
+def reinstall_script(touched_deps: bool, after_cutoff: datetime, root: str) -> str:
+    """Shell prefix that reinstalls the package after its dependency files were edited.
+
+    Replays the whole install recipe, not just the base package. A pin added to a test extra or a
+    dependency group only takes effect when that extra or group is installed again; reinstalling
+    `-e .` alone left openai 3.0.0 in place and rejected the right fix for
+    openinference-instrumentation-agno in twenty attempts out of twenty."""
+    if not touched_deps:
+        return ""
+    cutoff = after_cutoff.strftime("%Y-%m-%dT%H:%M:%SZ")
+    extras = " ".join(TEST_EXTRAS)
+    groups = " ".join(TEST_GROUPS)
+    return (
+        f"export VIRTUAL_ENV=/work/venv PATH=/work/venv/bin:$PATH UV_EXCLUDE_NEWER={cutoff} UV_PRERELEASE=allow; "
+        f"cd {root} && (uv pip install --quiet -e . || exit 41); "
+        f'for x in {extras}; do uv pip install --quiet -e ".[$x]" 2>/dev/null; done; '
+        f'for g in {groups}; do uv pip install --quiet --group "$g" 2>/dev/null; done; '
+        f"echo '[floodplain] after the patch:'; uv pip freeze | grep -iE '^(openai|httpx|httpx2)==' ; "
+    )
+
+
 class Fixer:
     def __init__(self, tf: TokenFactory, backend: Backend) -> None:
         self.tf = tf
@@ -270,22 +291,7 @@ class Fixer:
                      after_cutoff: datetime, verdict: dict[str, Any], baseline_before: dict[str, str],
                      root: str = "/work/repo") -> dict[str, Any]:
         upload = {f"{root}/{p}": content.encode("utf-8") for p, content in edited.items()}
-        reinstall = ""
-        if touched_deps:
-            cutoff = after_cutoff.strftime("%Y-%m-%dT%H:%M:%SZ")
-            # Replay the whole install recipe, not just the base package. A pin added to a test
-            # extra or a dependency group only takes effect when that extra or group is installed
-            # again; reinstalling `-e .` alone left openai 3.0.0 in place and rejected the right fix
-            # for openinference-instrumentation-agno in twenty attempts out of twenty.
-            extras = " ".join(TEST_EXTRAS)
-            groups = " ".join(TEST_GROUPS)
-            reinstall = (
-                f"export VIRTUAL_ENV=/work/venv PATH=/work/venv/bin:$PATH UV_EXCLUDE_NEWER={cutoff} UV_PRERELEASE=allow; "
-                f"cd {root} && (uv pip install --quiet -e . || exit 41); "
-                f'for x in {extras}; do uv pip install --quiet -e ".[$x]" 2>/dev/null; done; '
-                f'for g in {groups}; do uv pip install --quiet --group "$g" 2>/dev/null; done; '
-                f"echo '[floodplain] after the patch:'; uv pip freeze | grep -iE '^(openai|httpx|httpx2)==' ; "
-            )
+        reinstall = reinstall_script(touched_deps, after_cutoff, root)
         script = (reinstall + 'cd "$(cat /work/pkgdir 2>/dev/null || echo /work/repo)" && '
                   # Build metadata the reinstall regenerates (an sdist ships its egg-info, which
                   # is then tracked) is not part of the patch; only what the model edited is.

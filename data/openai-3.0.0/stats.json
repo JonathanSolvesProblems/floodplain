@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T23:18:58+00:00",
+  "generated_at": "2026-10-24T18:07:22+00:00",
   "target": "openai",
   "release": "3.0.0",
   "release_uploaded_at": "2026-08-12T01:55:48+00:00",
@@ -110,6 +110,36 @@
               "+"
             ]
           ]
+        },
+        "r3-tavily": {
+          "k": 0,
+          "n": 5,
+          "verified_diffs": []
+        },
+        "r4-tavily": {
+          "k": 0,
+          "n": 5,
+          "verified_diffs": []
+        },
+        "r5-tavily": {
+          "k": 0,
+          "n": 5,
+          "verified_diffs": []
+        },
+        "r6-tavily": {
+          "k": 0,
+          "n": 5,
+          "verified_diffs": []
+        },
+        "r7-tavily": {
+          "k": 0,
+          "n": 5,
+          "verified_diffs": []
+        },
+        "r8-tavily": {
+          "k": 0,
+          "n": 5,
+          "verified_diffs": []
         }
       },
       "openinference-instrumentation-agno": {
@@ -162,6 +192,105 @@
               "+       \"brotli\",",
               "+       \"openai\",",
               "+       \"ddgs\","
+            ]
+          ]
+        },
+        "r3-local-fallback": {
+          "k": 1,
+          "n": 5,
+          "verified_diffs": [
+            [
+              "+    \"agno>=2.7.2\",",
+              "+    \"opentelemetry-sdk\",",
+              "+    \"pytest-recording\",",
+              "+    \"brotli\",",
+              "+    \"openai\",",
+              "+    \"ddgs\","
+            ]
+          ]
+        },
+        "r4-local-fallback": {
+          "k": 0,
+          "n": 5,
+          "verified_diffs": []
+        },
+        "r5-local-fallback": {
+          "k": 0,
+          "n": 5,
+          "verified_diffs": []
+        },
+        "r6-local-fallback": {
+          "k": 3,
+          "n": 5,
+          "verified_diffs": [
+            [
+              "+    \"opentelemetry-api\",",
+              "+    \"opentelemetry-instrumentation\",",
+              "+    \"opentelemetry-semantic-conventions\",",
+              "+    \"openinference-instrumentation>=0.1.51\",",
+              "+    \"openinference-semantic-conventions>=0.1.31\",",
+              "+    \"wrapt\","
+            ],
+            [
+              "+    \"agno>=2.7.2\",",
+              "+    \"opentelemetry-sdk\",",
+              "+    \"pytest-recording\",",
+              "+    \"pytest-asyncio\",",
+              "+    \"brotli\",",
+              "+    \"openai\","
+            ],
+            [
+              "+   \"agno>=2.7.2\",",
+              "+   \"opentelemetry-sdk\",",
+              "+   \"pytest-recording\",",
+              "+   \"brotli\",",
+              "+   \"openai\",",
+              "+   \"ddgs\","
+            ]
+          ]
+        },
+        "r7-local-fallback": {
+          "k": 1,
+          "n": 5,
+          "verified_diffs": [
+            [
+              "+    \"agno>=2.7.2\",",
+              "+    \"opentelemetry-sdk\",",
+              "+    \"pytest-recording\",",
+              "+    \"brotli\",",
+              "+    \"openai\",",
+              "+    \"ddgs\","
+            ]
+          ]
+        },
+        "r8-local-fallback": {
+          "k": 5,
+          "n": 5,
+          "verified_diffs": [
+            [
+              "+  \"openai<3.0.0\","
+            ],
+            [
+              "+  \"openai<3.0.0\","
+            ],
+            [
+              "+  \"httpx<0.28\","
+            ],
+            [
+              "+    \"agno>=2.7.2\",",
+              "+    \"opentelemetry-sdk\",",
+              "+    \"pytest-recording\",",
+              "+    \"brotli\",",
+              "+    \"openai<3.0.0\",",
+              "+    \"ddgs\","
+            ],
+            [
+              "+    \"agno>=2.7.2\",",
+              "+    \"opentelemetry-sdk\",",
+              "+    \"pytest-recording\",",
+              "+    \"brotli\",",
+              "+    \"openai<3.0.0\",",
+              "+    \"ddgs\","
             ]
           ]
         }
@@ -222,6 +351,102 @@
               "+Requires-Dist: httpx",
               "+setup.cfg",
               "+httpx"
+            ]
+          ]
+        },
+        "r3-tavily": {
+          "k": 6,
+          "n": 6,
+          "verified_diffs": [
+            [
+              "+httpx>=0.27.0"
+            ],
+            [
+              "+httpx"
+            ],
+            [
+              "+httpx>=0.27.0"
+            ],
+            [
+              "+httpx>=0.27.0"
+            ],
+            [
+              "+httpx"
+            ],
+            [
+              "+httpx>=0.27.0"
+            ]
+          ]
+        },
+        "r4-tavily": {
+          "k": 2,
+          "n": 5,
+          "verified_diffs": [
+            [
+              "+httpx"
+            ],
+            [
+              "+httpx"
+            ]
+          ]
+        },
+        "r5-tavily": {
+          "k": 4,
+          "n": 5,
+          "verified_diffs": [
+            [
+              "+httpx"
+            ],
+            [
+              "+httpx>=0.27.0"
+            ],
+            [
+              "+httpx>=0.27.0"
+            ],
+            [
+              "+httpx"
+            ]
+          ]
+        },
+        "r6-tavily": {
+          "k": 3,
+          "n": 5,
+          "verified_diffs": [
+            [
+              "+httpx>=0.27.0"
+            ],
+            [
+              "+httpx>=0.27.0"
+            ],
+            [
+              "+httpx",
+              "+        # httpx is a hard dependency of the openai SDK (v2), but openai v3+",
+              "+        # no longer installs it automatically. We declare it explicitly so the",
+              "+        # gateway health check (which uses httpx directly) continues to work."
+            ]
+          ]
+        },
+        "r8-tavily": {
+          "k": 5,
+          "n": 5,
+          "verified_diffs": [
+            [
+              "+httpx"
+            ],
+            [
+              "+httpx"
+            ],
+            [
+              "+test = [\"pytest\", \"openai\", \"pre-commit\", \"httpx\"]",
+              "+openai = [\"openai>=1.0.0\", \"httpx\"]"
+            ],
+            [
+              "+openai = [\"openai>=1.0.0\", \"httpx\"]",
+              "+httpx"
+            ],
+            [
+              "+test = [\"pytest\", \"openai\", \"pre-commit\", \"httpx\"]",
+              "+openai = [\"openai>=1.0.0\", \"httpx\"]"
             ]
           ]
         }

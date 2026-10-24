@@ -1,0 +1,18 @@
+﻿2 runnable dependents
+backend: nebius-sandboxes
+models: {'nano': 'nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B', 'super': 'nvidia/nemotron-3-super-120b-a12b', 'ultra': 'nvidia/Nemotron-3-Ultra-550b-a55b'}
+  guide  openinference-instrumentation-agno local-fallback (tavily returned no usable pages) 1 page(s)
+  fix    openinference-instrumentation-agno trial 31: VERIFIED after 1 attempt(s), 46 steps, verified, 184.7s
+  fix    openinference-instrumentation-agno trial 32: not verified after 0 attempt(s), 55 steps, out of steps, 210.5s
+  fix    openinference-instrumentation-agno trial 33: not verified after 0 attempt(s), 43 steps, out of steps, 249.3s
+  fix    openinference-instrumentation-agno trial 34: not verified after 0 attempt(s), 43 steps, out of steps, 270.5s
+  fix    openinference-instrumentation-agno trial 35: not verified after 0 attempt(s), 44 steps, out of steps, 309.2s
+  fix    openinference-instrumentation-agno verified in 15 of 35 trials
+  guide  llm                                tavily-cache 3 page(s)
+  fix    llm                                trial 31: not verified after 0 attempt(s), 40 steps, out of steps, 162.9s
+  fix    llm                                trial 32: not verified after 0 attempt(s), 40 steps, out of steps, 166.9s
+  fix    llm                                trial 33: not verified after 0 attempt(s), 40 steps, out of steps, 168.3s
+  fix    llm                                trial 34: not verified after 0 attempt(s), 40 steps, out of steps, 173.0s
+  fix    llm                                trial 35: not verified after 0 attempt(s), 40 steps, out of steps, 177.1s
+  fix    llm                                verified in 9 of 35 trials
+token usage: Usage(calls=394, prompt_tokens=4589533, completion_tokens=99604, reasoning_tokens=76453, empty_replies=0, by_model={'nvidia/Nemotron-3-Ultra-550b-a55b': 394})

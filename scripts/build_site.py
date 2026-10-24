@@ -16,6 +16,8 @@ from collections import Counter
 from datetime import datetime
 from pathlib import Path
 
+from floodplain.report import best_patch, drop_generated
+
 # Receptor states, in the order the page lists them. Each carries the sentence the page
 # shows for every receptor in that state, in the field voice (voice.md).
 STATES = {
@@ -132,17 +134,15 @@ def excerpt(tail: str, quotes: list[str], limit: int = 2400) -> str:
     return tail[lo:lo + limit]
 
 
-def drop_generated(diff: str) -> str:
-    """Remove per-file sections for build metadata from a recorded diff. Runs from a PyPI sdist
-    track its egg-info, which the reinstall regenerates; those sections were never edited by
-    the model and are not part of the patch. The fixer excludes them from new diffs."""
-    out, keep = [], True
-    for line in diff.splitlines(keepends=True):
-        if line.startswith("diff --git "):
-            keep = ".egg-info/" not in line
-        if keep:
-            out.append(line)
-    return "".join(out)
+def watch_summary(target: str) -> dict | None:
+    p = Path("data/watch") / f"{target}.json"
+    if not p.exists():
+        return None
+    state = json.loads(p.read_text(encoding="utf-8"))
+    from packaging.version import Version
+    rows = [{"release": v, **info} for v, info in state["checked"].items()]
+    rows.sort(key=lambda r: Version(r["release"]), reverse=True)
+    return {"base": state["base"], "watched": len(state["dependents"]), "checked": rows}
 
 
 def norm_spec(s: str) -> str:
@@ -169,10 +169,11 @@ def trial_rounds(d: dict, maintainer: dict | None) -> list[dict]:
         src = "tavily" if src.startswith("tavily") else src
         rev = t.get("fixer_revision", 1)
         r = out.setdefault(f"r{rev}-{src}", {"revision": rev, "source": src,
+                                             "agent": bool(t.get("agent")),
                                              "guidance": GUIDANCE_LABEL.get(src, src),
                                              "fell_back": "tavily" in (g.get("source") or "") and src != "tavily",
                                              "k": 0, "n": 0, "same_as_maintainer": 0,
-                                             "never_applied": 0, "rejected": 0})
+                                             "never_applied": 0, "rejected": 0, "out_of_steps": 0})
         r["n"] += 1
         attempts = t.get("attempts", [])
         if t.get("verified"):
@@ -184,6 +185,9 @@ def trial_rounds(d: dict, maintainer: dict | None) -> list[dict]:
                 r["same_as_maintainer"] += 1
         elif any(a.get("applied") for a in attempts):
             r["rejected"] += 1
+        elif t.get("agent"):
+            # an agent run that never submitted ran out of steps (or stopped), it did not fail to apply
+            r["out_of_steps"] += 1
         else:
             r["never_applied"] += 1
     return sorted(out.values(), key=lambda r: (r["revision"], r["source"] != "local-fallback"))
@@ -229,7 +233,9 @@ def main() -> None:
             r["triage"] = {k: tri.get(k) for k in ("category", "symbol", "cause", "quotes", "dropped_quotes",
                                                     "fix_plan", "fix_notes", "model", "confidence")}
             r["log"] = excerpt((d.get("after") or {}).get("test_tail", ""), tri.get("quotes") or [])
-            fx = d.get("fix") or {}
+            # The same patch the GitHub report hands over: the newest fixer revision's first
+            # verified run, falling back to the run record when there were no trials.
+            fx = best_patch(d)[0] or d.get("fix") or {}
             trials = d.get("fix_trials") or ([fx] if fx else [])
 
             def attempts_of(t):
@@ -241,6 +247,9 @@ def main() -> None:
             r["fix"] = {
                 "verified": fx.get("verified", False),
                 "attempts": attempts_of(fx),
+                "agent": bool(fx.get("agent")),
+                "steps": [{k: st.get(k) for k in ("i", "tool", "args", "result", "elapsed_s")} for st in fx.get("steps", [])],
+                "revision": fx.get("fixer_revision", 1),
                 "diff": drop_generated(next((a["diff"] for a in fx.get("attempts", []) if a.get("verified")), "")),
                 # every independent trial, so the page can say verified in K of N
                 "trials": len(trials),
@@ -270,6 +279,8 @@ def main() -> None:
         "ranking_snapshot": meta["ranking_snapshot"], "scanned": meta["scanned"],
         "population": pop["counts"],
         "ran": len(receptors),
+        # releases the watcher has checked since, newest first, each with its GitHub issue
+        "watch": watch_summary(args.target),
         # the pre-release check, compared dependent by dependent in stats.py (run that first)
         "candidate": (json.loads((root / "stats.json").read_text(encoding="utf-8")).get("candidate")
                       if (root / "stats.json").exists() else None),

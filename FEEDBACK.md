@@ -110,7 +110,18 @@ started. One reply came back with empty `content` even with that headroom. A way
 reasoning separately from the answer (a `reasoning_budget`, or `max_completion_tokens` that
 excludes reasoning) would make the budget predictable.
 
-### 6. Per-run `cost` during the free beta
+### 6. A Token Factory outage the status page did not show
+
+On 24 October, for about an hour, `api.tokenfactory.nebius.com` answered every request with an
+nginx `503 Service Temporarily Unavailable`, including `GET /v1/models` with no key at all, so it
+was not my account. All three Nemotron tiers failed the same way. At the same time
+status.nebius.com read "All Systems Operational" with Token Factory green in every region, and
+Sandboxes kept working throughout. Two small things would help: report the inference edge on the
+status page, and return a JSON error body with a retry hint instead of the bare nginx page, so a
+client can tell an outage from a bad request. I now retry 5xx with backoff for up to five
+minutes and record a trial that still fails as failed rather than dropping it.
+
+### 7. Per-run `cost` during the free beta
 
 Each run result carries a `cost` field, and my `llm` experiment reported about 2.67 across its
 forks. The Sandboxes page says runs do not consume credits during beta, so I assume this is an

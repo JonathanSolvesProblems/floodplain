@@ -1,0 +1,39 @@
+﻿3.37.0 2026-10-22T20:04:37+00:00 data\openai-3.37.0\population.json
+30 runnable dependents
+backend: nebius-sandboxes
+base image ready: nebius-sandboxes:66b26d62-8f5f-4b
+  foundry-local-sdk                        ok                          139.6s
+  evalplus                                 ok                          163.7s
+  chatlas                                  ok                          319.9s
+  inspect-swe                              incomplete       no-results   182.6s
+  dspy                                     ok                          341.4s
+  highcharts-core                          ok                          350.0s
+  langextract                              ok                          133.5s
+  code-puppy                               ok                          456.2s
+  captum                                   ok                          457.5s
+  chonkie                                  ok                          490.0s
+  openai-messages-token-helper             ok                           54.9s
+  oci-openai                               ok                           77.4s
+  echo-agent                               broken           tests      538.2s
+  openenv-core                             ok                           56.5s
+  openinference-instrumentation-agno       no-baseline                  56.2s
+  swebench                                 held-back                    80.9s
+  opentelemetry-instrumentation-openai     held-back                    93.3s
+3.37.0 2026-10-22T20:04:37+00:00 data\openai-3.37.0\population.json
+30 runnable dependents
+backend: nebius-sandboxes
+base image ready: nebius-sandboxes:66b26d62-8f5f-4b
+  vlmrun-hub                               no-baseline                 103.7s
+  xpander-sdk                              no-baseline                 245.1s
+  vanna                                    held-back                   304.8s
+  yutori                                   ok                          201.4s
+  shiny                                    ok                          305.4s
+  llm                                      ok                          490.9s
+  nextcloud-mcp-server                     ok                          544.6s
+  krepis                                   ok                          567.1s
+  inspect-scout                            incomplete       no-results   690.7s
+  graphifyy                                ok                          826.9s
+  jcodemunch-mcp                           ok                         1073.2s
+  graphiti-core                            ok                         2042.5s
+  lumibot                                  incomplete       no-results 16803.7s
+run stage done in 16804s

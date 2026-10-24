@@ -61,6 +61,28 @@ class Usage:
         self.by_model[model] = self.by_model.get(model, 0) + 1
 
 
+async def _with_backoff(fn, attempts: int = 8):
+    """Retry a Token Factory call through 5xx, 429 and connection failures, backing off up to
+    about five minutes in total. On 2026-10-24 the endpoint answered 503 to every request,
+    authenticated or not, while the status page read operational; the SDK's own three quick
+    retries were not enough to ride that out."""
+    import asyncio
+    import random
+    from openai import APIConnectionError, APIStatusError, RateLimitError
+    for i in range(attempts):
+        try:
+            return await fn()
+        except (APIConnectionError, RateLimitError) as e:
+            last = e
+        except APIStatusError as e:
+            if e.status_code < 500:
+                raise
+            last = e
+        if i < attempts - 1:
+            await asyncio.sleep(min(2 ** i * 2, 90) + random.random())
+    raise last
+
+
 class TokenFactory:
     def __init__(self, api_key: str | None = None) -> None:
         key = api_key or os.environ.get("NEBIUS_API_KEY")
@@ -71,7 +93,9 @@ class TokenFactory:
         self.usage = Usage()
 
     async def resolve_models(self) -> dict[Tier, str]:
-        available = [m.id async for m in self.client.models.list()]
+        async def listed() -> list[str]:
+            return [m.id async for m in self.client.models.list()]
+        available = await _with_backoff(listed)
         for tier, needles in TIER_SUBSTRINGS.items():
             override = os.environ.get(f"FLOODPLAIN_MODEL_{tier.upper()}")
             if override:
@@ -98,11 +122,11 @@ class TokenFactory:
             kwargs["response_format"] = {"type": "json_object"}
         budget = max_tokens + REASONING_HEADROOM
         for attempt in range(2):
-            resp = await self.client.chat.completions.create(
+            resp = await _with_backoff(lambda: self.client.chat.completions.create(
                 model=model,
                 messages=[{"role": "system", "content": system}, {"role": "user", "content": user}],
                 max_tokens=budget, temperature=temperature, **kwargs,
-            )
+            ))
             self.usage.add(model, resp)
             choice = resp.choices[0]
             content = (choice.message.content or "").strip()
@@ -114,6 +138,27 @@ class TokenFactory:
                 return reasoning_of(choice.message).strip()
             budget *= 3
         return ""
+
+    async def chat_tools(self, tier: Tier, messages: list[dict[str, Any]], tools: list[dict[str, Any]],
+                         *, max_tokens: int = 8000, temperature: float = 0.6) -> Any:
+        """One turn of a tool-calling conversation. Returns the assistant message, whose
+        `tool_calls` (if any) are the model's chosen next actions. A reply truncated before it
+        produced either content or a tool call is retried once with a larger budget."""
+        model = self.models[tier]
+        budget = max_tokens + REASONING_HEADROOM
+        for attempt in range(2):
+            resp = await _with_backoff(lambda: self.client.chat.completions.create(
+                model=model, messages=messages, tools=tools, tool_choice="auto",
+                max_tokens=budget, temperature=temperature))
+            self.usage.add(model, resp)
+            choice = resp.choices[0]
+            if choice.message.tool_calls or (choice.message.content or "").strip():
+                return choice.message
+            self.usage.empty_replies += 1
+            if choice.finish_reason != "length" or attempt == 1:
+                return choice.message
+            budget *= 2
+        return choice.message
 
     async def chat_json(self, tier: Tier, system: str, user: str, **kw: Any) -> dict[str, Any]:
         text = await self.chat(tier, system, user, json_mode=True, **kw)

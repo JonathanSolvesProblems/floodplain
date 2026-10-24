@@ -337,3 +337,16 @@ main { display: block; }
   .rcp--positive .label { font-size: 17px; }
   .rcp--positive .label-sub { font-size: 13px; }
 }
+
+/* The agent's steps: a verbatim log of its own decisions, so mono and unadorned. */
+.agent-steps { margin: 1rem 0 0.4rem; max-width: 64rem; }
+.agent-steps summary { cursor: pointer; font-size: var(--s1); }
+.agent-steps ol { margin: 0.5rem 0 0; padding-left: 2.2rem; font: 400 0.82rem/1.5 var(--f-mono); }
+.agent-steps li { margin: 0.15rem 0; }
+.agent-steps code { font: inherit; }
+.agent-steps__tool { font-weight: 500; }
+.agent-steps__out { display: block; color: var(--muted); overflow-wrap: anywhere; }
+
+.watch__list { list-style: none; padding: 0; margin: 0.8rem 0 0; max-width: 52rem; }
+.watch__list li { padding: 0.35rem 0; border-top: 1px solid var(--rule, rgba(0,0,0,.12)); font-size: var(--s1); }
+.watch__list .num { display: inline-block; min-width: 4.5rem; font-variant-numeric: tabular-nums lining-nums; }

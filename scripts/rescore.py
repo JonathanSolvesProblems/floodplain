@@ -16,7 +16,7 @@ from collections import Counter
 from pathlib import Path
 
 from floodplain.repos import SourceRef
-from floodplain.sandbox import Experiment, RunOutcome, attribute, experiment_to_json
+from floodplain.sandbox import Experiment, RunOutcome, apply_confirm, attribute, experiment_to_json
 
 
 def rebuild(d: dict) -> Experiment:
@@ -49,6 +49,7 @@ def main() -> None:
         exp = rebuild(d)
         new_payload = experiment_to_json(exp)
         new_payload["verdict"] = attribute(new_payload["verdict"], d.get("after"), args.target, args.release)
+        new_payload["verdict"] = apply_confirm(new_payload["verdict"], d.get("confirm"))
         new = new_payload["verdict"].get("status")
         after[new] += 1
         changed = new_payload["verdict"] != d["verdict"] or new_payload["flaky_excluded"] != d.get("flaky_excluded")
