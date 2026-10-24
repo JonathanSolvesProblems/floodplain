@@ -1,4 +1,4 @@
-# Devpost submission fields
+﻿# Devpost submission fields
 
 ## Project name
 
@@ -293,7 +293,7 @@ Most Valuable Feedback
 ## Video demo link
 
 ```
-VIDEO_URL_AFTER_RECORDING
+https://www.youtube.com/watch?v=EZ6w-OhZga4
 ```
 
 ## Did the project exist before the submission period
