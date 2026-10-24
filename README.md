@@ -4,9 +4,11 @@ Run the test suites of the packages that depend on yours, against your release, 
 users do. Every suite runs in forked Nebius Sandboxes; NVIDIA Nemotron reads what broke and
 drafts a patch that the broken package's own test suite has to pass.
 
-**Results page:** https://jonathansolvesproblems.github.io/floodplain/
+- **Results page:** https://jonathansolvesproblems.github.io/floodplain/
+- **Demo video (3 min):** https://www.youtube.com/watch?v=EZ6w-OhZga4
+- **Write-up:** [Run before openai 3.0.0 shipped, it found the 3 packages the release broke](https://jonathanandrei.com/blog/floodplain-pre-release-dependent-tests-nebius-nemotron/)
 
-![The openai 3.0.0 trace: a river from the release to its dependents, with the three that broke dyed green](site/og.png)
+[![The openai 3.0.0 trace: a river from the release to its dependents, with the three that broke dyed green. Click to watch the demo.](site/og.png)](https://www.youtube.com/watch?v=EZ6w-OhZga4)
 
 ## Why
 
@@ -57,6 +59,8 @@ agree), with the same set of broken tests in
 modules for agno and 3 tests for vlmrun, and the same 11 held back. So the check that found
 these breaks could have run before anyone hit them.
 
+![The results page: given OpenAI's own wheel before it was uploaded, all 31 working suites gave the same verdict as the real release](docs/images/before-release.jpg)
+
 ### The patches
 
 For each break, Nemotron drafted a patch and the package's own suite judged it in a fresh fork.
@@ -76,6 +80,8 @@ Two of vlmrun's three failures were my fixer's fault, not the model's diagnosis:
 Nemotron only the first 120 lines of each file, vlmrun imports `httpx` further down, and the
 edit could not be applied. Revision 2 shows every match with the lines around it, and retries a
 failed edit with the file's real text.
+
+![llm's verified patch, taken from git diff in the fork that went green, beside the line its maintainer shipped in 0.32.1](docs/images/same-pin.jpg)
 
 **Round 2**, fixer revision 2, with the pages Tavily found:
 
@@ -110,6 +116,8 @@ instead of submitting, every time, while the same model writing a whole patch fr
 context, as revisions 1 and 2 did, fixed llm in 9 of 10 runs. That is the clearest thing I learned
 about Nemotron here: as a patch writer it is excellent, and as an open-ended investigator of a
 large codebase it does not know when to stop.
+
+![The steps one revision 8 run chose on openinference-instrumentation-agno, from the first draft to a verified submit](docs/images/agent-steps.jpg)
 
 ## How it works
 
@@ -166,6 +174,8 @@ Its first report, for openai 3.37.0, is [issue #1](https://github.com/JonathanSo
 `floodplain check --wheel ... --pr N` does the same for an unpublished wheel and posts the report
 on the release pull request ([check.yml](.github/workflows/check.yml)). Floodplain never opens
 pull requests in other people's repositories; it hands over the patch.
+
+![Issue #1: openai 3.37.0 broke none of the 21 working suites, and one flaky test was set aside, not counted](docs/images/still-watching.jpg)
 
 **Research.** Tavily searches for the upstream's migration guidance and extracts the relevant
 pages in full. Two guards stop it handing Nemotron the answer: it only sees pages dated before
