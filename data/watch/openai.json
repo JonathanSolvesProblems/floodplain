@@ -1,0 +1,169 @@
+{
+  "target": "openai",
+  "base": "3.0.0",
+  "ranking_snapshot": "2026-09-01 06:34:08",
+  "dependents": [
+    {
+      "name": "captum",
+      "rank": 5997,
+      "downloads": 524064
+    },
+    {
+      "name": "chatlas",
+      "rank": 12113,
+      "downloads": 105965
+    },
+    {
+      "name": "chonkie",
+      "rank": 4117,
+      "downloads": 1198781
+    },
+    {
+      "name": "code-puppy",
+      "rank": 12210,
+      "downloads": 104295
+    },
+    {
+      "name": "dspy",
+      "rank": 1849,
+      "downloads": 6223871
+    },
+    {
+      "name": "echo-agent",
+      "rank": 9490,
+      "downloads": 180595
+    },
+    {
+      "name": "evalplus",
+      "rank": 9444,
+      "downloads": 182607
+    },
+    {
+      "name": "foundry-local-sdk",
+      "rank": 8404,
+      "downloads": 239386
+    },
+    {
+      "name": "graphifyy",
+      "rank": 3303,
+      "downloads": 1927047
+    },
+    {
+      "name": "graphiti-core",
+      "rank": 4206,
+      "downloads": 1143378
+    },
+    {
+      "name": "highcharts-core",
+      "rank": 9582,
+      "downloads": 177602
+    },
+    {
+      "name": "inspect-scout",
+      "rank": 7258,
+      "downloads": 337773
+    },
+    {
+      "name": "inspect-swe",
+      "rank": 5071,
+      "downloads": 758620
+    },
+    {
+      "name": "jcodemunch-mcp",
+      "rank": 9458,
+      "downloads": 182096
+    },
+    {
+      "name": "krepis",
+      "rank": 14100,
+      "downloads": 76720
+    },
+    {
+      "name": "langextract",
+      "rank": 6910,
+      "downloads": 375612
+    },
+    {
+      "name": "llm",
+      "rank": 5766,
+      "downloads": 549862
+    },
+    {
+      "name": "lumibot",
+      "rank": 8879,
+      "downloads": 209646
+    },
+    {
+      "name": "nextcloud-mcp-server",
+      "rank": 11211,
+      "downloads": 126271
+    },
+    {
+      "name": "oci-openai",
+      "rank": 11397,
+      "downloads": 121510
+    },
+    {
+      "name": "openai-messages-token-helper",
+      "rank": 13377,
+      "downloads": 86154
+    },
+    {
+      "name": "openenv-core",
+      "rank": 4409,
+      "downloads": 1029315
+    },
+    {
+      "name": "openinference-instrumentation-agno",
+      "rank": 5302,
+      "downloads": 678246
+    },
+    {
+      "name": "opentelemetry-instrumentation-openai",
+      "rank": 2427,
+      "downloads": 3690199
+    },
+    {
+      "name": "shiny",
+      "rank": 7817,
+      "downloads": 281080
+    },
+    {
+      "name": "swebench",
+      "rank": 600,
+      "downloads": 43999505
+    },
+    {
+      "name": "vanna",
+      "rank": 9107,
+      "downloads": 198050
+    },
+    {
+      "name": "vlmrun-hub",
+      "rank": 13607,
+      "downloads": 83605
+    },
+    {
+      "name": "vlmrun",
+      "rank": 13112,
+      "downloads": 89490
+    },
+    {
+      "name": "xpander-sdk",
+      "rank": 9380,
+      "downloads": 185386
+    },
+    {
+      "name": "yutori",
+      "rank": 13212,
+      "downloads": 88043
+    }
+  ],
+  "checked": {
+    "3.37.0": {
+      "checked_at": "2026-10-24T18:08:27+00:00",
+      "headline": "openai 3.37.0: none of the 21 working test suites broke",
+      "issue": "https://github.com/JonathanSolvesProblems/floodplain/issues/1"
+    }
+  }
+}

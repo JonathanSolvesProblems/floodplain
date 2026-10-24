@@ -1,0 +1,13 @@
+﻿== openai 3.37.0, uploaded 2026-10-22T20:04:37+00:00
+30 runnable dependents
+backend: nebius-sandboxes
+base image ready: nebius-sandboxes:66b26d62-8f5f-4b
+run stage done in 0s
+30 runnable dependents
+backend: nebius-sandboxes
+30 runnable dependents
+backend: nebius-sandboxes
+models: {'nano': 'nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B', 'super': 'nvidia/nemotron-3-super-120b-a12b', 'ultra': 'nvidia/Nemotron-3-Ultra-550b-a55b'}
+token usage: Usage(calls=0, prompt_tokens=0, completion_tokens=0, reasoning_tokens=0, empty_replies=0, by_model={})
+   openai 3.37.0: none of the 21 working test suites broke
+   posted: https://github.com/JonathanSolvesProblems/floodplain/issues/1

@@ -12,7 +12,18 @@
   "exposed_extra": 75
  },
  "ran": 146,
- "watch": null,
+ "watch": {
+  "base": "3.0.0",
+  "watched": 31,
+  "checked": [
+   {
+    "release": "3.37.0",
+    "checked_at": "2026-10-24T18:08:27+00:00",
+    "headline": "openai 3.37.0: none of the 21 working test suites broke",
+    "issue": "https://github.com/JonathanSolvesProblems/floodplain/issues/1"
+   }
+  ]
+ },
  "candidate": {
   "openai-3.0.0-py3-none-any": {
    "run": 31,
@@ -52,7 +63,7 @@
   "lost": "The receptor was hung but came back unreadable: the install failed, the run timed out, or the sandbox returned nothing."
  },
  "readable": 20,
- "generated_at": "2026-10-24T14:07:22",
+ "generated_at": "2026-10-24T14:08:52",
  "receptors": [
   {
    "name": "sentry-sdk",
