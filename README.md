@@ -229,11 +229,12 @@ not add up:
 ## Run it
 
 Requires Python 3.12 and [uv](https://docs.astral.sh/uv/). Copy `.env.example` to `.env`, or
-export the variables: a Nebius Token Factory API key and project id (inference and Sandboxes
-both use them), and optionally a Tavily key.
+export the variables: a Nebius Token Factory API key and project id from
+https://tokenfactory.nebius.com (inference and Sandboxes both use them), and optionally a Tavily
+key from https://app.tavily.com.
 
 ```sh
-uv sync --extra dev
+uv sync
 uv run python -m pytest                     # unit tests, no keys needed
 uv run python scripts/smoke.py              # one fork round trip on Nebius Sandboxes
 
