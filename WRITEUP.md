@@ -19,7 +19,7 @@ Run before openai 3.0.0 shipped, it finds the 3 packages the release breaks, and
 
 Simon Willison maintains `llm`, a command-line tool for language models. On 12 August 2026, openai 3.0.0 swapped its HTTP library from `httpx` to `httpx2`. Six hours later a user opened [llm #1608](https://github.com/simonw/llm/issues/1608): fresh installs were broken, and the test suite was escaping its mocks to call the live API. Nine days later Simon shipped a pin below 3.
 
-OpenAI's own tests passed. The break only showed up in other people's test suites, so nobody upstream could see it. openai ships three or four releases a week, so this question comes up for its maintainers about fifteen times a month. I wanted them to be able to answer it before publishing.
+OpenAI's own tests passed. The break only showed up in other people's test suites, so nobody upstream could see it. openai published 48 releases in the ten weeks after 3.0.0, so this question comes up for its maintainers more than fifteen times a month. I wanted them to be able to answer it before publishing.
 
 ## What it does
 
@@ -35,6 +35,8 @@ Point Floodplain at a release, or at a wheel you have not published, and it:
 A daily GitHub Actions job runs it on every new openai release and keeps going between visits. It never opens pull requests in other people's repositories; it hands over the patch.
 
 ## What it found on openai 3.0.0
+
+![The openai 3.0.0 trace: the release poured in upstream, and the three dependents it broke dyed green](https://jonathansolvesproblems.github.io/floodplain/og.png)
 
 Run before the release, with OpenAI's own 3.0.0 wheel as an unpublished file against the index a minute before the upload, it found the three packages the release broke, and all 31 dependents with working suites gave the same verdict as a replay of the real release, with the same tests broken:
 
@@ -69,7 +71,7 @@ The pre-release check reproduced the real release exactly, test for test, from p
 
 Nemotron is an excellent patch writer and a poor judge of when to stop investigating. One verified patch is a sample, not a behaviour, so every fix is reported as K of N runs per fixer revision. And the control fork is not enough on its own: a test can be flaky only after the release.
 
-## What's next
+## What's next for Floodplain
 
 Offer `floodplain check` as a step maintainers add to their release workflow, and run the watcher for more packages than openai.
 ```
