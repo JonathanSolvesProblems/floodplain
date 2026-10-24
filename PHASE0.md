@@ -71,7 +71,7 @@ while the gallery is unpublished, PyPI, and this repo's committed results.
 - Tagline draft, leading with the best result as a win: Run before openai 3.0.0, it found the three packages the release broke, and Nemotron wrote the fix llm's maintainer shipped nine days later.
 
 ## 12. Demo [rules 25, 54, 101]
-- The final shot (the thing the verb produces, or a live success landing in field 5's system, never a number being revealed): the verified llm patch beside the line its maintainer shipped, then the agent's own steps fixing agno, then the GitHub issue the watcher opened for openai 3.37.0.
+- The final shot (the thing the verb produces, or a live success landing in field 5's system, never a number being revealed): the verified llm patch beside the line its maintainer shipped, then the agent's own steps fixing agno, then the watcher's issue for openai 3.37.0, ending on issue #2: the 3.0.0 report in GitHub with all three verified patches.
 - The first live end-to-end success, on real data, with the sponsor's model in the loop, by (date, day 3 at the latest): 2026-10-20, llm's patch verified on Nebius Sandboxes.
 
 ## Verdict
