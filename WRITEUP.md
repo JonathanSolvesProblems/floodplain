@@ -309,6 +309,62 @@ Every model output is checked by something outside the model: Nano's quotes agai
 The fixer went through eight revisions, each measured on five independent runs per package and all kept in the repository. Revisions 1 and 2 were a fixed sequence (context, draft, apply, verify, escalate Super to Ultra). From revision 3 Ultra is an agent with nine tools (list, read, search, edit, run chosen tests in a sandbox, run a shell command, redraft, submit, give up). The harness changes were driven by the failures: a larger step budget, a repeat guard, history compaction, a checkpoint every 12 steps, and in revision 8 a first draft written before the loop starts so the agent decides what to do with a concrete patch. That change took agno from 1 of 5 to 5 of 5. Tavily search, with date and repository guards, supplies migration guidance without leaking the maintainers' fix.
 ```
 
+## How did Nemotron's performance compare to other models you've used for similar tasks?
+
+```
+I did not run another vendor's model on these breaks, so the comparisons I can stand behind are the ones I measured inside Nemotron 3, all judged by each project's own test suite.
+
+Across tiers: Ultra's patches passed 13 of 27 times, Super's 12 of 55, and 21 of Super's edits could not be applied at all. For anything that has to apply exactly, start with Ultra.
+
+Across ways of using the same model: one Ultra drafting call with the right context fixed llm in 9 of 10 runs, while Ultra as an open-ended agent fixed it in 0 of 30. Given a first draft, the agent fixed the two smaller breaks in 5 of 5 runs each. So Nemotron compares best as a patch writer and worst as an investigator that has to decide on its own when it is done.
+```
+
+## Which Nebius platform capabilities were most valuable to your project and how?
+
+```
+Token Factory Sandboxes was the core of the project. Every dependent's test suite runs in three forks of one checkout: the world a minute before the release, the same again as a flaky-test control, and a minute after. Images are content-addressed, so the three forks start from exactly the same state, which is what makes the comparison fair; three forks of one checkpoint came up in 1.6 seconds. Every agent test run, shell command and candidate patch runs in a further fork, and the pre-release check uploads an unpublished wheel with files= and offers it to the resolver inside a fork. In all, about 1,000 sandbox runs over 146 real packages, at up to a 157-way fan-out. A local Docker stand-in fell over at that concurrency; the microVMs did not.
+
+Token Factory inference served all three Nemotron 3 tiers behind one OpenAI-compatible API on the same key as Sandboxes: no GPU instances or deployments to manage. The existing openai client worked with two changed lines, native tool calling drove the agent, and /v1/models let me resolve model ids at startup by substring, so moving a task between Nano, Super and Ultra was one string.
+```
+
+## How likely are you to recommend running Nemotron on Nebius to other developers? (1 = Unlikely, 10 = Highly Likely)
+
+```
+8 out of 10.
+
+For this kind of workload, fanning out untrusted code in exactly isolated forks next to an inference endpoint on the same key, I know of nothing simpler. It replaced what would otherwise be two vendors stitched together, and the fork primitive is what made the pre-release check possible at all.
+
+What keeps it from higher: the Python SDK does not retry transient 500s (the CLI does), so a large fan-out needed my own retry wrapper; on 24 October Token Factory inference returned 503 for about an hour while the status page showed green; and Sandboxes is beta-gated with a bare 403 until access is granted. All of it is written up with reproductions in my feedback.
+```
+
+## How would you rate your experience running Nemotron inference on Nebius compared to previous cloud or local development environments? (1 = Poor, 10 = Excellent)
+
+```
+8 out of 10.
+
+Zero to a first Nemotron completion took about five minutes: OpenAI-compatible base URL, one key, model ids resolved from /v1/models. Running Nano, Super and Ultra side by side and measuring them on the same task needed no deployment work at all, which a self-hosted setup could not match at 550B. Compared with my local Docker stand-in for the sandbox side, the forks were faster and stayed up at concurrency.
+
+The deductions are reliability and observability: the unreported 503 outage, a bare nginx error page instead of a JSON body with a retry hint, and no per-request way to cap reasoning tokens separately from the answer.
+```
+
+## What additional features or improvements would have made the Nemotron on Nebius experience more effective for your project?
+
+```
+1. A reasoning budget separate from the answer budget (a reasoning_budget, or max_completion_tokens that excludes reasoning). 95.7% of my completion tokens were reasoning, and a small max_tokens returns empty content with finish_reason length and no error.
+2. Reasoning-token counts in the usage object on Nano, as Super already reports.
+3. Default retries in the Sandboxes Python SDK for 5xx, 429 and transport errors, as the CLI already does.
+4. The inference edge on the status page, and JSON error bodies with a retry hint instead of a bare nginx 503.
+5. A 403 on Sandboxes that says the feature is not enabled and links the access form.
+6. Guidance, or tool_choice support, for making Nemotron commit in a tool loop: a recommended system prompt pattern for when to call submit.
+7. One environment variable name for the project id across the CLI and the SDK.
+```
+
+## What do you most hope to see from the Nemotron team next?
+
+```
+A Nemotron tuned to finish agentic work, not only to do it well. Its patches are excellent when it commits to one; the gap I measured is the decision to stop investigating and submit (0 of 30 agent runs on a large codebase, against 9 of 10 for a single drafting call on the same break). Training or guidance aimed at that decision, plus a reasoning budget I can set per request, would make it the default model for this kind of coding agent.
+```
+
 ## Track
 
 ```
