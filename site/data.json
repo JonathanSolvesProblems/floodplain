@@ -63,7 +63,7 @@
   "lost": "The receptor was hung but came back unreadable: the install failed, the run timed out, or the sandbox returned nothing."
  },
  "readable": 20,
- "generated_at": "2026-10-24T14:08:52",
+ "generated_at": "2026-10-24T15:30:20",
  "receptors": [
   {
    "name": "sentry-sdk",
@@ -5497,7 +5497,7 @@
       "reasons": [
        "110 tests that passed before the release do not pass"
       ],
-      "rationale": "The upstream openai 3.0.0 switched to HTTPX2 as the default client, breaking the existing HTTPX1-based mocks in the test suite. To fix this without changing tests, we declare the missing dependencies 'httpx' (used for logging) and 'packaging' (for version parsing), and set the environment variable 'OPENAI_HTTP_CLIENT=httpx1' globally for the llm module when openai>=3.0.0, forcing the use of the legacy HTTPX1 client so that the existing mocks match."
+      "rationale": "The llm package imports httpx but does not declare it as a dependency. With openai 3.0.0, httpx is no longer a transitive dependency, so we must declare it explicitly to avoid ImportError. This also allows the llm package to continue using httpx for any custom HTTP client needs, ensuring compatibility with the existing pytest_httpx mocks."
      },
      {
       "tier": "super",
@@ -5506,13 +5506,13 @@
       "verified": true,
       "apply_error": null,
       "reasons": [],
-      "rationale": "The upstream openai 3.0.0 switched to HTTPX2, breaking HTTPX1-based mocks. By declaring the missing httpx dependency and configuring the openai client to use HTTPX1 via the legacy escape hatch, we restore compatibility with existing mocks without altering tests."
+      "rationale": "Adding an upper bound on openai prevents the 3.0.0 release that switched to HTTPX2, which breaks the existing httpx-based test mocks. This restores the pre\u2011release behavior without requiring test modifications."
      }
     ],
     "agent": false,
     "steps": [],
-    "revision": 2,
-    "diff": "diff --git a/llm/default_plugins/openai_models.py b/llm/default_plugins/openai_models.py\nindex 93c5001..f57a024 100644\n--- a/llm/default_plugins/openai_models.py\n+++ b/llm/default_plugins/openai_models.py\n@@ -1316,8 +1316,12 @@ class _Shared:\n         if os.environ.get(\"LLM_OPENAI_SHOW_RESPONSES\"):\n             kwargs[\"http_client\"] = logging_client()\n         if async_:\n+            if 'http_client' not in kwargs and not os.environ.get(\"LLM_OPENAI_SHOW_RESPONSES\"):\n+                kwargs['http_client'] = httpx.AsyncClient()\n             return openai.AsyncOpenAI(**kwargs)\n         else:\n+            if 'http_client' not in kwargs and not os.environ.get(\"LLM_OPENAI_SHOW_RESPONSES\"):\n+                kwargs['http_client'] = httpx.Client()\n             return openai.OpenAI(**kwargs)\n \n     def build_kwargs(self, prompt, stream):\ndiff --git a/pyproject.toml b/pyproject.toml\nindex 8ec3191..9032f92 100644\n--- a/pyproject.toml\n+++ b/pyproject.toml\n@@ -37,8 +37,9 @@ dependencies = [\n     \"setuptools\",\n     \"pip\",\n     \"pyreadline3; sys_platform == 'win32'\",\n-    \"puremagic\",\n-]\n+            \"puremagic\",\n+            \"httpx<0.24.0\",\n+        ]\n \n [dependency-groups]\n dev = [\n",
+    "revision": 1,
+    "diff": "diff --git a/pyproject.toml b/pyproject.toml\nindex 8ec3191..eaa636e 100644\n--- a/pyproject.toml\n+++ b/pyproject.toml\n@@ -27,7 +27,7 @@ classifiers = [\n dependencies = [\n     \"click\",\n     \"condense-json>=1.1\",\n-    \"openai>=2.32.0\",\n+    \"openai>=2.32.0,<3.0.0\",\n     \"click-default-group>=1.2.3\",\n     \"sqlite-utils>=4.0\",\n     \"pydantic>=2.0.0\",\n",
     "trials": 40,
     "trials_verified": 9,
     "trial_outcomes": [

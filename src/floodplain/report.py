@@ -31,24 +31,39 @@ def load_runs(exp_dir: Path) -> list[dict[str, Any]]:
     return [json.loads(p.read_text(encoding="utf-8")) for p in sorted(exp_dir.glob("*.json"))]
 
 
-def best_patch(d: dict[str, Any]) -> tuple[dict[str, Any] | None, int, int]:
-    """The patch to hand over (first verified trial of the newest fixer revision), and K of N
-    for that revision's trials."""
-    trials = d.get("fix_trials") or []
-    if not trials:
-        return None, 0, 0
-    # The newest fixer revision that produced a verified patch; if none did, the newest revision's
-    # (unverified) record, so K of N always describes one revision.
-    revs = sorted({t.get("fixer_revision", 1) for t in trials}, reverse=True)
-    pick = next((r for r in revs if any(t.get("verified") for t in trials if t.get("fixer_revision", 1) == r)), revs[0])
-    same = [t for t in trials if t.get("fixer_revision", 1) == pick]
-    won = next((t for t in same if t.get("verified")), None)
-    return won, sum(1 for t in same if t.get("verified")), len(same)
-
-
 def _diff_of(trial: dict[str, Any]) -> str:
     a = next((a for a in trial.get("attempts", []) if a.get("verified")), None)
     return drop_generated(a.get("diff", "")) if a else ""
+
+
+def _added_lines(trial: dict[str, Any]) -> frozenset[str]:
+    """What a verified patch adds and removes, ignoring whitespace and diff headers, so two runs
+    that wrote the same change compare equal."""
+    return frozenset("".join(l.split()) for l in _diff_of(trial).splitlines()
+                     if l[:1] in "+-" and not l.startswith(("+++", "---")))
+
+
+def best_patch(d: dict[str, Any]) -> tuple[dict[str, Any] | None, int, int]:
+    """The patch to hand over, and K of N for the fixer revision it comes from.
+
+    The revision is the one whose trials verified most often (the newest, on a tie); the patch is
+    the one most of that revision's verified runs agreed on. A revision with no verified trial
+    can only be picked when none has one, so K of N always describes one revision."""
+    trials = d.get("fix_trials") or []
+    if not trials:
+        return None, 0, 0
+    by_rev: dict[int, list[dict[str, Any]]] = {}
+    for t in trials:
+        by_rev.setdefault(t.get("fixer_revision", 1), []).append(t)
+    rev = max(by_rev, key=lambda r: (sum(1 for t in by_rev[r] if t.get("verified")) / len(by_rev[r]), r))
+    same = by_rev[rev]
+    won = [t for t in same if t.get("verified")]
+    if not won:
+        return None, 0, len(same)
+    groups: dict[frozenset[str], list[dict[str, Any]]] = {}
+    for t in won:
+        groups.setdefault(_added_lines(t), []).append(t)
+    return max(groups.values(), key=len)[0], len(won), len(same)
 
 
 def headline(runs: list[dict[str, Any]], target: str, release: str) -> str:

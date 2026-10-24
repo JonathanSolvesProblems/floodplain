@@ -511,7 +511,7 @@ function patchBlock(r) {
     </details>` : "";
   const rounds = fx.rounds || [];
   const trialLine = rounds.length
-    ? `<div class="trials"><p>Every run is independent, so one green patch is a sample, not a behaviour.</p><ul>${rounds.map(roundLine).join("")}</ul><p>The attempts below are from ${fx.verified ? "the first run that passed" : "the last run"}.</p></div>`
+    ? `<div class="trials"><p>Every run is independent, so one green patch is a sample, not a behaviour.</p><ul>${rounds.map(roundLine).join("")}</ul><p>The attempts below are from ${fx.verified ? "a passing run of the round that passed most often, with the patch most of its passing runs agreed on" : "the last run"}.</p></div>`
     : "";
 
   const m = r.maintainer_fix;
