@@ -6,6 +6,7 @@ drafts a patch that the broken package's own test suite has to pass.
 
 - **Results page:** https://jonathansolvesproblems.github.io/floodplain/
 - **Demo video (3 min):** https://www.youtube.com/watch?v=EZ6w-OhZga4
+- **Devpost:** https://devpost.com/software/floodplain
 - **Write-up:** [Run before openai 3.0.0 shipped, it found the 3 packages the release broke](https://jonathanandrei.com/blog/floodplain-pre-release-dependent-tests-nebius-nemotron/)
 
 [![The openai 3.0.0 trace: a river from the release to its dependents, with the three that broke dyed green. Click to watch the demo.](site/og.png)](https://www.youtube.com/watch?v=EZ6w-OhZga4)
