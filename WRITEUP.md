@@ -17,51 +17,53 @@ Run before openai 3.0.0 shipped, it finds the 3 packages the release breaks, and
 ```markdown
 ## Inspiration
 
-Simon Willison maintains `llm`, a command-line tool for language models. On 12 August 2026, openai 3.0.0 swapped its HTTP library from `httpx` to `httpx2`. Six hours later a user opened [llm #1608](https://github.com/simonw/llm/issues/1608): fresh installs were broken, and the test suite was escaping its mocks to call the live API. Nine days later Simon shipped a pin below 3.
+On 12 August 2026, openai 3.0.0 swapped its HTTP library from `httpx` to `httpx2`. Six hours later a user opened [llm #1608](https://github.com/simonw/llm/issues/1608) on Simon Willison's `llm`, a command-line tool for language models: fresh installs were broken, and its test suite was escaping its mocks to call the live API. Nine days later Simon shipped a pin below 3.
 
-OpenAI's own tests passed. The break only showed up in other people's test suites, so nobody upstream could see it. openai published 48 releases in the ten weeks after 3.0.0, so this question comes up for its maintainers more than fifteen times a month. I wanted them to be able to answer it before publishing.
+OpenAI's own tests had passed. The break only showed up in other people's test suites, so nobody upstream could see it coming. openai published 48 releases in the ten weeks after 3.0.0, so its maintainers face this question more than fifteen times a month: which of the packages that depend on us does this release break? I built Floodplain so they can answer it before they publish.
+
+**Run before openai 3.0.0 shipped, Floodplain finds the same 3 packages the real release broke, down to the same tests, and Nemotron writes the one-line fix the llm maintainer shipped nine days later.**
+
+Demo (3 min): https://www.youtube.com/watch?v=EZ6w-OhZga4
 
 ## What it does
 
-Point Floodplain at a release, or at a wheel you have not published, and it:
+Point Floodplain at a release, or at a wheel you have not published yet, and it:
 
 1. finds the projects that depend on it among the top 15,000 on PyPI;
-2. runs each one's own test suite in Nebius Sandboxes, three forks of one checkout: the world a minute before the release, the same again to catch flaky tests, and a minute after (or the before world with your unpublished wheel offered as the newest version);
-3. re-runs every break, twice more in the same after fork and once in the before fork, and keeps only what reproduces;
-4. has NVIDIA Nemotron 3 Nano read the failing log and say why, quoting only lines that really are in it;
-5. hands each break to a Nemotron 3 Ultra agent that drafts a patch, then decides step by step what to do with it: read code, run a shell command or chosen tests in a fresh fork, revise, redraft, or submit. A patch counts only when the broken project's whole suite passes it in a further fork;
-6. writes the report into GitHub: an issue for each new release, or a comment on the release pull request.
+2. runs each one's own test suite on Nebius Token Factory Sandboxes, in three forks of one checkout: the world a minute before the release, the same again to catch flaky tests, and a minute after (or, for an unpublished wheel, the before world with the wheel offered as the newest version);
+3. re-runs every break twice more in the after fork and once in the before fork, and keeps only what reproduces ([`confirm_break`](https://github.com/JonathanSolvesProblems/floodplain/blob/master/src/floodplain/sandbox.py));
+4. has NVIDIA Nemotron 3 Nano read the failing log and say why; any quote that is not word for word in the log is dropped before anything is shown ([`triage.py`](https://github.com/JonathanSolvesProblems/floodplain/blob/master/src/floodplain/triage.py));
+5. hands each break to a Nemotron 3 Ultra agent ([`agent.py`](https://github.com/JonathanSolvesProblems/floodplain/blob/master/src/floodplain/agent.py)). It starts from a drafted patch, then chooses every step itself from what the last one returned: read or search the code, run chosen tests or a shell command in a fresh fork, edit, ask for a new draft, submit, or give up. A patch counts only when the broken project's whole suite passes it in a further fork; what the model says about its own patch never counts;
+6. writes the result into GitHub, where maintainers already work: an issue for each new release, or a comment on the release pull request. It never opens pull requests in other people's repositories; it hands over the patch.
 
-A daily GitHub Actions job runs it on every new openai release and keeps going between visits. It never opens pull requests in other people's repositories; it hands over the patch.
+It keeps going on its own. A daily GitHub Actions job checks PyPI for openai releases it has not seen, runs them, and opens the issue. Its first was openai 3.37.0, two days old: [issue #1](https://github.com/JonathanSolvesProblems/floodplain/issues/1) reports that none of the 21 working suites broke, and that one test which failed once, then passed twice on re-run, is a flaky test, not a break.
 
 ## What it found on openai 3.0.0
 
 ![The openai 3.0.0 trace: the release poured in upstream, and the three dependents it broke dyed green](https://jonathansolvesproblems.github.io/floodplain/og.png)
 
-Run before the release, with OpenAI's own 3.0.0 wheel as an unpublished file against the index a minute before the upload, it found the three packages the release broke, and all 31 dependents with working suites gave the same verdict as a replay of the real release, with the same tests broken:
+I gave it OpenAI's own 3.0.0 wheel as an unpublished file, against PyPI as it stood a minute before the upload. All 31 dependents with working suites gave the same verdict as a replay of the real release, with the same tests broken. Three broke:
 
-- `llm`: 110 of 1,069 tests
+- `llm`: 110 of its 1,069 passing tests
 - `openinference-instrumentation-agno`: all 92, lost to import errors
 - `vlmrun`: 3 of 231
 
-Each one was later pinned or patched by its own maintainers, 6, 9 and 19 days after the release. Nemotron's llm patch is the same pin Simon shipped nine days later. The final agent fixed agno and vlmrun in 5 of 5 runs each.
-
-Its first real watch was openai 3.37.0, two days old: none of the working suites broke. One test looked broken, re-ran clean twice in the same fork, and the report says so instead of counting it.
+Each was later pinned or patched by its own maintainers, 6, 9 and 19 days after the release. Nemotron's verified llm patch is the same pin Simon shipped nine days later, and the final agent fixed agno and vlmrun in 5 of 5 runs each. The full report, with all three patches, is [issue #2](https://github.com/JonathanSolvesProblems/floodplain/issues/2), and every break, log and patch is on the [results page](https://jonathansolvesproblems.github.io/floodplain/).
 
 ## How I built it
 
-- **Nebius Token Factory Sandboxes** run every fork. Images are content-addressed, so one checkout becomes three identical starting points, and every test run, shell command and patch the agent tries happens in a further fork.
-- **NVIDIA Nemotron 3 on Token Factory**, all three tiers: Nano for triage, Ultra for the drafting call and the agent, through native tool calling. Earlier fixer revisions used Super and Ultra.
-- **Tavily** search and extract for migration guidance, with two guards: only pages dated before that project's maintainers acted, and nothing from or naming the project's own repository. Without them, Tavily's top result was llm's own issue, where the fix is discussed. Every response is committed, so a rerun needs no key.
-- **uv** resolves each fork with the index frozen by upload time, and offers an unpublished wheel through `--find-links` so it resolves exactly as a new release would.
-- **GitHub**: the `floodplain` command posts through the GitHub CLI; a scheduled workflow is the watcher.
-- A static results page (vanilla JavaScript and SVG, on GitHub Pages) drawn as a hydrogeological dye trace: the release is poured in upstream, and each project that broke turns its own stretch of the river green.
+- **Nebius Token Factory Sandboxes** run every fork, about 1,000 sandbox runs over 146 real packages. Images are content-addressed, so one checkout becomes three identical starting points, and every test run, shell command and patch the agent tries happens in a further fork. The pre-release check uploads the unpublished wheel into a fork with `files=`.
+- **NVIDIA Nemotron 3 on Token Factory**, all three tiers behind one OpenAI-compatible API: Nano for triage, Ultra for the drafting call and the agent through native tool calling, and Super in the earlier fixer revisions.
+- **Tavily** search and extract, called at runtime for each break, for the upstream's migration guidance. Two guards stop it handing Nemotron the answer: only pages dated before that project's maintainers acted, and nothing from or naming the project's own repository. Without them, Tavily's top result for llm was llm's own issue, where the fix is discussed. Responses are cached in the repo, so a rerun of these results needs no key.
+- **uv** resolves each fork with the index frozen at the release's upload time, and offers an unpublished wheel through `--find-links`, so it resolves exactly as a new release would.
+- **GitHub**: the `floodplain` command posts through the GitHub CLI, and a scheduled workflow is the watcher.
+- A static results page (vanilla JavaScript and SVG, on GitHub Pages) drawn as a hydrogeological dye trace: the release is poured in upstream, and each project it broke turns its own stretch of the river green.
 
 ## Challenges I ran into
 
-Most of the work was refusing results that looked good: a fork that returned nothing reported as "nothing broke"; a patch that fixed nothing in a suite that could not import, reported "verified"; 11 dependents counted as passing although 3.0.0 never reached them (the headline went from 3 of 31 to 3 of 20); a first pre-release mode that hid two of the three breaks; and a flaky test on 3.37.0 that would have been my first published "break".
+Most of the work was refusing results that looked good: a fork that returned nothing, reported as "nothing broke"; a patch that fixed nothing in a suite that could not import, reported "verified"; 11 dependents counted as passing although 3.0.0 never reached them, which took the headline from 3 of 31 to 3 of 20; a first pre-release mode that hid two of the three breaks; and a flaky test on 3.37.0 that would have been my first published "break".
 
-The agent took eight revisions, every one measured on five runs per package and kept. As an open-ended investigator, Nemotron explored llm's 3,000-line plugin for 40 steps and never submitted; given a first draft to work from, it fixed agno and vlmrun every time. On llm the final agent still does not, where a single drafting call fixed it 9 times in 10, and the page says so.
+The agent took eight revisions, each measured on five runs per package, all kept in the repository. As an open-ended investigator, Nemotron explored llm's 3,000-line plugin until its step budget ran out and never submitted. Given a first draft to work from, it fixed agno and vlmrun every time. On llm the final agent still does not, where a single drafting call fixed it in 9 of 10 runs, and the page says so.
 
 ## Accomplishments that I'm proud of
 
@@ -69,11 +71,13 @@ The pre-release check reproduced the real release exactly, test for test, from p
 
 ## What I learned
 
-Nemotron is an excellent patch writer and a poor judge of when to stop investigating. One verified patch is a sample, not a behaviour, so every fix is reported as K of N runs per fixer revision. And the control fork is not enough on its own: a test can be flaky only after the release.
+Nemotron is an excellent patch writer and a poor judge of when to stop investigating. One verified patch is a sample, not a behaviour, so every fix is reported as runs passed out of runs tried, per fixer revision. And the flaky-test control fork is not enough on its own: a test can turn flaky only after the release, which is why every break is re-run before it counts.
 
 ## What's next for Floodplain
 
-Offer `floodplain check` as a step maintainers add to their release workflow, and run the watcher for more packages than openai.
+Offer `floodplain check` as a step maintainers add to their release workflow, so the report lands on the release pull request before anything is published, and run the watcher for more packages than openai.
+
+More detail: [write-up](https://jonathanandrei.com/blog/floodplain-pre-release-dependent-tests-nebius-nemotron/) and [code](https://github.com/JonathanSolvesProblems/floodplain).
 ```
 
 ## Built with
