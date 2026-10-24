@@ -23,8 +23,8 @@ against https://jonathansolvesproblems.github.io/floodplain/ at 1280 wide.
 > quotes is checked against the real log. Then Nemotron writes the patch, and llm's own test suite
 > judges it in a further fork. It's the same pin Simon shipped nine days later. For the other two
 > breaks, a Nemotron 3 Ultra agent takes over through native tool calling: it reads the code, runs
-> the failing tests in fresh sandboxes, revises, and decides when to submit. It fixed both, five
-> runs out of five. On llm it kept investigating instead of submitting, and the page says so,
+> the failing tests in a fresh sandbox, and decides for itself when the patch is ready to submit.
+> It fixed both, five runs out of five. On llm it kept investigating instead of submitting, and the page says so,
 > because every fix is reported as runs passed out of runs tried, not one lucky sample. And it
 > keeps going. Every day a GitHub Action checks for a new openai release. Its first was 3.37.0,
 > where nothing broke and one flaky test was caught and set aside instead of reported. Everything
@@ -33,25 +33,65 @@ against https://jonathansolvesproblems.github.io/floodplain/ at 1280 wide.
 
 ## Shots, in order
 
-1. "On the twelfth of August": [llm #1608](https://github.com/simonw/llm/issues/1608), then the
-   [0.32.1 release](https://github.com/simonw/llm/releases/tag/0.32.1) with its one changed line.
-2. "So I built Floodplain": the overview page, headline and river.
-3. "three forks of the same checkout": scroll the river slowly; the three green stretches.
-4. "same verdict for all 31": the pre-release sentence under the river.
-5. "Here's llm": click llm; the three sample columns, the test grid with the 110, the triage with
-   its quote highlighted in the log.
-6. "Then Nemotron writes the patch": the diff beside "What the maintainer shipped". Hold three
-   seconds on the caption "It is the same pin the maintainer shipped."
-7. "a Nemotron 3 Ultra agent": open openinference-instrumentation-agno; the agent's step list
-   ending in a verified submit; the round line "revision 8 ... 5 of 5".
-8. "On llm it kept investigating": back on llm, the round lines for revisions 3 to 8.
-9. "Every day a GitHub Action": the "Still watching" section, then
-   [issue #1](https://github.com/JonathanSolvesProblems/floodplain/issues/1).
-10. Final shot, "an issue in GitHub": [issue #2](https://github.com/JonathanSolvesProblems/floodplain/issues/2),
-    scrolled to the three verified patches. End on it.
+Each shot is on screen while the words beside it are spoken. Every figure spoken gets its
+source as a lower third at that moment; the same sources are listed in the README.
+
+1. Title card: headshot, Floodplain, jonathansolvesproblems.com.
+2. "openai 3.0.0 swapped its HTTP library": the
+   [openai-python v3.0.0 release notes](https://github.com/openai/openai-python/releases/tag/v3.0.0),
+   "HTTPX2 is now the default HTTP client, and httpx is no longer installed automatically".
+3. "Six hours later, a user told Simon Willison": [llm #1608](https://github.com/simonw/llm/issues/1608),
+   opened by aborruso.
+4. "nine days to ship a fix ... other people's test suites": the
+   [0.32.1 release](https://github.com/simonw/llm/releases/tag/0.32.1), "pins LLM to use OpenAI
+   Python versions less than v3.0.0".
+5. "about fifteen releases a month": the [PyPI release history](https://pypi.org/project/openai/#history).
+6. "So I built Floodplain": the overview, headline and river, the dye arriving.
+7. "three forks of the same checkout ... comparison fair": "How a receptor is read", with the
+   one-checkout-three-forks diagram.
+8. "146 real packages": "Every receptor I hung", the strip of 146 packets.
+9. "Of the 20 working suites ... 3 broke ... re-run before it counts": the river again.
+10. "Then I gave it OpenAI's own wheel ... before publishing": the pre-release paragraph under
+    the river, "All 31 working suites gave the same verdict as the replay".
+11. "Here's llm: 1,069 ... 110": the llm page, the forks line and the test grid.
+12. "Nemotron 3 Nano reads the log": "Why it broke", the quote highlighted in the log.
+13. "Then Nemotron writes the patch ... the same pin Simon shipped": the diff beside "What the
+    maintainer shipped" and its caption "It is the same pin the maintainer shipped."
+14. "a Nemotron 3 Ultra agent ... ready to submit": openinference-instrumentation-agno, the
+    agent's steps scrolling to the verified submit.
+15. "five runs out of five": the agno rounds, "revision 8 ... 5 of 5 runs passed the suite".
+16. "On llm it kept investigating": the llm rounds, revisions 3 to 8.
+17. "Every day a GitHub Action": "Still watching".
+18. "Its first was 3.37.0": [issue #1](https://github.com/JonathanSolvesProblems/floodplain/issues/1),
+    with its "Not counted" line.
+19. "an issue in GitHub, with the evidence and the patches": [issue #2](https://github.com/JonathanSolvesProblems/floodplain/issues/2),
+    scrolling through the three verified diffs. End on it.
+20. End card: the headshot again, with the repository and the live page.
+
+## How the video is made
+
+The scripts are in [scripts/video/](scripts/video/) and run from the repository root; the
+working files go in `broll/`, which is ignored by git.
+
+1. `transcribe_check.py` transcribes the take (faster-whisper small, word timestamps) so the
+   spoken span and every number can be checked against the script above.
+2. `capture_site.py` records the site shots frame by frame at a real 1280x720 viewport and 1.5x
+   device scale (scroll position and the river's animation set per frame, one screenshot each,
+   assembled at 25 fps). `capture_broll.py` records the GitHub and PyPI pages with Playwright's
+   video recorder at a 1920x1080 viewport zoomed 1.5x.
+3. `make_cards.py` draws the title and end cards in the site's own palette and faces.
+4. `build_plan.py` cuts the beats at the words where they start, assigns each its clip and the
+   source lower third from `broll/_sources.json`, repairs the caption tokens Whisper mangles,
+   and writes `demo.edit-plan.json`; `vidkit assemble` renders it.
+5. `fix_audio.py` puts an inaudible floor under every stretch of exact digital silence and
+   remuxes once, and `validate_video.py` checks the finished file: length, loudness, black
+   frames, silence, AAC packet timing, and one frame per beat.
 
 ## Recording notes
 
+- The take of 24 October ran 3:14 at about 124 words a minute, 14 seconds over the limit once
+  the cards are counted. The video plays it at 1.12x with the pitch kept, which lands at 2:59.
+  Next time, read at about 150 words a minute and the video needs no speed-up.
 - Say "a user told him", not that Simon found it: the issue was opened by @aborruso.
 - Say "the same pin Simon shipped": four of revision 1's five verified patches were that pin, and
   the page shows one of them.

@@ -11,3 +11,11 @@ build/
 .DS_Store
 tmp/
 data/*.html
+
+# demo video working files
+broll/
+_videos/
+*.webm
+demo.mp4
+*.edit-plan.json
+demo-*.mp4
