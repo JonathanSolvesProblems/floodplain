@@ -399,7 +399,7 @@ function renderReceptor(r) {
       <div class="cells" role="img" aria-label="${n(cells.broke)} broken tests across ${n(cells.files_hit)} of ${n(cells.files)} test files.">
         ${cells.hit.map((h) => fileRow(h.file, h.codes)).join("")}
       </div>
-      ${cells.quiet.files ? `<p class="file__rest">The other ${numberWord(cells.quiet.files)} test ${cells.quiet.files === 1 ? "file" : "files"}: all <span class="num">${n(cells.quiet.codes.replace(/f/g, "").length)}</span> tests still pass.</p>` : ""}
+      ${cells.quiet.files ? `<p class="file__rest">The other ${numberWord(cells.quiet.files)} test ${cells.quiet.files === 1 ? "file" : "files"}: ${cells.quiet.codes.replace(/f/g, "").length ? `all <span class="num">${n(cells.quiet.codes.replace(/f/g, "").length)}</span> tests still pass` : "every test there was already failing before the release"}.</p>` : ""}
       <p class="cells__key"><span class="k k--b"></span>broke after the release <span class="k k--p"></span>still passes ${cells.already_failing ? `<span class="k k--f"></span>was already failing before` : ""}</p>
       <p class="pins">${pins(b.resolved, a.resolved)}</p>
 
@@ -522,7 +522,7 @@ function patchBlock(r) {
         <h3 id="theirs-title">What the maintainer shipped</h3>
         <p class="theirs__line">${m.lines.map(esc).join("<br>")}</p>
         <p class="theirs__when">In <a href="${esc(m.url)}">${esc(m.repo)} ${esc(m.tag)}</a>, ${hoursToWords(m.hours_after_release)} after the release.</p>
-        ${m.followup ? `<p class="theirs__then">That was the stopgap. The next day, <a href="${esc(m.followup.url)}">${esc(m.followup.tag)}</a> did the real migration, moving to <code>${esc(m.followup.lines.join(" "))}</code>. Floodplain did not write that one.</p>` : ""}
+        ${m.followup ? `<p class="theirs__then">That was the stopgap. The next day, <a href="${esc(m.followup.url)}">${esc(m.followup.tag)}</a> did the real migration, moving to <code>${esc(m.followup.lines.map((l) => l.replace(/,\s*$/, "")).join(", "))}</code>. Floodplain did not write that one.</p>` : ""}
       </aside>`;
   } else if (m && m.kind === "pr") {
     theirs = `

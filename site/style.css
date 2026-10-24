@@ -133,7 +133,7 @@ main { display: block; }
 .reach .inject-label { font: 600 15px var(--f-sans); fill: var(--ink); }
 .reach .inject-sub { font: 400 13px var(--f-sans); fill: var(--muted); }
 .reach .silt { fill: var(--silt); }
-.reach__note { margin-top: 0.4rem; color: var(--muted); font-size: var(--s0); max-width: 52rem; }
+.reach__note { margin-top: 1.4rem; color: var(--muted); font-size: var(--s0); max-width: 52rem; }
 
 .rcp { cursor: default; }
 .rcp .cord { stroke: var(--faint); stroke-width: 1.2; }
