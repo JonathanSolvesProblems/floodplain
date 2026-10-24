@@ -8,9 +8,9 @@ rather than a general impression. Dates are October 2026.
 
 | Product | What for |
 |---|---|
-| Token Factory inference | Nemotron 3 Nano triages a failing test log; Super drafts the patch; Ultra is the escalation when Super's patch does not pass |
-| Token Factory Sandboxes | One checkout per dependent, forked three ways, each running a full `pytest` suite |
-| Nemotron 3 Nano / Super / Ultra | The three tiers above, chosen per task cost |
+| Token Factory inference | Nemotron 3 Nano triages a failing test log; Ultra drafts the patch and drives the fixer agent through native tool calling; Super and Ultra wrote the patches in the first two fixer revisions |
+| Token Factory Sandboxes | One checkout per dependent, forked three ways, each running a full `pytest` suite; every test run, shell command and patch the agent tries runs in a further fork |
+| Nemotron 3 Nano / Super / Ultra | The three tiers above, chosen per task |
 
 ## Onboarding: zero to hello world
 
@@ -103,14 +103,33 @@ Two things would help: note the reasoning-token behaviour in the model card on t
 page, and have the Nano response include `completion_tokens_details.reasoning_tokens` the way
 Super already does, so the cost is visible in the usage object on both.
 
-The scale of it, from the fix loop (86 Super and Ultra calls across 30 fix trials): 541,660 of
+The scale of it, from the first two fixer revisions (86 Super and Ultra calls across 30 fix trials): 541,660 of
 566,013 completion tokens were reasoning, 95.7%. At a 14,000-token budget, 4 of Ultra's first 12
 replies were still cut off mid-JSON, so the reasoning ate the whole budget before the answer
 started. One reply came back with empty `content` even with that headroom. A way to cap
 reasoning separately from the answer (a `reasoning_budget`, or `max_completion_tokens` that
 excludes reasoning) would make the budget predictable.
 
-### 6. A Token Factory outage the status page did not show
+### 6. Nemotron 3 Ultra as a tool-calling agent investigates and does not stop
+
+Native tool calling worked first time through the OpenAI-compatible API, with nine tools (list
+files, read, search, edit, run chosen tests in a sandbox fork, run a shell command, redraft,
+submit, give up). The problem is deciding when it is done.
+
+On `llm`, a 3,000-line plugin broken by openai 3.0.0, I ran the agent 30 times across six prompt
+and harness revisions, five runs each. In none of the 30 did it call `submit` or `give_up`. Every
+run spent its whole step budget reading files and running tests, including in the final revision,
+which handed it a ready patch to start from and, every 12 steps, asked it to name the cause in two
+sentences and submit the smallest fix. A single Ultra drafting call, with no tools, fixed the same break in 9 of 10 runs. On the two
+smaller breaks the same final agent submitted and passed in 5 of 5 runs each, in about 16 and 29
+steps per run.
+
+What would help: guidance in the model card on getting Nemotron 3 to commit in a tool loop (a
+recommended system prompt pattern, or whether forcing a named tool through `tool_choice` is
+supported on Token Factory), and a note on how the reasoning budget interacts with long tool
+histories. Every run is committed in the repository, with each step the agent took.
+
+### 7. A Token Factory outage the status page did not show
 
 On 24 October, for about an hour, `api.tokenfactory.nebius.com` answered every request with an
 nginx `503 Service Temporarily Unavailable`, including `GET /v1/models` with no key at all, so it
@@ -121,7 +140,7 @@ status page, and return a JSON error body with a retry hint instead of the bare 
 client can tell an outage from a bad request. I now retry 5xx with backoff for up to five
 minutes and record a trial that still fails as failed rather than dropping it.
 
-### 7. Per-run `cost` during the free beta
+### 8. Per-run `cost` during the free beta
 
 Each run result carries a `cost` field, and my `llm` experiment reported about 2.67 across its
 forks. The Sandboxes page says runs do not consume credits during beta, so I assume this is an
