@@ -21,7 +21,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PROSE_FILES = ["README.md", "WRITEUP.md", "DEMO.md", "out/openai-3.0.0/REPORT.md",
-               "out/openai-3.0.0/MIGRATION.md"]
+               "out/openai-3.0.0/MIGRATION.md", "broll/gallery/captions.md"]
 
 # Numbers that were true at some point and must never reappear once the data moves on.
 RETIRED: list[tuple[str, str]] = [
