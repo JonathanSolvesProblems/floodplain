@@ -270,6 +270,30 @@ disagrees with [stats.json](data/openai-3.0.0/stats.json).
   resolved on release day, not what any one user's lockfile held.
 - One release so far. The method is not specific to openai, but I have only measured it there.
 
+## Sources
+
+Every figure spoken in the demo video, and where it comes from:
+
+- openai 3.0.0 was uploaded to PyPI on 12 August 2026 at 01:55 UTC, with httpx2 as the default
+  HTTP client and httpx no longer installed:
+  [openai-python v3.0.0](https://github.com/openai/openai-python/releases/tag/v3.0.0),
+  [PyPI](https://pypi.org/project/openai/3.0.0/).
+- Fresh installs of llm were reported broken 5.9 hours later:
+  [simonw/llm #1608](https://github.com/simonw/llm/issues/1608), opened by aborruso on
+  12 August 2026 at 07:49 UTC.
+- The fix, a pin below 3, shipped 9 days and 15 hours after the upload:
+  [llm 0.32.1](https://github.com/simonw/llm/releases/tag/0.32.1), 21 August 2026 at 17:16 UTC.
+- openai's release rate: 48 releases on PyPI between 3.0.0 (12 August) and 3.37.0
+  (22 October 2026), 20 a month, or 38 minor versions, 16 a month:
+  [PyPI release history](https://pypi.org/project/openai/#history). The video says "about
+  fifteen a month".
+- The 146 dependents run, the 20 working suites the release reached, the 3 that broke, the 31
+  of 31 pre-release verdicts matching the replay, llm's 110 of 1,069, and every fix trial by
+  revision: [data/openai-3.0.0/stats.json](data/openai-3.0.0/stats.json), built by
+  `scripts/stats.py` from the experiment files beside it.
+- The first watch, openai 3.37.0, with one flaky test set aside:
+  [issue #1](https://github.com/JonathanSolvesProblems/floodplain/issues/1).
+
 ## Licence
 
 MIT. Built by Jonathan Andrei for the Nebius x NVIDIA Global AI Hackathon.
