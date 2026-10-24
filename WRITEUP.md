@@ -279,6 +279,36 @@ The honest caveat is that the Sandboxes 500s made a 157-way fan-out feel risky u
 every call in retries. If the SDK retried by default I would have no reservation.
 ````
 
+## Which model(s) did you use, and why did you choose that size/variant?
+
+```
+Three Nemotron 3 tiers on Nebius Token Factory, each where its size pays off.
+
+Nemotron 3 Nano (30B-A3B) triages every break: it reads a failing pytest log and says why, quoting the lines it relies on. That runs once per broken dependent across 146 packages, so it needs to be fast and cheap, and the job is reading, not writing code. Every quote is checked word for word against the real log, so a small model is safe here.
+
+Nemotron 3 Ultra (550B-A55B) writes the patches and drives the fixer agent through native tool calling. I started with Super (120B-A12B) and escalated to Ultra, then measured both on the same breaks: across 82 patch attempts judged by each project's own test suite, Ultra's passed 13 of 27 (48%) and Super's 12 of 55 (22%), and 21 of Super's edits could not even be applied because the text it meant to replace was not in the file. A patch has to apply exactly, so the final fixer uses Ultra throughout.
+```
+
+## How would you rate Nemotron's output quality for your use case? (1 = Poor, 10 = Excellent)
+
+```
+7 out of 10.
+
+What worked: as a patch writer it is excellent. Given the failing log, the dependency files and the code around the failing symbol, one Ultra call fixed llm in 9 of 10 runs, and four of those patches were the exact pin llm's maintainer shipped nine days after the release. With a first draft to work from, the agent fixed the other two breaks in 5 of 5 runs each, in 8 to 35 steps. Nano's triage was accurate and grounded; when it tried to cite a line that was not in the log, the check caught it. Native tool calls were well-formed throughout.
+
+What fell short: knowing when to stop. As an open-ended investigator of a large codebase (llm's 3,000-line plugin), the agent never submitted in 30 runs across six revisions; it kept reading files and running tests until the step budget ran out, even when handed a working draft and asked every 12 steps to submit. Reasoning also takes most of the budget: 95.7% of completion tokens were reasoning, and a small max_tokens returns empty content with no error.
+```
+
+## Did you fine-tune, prompt-engineer, or use Nemotron out of the box? What was your approach?
+
+```
+Out of the box, no fine-tuning, with prompt and harness engineering measured on real breaks.
+
+Every model output is checked by something outside the model: Nano's quotes against the log, and every patch by the broken project's own full test suite in a fresh Nebius Sandboxes fork. What the model says about its own patch never counts.
+
+The fixer went through eight revisions, each measured on five independent runs per package and all kept in the repository. Revisions 1 and 2 were a fixed sequence (context, draft, apply, verify, escalate Super to Ultra). From revision 3 Ultra is an agent with nine tools (list, read, search, edit, run chosen tests in a sandbox, run a shell command, redraft, submit, give up). The harness changes were driven by the failures: a larger step budget, a repeat guard, history compaction, a checkpoint every 12 steps, and in revision 8 a first draft written before the loop starts so the agent decides what to do with a concrete patch. That change took agno from 1 of 5 to 5 of 5. Tavily search, with date and repository guards, supplies migration guidance without leaking the maintainers' fix.
+```
+
 ## Track
 
 ```
