@@ -117,10 +117,10 @@ files, read, search, edit, run chosen tests in a sandbox fork, run a shell comma
 submit, give up). The problem is deciding when it is done.
 
 On `llm`, a 3,000-line plugin broken by openai 3.0.0, I ran the agent 30 times across six prompt
-and harness revisions, five runs each. In none of the 30 did it call `submit` or `give_up`. Every
+and harness revisions, five runs each. In none of the 30, given the migration guidance, did it call `submit` or `give_up`. Every
 run spent its whole step budget reading files and running tests, including in the final revision,
 which handed it a ready patch to start from and, every 12 steps, asked it to name the cause in two
-sentences and submit the smallest fix. The scripted fixer, writing whole patches with no tools (Super first, then Ultra), fixed the same break in 9 of 10 runs. On the two
+sentences and submit the smallest fix. With the guidance withheld (the ablation: five further runs of the final revision) it submitted twice and both patches passed, each passing an explicit `httpx` client to the SDK; five runs cannot separate that from chance. The scripted fixer, writing whole patches with no tools (Super first, then Ultra), fixed the same break in 9 of 10 runs. On the two
 smaller breaks the same final agent submitted and passed in 5 of 5 runs each, in about 16 and 29
 steps per run.
 

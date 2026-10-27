@@ -43,20 +43,29 @@ def _added_lines(trial: dict[str, Any]) -> frozenset[str]:
                      if l[:1] in "+-" and not l.startswith(("+++", "---")))
 
 
-def best_patch(d: dict[str, Any]) -> tuple[dict[str, Any] | None, int, int]:
-    """The patch to hand over, and K of N for the fixer revision it comes from.
+def round_key(trial: dict[str, Any], fallback: dict[str, Any] | None = None) -> tuple[int, str]:
+    """(fixer revision, guidance source) of a trial. Rounds are never pooled: a revision run with
+    Tavily's pages and the same revision run with no guidance are two rounds."""
+    g = trial.get("guidance") or fallback or {}
+    src = (g.get("source") or "none").split(" ")[0]
+    return trial.get("fixer_revision", 1), "tavily" if src.startswith("tavily") else src
 
-    The revision is the one whose trials verified most often (the newest, on a tie); the patch is
-    the one most of that revision's verified runs agreed on. A revision with no verified trial
-    can only be picked when none has one, so K of N always describes one revision."""
+
+def best_patch(d: dict[str, Any]) -> tuple[dict[str, Any] | None, int, int]:
+    """The patch to hand over, and K of N for the round it comes from.
+
+    The round (one fixer revision with one guidance source) is the one whose trials verified most
+    often, the newest on a tie; the patch is the one most of that round's verified runs agreed
+    on. A round with no verified trial can only be picked when none has one, so K of N always
+    describes one round."""
     trials = d.get("fix_trials") or []
     if not trials:
         return None, 0, 0
-    by_rev: dict[int, list[dict[str, Any]]] = {}
+    by_round: dict[tuple[int, str], list[dict[str, Any]]] = {}
     for t in trials:
-        by_rev.setdefault(t.get("fixer_revision", 1), []).append(t)
-    rev = max(by_rev, key=lambda r: (sum(1 for t in by_rev[r] if t.get("verified")) / len(by_rev[r]), r))
-    same = by_rev[rev]
+        by_round.setdefault(round_key(t, d.get("guidance")), []).append(t)
+    rev = max(by_round, key=lambda r: (sum(1 for t in by_round[r] if t.get("verified")) / len(by_round[r]), r[0]))
+    same = by_round[rev]
     won = [t for t in same if t.get("verified")]
     if not won:
         return None, 0, len(same)

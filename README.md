@@ -109,14 +109,22 @@ five independent runs, and every revision is kept, including the ones that did w
 | 6 | a drafting tool (never called) | <!-- claim:fix_k.llm.r6-tavily -->0 of 5 | <!-- claim:fix_k.openinference-instrumentation-agno.r6-local-fallback -->3 of 5 | <!-- claim:fix_k.vlmrun.r6-tavily -->3 of 5 |
 | 7 | the drafting tool named, shell use capped | <!-- claim:fix_k.llm.r7-tavily -->0 of 5 | <!-- claim:fix_k.openinference-instrumentation-agno.r7-local-fallback -->1 of 5 | not run |
 | 8 | a first draft written before the loop; the agent decides what to do with it | <!-- claim:fix_k.llm.r8-tavily -->0 of 5 | <!-- claim:fix_k.openinference-instrumentation-agno.r8-local-fallback -->5 of 5 | <!-- claim:fix_k.vlmrun.r8-tavily -->5 of 5 |
+| 8, ablation | the same fixer with every migration guidance withheld | <!-- claim:fix_k.llm.r8-none -->2 of 5 | <!-- claim:fix_k.openinference-instrumentation-agno.r8-none -->5 of 5 | <!-- claim:fix_k.vlmrun.r8-none -->4 of 5 |
 
-Revision 8 is the one that ships. It fixes agno and vlmrun every time, in 8 to 35 steps:
-it reads the draft, runs the failing tests, revises when they say so, and submits. On llm it
-never fixes anything. Given a 3,000-line plugin, the agent investigates the openai package
-instead of submitting, every time, while the scripted fixer writing whole patches from the right
-context (Super, then Ultra), as revisions 1 and 2 did, fixed llm in 9 of 10 runs. That is the clearest thing I learned
-about Nemotron here: as a patch writer it is excellent, and as an open-ended investigator of a
-large codebase it does not know when to stop.
+Revision 8 is the one that ships. Given the migration guidance, it fixes agno and vlmrun every
+time, in 8 to 35 steps: it reads the draft, runs the failing tests, revises when they say so, and
+submits. On llm it never fixes anything: handed a 3,000-line plugin, the agent investigates the
+openai package instead of submitting, every time, while the scripted fixer writing whole patches
+from the right context (Super, then Ultra), as revisions 1 and 2 did, fixed llm in 9 of 10 runs.
+
+The last row is the ablation: the same revision with the migration guidance withheld, run on 27
+October so that the comparison exists as data rather than as an assumption. With it withheld,
+agno stayed at 5 of 5, vlmrun went from 5 of 5 to 4 of 5, and llm from 0 of 5 to 2 of 5. Both llm
+patches pass an explicit `httpx` client to the SDK, the migration the scripted fixer also found.
+Five runs cannot tell a change that size from chance, so it is reported as measured and not as a
+cause. What holds across every row is the clearest thing I learned about Nemotron here: as a
+patch writer it is excellent, and as an open-ended investigator of a large codebase it does not
+know when to stop.
 
 ![The steps one revision 8 run chose on openinference-instrumentation-agno, from the first draft to a verified submit](docs/images/agent-steps.jpg)
 

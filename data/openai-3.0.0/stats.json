@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T18:07:22+00:00",
+  "generated_at": "2026-10-27T13:16:56+00:00",
   "target": "openai",
   "release": "3.0.0",
   "release_uploaded_at": "2026-08-12T01:55:48+00:00",
@@ -140,6 +140,26 @@
           "k": 0,
           "n": 5,
           "verified_diffs": []
+        },
+        "r8-none": {
+          "k": 2,
+          "n": 5,
+          "verified_diffs": [
+            [
+              "+        # Use legacy HTTPX client to maintain compatibility with pytest-httpx mocks",
+              "+        # openai 3.0.0+ defaults to HTTPX2 which breaks existing test mocks",
+              "+        if async_:",
+              "+            kwargs[\"http_client\"] = httpx.AsyncClient()",
+              "+        else:",
+              "+            kwargs[\"http_client\"] = httpx.Client()"
+            ],
+            [
+              "+        else:",
+              "+            # Use legacy HTTPX client (httpx) to maintain compatibility with test mocks",
+              "+            kwargs[\"http_client\"] = httpx.AsyncClient() if async_ else httpx.Client()",
+              "+    \"httpx\","
+            ]
+          ]
         }
       },
       "openinference-instrumentation-agno": {
@@ -293,6 +313,33 @@
               "+    \"ddgs\","
             ]
           ]
+        },
+        "r8-none": {
+          "k": 5,
+          "n": 5,
+          "verified_diffs": [
+            [
+              "+  \"openai<3.0.0\","
+            ],
+            [
+              "+  \"openai<3.0.0\",",
+              "+openai<3.0.0"
+            ],
+            [
+              "+  \"openai<3.0.0\","
+            ],
+            [
+              "+    \"agno>=2.7.2\",",
+              "+    \"opentelemetry-sdk\",",
+              "+    \"pytest-recording\",",
+              "+    \"pytest-asyncio\",",
+              "+    \"brotli\",",
+              "+    \"openai<3.0.0\","
+            ],
+            [
+              "+  \"openai<3.0.0\","
+            ]
+          ]
         }
       },
       "vlmrun": {
@@ -442,6 +489,27 @@
             ],
             [
               "+openai = [\"openai>=1.0.0\", \"httpx\"]",
+              "+httpx"
+            ],
+            [
+              "+test = [\"pytest\", \"openai\", \"pre-commit\", \"httpx\"]",
+              "+openai = [\"openai>=1.0.0\", \"httpx\"]"
+            ]
+          ]
+        },
+        "r8-none": {
+          "k": 4,
+          "n": 5,
+          "verified_diffs": [
+            [
+              "+test = [\"pytest\", \"openai\", \"pre-commit\", \"httpx\"]",
+              "+openai = [\"openai>=1.0.0\", \"httpx\"]"
+            ],
+            [
+              "+test = [\"pytest\", \"openai\", \"pre-commit\", \"httpx\"]",
+              "+openai = [\"openai>=1.0.0\", \"httpx\"]"
+            ],
+            [
               "+httpx"
             ],
             [

@@ -25,7 +25,7 @@ while the gallery is unpublished, PyPI, and this repo's committed results.
 
 ## 4. The loop [rule 103]
 - "At step X the model chooses between A, B and C, based on what it just observed": after one Nemotron 3 Ultra call drafts a patch, the agent (src/floodplain/agent.py) chooses at every step between reading a file, searching, running a shell command or a chosen subset of tests in a fresh sandbox fork, editing, asking for a fresh draft, submitting for full verification, or giving up, based on the last tool result. A rejected submission returns the judge's reasons and the agent decides what to try next. Code enforces only the step budget, a repeat guard and the verification gate.
-- Measured, per revision, 5 runs each (data/openai-3.0.0/stats.json): revision 8 verified agno 5 of 5 and vlmrun 5 of 5 and llm 0 of 5; on llm the agent investigates instead of submitting, where the scripted fixer verified 9 of 10. Stated in the README and on the page.
+- Measured, per revision, 5 runs each (data/openai-3.0.0/stats.json): revision 8 verified agno 5 of 5 and vlmrun 5 of 5 and llm 0 of 5; on llm the agent investigates instead of submitting, where the scripted fixer verified 9 of 10. The ablation (2026-10-27, guidance withheld): agno 5 of 5, vlmrun 4 of 5, llm 2 of 5. Stated in the README and on the page.
 - RED: was RED (code fixed the sequence). Fixed: the agent loop, revisions 3 to 8, revision 8 ships.
 
 ## 5. Where the result lands [rules 4, 27, 33, 101, 103]
@@ -38,6 +38,7 @@ while the gallery is unpublished, PyPI, and this repo's committed results.
 - Who grades it, that I did not build and cannot influence: the dependents' own test suites, and what their maintainers later shipped (llm 0.32.1, Arize PR #3574, vlmrun PR #215), recorded in maintainer_fixes.json.
 - The sponsor-model call that produces it: the breaks come from Nebius Sandboxes forks; the patches from Nemotron 3 Super and Ultra on Token Factory; the triage from Nemotron 3 Nano.
 - Can it be collected (would a busy stranger answer this in one sentence): yes, it is all public: PyPI, GitHub, the suites themselves.
+- Baseline named in the brief: none. The rules page (fetched 2026-10-27) sets no comparison; the track text is "agents that write, run, and test code in Token Factory" and the four equally weighted criteria are Technological Implementation, Design, Potential Impact and Quality of the Idea. The headline is graded against what actually happened (the real release's breaks, confirmed by re-run, and the fixes the maintainers shipped), never against a configuration of my own. Result files: data/openai-3.0.0/stats.json (headline, the pre-release check against the replay, fix trials by round) and data/openai-3.0.0/maintainer_fixes.json.
 - If the system beats an official record, that sentence, written as a win: "Run before the release, Floodplain finds the three breaks users hit, and Nemotron writes the one-line fix the llm maintainer shipped nine days later."
 - RED: no.
 
@@ -46,7 +47,7 @@ while the gallery is unpublished, PyPI, and this repo's committed results.
 - Every service and bonus item the brief lists, with my planned use beside each: Token Factory inference: Nemotron 3 Nano (triage), Super and Ultra (fixer agent, Ultra for escalation as the brief recommends); Token Factory Sandboxes: every fork, about 1,000 sandbox runs; Serverless Jobs and Endpoints: encouraged for the Apps track, not required for Coding; not used, and the watcher runs as a GitHub Actions schedule instead; Tavily (bonus): search and extract for migration guidance, guarded and cached.
 - Winners' or nearest neighbours' count of that primitive, against my planned count: nearest neighbours use one Nemotron tier and one sandbox per task (Apollo, faultline); mine uses all three Nemotron tiers, three-way forks plus a fork per patch attempt, and Tavily. 0 of 366 public entries run dependents' suites.
 - Data size, against what the sponsor's product is for: 146 real third-party packages, each three forks, plus 31 pre-release runs and every fix attempt in its own fork. Sandboxes exist for exactly this fan-out.
-- The ablation (same task, sponsor switched off) and what I expect it to show: without Sandboxes there is no result at all; without Nemotron there is no patch. Fix rounds already compare guidance sources (OpenAI's guide against Tavily pages), reported separately.
+- The ablation (same task, sponsor switched off) and what I expect it to show: without Sandboxes there is no result at all; without Nemotron there is no patch. The one component that can be switched off is the migration guidance (Tavily's pages, or the upstream's own guide). Result file: data/openai-3.0.0/stats.json, fix trials by round. Rounds r1-local-fallback and r2-tavily compare the two guidance sources but the fixer revision changed between them, which the README says. Round r8-none, run 2026-10-27, is the clean ablation: the shipping fixer (revision 8) with all guidance withheld, 5 runs per package, reported beside r8-tavily and r8-local-fallback in the README's revision table and on the page. Result: llm 2 of 5 (0 of 5 with Tavily's pages), agno 5 of 5 (5 of 5 with the guide), vlmrun 4 of 5 (5 of 5 with Tavily's pages). The guidance did not raise the shipping fixer's pass rate on these three breaks beyond what five runs can tell from chance.
 - RED: no.
 
 ## 8. The crowd, measured [check 7, rules 30, 71, 94, 99]
@@ -69,6 +70,7 @@ while the gallery is unpublished, PyPI, and this repo's committed results.
 ## 11. Pitch and tagline [check 4, rules 56, 104]
 - "[person] can [want] and [outcome with a price on it]": an open-source maintainer about to publish can see whose test suites the release breaks, and get a patch for each that the project's own tests pass, before their users lose nine days.
 - Tagline draft, leading with the best result as a win: Run before openai 3.0.0, it found the three packages the release broke, and Nemotron wrote the fix llm's maintainer shipped nine days later.
+- Tagline as submitted (2026-10-24, https://devpost.com/software/floodplain): "Run before openai 3.0.0 shipped, it finds the 3 packages the release breaks, and Nemotron writes fixes their own test suites pass. Now it watches every openai release on Nebius."
 
 ## 12. Demo [rules 25, 54, 101]
 - The final shot (the thing the verb produces, or a live success landing in field 5's system, never a number being revealed): the verified llm patch beside the line its maintainer shipped, then the agent's own steps fixing agno, then the watcher's issue for openai 3.37.0, ending on issue #2: the 3.0.0 report in GitHub with all three verified patches.

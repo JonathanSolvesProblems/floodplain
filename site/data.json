@@ -63,7 +63,7 @@
   "lost": "The receptor was hung but came back unreadable: the install failed, the run timed out, or the sandbox returned nothing."
  },
  "readable": 20,
- "generated_at": "2026-10-24T15:30:20",
+ "generated_at": "2026-10-27T09:19:55",
  "receptors": [
   {
    "name": "sentry-sdk",
@@ -4449,8 +4449,8 @@
     ],
     "revision": 8,
     "diff": "diff --git a/python/instrumentation/openinference-instrumentation-agno/pyproject.toml b/python/instrumentation/openinference-instrumentation-agno/pyproject.toml\nindex 4b708f2d..7cd6bae1 100644\n--- a/python/instrumentation/openinference-instrumentation-agno/pyproject.toml\n+++ b/python/instrumentation/openinference-instrumentation-agno/pyproject.toml\n@@ -43,7 +43,7 @@ test = [\n   \"opentelemetry-sdk\",\n   \"pytest-recording\",\n   \"brotli\",\n-  \"openai\",\n+  \"openai<3.0.0\",\n   \"ddgs\",\n   \"yfinance\",\n   \"fastapi\",\n",
-    "trials": 40,
-    "trials_verified": 20,
+    "trials": 45,
+    "trials_verified": 25,
     "trial_outcomes": [
      {
       "trial": 1,
@@ -4731,6 +4731,41 @@
       "attempts": 1,
       "won_by": "ultra",
       "wall_s": 210.9
+     },
+     {
+      "trial": 41,
+      "verified": true,
+      "attempts": 1,
+      "won_by": "ultra",
+      "wall_s": 78.4
+     },
+     {
+      "trial": 42,
+      "verified": true,
+      "attempts": 1,
+      "won_by": "ultra",
+      "wall_s": 108.4
+     },
+     {
+      "trial": 43,
+      "verified": true,
+      "attempts": 1,
+      "won_by": "ultra",
+      "wall_s": 131.4
+     },
+     {
+      "trial": 44,
+      "verified": true,
+      "attempts": 1,
+      "won_by": "ultra",
+      "wall_s": 208.1
+     },
+     {
+      "trial": 45,
+      "verified": true,
+      "attempts": 1,
+      "won_by": "ultra",
+      "wall_s": 218.2
      }
     ],
     "rounds": [
@@ -4837,15 +4872,26 @@
       "never_applied": 0,
       "rejected": 0,
       "out_of_steps": 0
+     },
+     {
+      "revision": 8,
+      "source": "none",
+      "agent": true,
+      "guidance": "no migration guidance",
+      "fell_back": false,
+      "k": 5,
+      "n": 5,
+      "same_as_maintainer": 0,
+      "never_applied": 0,
+      "rejected": 0,
+      "out_of_steps": 0
      }
     ]
    },
    "guidance": {
-    "query": "openai python package 3.0.0 migration guide HTTPTransport breaking change",
-    "source": "local-fallback (tavily returned no usable pages)",
-    "urls": [
-     "data\\openai-3.0.0\\migration_guide.md"
-    ],
+    "query": "",
+    "source": "none (withheld for this round)",
+    "urls": [],
     "fetched_at": null,
     "end_date": null,
     "excluded": []
@@ -5513,8 +5559,8 @@
     "steps": [],
     "revision": 1,
     "diff": "diff --git a/pyproject.toml b/pyproject.toml\nindex 8ec3191..eaa636e 100644\n--- a/pyproject.toml\n+++ b/pyproject.toml\n@@ -27,7 +27,7 @@ classifiers = [\n dependencies = [\n     \"click\",\n     \"condense-json>=1.1\",\n-    \"openai>=2.32.0\",\n+    \"openai>=2.32.0,<3.0.0\",\n     \"click-default-group>=1.2.3\",\n     \"sqlite-utils>=4.0\",\n     \"pydantic>=2.0.0\",\n",
-    "trials": 40,
-    "trials_verified": 9,
+    "trials": 45,
+    "trials_verified": 11,
     "trial_outcomes": [
      {
       "trial": 1,
@@ -5795,6 +5841,41 @@
       "attempts": 0,
       "won_by": null,
       "wall_s": 228.1
+     },
+     {
+      "trial": 41,
+      "verified": false,
+      "attempts": 0,
+      "won_by": null,
+      "wall_s": 144.5
+     },
+     {
+      "trial": 42,
+      "verified": false,
+      "attempts": 0,
+      "won_by": null,
+      "wall_s": 146.1
+     },
+     {
+      "trial": 43,
+      "verified": false,
+      "attempts": 0,
+      "won_by": null,
+      "wall_s": 188.0
+     },
+     {
+      "trial": 44,
+      "verified": true,
+      "attempts": 1,
+      "won_by": "ultra",
+      "wall_s": 753.9
+     },
+     {
+      "trial": 45,
+      "verified": true,
+      "attempts": 1,
+      "won_by": "ultra",
+      "wall_s": 792.7
      }
     ],
     "rounds": [
@@ -5901,19 +5982,28 @@
       "never_applied": 0,
       "rejected": 0,
       "out_of_steps": 5
+     },
+     {
+      "revision": 8,
+      "source": "none",
+      "agent": true,
+      "guidance": "no migration guidance",
+      "fell_back": false,
+      "k": 2,
+      "n": 5,
+      "same_as_maintainer": 0,
+      "never_applied": 0,
+      "rejected": 0,
+      "out_of_steps": 3
      }
     ]
    },
    "guidance": {
-    "query": "openai python package 3.0.0 migration guide openai.AsyncOpenAI breaking change",
-    "source": "tavily-cache",
-    "urls": [
-     "https://magica.com/news/openai-python-sdk-httpx2-migration",
-     "https://community.openai.com/t/openai-python-sdk-3-0-0-now-installing-needing-pydantic-teams-httpx2-fork/1391506",
-     "https://docs.haystack.deepset.ai/docs/migration"
-    ],
-    "fetched_at": "2026-10-20T21:49:42Z",
-    "end_date": "2026-08-20",
+    "query": "",
+    "source": "none (withheld for this round)",
+    "urls": [],
+    "fetched_at": null,
+    "end_date": null,
     "excluded": []
    },
    "maintainer_fix": {
@@ -10716,8 +10806,8 @@
     ],
     "revision": 8,
     "diff": "diff --git a/requirements/requirements.txt b/requirements/requirements.txt\nindex 7ea077a..4de4c45 100644\n--- a/requirements/requirements.txt\n+++ b/requirements/requirements.txt\n@@ -1,4 +1,5 @@\n cachetools\n+httpx\n IPython\n loguru\n opencv-python>=4.8.0\n",
-    "trials": 36,
-    "trials_verified": 26,
+    "trials": 41,
+    "trials_verified": 30,
     "trial_outcomes": [
      {
       "trial": 1,
@@ -10970,6 +11060,41 @@
       "attempts": 1,
       "won_by": "ultra",
       "wall_s": 245.5
+     },
+     {
+      "trial": 37,
+      "verified": true,
+      "attempts": 1,
+      "won_by": "ultra",
+      "wall_s": 100.6
+     },
+     {
+      "trial": 38,
+      "verified": true,
+      "attempts": 1,
+      "won_by": "ultra",
+      "wall_s": 102.6
+     },
+     {
+      "trial": 39,
+      "verified": true,
+      "attempts": 1,
+      "won_by": "ultra",
+      "wall_s": 117.5
+     },
+     {
+      "trial": 40,
+      "verified": true,
+      "attempts": 1,
+      "won_by": "ultra",
+      "wall_s": 117.9
+     },
+     {
+      "trial": 41,
+      "verified": false,
+      "attempts": 0,
+      "won_by": null,
+      "wall_s": 245.6
      }
     ],
     "rounds": [
@@ -11063,19 +11188,28 @@
       "never_applied": 0,
       "rejected": 0,
       "out_of_steps": 0
+     },
+     {
+      "revision": 8,
+      "source": "none",
+      "agent": true,
+      "guidance": "no migration guidance",
+      "fell_back": false,
+      "k": 4,
+      "n": 5,
+      "same_as_maintainer": 0,
+      "never_applied": 0,
+      "rejected": 0,
+      "out_of_steps": 1
      }
     ]
    },
    "guidance": {
-    "query": "openai python package 3.0.0 migration guide httpx breaking change",
-    "source": "tavily-cache",
-    "urls": [
-     "https://magica.com/news/openai-python-sdk-httpx2-migration",
-     "https://community.openai.com/t/openai-python-sdk-3-0-0-now-installing-needing-pydantic-teams-httpx2-fork/1391506",
-     "https://www.threads.com/@githubprojects/post/DaqTknAmmh0/the-open-ai-python-sdk-now-supports-workload-identity-authentication-allowing"
-    ],
-    "fetched_at": "2026-10-20T22:59:15Z",
-    "end_date": "2026-08-30",
+    "query": "",
+    "source": "none (withheld for this round)",
+    "urls": [],
+    "fetched_at": null,
+    "end_date": null,
     "excluded": []
    },
    "maintainer_fix": {

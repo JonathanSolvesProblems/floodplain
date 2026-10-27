@@ -64,19 +64,20 @@ function renderTrace() {
   const fixedSentence = byWait.length
     ? `Each was later pinned or patched by its own maintainers: ${byWait.map((r) => `${link(r)} after ${daysAfter(r.maintainer_fix.hours_after_release)} days`).join(", ")}.`
     : "";
-  // The sentence quotes the newest fixer revision's round for each package, as K of N, and says
-  // how many of the verified patches were the maintainer's own change, counted from the diffs.
-  // The newest round that produced a verified patch, as the GitHub report hands over.
-  const latest = (r) => {
+  // The sentence quotes one round per package, as K of N, and says how many of the verified
+  // patches were the maintainer's own change, counted from the diffs. The round is the one that
+  // passed most often, the newest on a tie: the same rule that picks the patch shown on the
+  // package's page and handed over in the GitHub report, so the two never disagree.
+  const best = (r) => {
     const rs = (r.fix && r.fix.rounds) || [];
-    return [...rs].reverse().find((rd) => rd.k > 0) || rs[rs.length - 1] || null;
+    return rs.reduce((b, rd) => (!b || rd.k / rd.n > b.k / b.n || (rd.k / rd.n === b.k / b.n && rd.revision > b.revision)) ? rd : b, null);
   };
-  const withPatch = pos.filter((r) => latest(r) && latest(r).k > 0);
+  const withPatch = pos.filter((r) => best(r) && best(r).k > 0);
   const kOfN = (rd) => `${numberWord(rd.k)} of ${numberWord(rd.n)} ${rd.agent ? "agent runs" : "runs of the scripted fixer"}`;
-  const same = withPatch.filter((r) => latest(r).same_as_maintainer > 0);
+  const same = withPatch.filter((r) => best(r).same_as_maintainer > 0);
   const verifiedSentence = withPatch.length
-    ? ` NVIDIA Nemotron wrote a patch the package's own tests passed, in a further fork, for ${andList(withPatch.map((r) => `${link(r)} in ${kOfN(latest(r))}`))}.` +
-      same.map((r) => ` For ${link(r)}, ${numberWord(latest(r).same_as_maintainer)} of those ${latest(r).same_as_maintainer === 1 ? "was" : "were"} the same change its maintainer shipped.`).join("")
+    ? ` NVIDIA Nemotron wrote a patch the package's own tests passed, in a further fork, for ${andList(withPatch.map((r) => `${link(r)} in ${kOfN(best(r))}`))}.` +
+      same.map((r) => ` For ${link(r)}, ${numberWord(best(r).same_as_maintainer)} of those ${best(r).same_as_maintainer === 1 ? "was" : "were"} the same change its maintainer shipped.`).join("")
     : "";
 
   // The pre-release check: the same dependents, with the release given as an unpublished wheel

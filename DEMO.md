@@ -95,7 +95,10 @@ working files go in `broll/`, which is ignored by git.
 - Say "a user told him", not that Simon found it: the issue was opened by @aborruso.
 - Say "the same pin Simon shipped": four of revision 1's five verified patches were that pin, and
   the page shows one of them.
-- Do not say the agent fixed llm. It did not (0 of 30 agent runs across revisions 3 to 8); the
+- Do not say the agent fixed llm. Given the migration guidance it did not (0 of 30 agent runs
+  across revisions 3 to 8); the ablation run on 27 October, after the video, passed 2 of 5
+  without guidance, which the README reports as measured. The video's line, "on llm it kept
+  investigating instead of submitting", describes the guided runs and stays true. The
   llm patch comes from the drafting call of the first fixer revision.
 - Issue #2 says on its first line that it was posted afterwards from the committed 3.0.0 results;
   do not call it a live watcher run.

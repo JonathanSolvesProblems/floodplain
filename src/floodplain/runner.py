@@ -31,7 +31,7 @@ AGENT_REVISION = 8
 from floodplain.llm import TokenFactory
 from floodplain.pypi import PyPI
 from floodplain.repos import SourceRef, sdist_url
-from floodplain.research import find_guidance
+from floodplain.research import Guidance, find_guidance
 from floodplain.sandbox import (Experiment, RunOutcome, Sandbox, apply_confirm, attribute, confirm_break,
                                 experiment_to_json)
 from floodplain.triage import triage_experiment
@@ -71,6 +71,9 @@ async def main(argv: list[str] | None = None) -> None:
                     help="add --trials more fix trials to the ones already recorded, keeping triage")
     ap.add_argument("--refresh-research", action="store_true",
                     help="ask Tavily again instead of replaying the committed research cache")
+    ap.add_argument("--guidance", choices=["auto", "local", "none"], default="auto",
+                    help="auto: Tavily pages, else the upstream's own migration guide; local: that guide "
+                         "only; none: no migration guidance at all (the ablation, recorded as its own round)")
     ap.add_argument("--fixer", choices=["agent", "scripted"], default="agent",
                     help="agent: Nemotron chooses each step through tools (revision 3); "
                          "scripted: the fixed propose-apply-verify sequence (revisions 1 and 2)")
@@ -213,10 +216,19 @@ async def main(argv: list[str] | None = None) -> None:
                 else:
                     end = release_uploaded + timedelta(days=1)
                 exclude = [f"{exp.source.owner}/{exp.source.repo}"] + ([mfix["repo"]] if mfix.get("repo") else [])
-                guidance = await find_guidance(args.target, args.release, tri.symbol, tri.category,
-                                               fallback=root / "migration_guide.md",
-                                               cache_dir=root / "research", refresh=args.refresh_research,
-                                               exclude_repos=exclude, end_date=end.strftime("%Y-%m-%d"))
+                local_guide = root / "migration_guide.md"
+                if args.guidance == "none":
+                    # The ablation: the same fixer with the guidance withheld, so its effect can be read
+                    # off the rounds instead of assumed.
+                    guidance = Guidance(query="", source="none (withheld for this round)")
+                elif args.guidance == "local":
+                    guidance = Guidance(query="", source="local-fallback (chosen for this round)",
+                                        urls=[str(local_guide)], text=local_guide.read_text(encoding="utf-8")[:12000])
+                else:
+                    guidance = await find_guidance(args.target, args.release, tri.symbol, tri.category,
+                                                   fallback=local_guide,
+                                                   cache_dir=root / "research", refresh=args.refresh_research,
+                                                   exclude_repos=exclude, end_date=end.strftime("%Y-%m-%d"))
                 print(f"  guide  {name:<34} {guidance.source} {len(guidance.urls)} page(s)")
                 cutoff = exp.after.cutoff and datetime.strptime(exp.after.cutoff, "%Y-%m-%dT%H:%M:%SZ")
                 # Every trial is kept. Nemotron's sampling differs run to run, so one verified patch

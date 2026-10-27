@@ -339,7 +339,8 @@ class FixAgent:
                 category=tri.category, cause=tri.cause, quotes=json.dumps(tri.quotes[:4]),
                 fix_plan=tri.fix_plan, fix_notes=tri.fix_notes,
                 log=(exp.after.test_tail or exp.after.install_tail or "")[-5000:],
-                notes=notes[:4000], guidance=guidance[:5000], guidance_source=guidance_source)},
+                notes=notes[:4000], guidance=guidance[:5000] or "(none provided for this run)",
+                guidance_source=guidance_source)},
         ]
         if draft_first:
             # Revision 8: one Nemotron call drafts a whole patch from the right context before the loop,
