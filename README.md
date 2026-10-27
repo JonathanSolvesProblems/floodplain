@@ -179,7 +179,8 @@ propose, apply, verify sequence; their trials are kept and reported separately.
 dependents that gave a reading last time, lets the agent fix what broke, and opens a GitHub issue
 with the report and the verified patches. A daily GitHub Actions job ([watch.yml](.github/workflows/watch.yml))
 runs it and commits the results and its state, so it only ever checks releases it has not seen.
-Its first report, for openai 3.37.0, is [issue #1](https://github.com/JonathanSolvesProblems/floodplain/issues/1).
+Its first reports, for openai 3.37.0 and 3.39.0, are [issue #1](https://github.com/JonathanSolvesProblems/floodplain/issues/1)
+and [issue #3](https://github.com/JonathanSolvesProblems/floodplain/issues/3).
 `floodplain check --wheel ... --pr N` does the same for an unpublished wheel and posts the report
 on the release pull request ([check.yml](.github/workflows/check.yml)). Floodplain never opens
 pull requests in other people's repositories; it hands over the patch.

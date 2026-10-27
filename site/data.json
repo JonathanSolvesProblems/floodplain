@@ -17,6 +17,13 @@
   "watched": 31,
   "checked": [
    {
+    "release": "3.39.0",
+    "checked_at": "2026-10-27T13:58:02+00:00",
+    "headline": "openai 3.39.0: none of the 21 working test suites broke",
+    "issue": "https://github.com/JonathanSolvesProblems/floodplain/issues/3",
+    "note": "The watcher's own run (GitHub Actions run 40505605253) posted the issue, but its push lost a race with a commit to master, so the committed results are from a re-run on the same day."
+   },
+   {
     "release": "3.37.0",
     "checked_at": "2026-10-24T18:08:27+00:00",
     "headline": "openai 3.37.0: none of the 21 working test suites broke",
@@ -63,7 +70,7 @@
   "lost": "The receptor was hung but came back unreadable: the install failed, the run timed out, or the sandbox returned nothing."
  },
  "readable": 20,
- "generated_at": "2026-10-27T09:19:55",
+ "generated_at": "2026-10-27T09:58:04",
  "receptors": [
   {
    "name": "sentry-sdk",

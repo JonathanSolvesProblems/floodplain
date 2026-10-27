@@ -1,0 +1,47 @@
+﻿30 runnable dependents
+backend: nebius-sandboxes
+base image ready: nebius-sandboxes:66b26d62-8f5f-4b
+  echo-agent                               not-run                     134.8s
+  evalplus                                 ok                          168.5s
+  foundry-local-sdk                        ok                          168.7s
+  chatlas                                  ok                          301.5s
+  inspect-swe                              incomplete       no-results   191.0s
+  dspy                                     ok                          380.3s
+  captum                                   ok                          462.5s
+  highcharts-core                          ok                          335.8s
+  code-puppy                               ok                          472.6s
+  langextract                              ok                          130.0s
+  oci-openai                               ok                           70.4s
+  lumibot                                  no-baseline                 127.5s
+  chonkie                                  ok                          605.9s
+  openai-messages-token-helper             ok                           36.3s
+  openenv-core                             ok                           46.7s
+  openinference-instrumentation-agno       no-baseline                  41.5s
+  opentelemetry-instrumentation-openai     held-back                    51.2s
+  swebench                                 held-back                   110.3s
+  inspect-scout                            incomplete       no-results   608.1s
+  shiny                                    ok                          175.0s
+  vlmrun-hub                               no-baseline                  68.4s
+  vanna                                    no-baseline                 166.8s
+  llm                                      ok                          386.5s
+  graphifyy                                ok                          856.8s
+  krepis                                   ok                          497.4s
+  nextcloud-mcp-server                     ok                          385.2s
+  xpander-sdk                              no-baseline                  93.4s
+  yutori                                   ok                           90.1s
+  jcodemunch-mcp                           ok                          991.0s
+  graphiti-core                            ok                         2005.3s
+run stage done in 2005s
+30 runnable dependents
+backend: nebius-sandboxes
+30 runnable dependents
+backend: nebius-sandboxes
+models: {'nano': 'nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B', 'super': 'nvidia/nemotron-3-super-120b-a12b', 'ultra': 'nvidia/Nemotron-3-Ultra-550b-a55b'}
+token usage: Usage(calls=0, prompt_tokens=0, completion_tokens=0, reasoning_tokens=0, empty_replies=0, by_model={})
+1 runnable dependents
+backend: nebius-sandboxes
+base image ready: nebius-sandboxes:66b26d62-8f5f-4b
+  echo-agent                               ok                          384.5s
+run stage done in 385s
+30 runnable dependents
+backend: nebius-sandboxes
