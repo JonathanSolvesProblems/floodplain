@@ -1,0 +1,745 @@
+{
+  "meta": {
+    "target": "openai",
+    "release": "3.39.0",
+    "release_uploaded_at": "2026-10-26T19:19:10+00:00",
+    "ranking_snapshot": "2026-09-01 06:34:08",
+    "scanned": 31,
+    "generated_at": "2026-10-27T12:06:30+00:00",
+    "watch_list_from": "3.0.0"
+  },
+  "counts": {
+    "total": 31,
+    "protected": 1,
+    "exposed": 30,
+    "exposed_core": 12,
+    "exposed_extra": 18
+  },
+  "protected": [
+    {
+      "name": "vlmrun",
+      "rank": 13112,
+      "downloads": 89490,
+      "version": "0.9.2",
+      "requirement": "openai==1.109.1",
+      "via_extra": null,
+      "project_urls": {},
+      "summary": "Official Python SDK for VLM Run"
+    }
+  ],
+  "exposed": [
+    {
+      "dependent": {
+        "name": "captum",
+        "rank": 5997,
+        "downloads": 524064,
+        "version": "0.9.0",
+        "requirement": "openai; extra == \"optional\"",
+        "via_extra": "optional",
+        "project_urls": {
+          "Documentation": "https://captum.ai",
+          "Homepage": "https://captum.ai",
+          "Source": "https://github.com/pytorch/captum",
+          "conda": "https://anaconda.org/pytorch/captum"
+        },
+        "summary": "Model Interpretability for PyTorch"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "pytorch",
+        "repo": "captum",
+        "tag": "v0.9.0",
+        "sha": "255566a66f2c4978b42600d551c548376da09cec",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "chatlas",
+        "rank": 12113,
+        "downloads": 105965,
+        "version": "0.23.0",
+        "requirement": "openai",
+        "via_extra": null,
+        "project_urls": {
+          "Changelog": "https://github.com/posit-dev/chatlas/blob/main/CHANGELOG.md",
+          "Documentation": "https://posit-dev.github.io/chatlas",
+          "Homepage": "https://posit-dev.github.io/chatlas",
+          "Issues": "https://github.com/posit-dev/chatlas/issues/",
+          "Repository": "https://github.com/posit-dev/chatlas"
+        },
+        "summary": "A simple and consistent interface for chatting with LLMs"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "posit-dev",
+        "repo": "chatlas",
+        "tag": "v0.23.0",
+        "sha": "c21e245100d57c8330f4902d4b9c4a7501746b20",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "chonkie",
+        "rank": 4117,
+        "downloads": 1198781,
+        "version": "1.7.0",
+        "requirement": "openai>=1.0.0; extra == \"openai\"",
+        "via_extra": "openai",
+        "project_urls": {
+          "Bug Tracker": "https://github.com/chonkie-inc/chonkie/issues",
+          "Documentation": "https://docs.chonkie.ai",
+          "Homepage": "https://github.com/chonkie-inc/chonkie"
+        },
+        "summary": "\ud83e\udd9b CHONK your texts with Chonkie \u2728 - The no-nonsense chunking library"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "chonkie-inc",
+        "repo": "chonkie",
+        "tag": "v1.7.0",
+        "sha": "0a6baea1a42c9afe9b3bc31ecb37739e744bb1ec",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "code-puppy",
+        "rank": 12210,
+        "downloads": 104295,
+        "version": "0.0.946",
+        "requirement": "openai>=2.45.0",
+        "via_extra": null,
+        "project_urls": {
+          "HomePage": "https://github.com/mpfaffenberger/code_puppy",
+          "repository": "https://github.com/mpfaffenberger/code_puppy"
+        },
+        "summary": "Code generation agent"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "mpfaffenberger",
+        "repo": "code_puppy",
+        "tag": "v0.0.946",
+        "sha": "b679f6039cf01fcd06c832bbda31a34c329a551f",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "dspy",
+        "rank": 1849,
+        "downloads": 6223871,
+        "version": "3.4.1",
+        "requirement": "openai>=1.66.2",
+        "via_extra": null,
+        "project_urls": {
+          "homepage": "https://github.com/stanfordnlp/dspy"
+        },
+        "summary": "DSPy"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "stanfordnlp",
+        "repo": "dspy",
+        "tag": "3.4.1",
+        "sha": "099982b3c3eec9fc4ec4796d49915af42367a253",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "echo-agent",
+        "rank": 9490,
+        "downloads": 180595,
+        "version": "0.3.7",
+        "requirement": "openai>=1.30; extra == \"all\"",
+        "via_extra": "all",
+        "project_urls": {
+          "Discussions": "https://github.com/fuyuxiang/echo-agent/discussions",
+          "Homepage": "https://github.com/fuyuxiang/echo-agent",
+          "Issues": "https://github.com/fuyuxiang/echo-agent/issues",
+          "Repository": "https://github.com/fuyuxiang/echo-agent"
+        },
+        "summary": "A self-hosted, long-running AI agent runtime with memory, skills, plugins, and multi-channel integrations"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "fuyuxiang",
+        "repo": "echo-agent",
+        "tag": "v0.3.7",
+        "sha": "2919e153987de9a3b8c49a722553afb6d38a2e32",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "evalplus",
+        "rank": 9444,
+        "downloads": 182607,
+        "version": "0.3.1",
+        "requirement": "openai>=1.11.1",
+        "via_extra": null,
+        "project_urls": {
+          "Homepage": "https://github.com/evalplus/evalplus"
+        },
+        "summary": "\"EvalPlus for rigourous evaluation of LLM-synthesized code\""
+      },
+      "exposed": true,
+      "source": {
+        "owner": "evalplus",
+        "repo": "evalplus",
+        "tag": "v0.3.1",
+        "sha": "e5d0ed0bab96280b60b637ec7f15b5e4841b0cb2",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "foundry-local-sdk",
+        "rank": 8404,
+        "downloads": 239386,
+        "version": "2.2.1",
+        "requirement": "openai>=2.24.0",
+        "via_extra": null,
+        "project_urls": {
+          "Homepage": "https://github.com/microsoft/Foundry-Local",
+          "Issues": "https://github.com/microsoft/Foundry-Local/issues",
+          "Source": "https://github.com/microsoft/Foundry-Local"
+        },
+        "summary": "Foundry Local Python SDK (v2): in-process Python bindings for the Foundry Local native runtime."
+      },
+      "exposed": true,
+      "source": {
+        "owner": "microsoft",
+        "repo": "Foundry-Local",
+        "tag": "v2.2.1",
+        "sha": "1f0d8ffd3d54443e12230da051e0c63e75645356",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "graphifyy",
+        "rank": 3303,
+        "downloads": 1927047,
+        "version": "0.9.96",
+        "requirement": "openai; extra == \"kimi\"",
+        "via_extra": "kimi",
+        "project_urls": {
+          "Documentation": "https://docs.graphify.com",
+          "Homepage": "https://graphify.com",
+          "Issues": "https://github.com/Graphify-Labs/graphify/issues",
+          "Repository": "https://github.com/Graphify-Labs/graphify"
+        },
+        "summary": "AI coding assistant skill (Claude Code, CodeBuddy, Codex, OpenCode, Kilo Code, Cursor, Gemini CLI, Aider, OpenClaw, Factory Droid, Trae, Hermes, Kiro, Pi, Devin CLI, Google Antigravity) - turn any fol"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "Graphify-Labs",
+        "repo": "graphify",
+        "tag": "v0.9.96",
+        "sha": "dac063456bc1f5d92354ec3936fd9dd1513a83f3",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "graphiti-core",
+        "rank": 4206,
+        "downloads": 1143378,
+        "version": "0.31.2",
+        "requirement": "openai>=1.91.0",
+        "via_extra": null,
+        "project_urls": {
+          "Homepage": "https://help.getzep.com/graphiti/graphiti/overview",
+          "Repository": "https://github.com/getzep/graphiti"
+        },
+        "summary": "A temporal graph building library"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "getzep",
+        "repo": "graphiti",
+        "tag": "v0.31.2",
+        "sha": "d72407dcedac911e1be9fc15b55e8c05a3efcc36",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "highcharts-core",
+        "rank": 9582,
+        "downloads": 177602,
+        "version": "1.11.0",
+        "requirement": "openai>=0.28.0; extra == \"ai\"",
+        "via_extra": "ai",
+        "project_urls": {
+          "Bug Tracker": "https://github.com/highcharts-for-python/highcharts-core/issues",
+          "Demo": "https://github.com/highcharts-for-python/highcharts-for-python-demos",
+          "Documentation": "https://core-docs.highchartspython.com/en/latest/",
+          "History": "https://github.com/highcharts-for-python/highcharts-core/blob/master/CHANGES.rst",
+          "Homepage": "https://highchartspython.com",
+          "Source Code": "https://github.com/highcharts-for-python/highcharts-core",
+          "Sponsor": "https://github.com/sponsors/highcharts-for-python",
+          "Support": "https://www.highchartspython.com/get-help"
+        },
+        "summary": "High-end Data Visualization for the Python Ecosystem. Official wrapper for Highcharts Core (JS)."
+      },
+      "exposed": true,
+      "source": {
+        "owner": "highcharts-for-python",
+        "repo": "highcharts-core",
+        "tag": null,
+        "sha": null,
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "inspect-scout",
+        "rank": 7258,
+        "downloads": 337773,
+        "version": "0.6.1",
+        "requirement": "openai>=3.0.0; extra == \"dev\"",
+        "via_extra": "dev",
+        "project_urls": {
+          "Issue Tracker": "https://github.com/meridianlabs-ai/inspect_scout/issues",
+          "Source Code": "https://github.com/meridianlabs-ai/inspect_scout"
+        },
+        "summary": "Transcript Analysis for AI Agents"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "meridianlabs-ai",
+        "repo": "inspect_scout",
+        "tag": "0.6.1",
+        "sha": "9db31e47de985a0f8098f326184efe0a41d5c3a5",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "inspect-swe",
+        "rank": 5071,
+        "downloads": 758620,
+        "version": "0.2.72",
+        "requirement": "openai>=3.1.0; extra == \"dev\"",
+        "via_extra": "dev",
+        "project_urls": {
+          "Documentation": "https://meridianlabs-ai.github.io/inspect_swe/",
+          "Issue Tracker": "https://github.com/meridianlabs-ai/inspect_swe/issues",
+          "Source Code": "https://github.com/meridianlabs-ai/inspect_swe"
+        },
+        "summary": "Software engineering agents for Inspect AI."
+      },
+      "exposed": true,
+      "source": {
+        "owner": "meridianlabs-ai",
+        "repo": "inspect_swe",
+        "tag": "0.2.72",
+        "sha": "6665c30bced70dbf5c17ed935a2da1024668c6f9",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "jcodemunch-mcp",
+        "rank": 9458,
+        "downloads": 182096,
+        "version": "1.108.398",
+        "requirement": "openai>=1.0.0; extra == \"all\"",
+        "via_extra": "all",
+        "project_urls": {
+          "Bug Tracker": "https://github.com/jgravelle/jcodemunch-mcp/issues",
+          "Homepage": "https://github.com/jgravelle/jcodemunch-mcp",
+          "Repository": "https://github.com/jgravelle/jcodemunch-mcp"
+        },
+        "summary": "Token-efficient MCP server for source code exploration via tree-sitter AST parsing"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "jgravelle",
+        "repo": "jcodemunch-mcp",
+        "tag": "v1.108.398",
+        "sha": "726b742e261d3c44113d5c3949d5672429dbb3ee",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "krepis",
+        "rank": 14100,
+        "downloads": 76720,
+        "version": "0.59.83",
+        "requirement": "openai>=1.40; extra == \"openai\"",
+        "via_extra": "openai",
+        "project_urls": {
+          "Homepage": "https://github.com/nousergon/krepis",
+          "Issues": "https://github.com/nousergon/krepis/issues",
+          "Repository": "https://github.com/nousergon/krepis"
+        },
+        "summary": "krepis (Greek \u03ba\u03c1\u03b7\u03c0\u03af\u03c2 \u2014 the foundation a structure stands on): general-purpose Python primitives for production data and LLM pipelines on AWS \u2014 logging, SSM secrets, Telegram/SNS/Web Push alerts, bound"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "nousergon",
+        "repo": "krepis",
+        "tag": "v0.59.83",
+        "sha": "01e995c6644a67790a0772631b98dfa7df57b68b",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "langextract",
+        "rank": 6910,
+        "downloads": 375612,
+        "version": "1.7.1",
+        "requirement": "openai>=1.50.0; extra == \"openai\"",
+        "via_extra": "openai",
+        "project_urls": {
+          "Bug Tracker": "https://github.com/google/langextract/issues",
+          "Changelog": "https://github.com/google/langextract/releases",
+          "DOI": "https://doi.org/10.5281/zenodo.17015089",
+          "Documentation": "https://github.com/google/langextract/blob/main/README.md",
+          "Homepage": "https://github.com/google/langextract",
+          "Repository": "https://github.com/google/langextract"
+        },
+        "summary": "LangExtract: A library for extracting structured data from language models"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "google",
+        "repo": "langextract",
+        "tag": "v1.7.1",
+        "sha": "a4c0aa4c1be98f441ffc7e1d0f85b1067748e1f3",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "llm",
+        "rank": 5766,
+        "downloads": 549862,
+        "version": "0.36",
+        "requirement": "openai>3",
+        "via_extra": null,
+        "project_urls": {
+          "CI": "https://github.com/simonw/llm/actions",
+          "Changelog": "https://github.com/simonw/llm/releases",
+          "Documentation": "https://llm.datasette.io/",
+          "Homepage": "https://github.com/simonw/llm",
+          "Issues": "https://github.com/simonw/llm/issues"
+        },
+        "summary": "CLI utility and Python library for interacting with Large Language Models from organizations like OpenAI, Anthropic and Gemini plus local models installed on your own machine."
+      },
+      "exposed": true,
+      "source": {
+        "owner": "simonw",
+        "repo": "llm",
+        "tag": "0.36",
+        "sha": "764dc386c58b625f3ad9d203e699715ad208455f",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "lumibot",
+        "rank": 8879,
+        "downloads": 209646,
+        "version": "4.6.30",
+        "requirement": "openai",
+        "via_extra": null,
+        "project_urls": {
+          "BotSpot Platform": "https://botspot.trade/",
+          "Bug Tracker": "https://github.com/Lumiwealth/lumibot/issues",
+          "Changelog": "https://github.com/Lumiwealth/lumibot/blob/dev/CHANGELOG.md",
+          "Discord Community": "https://discord.gg/4R9j6T3PN8",
+          "Documentation": "https://lumibot.lumiwealth.com/",
+          "Homepage": "https://github.com/Lumiwealth/lumibot",
+          "Reddit Community": "https://www.reddit.com/r/BotSpotTrade/",
+          "Source Code": "https://github.com/Lumiwealth/lumibot"
+        },
+        "summary": "Python framework for algorithmic trading: backtesting and live deployment for stocks, options, crypto, futures, and forex. Same code for backtest and live trading."
+      },
+      "exposed": true,
+      "source": {
+        "owner": "Lumiwealth",
+        "repo": "lumibot",
+        "tag": "v4.6.30",
+        "sha": "e14453bc1926d3f857a23dd6a225af14ac99e7dc",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "nextcloud-mcp-server",
+        "rank": 11211,
+        "downloads": 126271,
+        "version": "0.202.1",
+        "requirement": "openai>=2.8.1; extra == \"semantic\"",
+        "via_extra": "semantic",
+        "project_urls": {
+          "Bug Tracker": "https://github.com/cbcoutinho/nextcloud-mcp-server/issues",
+          "Changelog": "https://github.com/cbcoutinho/nextcloud-mcp-server/blob/master/CHANGELOG.md",
+          "Documentation": "https://github.com/cbcoutinho/nextcloud-mcp-server#readme",
+          "Homepage": "https://github.com/cbcoutinho/nextcloud-mcp-server",
+          "Repository": "https://github.com/cbcoutinho/nextcloud-mcp-server"
+        },
+        "summary": "Model Context Protocol (MCP) server for Nextcloud integration - enables AI assistants to interact with Nextcloud data"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "cbcoutinho",
+        "repo": "nextcloud-mcp-server",
+        "tag": "v0.202.1",
+        "sha": "2a50de1ed4fd59515ad14779a33365250cdb4b25",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "oci-openai",
+        "rank": 11397,
+        "downloads": 121510,
+        "version": "1.1.0",
+        "requirement": "openai>=v1.108.1",
+        "via_extra": null,
+        "project_urls": {
+          "Documentation": "https://github.com/oracle-samples/oci-openai#readme",
+          "Issues": "https://github.com/oracle-samples/oci-openai/issues",
+          "Source": "https://github.com/oracle-samples/oci-openai"
+        },
+        "summary": "OCI authentication and authorization utilities for OpenAI python SDK"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "oracle-samples",
+        "repo": "oci-openai",
+        "tag": "v1.1.0",
+        "sha": "42892c4be9291bbca70e596e18888be67383d034",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "openai-messages-token-helper",
+        "rank": 13377,
+        "downloads": 86154,
+        "version": "0.1.13",
+        "requirement": "openai",
+        "via_extra": null,
+        "project_urls": {
+          "Home": "https://github.com/pamelafox/openai-messages-token-helper"
+        },
+        "summary": "A helper library for estimating tokens used by messages sent through OpenAI Chat Completions API."
+      },
+      "exposed": true,
+      "source": {
+        "owner": "pamelafox",
+        "repo": "openai-messages-token-helper",
+        "tag": null,
+        "sha": null,
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "openenv-core",
+        "rank": 4409,
+        "downloads": 1029315,
+        "version": "0.3.0",
+        "requirement": "openai>=2.7.2",
+        "via_extra": null,
+        "project_urls": {},
+        "summary": "A unified framework for reinforcement learning environments"
+      },
+      "exposed": true,
+      "source": null
+    },
+    {
+      "dependent": {
+        "name": "openinference-instrumentation-agno",
+        "rank": 5302,
+        "downloads": 678246,
+        "version": "1.0.15",
+        "requirement": "openai; extra == \"test\"",
+        "via_extra": "test",
+        "project_urls": {
+          "Homepage": "https://github.com/Arize-ai/openinference/tree/main/python/instrumentation/openinference-instrumentation-agno"
+        },
+        "summary": "OpenInference Agno Instrumentation"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "Arize-ai",
+        "repo": "openinference",
+        "tag": "python-openinference-instrumentation-agno-v1.0.15",
+        "sha": "453da0e0b49acec7b78182ac3aacffbbde030f62",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "opentelemetry-instrumentation-openai",
+        "rank": 2427,
+        "downloads": 3690199,
+        "version": "0.62.4",
+        "requirement": "openai; extra == \"instruments\"",
+        "via_extra": "instruments",
+        "project_urls": {
+          "Repository": "https://github.com/traceloop/openllmetry/tree/main/packages/opentelemetry-instrumentation-openai"
+        },
+        "summary": "OpenTelemetry OpenAI instrumentation"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "traceloop",
+        "repo": "openllmetry",
+        "tag": "v0.62.4",
+        "sha": "be498301c40c55155e6d0678b63943093cda14d1",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "shiny",
+        "rank": 7817,
+        "downloads": 281080,
+        "version": "1.8.0",
+        "requirement": "openai>=1.104.1; extra == \"add-test\"",
+        "via_extra": "add-test",
+        "project_urls": {
+          "Bug Tracker": "https://github.com/posit-dev/py-shiny/issues",
+          "Documentation": "https://shiny.posit.co/py/",
+          "Homepage": "https://github.com/posit-dev/py-shiny",
+          "Repository": "https://github.com/posit-dev/py-shiny"
+        },
+        "summary": "A web development framework for Python."
+      },
+      "exposed": true,
+      "source": {
+        "owner": "posit-dev",
+        "repo": "py-shiny",
+        "tag": "v1.8.0",
+        "sha": "7ba439c7516f661f65e2a538adb2d64dc06d89af",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "swebench",
+        "rank": 600,
+        "downloads": 43999505,
+        "version": "5.0.2",
+        "requirement": "openai; extra == \"datasets\"",
+        "via_extra": "datasets",
+        "project_urls": {
+          "Bug Reports": "http://github.com/swe-bench/SWE-bench/issues",
+          "Documentation": "https://github.com/swe-bench/SWE-bench",
+          "Source Code": "http://github.com/swe-bench/SWE-bench",
+          "Website": "https://swebench.com"
+        },
+        "summary": "The official SWE-bench package - a benchmark for evaluating LMs on software engineering"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "swe-bench",
+        "repo": "SWE-bench",
+        "tag": null,
+        "sha": null,
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "vanna",
+        "rank": 9107,
+        "downloads": 198050,
+        "version": "2.0.2",
+        "requirement": "openai; extra == \"all\"",
+        "via_extra": "all",
+        "project_urls": {
+          "Bug Tracker": "https://github.com/vanna-ai/vanna/issues",
+          "Homepage": "https://github.com/vanna-ai/vanna"
+        },
+        "summary": "Generate SQL queries from natural language"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "vanna-ai",
+        "repo": "vanna",
+        "tag": "v2.0.2",
+        "sha": "365d0617c1a4567ffee1b19b40c27feb4206bfcf",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "vlmrun-hub",
+        "rank": 13607,
+        "downloads": 83605,
+        "version": "0.1.35",
+        "requirement": "openai>=1.58.1; extra == \"test\"",
+        "via_extra": "test",
+        "project_urls": {
+          "documentation": "https://docs.vlm.run/hub",
+          "homepage": "https://github.com/vlm-run/vlmrun-hub",
+          "repository": "https://github.com/vlm-run/vlmrun-hub"
+        },
+        "summary": "VLM Run Hub for various industry-specific schemas"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "vlm-run",
+        "repo": "vlmrun-hub",
+        "tag": "v0.1.35",
+        "sha": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+        "sdist_url": null
+      }
+    },
+    {
+      "dependent": {
+        "name": "xpander-sdk",
+        "rank": 9380,
+        "downloads": 185386,
+        "version": "2.0.537",
+        "requirement": "openai; extra == \"dev\"",
+        "via_extra": "dev",
+        "project_urls": {
+          "Homepage": "https://www.xpander.ai"
+        },
+        "summary": "xpander.ai Backend-as-a-service for AI Agents - SDK"
+      },
+      "exposed": true,
+      "source": null
+    },
+    {
+      "dependent": {
+        "name": "yutori",
+        "rank": 13212,
+        "downloads": 88043,
+        "version": "0.9.36",
+        "requirement": "openai>=1.55.3",
+        "via_extra": null,
+        "project_urls": {
+          "Documentation": "https://docs.yutori.com",
+          "Homepage": "https://yutori.com",
+          "Issues": "https://github.com/yutori-ai/yutori-sdk-python/issues",
+          "Repository": "https://github.com/yutori-ai/yutori-sdk-python"
+        },
+        "summary": "Official Python SDK for the Yutori API"
+      },
+      "exposed": true,
+      "source": {
+        "owner": "yutori-ai",
+        "repo": "yutori-sdk-python",
+        "tag": "v0.9.36",
+        "sha": "a9da81145778ed097aac1fb85d070f78e6a66396",
+        "sdist_url": null
+      }
+    }
+  ]
+}
