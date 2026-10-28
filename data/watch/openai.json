@@ -170,6 +170,11 @@
       "headline": "openai 3.39.0: none of the 21 working test suites broke",
       "issue": "https://github.com/JonathanSolvesProblems/floodplain/issues/3",
       "note": "The watcher's own run (GitHub Actions run 40505605253) posted the issue, but its push lost a race with a commit to master, so the committed results are from a re-run on the same day."
+    },
+    "3.40.0": {
+      "checked_at": "2026-10-28T13:21:52+00:00",
+      "headline": "openai 3.40.0: none of the 21 working test suites broke",
+      "issue": "https://github.com/JonathanSolvesProblems/floodplain/issues/4"
     }
   }
 }
