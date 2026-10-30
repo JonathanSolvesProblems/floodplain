@@ -29,6 +29,14 @@ TIER_SUBSTRINGS: dict[Tier, tuple[str, ...]] = {
     "super": ("nemotron-3-super", "nemotron-super"),
     "ultra": ("nemotron-3-ultra", "nemotron-ultra"),
 }
+# When a tier's model is retired from Token Factory (Nano and Super were scheduled for 9 November
+# 2026), use the next tier that is still served rather than failing every run. Each record stores
+# the model id that actually ran, so a substitution stays visible in the data.
+TIER_FALLBACK: dict[Tier, tuple[Tier, ...]] = {
+    "nano": ("super", "ultra"),
+    "super": ("ultra",),
+    "ultra": ("super",),
+}
 
 
 def reasoning_of(message: Any) -> str:
@@ -95,19 +103,33 @@ class TokenFactory:
     async def resolve_models(self) -> dict[Tier, str]:
         async def listed() -> list[str]:
             return [m.id async for m in self.client.models.list()]
-        available = await _with_backoff(listed)
+        return self.pick_models(await _with_backoff(listed))
+
+    def pick_models(self, available: list[str]) -> dict[Tier, str]:
+        found: dict[Tier, str] = {}
         for tier, needles in TIER_SUBSTRINGS.items():
             override = os.environ.get(f"FLOODPLAIN_MODEL_{tier.upper()}")
             if override:
-                self.models[tier] = override
+                found[tier] = override
                 continue
             hits = [m for m in available if any(n in m.lower() for n in needles)]
             # Prefer non-quantized, non-VL, non-preview variants when several match.
             hits.sort(key=lambda m: (("fp8" in m.lower()) + ("vl" in m.lower()) + ("omni" in m.lower())
                                      + ("preview" in m.lower()), len(m)))
-            if not hits:
-                raise RuntimeError(f"no {tier} Nemotron model found in Token Factory; available: {available}")
-            self.models[tier] = hits[0]
+            if hits:
+                found[tier] = hits[0]
+        if not found:
+            raise RuntimeError(f"no Nemotron model found in Token Factory; available: {available}")
+        self.substituted: dict[Tier, Tier] = {}
+        for tier in TIER_SUBSTRINGS:
+            if tier in found:
+                self.models[tier] = found[tier]
+                continue
+            stand_in = next(t for t in TIER_FALLBACK[tier] + tuple(found) if t in found)
+            self.models[tier] = found[stand_in]
+            self.substituted[tier] = stand_in
+            print(f"  no {tier} Nemotron model is served any more; using {stand_in} ({found[stand_in]}) in its place",
+                  flush=True)
         return self.models
 
     async def chat(self, tier: Tier, system: str, user: str, *, json_mode: bool = False,
