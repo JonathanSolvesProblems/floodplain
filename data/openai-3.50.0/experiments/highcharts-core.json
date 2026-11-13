@@ -1,0 +1,24 @@
+{
+  "dependent": "highcharts-core",
+  "version": "1.11.0",
+  "source": {
+    "owner": "highcharts-for-python",
+    "repo": "highcharts-core",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/34/ff/7839c5363de252a2a5f874529e85c5f927202ec86eccee1062357732c774/highcharts_core-1.11.0.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1d554-dff3-776a-8722-1ed9a94c914f has failed: RemoteCallError('CalledProcessError')"
+  },
+  "error": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1d554-dff3-776a-8722-1ed9a94c914f has failed: RemoteCallError('CalledProcessError')",
+  "requirement": "openai>=0.28.0; extra == \"ai\"",
+  "wall_s": 105.2
+}

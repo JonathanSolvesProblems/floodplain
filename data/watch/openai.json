@@ -205,6 +205,11 @@
       "checked_at": "2026-11-10T15:25:52+00:00",
       "headline": "openai 3.49.0: none of the 18 working test suites broke",
       "issue": "https://github.com/JonathanSolvesProblems/floodplain/issues/10"
+    },
+    "3.50.0": {
+      "checked_at": "2026-11-13T15:06:39+00:00",
+      "headline": "openai 3.50.0: none of the 17 working test suites broke",
+      "issue": "https://github.com/JonathanSolvesProblems/floodplain/issues/11"
     }
   }
 }

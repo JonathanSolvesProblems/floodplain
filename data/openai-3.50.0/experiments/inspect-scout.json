@@ -1,0 +1,24 @@
+{
+  "dependent": "inspect-scout",
+  "version": "0.6.2",
+  "source": {
+    "owner": "meridianlabs-ai",
+    "repo": "inspect_scout",
+    "tag": "0.6.2",
+    "sha": "cb8693dcf893ac50e10c35dee48a5dfa9ef50d54",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1d554-e16d-74d8-80e4-c292aabbfe73 has failed: RemoteCallError('CalledProcessError')"
+  },
+  "error": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1d554-e16d-74d8-80e4-c292aabbfe73 has failed: RemoteCallError('CalledProcessError')",
+  "requirement": "openai>=3.0.0; extra == \"dev\"",
+  "wall_s": 104.7
+}
