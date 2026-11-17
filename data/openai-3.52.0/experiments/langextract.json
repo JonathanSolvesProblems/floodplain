@@ -1,0 +1,24 @@
+{
+  "dependent": "langextract",
+  "version": "1.7.2",
+  "source": {
+    "owner": "google",
+    "repo": "langextract",
+    "tag": "v1.7.2",
+    "sha": "0640af37701754545a7649ebc14cf79d05639d23",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): tions/01a1ea3c-5785-723a-bacd-ceee0c55d32d', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 17 Nov 2026 15:59:53 GMT', 'content-type': 'text/html', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'traceparent': '00-1cf038bcb6b14fba17e5666f55bc1135-3fb5ba296a15a519-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'x-trace-id': '1cf038bcb6b14fba17e5666f55bc1135'}), status=502, error='<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n')"
+  },
+  "error": "RuntimeError: clone failed (-1): tions/01a1ea3c-5785-723a-bacd-ceee0c55d32d', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 17 Nov 2026 15:59:53 GMT', 'content-type': 'text/html', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'traceparent': '00-1cf038bcb6b14fba17e5666f55bc1135-3fb5ba296a15a519-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'x-trace-id': '1cf038bcb6b14fba17e5666f55bc1135'}), status=502, error='<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n')",
+  "requirement": "openai>=1.50.0; extra == \"openai\"",
+  "wall_s": 99.7
+}

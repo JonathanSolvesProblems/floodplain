@@ -1,0 +1,24 @@
+{
+  "dependent": "xpander-sdk",
+  "version": "2.0.543",
+  "source": {
+    "owner": "pypi",
+    "repo": "xpander-sdk",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/f7/85/ed226c877a97e62653a02dbf1bad476510f228dd0e59b0009cf3c9097791/xpander_sdk-2.0.543.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1ea46-0108-73a7-bc7b-046df4d04142 has failed: RemoteCallError('CalledProcessError')"
+  },
+  "error": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1ea46-0108-73a7-bc7b-046df4d04142 has failed: RemoteCallError('CalledProcessError')",
+  "requirement": "openai; extra == \"dev\"",
+  "wall_s": 201.8
+}

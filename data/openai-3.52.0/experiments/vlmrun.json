@@ -1,0 +1,24 @@
+{
+  "dependent": "vlmrun",
+  "version": "0.9.3",
+  "source": {
+    "owner": "pypi",
+    "repo": "vlmrun",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/61/9d/544224f18e9194462af9fa36fa6f58d770fa8f6a6a5b3e7c3ac03e5c332c/vlmrun-0.9.3.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1ea43-dc06-7026-9455-893ae9ee7554 has failed: RemoteCallError('CalledProcessError')"
+  },
+  "error": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1ea43-dc06-7026-9455-893ae9ee7554 has failed: RemoteCallError('CalledProcessError')",
+  "requirement": "openai>=1.92",
+  "wall_s": 335.5
+}

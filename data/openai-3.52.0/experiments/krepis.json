@@ -1,0 +1,24 @@
+{
+  "dependent": "krepis",
+  "version": "0.59.111",
+  "source": {
+    "owner": "nousergon",
+    "repo": "krepis",
+    "tag": "v0.59.111",
+    "sha": "c8571ce15ed22ee70bb8434533deab25714d0105",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): tions/01a1ea3c-61e6-7637-8d25-c0ed685e969e', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 17 Nov 2026 15:59:53 GMT', 'content-type': 'text/html', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'traceparent': '00-04854950e5c74e4942a735c120e88a6d-0b9e88ca3bb16745-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'x-trace-id': '04854950e5c74e4942a735c120e88a6d'}), status=502, error='<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n')"
+  },
+  "error": "RuntimeError: clone failed (-1): tions/01a1ea3c-61e6-7637-8d25-c0ed685e969e', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 17 Nov 2026 15:59:53 GMT', 'content-type': 'text/html', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'traceparent': '00-04854950e5c74e4942a735c120e88a6d-0b9e88ca3bb16745-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'x-trace-id': '04854950e5c74e4942a735c120e88a6d'}), status=502, error='<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n')",
+  "requirement": "openai>=1.40; extra == \"openai\"",
+  "wall_s": 100.0
+}

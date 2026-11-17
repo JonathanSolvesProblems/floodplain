@@ -1,0 +1,24 @@
+{
+  "dependent": "inspect-scout",
+  "version": "0.6.2",
+  "source": {
+    "owner": "meridianlabs-ai",
+    "repo": "inspect_scout",
+    "tag": "0.6.2",
+    "sha": "cb8693dcf893ac50e10c35dee48a5dfa9ef50d54",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): tions/01a1ea3c-6568-72c1-a852-96c8e8f9e297', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 17 Nov 2026 15:59:53 GMT', 'content-type': 'text/html', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'traceparent': '00-4f3c68321d42b17c51daa8ae4bb77612-eb50c6e6413a7ac6-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'x-trace-id': '4f3c68321d42b17c51daa8ae4bb77612'}), status=502, error='<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n')"
+  },
+  "error": "RuntimeError: clone failed (-1): tions/01a1ea3c-6568-72c1-a852-96c8e8f9e297', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 17 Nov 2026 15:59:53 GMT', 'content-type': 'text/html', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'traceparent': '00-4f3c68321d42b17c51daa8ae4bb77612-eb50c6e6413a7ac6-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'x-trace-id': '4f3c68321d42b17c51daa8ae4bb77612'}), status=502, error='<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n')",
+  "requirement": "openai>=3.0.0; extra == \"dev\"",
+  "wall_s": 100.8
+}

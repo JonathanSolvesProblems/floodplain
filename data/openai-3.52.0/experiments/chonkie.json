@@ -1,0 +1,24 @@
+{
+  "dependent": "chonkie",
+  "version": "1.7.0",
+  "source": {
+    "owner": "chonkie-inc",
+    "repo": "chonkie",
+    "tag": "v1.7.0",
+    "sha": "0a6baea1a42c9afe9b3bc31ecb37739e744bb1ec",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1ea39-76da-73e2-8df1-9668061a800f has failed: RemoteCallError('CalledProcessError')"
+  },
+  "error": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1ea39-76da-73e2-8df1-9668061a800f has failed: RemoteCallError('CalledProcessError')",
+  "requirement": "openai>=1.0.0; extra == \"openai\"",
+  "wall_s": 113.8
+}

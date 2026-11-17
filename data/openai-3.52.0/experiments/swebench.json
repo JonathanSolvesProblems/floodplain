@@ -1,0 +1,24 @@
+{
+  "dependent": "swebench",
+  "version": "5.0.2",
+  "source": {
+    "owner": "swe-bench",
+    "repo": "SWE-bench",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/a1/2b/799ae0c4fc1847758b1c2348fc12579eb04c5927029a37d8acc49c42a981/swebench-5.0.2.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1ea40-0e92-7342-84f0-0a840bcd4556 has failed: RemoteCallError('CalledProcessError')"
+  },
+  "error": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1ea40-0e92-7342-84f0-0a840bcd4556 has failed: RemoteCallError('CalledProcessError')",
+  "requirement": "openai; extra == \"datasets\"",
+  "wall_s": 519.9
+}

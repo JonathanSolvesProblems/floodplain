@@ -1,0 +1,24 @@
+{
+  "dependent": "graphifyy",
+  "version": "0.9.111",
+  "source": {
+    "owner": "Graphify-Labs",
+    "repo": "graphify",
+    "tag": "v0.9.111",
+    "sha": "18cd78f4b8c9698db861aa8d7ad1adbf3c836642",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1ea39-6be5-71b0-8338-25421af9bd07 has failed: RemoteCallError('CalledProcessError')"
+  },
+  "error": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1ea39-6be5-71b0-8338-25421af9bd07 has failed: RemoteCallError('CalledProcessError')",
+  "requirement": "openai; extra == \"kimi\"",
+  "wall_s": 112.7
+}

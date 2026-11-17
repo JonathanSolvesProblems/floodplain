@@ -1,0 +1,24 @@
+{
+  "dependent": "evalplus",
+  "version": "0.3.1",
+  "source": {
+    "owner": "evalplus",
+    "repo": "evalplus",
+    "tag": "v0.3.1",
+    "sha": "e5d0ed0bab96280b60b637ec7f15b5e4841b0cb2",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1ea39-7425-7012-b9d9-a02091e5e9bb has failed: RemoteCallError('CalledProcessError')"
+  },
+  "error": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1ea39-7425-7012-b9d9-a02091e5e9bb has failed: RemoteCallError('CalledProcessError')",
+  "requirement": "openai>=1.11.1",
+  "wall_s": 113.3
+}

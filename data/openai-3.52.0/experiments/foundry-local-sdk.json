@@ -1,0 +1,24 @@
+{
+  "dependent": "foundry-local-sdk",
+  "version": "2.4.1",
+  "source": {
+    "owner": "microsoft",
+    "repo": "Foundry-Local",
+    "tag": "v2.4.1",
+    "sha": "1c584644c6733eb9810c3a1470c505e6237df0c5",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1ea39-7548-7590-b0b2-b20815bf4609 has failed: RemoteCallError('CalledProcessError')"
+  },
+  "error": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1ea39-7548-7590-b0b2-b20815bf4609 has failed: RemoteCallError('CalledProcessError')",
+  "requirement": "openai>=2.24.0",
+  "wall_s": 112.8
+}

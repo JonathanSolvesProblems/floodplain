@@ -1,0 +1,24 @@
+{
+  "dependent": "captum",
+  "version": "0.9.0",
+  "source": {
+    "owner": "pytorch",
+    "repo": "captum",
+    "tag": "v0.9.0",
+    "sha": "255566a66f2c4978b42600d551c548376da09cec",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1ea39-6fec-7670-a0f3-5333b97174d1 has failed: RemoteCallError('CalledProcessError')"
+  },
+  "error": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1ea39-6fec-7670-a0f3-5333b97174d1 has failed: RemoteCallError('CalledProcessError')",
+  "requirement": "openai; extra == \"optional\"",
+  "wall_s": 113.4
+}

@@ -1,0 +1,24 @@
+{
+  "dependent": "dspy",
+  "version": "3.5.0",
+  "source": {
+    "owner": "stanfordnlp",
+    "repo": "dspy",
+    "tag": "3.5.0",
+    "sha": "4e9db7a83e71e4c36315a2402ae7ffd0c6493404",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1ea39-7898-7726-91b4-d18e6221c31f has failed: RemoteCallError('CalledProcessError')"
+  },
+  "error": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1ea39-7898-7726-91b4-d18e6221c31f has failed: RemoteCallError('CalledProcessError')",
+  "requirement": "openai>=1.66.2; extra == \"openai\"",
+  "wall_s": 112.4
+}

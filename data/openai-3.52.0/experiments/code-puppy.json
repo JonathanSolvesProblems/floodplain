@@ -1,0 +1,24 @@
+{
+  "dependent": "code-puppy",
+  "version": "0.0.969",
+  "source": {
+    "owner": "mpfaffenberger",
+    "repo": "code_puppy",
+    "tag": "v0.0.969",
+    "sha": "946de90cb7b948e5d275b4aa63f46bb70344c274",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): tions/01a1ea3b-308e-73eb-bd8b-c18010a01ce8', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 17 Nov 2026 15:59:38 GMT', 'content-type': 'text/html', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'traceparent': '00-c7c7969c35745cae8c78a3b2ed56dca9-cabdd20afe98b839-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'x-trace-id': 'c7c7969c35745cae8c78a3b2ed56dca9'}), status=502, error='<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n')"
+  },
+  "error": "RuntimeError: clone failed (-1): tions/01a1ea3b-308e-73eb-bd8b-c18010a01ce8', method='GET'), response=ResponseInfo(headers={'date': 'Tue, 17 Nov 2026 15:59:38 GMT', 'content-type': 'text/html', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'traceparent': '00-c7c7969c35745cae8c78a3b2ed56dca9-cabdd20afe98b839-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'x-trace-id': 'c7c7969c35745cae8c78a3b2ed56dca9'}), status=502, error='<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n')",
+  "requirement": "openai>=2.45.0",
+  "wall_s": 199.9
+}
