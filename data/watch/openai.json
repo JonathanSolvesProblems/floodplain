@@ -220,6 +220,11 @@
       "checked_at": "2026-11-17T16:31:31+00:00",
       "headline": "openai 3.52.0: no dependent gave a reading",
       "issue": "https://github.com/JonathanSolvesProblems/floodplain/issues/13"
+    },
+    "3.55.0": {
+      "checked_at": "2026-11-18T16:08:42+00:00",
+      "headline": "openai 3.55.0: none of the 14 working test suites broke",
+      "issue": "https://github.com/JonathanSolvesProblems/floodplain/issues/14"
     }
   }
 }
