@@ -1,0 +1,24 @@
+{
+  "dependent": "openinference-instrumentation-agno",
+  "version": "1.2.1",
+  "source": {
+    "owner": "Arize-ai",
+    "repo": "openinference",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/30/bb/85396729eb6d14de9332a4ff19255efed2f1655526cdd7dbefd705e9808a/openinference_instrumentation_agno-1.2.1.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1f479-5166-71f2-9a44-fa0ec3dbcdbf has failed: IdleInTransactionSessionTimeout('terminating connection due to idle-in-transaction timeout')"
+  },
+  "error": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1f479-5166-71f2-9a44-fa0ec3dbcdbf has failed: IdleInTransactionSessionTimeout('terminating connection due to idle-in-transaction timeout')",
+  "requirement": "openai; extra == \"test\"",
+  "wall_s": 23.0
+}

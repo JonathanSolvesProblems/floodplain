@@ -1,0 +1,24 @@
+{
+  "dependent": "llm",
+  "version": "0.38",
+  "source": {
+    "owner": "simonw",
+    "repo": "llm",
+    "tag": "0.38",
+    "sha": "46f0461d9b1ea9e898cac8a1d7333ab9bc6c8f7f",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1f478-c985-774d-8f3e-fd17cf0dd8a4 has failed: IdleInTransactionSessionTimeout('terminating connection due to idle-in-transaction timeout')"
+  },
+  "error": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1f478-c985-774d-8f3e-fd17cf0dd8a4 has failed: IdleInTransactionSessionTimeout('terminating connection due to idle-in-transaction timeout')",
+  "requirement": "openai>3",
+  "wall_s": 20.2
+}

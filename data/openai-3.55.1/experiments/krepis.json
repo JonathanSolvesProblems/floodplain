@@ -1,0 +1,24 @@
+{
+  "dependent": "krepis",
+  "version": "0.59.111",
+  "source": {
+    "owner": "nousergon",
+    "repo": "krepis",
+    "tag": "v0.59.111",
+    "sha": "c8571ce15ed22ee70bb8434533deab25714d0105",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1f478-d726-7595-b359-95f2946e4b93 has failed: IdleInTransactionSessionTimeout('terminating connection due to idle-in-transaction timeout')"
+  },
+  "error": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1f478-d726-7595-b359-95f2946e4b93 has failed: IdleInTransactionSessionTimeout('terminating connection due to idle-in-transaction timeout')",
+  "requirement": "openai>=1.40; extra == \"openai\"",
+  "wall_s": 54.3
+}

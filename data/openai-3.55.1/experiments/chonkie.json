@@ -1,0 +1,24 @@
+{
+  "dependent": "chonkie",
+  "version": "1.7.0",
+  "source": {
+    "owner": "chonkie-inc",
+    "repo": "chonkie",
+    "tag": "v1.7.0",
+    "sha": "0a6baea1a42c9afe9b3bc31ecb37739e744bb1ec",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): factory.nebius.com/sandboxes/v1/instances', method='POST'), response=ResponseInfo(headers={'date': 'Thu, 19 Nov 2026 15:41:57 GMT', 'content-type': 'text/html', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'traceparent': '00-d76b492d81ed7213acf95c9d3c5a25bf-a34bdcf45901db77-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'x-trace-id': 'd76b492d81ed7213acf95c9d3c5a25bf'}), status=502, error='<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n')"
+  },
+  "error": "RuntimeError: clone failed (-1): factory.nebius.com/sandboxes/v1/instances', method='POST'), response=ResponseInfo(headers={'date': 'Thu, 19 Nov 2026 15:41:57 GMT', 'content-type': 'text/html', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'traceparent': '00-d76b492d81ed7213acf95c9d3c5a25bf-a34bdcf45901db77-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'x-trace-id': 'd76b492d81ed7213acf95c9d3c5a25bf'}), status=502, error='<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n')",
+  "requirement": "openai>=1.0.0; extra == \"openai\"",
+  "wall_s": 54.7
+}

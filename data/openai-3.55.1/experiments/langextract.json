@@ -1,0 +1,24 @@
+{
+  "dependent": "langextract",
+  "version": "1.7.2",
+  "source": {
+    "owner": "google",
+    "repo": "langextract",
+    "tag": "v1.7.2",
+    "sha": "0640af37701754545a7649ebc14cf79d05639d23",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1f478-d971-76a0-8de1-31b1717c1bbc has failed: ProtocolViolation('server conn crashed?')"
+  },
+  "error": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1f478-d971-76a0-8de1-31b1717c1bbc has failed: ProtocolViolation('server conn crashed?')",
+  "requirement": "openai>=1.50.0; extra == \"openai\"",
+  "wall_s": 57.7
+}

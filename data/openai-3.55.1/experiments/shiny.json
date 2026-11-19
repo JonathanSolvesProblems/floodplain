@@ -1,0 +1,24 @@
+{
+  "dependent": "shiny",
+  "version": "1.9.0",
+  "source": {
+    "owner": "posit-dev",
+    "repo": "py-shiny",
+    "tag": "v1.9.0",
+    "sha": "0812f8173785ca6431211af3005c8708a4ec87ce",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1f479-4f85-733d-8b86-0cdbbf538dee has failed: ProtocolViolation('server conn crashed?')"
+  },
+  "error": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1f479-4f85-733d-8b86-0cdbbf538dee has failed: ProtocolViolation('server conn crashed?')",
+  "requirement": "openai>=1.104.1; extra == \"add-test\"",
+  "wall_s": 34.1
+}

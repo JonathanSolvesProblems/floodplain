@@ -1,0 +1,24 @@
+{
+  "dependent": "lumibot",
+  "version": "4.6.88",
+  "source": {
+    "owner": "Lumiwealth",
+    "repo": "lumibot",
+    "tag": "v4.6.88",
+    "sha": "55c523f25f5247ce3463c57d4648a053dc53c9f2",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1f479-5468-7228-8058-e381f4f165af has failed: ProtocolViolation('server conn crashed?')"
+  },
+  "error": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a1f479-5468-7228-8058-e381f4f165af has failed: ProtocolViolation('server conn crashed?')",
+  "requirement": "openai",
+  "wall_s": 78.7
+}

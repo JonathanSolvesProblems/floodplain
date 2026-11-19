@@ -1,0 +1,24 @@
+{
+  "dependent": "highcharts-core",
+  "version": "1.11.0",
+  "source": {
+    "owner": "highcharts-for-python",
+    "repo": "highcharts-core",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/34/ff/7839c5363de252a2a5f874529e85c5f927202ec86eccee1062357732c774/highcharts_core-1.11.0.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): factory.nebius.com/sandboxes/v1/instances', method='POST'), response=ResponseInfo(headers={'date': 'Thu, 19 Nov 2026 15:41:57 GMT', 'content-type': 'text/html', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'traceparent': '00-b95b5e0fd7b16f33fbdf023693daaee4-f58de781ea549fb0-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'x-trace-id': 'b95b5e0fd7b16f33fbdf023693daaee4'}), status=502, error='<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n')"
+  },
+  "error": "RuntimeError: clone failed (-1): factory.nebius.com/sandboxes/v1/instances', method='POST'), response=ResponseInfo(headers={'date': 'Thu, 19 Nov 2026 15:41:57 GMT', 'content-type': 'text/html', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'traceparent': '00-b95b5e0fd7b16f33fbdf023693daaee4-f58de781ea549fb0-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains', 'x-trace-id': 'b95b5e0fd7b16f33fbdf023693daaee4'}), status=502, error='<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n')",
+  "requirement": "openai>=0.28.0; extra == \"ai\"",
+  "wall_s": 54.6
+}
