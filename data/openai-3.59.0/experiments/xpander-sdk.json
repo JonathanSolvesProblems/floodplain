@@ -1,0 +1,24 @@
+{
+  "dependent": "xpander-sdk",
+  "version": "2.0.545",
+  "source": {
+    "owner": "pypi",
+    "repo": "xpander-sdk",
+    "tag": null,
+    "sha": null,
+    "sdist_url": "https://files.pythonhosted.org/packages/24/f8/113c7bff6f6d0b81f0fe53383b2dce953d52660270eee273256a12f64109/xpander_sdk-2.0.545.tar.gz"
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a213bb-bdfe-708d-a9cf-fe7c16e32981 has failed: IdleInTransactionSessionTimeout('terminating connection due to idle-in-transaction timeout')"
+  },
+  "error": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a213bb-bdfe-708d-a9cf-fe7c16e32981 has failed: IdleInTransactionSessionTimeout('terminating connection due to idle-in-transaction timeout')",
+  "requirement": "openai; extra == \"dev\"",
+  "wall_s": 31.6
+}
