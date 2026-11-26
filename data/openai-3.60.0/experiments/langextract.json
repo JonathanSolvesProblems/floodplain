@@ -1,0 +1,24 @@
+{
+  "dependent": "langextract",
+  "version": "1.7.2",
+  "source": {
+    "owner": "google",
+    "repo": "langextract",
+    "tag": "v1.7.2",
+    "sha": "0640af37701754545a7649ebc14cf79d05639d23",
+    "sdist_url": null
+  },
+  "backend": "nebius-sandboxes",
+  "clone_uuid": null,
+  "before": null,
+  "after": null,
+  "control": null,
+  "flaky_excluded": [],
+  "verdict": {
+    "status": "not-run",
+    "reason": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a218c9-d346-7483-85d2-02bfa38a17ba has failed: IdleInTransactionSessionTimeout('terminating connection due to idle-in-transaction timeout')"
+  },
+  "error": "RuntimeError: clone failed (-1): FailedOperationError: Operation 01a218c9-d346-7483-85d2-02bfa38a17ba has failed: IdleInTransactionSessionTimeout('terminating connection due to idle-in-transaction timeout')",
+  "requirement": "openai>=1.50.0; extra == \"openai\"",
+  "wall_s": 34.7
+}
